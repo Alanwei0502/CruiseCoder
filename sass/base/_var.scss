@@ -1,0 +1,45 @@
+//字型大小
+$fontSize: 16px;
+
+// LOGO隱藏網站名、課程名稱、評價分數、Banner大標題
+$h1: $fontSize * 3.75; //60px
+
+// 黃底線主要標題
+$h2: $fontSize * 3; //48px
+
+// 次要標題、簽到Button
+$h3: $fontSize * 2.5; //40px
+
+// 黃色Button、課程價錢、星系名稱
+$h4: $fontSize * 2; //32px
+
+$bp: 26px;
+$mp: 22px;
+$sp: 16px;
+
+//午夜藍: header, footer, 彈跳視窗, 部分背景色
+$blue1 : #182749;
+
+//沁涼藍: hover的按鈕, 月曆文字, 至頂按鈕, navbar目前所在位置提示
+$blue2 : #5BC4E3;
+
+//登入藍: 登入註冊背景、我的徽章背景
+$blue3 : #124F6E;
+
+//金木橘: 標體下底線
+$orange : #FFB102;
+
+//玉子黃：按鈕, 評價星星
+$yellow : #FCC93D;
+
+//梔子白: 部分背景色
+$beige : #FBF7EB;
+
+//純淨白: 文字
+$white: #FFFFFF;
+
+//極致黑：網站背景黑
+$black: #000000;
+
+//火箭紅: 收藏愛心, 購物車數量提示, 預約額滿提示
+$red : #F9433E;
