@@ -1,0 +1,12 @@
+@import '../base/var';
+
+%button{
+    padding: 10px;
+    background-color: $orange;
+    color: $black;
+
+    &:hover{
+        background-color: $blue2;
+        color: $black;
+    }
+}

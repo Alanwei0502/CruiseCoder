@@ -36,7 +36,7 @@
                 <article>
                     <h3>HTML初級星球</h3>
                     <p></p>
-                    <a href="">進入試煉</a>
+                    <a href="quiz.php" class="goToQuiz">進入試煉</a>
                 </article>
             </section>
 

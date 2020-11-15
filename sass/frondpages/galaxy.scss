@@ -1,6 +1,5 @@
 @import './../base/reset';
 @import './../base/var';
-@import './../base/color';
 @import './../layout/all';
 @import './../layout/header';
 @import './../layout/footer';
@@ -13,9 +12,4 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     color: $white;
-
-    h2{
-        include titleLine
-    }
 }
-
