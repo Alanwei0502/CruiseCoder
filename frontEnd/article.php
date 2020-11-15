@@ -21,7 +21,12 @@
     <main>
       <img src="./../images/article/spaceshipinterior.png" class="spaceshipinterior" alt="圖片無法顯示">
       <div class="penal">
-        
+        <input class="searchBar" type="text" placeholder="輸入文章關鍵字">
+        <p class="penalTitle">Cruise Coder</p>
+        <img src="./../images/article/battery.png" class="battery" alt="圖片無法顯示">
+        <div class="penalContain">
+          <img src="./../images/article/spaceshipinterior.png" class="spaceshipinteriorBlur" alt="圖片無法顯示">
+        </div>
         <div class="blur">
           <img src="./../images/article/spaceshipinterior.png" class="spaceshipinteriorBlur" alt="圖片無法顯示">
         </div>
