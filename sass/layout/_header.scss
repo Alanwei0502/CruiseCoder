@@ -1,33 +1,29 @@
 /* header 開始 */
-header {
+header{
   // position: relative;
   // z-index: 1;
   padding: 10px 50px 10px 20px;
   width: 100%;
-  background-color: rgba(0, 59, 128, .5);
+  background-color: rgba(0,59,128,.5  );
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  div.headerLeft {
-    img.logo {
+  div.headerLeft{
+    img.logo{
       width: 300px;
     }
-
-    a {
+    a{
       display: inline-block;
     }
   }
-
-  div.headerMiddle {
-    nav {
-      ul {
+  div.headerMiddle{
+    nav{
+      ul{
         display: flex;
-
-        li {
+        
+        li{
           margin-left: 60px;
-
-          a {
+          a{
             font-size: 1.5 * $fontSize;
             font-weight: 700;
             color: #FFFFFF;
@@ -35,38 +31,134 @@ header {
             padding: 5px;
           }
         }
-
-        li:first-child {
+        li:first-child{
           margin-left: 0;
         }
       }
     }
   }
-
-  div.headerRight {
-    img {
-      width: 40px;
+  div.headerRight{
+    position: relative;
+    img{
+      width: 50px;
       padding: 5px;
       margin-right: 30px;
       position: relative;
+      // &::after{
+      //   content: '1';
+      //   border-radius: 50%;
+      //   background-color: red;
+      //   padding: 2px 5px;
+      //   font-size: 0.8 * $fontSize;
+      //   font-weight: 700;
+      //   color: #ffffff;
+  
+      //   position: absolute;
+      //   top: 0px;
+      //   right: 0px;
+      // }
+    }
+    div.memberNav{
 
-      &::after {
-        content: '1';
-        border-radius: 50%;
-        background-color: red;
-        padding: 2px 5px;
-        font-size: 0.8 * $fontSize;
-        font-weight: 700;
-        color: #ffffff;
+      display: none;
 
-        position: absolute;
-        top: 0px;
-        right: 0px;
+      position: absolute;
+      top: 80px;
+      left: -65px;
+      z-index: 20;
+      ul{
+        background-color: #FFDB43;
+        
+        li{
+          text-align: center;
+          width: 180px;
+          a{
+            color: black;
+            text-decoration: none;
+            font-size: 1.4 * $fontSize;
+            display: block;
+            width: 100%;
+            padding: 15px 10px;
+            &:hover{
+              background-color: white;
+            }
+          }
+        }
       }
     }
+    div.shoppingFancybox{
+      
+      display: none;
 
-
-
+      position: absolute;
+      top: 80px;
+      right: -50px;
+      z-index: 20;
+      width: 500px;
+      background-color: #FFF3D8;
+      padding: 5px;
+      div.shopping{
+        border-top: 1px solid gray;
+        &:first-child{
+          border-top: 0px solid gray;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        font-size: 1.25 * $fontSize;
+        div.itemImage{
+          width: 160px;
+          img{
+            width: 100%;
+          }
+        }
+        div.itemText{
+          flex-grow: 2;
+          margin-left: 20px;
+          p.courseTitle{
+            font-weight: 700;
+            margin-bottom: 30px;
+          }
+          div.itemTextButtom{
+            display: flex;
+            justify-content: space-between;
+            p.status{
+              color: gray;
+            }
+            p.price{
+              font-weight: 700;
+              color: #003B80;
+            }
+          }
+        }
+      }
+      div.shoppingTotal{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        p{
+          font-size: 1.25 * $fontSize;
+          text-align: center;
+          line-height: 1.875 * $fontSize;
+          padding: 10px;
+          span{
+            font-weight: 700;
+          }
+        }
+        button{
+          outline: none;
+          background-color: #FFB102;
+          font-size: 1.25 * $fontSize;
+          font-weight: 700;
+          padding: 15px 60px;
+          border-radius: 10px;
+        }
+      }
+    }
+      
+    
   }
 }
 
