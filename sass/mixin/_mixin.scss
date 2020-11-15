@@ -1,1 +1,10 @@
 @import '../base/var';
+
+// ，使用float時的清除浮動方法
+@mixin clearfixed {
+    &:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
