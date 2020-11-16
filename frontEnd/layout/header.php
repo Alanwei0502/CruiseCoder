@@ -27,7 +27,7 @@
         </nav>
       </div>
       <div class="headerRight">
-        <img src="./../images/memberIcon.png" alt="圖片無法顯示">
+        <img src="./../images/memberIcon.png" id="member" alt="圖片無法顯示">
         <div class="memberNav">
           <ul>
             <li><a href="./ccPoint.php">CC Point : 200</a></li>
