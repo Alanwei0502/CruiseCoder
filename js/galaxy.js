@@ -1,6 +1,8 @@
 let planet = document.getElementsByClassName('planet');
 let carousel = document.getElementsByClassName('carousel');
 
+console.log(planet);
+
 // $(".planet").click(function () {
 //     $('.container').attr("planet-center", this.id);
 //     if (this.id == "planet1") centerPlanet1();
