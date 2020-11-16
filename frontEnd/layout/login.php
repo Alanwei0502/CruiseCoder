@@ -1,0 +1,51 @@
+<php?
+
+?>
+
+<div class="greyGlass">
+    <div class="loginBox">
+        <div class="createArea">
+            <form action="" id="createForm" class="createHide">
+                <label for="name">姓名:</label>
+                <input type="text" id="name">
+    
+                <label for="account">帳號:</label>
+                <input type="text" id="account">
+    
+                <label for="password">密碼:</label>
+                <input type="password" id="password">
+    
+                <label for="confirmPassword">確認密碼:</label>
+                <input type="password" id="confirmPassword">
+    
+                <label for="email">E-mail:</label>
+                <input type="email" id="email">
+    
+                <input type="submit" value="註冊" id="createAccount">
+            </form>
+
+        </div>
+        <div class="loginArea" class="">
+            <form action="" id="loginForm" class="">
+                <img src="images/logoCruise.png" width="300px">
+                <input type="text" class="account" placeholder="Account">
+                <input type="password" class="password" placeholder="Password">
+                <input type="submit" value="登入" id="login">
+            </form>
+        </div>
+
+        <div class="upArea">
+            <div class="slideBlock" >
+                <div class="item1">
+                    <p>還沒有帳號了嗎？</p>
+                    <button>註冊</button>
+                </div>
+                <div class="item2">
+                    <p>已經有帳號了？</p>
+                    <button>登入</button>
+                </div>
+            </div>
+        </div>
+        <img src="./images/cancel.png" id="closeIcon">
+    </div>
+</div>
