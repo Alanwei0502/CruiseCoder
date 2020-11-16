@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>語宙試煉</title>
-    <link rel="stylesheet" href="../css/galaxy.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 </head>
 
 <body>
-    <div class="wrap">
+    <div class="wrap galaxy">
         <?php
         include('layout/spacebackground.php');
         include('layout/header.php');
@@ -51,14 +51,14 @@
                 </div>
                 <article>
                     <h3>HTML初級星球</h3>
-                    <p></p>
+                    <p>如果你是剛開始學HTML，可是試試看挑戰這顆星球關卡，達到標準後，可以獲得此顆星球認證喔！</p>
                     <a href="quiz.php" class="goToQuiz">進入試煉</a>
                 </article>
             </section>
 
             <section class="badge">
                 <h2>&lt;星系解鎖成就&#47;&gt;</h2>
-                <p></p>
+                <p>當你成功挑戰完所有HTML的星球關卡，即可獲得HTML星系徽章！</p>
                 <div class="planetBadge">
                     <img src="" alt="HTML初級星球徽章">
                     <img src="" alt="HTML中級星球徽章">
