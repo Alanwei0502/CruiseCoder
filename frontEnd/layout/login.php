@@ -21,8 +21,8 @@
     
                 <label for="email">E-mail:</label>
                 <input type="email" id="email">
-    
-                <input type="submit" value="註冊" id="createAccount">
+
+                <button type="submit" value="Submit" id="createAccount">註冊</button>
             </form>
 
         </div>
@@ -31,7 +31,7 @@
                 <img src="../images/logoCruise.png" width="300px">
                 <input type="text" class="account" placeholder="Account">
                 <input type="password" class="password" placeholder="Password">
-                <input type="submit" value="登入" id="login">
+                <button type="submit" value="Submit" id="login">登入</button>
             </form>
         </div>
 
@@ -42,8 +42,8 @@
                     <button>註冊</button>
                 </div>
                 <div class="item2">
-                    <p>已經有帳號了？</p>
-                    <button>登入</button>
+                    <p class="item2Pmove">已經有帳號了？</p>
+                    <button class="item2Pbotton">登入</button>
                 </div>
             </div>
         </div>

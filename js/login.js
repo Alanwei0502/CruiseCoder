@@ -4,6 +4,13 @@ $(document).ready(function(){
         $('.slideBlock').toggleClass('moveToLeft');
         $('#createForm').toggleClass('createHide');
         $('#loginForm').toggleClass('loginHide');
+        $('.item1 > p').toggleClass('item1Pmove');
+        $('.item1 > button').toggleClass('item1Pbotton');
+        $('.item2 > p').toggleClass('item2Pmove');
+        $('.item2 > button').toggleClass('item2Pbotton');
+
+        
+        
     });
 
 
@@ -12,6 +19,10 @@ $(document).ready(function(){
         $('.slideBlock').toggleClass('moveToLeft');
         $('#createForm').toggleClass('createHide');
         $('#loginForm').toggleClass('loginHide');
+        $('.item1 > p').toggleClass('item1Pmove');
+        $('.item1 > button').toggleClass('item1Pbotton');
+        $('.item2 > p').toggleClass('item2Pmove');
+        $('.item2 > button').toggleClass('item2Pbotton');
     });
 });
 
