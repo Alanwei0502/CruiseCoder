@@ -2,7 +2,8 @@
 
 ?>
 
-<div class="greyGlass">
+<div class="loginWrap" id="loginWrap">
+    <div class="greyGlass"></div>
     <div class="loginBox">
         <div class="createArea">
             <form action="" id="createForm" class="createHide">
@@ -27,7 +28,7 @@
         </div>
         <div class="loginArea" class="">
             <form action="" id="loginForm" class="">
-                <img src="images/logoCruise.png" width="300px">
+                <img src="../images/logoCruise.png" width="300px">
                 <input type="text" class="account" placeholder="Account">
                 <input type="password" class="password" placeholder="Password">
                 <input type="submit" value="登入" id="login">
@@ -46,6 +47,6 @@
                 </div>
             </div>
         </div>
-        <img src="./images/cancel.png" id="closeIcon">
+        <img src="../images/cancel.png" id="closeIcon">
     </div>
 </div>

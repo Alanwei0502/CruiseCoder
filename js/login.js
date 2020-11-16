@@ -16,13 +16,14 @@ $(document).ready(function(){
 });
 
 $('#closeIcon').click(function(){ //點擊close icon 關閉login
-    $('.greyGlass').css('display','none');
+    $('#loginWrap').css('display','none');
 });
 
 $('.greyGlass').click(function(){//點擊蒙版 關閉login
-    $('.greyGlass').css('display','none');
+    $('#loginWrap').css('display','none');
 });
 
-$('#member').click(function(){
-    $('.greyGlass').css('display','block');
+$('#member').click(function(){//點擊會員icon  叫出登入燈箱
+    $('#loginWrap').css('display','block');
 });
+
