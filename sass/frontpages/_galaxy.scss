@@ -26,6 +26,7 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
     
@@ -67,10 +68,10 @@
             }
             article{
                 width: 80%;
-                margin: 0 auto;
                 padding: $fontSize;
                 background-color: rgba(24, 39, 73, .7);
                 border: 5px solid $orange;
+                margin: 50px auto;
                 @include clearfixed;
     
                 p{
@@ -78,6 +79,7 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
 
@@ -91,15 +93,32 @@
         .badge{
             padding: $fontSize;
             background-color: rgba(24, 39, 73, .7);
-            text-align: center;
     
             p{
                 font-size: $bp;
                 font-weight: bold;
                 line-height: $fontSize*4;
                 text-indent: $bp*2;
+                text-align: center;
                 
                 // letter-spacing: normal;
+            }
+
+            .planetBadge{
+                display: flex;
+                justify-content: space-around;
+                margin: 50px 0;
+                img{
+                    height: 200px;
+                }
+            }
+
+            .galaxyBadge{
+                display: flex;
+                justify-content: center;
+                img{
+                    height: 300px;
+                }
             }
         }
         

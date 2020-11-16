@@ -66,7 +66,7 @@
                     <img src="../images/trial/badge/html3.png" alt="HTML高級星球徽章">
                 </div>
                 <div class="galaxyBadge">
-                    <img src="" alt="HTML星系徽章">
+                    <img src="../images/trial/badge/html.png" alt="HTML星系徽章">
                 </div>
             </section>
 
