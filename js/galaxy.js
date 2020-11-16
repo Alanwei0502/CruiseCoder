@@ -1,10 +1,8 @@
-let planet = document.getElementsByClassName('planet');
-let carousel = document.getElementsByClassName('carousel');
+import $ from 'jquery';
 
-console.log(planet);
 
 // $(".planet").click(function () {
-//     $('.container').attr("planet-center", this.id);
+//     $('.carousel').attr("planet-center", this.id);
 //     if (this.id == "planet1") centerPlanet1();
 //     if (this.id == "planet2") centerPlanet2();
 //     if (this.id == "planet3") centerPlanet3();
