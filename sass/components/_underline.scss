@@ -1,0 +1,25 @@
+// 標題
+h2{
+    font-size: $h2;
+    font-weight: bold;
+    position: relative;
+    margin: 20px 0;
+    &:before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        display: block;
+        width: 1200px;
+        border-bottom: 1px solid $beige;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        display: block;
+        width: 300px;
+        border-bottom: 10px solid $yellow;
+    }
+}
