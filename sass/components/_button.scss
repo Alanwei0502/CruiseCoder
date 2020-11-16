@@ -1,12 +1,16 @@
 @import '../base/var';
 
-%button{
-    padding: 10px;
-    background-color: $orange;
-    color: $black;
+// 按鈕，用法：@extend %btn;
+%btn{
+    font-size: $h4;
+    background-color: $orange; 
+    text-decoration: none;
+    color: #000000;
+    border-radius: 10px;
+    padding:10px 30px;
+    font-weight: bold;
 
     &:hover{
-        background-color: $blue2;
-        color: $black;
+
     }
-}
+ }

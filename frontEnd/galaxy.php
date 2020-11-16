@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- include('layout/login.php'); -->
     <div class="wrap galaxy">
         <?php
         include('layout/spacebackground.php');
@@ -38,20 +39,20 @@
                 <div class="carousel">
                     <div id="planet1" class="planet">
                         <img src="../images/trial/planets/html1.png" alt="初級html星球">
-                        <div>初級html星球</div>
+                        <div>HTML初級星球</div>
                     </div>
                     <div id="planet2" class="planet">
                         <img src="../images/trial/planets/html2.png" alt="中級html星球">
-                        <div>中級html星球</div>
+                        <div>HTML中級星球</div>
                     </div>
                     <div id="planet3" class="planet">
                         <img src="../images/trial/planets/html3.png" alt="高級html星球">
-                        <div>高級html星球</div>
+                        <div>HTML高級星球</div>
                     </div>
                 </div>
                 <article>
                     <h3>HTML初級星球</h3>
-                    <p>如果你是剛開始學HTML，可是試試看挑戰這顆星球關卡，達到標準後，可以獲得此顆星球認證喔！</p>
+                    <p>如果你是剛開始學習HTML，可是試試看先挑戰這顆HTML初級星球關卡，達到標準後，可以獲得此顆星球認證喔！</p>
                     <a href="quiz.php" class="goToQuiz">進入試煉</a>
                 </article>
             </section>

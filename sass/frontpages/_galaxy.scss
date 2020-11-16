@@ -6,28 +6,7 @@
         color: $white;
     
         h2{
-            font-size: $h2;
-            font-weight: bold;
-            position: relative;
-            margin: 20px 0;
-            &:before{
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: -10px;
-                display: block;
-                width: 1200px;
-                border-bottom: 1px solid $beige;
-            }
-            &:after{
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: -10px;
-                display: block;
-                width: 300px;
-                border-bottom: 10px solid $yellow;
-            }
+            @extend %h2;
         }
     
         h3{
@@ -61,6 +40,8 @@
         .planetQuiz{
             
             .carousel{
+                width: 90%;
+                margin: 0 auto;
                 text-align: center;
                 position: relative;
                 perspective: 1000px;
@@ -82,6 +63,27 @@
                         font-size: $bp;
                         font-weight: bold;
                     }
+                }
+            }
+            article{
+                width: 90%;
+                margin: 0 auto;
+                padding: $fontSize;
+                background-color: rgba(24, 39, 73, .7);
+                border: 5px solid $orange;
+                @include clearfixed;
+    
+                p{
+                    font-size: $bp;
+                    font-weight: bold;
+                    line-height: $fontSize*4;
+                    text-indent: $bp*2;
+                    // letter-spacing: normal;
+                }
+
+                a{
+                   @extend %btn;
+                   float: right;
                 }
             }
         }

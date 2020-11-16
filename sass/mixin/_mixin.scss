@@ -1,6 +1,6 @@
 @import '../base/var';
 
-// ，使用float時的清除浮動方法
+// ，使用float時的清除浮動方法: @include clearfixed;
 @mixin clearfixed {
     &:after{
         content: '';

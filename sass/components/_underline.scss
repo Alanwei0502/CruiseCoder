@@ -1,5 +1,5 @@
-// 標題
-h2{
+// 標題，用法：@extend %h2;
+%h2{
     font-size: $h2;
     font-weight: bold;
     position: relative;
