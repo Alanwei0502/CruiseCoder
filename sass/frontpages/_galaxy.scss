@@ -26,6 +26,7 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
     
@@ -40,7 +41,7 @@
         .planetQuiz{
             
             .carousel{
-                width: 90%;
+                width: 80%;
                 margin: 0 auto;
                 text-align: center;
                 position: relative;
@@ -66,11 +67,11 @@
                 }
             }
             article{
-                width: 90%;
-                margin: 0 auto;
+                width: 80%;
                 padding: $fontSize;
                 background-color: rgba(24, 39, 73, .7);
                 border: 5px solid $orange;
+                margin: 50px auto;
                 @include clearfixed;
     
                 p{
@@ -78,12 +79,45 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
 
                 a{
                    @extend %btn;
                    float: right;
+                }
+            }
+        }
+
+        .badge{
+            padding: $fontSize;
+            background-color: rgba(24, 39, 73, .7);
+    
+            p{
+                font-size: $bp;
+                font-weight: bold;
+                line-height: $fontSize*4;
+                text-indent: $bp*2;
+                text-align: center;
+                
+                // letter-spacing: normal;
+            }
+
+            .planetBadge{
+                display: flex;
+                justify-content: space-around;
+                margin: 50px 0;
+                img{
+                    height: 200px;
+                }
+            }
+
+            .galaxyBadge{
+                display: flex;
+                justify-content: center;
+                img{
+                    height: 300px;
                 }
             }
         }
