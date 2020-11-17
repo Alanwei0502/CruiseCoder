@@ -15,6 +15,7 @@
             margin-bottom: $fontSize*2;
         }
         .universe{
+            
         
             article{
                 padding: $fontSize;
@@ -125,14 +126,25 @@
             .galaxyBadge{
                 display: flex;
                 justify-content: center;
+
                 img{
                     height: 300px;
                     transform-style: preserve-3d;
                 }
+
+                
             }
         }
         
     }
 }
 
+@include keyframes(rotate) {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
 
