@@ -1,4 +1,35 @@
-import $ from 'jquery';
+
+var planet = document.getElementsByClassName('planet');
+var carousel = document.getElementsByClassName('carousel');
+var planet0 = document.getElementById('planet0');
+var planet1 = document.getElementById('planet1');
+var planet2 = document.getElementById('planet2');
+
+
+planet0.style.cssText = "left: -350px; transform: scale(0.5); z-index: -10;";
+planet1.style.cssText = "left: 0; z-index: 1;";
+planet2.style.cssText = "left: 350px; transform: scale(0.5); z-index: -10;";
+
+for (let i = 0; i < planet.length; i++) {
+    planet[i].addEventListener("click", function () {
+        if (i === 0) {
+            planet0.style.cssText = "left: 0;  z-index: 1;";
+            planet1.style.cssText = "left: 350px; transform: scale(0.5); z-index: -10;";
+            planet2.style.cssText = "left: -350px; transform: scale(0.5); z-index: -10;";
+        }
+        if (i === 1) {
+            planet0.style.cssText = "left: -350px; transform: scale(0.5); z-index: -10;";
+            planet1.style.cssText = "left: 0; z-index: 1;";
+            planet2.style.cssText = "left: 350px; transform: scale(0.5); z-index: -10;";
+        }
+        if (i === 2) {
+            planet0.style.cssText = "left: 350px; transform: scale(0.5); z-index: -10;";
+            planet1.style.cssText = "left: -350px; transform: scale(0.5); z-index: -10;";
+            planet2.style.cssText = "left: 0; z-index: 1;";
+        }
+    });
+}
+
 
 
 // $(".planet").click(function () {
