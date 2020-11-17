@@ -1,4 +1,4 @@
-
+//=========星球輪播 
 var planet = document.getElementsByClassName('planet');
 var carousel = document.getElementsByClassName('carousel');
 var planet0 = document.getElementById('planet0');
