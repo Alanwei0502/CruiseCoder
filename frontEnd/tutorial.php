@@ -16,7 +16,7 @@
   <?php
     include('layout/login.php');
   ?>
-  <div class="wrap article">
+  <div class="wrap tutorial">
     <?php
     include('layout/spacebackground.php');
     include('layout/header.php');
