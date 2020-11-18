@@ -1,2 +1,141 @@
+/*Banner 開始*/
+main {
+	div.banner {
+		width: 100%;
+		max-width: 1920px;
+		height: calc(100vh - 80px); //80px is nav height
+		background-color: $black;
+		background-image: url('../images/indexBanner.png');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		display: block;
 
+		div.container {
+			color: $white;
 
+			h1 {
+				font-size: 60px;
+				display: block;
+				text-align: center;
+				padding-top: 160px;
+			}
+
+			p {
+				font-size: 22px;
+				display: block;
+				text-align: center;
+				margin-top: 40px;
+				line-height: 30px;
+				position: relative;
+				z-index: 50;
+			}
+
+			a {
+				font-size: 22px;
+				display: block;
+				text-align: center;
+				width: 120px;
+				height: 40px;
+				line-height: 40px;
+				background-color: $orange;
+				margin: 0 auto;
+				border-radius: 10px;
+				text-decoration: none;
+				color: $black;
+				margin-top: 70px;
+			}
+		}
+
+		img.Planet1 {
+			width: 200px;
+			position: relative;
+			left: 17%;
+			bottom: 25%;
+			animation-name: Planet1;
+			animation-duration: 15s;
+			animation-iteration-count: infinite;
+		}
+		img.Planet2 {
+			width: 150px;
+			position: absolute;
+			left: 25%;
+			bottom: 17%;
+			animation-name: Planet2;
+			animation-duration: 25s;
+			animation-iteration-count: infinite;
+		}
+		img.Planet3 {
+			width: 180px;
+			position: absolute;
+			right: 17%;
+			bottom: 34%;
+			animation-name: Planet3;
+			animation-duration: 16s;
+			animation-iteration-count: infinite;
+		}
+		img.Planet4 {
+			width: 120px;
+			position: absolute;
+			right: 27%;
+			bottom: 20%;
+			animation-name: Planet1;
+			animation-duration: 25s;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes Planet1 {
+			0% {
+				transform: translateY(-10px);
+			}
+			25% {
+				transform: translateY(10px);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
+			75% {
+				transform: translateY(10px);
+			}
+			100% {
+				transform: translateY(-10px);
+			}
+		}
+
+		@keyframes Planet2 {
+			0% {
+				transform: translateY(10px);
+			}
+			25% {
+				transform: translateY(-10px);
+			}
+			50% {
+				transform: translateY(10px);
+			}
+			75% {
+				transform: translateY(-10px);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+
+		@keyframes Planet3 {
+			0% {
+				transform: translateY(-13px);
+			}
+			25% {
+				transform: translateY(-10px);
+			}
+			50% {
+				transform: translateY(8px);
+			}
+			75% {
+				transform: translateY(-15px);
+			}
+			100% {
+				transform: translateY(-13px);
+			}
+		}
+	}
+}
+/*Banner 結束*/

@@ -15,6 +15,7 @@
             margin-bottom: $fontSize*2;
         }
         .universe{
+            
         
             article{
                 padding: $fontSize;
@@ -26,6 +27,7 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
     
@@ -38,39 +40,46 @@
         }
         
         .planetQuiz{
-            
+            // border: 1px solid yellow;
             .carousel{
-                width: 90%;
+                // border: 1px solid green;
                 margin: 0 auto;
+                width: 300px;
+                height: 500px;
                 text-align: center;
                 position: relative;
                 perspective: 1000px;
-                transform: translate3d(0,0,600px);
+                perspective-origin:50% 50%;
                 transform-style: preserve-3d;
                 display: flex;
+                // justify-content: center;
                 align-items: center;
                 .planet{
+                    // border: 1px solid red;
                     margin: auto;
-                    // position: absolute;
+                    position: absolute;
                     cursor: pointer; 
+                    transition: 1.5s;
     
                     img{
-                       width: 250px;
-                       cursor: pointer;
+                        min-width: 100%;
+                        min-height: 100%;
+                        // transform-style: preserve-3d;
                     }
                     div{
                         letter-spacing: 2px;
+                        margin-top: $bp;
                         font-size: $bp;
                         font-weight: bold;
                     }
                 }
             }
             article{
-                width: 90%;
-                margin: 0 auto;
+                width: 80%;
                 padding: $fontSize;
                 background-color: rgba(24, 39, 73, .7);
                 border: 5px solid $orange;
+                margin: 50px auto;
                 @include clearfixed;
     
                 p{
@@ -78,6 +87,7 @@
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
+                    padding: 0 $fontSize;
                     // letter-spacing: normal;
                 }
 
@@ -87,8 +97,54 @@
                 }
             }
         }
+
+        .badge{
+            padding: $fontSize;
+            background-color: rgba(24, 39, 73, .7);
+    
+            p{
+                font-size: $bp;
+                font-weight: bold;
+                line-height: $fontSize*4;
+                text-indent: $bp*2;
+                text-align: center;
+                
+                // letter-spacing: normal;
+            }
+
+            .planetBadge{
+                display: flex;
+                justify-content: space-around;
+                
+                margin: 50px 0;
+                img{
+                    height: 200px;
+                    transform-style: preserve-3d;
+                }
+            }
+
+            .galaxyBadge{
+                display: flex;
+                justify-content: center;
+
+                img{
+                    height: 300px;
+                    transform-style: preserve-3d;
+                }
+
+                
+            }
+        }
         
     }
 }
 
+@include keyframes(rotate) {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
 

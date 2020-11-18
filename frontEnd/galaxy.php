@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>語宙試煉</title>
+    <title>Cruise Coders | 語宙試煉</title>
     <link rel="stylesheet" href="../css/main.css">
 
 </head>
@@ -36,16 +36,16 @@
 
             <section class="planetQuiz">
                 <h2>&lt;星球關卡&#47;&gt;</h2>
-                <div class="carousel">
-                    <div id="planet1" class="planet">
+                <div class="carousel" data-planet="">
+                    <div id="planet0" class="planet">
                         <img src="../images/trial/planets/html1.png" alt="初級html星球">
                         <div>HTML初級星球</div>
                     </div>
-                    <div id="planet2" class="planet">
+                    <div id="planet1" class="planet">
                         <img src="../images/trial/planets/html2.png" alt="中級html星球">
                         <div>HTML中級星球</div>
                     </div>
-                    <div id="planet3" class="planet">
+                    <div id="planet2" class="planet">
                         <img src="../images/trial/planets/html3.png" alt="高級html星球">
                         <div>HTML高級星球</div>
                     </div>
@@ -58,15 +58,15 @@
             </section>
 
             <section class="badge">
-                <h2>&lt;星系解鎖成就&#47;&gt;</h2>
+                <h3>星系解鎖成就</h3>
                 <p>當你成功挑戰完所有HTML的星球關卡，即可獲得HTML星系徽章！</p>
                 <div class="planetBadge">
-                    <img src="" alt="HTML初級星球徽章">
-                    <img src="" alt="HTML中級星球徽章">
-                    <img src="" alt="HTML高級星球徽章">
+                    <img src="../images/trial/badge/html1.png" alt="HTML初級星球徽章">
+                    <img src="../images/trial/badge/html2.png" alt="HTML中級星球徽章">
+                    <img src="../images/trial/badge/html3.png" alt="HTML高級星球徽章">
                 </div>
                 <div class="galaxyBadge">
-                    <img src="" alt="HTML星系徽章">
+                    <img src="../images/trial/badge/html.png" alt="HTML星系徽章">
                 </div>
             </section>
 

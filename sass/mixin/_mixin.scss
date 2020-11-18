@@ -1,6 +1,7 @@
 @import '../base/var';
 
-// ，使用float時的清除浮動方法: @include clearfixed;
+
+// 使用float時的清除浮動方法: @include clearfixed;
 @mixin clearfixed {
     &:after{
         content: '';
@@ -8,3 +9,45 @@
         clear: both;
     }
 }
+
+
+
+
+// 使用float時的清除浮動方法: @include clearfixed;
+@mixin clearfixed {
+    &:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+// keyframe動畫：引用方法在下面描述
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+//keyframe動畫引用方式
+// @include keyframes(animate-preloader) {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     100% {
+//         transform: rotate(360deg);
+//     }
+// }
+
+//keyframe動畫用在標籤內
+// #yourElement{
+//     ...
+//     animation: animate-preloader 1s linear infinite;
+// }

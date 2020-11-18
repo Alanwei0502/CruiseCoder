@@ -22,7 +22,22 @@
     include('layout/header.php');
     ?>
     <main>
+      <div class="banner">
+        <div class="container">
+          <h1>外星課程</h1>
+          <p>
+            Cruise Coders 擁有多元的課程<br>
+            給需要學習程式語言的人、打造一個友善的學習環境<br>
+            透過您的手機、電腦就可以隨時隨地學習！<br>
+          </p>
+          <a href="#">前往遊戲</a>
+        </div>
 
+        <img src="../images/Planet1.png" class="Planet1">
+        <img src="../images/Planet2.png" class="Planet2">
+        <img src="../images/Planet3.png" class="Planet3">
+        <img src="../images/Planet4.png" class="Planet4">
+      </div>
     </main>
     <?php
     include('layout/footer.php');

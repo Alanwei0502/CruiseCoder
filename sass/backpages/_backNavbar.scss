@@ -1,0 +1,62 @@
+.body {
+	margin: 0px;
+	padding: 0px;
+}
+.backEndWrap {
+	width: 1200px;
+	height: 100vh;
+	margin: 0 auto;
+	font-size: 0px;
+
+	aside {
+		display: inline-block;
+		width: 20%;
+		height: 100%;
+		background-color: #182749;
+		color: white;
+
+		p {
+			display: block;
+			text-align: center;
+			font-size: 22px;
+			margin-bottom: 25px;
+			font-weight: 200;
+			cursor: pointer;
+		}
+
+		p.asideTitle {
+			display: block;
+			text-align: center;
+			font-size: 26px;
+			font-weight: 300;
+			margin-top: 30px;
+			margin-bottom: 0px;
+			cursor: default;
+		}
+
+		div.user {
+			display: block;
+			text-align: center;
+			font-size: 16px;
+			margin-top: 30px;
+			margin-bottom: 40px;
+
+			img {
+				width: 22%;
+				display: block;
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	main {
+		display: inline-block;
+		width: 80%;
+		height: 100%;
+		vertical-align: top;
+		background-color: bisque;
+	}
+}

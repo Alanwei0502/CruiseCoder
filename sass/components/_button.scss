@@ -3,14 +3,44 @@
 // 按鈕，用法：@extend %btn;
 %btn{
     font-size: $h4;
-    background-color: $orange; 
+    outline: none;
+    transform-style: preserve-3d;
     text-decoration: none;
-    color: #000000;
+    color: $blue1;
     border-radius: 10px;
     padding:10px 30px;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: .5s;
+    z-index: 1;
+
+    &:before{
+        content: '';
+        position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $orange; 
+		z-index: -2;
+    }
+    &:after{
+        content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background-color: $blue2;
+		transition: .5s;
+		z-index: -1;
+	}
 
     &:hover{
-
+        color: $black;
+        &:after{
+            width: 100%;
+        }
     }
  }
