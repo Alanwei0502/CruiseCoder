@@ -21,7 +21,7 @@
     include('layout/spacebackground.php');
     include('layout/header.php');
     ?>
-        <main>
+    <main>
       <h2 class="firstH2">&lt;蟲洞練功坊&#47;&gt;</h2>
       <div class="ask">
         <p class="askTitle">親愛的宇宙漫遊者, 您好!</p>
