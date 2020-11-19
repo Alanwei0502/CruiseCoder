@@ -1,0 +1,392 @@
+.allCourse {
+
+    //需告變數
+    //置中
+    $center: 0 auto;
+
+    main {
+
+        max-width: 1200px;
+        margin: $center;
+        border: 1px solid white;
+
+        .top {
+            margin-top: 100px;
+
+            h2 {
+                color: aliceblue;
+                font-size: $h2;
+                font-weight: bold;
+            }
+
+            section.block {
+                width: 300px;
+                height: 10px;
+                background-color: $yellow;
+            }
+
+            section.line {
+                width: 1200px;
+                border-top: 2px solid $yellow;
+            }
+
+            .filter {
+                margin-top: 50px;
+                margin-bottom: 50px;
+                display: flex;
+
+                form.search {
+                    input {
+                        color: rgb(184, 184, 184);
+                        border-radius: 50px;
+                        outline: none;
+                        width: 300px;
+                        //height: 40px;
+                        font-size: 30px;
+                        padding: 8px 30px;
+                        border: 0 solid transparent;
+                        position: relative;
+
+                        :focus {
+                            outline: 0;
+                        }
+                    }
+
+                    //放大鏡圖示
+                    button {
+                        background-color: rgb(255, 255, 255);
+                        border: 0 solid transparent;
+                        /*自定義邊框*/
+                        cursor: pointer;
+                        /*碰到按鈕鼠標會變手*/
+                        position: relative;
+                        top: 0;
+                        right: 0;
+                        transform: translateX(-60px);
+
+                        i {
+                            color: rgb(198, 197, 197);
+                            font-size: 25px;
+                            //font-family: $fontAwesome;
+                        }
+                    }
+                }
+
+                .category {
+                    border: 1px solid white;
+                    display: flex;
+
+                    button {
+                        border-radius: 50px;
+                        font-size: $bp;
+                        /*碰到按鈕鼠標會變手*/
+                        cursor: pointer;
+                        margin: 0 10px 0 0;
+                        border: 0 solid transparent;
+                        padding: 0 15px;
+
+                        .dropdown {
+                            display: flex;
+                        }
+                    }
+
+                    button:hover {
+                        background-color: $red;
+                        color: #fff;
+                        font-weight: 600;
+                    }
+
+                    select {
+                        width: 200px;
+                        border-radius: 50px;
+                        border: 0 solid transparent;
+                        font-size: $bp;
+                        padding: 0 15px;
+                        //隱藏預設箭頭
+                        appearance: none;
+                        //載入客製化箭頭
+                        background: url('../images/allCourse/down.png') 90% 50% no-repeat transparent;
+                        background-size: 15px 15px;
+                        background-color: #ffffff;
+
+                        option {
+                            background-color: #F6F7F7;
+                            color: rgb(0, 0, 0);
+                        }
+                    }
+
+                    select:hover {
+                        background-color: $red;
+                        color: #fff;
+                        font-weight: 600;
+                    }
+
+                }
+
+            }
+        }
+
+        .content {
+            h3 {
+                color: #fff;
+                font-size: $h3;
+                text-align: center;
+                position: relative;
+                margin-bottom: 50px;
+            }
+
+            h3::before,
+            h3::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                background: $yellow;
+                width: 20%;
+                height: 3px;
+            }
+
+            h3::before {
+                left: 20%;
+            }
+
+            h3::after {
+                right: 20%;
+            }
+
+            // 課程開始
+            .course {
+                // margin-top: 50px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                /*一般課程*/
+                .wrapGeneral {
+                    margin-bottom: 50px !important;
+                    margin-top: 50px !important;
+                    width: 340px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    position: relative;
+                    overflow: visible;
+
+                    img.tImg {
+                        width: 80px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(25%, -50%);
+                    }
+
+                    a.img {
+                        display: inline-block;
+
+
+
+                        img {
+                            width: 100%;
+                            border-radius: 20px 20px 0 0;
+                        }
+                    }
+
+
+                    .c_Main {
+                        padding-left: 10px;
+
+                        a.title {
+                            padding-top: 10px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            line-height: 35px;
+                            text-decoration: none;
+                            display: inline-block;
+                            color: black;
+                            margin-bottom: 25px;
+                        }
+
+                        .time {
+                            font-size: 22px;
+                            margin-bottom: 20px;
+                        }
+
+                        .comment {
+                            display: flex;
+                            font-size: 22px;
+                            margin-bottom: 40px;
+
+                            i {
+                                font-size: 20px;
+                                color: $yellow;
+                            }
+
+                            a.text {
+                                margin-left: 10px;
+                                text-decoration: none;
+                                color: black;
+                            }
+                        }
+
+                        .price {
+                            font-size: $h4;
+                            font-weight: 800;
+                            text-align: right;
+                            margin-bottom: 10px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                /*募資課程*/
+                .wrapFundraising {
+                    margin-bottom: 50px !important;
+                    margin-top: 50px !important;
+                    width: 340px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    position: relative;
+                    overflow: visible;
+
+                    img.tImg {
+                        width: 80px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(25%, -50%);
+                    }
+
+                    a.img {
+                        display: inline-block;
+
+
+
+                        img {
+                            width: 100%;
+                            border-radius: 20px 20px 0 0;
+                        }
+                    }
+
+
+                    .c_Main {
+                        padding-left: 10px;
+
+                        a.title {
+                            padding-top: 10px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            line-height: 35px;
+                            text-decoration: none;
+                            display: inline-block;
+                            color: black;
+                            margin-bottom: 20px;
+                        }
+
+                        .time {
+                            font-size: 22px;
+                            margin-bottom: 30px;
+                        }
+
+                        .price {
+                            display: flex;
+                            justify-content: space-between;
+
+
+                            p.fundraising {
+                                background-color: $red;
+                                color: $white;
+                                font-size: 17px;
+                                line-height: 34px;
+                                padding: 0px 8px;
+                                text-shadow: 1px 1px 3px rgb(46, 46, 46);
+
+                            }
+
+                            .text {
+                                display: flex;
+                                margin-right: 10px;
+                                align-items: flex-end;
+
+
+
+                                p.preOrder {
+                                    font-size: 26px;
+                                    margin-right: 5px;
+                                }
+
+                                p.price {
+                                    font-size: $h4;
+                                    color: $red;
+                                    font-weight: 800;
+                                }
+                            }
+                        }
+
+                        .progressbar {
+                            height: 15px;
+                            background-color: #e9ecef;
+                            border-radius: 8px;
+                            position: relative;
+                            overflow: hidden;
+                            margin: 20px 10px 20px 0px;
+
+                            span.progress {
+                                display: inline-block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                box-sizing: border-box;
+                                background-color: $blue2;
+                            }
+                        }
+
+                        .funNum {
+                            font-size: 19px;
+                            text-align: center;
+                            margin-bottom: 15px;
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        /* 頁碼開始 */
+        .pagenum {
+            margin-bottom: 40px;
+            font-size: 12px;
+            /* border: 1px solid rgb(255, 115, 0); */
+            margin-top: 0px;
+
+            ul {
+                display: flex;
+                justify-content: center;
+
+                li {
+                    margin-right: 30px;
+                    background-color: #404040;
+                    border-radius: 30%;
+
+
+
+                    a {
+                        color: rgb(255, 255, 255);
+                        display: inline-block;
+                        //width: 100%;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+
+        /* 頁碼結束 */
+
+    }
+}

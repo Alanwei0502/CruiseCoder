@@ -14,9 +14,9 @@
 
 <body>
   <?php
-    include('layout/login.php');
+  include('layout/login.php');
   ?>
-  <div class="wrap">
+  <div class="wrap index">
     <?php
     include('layout/spacebackground.php');
     include('layout/header.php');
@@ -30,7 +30,7 @@
             給需要學習程式語言的人、打造一個友善的學習環境<br>
             透過您的手機、電腦就可以隨時隨地學習！<br>
           </p>
-          <a href="#">前往遊戲</a>
+          <a href="#">前往試煉</a>
         </div>
 
         <img src="../images/Planet1.png" class="Planet1">
