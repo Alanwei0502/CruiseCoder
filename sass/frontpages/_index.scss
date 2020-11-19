@@ -26,15 +26,15 @@
 
 				p {
 					font-size: 22px;
-				text-align: center;
-				margin-top: 40px;
-				line-height: 30px;
-				position: relative;
-				z-index: 50;
+					text-align: center;
+					margin-top: 40px;
+					line-height: 30px;
+					position: relative;
+					z-index: 50;
 				}
 
 				a {
-					@extend %btn;
+					// @extend .btn;
 					margin-top: 50px;
 				}
 			}
