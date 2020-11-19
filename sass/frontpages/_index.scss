@@ -1,141 +1,144 @@
 /*Banner 開始 by Alan_Hong*/
-main {
-	div.banner {
-		width: 100%;
-		max-width: 1920px;
-		height: calc(100vh - 80px); //80px is nav height
-		background-image: url('../images/indexBanner.png');
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		display: block;
-		position: relative;
+.index {
+	main {
+		div.banner {
+			width: 100%;
+			max-width: 1920px;
+			height: calc(100vh - 80px); //80px is nav height
+			background-image: url('../images/indexBanner.png');
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			display: block;
+			position: relative;
 
-		div.container {
-			color: $white;
+			div.container {
+				color: $white;
 
-			h1 {
-				font-size: 60px;
-				display: block;
-				text-align: center;
-				padding-top: 160px;
+				h1 {
+					font-size: 60px;
+					display: block;
+					text-align: center;
+					padding-top: 160px;
+				}
+
+				p {
+					font-size: 22px;
+					display: block;
+					text-align: center;
+					margin-top: 40px;
+					line-height: 30px;
+					position: relative;
+					z-index: 50;
+				}
+
+				a {
+					font-size: 22px;
+					display: block;
+					text-align: center;
+					width: 120px;
+					height: 40px;
+					line-height: 40px;
+					background-color: $orange;
+					margin: 0 auto;
+					border-radius: 10px;
+					text-decoration: none;
+					color: $black;
+					margin-top: 70px;
+				}
 			}
 
-			p {
-				font-size: 22px;
-				display: block;
-				text-align: center;
-				margin-top: 40px;
-				line-height: 30px;
-				position: relative;
-				z-index: 50;
+			img.Planet1 {
+				width: 200px;
+				position: absolute;
+				left: 17%;
+				bottom: 30%;
+				animation-name: Planet1;
+				animation-duration: 15s;
+				animation-iteration-count: infinite;
 			}
-
-			a {
-				font-size: 22px;
-				display: block;
-				text-align: center;
+			img.Planet2 {
+				width: 150px;
+				position: absolute;
+				left: 25%;
+				bottom: 5%;
+				animation-name: Planet2;
+				animation-duration: 25s;
+				animation-iteration-count: infinite;
+			}
+			img.Planet3 {
+				width: 180px;
+				position: absolute;
+				right: 17%;
+				bottom: 20%;
+				animation-name: Planet3;
+				animation-duration: 16s;
+				animation-iteration-count: infinite;
+			}
+			img.Planet4 {
 				width: 120px;
-				height: 40px;
-				line-height: 40px;
-				background-color: $orange;
-				margin: 0 auto;
-				border-radius: 10px;
-				text-decoration: none;
-				color: $black;
-				margin-top: 70px;
+				position: absolute;
+				right: 29%;
+				bottom: 2%;
+				animation-name: Planet1;
+				animation-duration: 25s;
+				animation-iteration-count: infinite;
 			}
-		}
 
-		img.Planet1 {
-			width: 200px;
-			position: absolute;
-			left: 17%;
-			bottom: 30%;
-			animation-name: Planet1;
-			animation-duration: 15s;
-			animation-iteration-count: infinite;
-		}
-		img.Planet2 {
-			width: 150px;
-			position: absolute;
-			left: 25%;
-			bottom: 5%;
-			animation-name: Planet2;
-			animation-duration: 25s;
-			animation-iteration-count: infinite;
-		}
-		img.Planet3 {
-			width: 180px;
-			position: absolute;
-			right: 17%;
-			bottom: 20%;
-			animation-name: Planet3;
-			animation-duration: 16s;
-			animation-iteration-count: infinite;
-		}
-		img.Planet4 {
-			width: 120px;
-			position: absolute;
-			right: 29%;
-			bottom: 2%;
-			animation-name: Planet1;
-			animation-duration: 25s;
-			animation-iteration-count: infinite;
-		}
+			@keyframes Planet1 {
+				0% {
+					transform: translateY(-10px);
+				}
+				25% {
+					transform: translateY(10px);
+				}
+				50% {
+					transform: translateY(-10px);
+				}
+				75% {
+					transform: translateY(10px);
+				}
+				100% {
+					transform: translateY(-10px);
+				}
+			}
 
-		@keyframes Planet1 {
-			0% {
-				transform: translateY(-10px);
+			@keyframes Planet2 {
+				0% {
+					transform: translateY(10px);
+				}
+				25% {
+					transform: translateY(-10px);
+				}
+				50% {
+					transform: translateY(10px);
+				}
+				75% {
+					transform: translateY(-10px);
+				}
+				100% {
+					transform: translateY(10px);
+				}
 			}
-			25% {
-				transform: translateY(10px);
-			}
-			50% {
-				transform: translateY(-10px);
-			}
-			75% {
-				transform: translateY(10px);
-			}
-			100% {
-				transform: translateY(-10px);
-			}
-		}
 
-		@keyframes Planet2 {
-			0% {
-				transform: translateY(10px);
-			}
-			25% {
-				transform: translateY(-10px);
-			}
-			50% {
-				transform: translateY(10px);
-			}
-			75% {
-				transform: translateY(-10px);
-			}
-			100% {
-				transform: translateY(10px);
-			}
-		}
-
-		@keyframes Planet3 {
-			0% {
-				transform: translateY(-13px);
-			}
-			25% {
-				transform: translateY(-10px);
-			}
-			50% {
-				transform: translateY(8px);
-			}
-			75% {
-				transform: translateY(-15px);
-			}
-			100% {
-				transform: translateY(-13px);
+			@keyframes Planet3 {
+				0% {
+					transform: translateY(-13px);
+				}
+				25% {
+					transform: translateY(-10px);
+				}
+				50% {
+					transform: translateY(8px);
+				}
+				75% {
+					transform: translateY(-15px);
+				}
+				100% {
+					transform: translateY(-13px);
+				}
 			}
 		}
 	}
 }
+
 /*Banner 結束 Alan_Hong*/

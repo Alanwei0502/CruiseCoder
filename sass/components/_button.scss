@@ -1,35 +1,34 @@
 @import '../base/var';
 
 // 按鈕，用法：@extend %btn;
-%btn{
-    font-size: $h4;
-    outline: none;
-    transform-style: preserve-3d;
-    text-decoration: none;
-    color: $blue1;
-    border-radius: 10px;
-    padding:10px 30px;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    transition: width .5s;
-    z-index: 1;
-    border-bottom: 5px solid #b47f02;
-    border-left: 5px solid #b47f02;
+%btn {
+	font-size: $h4;
+	outline: none;
+	transform-style: preserve-3d;
+	text-decoration: none;
+	color: $blue1;
+	border-radius: 10px;
+	padding: 10px 30px;
+	font-weight: bold;
+	position: relative;
+	overflow: hidden;
+	transition: width .5s;
+	z-index: 1;
+	border-bottom: 5px solid #b47f02;
+	border-left: 5px solid #b47f02;
 
-
-    &:before{
-        content: '';
-        position: absolute;
+	&:before {
+		content: '';
+		position: absolute;
 		bottom: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: $orange; 
+		background-color: $orange;
 		z-index: -2;
-    }
-    &:after{
-        content: '';
+	}
+	&:after {
+		content: '';
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -40,31 +39,29 @@
 		z-index: -1;
 	}
 
-    &:hover{
-        color: $black;
-        top: 3px;
-        left: -3px;
-        padding:11px 31px;
-        border-bottom: 3px solid #d49603;
-        border-left: 3px solid #d49603;
-        &:after{
-            width: 100%;
-        }
-    }
+	&:hover {
+		color: $black;
+		top: 3px;
+		left: -3px;
+		padding: 11px 31px;
+		border-bottom: 3px solid #d49603;
+		border-left: 3px solid #d49603;
+		&:after {
+			width: 100%;
+		}
+	}
 
-    &:active{
-        color: $black;
-        top: 6px;
-        left: -6px;
-        padding:11px 31px;
-        border-bottom: 3px solid transparent;
-        border-left: 3px solid transparent;
-        &:after{
-            width: 100%;
-        }
-    }
- }
-
-
+	&:active {
+		color: $black;
+		top: 6px;
+		left: -6px;
+		padding: 11px 31px;
+		border-bottom: 3px solid transparent;
+		border-left: 3px solid transparent;
+		&:after {
+			width: 100%;
+		}
+	}
+}
 
 // 至頂按鈕
