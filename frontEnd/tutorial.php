@@ -14,7 +14,7 @@
 
 <body>
   <?php
-    include('layout/login.php');
+  include('layout/login.php');
   ?>
   <div class="wrap tutorial">
     <?php
@@ -28,15 +28,19 @@
         <div class="askBody">
           <div class="askBodyLeft">
             <div class="top">
-              <span>1</span><p>點選月曆中的已購買課程</p>
+              <span>1</span>
+              <p>點選月曆中的已購買課程</p>
             </div>
             <div class="bottom">
-              <span>2</span><p>確認師資與課程無誤,點選「 我要預約 」</p>
+              <span>2</span>
+              <p>確認師資與課程無誤,點選「 我要預約 」</p>
             </div>
           </div>
           <div class="askBodyRight">
-            <div class="orange"></div><p>可預約</p>
-            <div class="red"></div><p>預約額滿</p>
+            <div class="orange"></div>
+            <p>可預約</p>
+            <div class="red"></div>
+            <p>預約額滿</p>
           </div>
         </div>
       </div>
