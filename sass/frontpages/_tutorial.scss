@@ -1,339 +1,336 @@
 /* tutorial開始 */
-div.tutorial{
-  main{
-    color: $white;
-    width: 1200px;
-    margin: 0 auto;
-    h2{
-      @include %h2;
-      color: $white;
-    }
-    h2.firstH2{
-      margin-top: 50px;
-    }
-    div.ask{
-      width: 90%;
-      background-color: rgba(91, 196, 227, .6);
-      border-radius: 10px;
-      padding: 30px 10px 20px;
-      margin: 50px auto 30px;
-      p.askTitle{
-        width: 100%;
-        text-align: center;
-        font-size: $bp;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-      div.askBody{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        div.askBodyLeft{
-          font-size: $mp;
-          margin-left: 40px;
-          div.top{
-            margin-bottom: 10px;
-          }
-          span{
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-color: #5BC4E3;
-            border-radius: 100%;
-            padding: 5px;
-            text-align: center;
-            line-height: 20px;
-            margin-right: 10px;
-          }
-          p{
-            display: inline-block;
-          }
-        }
-        div.askBodyRight{
-          display: flex;
-          align-items: center;
-          div.orange{
-            height: 30px;
-            width: 30px;
-            border-radius: 100%;
-            background-color: $orange;
-            margin-right: 10px;
-          }
-          div.red{
-            height: 30px;
-            width: 30px;
-            border-radius: 100%;
-            background-color: $red;
-            margin-right: 10px;
-          }
-          p{
-            font-size: $mp;
-            margin-right: 40px;
-          }
-        }
-      }
-    }
-    div.calendar{
-      div.calendarHead{
-        height: 150px;
-        width: 100%;
-        background-color: $orange;
-        position: relative;
-        div.nowMonth{
-          position: relative;
-          position: absolute;
-          top: 30%;
-          left: 4%;
-          color: $black;
-          p#month{
-            font-size: $h2;
-            width: 100px;
-            white-space: nowrap;
-            text-align: center;
-          }
-          p#year{
-            font-size: $bp;
-            position: absolute;
-            white-space: nowrap;
-            top: -70%;
-            left: 35%;
-            transform: translateX(-50%);
-          }
-          img.arrowLeft{
-            width: 30px;
-            overflow: hidden;
-            position: absolute;
-            top: 50%;
-            left: -35%;
-            transform: translateY(-50%) rotate(180deg);
-            &:hover{
-              cursor: pointer;
-              background-color: $blue2;
-              border-radius: 100%;
-            }
-          }
-          img.arrowRight{
-            width: 30px;
-            position: absolute;
-            top: 50%;
-            right: -35%;
-            transform: translateY(-50%);
-            &:hover{
-              cursor: pointer;
-              background-color: $blue2;
-              border-radius: 100%;
-            }
-          }
-
-        }
-        div.filterAll{
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          height: 100%;
-          width: 55%;
-          margin: 0 auto;
-          transform: translate(5%, 5%);
-          select{
-            outline: none;
-            appearance: none;
-            width: 200px;
-            padding: 10px 20px 10px 15px;
-            border-radius: 20px;
-            font-size: $mp;
-            color: $blue1;
-            background: none;
-            background-image: url("./../images/tutorial/selectArrow.png");
-            background-repeat: no-repeat;
-            background-size: 30px;
-            background-position: center right 10px;
-            background-color: rgba(0, 0, 0, 0.3);
-            option.textColor{
-              color: $blue1;
-              font-size: $mp;
-
-            }
-          }
-        }
-        div.allOrBuy{
-          position: absolute;
-          top: 8%;
-          right: 2%;
-          button{
-            outline: none;
-            display: block;
-            width: 130px;
-            padding: 7px 10px 7px 10px;
-            font-size: $sp;
-            border-radius: 20px;
-            margin-bottom: 10px;
-            border: none;
-            background-color: rgba(0, 0, 0, 0.3);
-            color: $blue1;
-            &:hover{
-              cursor: pointer;
-            }
-          }
-          button.-on{
-            background-color: $blue1;
-            color: $blue2;
-          }
-        }
-      }
-      div.calendarBody{
-        margin-bottom: 250px;
-        div.calendarTitle{
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-          padding: 30px 0;
-          background-color: $blue1;
-          p{
-            font-size: $h4;
-            color: $blue2;
-          }
-        }
-        div.calendarDate{
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
-          div.date{
-            width: calc(100%/7);
-            height: 150px;
-            color: $blue2;
-            font-size: $mp;
-            background-color: $beige;
-            padding: 10px;
-            border: 1px solid #707070;
-            &:hover{
-              background-color: rgba(255, 177, 2, 0.8);
-            }
-          }
-          div.fadeout{
-            color: rgba(91, 196, 227, 0.4);
-          }
-        }
-      }
-    }
-    div.booking{
-      display: flex;
-      justify-content: space-around;
-      div.book{
-        width: 300px;
-        div.bookImages{
-          position: relative;
-          margin-top: 150px;
-          div.bookNumber{
-            width: 50px;
-            height: 50px;
-            background-color: $blue2;
-            font-size: $bp;
-            color: $black;
-            font-weight: bold;
-            text-align: center;
-            line-height: 50px;
-            position: absolute;
-            top: -8%;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          img{
-            max-width: 100%;
-            height: 300px;
-            border-radius: 50%;
-          }
-        }
-        p{
-          width: 100%;
-          text-align: center;
-          font-size: $h3;
-          margin-top: 70px;
-          margin-bottom: 250px;
-        }
-      }
-    }
-    div.roomTop{
-      margin-top: 150px;
-      margin-bottom: 100px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      img{
-        width: 50%;
-      }
-      p{
-        padding: 0 30px;
-        font-size: $bp;
-        line-height: 38px;
-        letter-spacing: 2px;
-      }
-    }
-    div.roomCenter{
-      display: flex;
-      justify-content: space-around;
-      position: relative;
-      z-index: 1;
-      div.cardBack{
-        width: 300px;
-        height: 300px;
-        background-color: $beige;
-        border-radius: 20px;
-        div.cardLine{
-          width: 90%;
-          height: 90%;
-          border: 3px solid $yellow;
-          position: relative;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50% ,-50%);
-          border-radius: 15px;
-          img{
-            width: 100px;
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          img.pencil{
-            width: 50px;
-          }
-          img.house{
-            width: 75px;
-          }
-          p{
-            color: $black;
-            text-align: center;
-            font-size: $mp;
-            position: absolute;
-            white-space: nowrap;
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            line-height: 28px;
-            letter-spacing: 2px;
-          }
-        }
-      }
-    }
-    div.roomBottom{
-      margin-top: 100px;
-      margin-bottom: 150px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      p{
-        padding: 0 30px;
-        font-size: $bp;
-        line-height: 38px;
-        letter-spacing: 2px;
-      }
-      img{
-        width: 50%;
-        
-      }
-    }
-  }
+div.tutorial {
+	main {
+		color: $white;
+		width: 1200px;
+		margin: 0 auto;
+		h2 {
+			@include h2;
+			color: $white;
+		}
+		h2.firstH2 {
+			margin-top: 50px;
+		}
+		div.ask {
+			width: 90%;
+			background-color: rgba(91, 196, 227, .6);
+			border-radius: 10px;
+			padding: 30px 10px 20px;
+			margin: 50px auto 30px;
+			p.askTitle {
+				width: 100%;
+				text-align: center;
+				font-size: $bp;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+			div.askBody {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-end;
+				div.askBodyLeft {
+					font-size: $mp;
+					margin-left: 40px;
+					div.top {
+						margin-bottom: 10px;
+					}
+					span {
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						background-color: #5bc4e3;
+						border-radius: 100%;
+						padding: 5px;
+						text-align: center;
+						line-height: 20px;
+						margin-right: 10px;
+					}
+					p {
+						display: inline-block;
+					}
+				}
+				div.askBodyRight {
+					display: flex;
+					align-items: center;
+					div.orange {
+						height: 30px;
+						width: 30px;
+						border-radius: 100%;
+						background-color: $orange;
+						margin-right: 10px;
+					}
+					div.red {
+						height: 30px;
+						width: 30px;
+						border-radius: 100%;
+						background-color: $red;
+						margin-right: 10px;
+					}
+					p {
+						font-size: $mp;
+						margin-right: 40px;
+					}
+				}
+			}
+		}
+		div.calendar {
+			div.calendarHead {
+				height: 150px;
+				width: 100%;
+				background-color: $orange;
+				position: relative;
+				div.nowMonth {
+					position: relative;
+					position: absolute;
+					top: 30%;
+					left: 4%;
+					color: $black;
+					p#month {
+						font-size: $h2;
+						width: 100px;
+						white-space: nowrap;
+						text-align: center;
+					}
+					p#year {
+						font-size: $bp;
+						position: absolute;
+						white-space: nowrap;
+						top: -70%;
+						left: 35%;
+						transform: translateX(-50%);
+					}
+					img.arrowLeft {
+						width: 30px;
+						overflow: hidden;
+						position: absolute;
+						top: 50%;
+						left: -35%;
+						transform: translateY(-50%) rotate(180deg);
+						&:hover {
+							cursor: pointer;
+							background-color: $blue2;
+							border-radius: 100%;
+						}
+					}
+					img.arrowRight {
+						width: 30px;
+						position: absolute;
+						top: 50%;
+						right: -35%;
+						transform: translateY(-50%);
+						&:hover {
+							cursor: pointer;
+							background-color: $blue2;
+							border-radius: 100%;
+						}
+					}
+				}
+				div.filterAll {
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					height: 100%;
+					width: 55%;
+					margin: 0 auto;
+					transform: translate(5%, 5%);
+					select {
+						outline: none;
+						appearance: none;
+						width: 200px;
+						padding: 10px 20px 10px 15px;
+						border-radius: 20px;
+						font-size: $mp;
+						color: $blue1;
+						background: none;
+						background-image: url("./../images/tutorial/selectArrow.png");
+						background-repeat: no-repeat;
+						background-size: 30px;
+						background-position: center right 10px;
+						background-color: rgba(0, 0, 0, 0.3);
+						option.textColor {
+							color: $blue1;
+							font-size: $mp;
+						}
+					}
+				}
+				div.allOrBuy {
+					position: absolute;
+					top: 8%;
+					right: 2%;
+					button {
+						outline: none;
+						display: block;
+						width: 130px;
+						padding: 7px 10px 7px 10px;
+						font-size: $sp;
+						border-radius: 20px;
+						margin-bottom: 10px;
+						border: none;
+						background-color: rgba(0, 0, 0, 0.3);
+						color: $blue1;
+						&:hover {
+							cursor: pointer;
+						}
+					}
+					button.-on {
+						background-color: $blue1;
+						color: $blue2;
+					}
+				}
+			}
+			div.calendarBody {
+				margin-bottom: 250px;
+				div.calendarTitle {
+					width: 100%;
+					display: flex;
+					justify-content: space-around;
+					padding: 30px 0;
+					background-color: $blue1;
+					p {
+						font-size: $h4;
+						color: $blue2;
+					}
+				}
+				div.calendarDate {
+					display: flex;
+					flex-wrap: wrap;
+					width: 100%;
+					div.date {
+						width: calc(100%/7);
+						height: 150px;
+						color: $blue2;
+						font-size: $mp;
+						background-color: $beige;
+						padding: 10px;
+						border: 1px solid #707070;
+						&:hover {
+							background-color: rgba(255, 177, 2, 0.8);
+						}
+					}
+					div.fadeout {
+						color: rgba(91, 196, 227, 0.4);
+					}
+				}
+			}
+		}
+		div.booking {
+			display: flex;
+			justify-content: space-around;
+			div.book {
+				width: 300px;
+				div.bookImages {
+					position: relative;
+					margin-top: 150px;
+					div.bookNumber {
+						width: 50px;
+						height: 50px;
+						background-color: $blue2;
+						font-size: $bp;
+						color: $black;
+						font-weight: bold;
+						text-align: center;
+						line-height: 50px;
+						position: absolute;
+						top: -8%;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+					img {
+						max-width: 100%;
+						height: 300px;
+						border-radius: 50%;
+					}
+				}
+				p {
+					width: 100%;
+					text-align: center;
+					font-size: $h3;
+					margin-top: 70px;
+					margin-bottom: 250px;
+				}
+			}
+		}
+		div.roomTop {
+			margin-top: 150px;
+			margin-bottom: 100px;
+			display: flex;
+			align-items: center;
+			position: relative;
+			z-index: 1;
+			img {
+				width: 50%;
+			}
+			p {
+				padding: 0 30px;
+				font-size: $bp;
+				line-height: 38px;
+				letter-spacing: 2px;
+			}
+		}
+		div.roomCenter {
+			display: flex;
+			justify-content: space-around;
+			position: relative;
+			z-index: 1;
+			div.cardBack {
+				width: 300px;
+				height: 300px;
+				background-color: $beige;
+				border-radius: 20px;
+				div.cardLine {
+					width: 90%;
+					height: 90%;
+					border: 3px solid $yellow;
+					position: relative;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					border-radius: 15px;
+					img {
+						width: 100px;
+						position: absolute;
+						top: 10%;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+					img.pencil {
+						width: 50px;
+					}
+					img.house {
+						width: 75px;
+					}
+					p {
+						color: $black;
+						text-align: center;
+						font-size: $mp;
+						position: absolute;
+						white-space: nowrap;
+						top: 60%;
+						left: 50%;
+						transform: translateX(-50%);
+						line-height: 28px;
+						letter-spacing: 2px;
+					}
+				}
+			}
+		}
+		div.roomBottom {
+			margin-top: 100px;
+			margin-bottom: 150px;
+			display: flex;
+			align-items: center;
+			position: relative;
+			z-index: 1;
+			p {
+				padding: 0 30px;
+				font-size: $bp;
+				line-height: 38px;
+				letter-spacing: 2px;
+			}
+			img {
+				width: 50%;
+			}
+		}
+	}
 }
 /* tutorial結束 */
