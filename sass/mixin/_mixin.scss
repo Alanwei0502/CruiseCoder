@@ -12,18 +12,6 @@
 
 
 
-
-// 使用float時的清除浮動方法: @include clearfixed;
-@mixin clearfixed {
-    &:after{
-        content: '';
-        display: table;
-        clear: both;
-    }
-}
-
-
-
 // keyframe動畫：引用方法在下面描述
 @mixin keyframes($name) {
     @-webkit-keyframes #{$name} {
@@ -37,7 +25,7 @@
     }
 }
 //keyframe動畫引用方式
-// @include keyframes(animate-preloader) {
+// @include keyframes(rotating) {
 //     0% {
 //         transform: rotate(0deg);
 //     }
@@ -49,5 +37,5 @@
 //keyframe動畫用在標籤內
 // #yourElement{
 //     ...
-//     animation: animate-preloader 1s linear infinite;
+//     animation: rotating 1s linear infinite;
 // }

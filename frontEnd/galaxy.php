@@ -25,7 +25,43 @@
             <section class="universe">
                 <h2>&lt;數碼銀河&#47;&gt;</h2>
                 <div class="outGalaxy">
-                    <div class="inGalaxy"></div>
+                    <div class="inGalaxy">
+                        <ul>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+                            <li>
+                                <img src="" alt="">
+                                <img src="../images/trial/rock/base.svg" alt="">
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
                 <article>
                     <h3>HTML星系簡介</h3>
@@ -69,7 +105,7 @@
                     <img src="../images/trial/badge/html.png" alt="HTML星系徽章">
                 </div>
             </section>
-
+            <a href="#0" class="top"><img src="" alt=""></a>
         </main>
         <?php
         include('layout/footer.php');

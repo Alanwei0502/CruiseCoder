@@ -1,6 +1,42 @@
 
 .galaxy{
     main {
+        .outGalaxy{
+            .inGalaxy{
+                background-image: url('"../images/trial/rock/background.svg');
+                background-repeat: repeat;
+                background-position: center center;
+                margin: 0 auto;
+                transform-style: preserve-3d;
+                // position: relative;
+                margin-bottom: 50px;
+
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    margin: 0 auto;
+                    // border: 1px solid red;
+                    
+                    li{
+                        // border: 1px solid green;
+                        width: 25%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 50px 0;
+                        
+                        // &:nth-child(4){
+
+                        // }
+                        img{
+                            display: block;
+                            width: 120px;
+                        }
+                    }
+                }
+            }
+        }
         max-width: 1200px;
         margin: 0 auto;
         color: $white;
@@ -135,16 +171,6 @@
                 
             }
         }
-        
-    }
-}
-
-@include keyframes(rotate) {
-    0% {
-        transform: rotateZ(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg);
     }
 }
 
