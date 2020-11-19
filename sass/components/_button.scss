@@ -12,8 +12,11 @@
     font-weight: bold;
     position: relative;
     overflow: hidden;
-    transition: .5s;
+    transition: width .5s;
     z-index: 1;
+    border-bottom: 5px solid #b47f02;
+    border-left: 5px solid #b47f02;
+
 
     &:before{
         content: '';
@@ -33,14 +36,35 @@
 		width: 0%;
 		height: 100%;
 		background-color: $blue2;
-		transition: .5s;
+		transition: width .5s;
 		z-index: -1;
 	}
 
     &:hover{
         color: $black;
+        top: 3px;
+        left: -3px;
+        padding:11px 31px;
+        border-bottom: 3px solid #d49603;
+        border-left: 3px solid #d49603;
+        &:after{
+            width: 100%;
+        }
+    }
+
+    &:active{
+        color: $black;
+        top: 6px;
+        left: -6px;
+        padding:11px 31px;
+        border-bottom: 3px solid transparent;
+        border-left: 3px solid transparent;
         &:after{
             width: 100%;
         }
     }
  }
+
+
+
+// 至頂按鈕
