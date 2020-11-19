@@ -4,26 +4,27 @@ main {
 		width: 100%;
 		max-width: 1920px;
 		height: calc(100vh - 80px); //80px is nav height
-		background-color: $black;
 		background-image: url('../images/indexBanner.png');
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		display: block;
 		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		div.container {
 			color: $white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
 			h1 {
-				font-size: 60px;
-				display: block;
-				text-align: center;
-				padding-top: 160px;
+				font-size: $h1;
 			}
 
 			p {
 				font-size: 22px;
-				display: block;
 				text-align: center;
 				margin-top: 40px;
 				line-height: 30px;
@@ -32,18 +33,20 @@ main {
 			}
 
 			a {
-				font-size: 22px;
-				display: block;
-				text-align: center;
-				width: 120px;
-				height: 40px;
-				line-height: 40px;
-				background-color: $orange;
-				margin: 0 auto;
-				border-radius: 10px;
-				text-decoration: none;
-				color: $black;
-				margin-top: 70px;
+				@extend %btn;
+				margin-top: 50px;
+				// font-size: 22px;
+				// display: block;
+				// text-align: center;
+				// width: 120px;
+				// height: 40px;
+				// line-height: 40px;
+				// background-color: $orange;
+				// margin: 0 auto;
+				// border-radius: 10px;
+				// text-decoration: none;
+				// color: $black;
+				// margin-top: 70px;
 			}
 		}
 
