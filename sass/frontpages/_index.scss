@@ -34,23 +34,8 @@
 				}
 
 				a {
-					// @extend .btn;
+					@include btn;
 					margin-top: 50px;
-<<<<<<< HEAD
-					font-size: 22px;
-					display: block;
-					text-align: center;
-					width: 120px;
-					height: 40px;
-					line-height: 40px;
-					background-color: $orange;
-					margin: 0 auto;
-					border-radius: 10px;
-					text-decoration: none;
-					color: $black;
-					margin-top: 70px;
-=======
->>>>>>> dev
 				}
 			}
 
