@@ -10,40 +10,44 @@
 			background-repeat: no-repeat;
 			display: block;
 			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
 			div.container {
 				color: $white;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 
 				h1 {
-					font-size: 60px;
-					display: block;
-					text-align: center;
-					padding-top: 160px;
+					font-size: $h1;
 				}
 
 				p {
 					font-size: 22px;
-					display: block;
-					text-align: center;
-					margin-top: 40px;
-					line-height: 30px;
-					position: relative;
-					z-index: 50;
+				text-align: center;
+				margin-top: 40px;
+				line-height: 30px;
+				position: relative;
+				z-index: 50;
 				}
 
 				a {
-					font-size: 22px;
-					display: block;
-					text-align: center;
-					width: 120px;
-					height: 40px;
-					line-height: 40px;
-					background-color: $orange;
-					margin: 0 auto;
-					border-radius: 10px;
-					text-decoration: none;
-					color: $black;
-					margin-top: 70px;
+					@extend %btn;
+					margin-top: 50px;
+					// font-size: 22px;
+					// display: block;
+					// text-align: center;
+					// width: 120px;
+					// height: 40px;
+					// line-height: 40px;
+					// background-color: $orange;
+					// margin: 0 auto;
+					// border-radius: 10px;
+					// text-decoration: none;
+					// color: $black;
+					// margin-top: 70px;
 				}
 			}
 
@@ -82,60 +86,6 @@
 				animation-name: Planet1;
 				animation-duration: 25s;
 				animation-iteration-count: infinite;
-			}
-
-			@keyframes Planet1 {
-				0% {
-					transform: translateY(-10px);
-				}
-				25% {
-					transform: translateY(10px);
-				}
-				50% {
-					transform: translateY(-10px);
-				}
-				75% {
-					transform: translateY(10px);
-				}
-				100% {
-					transform: translateY(-10px);
-				}
-			}
-
-			@keyframes Planet2 {
-				0% {
-					transform: translateY(10px);
-				}
-				25% {
-					transform: translateY(-10px);
-				}
-				50% {
-					transform: translateY(10px);
-				}
-				75% {
-					transform: translateY(-10px);
-				}
-				100% {
-					transform: translateY(10px);
-				}
-			}
-
-			@keyframes Planet3 {
-				0% {
-					transform: translateY(-13px);
-				}
-				25% {
-					transform: translateY(-10px);
-				}
-				50% {
-					transform: translateY(8px);
-				}
-				75% {
-					transform: translateY(-15px);
-				}
-				100% {
-					transform: translateY(-13px);
-				}
 			}
 		}
 	}

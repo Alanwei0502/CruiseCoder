@@ -3,35 +3,59 @@
     main {
         .outGalaxy{
             .inGalaxy{
-                background-image: url('"../images/trial/rock/background.svg');
+                background-image: url('../images/trial/rock/background.svg');
                 background-repeat: repeat;
                 background-position: center center;
+                background-size: cover;
                 margin: 0 auto;
                 transform-style: preserve-3d;
-                // position: relative;
                 margin-bottom: 50px;
-
+                height: 750px;
+                display: flex;
+                justify-content: center;
+                // border: 1px solid blue;
                 ul{
                     display: flex;
                     justify-content: center;
+                    align-self: start;
                     flex-wrap: wrap;
                     margin: 0 auto;
                     // border: 1px solid red;
+                    width: 80%;
                     
                     li{
                         // border: 1px solid green;
                         width: 25%;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
                         margin: 50px 0;
                         
-                        // &:nth-child(4){
-
-                        // }
-                        img{
+                        a{
                             display: block;
-                            width: 120px;
+                            text-decoration: none;
+                            color: $white;
+                            font-size: $mp;
+                            font-weight: bold;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            // border: 1px solid white;
+                            &:hover{
+                                transform: scale(1.1);
+                            }
+                            div{
+                                border: 1px solid blue;
+                            }
+                            img{
+                                // border: 1px solid gray;
+                                display: block;
+                                &:nth-child(2){
+                                    height: 100px;
+                                    animation: floating 5s linear infinite;
+                                    
+                                }
+                                &:nth-child(3){
+                                    width: 100px;
+                                }
+                            }
                         }
                     }
                 }
@@ -174,3 +198,14 @@
     }
 }
 
+@include keyframes(floating){
+    0%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+}

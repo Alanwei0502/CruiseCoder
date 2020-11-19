@@ -28,36 +28,60 @@
                     <div class="inGalaxy">
                         <ul>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>HTML星系</div>
+                                    <img src="../images/trial/galaxy/g1.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>CSS星系</div>
+                                    <img src="../images/trial/galaxy/g2.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>Javascript星系</div>
+                                    <img src="../images/trial/galaxy/g3.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>jQuery星系</div>
+                                    <img src="../images/trial/galaxy/g4.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>SASS星系</div>
+                                    <img src="../images/trial/galaxy/g5.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>PHP星系</div>
+                                    <img src="../images/trial/galaxy/g6.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>MySQL星系</div>
+                                    <img src="../images/trial/galaxy/g7.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
                             <li>
-                                <img src="" alt="">
-                                <img src="../images/trial/rock/base.svg" alt="">
+                                <a href="#0">
+                                    <div>Vue星系</div>
+                                    <img src="../images/trial/galaxy/g8.svg" alt="">
+                                    <img src="../images/trial/rock/base.svg" alt="">
+                                </a>
                             </li>
 
                         </ul>

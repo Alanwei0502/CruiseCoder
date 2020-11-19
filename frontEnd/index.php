@@ -14,7 +14,7 @@
 
 <body>
   <?php
-    include('layout/login.php');
+  include('layout/login.php');
   ?>
   <div class="wrap index">
     <?php
