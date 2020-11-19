@@ -41,9 +41,6 @@
                             &:hover{
                                 transform: scale(1.1);
                             }
-                            div{
-                                border: 1px solid blue;
-                            }
                             img{
                                 // border: 1px solid gray;
                                 display: block;
@@ -66,7 +63,7 @@
         color: $white;
     
         h2{
-            @extend %h2;
+            @include h2;
         }
     
         h3{
@@ -152,7 +149,7 @@
                 }
 
                 a{
-                   @extend %btn;
+                   @include btn;
                    float: right;
                 }
             }
