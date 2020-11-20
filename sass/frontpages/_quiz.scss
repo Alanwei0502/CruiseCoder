@@ -1,0 +1,24 @@
+.quiz{
+    main{
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        color: $white;
+        section{
+            position: relative;
+            img{
+                position: absolute;
+            }
+            .notice{
+                display: flex;
+                flex-direction: column;
+                div{
+                    font-size: $bp;
+                }
+            }
+            // a{
+
+            // }
+        }
+    }
+}
