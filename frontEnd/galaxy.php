@@ -23,7 +23,7 @@
         <main>
 
             <section class="universe">
-                <h2>&lt;數碼銀河&#47;&gt;</h2>
+                <h2>&lt; 數碼銀河 &#47;&gt;</h2>
                 <div class="outGalaxy">
                     <div class="inGalaxy">
                         <ul>
@@ -95,7 +95,7 @@
             </section>
 
             <section class="planetQuiz">
-                <h2>&lt;星球關卡&#47;&gt;</h2>
+                <h2>&lt; 星球關卡 &#47;&gt;</h2>
                 <div class="carousel" data-planet="">
                     <div id="planet0" class="planet">
                         <img src="../images/trial/planets/html1.png" alt="初級html星球">
