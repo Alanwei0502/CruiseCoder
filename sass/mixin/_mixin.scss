@@ -136,3 +136,101 @@
 //     ...
 //     animation: rotating 1s linear infinite;
 // }
+
+
+
+// 後台的樣式
+
+// 標題 ex課程管理、專欄管理、預約管理, 用法 @include backTitle;
+@mixin backTitle{
+	font-size: $h4;
+	margin: 50px 0px 20px 30px;
+	font-weight: bold;
+}
+
+// 後台管理上面有搜尋按鈕的區塊
+@mixin blockStyle{
+	background-color: $beige;
+	margin-left: 30px;
+	padding: 20px 30px;
+	border-radius: 10px;
+}
+
+// 下拉式選單樣式 主要統一大概樣式 至於長度各位在自己調整
+// 用法 @include selectStyle; 放在select
+@mixin selectStyle{
+	font-size: $mp;
+	padding: 5px;
+	border-radius: 8px;
+	width: 90px;
+	outline: none;
+}
+
+// 文字輸入框 
+// 用法 @include inputtextStyle;
+@mixin inputtextStyle{
+	font-size: $mp;
+	border-radius: 8px;
+	outline: none;
+	padding: 5px 10px;
+}
+
+
+// 搜尋btn樣式  用法 @include backBtn; 
+@mixin backBtn{
+	height: 50px;
+	outline: none;
+	border: none;
+	background-color: $orange;
+	padding: 10px 10px 10px 38px;
+	border-radius: 5px;
+	font-size: $mp;
+	background-image: url("./../images/searchicon.png");
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	background-position: center left 13px;
+	&:hover{
+		cursor: pointer;
+		background-color: $blue2;
+	}
+}
+
+// 新增按鈕樣式  用法 @include addBtn;
+@mixin addBtn{
+	outline: none;
+	font-size: $mp;
+	color: $white;
+	background-color: $orange;
+	padding: 10px 10px 10px 45px;
+	border: none;
+	border-radius: 30px;
+	background-image: url("./../images/addicon.png");
+	background-repeat: no-repeat;
+	background-size: 28px 28px; 
+	background-position: center left 10px;
+	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		cursor: pointer;
+		background-color: $blue2;
+	}
+}
+
+// 下架按鈕樣式 用法 @include cancleBtn;
+@mixin cancleBtn{
+	outline: none;
+	font-size: $mp;
+	color: $white;
+	background-color: $red;
+	padding: 10px 10px 10px 45px;
+	border: none;
+	border-radius: 30px;
+	background-image: url("./../images/cancleicon.png");
+	background-repeat: no-repeat;
+	background-size: 28px 28px; 
+	background-position: center left 10px;
+	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		cursor: pointer;
+		background-color: $blue2;
+	}
+}
