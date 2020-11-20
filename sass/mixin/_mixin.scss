@@ -16,6 +16,7 @@
 	z-index: 1;
 	border-bottom: 5px solid #b47f02;
 	border-left: 5px solid #b47f02;
+	cursor: pointer;
 
 	&:before {
 		content: '';
@@ -62,6 +63,7 @@
 			width: 100%;
 		}
 	}
+	@content;
 }
 
 
@@ -90,7 +92,8 @@
         display: block;
         width: 300px;
         border-bottom: 10px solid $yellow;
-    }
+	}
+	@content;
 }
 
 
@@ -102,7 +105,7 @@
         content: '';
         display: table;
         clear: both;
-    }
+	}
 }
 
 
