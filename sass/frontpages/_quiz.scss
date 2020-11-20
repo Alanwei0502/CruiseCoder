@@ -18,24 +18,17 @@
             border: 5px solid $orange;
             margin-bottom: 50px;
             padding: $fontSize * 3;
+            font-weight: bold;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            
+            @include clearfixed;
 
             img{
                 position: absolute;
             }
-            .notice{
+            .blueBg{
                 padding: $fontSize;
                 width: 95%;
                 background-color: rgba(24, 39, 73, .8);
-                // background-image: url('../images/quiz/panel.svg');
-                // background-position: center center;
-                // background-size: 100% 100%;
-                // background-repeat: no-repeat;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -44,14 +37,12 @@
                 
                 h3{
                     font-size: $h3;
-                    font-weight: bold;
                     margin-bottom: $fontSize*2;
                 }
                 div{
                     margin-bottom: $fontSize*2;
                     p{
                         font-size: $bp;
-                        font-weight: bold;
                         // border: 1px solid green;
                         line-height: $h2;
                         padding-bottom: $fontSize*2;
@@ -91,11 +82,30 @@
                     line-height: $h3;
                 }
             }
-            a{
+            button{
                 @include btn;
                 display: block;
-                align-self: flex-end;
+                float: right;
             }
         }
+        .inQuiz{
+            display: none;
+            .question{
+                font-size: $h4;
+                align-self: flex-start;
+            }
+            .answer{
+                display: flex;
+                flex-direction: column;
+                label{
+                    line-height: $h1;
+                    cursor: pointer;
+                }
+            }
+        }
+        .afterQuiz{
+            display: none;
+        }
+        
     }
 }
