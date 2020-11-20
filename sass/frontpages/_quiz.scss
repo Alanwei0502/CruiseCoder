@@ -1,6 +1,4 @@
 .quiz{
-    height: 100vh;
-    position: relative;
     main{
         h2{
             @include h2;
@@ -13,10 +11,13 @@
         section{
             width: 100%;
             padding: $fontSize;
-            background-color: rgba(24, 39, 73, .7);
-            background-image: url('');
+            background-image: url('../images/quiz/background/1.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
             border: 5px solid $orange;
-            margin: 50px auto;
+            margin-bottom: 50px;
+            padding: $fontSize * 3;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -28,30 +29,66 @@
                 position: absolute;
             }
             .notice{
+                padding: $fontSize;
+                width: 95%;
+                background-color: rgba(24, 39, 73, .8);
+                // background-image: url('../images/quiz/panel.svg');
+                // background-position: center center;
+                // background-size: 100% 100%;
+                // background-repeat: no-repeat;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                border: 1px solid red;
+                // border: 1px solid red;
+                margin-bottom: $fontSize*2;
                 
                 h3{
                     font-size: $h3;
                     font-weight: bold;
-                    margin-bottom: $fontSize;
+                    margin-bottom: $fontSize*2;
                 }
                 div{
-                    margin-bottom: $fontSize;
+                    margin-bottom: $fontSize*2;
                     p{
                         font-size: $bp;
                         font-weight: bold;
-                        border: 1px solid green;
-                        line-height: $h3;
+                        // border: 1px solid green;
+                        line-height: $h2;
+                        padding-bottom: $fontSize*2;
+                        display: flex;
+                        align-items: start;
+                        
+                        &:before{
+                            content: '';
+                            display: block;
+                            background-image: url('../images/quiz/chronometer.svg');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            height: $h2;
+                            width: $h2;
+                            // border: 1px solid red;
+                            margin-right: $fontSize;
+                        }
+
+                        &:nth-child(2){
+                            &:before{
+                                background-image: url('../images/quiz/question-mark.svg');
+                            }
+                        }
+
+                        &:nth-child(3){
+                            &:before{
+                                background-image: url('../images/quiz/play.svg');
+                            }
+                        }
                     }
                     
                 }
                 label{
                     font-size: $mp;
                     align-self: flex-start;
-                    line-height: $h4;
+                    line-height: $h3;
                 }
             }
             a{
@@ -60,9 +97,5 @@
                 align-self: flex-end;
             }
         }
-    }
-    footer{
-        position: absolute;
-        bottom: 0;
     }
 }
