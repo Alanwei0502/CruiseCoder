@@ -15,10 +15,7 @@ div.article{
         display: inline-block;
         margin-bottom: 20px;
         input{
-          font-size: $mp;
-          border-radius: 8px;
-          outline: none;
-          padding: 5px 10px;
+          @include inputTextStyle;
           width: 170px;
         }
       }
@@ -35,7 +32,7 @@ div.article{
         align-items: flex-end;
         div.articleName{
           input{
-            @include inputtextStyle;
+            @include inputTextStyle;
             width: 700px;
           }
         }
@@ -46,13 +43,14 @@ div.article{
 
       }
     }
-    div.addOrCanale{
+    div.addOrCancle{
       display: flex;
       justify-content: flex-end;
       margin: 30px 0px;
+      padding-right: 5px;
 
       button.canleButton{
-        @include cancleBtn;
+        @include cancelBtn;
       }
       button.addButton{
         @include addBtn;
@@ -71,6 +69,7 @@ div.article{
         }
         div.td{
           width: 60px;
+          display: flex;
           align-items: center;
           line-height: 32px;
           &:nth-child(1){

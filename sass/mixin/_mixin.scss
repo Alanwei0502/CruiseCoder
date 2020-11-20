@@ -148,7 +148,7 @@
 	font-weight: bold;
 }
 
-// 後台管理上面有搜尋按鈕的區塊
+// 後台管理上面有搜尋按鈕的區塊  用法 @include blockStyle;
 @mixin blockStyle{
 	background-color: $beige;
 	margin-left: 30px;
@@ -164,11 +164,29 @@
 	border-radius: 8px;
 	width: 90px;
 	outline: none;
+	&:hover{
+		cursor: pointer;
+	}
 }
 
-// 文字輸入框 
-// 用法 @include inputtextStyle;
-@mixin inputtextStyle{
+// 月曆輸入框樣式 用法 @include datepickerStyle;
+@mixin datepickerStyle{
+	font-size: $mp;
+	border-radius: 8px;
+	outline: none;
+	padding: 5px 10px;
+	background-image: url("./../images/calendaricon.png");
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-position: center right 10px;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+
+// 文字輸入框  用法 @include inputTextStyle;
+@mixin inputTextStyle{
 	font-size: $mp;
 	border-radius: 8px;
 	outline: none;
@@ -216,7 +234,7 @@
 }
 
 // 下架按鈕樣式 用法 @include cancleBtn;
-@mixin cancleBtn{
+@mixin cancelBtn{
 	outline: none;
 	font-size: $mp;
 	color: $white;
@@ -224,11 +242,30 @@
 	padding: 10px 10px 10px 45px;
 	border: none;
 	border-radius: 30px;
-	background-image: url("./../images/cancleicon.png");
+	background-image: url("./../images/cancelicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		cursor: pointer;
+		background-color: $blue2;
+	}
+}
+
+// 儲存按鈕樣式 用法 @include saveBtn;
+@mixin saveBtn{
+	outline: none;
+	border: none;
+	color: $white;
+	background-color: $orange;
+	font-size: $mp;
+	padding: 5px 20px 5px 55px;
+	border-radius: 25px;
+	background-image: url("./../images/saveicon.png");
+	background-repeat: no-repeat;
+	background-size: 24px 24px; 
+	background-position: center left 20px;
 	&:hover{
 		cursor: pointer;
 		background-color: $blue2;

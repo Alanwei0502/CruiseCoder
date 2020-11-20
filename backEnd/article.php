@@ -40,7 +40,7 @@
               <button>搜尋</button>
             </div>
           </div>
-          <div class="addOrCanale">
+          <div class="addOrCancle">
             <button class="canleButton">下架專欄</button>
             <button class="addButton">新增專欄</button>
           </div>
