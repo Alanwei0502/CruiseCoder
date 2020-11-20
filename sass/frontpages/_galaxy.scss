@@ -1,6 +1,11 @@
 
 .galaxy{
     main {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        color: $white;
+
         .outGalaxy{
             .inGalaxy{
                 background-image: url('../images/trial/rock/background.svg');
@@ -58,9 +63,7 @@
                 }
             }
         }
-        max-width: 1200px;
-        margin: 0 auto;
-        color: $white;
+        
     
         h2{
             @include h2;
