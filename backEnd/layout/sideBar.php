@@ -6,7 +6,7 @@
         後台管理
     </p>
     <div class="user">
-        <img src="./images/userIcon.png">
+        <img src="./../images/userIcon.png">
         <span id="userID">A12345678</span>
     </div>
     <p>會員管理</p>
