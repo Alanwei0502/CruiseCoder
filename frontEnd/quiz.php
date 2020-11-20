@@ -25,12 +25,15 @@
             <section>
                 <img src="../images/quiz/spacebase.svg" alt="">
                 <div class="notice">
-                    <div>測驗須知</div>
-                    <div>測驗時間：20 分鐘</div>
-                    <div>總共題目：10題</div>
-                    <div>確認選項後，請按下一題繼續作答</div>
-                    <input type="checkbox">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。
-                    <input type="checkbox">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。
+                    <h3>測驗須知</h3>
+                    <div>
+                        <p>測驗時間：2分鐘</p>
+                        <p>總共題目：3題</p>
+                        <p>確認選項後，請按下一題繼續作答</p>
+                    </div>
+                    <label for=""><input type="checkbox">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
+                    <label for=""><input type="checkbox">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+
                 </div>
                 <a href="#0">開始試煉</a>
             </section>

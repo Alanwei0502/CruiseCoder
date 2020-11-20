@@ -1,24 +1,68 @@
 .quiz{
+    height: 100vh;
+    position: relative;
     main{
+        h2{
+            @include h2;
+        }
         max-width: 1200px;
         width: 100%;
         margin: 0 auto;
         color: $white;
+
         section{
+            width: 100%;
+            padding: $fontSize;
+            background-color: rgba(24, 39, 73, .7);
+            background-image: url('');
+            border: 5px solid $orange;
+            margin: 50px auto;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
             img{
                 position: absolute;
             }
             .notice{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                border: 1px solid red;
+                
+                h3{
+                    font-size: $h3;
+                    font-weight: bold;
+                    margin-bottom: $fontSize;
+                }
                 div{
-                    font-size: $bp;
+                    margin-bottom: $fontSize;
+                    p{
+                        font-size: $bp;
+                        font-weight: bold;
+                        border: 1px solid green;
+                        line-height: $h3;
+                    }
+                    
+                }
+                label{
+                    font-size: $mp;
+                    align-self: flex-start;
+                    line-height: $h4;
                 }
             }
-            // a{
-
-            // }
+            a{
+                @include btn;
+                display: block;
+                align-self: flex-end;
+            }
         }
+    }
+    footer{
+        position: absolute;
+        bottom: 0;
     }
 }
