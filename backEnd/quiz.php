@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>後台管理 | 題庫管理</title>
+  <title>後台 | 題庫管理</title>
   <link rel="stylesheet" href="./../css/main2.css">
 </head>
 
@@ -53,7 +53,7 @@
         <table>
           <thead>
             <tr>
-              <th><label for="checkAll">全選<input type="checkbox" id="checkAll"></label></th>
+              <th><label for="checkAll">全選<input type="checkbox" id="checkAll"><span></span></label></th>
               <th>領域</th>
               <th>難易度</th>
               <th>操作</th>
@@ -61,31 +61,31 @@
           </thead>
           <tbody>
             <tr>
-              <td><input type="checkbox" name="" id=""></td>
+              <td><label for=""><input type="checkbox" id=""><span></span></label></td>
               <td>html</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""></td>
+              <td><input type="checkbox" name="" id=""><span></span></td>
               <td>html</td>
               <td>中級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""></td>
+              <td><input type="checkbox" name="" id=""><span></span></td>
               <td>html</td>
               <td>高級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""></td>
+              <td><input type="checkbox" name="" id=""><span></span></td>
               <td>css</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""></td>
+              <td><input type="checkbox" name="" id=""><span></span></td>
               <td>css</td>
               <td>中級</td>
               <td><button>編輯</button></td>

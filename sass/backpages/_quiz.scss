@@ -43,11 +43,13 @@ div.quiz{
                 font-size: $bp;
                 width:90%;
                 margin: 0 auto;
-                input[type="checkbox"], button{
-                    cursor: pointer;
+
+                input{
+                    @include checkbox;
                 }
                 button{
                     @include editBtn;
+                    cursor: pointer;
                 }
                 tr{
                     width: 100%;
@@ -72,7 +74,6 @@ div.quiz{
                         padding: $fontSize*1.5 0;
                     }
                 }
-                
             }
         }
     }
