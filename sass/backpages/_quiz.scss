@@ -1,0 +1,79 @@
+div.quiz{
+    main{
+        h2{
+            @include backTitle;
+        }
+        .searchbar{
+            @include blockStyle;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            div{
+                display: flex;
+                label{
+                    font-size: $bp;
+                    display: block;
+                    select{
+                        @include selectStyle;
+                        width: $fontSize * 20;
+                        margin-right: $fontSize * 2;
+                    }
+                }
+            }
+            button{
+                @include backBtn;
+            }
+        }
+        .table{
+            .btns{
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    margin: $fontSize * 2;
+                }
+                .off{
+                    @include cancelBtn;
+                }
+                .add{
+                    @include addBtn;
+                }
+            }
+
+            table{
+                font-size: $bp;
+                width:90%;
+                margin: 0 auto;
+                input[type="checkbox"], button{
+                    cursor: pointer;
+                }
+                button{
+                    @include editBtn;
+                }
+                tr{
+                    width: 100%;
+                    
+                    th{
+                        font-weight: bold;
+                        padding: $fontSize*1.5 0;
+
+                        &:nth-child(1){
+                            width: 10%;
+                            label{
+                                cursor: pointer;
+                            }
+                        }
+                        &:nth-child(4){
+                            width: 20%;
+                        }
+                    }
+                    td{
+                        border-top: 1px solid $black;
+                        text-align: center;
+                        padding: $fontSize*1.5 0;
+                    }
+                }
+                
+            }
+        }
+    }
+}
