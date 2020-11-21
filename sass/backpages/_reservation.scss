@@ -1,14 +1,19 @@
 div.reservation{
-  div.addReservationBack{
+  div.addReservationBackAll{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
     opacity: 0;
     transition: all 1s;
+    div.addReservationBack{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
     div.addReservation{
       width: 300px;
       padding: 50px 100px;
@@ -30,7 +35,7 @@ div.reservation{
       }
       h2{
         font-size: $h4;
-	      font-weight: bold;
+        font-weight: bold;
       }
       label{
         font-size: $mp;
@@ -55,20 +60,25 @@ div.reservation{
       }
     }
   }
-  div.addReservationBack.on{
+  div.addReservationBackAll.on{
     z-index: 5;
     opacity: 1;
   }
-  div.editBack{
+  div.editBackAll{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
     opacity: 0;
     transition: all 1s;
+    div.editBack{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
     div.edit{
       width: 500px;
       padding: 50px 100px;
@@ -90,7 +100,7 @@ div.reservation{
       }
       h2{
         font-size: $h4;
-	      font-weight: bold;
+        font-weight: bold;
       }
       label{
         font-size: $mp;
@@ -132,7 +142,7 @@ div.reservation{
       }
     }
   }
-  div.editBack.on{
+  div.editBackAll.on{
     z-index: 5;
     opacity: 1;
   }

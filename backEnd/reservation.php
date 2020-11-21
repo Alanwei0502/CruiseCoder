@@ -20,7 +20,8 @@
         <?php
         include('layout/sideBar.php');//aside
         ?>
-        <div class="addReservationBack">
+        <div class="addReservationBackAll">
+          <div class="addReservationBack"></div>
           <div class="addReservation">
             <img src="./../images/blackCancel.png" alt="圖片未顯示" class="cancelBack">
             <h2>新增課輔</h2>
@@ -45,7 +46,8 @@
           </div>
         </div>
 
-        <div class="editBack">
+        <div class="editBackAll">
+          <div class="editBack"></div>
           <div class="edit">
             <img src="./../images/blackCancel.png" alt="無法顯示圖片" class="cancelBack">
             <h2>課輔資訊</h2>
