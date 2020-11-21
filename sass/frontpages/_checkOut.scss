@@ -1,0 +1,279 @@
+.checkOut {
+    //需告變數
+    //置中
+    $center: 0 auto;
+    $label: 180px;
+
+    //付款方式
+    // 使用方法: @include paymentInput;
+    @mixin paymentInput {
+        border: none;
+        height: 45px;
+        box-shadow: 1px 1px 10px rgb(211, 211, 211);
+        width: 300px;
+        outline: none;
+        font-size: $h4;
+    }
+
+    // 使用方法: @include paymentLabel;
+    @mixin paymentLabel {
+        display: inline-block;
+        width: $label;
+        vertical-align: middle;
+    }
+
+    // 使用方法: @include paymenIfon;
+    @mixin paymenIfon {
+        // display: table-cell;
+        margin: 10px 0px 30px 50px;
+        height: 50px;
+    }
+
+
+    main {
+        max-width: 1200px;
+        margin: $center;
+        border: 1px solid white;
+
+        h2 {
+            margin-top: 50px;
+            color: aliceblue;
+            font-size: $h2;
+            font-weight: bold;
+        }
+
+        section.block {
+            width: 300px;
+            height: 10px;
+            background-color: $yellow;
+        }
+
+        section.line {
+            width: 1200px;
+            border-top: 2px solid $yellow;
+        }
+
+        h3 {
+            margin-top: 50px;
+            color: $white;
+            font-size: $h3;
+            font-weight: bold;
+        }
+
+        .shoppingList {
+            width: 95%;
+            margin: $center;
+            margin-top: 50px;
+            font-size: 40px;
+
+            .course {
+                border: 10px solid $orange;
+                background-color: $beige;
+
+                margin-top: 30px;
+
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+                    color: rgb(0, 0, 0);
+                    font-size: 32px;
+                    padding: 30px 0px 20px 25px;
+
+                    .title {
+                        display: flex;
+
+                        p.courseTitle {
+                            font-weight: 600;
+                            margin-right: 30px;
+                        }
+
+                    }
+
+
+                    a {
+                        // text-align: right;
+                        // flex-direction: row-reverse;
+                        // align-self: end;
+
+
+                        i {
+                            color: rgb(100, 100, 100);
+                            font-size: 40px;
+                            margin-right: 30px;
+                        }
+                    }
+                }
+
+                p.type {
+                    font-size: 26px;
+                    padding: 0px 0px 20px 25px;
+
+                }
+
+                p.price {
+                    text-align: right;
+                    font-size: 32px;
+                    color: #003B80;
+                    font-weight: 600;
+                    margin: 0px 30px 30px 0px;
+                }
+            }
+        }
+
+        .price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+
+
+            .discount {
+                margin: 50px 30px 80px 0px;
+                background-color: rgba(186, 180, 180, 0.397);
+                padding: 45px;
+                border-radius: 20px;
+                font-size: 30px;
+                width: 960px;
+
+                .ccPoint {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    letter-spacing: .1rem;
+                    color: $white;
+                    font-weight: 500;
+                }
+
+
+                input {
+                    width: 100px;
+                    height: 40px;
+                    font-size: 30px;
+                    padding: 0px 10px;
+                    border: none;
+                    margin: 0px 10px;
+                    border-radius: 10px;
+                    outline: none;
+                    text-align: right;
+                }
+            }
+
+            .sum {
+                color: $white;
+                font-size: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                font-weight: 600;
+                margin: 0px 30px 20px 0px;
+
+
+
+                .ccPoint {
+                    display: flex;
+                    margin-bottom: 30px;
+
+                    p.text {
+                        margin-right: 50px;
+                    }
+
+                    p.price {
+                        color: $yellow;
+                    }
+                }
+
+                .total {
+                    display: flex;
+                    margin-bottom: 30px;
+
+                    p.text {
+                        margin-right: 50px;
+                    }
+                }
+
+                .pay {
+                    display: flex;
+                    margin-bottom: 30px;
+
+                    p.text {
+                        margin-right: 50px;
+                    }
+                }
+            }
+        }
+
+        .payment {
+            .title {
+                font-size: $h3;
+                color: $white;
+            }
+
+
+            form.infon {
+                background-color: $beige;
+
+                .text {
+                    font-size: $h4;
+
+                }
+
+                .name {
+                    @include paymenIfon;
+
+                    label {
+                        @include paymentLabel;
+                    }
+
+                    input {
+                        @include paymentInput;
+                    }
+                }
+
+                .phoneNum {
+                    @include paymenIfon;
+
+                    label {
+                        @include paymentLabel;
+                    }
+
+                    input {
+                        @include paymentInput;
+                    }
+                }
+
+                .creditCardNum {
+                    @include paymenIfon;
+
+                    label {
+                        @include paymentLabel;
+                    }
+
+                    input {
+                        @include paymentInput;
+                    }
+                }
+
+                .date {
+                    @include paymenIfon;
+
+                    label {
+                        display: inline-block;
+                        width: $label;
+                    }
+                }
+
+                .creditCardCsc {
+                    @include paymenIfon;
+
+                    label {
+                        @include paymentLabel;
+                    }
+
+                    input {
+                        @include paymentInput;
+                    }
+                }
+            }
+        }
+    }
+}

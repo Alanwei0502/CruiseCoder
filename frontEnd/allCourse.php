@@ -40,10 +40,10 @@ include 'layout/header.php';
             <button id="fundraising">募資課程</button>
             <button id="all">所有課程</button>
             <select name="" id="">
-              <option value="volvo" style="display:none">課程類型</option>
-              <option value="saab">HTML</option>
-              <option value="opel">CSS</option>
-              <option value="audi">JavaScript</option>
+              <option value="Cate"" style="display:none">課程類型</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
             </select>
           </div>
         </div>
