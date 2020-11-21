@@ -2,7 +2,7 @@
 ?>
 <aside>
     <p class="asideTitle">
-        語宙漫遊<br/>
+        語宙漫遊<br />
         後台管理
     </p>
     <div class="user">
