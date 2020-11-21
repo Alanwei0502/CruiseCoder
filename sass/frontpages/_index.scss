@@ -85,6 +85,59 @@
 				animation-iteration-count: infinite;
 			}
 		}
+		@keyframes Planet1 {
+			0% {
+				transform: translateY(-10px);
+			}
+			25% {
+				transform: translateY(10px);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
+			75% {
+				transform: translateY(10px);
+			}
+			100% {
+				transform: translateY(-10px);
+			}
+		}
+
+		@keyframes Planet2 {
+			0% {
+				transform: translateY(10px);
+			}
+			25% {
+				transform: translateY(-10px);
+			}
+			50% {
+				transform: translateY(10px);
+			}
+			75% {
+				transform: translateY(-10px);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+
+		@keyframes Planet3 {
+			0% {
+				transform: translateY(-13px);
+			}
+			25% {
+				transform: translateY(-10px);
+			}
+			50% {
+				transform: translateY(8px);
+			}
+			75% {
+				transform: translateY(-15px);
+			}
+			100% {
+				transform: translateY(-13px);
+			}
+		}
 	}
 }
 
@@ -94,7 +147,6 @@
 	overflow: hidden;
 	position: relative;
 	height: 574.5px;
-	margin-top: 100px;
 }
 
 $skewDeg: 18deg;
@@ -236,5 +288,62 @@ $scrollTime: 1s;
 		}
 	}
 }
-
 /*輪撥 結束 Alan_Hong*/
+/*圓餅圖 結束 Alan_Hong*/
+#H2title {
+	width: 1200px;
+	margin: 0 auto !important;
+	margin-top: 100px !important;
+	color: $white;
+	font-size: $h2;
+	font-weight: bold;
+	@include h2;
+}
+div.PieChart {
+	display: block;
+	width: 1200px;
+	height: 600px;
+	margin: 0 auto;
+	font-size: 0px;
+
+	.position {
+		display: inline-block !important;
+		width: 50% !important;
+		height: 100% !important;
+	}
+
+	.containerText {
+		display: inline-flex;
+		align-items: center;
+		width: 50%;
+		height: 100%;
+		vertical-align: top;
+
+		.textBox {
+			font-size: $mp;
+			// width: 300px;
+			margin: 0 auto;
+			color: white;
+			background-color: rgba(24, 39, 73, .7);
+			border-radius: 10px;
+			padding: 20px;
+
+			p {
+				text-align: center;
+				line-height: $h1;
+				text-align: inherit;
+				letter-spacing: 2px;
+				&:nth-child(1) {
+					display: none;
+				}
+				&:nth-child(2) {
+					display: block;
+				}
+				&:nth-child(3) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+/*圓餅圖 結束 Alan_Hong*/
