@@ -155,9 +155,11 @@
 // 後台管理上面有搜尋按鈕的區塊  用法 @include blockStyle;
 @mixin blockStyle{
 	background-color: $beige;
-	margin-left: 30px;
+	// margin-left: 30px;
 	padding: 20px 30px;
 	border-radius: 10px;
+	margin: 0 auto;
+	width: 88%;
 }
 
 // 下拉式選單樣式 主要統一大概樣式 至於長度各位在自己調整
