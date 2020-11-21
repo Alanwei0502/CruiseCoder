@@ -8,14 +8,17 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
 	div.headerLeft {
 		img.logo {
 			width: 300px;
 		}
+
 		a {
 			display: inline-block;
 		}
 	}
+
 	div.headerMiddle {
 		nav {
 			ul {
@@ -23,6 +26,7 @@ header {
 
 				li {
 					margin-left: 60px;
+
 					a {
 						font-size: 1.5 * $fontSize;
 						font-weight: 700;
@@ -31,14 +35,17 @@ header {
 						padding: 5px;
 					}
 				}
+
 				li:first-child {
 					margin-left: 0;
 				}
 			}
 		}
 	}
+
 	div.headerRight {
 		position: relative;
+
 		img {
 			width: 50px;
 			padding: 5px;
@@ -59,6 +66,7 @@ header {
 			//   right: 0px;
 			// }
 		}
+
 		div.memberNav {
 			display: none;
 
@@ -66,12 +74,14 @@ header {
 			top: 80px;
 			left: -65px;
 			z-index: 20;
+
 			ul {
 				background-color: #ffdb43;
 
 				li {
 					text-align: center;
 					width: 180px;
+
 					a {
 						color: black;
 						text-decoration: none;
@@ -79,6 +89,7 @@ header {
 						display: block;
 						width: 100%;
 						padding: 15px 10px;
+
 						&:hover {
 							background-color: white;
 						}
@@ -86,9 +97,9 @@ header {
 				}
 			}
 		}
+
 		div.shoppingFancybox {
 			display: none;
-
 			position: absolute;
 			top: 80px;
 			right: -50px;
@@ -96,35 +107,45 @@ header {
 			width: 500px;
 			background-color: #fff3d8;
 			padding: 5px;
+
 			div.shopping {
 				border-top: 1px solid gray;
+
 				&:first-child {
 					border-top: 0px solid gray;
 				}
+
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				padding: 10px 20px;
 				font-size: 1.25 * $fontSize;
+
 				div.itemImage {
 					width: 160px;
+
 					img {
 						width: 100%;
 					}
 				}
+
 				div.itemText {
 					flex-grow: 2;
 					margin-left: 20px;
+
 					p.courseTitle {
 						font-weight: 700;
 						margin-bottom: 30px;
 					}
+
 					div.itemTextButtom {
 						display: flex;
 						justify-content: space-between;
+
 						p.status {
 							color: gray;
 						}
+
 						p.price {
 							font-weight: 700;
 							color: #003b80;
@@ -132,20 +153,24 @@ header {
 					}
 				}
 			}
+
 			div.shoppingTotal {
 				width: 100%;
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
+
 				p {
 					font-size: 1.25 * $fontSize;
 					text-align: center;
 					line-height: 1.875 * $fontSize;
 					padding: 10px;
+
 					span {
 						font-weight: 700;
 					}
 				}
+
 				button {
 					outline: none;
 					background-color: #ffb102;

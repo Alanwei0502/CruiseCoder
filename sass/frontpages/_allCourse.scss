@@ -166,16 +166,15 @@
                     overflow: visible;
 
                     .favorites {
-                        
                         border-radius: 50%;
                         background-color: $white;
                         position: absolute;
                         top: 0;
-                        left: 0;
-                        transform: translate(460%, 210%);
+                        right: 0;
+                        transform: translate(-10%, 270%);
 
                         i {
-                            font-size: 40px;
+                            font-size: 30px;
                             padding: 10px;
                             cursor: pointer;
                             color: rgb(212, 212, 212);
@@ -257,22 +256,23 @@
                     background-color: $white;
                     position: relative;
                     overflow: visible;
+
                     .favorites {
-                        
                         border-radius: 50%;
                         background-color: $white;
                         position: absolute;
                         top: 0;
-                        left: 0;
-                        transform: translate(460%, 210%);
+                        right: 0;
+                        transform: translate(-10%, 270%);
 
                         i {
-                            font-size: 40px;
+                            font-size: 30px;
                             padding: 10px;
                             cursor: pointer;
                             color: rgb(212, 212, 212);
                         }
                     }
+
                     img.tImg {
                         width: 80px;
                         border-radius: 50%;
@@ -418,8 +418,6 @@
             }
         }
 
-
         /* 頁碼結束 */
-
     }
 }

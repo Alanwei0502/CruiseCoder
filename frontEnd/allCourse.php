@@ -17,9 +17,9 @@
 <body>
   <div class="wrap allCourse">
     <?php
-include 'layout/spacebackground.php';
-include 'layout/header.php';
-?>
+    include 'layout/spacebackground.php';
+    include 'layout/header.php';
+    ?>
     <main>
       <div class="top">
         <h2>
@@ -40,7 +40,7 @@ include 'layout/header.php';
             <button id="fundraising">募資課程</button>
             <button id="all">所有課程</button>
             <select name="" id="">
-              <option value="Cate"" style="display:none">課程類型</option>
+              <option value="Cate"" style=" display:none">課程類型</option>
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
               <option value="JavaScript">JavaScript</option>
@@ -56,7 +56,7 @@ include 'layout/header.php';
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -80,7 +80,7 @@ include 'layout/header.php';
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -104,7 +104,7 @@ include 'layout/header.php';
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -129,7 +129,7 @@ include 'layout/header.php';
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -153,7 +153,7 @@ include 'layout/header.php';
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -177,7 +177,7 @@ include 'layout/header.php';
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
             <div class="favorites">
-            <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
@@ -216,8 +216,8 @@ include 'layout/header.php';
       <!--頁碼結束-->
     </main>
     <?php
-include 'layout/footer.php';
-?>
+    include 'layout/footer.php';
+    ?>
   </div>
 </body>
 
