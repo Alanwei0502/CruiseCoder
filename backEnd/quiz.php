@@ -61,31 +61,31 @@
           </thead>
           <tbody>
             <tr>
-              <td><label for=""><input type="checkbox" id=""><span></span></label></td>
+              <td><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><input type="checkbox"><span></span></td>
               <td>html</td>
               <td>中級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><input type="checkbox"><span></span></td>
               <td>html</td>
               <td>高級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><input type="checkbox"><span></span></td>
               <td>css</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><input type="checkbox"><span></span></td>
               <td>css</td>
               <td>中級</td>
               <td><button>編輯</button></td>
