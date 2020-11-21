@@ -1,0 +1,103 @@
+.order {
+    //需告變數
+    //置中
+    $center: 0 auto;
+
+    //  @include filterLabel;
+    @mixin filterLabel {
+        font-size: 22px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    main {
+        h2 {
+            @include backTitle;
+        }
+
+        .filter {
+            @include blockStyle;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 100px;
+
+            .date,
+            .orderNum,
+            .memberNum {
+                margin-right: 20px;
+
+                label {
+                    @include filterLabel;
+                }
+            }
+
+            .date {
+                input {
+                    @include datepickerStyle;
+                    width: 200px;
+                    border: .5px solid black;
+                }
+            }
+
+            .orderNum,
+            .memberNum {
+                input {
+                    @include selectStyle;
+                    width: 220px;
+                    border: .5px solid black;
+                }
+            }
+
+            button {
+                @include backBtn;
+                align-self: flex-end;
+            }
+
+        }
+
+        .searchResult {
+
+            table {
+                font-size: $bp;
+                width: 90%;
+                margin: 0 auto;
+
+                tr {
+                    width: 100%;
+
+                    th {
+                        font-weight: bold;
+                        padding: $fontSize*1.5 0;
+
+                        &:nth-child(1) {
+                            width: 10%;
+
+                            label {
+                                cursor: pointer;
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            width: 20%;
+                        }
+                    }
+
+                    td {
+                        border-top: 1px solid $black;
+                        text-align: center;
+                        padding: $fontSize*1.5 0;
+                    }
+                }
+
+                button {
+                    @include editBtn;
+                    background-color: $yellow;
+
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+    }
+}
