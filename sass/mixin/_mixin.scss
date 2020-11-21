@@ -142,6 +142,8 @@
 
 
 
+
+
 // 後台的樣式
 
 // 標題 ex課程管理、專欄管理、預約管理, 用法 @include backTitle;
@@ -170,6 +172,7 @@
 	&:hover{
 		cursor: pointer;
 	}
+	@content;
 }
 
 // 月曆輸入框樣式 用法 @include datepickerStyle;
@@ -236,7 +239,7 @@
 	}
 }
 
-// 下架按鈕樣式 用法 @include cancleBtn;
+// 下架按鈕樣式 用法 @include cancelBtn;
 @mixin cancelBtn{
 	outline: none;
 	font-size: $mp;
@@ -255,6 +258,22 @@
 		background-color: $blue2;
 	}
 }
+
+// 編輯按鈕樣式 用法 @include editBtn;
+@mixin editBtn{
+	outline: none;
+	border: none;
+	color: $black;
+	background-color: $white;
+	border-radius: 25px;
+	font-size: $mp;
+	padding: 5px 10px;
+	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		background-color: $blue2;
+	}
+}
+
 
 // 儲存按鈕樣式 用法 @include saveBtn;
 @mixin saveBtn{
