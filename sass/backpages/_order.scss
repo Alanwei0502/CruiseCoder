@@ -69,35 +69,58 @@
                         font-weight: bold;
                         padding: $fontSize*1.5 0;
 
-                        &:nth-child(1) {
-                            width: 10%;
-
-                            label {
-                                cursor: pointer;
-                            }
-                        }
-
-                        &:nth-child(4) {
-                            width: 20%;
+                        label {
+                            cursor: pointer;
                         }
                     }
 
-                    td {
-                        border-top: 1px solid $black;
-                        text-align: center;
-                        padding: $fontSize*1.5 0;
-                    }
+                    // &:nth-child(4) {
+                    //     width: 20%;
+                    // }
                 }
 
-                button {
-                    @include editBtn;
-                    background-color: $yellow;
-
-                    cursor: pointer;
+                td {
+                    border-top: 1px solid $black;
+                    text-align: center;
+                    padding: $fontSize*1.5 0;
                 }
             }
 
+            tr:nth-child(even) {
+                background-color: $beige;
+            }
+
+            button {
+                @include editBtn;
+                background-color: $yellow;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .orderInfo {
+        background-color: $blue3;
+        width: 70%;
+        color: $black;
+        border: 1px solid red;
+
+        h2 {
+            font-size: $h3;
+            font-weight: 600;
         }
 
+        .orderList {
+            background-color: $beige;
+
+            table {
+                font-size: $bp;
+                width: 93%;
+                margin: 0 auto;
+                tr{
+                    width: 100%;
+                    
+                }
+            }
+        }
     }
 }

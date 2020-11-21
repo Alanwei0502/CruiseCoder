@@ -31,11 +31,11 @@
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>
-          <input type="text">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
         </div>
         <div class="memberNum">
           <label for="">會員編號</label>
-          <input type="text">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
         </div>
         <button>
           搜尋
@@ -60,11 +60,89 @@
               <td>3,600</td>
               <td><button>查看</button></td>
             </tr>
+            <tr>
+              <td>2020/10/26</td>
+              <td>ON2020103000001</td>
+              <td>CCM0000001</td>
+              <td>3,600</td>
+              <td><button>查看</button></td>
+            </tr>
+            <tr>
+              <td>2020/10/26</td>
+              <td>ON2020103000001</td>
+              <td>CCM0000001</td>
+              <td>3,600</td>
+              <td><button>查看</button></td>
+            </tr>
+            <tr>
+              <td>2020/10/26</td>
+              <td>ON2020103000001</td>
+              <td>CCM0000001</td>
+              <td>3,600</td>
+              <td><button>查看</button></td>
+            </tr>
+            <tr>
+              <td>2020/10/26</td>
+              <td>ON2020103000001</td>
+              <td>CCM0000001</td>
+              <td>3,600</td>
+              <td><button>查看</button></td>
+            </tr>
           </tbody>
         </table>
       </div>
-
     </main><!-- 在這裡面coding -->
+    <!-- 訂單資訊 -->
+    <div class="orderInfo">
+      <h2>訂單資訊</h2>
+      <div class="close">
+        <i class="far fa-times-circle"></i>
+      </div>
+      <div class="orderList">
+        <table>
+          <tbody>
+            <tr>
+              <td>訂單編號</td>
+              <td>ON2020103000001</td>
+            </tr>
+            <tr>
+              <td>購買日期</td>
+              <td>2020/10/26 19：21</td>
+            </tr>
+            <tr>
+              <td>會員編號</td>
+              <td>CCM0000001</td>
+            </tr>
+            <tr>
+              <td>會員姓名</td>
+              <td>黃家偉</td>
+            </tr>
+            <tr>
+              <td>購買課程</td>
+              <td>
+                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+              </td>
+            </tr>
+            <tr>
+              <td>原始金額</td>
+              <td>4,400</td>
+            </tr>
+            <tr>
+              <td>CC.Point折抵</td>
+              <td>111</td>
+            </tr>
+            <tr>
+              <td>實付金額</td>
+              <td>4,289</td>
+            </tr>
+          </tbody>
+        </table>
+        <button>關閉</button>
+      </div>
+    </div>
   </div>
   <script src="./../js/datepicker.js"></script>
 
