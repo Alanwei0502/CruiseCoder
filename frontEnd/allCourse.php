@@ -55,6 +55,9 @@ include 'layout/header.php';
           <!-- 一般課程 -->
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
@@ -76,6 +79,9 @@ include 'layout/header.php';
           </div>
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
@@ -97,6 +103,9 @@ include 'layout/header.php';
           </div>
           <div class="wrapGeneral ">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
@@ -119,6 +128,9 @@ include 'layout/header.php';
           <!-- 募資課程 -->
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
@@ -140,6 +152,9 @@ include 'layout/header.php';
           </div>
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
@@ -161,6 +176,9 @@ include 'layout/header.php';
           </div>
           <div class="wrapFundraising">
             <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+            <i class="fas fa-heart"></i>
+            </div>
             <a class="img" href="">
               <img src="../images/allCourse/course01.png" alt="">
             </a>

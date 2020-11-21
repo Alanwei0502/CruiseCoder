@@ -79,29 +79,35 @@
                 <form class="infon">
                     <div class="text">
                         <p>付款方式-信用卡</p>
-                        <img src="" alt="">
+                        <div class="img">
+                            <img src="../images/allCourse/creditcard.png" alt="">
+                        </div>
                     </div>
+                    <p class="note">（ * 為必填欄位）</p>
                     <div class="name">
                         <label class="text">
-                        *持卡人姓名
+                            * 持卡人姓名
                         </label>
                         <input type="text">
                     </div>
                     <div class="phoneNum">
                         <label class="text">
-                        *手機號碼
+                            * 手機號碼
                         </label>
                         <input type="text">
                     </div>
                     <div class="creditCardNum">
                         <label class="text">
-                        *信用卡卡號
+                            * 信用卡卡號
                         </label>
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
                         <input type="text">
                     </div>
                     <div class="date">
                         <label class="text">
-                        *有效日期
+                            * 有效日期
                         </label>
 
                         <select>
@@ -118,7 +124,7 @@
                             <option value="">11</option>
                             <option value="">12</option>
                         </select>
-                        <label for="">月</label>
+                        <label for="" class="months">月</label>
 
                         <select>
                             <option value="">2020</option>
@@ -127,11 +133,11 @@
                             <option value="">2023</option>
                             <option value="">2024</option>
                         </select>
-                        <label for="">年</label>
+                        <label for="" class="years">年</label>
                     </div>
                     <div class="creditCardCsc">
                         <label class="text">
-                        *背面末三碼
+                            * 背面末三碼
                         </label>
                         <input type="text">
                     </div>

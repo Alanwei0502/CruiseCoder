@@ -2,9 +2,17 @@
     //需告變數
     //置中
     $center: 0 auto;
-    $label: 180px;
+    $label: 190px;
 
     //付款方式
+    // 使用方法: @include paymentLabel;
+    @mixin paymentLabel {
+        display: inline-block;
+        width: $label;
+        font-weight: 500;
+        // vertical-align: middle;
+    }
+
     // 使用方法: @include paymentInput;
     @mixin paymentInput {
         border: none;
@@ -12,14 +20,8 @@
         box-shadow: 1px 1px 10px rgb(211, 211, 211);
         width: 300px;
         outline: none;
-        font-size: $h4;
-    }
-
-    // 使用方法: @include paymentLabel;
-    @mixin paymentLabel {
-        display: inline-block;
-        width: $label;
-        vertical-align: middle;
+        font-size: 30px;
+        padding-left: 10px;
     }
 
     // 使用方法: @include paymenIfon;
@@ -33,31 +35,22 @@
     main {
         max-width: 1200px;
         margin: $center;
-        border: 1px solid white;
+        // border: 1px solid white;
 
         h2 {
             margin-top: 50px;
             color: aliceblue;
             font-size: $h2;
             font-weight: bold;
-        }
-
-        section.block {
-            width: 300px;
-            height: 10px;
-            background-color: $yellow;
-        }
-
-        section.line {
-            width: 1200px;
-            border-top: 2px solid $yellow;
+            @include h2
         }
 
         h3 {
-            margin-top: 50px;
+            margin: 50px 0px 0px 30px;
             color: $white;
             font-size: $h3;
             font-weight: bold;
+
         }
 
         .shoppingList {
@@ -178,7 +171,7 @@
                     }
 
                     p.price {
-                        color: $yellow;
+                        color: $red;
                     }
                 }
 
@@ -203,18 +196,57 @@
         }
 
         .payment {
+            @include clearfixed;
+            margin-bottom: 150px;
+
             .title {
                 font-size: $h3;
                 color: $white;
+                padding: 0px 0px 30px 30px;
+                font-weight: 600;
             }
 
 
             form.infon {
                 background-color: $beige;
+                margin: $center;
+                width: 95%;
 
                 .text {
                     font-size: $h4;
+                    display: flex;
 
+                    p {
+                        padding: 70px 20px 20px 50px;
+                        font-weight: 600;
+                    }
+
+                    .img {
+                        height: 50px;
+                        width: 200px;
+                        position: relative;
+                        margin-top: 60px;
+
+                        img {
+                            max-height: 100%;
+                            max-width: 100%;
+                            width: auto;
+                            height: auto;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+                    }
+
+                }
+
+                p.note {
+                    color: #707070;
+                    padding: 0px 0px 30px 40px;
+                    font-size: $bp;
                 }
 
                 .name {
@@ -250,6 +282,9 @@
 
                     input {
                         @include paymentInput;
+                        width: 90px;
+                        margin-right: 10px;
+
                     }
                 }
 
@@ -260,10 +295,38 @@
                         display: inline-block;
                         width: $label;
                     }
+
+                    select {
+                        border: none;
+                        height: 45px;
+                        box-shadow: 1px 1px 10px rgb(211, 211, 211);
+                        width: 100px;
+                        outline: none;
+                        font-size: $h4;
+                        font-size: 25px;
+
+                    }
+
+                    label.months {
+                        width: 55px;
+                        display: inline-block;
+                        font-size: 28px;
+                        font-weight: 500;
+                        padding-left: 3px;
+                    }
+
+                    label.years {
+                        width: 55px;
+                        display: inline-block;
+                        font-size: 28px;
+                        font-weight: 500;
+                        padding-left: 3px;
+                    }
                 }
 
                 .creditCardCsc {
                     @include paymenIfon;
+                    padding-bottom: 100px;
 
                     label {
                         @include paymentLabel;
@@ -271,8 +334,16 @@
 
                     input {
                         @include paymentInput;
+                        width: 90px;
+
                     }
                 }
+            }
+
+            button {
+                float: right;
+                margin-right: 30px;
+                @include btn
             }
         }
     }

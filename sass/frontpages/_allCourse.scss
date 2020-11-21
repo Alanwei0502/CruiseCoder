@@ -8,7 +8,7 @@
 
         max-width: 1200px;
         margin: $center;
-        border: 1px solid $white;
+        // border: 1px solid $white;
 
         .top {
             margin-top: 100px;
@@ -17,18 +17,10 @@
                 color: $white;
                 font-size: $h2;
                 font-weight: bold;
+                @include h2;
             }
 
-            section.block {
-                width: 300px;
-                height: 10px;
-                background-color: $yellow;
-            }
 
-            section.line {
-                width: 1200px;
-                border-top: 2px solid $yellow;
-            }
 
             .filter {
                 margin-top: 50px;
@@ -73,7 +65,7 @@
                 }
 
                 .category {
-                    border: 1px solid $white;
+                    // border: 1px solid $white;
                     display: flex;
 
                     button {
@@ -173,6 +165,23 @@
                     position: relative;
                     overflow: visible;
 
+                    .favorites {
+                        
+                        border-radius: 50%;
+                        background-color: $white;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(460%, 210%);
+
+                        i {
+                            font-size: 40px;
+                            padding: 10px;
+                            cursor: pointer;
+                            color: rgb(212, 212, 212);
+                        }
+                    }
+
                     img.tImg {
                         width: 80px;
                         border-radius: 50%;
@@ -184,7 +193,6 @@
 
                     a.img {
                         display: inline-block;
-
 
 
                         img {
@@ -246,10 +254,25 @@
                     margin-top: 50px !important;
                     width: 340px;
                     border-radius: 20px;
-                    background-color:$white;
+                    background-color: $white;
                     position: relative;
                     overflow: visible;
+                    .favorites {
+                        
+                        border-radius: 50%;
+                        background-color: $white;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(460%, 210%);
 
+                        i {
+                            font-size: 40px;
+                            padding: 10px;
+                            cursor: pointer;
+                            color: rgb(212, 212, 212);
+                        }
+                    }
                     img.tImg {
                         width: 80px;
                         border-radius: 50%;
@@ -382,11 +405,13 @@
                         font-weight: 600;
                         font-size: 30px;
                     }
+
                     a:hover {
-                       
+
                         color: rgb(39, 38, 38);
                     }
                 }
+
                 li:hover {
                     background-color: $yellow;
                 }
