@@ -34,7 +34,7 @@
                     <label for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
 
                 </div>
-                <button class="startQuiz next">開始試煉</button>
+                <button class="startQuiz">開始試煉</button>
             </section>
 
             <section class="inQuiz">
@@ -47,7 +47,7 @@
                         <label for="d1"><input type="radio" id="d1" name="selection">(D) 呈現在網頁上的結構，我們應該要寫在HTML檔案中的body標籤裡面。</label>
                     </div>
                 </div>
-                <button class="nextQuestion next">下一題</button>
+                <button class="nextQuestion">下一題</button>
             </section>
 
             <section class="inQuiz">
@@ -60,7 +60,7 @@
                         <label for="d2"><input type="radio" id="d2" name="selection">(D) span標籤是區塊元素</label>
                     </div>
                 </div>
-                <button class="nextQuestion next">下一題</button>
+                <button class="nextQuestion">下一題</button>
 
             </section>
 
@@ -74,7 +74,7 @@
                         <label for="d3"><input type="radio" id="d3" name="selection">(D) 建立表格，要先用form包在最外面</label>
                     </div>
                 </div>
-                <button class="nextQuestion next">完成試煉</button>
+                <button class="nextQuestion">完成試煉</button>
 
             </section>
 
