@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇宙漫遊</title>
+  <title>後台 | 文章管理</title>
   <link rel="stylesheet" href="./../css/main2.css">
 </head>
 
@@ -91,11 +91,11 @@
       </div>
 
       <ul>
-        <li><img src="./../images/pagearrow.png" alt="無法顯示圖片"></li>
+        <li><img src="./../images/backEnd/pagearrow.png" alt="無法顯示圖片"></li>
         <li>1</li>
         <li>2</li>
         <li>3</li>
-        <li class="lastLi"><img src="./../images/pagearrow.png" alt="無法顯示圖片"></li>
+        <li class="lastLi"><img src="./../images/backEnd/pagearrow.png" alt="無法顯示圖片"></li>
       </ul>
     </main><!-- 在這裡面codeing -->
   </div>

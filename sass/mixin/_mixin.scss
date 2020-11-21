@@ -68,7 +68,6 @@
 
 
 
-
 // 標題黃線，用法：@include h2;
 @mixin h2{
     font-size: $h2;
@@ -144,7 +143,7 @@
 
 
 
-// 後台的樣式
+// =========後台的樣式============
 
 // 標題 ex課程管理、專欄管理、預約管理, 用法 @include backTitle;
 @mixin backTitle{
@@ -156,9 +155,11 @@
 // 後台管理上面有搜尋按鈕的區塊  用法 @include blockStyle;
 @mixin blockStyle{
 	background-color: $beige;
-	margin-left: 30px;
+	// margin-left: 30px;
 	padding: 20px 30px;
 	border-radius: 10px;
+	margin: 0 auto;
+	width: 88%;
 }
 
 // 下拉式選單樣式 主要統一大概樣式 至於長度各位在自己調整
@@ -181,7 +182,7 @@
 	border-radius: 8px;
 	outline: none;
 	padding: 5px 10px;
-	background-image: url("./../images/calendaricon.png");
+	background-image: url("./../images/backEnd/calendaricon.png");
 	background-repeat: no-repeat;
 	background-size: 30px;
 	background-position: center right 10px;
@@ -199,6 +200,34 @@
 	padding: 5px 10px;
 }
 
+//checkbox打勾勾，用法 @include checkbox;
+@mixin checkbox{
+		cursor: pointer;
+		display: none;
+
+	+span{
+		background-image: url('../images/backEnd/blank-check-box.svg');
+		display: inline-block;
+		width: $mp;
+		height: $mp;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+		margin-left: $fontSize * 0.5;
+	}
+	&:checked+span{
+		width: $mp;
+		height: $mp;
+		display: inline-block;
+		background-image: url('../images/backEnd/check-box.svg');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+		margin-left: $fontSize * 0.5;
+	}
+}
+
+
 
 // 搜尋btn樣式  用法 @include backBtn; 
 @mixin backBtn{
@@ -209,7 +238,7 @@
 	padding: 10px 10px 10px 38px;
 	border-radius: 5px;
 	font-size: $mp;
-	background-image: url("./../images/searchicon.png");
+	background-image: url("./../images/backEnd/searchicon.png");
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	background-position: center left 13px;
@@ -228,7 +257,7 @@
 	padding: 10px 10px 10px 45px;
 	border: none;
 	border-radius: 30px;
-	background-image: url("./../images/addicon.png");
+	background-image: url("./../images/backEnd/addicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
@@ -248,7 +277,7 @@
 	padding: 10px 10px 10px 45px;
 	border: none;
 	border-radius: 30px;
-	background-image: url("./../images/cancelicon.png");
+	background-image: url("./../images/backEnd/cancelicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
@@ -284,7 +313,7 @@
 	font-size: $mp;
 	padding: 5px 20px 5px 55px;
 	border-radius: 25px;
-	background-image: url("./../images/saveicon.png");
+	background-image: url("./../images/backEnd/saveicon.png");
 	background-repeat: no-repeat;
 	background-size: 24px 24px; 
 	background-position: center left 20px;
