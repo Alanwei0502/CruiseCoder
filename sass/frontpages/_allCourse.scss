@@ -8,13 +8,13 @@
 
         max-width: 1200px;
         margin: $center;
-        border: 1px solid white;
+        border: 1px solid $white;
 
         .top {
             margin-top: 100px;
 
             h2 {
-                color: aliceblue;
+                color: $white;
                 font-size: $h2;
                 font-weight: bold;
             }
@@ -73,7 +73,7 @@
                 }
 
                 .category {
-                    border: 1px solid white;
+                    border: 1px solid $white;
                     display: flex;
 
                     button {
@@ -82,8 +82,11 @@
                         /*碰到按鈕鼠標會變手*/
                         cursor: pointer;
                         margin: 0 10px 0 0;
-                        border: 0 solid transparent;
+                        border: 5px solid $yellow;
                         padding: 0 15px;
+                        color: $white;
+                        background-color: transparent;
+                        outline: none;
 
                         .dropdown {
                             display: flex;
@@ -92,22 +95,22 @@
 
                     button:hover {
                         background-color: $red;
-                        color: #fff;
+                        color: $white;
                         font-weight: 600;
                     }
 
                     select {
-                        width: 200px;
+                        width: 145px;
                         border-radius: 50px;
-                        border: 0 solid transparent;
                         font-size: $bp;
                         padding: 0 15px;
                         //隱藏預設箭頭
                         appearance: none;
-                        //載入客製化箭頭
-                        background: url('../images/allCourse/down.png') 90% 50% no-repeat transparent;
-                        background-size: 15px 15px;
-                        background-color: #ffffff;
+                        background-color: transparent;
+                        color: $white;
+                        border: 5px solid $yellow;
+                        outline: none;
+
 
                         option {
                             background-color: #F6F7F7;
@@ -117,7 +120,7 @@
 
                     select:hover {
                         background-color: $red;
-                        color: #fff;
+                        color: $white;
                         font-weight: 600;
                     }
 
@@ -128,7 +131,7 @@
 
         .content {
             h3 {
-                color: #fff;
+                color: $white;
                 font-size: $h3;
                 text-align: center;
                 position: relative;
@@ -166,7 +169,7 @@
                     margin-top: 50px !important;
                     width: 340px;
                     border-radius: 20px;
-                    background-color: #fff;
+                    background-color: $white;
                     position: relative;
                     overflow: visible;
 
@@ -243,7 +246,7 @@
                     margin-top: 50px !important;
                     width: 340px;
                     border-radius: 20px;
-                    background-color: #fff;
+                    background-color:$white;
                     position: relative;
                     overflow: visible;
 
@@ -370,8 +373,6 @@
                     background-color: #404040;
                     border-radius: 30%;
 
-
-
                     a {
                         color: rgb(255, 255, 255);
                         display: inline-block;
@@ -381,6 +382,13 @@
                         font-weight: 600;
                         font-size: 30px;
                     }
+                    a:hover {
+                       
+                        color: rgb(39, 38, 38);
+                    }
+                }
+                li:hover {
+                    background-color: $yellow;
                 }
             }
         }
