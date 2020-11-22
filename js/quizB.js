@@ -1,21 +1,42 @@
+//checkbox全選功能
 var tbody = document.getElementsByTagName('tbody');
-// var tr = tbody[0].querySelectorAll('tr');
-// tr.filter(function (item, index) {
-//     return index % 2 !== 0;
-// });
+var checkbox = tbody[0].querySelectorAll('input');
+var checkAll = document.getElementsByClassName('checkAll');
 
-// tr.style.cssText = 'background-color: #FBF7EB';
+checkAll[0].addEventListener('click', function () {
+    if (checkAll[0].checked) {
+        for (let i = 0; i < checkbox.length; i++) {
+            checkbox[i].checked = true;
+        };
+    } else {
+        for (let i = 0; i < checkbox.length; i++) {
+            checkbox[i].checked = false;
+        };
+    }
+});
 
+
+//table顏色交錯
 var tr = tbody[0].querySelectorAll('tr');
-var checkbox = tbody[0].querySelectorAll('checkbox');
 
-// for(let i = 0; i < tr.length; i++){
-//     tr[i].addEventListener('click',function(){
-//         if(checkbox[i]){
-//             checkbox[i].checked;
-//         }else{
+for (let i = 0; i < checkbox.length; i++) {
+    if (i % 2 === 0) {
+        tr[i].style.cssText = 'background-color: #FBF7EB';
+    }
+}
 
-//         }
-//     });
-// }
-// console.log(tr);
+
+// 新增試題功能
+var addQuiz = document.getElementsByClassName('add');
+var quizModalBg = document.getElementsByClassName('quizModalBg');
+addQuiz[0].addEventListener('click', function () {
+    quizModalBg[0].style.cssText = 'display: block;';
+});
+
+
+//跳出modal視窗，叉叉按鈕
+var quizModalBg = document.getElementsByClassName('quizModalBg');
+var closeModal = document.getElementsByClassName('closeModal');
+closeModal[0].addEventListener('click', function () {
+    quizModalBg[0].style.cssText = 'display: none';
+});
