@@ -22,6 +22,7 @@ div.quiz{
             }
             button{
                 @include backBtn;
+                white-space: nowrap;
             }
         }
         .table{
@@ -138,12 +139,11 @@ div.quiz{
                             width: 120px;
                             white-space: nowrap;
                         }
-                        .quizField, .quizLevel{
+                        .quizLevel{
                             @include selectStyle;
                         }
                         .newField{
                             @include inputTextStyle;
-                            margin-left: $fontSize;
                         }
                         input[type=file]{
                             @include uploadImg;

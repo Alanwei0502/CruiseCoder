@@ -41,7 +41,23 @@ closeModal.addEventListener('click', function () {
 
 //下架試題按鈕功能
 var off = document.getElementsByClassName('off')[0];
+off.addEventListener('click', function () {
+    // var choose = checkbox.some(e => e.checked);
+    // console.log(choose);
+    // if () {
 
+    // } else {
+
+    // }
+    alert('確定要刪除以勾選的題目');
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked) {
+            checkbox[i].closest('tr').remove();
+        }
+    }
+
+
+});
 
 //難易度選擇星系時，無法新增題目
 var quizLevel = document.getElementsByClassName('quizLevel')[0];
@@ -103,7 +119,7 @@ createQ.addEventListener('click', function () {
     //將新增的標籤插入到div.topFunction的結尾標籤之後
     topFunction.insertAdjacentHTML("afterend", str);
 
-    //清除全選
+    //若有新增題目都會重新清除全選
     var mainEdit = document.getElementsByClassName('mainEdit')[0];
     var checkForQ = mainEdit.querySelectorAll('.checkForQ');
     (function () {
@@ -128,20 +144,3 @@ createQ.addEventListener('click', function () {
     });
 
 });
-
-
-//彈跳視窗內的checkbox全選功能
-// var downQuestion = document.getElementsByClassName('downQuestion')[0];
-// var checkboxM = downQuestion.querySelectorAll('input');
-
-// selectAll.addEventListener('click', function () {
-//     if (selectAll.checked) {
-//         for (let i = 0; i < checkboxM.length; i++) {
-//             checkboxM[i].checked = true;
-//         };
-//     } else {
-//         for (let i = 0; i < checkboxM.length; i++) {
-//             checkboxM[i].checked = false;
-//         };
-//     }
-// });

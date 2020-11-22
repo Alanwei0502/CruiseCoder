@@ -23,7 +23,7 @@
       <h2>題庫管理</h2>
       <section class="searchbar">
         <div>
-          <label>領域<br>
+          <label>領域
             <select>
               <option value="1">html</option>
               <option value="2">css</option>
@@ -31,16 +31,17 @@
             </select>
           </label>
 
-          <label>難易度<br>
+          <label>難易度
             <select>
-              <option value="0">初級</option>
-              <option value="1">中級</option>
-              <option value="2">高級</option>
+              <option value="1">初級</option>
+              <option value="2">中級</option>
+              <option value="3">高級</option>
+              <option value="0">星系</option>
             </select>
           </label>
         </div>
 
-        <button>搜尋</button>
+        <button type="button">搜尋</button>
 
       </section>
 
@@ -107,12 +108,6 @@
             <form action="quiz.php" method="get">
               <div>
                 <span>領域</span>
-                <select class="quizField">
-                  <option value="" selected></option>
-                  <option value="">html</option>
-                  <option value="">css</option>
-                  <option value="">javascript</option>
-                </select>
                 <input type="text" class="newField" placeholder="請輸入新增的領域名稱">
               </div>
 
@@ -139,42 +134,6 @@
                     <button type="button" class="createQ">新增題目</button>
                   </div>
                 </div>
-                <!-- <div class="downQuestion">
-                  <label><input type="checkbox" class="checkForQ"><span></span></label>
-                  <div class="contentQ">
-                    <textarea placeholder="請輸入題目內容"></textarea>
-                    <ul>
-                      <li>
-                        <span>A:</span>
-                        <textarea placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>B:</span>
-                        <textarea placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>C:</span>
-                        <textarea placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>D:</span>
-                        <textarea placeholder="請輸入選項內容"></textarea>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ansAndSta">
-                    <select>
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                    </select>
-                    <select>
-                      <option value="">on</option>
-                      <option value="">off</option>
-                    </select>
-                  </div>
-                </div> -->
               </div>
 
 
