@@ -92,70 +92,33 @@
 
             button {
                 @include editBtn;
+                background-color: $yellow;
                 cursor: pointer;
             }
         }
     }
 
     .orderInfo {
-        background-color: $white;
+        background-color: $blue3;
         width: 70%;
         color: $black;
         border: 1px solid red;
-        border-radius: 30px;
 
         h2 {
-            font-size: $h2;
+            font-size: $h3;
             font-weight: 600;
-            margin: 50px 0 50px 40px;
         }
 
         .orderList {
             background-color: $beige;
-            margin: $center;
-            margin-bottom: 50px;
-            width: 90%;
-
 
             table {
                 font-size: $bp;
                 width: 93%;
-                margin: $center;
-
-                tr {
+                margin: 0 auto;
+                tr{
                     width: 100%;
-
-                    td {
-
-                        padding: $fontSize*1.5 0;
-
-                        p {
-                            padding: $fontSize 0;
-
-                        }
-                    }
-
-
-                }
-            }
-
-            button {
-                float: right;
-                outline: none;
-                border: none;
-                color: $white;
-                background-color: $orange;
-                font-size: $mp;
-                padding: 5px 20px 5px 20px;
-                border-radius: 25px;
-
-                background-repeat: no-repeat;
-                background-size: 24px 24px;
-                background-position: center left 20px;
-
-                &:hover {
-                    cursor: pointer;
-                    background-color: $blue2;
+                    
                 }
             }
         }
