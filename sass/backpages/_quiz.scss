@@ -29,7 +29,7 @@ div.quiz{
                 display: flex;
                 justify-content: flex-end;
                 button{
-                    margin: $fontSize * 2;
+                    margin: $fontSize*2;
                 }
                 .off{
                     @include cancelBtn;
@@ -77,21 +77,25 @@ div.quiz{
                     }
                 }
             }
+            .changePage{
+                display: flex;
+                justify-content: flex-end;
+                .lastPage, .nextPage{
+                    @include changePage;
+                    margin: $fontSize * 2;
+                }
+            }
         }
-        // .searchbar, .table{
-        //     // display: none;
-        // }
         .quizModalBg{
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
             background: hsla(0%,0%,0%,.5);
-            // opacity: 0;
-            // z-index: -1;
-            // transition: opacity 1s;
+            opacity: 0;
+            z-index: -1;
+            transition: all .3s;
 
             .quizModal{
                 background-color: $beige;
@@ -124,6 +128,7 @@ div.quiz{
                }
                 form{
                     padding: $fontSize*2;
+                    @include clearfixed;
 
                     > div{
                         padding: $fontSize 0;
@@ -141,12 +146,7 @@ div.quiz{
                             margin-left: $fontSize;
                         }
                         input[type=file]{
-                            font-size: $mp;
-                            padding: 5px;
-                            border-radius: 8px;
-                            border: 1px solid black;
-                            outline: none;
-                            cursor: pointer;
+                            @include uploadImg;
                         }
                         .topFunction{
                             background-color: $blue1;
@@ -185,7 +185,6 @@ div.quiz{
                             display: flex;
                             background-color: $beige;
                             label{
-                                // border: 1px solid red;
                                 display: block;
                                 flex-grow: 1;
                                 padding: $fontSize 0;
@@ -197,7 +196,6 @@ div.quiz{
                             }
                             .contentQ{
                                 flex-grow: 25;
-                                // border: 1px solid gray;
                                 padding: $fontSize*0.5;
                                 textarea{
                                     width: 100%;
@@ -245,7 +243,11 @@ div.quiz{
                                     box-shadow: 5px 5px 10px -5px gray;
                                 }
                             }
-                        }
+                        } 
+                    }
+                    button[type=submit]{
+                        @include addBtn;
+                        float: right;
                     }
                 }
             }

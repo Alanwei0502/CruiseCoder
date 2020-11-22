@@ -231,60 +231,68 @@
 
 // 搜尋btn樣式  用法 @include backBtn; 
 @mixin backBtn{
+	cursor: pointer;
 	height: 50px;
 	outline: none;
 	border: none;
+	color: $white;
 	background-color: $orange;
 	padding: 10px 10px 10px 38px;
-	border-radius: 5px;
+	border-radius: 30px;
 	font-size: $mp;
 	background-image: url("./../images/backEnd/searchicon.png");
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	background-position: center left 13px;
+	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/searchicon1.png");
 	}
 }
 
 // 新增按鈕樣式  用法 @include addBtn;
 @mixin addBtn{
+	cursor: pointer;
 	outline: none;
+	border: none;
 	font-size: $mp;
 	color: $white;
 	background-color: $orange;
 	padding: 10px 10px 10px 45px;
-	border: none;
-	border-radius: 30px;
+	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/addicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/addicon1.png");
 	}
 }
 
 // 下架按鈕樣式 用法 @include cancelBtn;
 @mixin cancelBtn{
+	cursor: pointer;
 	outline: none;
+	border: none;
 	font-size: $mp;
 	color: $white;
 	background-color: $red;
 	padding: 10px 10px 10px 45px;
-	border: none;
-	border-radius: 30px;
+	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/cancelicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/cancelicon1.png");
 	}
 }
 
@@ -292,16 +300,36 @@
 @mixin editBtn{
 	outline: none;
 	border: none;
-	color: $black;
+	color: $blue1;
 	background-color: $white;
 	border-radius: 25px;
 	font-size: $sp;
 	padding: 5px 15px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
+		color: $blue1;
 		background-color: $blue2;
 	}
 }
+
+
+//上一頁和下一頁的按鈕樣式，用法  @include changePage;
+@mixin changePage{
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: $blue1;
+	color: $white;
+	font-size: $mp;
+	padding: $fontSize*0.5 $fontSize*2;
+	border-radius: $fontSize*2;
+	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		background-color: $blue2;
+		color: $blue1;
+	}
+}
+
 
 //圖片上傳的input按鈕樣式，用法  @include uploadImg;
 @mixin uploadImg{
@@ -316,19 +344,21 @@
 
 // 儲存按鈕樣式 用法 @include saveBtn;
 @mixin saveBtn{
+	cursor: pointer;
 	outline: none;
 	border: none;
 	color: $white;
 	background-color: $orange;
 	font-size: $mp;
 	padding: 5px 20px 5px 55px;
-	border-radius: 25px;
+	border-radius: 30px;
 	background-image: url("./../images/backEnd/saveicon.png");
 	background-repeat: no-repeat;
 	background-size: 24px 24px; 
 	background-position: center left 20px;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/saveicon1.png");
 	}
 }

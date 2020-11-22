@@ -92,6 +92,11 @@
             </tr>
           </tbody>
         </table>
+
+        <div class="changePage">
+          <button class="lastPage">上一頁</button>
+          <button class="nextPage">下一頁</button>
+        </div>
       </section>
 
       <section class="quizModalBg">
@@ -102,7 +107,8 @@
             <form action="quiz.php" method="get">
               <div>
                 <span>領域</span>
-                <select name="" class="quizField">
+                <select class="quizField">
+                  <option value="" selected></option>
                   <option value="">html</option>
                   <option value="">css</option>
                   <option value="">javascript</option>
@@ -112,11 +118,11 @@
 
               <div>
                 <span>難易度</span>
-                <select name="" class="quizLevel">
-                  <option value="">初級</option>
-                  <option value="">中級</option>
-                  <option value="">高級</option>
-                  <option value="">星系</option>
+                <select class="quizLevel">
+                  <option value="1">初級</option>
+                  <option value="2">中級</option>
+                  <option value="3">高級</option>
+                  <option value="0">星系</option>
                 </select>
               </div>
 
@@ -125,167 +131,62 @@
                 <input type="file" accept="image/*">
               </div>
 
-              <div>
+              <div class="mainEdit">
                 <div class="topFunction">
-                  <label>全選<input type="checkbox"><span></span></label>
+                  <label>全選<input type="checkbox" class="selectAll"><span></span></label>
                   <div>
-                    <button class="deleteQ">刪除題目</button>
-                    <button class="createQ">新增題目</button>
+                    <button type="button" class="deleteQ">刪除題目</button>
+                    <button type="button" class="createQ">新增題目</button>
                   </div>
                 </div>
-                <div class="downQuestion">
-                  <label><input type="checkbox"><span></span></label>
+                <!-- <div class="downQuestion">
+                  <label><input type="checkbox" class="checkForQ"><span></span></label>
                   <div class="contentQ">
-                    <textarea name="" id="" placeholder="請輸入題目內容"></textarea>
+                    <textarea placeholder="請輸入題目內容"></textarea>
                     <ul>
                       <li>
                         <span>A:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
+                        <textarea placeholder="請輸入選項內容"></textarea>
                       </li>
                       <li>
                         <span>B:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
+                        <textarea placeholder="請輸入選項內容"></textarea>
                       </li>
                       <li>
                         <span>C:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
+                        <textarea placeholder="請輸入選項內容"></textarea>
                       </li>
                       <li>
                         <span>D:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
+                        <textarea placeholder="請輸入選項內容"></textarea>
                       </li>
                     </ul>
                   </div>
                   <div class="ansAndSta">
-                    <select name="" id="">
+                    <select>
                       <option value="">A</option>
                       <option value="">B</option>
                       <option value="">C</option>
                       <option value="">D</option>
                     </select>
-                    <select name="" id="">
+                    <select>
                       <option value="">on</option>
                       <option value="">off</option>
                     </select>
                   </div>
-                </div>
-                <div class="downQuestion">
-                  <label><input type="checkbox"><span></span></label>
-                  <div class="contentQ">
-                    <textarea name="" id="" placeholder="請輸入題目內容"></textarea>
-                    <ul>
-                      <li>
-                        <span>A:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>B:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>C:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>D:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ansAndSta">
-                    <select name="" id="">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">on</option>
-                      <option value="">off</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="downQuestion">
-                  <label><input type="checkbox"><span></span></label>
-                  <div class="contentQ">
-                    <textarea name="" id="" placeholder="請輸入題目內容"></textarea>
-                    <ul>
-                      <li>
-                        <span>A:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>B:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>C:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>D:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ansAndSta">
-                    <select name="" id="">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">on</option>
-                      <option value="">off</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="downQuestion">
-                  <label><input type="checkbox"><span></span></label>
-                  <div class="contentQ">
-                    <textarea name="" id="" placeholder="請輸入題目內容"></textarea>
-                    <ul>
-                      <li>
-                        <span>A:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>B:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>C:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                      <li>
-                        <span>D:</span>
-                        <textarea name="" id="" placeholder="請輸入選項內容"></textarea>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ansAndSta">
-                    <select name="" id="">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">on</option>
-                      <option value="">off</option>
-                    </select>
-                  </div>
-                </div>
+                </div> -->
               </div>
 
 
-              <button type="submit">新增試題</button>
+              <button type="submit">確認新增</button>
             </form>
           </section>
         </section>
       </section>
+
       <section class="question"></section>
+
+
     </main><!-- 在這裡面codeing -->
   </div>
   <script src="../js/quizB.js"></script>
