@@ -1,4 +1,5 @@
 .order {
+    flex-wrap: wrap;
     //需告變數
     //置中
     $center: 0 auto;
@@ -92,33 +93,82 @@
 
             button {
                 @include editBtn;
-                background-color: $yellow;
                 cursor: pointer;
             }
         }
     }
 
     .orderInfo {
-        background-color: $blue3;
-        width: 70%;
+        background-color: $white;
+        width: 80%;
         color: $black;
         border: 1px solid red;
+        border-radius: 30px;
+
 
         h2 {
-            font-size: $h3;
+            font-size: 32px;
             font-weight: 600;
+            margin: 50px 0 50px 40px;
         }
 
         .orderList {
             background-color: $beige;
+            margin: $center;
+            margin-bottom: 50px;
+            width: 90%;
+            font-size: 26px;
+            box-shadow: 1px 3px 2px rgb(206, 206, 206);
+            // position: relative;
+
+
 
             table {
                 font-size: $bp;
                 width: 93%;
-                margin: 0 auto;
-                tr{
+                margin: $center;
+
+                tr {
                     width: 100%;
-                    
+
+                    td.listTitle {
+                        font-weight: 600;
+                    }
+
+                    td {
+
+                        padding: $fontSize*1.5 0;
+
+                        p {
+                            padding: $fontSize 0;
+
+                        }
+                    }
+
+
+                }
+            }
+
+            button {
+                float: right;
+                outline: none;
+                border: none;
+                color: $white;
+                background-color: $orange;
+                font-size: $mp;
+                padding: 5px 20px 5px 20px;
+                border-radius: 25px;
+                background-repeat: no-repeat;
+                background-size: 24px 24px;
+                background-position: center left 20px;
+                margin: 30px 0;
+                // position: absolute;
+                // right: 0;
+                // bottom: 0;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $blue2;
                 }
             }
         }

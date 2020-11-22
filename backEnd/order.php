@@ -102,23 +102,23 @@
         <table>
           <tbody>
             <tr>
-              <td>訂單編號</td>
+              <td class="listTitle">訂單編號</td>
               <td>ON2020103000001</td>
             </tr>
             <tr>
-              <td>購買日期</td>
+              <td class="listTitle">購買日期</td>
               <td>2020/10/26 19：21</td>
             </tr>
             <tr>
-              <td>會員編號</td>
+              <td class="listTitle">會員編號</td>
               <td>CCM0000001</td>
             </tr>
             <tr>
-              <td>會員姓名</td>
+              <td class="listTitle">會員姓名</td>
               <td>黃家偉</td>
             </tr>
             <tr>
-              <td>購買課程</td>
+              <td class="listTitle">購買課程</td>
               <td>
                 <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
                 <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
@@ -127,15 +127,15 @@
               </td>
             </tr>
             <tr>
-              <td>原始金額</td>
+              <td class="listTitle">原始金額</td>
               <td>4,400</td>
             </tr>
             <tr>
-              <td>CC.Point折抵</td>
+              <td class="listTitle">CC.Point折抵</td>
               <td>111</td>
             </tr>
             <tr>
-              <td>實付金額</td>
+              <td class="listTitle">實付金額</td>
               <td>4,289</td>
             </tr>
           </tbody>
