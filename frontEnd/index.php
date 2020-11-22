@@ -38,12 +38,14 @@
             <a href="#">前往試煉</a>
             </div>
 
-            <img src="../images/Planet1.png" class="Planet1">
-            <img src="../images/Planet2.png" class="Planet2">
-            <img src="../images/Planet3.png" class="Planet3">
-            <img src="../images/Planet4.png" class="Planet4">
+            <img src="../images/index/Planet1.png" class="Planet1">
+            <img src="../images/index/Planet2.png" class="Planet2">
+            <img src="../images/index/Planet3.png" class="Planet3">
+            <img src="../images/index/Planet4.png" class="Planet4">
         </div>
         <!-- banner結束 -->
+
+
         <!-- 輪撥開始 -->
         <div class="skw-pages">
             <div class="skw-page skw-page-1 active">
@@ -128,28 +130,30 @@
         </div>
         <!-- 輪撥結束 -->
 
+
+
         <!-- 圓餅圖開始 -->
         <h2 id="H2title">
             < 我們的三大優勢 />
         </h2>
         <div class="PieChart">
-        <div class="position">
-            <div id="container"></div>
-        </div>
-        <div class="containerText">
-            <div class="textBox">
-                <p id="text1">
-                    提供專業線上課程，學習門檻低，可隨時隨地上課，有效提升你的專業技能，讓你紮實了解每種知識。
-                </p>
-                <p id="text2">
-                    擁有課後輔導機制，豐富的專業師資能夠解決您在課業上所有的疑難雜症。
-                </p>
-                <p id="text3">
-                    標準化考題查看自己的表現，讓您能夠了解自己學習近況，並能夠針對自己的弱點加強。
-                </p>
+            <div class="position">
+                <div id="container"></div>
+            </div>
+            <div class="containerText">
+                <div class="textBox">
+                    <p id="text1">
+                        提供專業線上課程，學習門檻低，可隨時隨地上課，有效提升你的專業技能，讓你紮實了解每種知識。
+                    </p>
+                    <p id="text2">
+                        擁有課後輔導機制，豐富的專業師資能夠解決您在課業上所有的疑難雜症。
+                    </p>
+                    <p id="text3">
+                        標準化考題查看自己的表現，讓您能夠了解自己學習近況，並能夠針對自己的弱點加強。
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
         <!-- 圓餅圖結束 -->
 
 
