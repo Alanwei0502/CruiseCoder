@@ -47,6 +47,6 @@
                 </div>
             </div>
         </div>
-        <img src="../images/cancel.png" id="closeIcon">
+        <img src="../images/backEnd/cancel.png" id="closeIcon">
     </div>
 </div>
