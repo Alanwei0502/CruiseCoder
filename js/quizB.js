@@ -144,3 +144,16 @@ createQ.addEventListener('click', function () {
     });
 
 });
+
+//刪除題目按鈕
+var deleteQ = document.getElementsByClassName('deleteQ')[0];
+// deleteQ.addEventListener('click', function () {
+//     var mainEdit = document.getElementsByClassName('mainEdit')[0];
+//     var checkForQ = mainEdit.querySelectorAll('.checkForQ');
+
+//     for (let i = 0; i < checkForQ.length; i++) {
+//         if(checkForQ[i].checked){
+//             checkForQ[i].
+//         }
+//     };
+// });

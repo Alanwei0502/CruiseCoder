@@ -11,8 +11,8 @@
     <title>宇宙漫遊</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 </head>
 
@@ -29,6 +29,7 @@
             <!-- banner開始 -->
             <div class="banner">
                 <div class="container">
+<<<<<<< HEAD
                 <h1>外星課程</h1>
                 <p>
                     Cruise Coders 擁有多元的課程<br>
@@ -36,6 +37,15 @@
                     透過您的手機、電腦就可以隨時隨地學習！<br>
                 </p>
                 <a href="#">前往試煉</a>
+=======
+                    <h1>外星課程</h1>
+                    <p>
+                        Cruise Coders 擁有多元的課程<br>
+                        給需要學習程式語言的人、打造一個友善的學習環境<br>
+                        透過您的手機、電腦就可以隨時隨地學習！<br>
+                    </p>
+                    <a href="#">前往試煉</a>
+>>>>>>> c2456783697d0fe2d7919a9aa589e610d28f2396
                 </div>
 
                 <img src="../images/index/Planet1.png" class="Planet1">
@@ -119,8 +129,13 @@
                             <div class="skw-page__content">
                                 <h2 class="skw-page__heading">Epic finale</h2>
                                 <p class="skw-page__description">
+<<<<<<< HEAD
                                     Feel free to check 
                                     <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on 
+=======
+                                    Feel free to check
+                                    <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on
+>>>>>>> c2456783697d0fe2d7919a9aa589e610d28f2396
                                     <a class="skw-page__link" href="https://twitter.com/NikolayTalanov" target="_blank">Twitter</a>
                                 </p>
                             </div>
