@@ -119,13 +119,8 @@
                             <div class="skw-page__content">
                                 <h2 class="skw-page__heading">Epic finale</h2>
                                 <p class="skw-page__description">
-<<<<<<< HEAD
-                                    Feel free to check 
-                                    <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on 
-=======
                                     Feel free to check
                                     <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on
->>>>>>> c2456783697d0fe2d7919a9aa589e610d28f2396
                                     <a class="skw-page__link" href="https://twitter.com/NikolayTalanov" target="_blank">Twitter</a>
                                 </p>
                             </div>

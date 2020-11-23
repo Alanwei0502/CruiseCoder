@@ -111,7 +111,8 @@
 
 
 
-// keyframe動畫：引用方法在下面描述
+// keyframe動畫：引用方法在下面描述，用法
+
 @mixin keyframes($name) {
     @-webkit-keyframes #{$name} {
         @content;
