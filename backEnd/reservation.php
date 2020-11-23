@@ -21,93 +21,7 @@
     include('layout/sideBar.php'); 
     ?>  
 
-    <div class="addReservationBackAll">
-      <div class="addReservationBack"></div> 
-      <div class="addReservation">
-        <img src="./../images/backEnd/blackCancel.png" alt="圖片未顯示" class="cancelBack">
-        <h2>新增課輔</h2>
-        <label>課輔日期</label>
-        <input type="text" id="deadline" value="23:59:59">
-        <input type="text" id="datepicker2" readonly="true">
-        <label>課程</label>
-        <select name="courseType">
-          <option value="0" selected disabled>選擇課程</option>
-          <option value="1">JavaScript</option>
-          <option value="2">HTML</option>
-          <option value="3">CSS</option>
-        </select>
-        <label>老師</label>
-        <select name="teacherName">
-          <option value="0" selected disabled>選擇老師</option>
-          <option value="1">黃語昕</option>
-          <option value="2">黃瀚霆</option>
-          <option value="3">許尚媛</option>
-        </select>
-        <button>新增課輔</button>
-      </div>
-    </div>
-
-    <div class="editBackAll">
-      <div class="editBack"></div>
-      <div class="edit">
-        <img src="./../images/backEnd/blackCancel.png" alt="無法顯示圖片" class="cancelBack">
-        <h2>課輔資訊</h2>
-        <label>課輔日期</label>
-        <input type="text" id="datepicker3" readonly="true">
-        <label>課程</label>
-        <select name="courseType">
-          <option value="1">JavaScript</option>
-          <option value="2">HTML</option>
-          <option value="3">CSS</option>
-        </select>
-        <label>老師</label>
-        <select name="teacherName">
-          <option value="1" selected>黃語昕</option>
-          <option value="2">黃瀚霆</option>
-          <option value="3">許尚媛</option>
-        </select>
-        <label>狀態</label>
-        <select name="stauts">
-          <option value="1" selected>上架</option>
-          <option value="2">下架</option>
-        </select>
-        <p>已預約人數 20 人</p>
-        <p class="nameList">預約名單</p>
-        <div class="reservationName">
-          <div class="nameTable">
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-          </div>
-          <div class="nameTable">
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-          </div>
-          <div class="nameTable">
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-          </div>
-          <div class="nameTable">
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-            <div>黃家偉</div>
-          </div>
-        </div>
-        <button>儲存</button>
-      </div> 
-    </div>
-
-    <main>
+<main>
       <h2>預約管理</h2>
       <div class="reservationContent">
         <div class="reservationTime">
@@ -133,12 +47,12 @@
         <button>搜尋</button>
       </div>
       <div class="addOrCancle">
-        <button class="canleButton">下架課輔</button>
+        <button class="cancelButton">下架課輔</button>
         <button class="addButton">新增課輔</button>
       </div>
       <div class="table">
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">課輔日期</div>
           <div class="td">課程</div>
           <div class="td">老師</div>
@@ -147,7 +61,7 @@
           <div class="td">操作</div>
         </div>
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">2020/11/07</div>
           <div class="td">語昕教你重新認識JavaScript</div>
           <div class="td">黃語昕</div>
@@ -156,7 +70,7 @@
           <div class="td"><button class="editBtn">編輯</button></div>
         </div>
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">2020/11/09</div>
           <div class="td">HTML</div>
           <div class="td">張老闆</div>
@@ -165,7 +79,7 @@
           <div class="td"><button class="editBtn">編輯</button></div>
         </div>
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">2020/11/20</div>
           <div class="td">SASS</div>
           <div class="td">黃瀚霆</div>
@@ -174,7 +88,7 @@
           <div class="td"><button class="editBtn">編輯</button></div>
         </div>
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">2020/11/27</div>
           <div class="td">PHP</div>
           <div class="td">曾景宏</div>
@@ -183,7 +97,7 @@
           <div class="td"><button class="editBtn">編輯</button></div>
         </div>
         <div class="tr">
-          <div class="td"><input type="checkbox"></div>
+          <div class="td"><label><input type="checkbox"><span></span></label></div>
           <div class="td">2020/11/29</div>
           <div class="td">家偉哥哥帶你飛</div>
           <div class="td">黃家偉</div>
@@ -193,13 +107,110 @@
         </div>
       </div>
 
-      <ul>
-        <li><img src="./../images/backEnd/pagearrow.png" alt="無法顯示圖片"></li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li class="lastLi"><img src="./../images/backEnd/pagearrow.png" alt="無法顯示圖片"></li>
-      </ul>
+      <div class="addReservationBackAll">
+        <div class="addReservationBack"></div>
+        <div class="addReservation">
+          <img src="./../images/backEnd/blackCancel.png" alt="圖片未顯示" class="cancelBack">
+          <h2>新增課輔</h2>
+          <form action="" class="addReservationContent">
+            <div>
+              <label>課輔日期</label>
+              <input type="text" id="deadline" value="23:59:59">
+              <input type="text" id="datepicker2" readonly="true">
+            </div>
+            <div>
+              <label>課程</label>
+              <select name="courseType">
+                <option value="0" selected disabled>選擇課程</option>
+                <option value="1">JavaScript</option>
+                <option value="2">HTML</option>
+                <option value="3">CSS</option>
+              </select>
+            </div>
+            <div>
+              <label>老師</label>
+              <select name="teacherName">
+                <option value="0" selected disabled>選擇老師</option>
+                <option value="1">黃語昕</option>
+                <option value="2">黃瀚霆</option>
+                <option value="3">許尚媛</option>
+              </select>
+            </div>
+            <button>新增課輔</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="editBackAll">
+        <div class="editBack"></div>
+        <div class="edit">
+          <img src="./../images/backEnd/blackCancel.png" alt="無法顯示圖片" class="cancelBack">
+          <h2>課輔資訊</h2>
+          <form action="" class="editForm">
+            <div class="data">
+              <label>課輔日期</label>
+              <input type="text" id="datepicker3" readonly="true">
+              <label>課程</label>
+              <select name="courseType">
+                <option value="1">JavaScript</option>
+                <option value="2">HTML</option>
+                <option value="3">CSS</option>
+              </select>
+              <label>老師</label>
+              <select name="teacherName">
+                <option value="1" selected>黃語昕</option>
+                <option value="2">黃瀚霆</option>
+                <option value="3">許尚媛</option>
+              </select>
+              <label>狀態</label>
+              <select name="stauts">
+                <option value="1" selected>上架</option>
+                <option value="2">下架</option>
+              </select>
+            </div>
+            <div class="people">
+              <p>已預約人數 20 人</p>
+              <p class="nameList">預約名單</p>
+              <div class="reservationName">
+                <div class="nameTable">
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                </div>
+                <div class="nameTable">
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                </div>
+                <div class="nameTable">
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                </div>
+                <div class="nameTable">
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                  <div>黃家偉</div>
+                </div>
+              </div>
+            </div>
+            <button>儲存</button>
+          </form>
+        </div> 
+      </div>
+
+      <div class="changePage">
+        <button class="lastPage">上一頁</button>
+        <button class="nextPage">下一頁</button>
+      </div>
     </main> 
   <div>
   <script src="./../js/datepicker.js"></script>

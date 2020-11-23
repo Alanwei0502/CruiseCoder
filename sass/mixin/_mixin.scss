@@ -302,6 +302,7 @@
 	border: none;
 	color: $blue1;
 	background-color: $white;
+	white-space: nowrap;
 	border-radius: 25px;
 	font-size: $sp;
 	padding: 5px 15px;
@@ -309,6 +310,7 @@
 	&:hover{
 		color: $blue1;
 		background-color: $blue2;
+		cursor: pointer;
 	}
 }
 
