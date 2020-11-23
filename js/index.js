@@ -132,4 +132,62 @@ $(document).ready(function() {
         $('#text3').css('display','block'); 
     });
     // 圓餅圖套件結束
+
+
+
+
+
+    // 課程輪撥開始
+    $('span.Circle').click(function(){
+        var span = $('span');
+
+        // 使用迴圈來清除所有的bgcBlack
+        for(let i = 0; i < span.length; i++){
+            span[i].classList.remove('bgcBlack');
+        }
+
+        // 點擊的span加上bgcBlack
+        $(this).addClass('bgcBlack');
+        var index = $(this).index();
+
+        // 輪撥執行   
+        $('#slide').animate({
+        left: index * 1200 * -1
+        },1200);
+
+        // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
+        clearInterval(add);
+
+        // 重新再給一次setInterval
+        setTimeout(function(){
+            add = setInterval(startMove, 4200);
+        })
+
+    });
+
+
+    function startMove(){
+        // 清除bgcBlack  並在下一個span加上bgcBlack
+        $('span.bgcBlack').removeClass('bgcBlack').next().addClass('bgcBlack');
+
+        // 如果沒有任何一個span有bgcBlack  並在第一個加上bgcBlack
+        if($('span.bgcBlack').index() == -1){
+            $('div.controlCircle span').first().addClass('bgcBlack');
+
+            // 回到0的位置
+            $('#slide').animate({
+                left: 0
+            },1200);
+
+        }else{
+            // 取得span.bgcBlack目前索引值
+            var bgcBlack_index = $('span.bgcBlack').index();
+
+            $('#slide').animate({
+                left: bgcBlack_index * 1200 * -1
+            },1200);
+        }
+    }
+    add = setInterval(startMove, 4200)
+    // 課程輪撥結束
 });

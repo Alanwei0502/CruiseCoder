@@ -1,5 +1,4 @@
 /*Banner 開始 by Alan_Hong*/
-
 *,
 *:before,
 *:after {
@@ -290,7 +289,7 @@ $scrollTime: 1s;
 }
 /*輪撥 結束 Alan_Hong*/
 /*圓餅圖 結束 Alan_Hong*/
-#H2title {
+h2.H2title {
 	width: 1200px;
 	margin: 0 auto !important;
 	margin-top: 100px !important;
@@ -347,3 +346,134 @@ div.PieChart {
 	}
 }
 /*圓餅圖 結束 Alan_Hong*/
+/*課程輪撥 開始 Alan_Hong*/
+div.Course {
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 0px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+
+	div.slide {
+		width: 3600px;
+		display: flex;
+		position: relative;
+		margin-top: 50px;
+
+		.wrapGeneral {
+			flex-shrink: 0;
+			display: inline-block;
+			margin-bottom: 25px !important;
+			margin-top: 50px !important;
+			width: 340px;
+			margin: 0px 30px;
+			border-radius: 20px;
+			background-color: $white;
+			position: relative;
+
+			.favorites {
+				border-radius: 50%;
+				background-color: $white;
+				position: absolute;
+				top: 0;
+				right: 0;
+				transform: translate(-10%, 270%);
+
+				i {
+					font-size: 30px;
+					padding: 10px;
+					cursor: pointer;
+					color: rgb(212, 212, 212);
+				}
+			}
+
+			img.tImg {
+				width: 80px;
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translate(25%, -50%);
+			}
+
+			a.img {
+				display: inline-block;
+
+				img {
+					width: 100%;
+					border-radius: 20px 20px 0 0;
+				}
+			}
+
+			.c_Main {
+				padding-left: 10px;
+
+				a.title {
+					padding-top: 10px;
+					font-size: 26px;
+					font-weight: 600;
+					line-height: 35px;
+					text-decoration: none;
+					display: inline-block;
+					color: black;
+					margin-bottom: 25px;
+					white-space: wrap;
+					word-wrap: break-word;
+				}
+
+				.time {
+					font-size: 22px;
+					margin-bottom: 20px;
+				}
+
+				.comment {
+					display: flex;
+					font-size: 22px;
+					margin-bottom: 40px;
+
+					i {
+						font-size: 20px;
+						color: $yellow;
+					}
+
+					a.text {
+						margin-left: 10px;
+						text-decoration: none;
+						color: black;
+					}
+				}
+
+				.price {
+					font-size: $h4;
+					font-weight: 800;
+					text-align: right;
+					margin-bottom: 10px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+.controlCircle {
+	display: flex;
+	width: 1200px;
+	justify-content: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+
+	.Circle {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #afafafa8;
+		border-radius: 50%;
+		cursor: pointer;
+		margin: 0px 8px;
+	}
+}
+
+.bgcBlack {
+	background-color: #afafafa8;
+}
+
+/*課程輪撥 結束 Alan_Hong*/
