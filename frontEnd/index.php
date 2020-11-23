@@ -29,15 +29,6 @@
             <!-- banner開始 -->
             <div class="banner">
                 <div class="container">
-<<<<<<< HEAD
-                <h1>外星課程</h1>
-                <p>
-                    Cruise Coders 擁有多元的課程<br>
-                    給需要學習程式語言的人、打造一個友善的學習環境<br>
-                    透過您的手機、電腦就可以隨時隨地學習！<br>
-                </p>
-                <a href="#">前往試煉</a>
-=======
                     <h1>外星課程</h1>
                     <p>
                         Cruise Coders 擁有多元的課程<br>
@@ -45,7 +36,6 @@
                         透過您的手機、電腦就可以隨時隨地學習！<br>
                     </p>
                     <a href="#">前往試煉</a>
->>>>>>> c2456783697d0fe2d7919a9aa589e610d28f2396
                 </div>
 
                 <img src="../images/index/Planet1.png" class="Planet1">
