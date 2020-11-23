@@ -1,0 +1,257 @@
+$bdr: 20px;
+$ccFontNum:  'Roboto Mono', monospace;
+.ccPoint{
+    main{
+        width: 1200px;
+        margin: 0 auto;
+        // border: #8b7474 1px solid;
+        .noticeGroup{
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items:center;
+            
+        }
+        
+        .ccNotice{
+            background-color: $beige;
+            width: 250px;
+            padding: 30px;
+            line-height: 25px;
+    
+            p{
+                text-align: center;
+            }
+        }
+    
+        .getNotice{
+            p{
+                width: 400px;
+                padding: 15px;
+                border-radius: $bdr;
+                border: $orange solid 6px;
+                background-color: $blue2;
+                text-align: center;
+                color: #fff;
+    
+            }
+        
+        }
+    
+        .ccPointDay{
+
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            // border: solid 1px ;
+    
+            div{
+                >p{
+                    color: $white;
+                }
+                // border: solid 1px ;
+                text-align: center;
+    
+                .countCoin{
+                    font-family: $ccFontNum;
+                    background-color: $orange;
+                    padding: 10px;
+                    border-radius: 5px;
+                    color: $blue1;
+                    
+                }
+    
+                img{
+                    width: 80px;
+                    padding: 10px;
+                        
+                }
+                
+            }
+                
+    
+    
+        }
+    
+        .second_area{
+            margin-top: 150px;
+            .ccHow{
+                color: $beige;
+                font-size: $h2;
+                border-bottom: $orange 10px solid;
+                width: 375px;
+            }
+                 
+            
+            .tab_list{
+                >li{
+                    display: inline-block;
+                    background-color:#F4F4F4;
+                    padding: 10px 30px;
+                    border-radius: 5px 5px 0 0;
+                    font-size: $h4;
+                    // .gg{
+                    //     background-color: rgb(207, 129, 129);
+                        
+                    // }
+            
+                    >a{
+                        text-decoration: none;
+                        color: #707070;
+                        // background-color: #F4F4F4;
+                    }
+                    
+                      
+                }
+                li.-on{
+                    color: #0a91b3;
+                    background-color:#F7DA99;
+                    
+                }
+               
+            }
+            .tab_contents{
+                .tab{
+                    border-radius: 0 10px 10px 10px;
+                    padding: 10px;
+                    display: none;
+                    color: #707070;
+                }
+    
+                .tab1{
+                    background-color:#F7DA99;
+                    p{
+                        text-align: center;
+                        font-size: $h2;
+                    }
+                }
+                .cc_coin_out{
+                    display: flex;
+                   justify-content: flex-end;
+                   img{
+                       width: 130px;
+                   }
+                    
+                }
+                .tabWords_1{
+                    font-size: $bp;
+                    padding-bottom: 100px;
+                    span{
+                    font-size: $bp*2;
+                    
+                    }
+                }
+                
+                .pig{
+                    width: 250px;
+                }
+                .tab2_title{
+                    font-size: $bp;
+                    font-weight: 500;
+                    margin-bottom: 50px;
+                }
+
+
+                // ---- 第二個頁籤 ----
+                .tab2{
+                    .tab2_title{
+                        text-align: center;
+                        font-weight: 500;
+                    }
+                    >p{
+                        text-align: center;
+                    }
+                    
+                    .save_jan{
+                        background-color: #fff;
+                        border-radius: 10px;
+                        width: 950px;
+        
+                        ul{
+                            padding: 30px;
+                            font-size: $h4;
+                            li{
+                                line-height: 60px;
+                            }
+                        }
+                    }
+                    .save_jan_img{
+                        width: 500px;
+                        position: relative;
+                        left: 600px;
+                        
+                        
+                        
+                    }
+
+                }
+                
+    
+    
+    
+    
+                .tab3{
+                   font-size: $bp;
+                    >p{
+                        font-size: $mp;
+                    }
+                    >ul{
+                        font-size: $bp;
+                        >.fa-circle{
+                            color: $white!important;
+                           
+                        }
+                    }
+                    .cc_people{
+                        display: flex;
+                        justify-content: space-around;
+                        border: rgb(3, 44, 3) 1px solid;
+
+                        div{
+                            // border: palegreen 1px solid;
+                            .cc_boy{
+                                width: 210px;
+                            }   
+                        }
+                        .scale_100{
+                            border: $orange 15px solid;
+                            width: 350px;
+                            // padding: 50px;
+                            text-align: center;
+                            font-size: 60px;
+                        }
+                        .cc_girl{
+                            width: 100px;
+                        }
+
+
+
+
+                        
+                    }
+                    
+    
+    
+                }
+                .-on{
+                    display: block;
+                    background-color:#F7DA99;
+                    font-size: 25px;
+                    line-height: 40px;
+                    padding: 30px;
+                    
+                    
+                
+                }
+           }                  
+                                        
+        }
+
+    }
+    
+}
+
+
+
