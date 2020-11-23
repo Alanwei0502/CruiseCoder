@@ -22,38 +22,85 @@
     include('layout/header.php');
     ?>
     <main>
-      <img src="./../images/article/spaceshipinterior.png" class="spaceshipinterior" alt="圖片無法顯示">
-      <div class="penal">
-        <input class="searchBar" type="text" placeholder="輸入文章關鍵字">
-        <p class="penalTitle">Cruise Coder</p>
-        <img src="./../images/article/battery.png" class="battery" alt="圖片無法顯示">
-        <div class="penalContain">
-          <img src="./../images/article/spaceshipinterior.png" class="spaceshipinteriorBlur" alt="圖片無法顯示">
-        </div>
+      <img src="./../images/article/spaceshipinterior.png" class="bottomLayer" alt="圖片無法顯示">
+      <img src="./../images/article/astronaut1.png" class="astronaut1" alt="圖片無法顯示">
+      <img src="./../images/article/astronaut2.png" class="astronaut2" alt="圖片無法顯示">
+      <img src="./../images/article/astronaut3.png" class="astronaut3" alt="圖片無法顯示">
+      <img src="./../images/article/planet1.png" class="planet1" alt="圖片無法顯示">
+      <img src="./../images/article/planet2.png" class="planet2" alt="圖片無法顯示">
+      <img src="./../images/article/planet3.png" class="planet3" alt="圖片無法顯示">
+      <img src="./../images/article/planet4.png" class="planet4" alt="圖片無法顯示">
+      <div class="allContent">
         <div class="blur">
-          <img src="./../images/article/spaceshipinterior.png" class="spaceshipinteriorBlur" alt="圖片無法顯示">
+          <img src="./../images/article/spaceshipinterior.png" alt="圖片無法顯示">
         </div>
-        <img src="./../images/article/panel.png" class="panel" alt="圖片無法顯示">
+        <div class="backColor"></div>
+        <div class="panel">
+          <img src="./../images/article/panel.svg" alt="圖片無法顯示">
+        </div>
+        <div class="panelTop">
+          <h2>&lt;太空補給站&#47;&gt;</h2>
+          <input type="text" placeholder="專欄關鍵字">
+          <img src="./../images/article/battery.png" class="battery" alt="圖片無法顯示">
+          <p>返回</p>
+          <div class="content">
+            <div class="articleTitle">
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/topBook.jpg" alt="圖片無法顯示">
+                </div>
+                <h4>十大好書推薦</h4>
+              </div>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/editor.jpg" alt="圖片無法顯示">
+                </div>
+                  <h4>編輯器推薦</h4>
+              </div>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/study.jpg" alt="圖片無法顯示">
+                </div>
+                <h4>自學力網站資源</h4>
+              </div>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/software.jpg" alt="圖片無法顯示">
+                </div>
+                <h4>軟體推薦</h4>
+              </div>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/tools.jpg" alt="圖片無法顯示">
+                </div>
+                <h4>好用套件推薦</h4>
+              </div>
+            </div>
+          </div>
+        </div>
         <?xml version="1.0" standalone="no"?>
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <polyline points="230,240 160,240 120,290 120,360" class="outLine"/>
-          <polyline points="120,500 120,570 160,620 230,620" class="outLine"/>
-          <polyline points="1180,500 1180,570 1140,620 1070,620" class="outLine"/>
-          <polyline points="1180,360 1180,290 1140,240 1070,240" class="outLine"/>
-
-          <polyline points="100,640 100,740 450,740" class="outLine"/>
-          <polyline points="415,690 335,690 325,680 320,710 300,650 270,690 265,680 255,730 250,630 240,710 230,675 227,710 220,680 215,700 210,670 200,690 120,690" class="ecg"/>
-
+          <polyline points="160,160 90,160 50,210 50,280" class="outLine"/>
+          <polyline points="50,650 50,720 90,770 160,770" class="outLine"/>
+          <polyline points="1150,650 1150,720 1110,770 1040,770" class="outLine"/>
+          <polyline points="1150,280 1150,210 1110,160 1040,160" class="outLine"/>
         </svg>
+      </div>
+      <div class="ecgBack">
+        <img src="./../images/article/panel2.png" alt="圖片無法顯示">
+        <svg>
+          <polyline points="360,100 310,100 305,95 300,105 295,90 290,120 280,80 270,100 250,160 230,60 210,130 200,90 195,110 190,100 186,90 175,120 168,70 165,100 150,140 130,100 125,80 115,110 110,100 100,115 95,85 90,110 85,90 80,100 30,100" class="ecg"/>
+        </svg>
+      </div>
+      <div class="radarBack">
+        <img src="./../images/article/radarBack.png" class="radarBackImage" alt="圖片無法顯示">
         <div class="radar">
           <div class="radarLine"></div>
           <div class="radarShadow"></div>
         </div>
       </div>
-      <div class="bluelight">
-        
-      </div>
+      <div class="bluelight"></div>
     </main>
     <?php
     include('layout/footer.php');
