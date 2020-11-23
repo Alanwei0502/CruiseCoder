@@ -23,7 +23,7 @@
       <h2>題庫管理</h2>
       <section class="searchbar">
         <div>
-          <label>領域<br>
+          <label>領域
             <select>
               <option value="1">html</option>
               <option value="2">css</option>
@@ -31,16 +31,17 @@
             </select>
           </label>
 
-          <label>難易度<br>
+          <label>難易度
             <select>
-              <option value="0">初級</option>
-              <option value="1">中級</option>
-              <option value="2">高級</option>
+              <option value="1">初級</option>
+              <option value="2">中級</option>
+              <option value="3">高級</option>
+              <option value="0">星系</option>
             </select>
           </label>
         </div>
 
-        <button>搜尋</button>
+        <button type="button">搜尋</button>
 
       </section>
 
@@ -53,7 +54,7 @@
         <table>
           <thead>
             <tr>
-              <th><label for="checkAll">全選<input type="checkbox" id="checkAll"><span></span></label></th>
+              <th><label><input type="checkbox" class="checkAll"><span></span></label></th>
               <th>領域</th>
               <th>難易度</th>
               <th>操作</th>
@@ -61,38 +62,90 @@
           </thead>
           <tbody>
             <tr>
-              <td><label for=""><input type="checkbox" id=""><span></span></label></td>
+              <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>中級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>高級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><label><input type="checkbox"><span></span></label></td>
               <td>css</td>
               <td>初級</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="" id=""><span></span></td>
+              <td><label><input type="checkbox"><span></span></label></td>
               <td>css</td>
               <td>中級</td>
               <td><button>編輯</button></td>
             </tr>
           </tbody>
         </table>
+
+        <div class="changePage">
+          <button class="lastPage">上一頁</button>
+          <button class="nextPage">下一頁</button>
+        </div>
       </section>
+
+      <section class="quizModalBg">
+        <section class="quizModal">
+          <h2>新增試題</h2>
+          <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal">
+          <section class="overflowArea">
+            <form action="quiz.php" method="get">
+              <div>
+                <span>領域</span>
+                <input type="text" class="newField" placeholder="請輸入新增的領域名稱">
+              </div>
+
+              <div>
+                <span>難易度</span>
+                <select class="quizLevel">
+                  <option value="1">初級</option>
+                  <option value="2">中級</option>
+                  <option value="3">高級</option>
+                  <option value="0">星系</option>
+                </select>
+              </div>
+
+              <div>
+                <span>徽章圖案</span>
+                <input type="file" accept="image/*">
+              </div>
+
+              <div class="mainEdit">
+                <div class="topFunction">
+                  <label>全選<input type="checkbox" class="selectAll"><span></span></label>
+                  <div>
+                    <button type="button" class="deleteQ">刪除題目</button>
+                    <button type="button" class="createQ">新增題目</button>
+                  </div>
+                </div>
+              </div>
+
+
+              <button type="submit">確認新增</button>
+            </form>
+          </section>
+        </section>
+      </section>
+
+      <section class="question"></section>
+
+
     </main><!-- 在這裡面codeing -->
   </div>
   <script src="../js/quizB.js"></script>

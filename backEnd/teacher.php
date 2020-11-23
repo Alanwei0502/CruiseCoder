@@ -9,10 +9,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 老師管理</title>
+  <link rel="stylesheet" href="./../css/main2.css">
 </head>
 
 <body>
-  <div class="backEndWrap">
+  <div class="backEndWrap teacher">
     <?php
     include('layout/sideBar.php'); //aside
     ?>

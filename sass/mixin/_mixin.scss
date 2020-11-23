@@ -143,7 +143,7 @@
 
 
 
-// =========後台的樣式============
+// ==============後台的樣式================
 
 // 標題 ex課程管理、專欄管理、預約管理, 用法 @include backTitle;
 @mixin backTitle{
@@ -168,11 +168,8 @@
 	font-size: $mp;
 	padding: 5px;
 	border-radius: 8px;
-	width: 90px;
 	outline: none;
-	&:hover{
-		cursor: pointer;
-	}
+	cursor: pointer;
 	@content;
 }
 
@@ -201,8 +198,9 @@
 }
 
 //checkbox打勾勾，用法 @include checkbox;
+//使用時，結構要長這樣<label><input type="checkbox"><span></span></label>
+//label要記得給cursor: pointer;
 @mixin checkbox{
-		cursor: pointer;
 		display: none;
 
 	+span{
@@ -225,66 +223,76 @@
 		background-size: contain;
 		margin-left: $fontSize * 0.5;
 	}
+
+	@content;
 }
 
 
 
 // 搜尋btn樣式  用法 @include backBtn; 
 @mixin backBtn{
+	cursor: pointer;
 	height: 50px;
 	outline: none;
 	border: none;
-	background-color: $orange;
+	color: $white;
+	background-color: $blue1;
 	padding: 10px 10px 10px 38px;
-	border-radius: 5px;
+	border-radius: 30px;
 	font-size: $mp;
 	background-image: url("./../images/backEnd/searchicon.png");
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
 	background-position: center left 13px;
+	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/searchicon1.png");
 	}
 }
 
 // 新增按鈕樣式  用法 @include addBtn;
 @mixin addBtn{
+	cursor: pointer;
 	outline: none;
+	border: none;
 	font-size: $mp;
 	color: $white;
 	background-color: $orange;
 	padding: 10px 10px 10px 45px;
-	border: none;
-	border-radius: 30px;
+	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/addicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/addicon1.png");
 	}
 }
 
 // 下架按鈕樣式 用法 @include cancelBtn;
 @mixin cancelBtn{
+	cursor: pointer;
 	outline: none;
+	border: none;
 	font-size: $mp;
 	color: $white;
 	background-color: $red;
 	padding: 10px 10px 10px 45px;
-	border: none;
-	border-radius: 30px;
+	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/cancelicon.png");
 	background-repeat: no-repeat;
 	background-size: 28px 28px; 
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/cancelicon1.png");
 	}
 }
 
@@ -292,33 +300,65 @@
 @mixin editBtn{
 	outline: none;
 	border: none;
-	color: $black;
+	color: $blue1;
 	background-color: $white;
 	border-radius: 25px;
-	font-size: $mp;
-	padding: 5px 10px;
+	font-size: $sp;
+	padding: 5px 15px;
 	box-shadow: 5px 5px 10px -5px black;
 	&:hover{
+		color: $blue1;
 		background-color: $blue2;
 	}
 }
 
 
+//上一頁和下一頁的按鈕樣式，用法  @include changePage;
+@mixin changePage{
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: $blue1;
+	color: $white;
+	font-size: $mp;
+	padding: $fontSize*0.5 $fontSize*2;
+	border-radius: $fontSize*2;
+	box-shadow: 5px 5px 10px -5px black;
+	&:hover{
+		background-color: $blue2;
+		color: $blue1;
+	}
+}
+
+
+//圖片上傳的input按鈕樣式，用法  @include uploadImg;
+@mixin uploadImg{
+	font-size: $mp;
+	padding: 5px;
+	border-radius: 8px;
+	border: 1px solid black;
+	outline: none;
+	cursor: pointer;
+}
+
+
 // 儲存按鈕樣式 用法 @include saveBtn;
 @mixin saveBtn{
+	cursor: pointer;
 	outline: none;
 	border: none;
 	color: $white;
 	background-color: $orange;
 	font-size: $mp;
 	padding: 5px 20px 5px 55px;
-	border-radius: 25px;
+	border-radius: 30px;
 	background-image: url("./../images/backEnd/saveicon.png");
 	background-repeat: no-repeat;
 	background-size: 24px 24px; 
 	background-position: center left 20px;
 	&:hover{
-		cursor: pointer;
+		color: $blue1;
 		background-color: $blue2;
+		background-image: url("./../images/backEnd/saveicon1.png");
 	}
 }
