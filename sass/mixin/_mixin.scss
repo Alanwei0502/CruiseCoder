@@ -366,6 +366,42 @@
 	}
 }
 
+// input file樣式  用法 @include inputFileStyle;
+// html格式<div><input type="file"><p></p><button></button></div>
+// 自行+class 或 id , 要寫js來連動input file用的 可參考article.js
+@mixin inputFileStyle{
+  border: 2px solid gray;
+  border-radius: 8px;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: cell;
+  input{
+    display: none;
+  }
+  p{
+    font-size: $mp;
+    max-width: 285px;
+    overflow: hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+  }
+  button{
+    outline: none;
+    border: none;
+    background-color: $yellow;
+    border-radius: 20px;
+    padding: 20px 30px;
+    background-image: url("./../images/backEnd/camera.png");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center;
+    cursor: pointer;
+  }
+}
+
 
 
 

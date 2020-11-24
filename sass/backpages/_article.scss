@@ -1,6 +1,228 @@
 div.article{
+
   main{
     position: relative;
+    div.addArticleBackAll{
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      transition: all 1s;
+      div.addArticleBack{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      div.addArticle{
+        height: 95%;
+        width: 90%;
+        max-width: 1200px;
+        padding: 0px 16px;
+        background-color: $beige;
+        border-radius: 10px;
+        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        form.addArticleForm{
+          width: 100%;
+          height: 80%;
+          margin: 0 auto;
+          padding: 30px 0px;
+          background-color: $white;
+          overflow-y: scroll;
+          div.articleTop{
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            div.articleName{
+              label{
+                font-size: $mp;
+                display: block;
+                margin: 40px 0px 10px 0px;
+                &:first-child{
+                  margin-top: 0px;
+                }
+              }
+              input{
+                @include inputTextStyle;
+                width: 350px;
+              }
+              div.fileStyle{
+                @include inputFileStyle;
+              }
+            }
+            div.articleImageOutline{
+              border: 1px solid gray;
+              width: 400px;
+              height: 400px;
+              div.articleImage{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                img{
+                  width: 100%;
+                  max-width: 400px;
+                  max-height: 400px;
+                }
+              }
+            }
+          }
+          div.articleBottom{
+            width: 70%;
+            margin: 40px auto 0px;
+            label{
+              font-size: $mp;
+              display: block;
+              margin-bottom: 10px;
+            }
+            textarea{
+              @include inputTextStyle;
+              width: 97.5%;
+              height: 500px;
+              resize: none;
+            }
+          }
+        }
+        img{
+          position: absolute;
+          width: 50px;
+          top: 10px;
+          right: 10px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    div.addArticleBackAll.on{
+      z-index: 5;
+      opacity: 1;
+    }
+    div.editArticleBackAll{
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      transition: all 1s;
+      div.editArticleBack{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      div.editArticle{
+        height: 95%;
+        width: 90%;
+        max-width: 1200px;
+        padding: 0px 16px;
+        background-color: $beige;
+        border-radius: 10px;
+        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        form.editArticleForm{
+          width: 100%;
+          height: 80%;
+          margin: 0 auto;
+          padding: 30px 0px;
+          background-color: $white;
+          overflow-y: scroll;
+          div.articleTop{
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            div.articleName{
+              p.articleNumber{
+                font-size: $mp;
+              }
+              label{
+                font-size: $mp;
+                display: block;
+                margin: 40px 0px 10px 0px;
+                &:first-child{
+                  margin-top: 0px;
+                }
+              }
+              input{
+                @include inputTextStyle;
+                width: 350px;
+              }
+              div.fileStyle{
+                @include inputFileStyle;
+              }
+              select{
+                @include selectStyle;
+                width: 374px;
+              }
+            }
+            div.articleImageOutline{
+              border: 1px solid gray;
+              width: 400px;
+              height: 400px;
+              div.articleImage{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                justify-content: center;
+                img{
+                  width: 100%;
+                  max-width: 400px;
+                  max-height: 400px;
+                }
+              }
+            }
+          }
+          div.articleBottom{
+            width: 70%;
+            margin: 40px auto 0px;
+            label{
+              font-size: $mp;
+              display: block;
+              margin-bottom: 10px;
+            }
+            textarea{
+              @include inputTextStyle;
+              width: 97.5%;
+              height: 500px;
+              resize: none;
+            }
+          }
+        }
+        img{
+          position: absolute;
+          width: 50px;
+          top: 10px;
+          right: 10px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    div.editArticleBackAll.on{
+      z-index: 5;
+      opacity: 1;
+    }
     h2{
       @include backTitle;
     }
@@ -15,8 +237,7 @@ div.article{
         display: inline-block;
         margin-bottom: 20px;
         input{
-          @include inputTextStyle;
-          width: 170px;
+          @include datepickerStyle;
         }
       }
       div.status{
@@ -24,6 +245,7 @@ div.article{
         margin-left: 50px;
         select{
           @include selectStyle;
+          width: 170px;
         }
       }
       div.searchContentBottm{
@@ -38,15 +260,13 @@ div.article{
         }
         button{
           @include backBtn;
-
         }
-
       }
     }
     div.addOrCancle{
       display: flex;
       justify-content: flex-end;
-      margin: 30px 0px;
+      margin: 25px 0px;
       padding-right: 5px;
 
       button.canleButton{
@@ -54,12 +274,14 @@ div.article{
       }
       button.addButton{
         @include addBtn;
-        margin-left: 15px;
+        margin-left: 30px;
+        margin-right: 20px;
       }
     }
     div.table{
       font-size: $mp;
       max-width: 100%;
+      padding: 0px 50px;
       div.tr{
         display: flex;
         flex-shrink: 0;
@@ -72,8 +294,11 @@ div.article{
           display: flex;
           align-items: center;
           line-height: 32px;
-          &:nth-child(1){
-            text-align: center;
+          label{
+            cursor: pointer;
+          input{
+            @include checkbox;
+          }
           }
           &:nth-child(2){
             flex-grow: 3;
@@ -85,49 +310,23 @@ div.article{
             flex-grow: 10;
           }
           &:nth-child(5){
-            text-align: center;
             button{
-              outline: none;
-              background-color: $white;
-              border: none;
-              font-size: $sp;
-              padding: 5px 10px;
-              border-radius: 15px;
-              box-shadow: 0px 2px 10px -3px black;
-              &:hover{
-                cursor: pointer;
-              }
+              @include editBtn;
             }
           }
         }
       }
     }
-    ul{
-      position: absolute;
-      bottom: 3%;
-      right: 3%;
-      display: flex;
-      justify-content: space-between;
-      width: 200px;
-      li{
-        font-size: $mp;
-        font-weight: 900;
-        padding: 10px;
-        &:hover{
-          cursor: pointer;
-        }
-        &:first-child{
-          cursor: not-allowed;
-        }
-        img{
-          width: 22px;
-        
-        }
+    div.changePage{
+      float: right;
+      @include clearfixed;
+      margin-right: 30px;
+      margin-top: 5px;
+      button{
+        @include changePage;
       }
-      li.lastLi{
-        img{
-          transform: rotate(180deg);
-        }
+      button.nextPage{
+        margin-left: 40px;
       }
     }
   }
