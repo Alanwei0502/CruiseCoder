@@ -137,6 +137,226 @@
 				transform: translateY(-13px);
 			}
 		}
+
+		div.galaxyBlock {
+			width: 1200px;
+			height: 612.8px;
+			// border: 1px solid;
+			margin: 50px auto;
+			// margin-bottom: 50px;
+
+			div.galaxyWarp {
+				width: 100%;
+				height: 80%;
+				font-size: 0px;
+				background-color: #ffffff2d;
+
+				div.leftBlock {
+					display: inline-flex;
+					width: 70%;
+					height: 100%;
+					vertical-align: top;
+					position: relative;
+
+					span {
+						display: inline-block;
+					}
+
+					.line1 {
+						width: 100px;
+						height: 50px;
+						border: 1px solid white;
+						border-radius: 50%;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: rotate(-25deg) translate(-50%, -130%);
+					}
+
+					.line2 {
+						width: 300px;
+						height: 140px;
+						border: 1px solid white;
+						border-radius: 50%;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: rotate(-25deg) translate(-42%, -100%);
+					}
+
+					.line3 {
+						width: 500px;
+						height: 250px;
+						border: 1px solid white;
+						border-radius: 50%;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: rotate(-25deg) translate(-42%, -93%);
+					}
+
+					.line4 {
+						width: 650px;
+						height: 320px;
+						border: 1px solid white;
+						border-radius: 50%;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: rotate(-25deg) translate(-40%, -92%);
+					}
+
+					.planet1 {
+						width: 100px;
+						height: 100px;
+						position: absolute;
+						right: 0px;
+						bottom: 0px;
+						transform: translate(-450%, -10%);
+						animation-name: galaxyPlanet1;
+						animation-duration: 9s;
+						animation-iteration-count: infinite;
+					}
+
+					.planet2 {
+						width: 90px;
+						height: 90px;
+						position: absolute;
+						right: 0px;
+						top: 0px;
+						transform: translate(-300%, 150%);
+						animation-name: galaxyPlanet2;
+						animation-duration: 6s;
+						animation-iteration-count: infinite;
+					}
+
+					.planet3 {
+						width: 75px;
+						height: 75px;
+						position: absolute;
+						left: 0px;
+						top: 0px;
+						transform: translate(200%, 270%);
+						animation-name: galaxyPlanet3;
+						animation-duration: 12s;
+						animation-iteration-count: infinite;
+					}
+				}
+
+				div.rightBlock {
+					display: inline-flex;
+					width: 30%;
+					height: 100%;
+					vertical-align: top;
+					flex-direction: column;
+					position: relative;
+
+					h3 {
+						color: white;
+						font-size: 40px;
+						margin-bottom: 25px;
+						text-align: center;
+						width: 100%;
+						margin-top: 70px;
+					}
+
+					p {
+						padding: 20px;
+						font-size: 16px;
+						width: 75%;
+						margin: 0 auto;
+						border: 5px solid #ffa307;
+						background-color: #642e2ec7;
+						color: white;
+						text-align: justify;
+						line-height: 17px;
+					}
+
+					button {
+						background-color: #fcc93d;
+						font-size: 16px;
+						outline: none;
+						border: 0px;
+						border-radius: 10px;
+						width: 150px;
+						height: 40px;
+						margin-top: 30px;
+						cursor: pointer;
+						position: absolute;
+						bottom: 0%;
+						right: 0%;
+						margin: 20px;
+					}
+				}
+			}
+
+			div.planetWarp {
+				width: 1200px;
+				height: 20%;
+				display: flex;
+				justify-content: center;
+				margin-top: 20px;
+
+				img {
+					height: 100%;
+					margin: 0px 35px;
+					cursor: pointer;
+				}
+			}
+		}
+		@keyframes galaxyPlanet1 {
+			0% {
+				transform: translate(-450%, -10%);
+			}
+			25% {
+				transform: translate(-450%, -15%);
+			}
+			50% {
+				transform: translate(-450%, -10%);
+			}
+			75% {
+				transform: translate(-450%, -15%);
+			}
+			100% {
+				transform: translate(-450%, -10%);
+			}
+		}
+
+		@keyframes galaxyPlanet2 {
+			0% {
+				transform: translate(-300%, 155%);
+			}
+			25% {
+				transform: translate(-300%, 150%);
+			}
+			50% {
+				transform: translate(-300%, 155%);
+			}
+			75% {
+				transform: translate(-300%, 150%);
+			}
+			100% {
+				transform: translate(-300%, 155%);
+			}
+		}
+
+		@keyframes galaxyPlanet3 {
+			0% {
+				transform: translate(200%, 270%);
+			}
+			25% {
+				transform: translate(200%, 265%);
+			}
+			50% {
+				transform: translate(200%, 275%);
+			}
+			75% {
+				transform: translate(200%, 265%);
+			}
+			100% {
+				transform: translate(200%, 270%);
+			}
+		}
 	}
 }
 
