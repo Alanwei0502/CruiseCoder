@@ -36,9 +36,9 @@
             </button>
           </form>
           <div class="category">
-            <button id="hot">熱門課程</button>
-            <button id="fundraising">募資課程</button>
-            <button id="all">所有課程</button>
+            <button id="hot" data-target="tab1" class="tab -on">熱門課程</button>
+            <button id="fundraising" data-target="tab2" class="tab">募資課程</button>
+            <button id="all" data-target="tab3" class="tab">所有課程</button>
             <select name="" id="">
               <option value="Cate"" style=" display:none">課程類型</option>
               <option value="HTML">HTML</option>

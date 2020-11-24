@@ -1,316 +1,364 @@
-.info{
-    // display: none;
-    main{
-        width: 1200px;
-        margin: 0 auto;
-        // border: tan 1px solid;
-        position: relative;
+// display: none;
+main {
+    width: 1200px;
+    margin: 0 auto;
+    // border: tan 1px solid;
+    position: relative;
 
-        .info_title{
-            @include h2;
-            color: $white;
-            font-size: $h2;
-            border-bottom: $orange 10px solid;
-            width: 200px;
-            
-            
-        }
-
-        .info_area{
-            padding: 80px 0;
-            // border: honeydew 1px solid;
-            display: flex;
-            justify-content: space-evenly;
-
-            .op_circle{
-                width: 200px;
-                height: 200px;
-                background-color: #fff;
-                border-radius: 50%;
-                // position: relative;
-                
-                .account_pic{
-                    border: $orange 5px solid;
-                    border-radius: 50%;
-                    width: 200px;
-                    height: 200px;
-                    // overflow: hidden; 
-    
-                    img{
-                        width: 200px;  
-                    }
-                    label{
-                        color: #fff;
-                        i{
-                            background-color: #fff;
-                            color: #fff;
-                            z-index: 100;
-
-                            
-                        }
-                    }
-                    
-                }
-            }
-
-            .left_cc{
-                
-                flex-direction: column;
-                align-content: space-around;
-                
-            }
-
-            
-            
-            
-
-            .notice_bar{
-                font-size: $bp;
-                width: 525px;
-                border: 5px solid $orange;
-                border-radius: 10px;
-                background-color: #FFF3D8;
-                margin-bottom: 30px;
-                padding: 10px;
-
-                display: flex;
-                justify-content: center;
-                
-                p{
-                    // text-align: center;
-                    color: $black;
-         
-                }
-                img{
-                    width: 30px;
-                    
-                }
-            }
-            .info_card{
-                
-                
-                form{
-                    padding: 40px;
-                    background-color: $beige;
-                    width: 850px;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: $bp;
-                    .editFile{
-                        text-align: center;
-                        align-self: flex-end;
-                        border-bottom: $orange 5px solid;
-                        padding-bottom: 6px;
-                        cursor: pointer;
-                        width: 180px;
-                        color: #9B9595;
-                    }
-                    label{
-                        padding: 10px;
-                        input{
-                            border: none;
-                            border-radius: 20px;
-                            height: 35px;
-                            width: 300px;
-                            
-                            outline: none;
-                        }
-                    }
-                }
-                .sendBtn{
-                    @include btn
-                    width: 200px;
-                    align-self: flex-end;
-                }
-
-                
-            }
-        
-         
-        }
-
-      .info_second{
-        
-
-        .course_title,.loveCourse_title,.love_title{
-            @include h2;
-            color: $beige;
-            
-            
-        } 
-
-        .course{
-            display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
-            .wrapGeneral {
-            margin-bottom: 50px !important;
-            margin-top: 50px !important;
-            width: 340px;
-            border-radius: 20px;
-            background-color: $white;
-            position: relative;
-            overflow: visible;
-
-            .favorites {
-                border-radius: 50%;
-                background-color: $white;
-                position: absolute;
-                top: 0;
-                right: 0;
-                transform: translate(-10%, 270%);
-
-                i {
-                    font-size: 30px;
-                    padding: 10px;
-                    cursor: pointer;
-                    color: rgb(212, 212, 212);
-                }
-            }
-
-            img.tImg {
-                width: 80px;
-                border-radius: 50%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: translate(25%, -50%);
-            }
-
-            a.img {
-                display: inline-block;
-
-                img {
-                    width: 100%;
-                    border-radius: 20px 20px 0 0;
-                }
-            }
-
-            .c_Main {
-                padding-left: 10px;
-
-                a.title {
-                    padding-top: 10px;
-                    font-size: 26px;
-                    font-weight: 600;
-                    line-height: 35px;
-                    text-decoration: none;
-                    display: inline-block;
-                    color: black;
-                    margin-bottom: 25px;
-                }
-
-                .time {
-                    font-size: 22px;
-                    margin-bottom: 20px;
-                }
-
-                .comment {
-                    display: flex;
-                    font-size: 22px;
-                    margin-bottom: 40px;
-
-                    i {
-                        font-size: 20px;
-                        color: $yellow;
-                    }
-
-                    a.text {
-                        margin-left: 10px;
-                        text-decoration: none;
-                        color: black;
-                    }
-                }
-
-                .price {
-                    font-size: $h4;
-                    font-weight: 800;
-                    text-align: right;
-                    margin-bottom: 10px;
-                    margin-right: 10px;
-                }
-            }
-        }
-        }
-        
-
-        // ------ 收藏文章 -----
-        .love_title{
-            margin-top: 100px;
-            // margin-bottom: 50px;
-        }
-        .info_article{
-            display: flex;
-            justify-content: space-evenly;
-            text-align: center;
-            .aic_1,.aic_2,.aic_3{
-                position: relative;
-                
-                i{
-                    position: absolute;
-                    color: $red;
-                    top: 5px;
-                    right: 7px;
-                    cursor: pointer;
-                       
-                }
-                
-                img{
-                    width: 300px;
-                    cursor: pointer;
-                }
-                p{
-                   color: $white; 
-                //    font-size: $h3;
-                   margin-top: 20px;
-                }
-
-                
-            }
-
-            
-        }
-        .achievement_title{
-            margin-top: 100px;
-            @include h2;
-            color: $beige;
-            
-
-        }
-        .info_achievement{
-            
-            .big_a{
-
-                width: 1200px;
-                background-color: $blue2;
-                display: flex;
-                justify-content: space-evenly;
-
-                img{
-                    width: 100px;
-                }
-            }
-            .little_a{
-                margin-top: 50px;
-                width: 1200px;
-                background-color: $blue2;
-                display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
-
-                img{
-                    width: 100px;
-                }
-            }
-        }
+    .info_title {
+        @include h2;
+        color: $white;
+        font-size: $h2;
+        border-bottom: $orange 10px solid;
+        width: 200px;
 
 
-        
     }
 
-        
+    .info_area {
+        padding: 80px 0;
+        // border: honeydew 1px solid;
+        display: flex;
+        justify-content: space-evenly;
 
- }  
+        .op_circle {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 50%;
+            // position: relative;
+
+            .account_pic {
+                border: $orange 5px solid;
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+                // overflow: hidden; 
+
+                img {
+                    width: 200px;
+                }
+
+                label {
+                    color: #fff;
+
+                    i {
+                        background-color: #fff;
+                        color: #fff;
+                        z-index: 100;
+
+
+                    }
+                }
+
+            }
+        }
+
+        .left_cc {
+
+            flex-direction: column;
+            align-content: space-around;
+
+        }
+
+
+
+
+
+        .notice_bar {
+            font-size: $bp;
+            width: 525px;
+            border: 5px solid $orange;
+            border-radius: 10px;
+            background-color: #FFF3D8;
+            margin-bottom: 30px;
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+
+            p {
+                // text-align: center;
+                color: $black;
+
+            }
+
+            img {
+                width: 30px;
+
+            }
+        }
+
+        .info_card {
+
+
+            form {
+                padding: 40px;
+                background-color: $beige;
+                width: 850px;
+                display: flex;
+                flex-direction: column;
+                font-size: $bp;
+
+                .editFile {
+                    text-align: center;
+                    align-self: flex-end;
+                    border-bottom: $orange 5px solid;
+                    padding-bottom: 6px;
+                    cursor: pointer;
+                    width: 180px;
+                    color: #9B9595;
+                }
+
+                label {
+                    padding: 10px;
+
+                    input {
+                        border: none;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 300px;
+
+                        outline: none;
+                    }
+                }
+            }
+
+            .sendBtn {
+                @include btn;
+                width: 200px;
+                align-self: flex-end;
+            }
+
+
+        }
+
+        .info_second {
+
+
+            .course_title,
+            .loveCourse_title,
+            .love_title {
+                @include h2;
+                color: $beige;
+
+
+            }
+
+            .course {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .wrapGeneral {
+                    margin-bottom: 50px !important;
+                    margin-top: 50px !important;
+                    width: 340px;
+                    border-radius: 20px;
+                    background-color: $white;
+                    position: relative;
+                    overflow: visible;
+
+                    .favorites {
+                        border-radius: 50%;
+                        background-color: $white;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        transform: translate(-10%, 270%);
+
+                        i {
+                            font-size: 30px;
+                            padding: 10px;
+                            cursor: pointer;
+                            color: rgb(212, 212, 212);
+                        }
+                    }
+
+                    img.tImg {
+                        width: 80px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(25%, -50%);
+                    }
+
+                    a.img {
+                        display: inline-block;
+
+                        img {
+                            width: 100%;
+                            border-radius: 20px 20px 0 0;
+                        }
+                    }
+
+                    .c_Main {
+                        padding-left: 10px;
+
+                        a.title {
+                            padding-top: 10px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            line-height: 35px;
+                            text-decoration: none;
+                            display: inline-block;
+                            color: black;
+                            margin-bottom: 25px;
+                        }
+
+                        .time {
+                            font-size: 22px;
+                            margin-bottom: 20px;
+                        }
+
+                        .comment {
+                            display: flex;
+                            font-size: 22px;
+                            margin-bottom: 40px;
+
+                            i {
+                                font-size: 20px;
+                                color: $yellow;
+                            }
+
+                            a.text {
+                                margin-left: 10px;
+                                text-decoration: none;
+                                color: black;
+                            }
+                        }
+
+                        .price {
+                            font-size: $h4;
+                            font-weight: 800;
+                            text-align: right;
+                            margin-bottom: 10px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+
+
+            // ------ 收藏文章 -----
+            .love_title {
+                margin-top: 100px;
+                // margin-bottom: 50px;
+            }
+
+            .info_article {
+                display: flex;
+                justify-content: space-evenly;
+                text-align: center;
+
+                .aic_1,
+                .aic_2,
+                .aic_3 {
+                    position: relative;
+
+                    i {
+                        position: absolute;
+                        color: $red;
+                        top: 5px;
+                        right: 7px;
+                        cursor: pointer;
+
+                    }
+
+                    img {
+                        width: 300px;
+                        cursor: pointer;
+                    }
+
+                    p {
+                        color: $white;
+                        //    font-size: $h3;
+                        margin-top: 20px;
+                    }
+
+                }
+
+
+            }
+
+            .achievement_title {
+                margin-top: 100px;
+                @include h2;
+                color: $beige;
+
+
+            }
+
+            // ------ 收藏文章 -----
+            .info_article {
+                display: flex;
+                justify-content: space-evenly;
+                text-align: center;
+
+                .aic_1,
+                .aic_2,
+                .aic_3 {
+                    position: relative;
+
+                    i {
+                        position: absolute;
+                        color: $red;
+                        top: 5px;
+                        right: 7px;
+
+                    }
+
+                    img {
+                        width: 300px;
+                    }
+
+                    p {
+                        color: $white;
+                    }
+
+
+                }
+
+
+            }
+
+            .achievement_title {
+                color: $beige;
+                font-size: $h2;
+
+            }
+
+            .info_achievement {
+
+                .big_a {
+
+                    width: 1200px;
+                    background-color: $blue2;
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    img {
+                        width: 100px;
+                    }
+                }
+
+                .little_a {
+                    margin-top: 50px;
+                    width: 1200px;
+                    background-color: $blue2;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+
+                    img {
+                        width: 100px;
+                    }
+                }
+            }
+
+        }
+    }
 }
-// TinyBunny info end
 
+// TinyBunny info end
