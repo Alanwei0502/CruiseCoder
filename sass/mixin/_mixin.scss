@@ -363,3 +363,53 @@
 		background-image: url("./../images/backEnd/saveicon1.png");
 	}
 }
+
+
+
+
+
+
+
+// ================RWD====================
+
+//media queries的width變數
+$laptop:1200px;
+$bigPad:992px;
+$smlPad:768px;		//iPad Mini(直)、iPad(直)
+$bigPhone:576px;	//568px	iPhone 5/SE(橫)
+$smlphone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
+
+//筆電
+@mixin laptop {
+    @media screen and (max-width: $laptop) {
+		@content;
+	}
+}
+
+//大平板
+@mixin bigPad {
+	@media screen and (max-width: $bigPad) {
+		@content;
+	}
+}
+
+//小平板
+@mixin smlPad {
+	@media screen and (max-width: $smlPad) {
+		@content;
+	}
+}
+
+//大手機
+@mixin bigPhone {
+	@media screen and (max-width: $bigPhone) {
+		@content;
+	}
+}
+
+//小手機
+@mixin smlphone {
+	@media screen and (max-width: $smlphone) {
+		@content;
+	}
+}
