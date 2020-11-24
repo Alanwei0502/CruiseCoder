@@ -175,11 +175,21 @@
             .planetBadge{
                 display: flex;
                 justify-content: space-around;
-                
-                margin: 50px 0;
+                margin: $fontSize*5 0 $fontSize*10;
+
                 img{
+                    display: block;
                     height: 200px;
                     transform-style: preserve-3d;
+                    border-radius: 50%;
+                    transform: rotate(-20deg);
+                    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+                    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+                    transition: transform .2s;
+
+                    &:hover{
+                        transform: rotate(-10deg);
+                    }
                 }
             }
 
@@ -188,11 +198,12 @@
                 justify-content: center;
 
                 img{
+                    display: block;
                     height: 300px;
                     transform-style: preserve-3d;
+                    border-radius: 50%;
+                    
                 }
-
-                
             }
         }
     }
@@ -209,3 +220,21 @@
         transform: translateY(10px);
     }
 }
+
+@include keyframes(glowing){
+    0%{
+        -webkit-filter: drop-shadow(0px 0px 7pxrgba(91, 196, 227, .7));
+        filter: drop-shadow(0px 0px 20px rgba(91, 196, 227, .7));
+    }
+    20%{
+        -webkit-filter: drop-shadow(0px 0px 7pxrgba(91, 196, 227, .7));
+        filter: drop-shadow(0px 0px 20px rgba(91, 196, 227, .7));
+    }
+}
+// -webkit-filter: drop-shadow(0px 0px 7pxrgba(91, 196, 227, .7));
+                    // filter: drop-shadow(
+                    //     0px 0px 20px rgba(91, 196, 227, .7),
+                    //     5px 5px 20px rgba(252, 201, 61, .7),
+                    //     10px 10px 20px rgba(249, 67, 62, .7),
+                    //     0px 0px 20px rgba(228, 159, 0, .7);
+                    //     );

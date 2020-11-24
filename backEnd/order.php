@@ -58,93 +58,100 @@
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
-              <td><button>查看</button></td>
+              <td><button class="view">查看</button></td>
             </tr>
             <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
-              <td><button>查看</button></td>
+              <td><button class="view">查看</button></td>
             </tr>
             <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
-              <td><button>查看</button></td>
+              <td><button class="view">查看</button></td>
             </tr>
             <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
-              <td><button>查看</button></td>
+              <td><button class="view">查看</button></td>
             </tr>
             <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
-              <td><button>查看</button></td>
+              <td><button class="view">查看</button></td>
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="changePage">
+        <button class="lastPage">上一頁</button>
+        <button class="nextPage">下一頁</button>
       </div>
     </main><!-- 在這裡面coding -->
     <!-- 訂單資訊 -->
     <div class="orderInfo">
-      <h2>訂單資訊</h2>
-      <div class="close">
-        <i class="far fa-times-circle"></i>
-      </div>
-      <div class="orderList">
-        <table>
-          <tbody>
-            <tr>
-              <td class="listTitle">訂單編號</td>
-              <td>ON2020103000001</td>
-            </tr>
-            <tr>
-              <td class="listTitle">購買日期</td>
-              <td>2020/10/26 19：21</td>
-            </tr>
-            <tr>
-              <td class="listTitle">會員編號</td>
-              <td>CCM0000001</td>
-            </tr>
-            <tr>
-              <td class="listTitle">會員姓名</td>
-              <td>黃家偉</td>
-            </tr>
-            <tr>
-              <td class="listTitle">購買課程</td>
-              <td>
-                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-              </td>
-            </tr>
-            <tr>
-              <td class="listTitle">原始金額</td>
-              <td>4,400</td>
-            </tr>
-            <tr>
-              <td class="listTitle">CC.Point折抵</td>
-              <td>111</td>
-            </tr>
-            <tr>
-              <td class="listTitle">實付金額</td>
-              <td>4,289</td>
-            </tr>
-          </tbody>
-        </table>
-        <button>關閉</button>
-      </div>
+      <section>
+        <h2>訂單資訊</h2>
+        <img src="../images/backEnd/blackCancel.png" alt="" class="close">
+
+        <div class="orderList">
+          <table>
+            <tbody>
+              <tr>
+                <td class="listTitle">訂單編號</td>
+                <td>2020103012000001</td>
+              </tr>
+              <tr>
+                <td class="listTitle">購買日期</td>
+                <td>2020/10/30 12：00</td>
+              </tr>
+              <tr>
+                <td class="listTitle">會員編號</td>
+                <td>M0001</td>
+              </tr>
+              <tr>
+                <td class="listTitle">會員姓名</td>
+                <td>黃家偉</td>
+              </tr>
+              <tr>
+                <td class="listTitle">購買課程</td>
+                <td>
+                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="listTitle">原始金額</td>
+                <td>4,400</td>
+              </tr>
+              <tr>
+                <td class="listTitle">CC.Point折抵</td>
+                <td>111</td>
+              </tr>
+              <tr>
+                <td class="listTitle">實付金額</td>
+                <td>4,289</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <button class="close">關閉</button> -->
+      </section>
     </div>
   </div>
   <script src="./../js/datepicker.js"></script>
+  <script src="./../js/order.js"></script>
+
 
 </body>
 

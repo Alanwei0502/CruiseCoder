@@ -156,6 +156,8 @@
             </div>
             <!-- 圓餅圖結束 -->
 
+
+
             <!-- 課程輪撥開始 -->
             <h2 class="H2title">
                 < 外星課程 / >
@@ -395,6 +397,40 @@
             </div>
             <!-- 課程輪撥結束 -->
 
+
+            <!-- 宇宙試煉開始 -->
+            <h2 class="H2title">
+                < 語宙試煉 / >
+            </h2>
+            <div class="galaxyBlock">
+                <div class="galaxyWarp">
+                    <div class="leftBlock">
+                        <span class="line1"></span>
+                        <span class="line2"></span>
+                        <span class="line3"></span>
+                        <span class="line4"></span>
+
+                        <img src="../images/trial/planets/html1.png" class="planet1">
+                        <img src="../images/trial/planets/html2.png" class="planet2">
+                        <img src="../images/trial/planets/html3.png" class="planet3">
+
+                    </div>
+                    <div class="rightBlock">
+                        <h3>HTML 星系</h3>
+                        <p>HTML是一種網頁使用的語言，是一種描述超文件的註記語言SGML(Standard Generalized Markup Language)所制訂出的一種網頁語言，基本上現行的瀏覽器都可以讀取HTML，使用HTML可以編輯設計出網頁，也可以在網頁中加入所有HTML語言可支援的方式，例如表格、表單、圖片、文字、連結、程式等等。</p>
+                        <button>查看更多</button>
+                    </div>
+                    
+                </div>
+                <div class="planetWarp">
+                    <img src="../images/trial/badge/css.png">
+                    <img src="../images/trial/badge/html.png">
+                    <img src="../images/trial/badge/javascript.png">
+                    <img src="../images/trial/badge/mysql.png">
+                    <img src="../images/trial/badge/php.png">
+                </div>
+            </div>
+            <!-- 宇宙試煉結束 -->
 
         </main>
         <?php
