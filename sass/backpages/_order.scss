@@ -99,10 +99,21 @@
                 cursor: pointer;
             }
         }
-    }
+// 換頁按鈕
+        .changePage {
+            display: flex;
+            justify-content: flex-end;
 
+            .lastPage,
+            .nextPage {
+                @include changePage;
+                margin: $fontSize * 2;
+            }
+        }
+    }
+// 燈箱
     .orderInfo.-on {
-        /* 加上 -on 之後，Modal 漸漸出現，因為有設定 transition */
+        /* 加上 -on 之後，訂單資訊 漸漸出現，因為有設定 transition */
         opacity: 1;
         z-index: 1;
     }
@@ -139,7 +150,7 @@
             h2 {
                 font-size: 32px;
                 font-weight: 600;
-                margin: 50px 0 50px 40px;
+                margin: 30px 0 30px 40px;
             }
 
             img.close {
