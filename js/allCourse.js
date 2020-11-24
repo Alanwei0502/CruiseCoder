@@ -7,3 +7,12 @@ $(document).ready(function () {
     })
 
 })
+
+// 頁籤顏色
+$(function () {
+    $("button.tab").on("click", function () {
+        $(this).closest("div").find("button.tab").removeClass("-on");
+        $(this).addClass("-on");
+
+    });
+});

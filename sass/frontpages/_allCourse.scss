@@ -19,8 +19,7 @@
 			}
 
 			.filter {
-				margin-top: 50px;
-				margin-bottom: 50px;
+				margin: 50px 0px;
 				display: flex;
 
 				form.search {
@@ -51,12 +50,12 @@
 						top: 0;
 						right: 0;
 						transform: translateX(-60px);
+						outline: none;
+
 
 						i {
 							color: rgb(198, 197, 197);
 							font-size: 25px;
-							//font-family: $fontAwesome;
-							outline: none;
 						}
 					}
 				}
@@ -77,14 +76,22 @@
 						background-color: transparent;
 						outline: none;
 						transition: all 0.3s;
+
+						&:hover {
+							background-color: $red;
+							color: $white;
+							font-weight: 600;
+							text-shadow: 1px 1px 2px rgb(71, 71, 71);
+						}
 					}
 
-					button:hover {
+					button.-on {
 						background-color: $red;
 						color: $white;
 						font-weight: 600;
-
+						text-shadow: 1px 1px 2px rgb(71, 71, 71);
 					}
+
 
 					select {
 						width: 180px;
@@ -110,6 +117,7 @@
 						background-color: $red;
 						color: $white;
 						font-weight: 600;
+						text-shadow: 1px 1px 2px rgb(71, 71, 71);
 					}
 				}
 			}
@@ -151,14 +159,14 @@
 
 				/*一般課程*/
 				.wrapGeneral {
-					margin-bottom: 50px !important;
-					margin-top: 50px !important;
+					margin: 50px 0px;
 					width: 340px;
 					border-radius: 20px;
 					background-color: $white;
 					position: relative;
 					overflow: visible;
 
+					// 愛心按鈕
 					.favorites {
 						border-radius: 50%;
 						background-color: $white;
@@ -167,6 +175,7 @@
 						right: 0;
 						transform: translate(-10%, 270%);
 
+						// font
 						i {
 							font-size: 30px;
 							padding: 10px;
@@ -199,22 +208,21 @@
 					}
 
 					.c_Main {
-						padding-left: 10px;
+						padding: 3% 3% 5%;
 
 						a.title {
-							padding-top: 10px;
+							padding-bottom: 5%;
 							font-size: 26px;
 							font-weight: 600;
 							line-height: 35px;
 							text-decoration: none;
 							display: inline-block;
 							color: black;
-							margin-bottom: 25px;
 						}
 
 						.time {
 							font-size: 22px;
-							margin-bottom: 20px;
+							padding-bottom: 5%;
 						}
 
 						.comment {
@@ -238,8 +246,7 @@
 							font-size: $h4;
 							font-weight: 800;
 							text-align: right;
-							margin-bottom: 10px;
-							margin-right: 10px;
+							// padding: 0px 4% 20px 0px;
 						}
 					}
 				}
@@ -293,22 +300,22 @@
 					}
 
 					.c_Main {
-						padding-left: 10px;
+						padding: 3% 3% 5%;
 
 						a.title {
-							padding-top: 10px;
+							padding-bottom: 5%;
 							font-size: 26px;
 							font-weight: 600;
 							line-height: 35px;
 							text-decoration: none;
 							display: inline-block;
 							color: black;
-							margin-bottom: 20px;
+
 						}
 
 						.time {
 							font-size: 22px;
-							margin-bottom: 30px;
+							padding-bottom: 5%;
 						}
 
 						.price {
@@ -320,7 +327,7 @@
 								color: $white;
 								font-size: 17px;
 								line-height: 34px;
-								padding: 0px 8px;
+								padding: 0px 2%;
 								text-shadow: 1px 1px 3px rgb(46, 46, 46);
 							}
 
@@ -348,7 +355,7 @@
 							border-radius: 8px;
 							position: relative;
 							overflow: hidden;
-							margin: 20px 10px 20px 0px;
+							margin: 7% 0px;
 
 							span.progress {
 								display: inline-block;
@@ -364,7 +371,6 @@
 						.funNum {
 							font-size: 19px;
 							text-align: center;
-							margin-bottom: 15px;
 						}
 					}
 				}

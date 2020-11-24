@@ -1,64 +1,66 @@
-.info{
+.info {
+
     // display: none;
-    main{
+    main {
         width: 1200px;
         margin: 0 auto;
         border: tan 1px solid;
 
         position: relative;
 
-        
-        
-        .info_title{
+
+
+        .info_title {
             color: $white;
             font-size: $h2;
             border-bottom: $orange 10px solid;
             width: 200px;
 
-            ::after{
+            ::after {
                 content: '';
                 border-top: solid 1px gray;
                 // width: 1200px;
-    
+
                 position: absolute;
                 left: 0;
                 right: 0;
-    
+
                 transform: translateY(58px);
-    
-    
+
+
             }
-            
+
         }
 
-        .info_area{
+        .info_area {
             padding: 80px 0;
             border: honeydew 1px solid;
             display: flex;
             justify-content: space-evenly;
 
-            .op_circle{
-                
+            .op_circle {
+
 
                 width: 200px;
                 height: 200px;
                 background-color: #fff;
                 border-radius: 50%;
                 position: relative;
-                
-                .account_pic{
+
+                .account_pic {
                     border: $orange 5px solid;
                     border-radius: 50%;
                     width: 200px;
                     height: 200px;
-                    overflow: hidden; 
-                     
+                    overflow: hidden;
 
-                    img{
+
+                    img {
                         width: 200px;
-                        
+
                     }
-                    .camera{
+
+                    .camera {
                         background-color: #fff;
                         border-radius: 50%;
                         width: 50px;
@@ -68,30 +70,30 @@
                         bottom: 0;
                         right: 0;
                         cursor: pointer;
-                       
-        
-                        .fa-camera{
+
+
+                        .fa-camera {
                             font-size: 25px;
                             color: #606060;
                             line-height: 50px;
                             text-align: center;
-                            
+
                         }
                     }
                 }
             }
 
-            .left_cc{
-                
+            .left_cc {
+
                 flex-direction: column;
                 align-content: space-around;
             }
 
-            
-            
-            
 
-            .notice_bar{
+
+
+
+            .notice_bar {
                 font-size: $bp;
                 width: 525px;
                 border: 5px solid $orange;
@@ -102,28 +104,31 @@
 
                 display: flex;
                 justify-content: center;
-                
-                p{
+
+                p {
                     // text-align: center;
                     color: $black;
-         
+
                 }
-                img{
+
+                img {
                     width: 30px;
-                    
+
                 }
             }
-            .info_card{
-                
-                
-                form{
+
+            .info_card {
+
+
+                form {
                     padding: 40px;
                     background-color: $beige;
                     width: 850px;
                     display: flex;
                     flex-direction: column;
                     font-size: $bp;
-                    >div{
+
+                    >div {
                         text-align: center;
                         align-self: flex-end;
                         border-bottom: $orange 5px solid;
@@ -132,105 +137,119 @@
                         width: 180px;
                         color: #9B9595;
                     }
-                    label{
+
+                    label {
                         padding: 10px;
-                        input{
+
+                        input {
                             border: none;
                             border-radius: 20px;
                             height: 35px;
                             width: 300px;
-                            
+
                             outline: none;
                         }
                     }
                 }
-                
-            }
-        
-         
-        }
 
-      .info_second{
-        .course_area,.loveCourse_area,.love_title_area{
-            border-bottom: 1px solid darkgray;
-
-        }
-
-        .course_title,.loveCourse_title,.love_title{
-            color: $beige;
-            font-size: $h2;
-            border-bottom: $orange 10px solid;
-            width: 290px;
-            
-        } 
-
-        // ------ 收藏文章 -----
-        .info_article{
-            display: flex;
-            justify-content: space-evenly;
-            text-align: center;
-            .aic_1,.aic_2,.aic_3{
-                position: relative;
-                
-                i{
-                    position: absolute;
-                    color: $red;
-                    top: 5px;
-                    right: 7px;
-                        
-                }
-                
-                img{
-                    width: 300px;
-                }
-                p{
-                   color: $white; 
-                }
-
-                
             }
 
-            
-        }
-        .achievement_title{
-            color: $beige;
-            font-size: $h2;
 
         }
-        .info_achievement{
-            
-            .big_a{
 
-                width: 1200px;
-                background-color: $blue2;
+        .info_second {
+
+            .course_area,
+            .loveCourse_area,
+            .love_title_area {
+                border-bottom: 1px solid darkgray;
+
+            }
+
+            .course_title,
+            .loveCourse_title,
+            .love_title {
+                color: $beige;
+                font-size: $h2;
+                border-bottom: $orange 10px solid;
+                width: 290px;
+
+            }
+
+            // ------ 收藏文章 -----
+            .info_article {
                 display: flex;
                 justify-content: space-evenly;
+                text-align: center;
 
-                img{
-                    width: 100px;
+                .aic_1,
+                .aic_2,
+                .aic_3 {
+                    position: relative;
+
+                    i {
+                        position: absolute;
+                        color: $red;
+                        top: 5px;
+                        right: 7px;
+
+                    }
+
+                    img {
+                        width: 300px;
+                    }
+
+                    p {
+                        color: $white;
+                    }
+
+
+                }
+
+
+            }
+
+            .achievement_title {
+                color: $beige;
+                font-size: $h2;
+
+            }
+
+            .info_achievement {
+
+                .big_a {
+
+                    width: 1200px;
+                    background-color: $blue2;
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    img {
+                        width: 100px;
+                    }
+                }
+
+                .little_a {
+                    margin-top: 50px;
+                    width: 1200px;
+                    background-color: $blue2;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+
+                    img {
+                        width: 100px;
+                    }
                 }
             }
-            .little_a{
-                margin-top: 50px;
-                width: 1200px;
-                background-color: $blue2;
-                display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
 
-                img{
-                    width: 100px;
-                }
-            }
+
+
         }
 
 
-        
+
     }
-
-        
-
- }  
 }
-// TinyBunny info end
 
+// TinyBunny info end
