@@ -14,13 +14,13 @@ $h3: $fontSize * 2.5; //40px
 $h4: $fontSize * 2; //32px
 
 //主要內文
-$bp: 26px;
+$bp: $fontSize * 1.625; //26px
 
 //次要內文
-$mp: 22px;
+$mp: $fontSize * 1.375; //22px
 
 //卡號、訂單金額
-$sp: 16px;
+$sp: $fontSize;  //16px
 
 //午夜藍: header, footer, 彈跳視窗, 部分背景色
 $blue1 : rgb(24, 39, 73);
@@ -34,17 +34,20 @@ $blue3 : rgb(134, 214, 253);
 //金木橘: 標體下底線
 $orange : rgb(255, 179, 0);
 $orange1 : rgb(228, 159, 0);
+
 //玉子黃：按鈕, 評價星星
 $yellow : rgb(252, 201, 61);
 
 //梔子白: 部分背景色
-$beige : #FBF7EB;
+$beige : rgb(251, 247, 235);
 
 //純淨白: 文字
-$white: #FFFFFF;
+$white: rgb(255, 255, 255);
 
 //極致黑：網站背景黑
-$black: #000000;
+$black: rgb(0, 0, 0);
 
 //火箭紅: 收藏愛心, 購物車數量提示, 預約額滿提示
 $red : rgb(249, 67, 62);
+
+

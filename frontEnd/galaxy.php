@@ -97,15 +97,15 @@
             <section class="planetQuiz">
                 <h2>&lt; 星球關卡 &#47;&gt;</h2>
                 <div class="carousel" data-planet="">
-                    <div id="planet0" class="planet">
+                    <div class="planet planet0">
                         <img src="../images/trial/planets/html1.png" alt="初級html星球">
                         <div>HTML初級星球</div>
                     </div>
-                    <div id="planet1" class="planet">
+                    <div class="planet planet1">
                         <img src="../images/trial/planets/html2.png" alt="中級html星球">
                         <div>HTML中級星球</div>
                     </div>
-                    <div id="planet2" class="planet">
+                    <div class="planet planet2">
                         <img src="../images/trial/planets/html3.png" alt="高級html星球">
                         <div>HTML高級星球</div>
                     </div>

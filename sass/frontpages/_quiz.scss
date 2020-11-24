@@ -83,7 +83,7 @@
                 }
             }
             button{
-                @include btn;
+                @include btn($h4);
                 display: block;
                 float: right;
             }
