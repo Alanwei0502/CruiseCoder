@@ -30,7 +30,7 @@
 <!------- 第一張訂單明細 ------->              
                     <div class="option">
                       <input type="checkbox" id="toggle1" class="toggle"/>
-                      <label class="title" for="toggle1">
+                      <label class="title" for="toggle1">
                             <div class="Order_1">
                                 <div><img src="../images/order/computer.jpeg" alt=""></div>
                                 <div>
@@ -87,8 +87,7 @@
                     <div class="accordion">
               
                         <div class="option">
-                          <input type="checkbox" id="toggle2" class="toggle" />
-                          <label class="title" for="toggle2">
+                          <input type="checkbox" id="toggle2" class="toggle" /><label class="title" for="toggle2">
                       <div class="Order_2">
                       <div><img src="../images/order/computer.jpeg" alt=""></div>
                           <div>
@@ -138,8 +137,7 @@
 <div class="accordion">
               
     <div class="option">
-      <input type="checkbox" id="toggle3" class="toggle" />
-      <label class="title" for="toggle3">
+      <input type="checkbox" id="toggle3" class="toggle" /><label class="title" for="toggle3">
   <div class="Order_3">
   <div><img src="../images/order/computer.jpeg" alt=""></div>
       <div>

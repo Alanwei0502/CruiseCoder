@@ -87,8 +87,12 @@
 
 
       <!-- 下拉箭頭 -->
-      <section id="section03" class="demo">
-        <a href="#section04"><span></span>Scroll</a>
+      <section>
+        <p>SCROLL DOWN CSS</p>
+        <a href="#" class="scroll-down" address="true"></a>
+        </section>
+        <section class="ok">
+        <p>OK SCROLL !</p>
       </section>
 
 
@@ -163,7 +167,7 @@
            
             <div class="cc_people">
               <div><img  class="cc_boy" src="../images/ccPoint/cc_boy.svg" alt=""></div>
-              <div class="scale_100">100:1</div>
+              <div class="scale_100"><p>100:1</p></div>
               <div><img class="cc_girl" src="../images/ccPoint/cc_girl.svg" alt=""></div>
             </div>
 

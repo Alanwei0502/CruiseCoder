@@ -71,17 +71,20 @@ $ccFontNum:  'Roboto Mono', monospace;
                 
             }
                 
-    
-    
         }
+
+        
+
+
     
         .second_area{
             margin-top: 150px;
             .ccHow{
+                @include h2;
                 color: $beige;
-                font-size: $h2;
-                border-bottom: $orange 10px solid;
-                width: 375px;
+                // font-size: $h2;
+                // border-bottom: $orange 10px solid;
+                // width: 375px;
             }
                  
             
@@ -205,6 +208,7 @@ $ccFontNum:  'Roboto Mono', monospace;
                         }
                     }
                     .cc_people{
+                        margin-top: 50px;
                         display: flex;
                         justify-content: space-around;
                         border: rgb(3, 44, 3) 1px solid;
@@ -218,9 +222,15 @@ $ccFontNum:  'Roboto Mono', monospace;
                         .scale_100{
                             border: $orange 15px solid;
                             width: 350px;
-                            // padding: 50px;
                             text-align: center;
+                            font-family: $ccFontNum;
                             font-size: 60px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            p{
+                               
+                            }
                         }
                         .cc_girl{
                             width: 100px;

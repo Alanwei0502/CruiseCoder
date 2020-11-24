@@ -3,18 +3,20 @@ $font-color: #1f180c;
 
 .order{
    main{
-      
+    
     width: 1200px;
     margin: 0 auto;
     
     
     .orderArea{
             border: $orange 10px solid;
+
             .accordion{
                 .Order_1,.Order_3{
                 background-color:#FFF3D8;
                 }
                 .Order_1,.Order_2,.Order_3,.Order_4{
+                  height: 100%;
                     display: flex;
                     justify-content: space-around;
                     padding: 20px; 
@@ -53,8 +55,6 @@ $font-color: #1f180c;
                 border-bottom: grey 1px solid;
             }
             td{
-                
-               
                 text-align: center;
                 padding: 30px;    
             }    
@@ -68,9 +68,9 @@ $font-color: #1f180c;
 
 .accordion {
     
-    // max-width: 80em;
-    background-color: #fff;
     .option {
+
+        
         position: relative;
         .toggle {
             display: none;      
