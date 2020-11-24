@@ -69,3 +69,30 @@ arrowLeft.addEventListener("click", preMonth);
 
 arrowRight.addEventListener("click", nextMonth);
 
+
+$(document).ready(function(){
+  // 月份旁邊的按鈕 圖片上下更換 日歷開合
+  $("#upArrow").click(function(){
+    $("div.calendarBody").slideToggle();
+    $("#upArrow").addClass("none");
+    $("#downArrow").removeClass("none");
+  });
+  $("#downArrow").click(function(){
+    $("div.calendarBody").slideToggle();
+    $("#downArrow").addClass("none");
+    $("#upArrow").removeClass("none");
+  });
+  // 結束
+  // 顯示已購買 顯示全部按鈕換色
+  $("#alreadyBuy").click(function(){
+    $("#alreadyBuy").addClass("-on");
+    $("#showAll").removeClass("-on");
+  });
+  $("#showAll").click(function(){
+    $("#showAll").addClass("-on");
+    $("#alreadyBuy").removeClass("-on");
+  });
+
+  
+  
+});

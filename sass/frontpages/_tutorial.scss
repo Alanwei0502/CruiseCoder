@@ -2,14 +2,36 @@
 div.tutorial {
 	main {
 		color: $white;
-		width: 1200px;
+		max-width: 1200px;
+		width: 95%;
 		margin: 0 auto;
-		@include laptop{
-			width: 900px;
+		// @include laptop{
+		// 	width: 900px;
+		// }
+		// @include bigPad{
+		// 	width: 700px;
+		// }
+		// @include smlPad{
+		// 	width: 600px;
+		// }
+		@include smlPhone{
+			width: 100%;
 		}
 		h2 {
 			@include h2;
 			color: $white;
+			@include smlPad{
+				font-size: $h3;
+				margin: 50px 0px 20px;
+			}
+			@include bigPhone{
+				font-size: $h4;
+			}
+			@include smlPhone{
+				font-size: $bp;
+				width: 95%;
+				margin: 0 auto;
+			}
 		}
 		h2.firstH2 {
 			margin-top: 50px;
@@ -20,22 +42,54 @@ div.tutorial {
 			border-radius: 10px;
 			padding: 30px 10px 20px;
 			margin: 50px auto 30px;
+			@include bigPad{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			@include smlPad{
+				margin: 40px auto 20px;
+				padding: 20px 10px 15px;
+			}
+			@include smlPhone{
+				padding: 10px 5px 10px;
+			}
 			p.askTitle {
 				width: 100%;
 				text-align: center;
 				font-size: $bp;
 				font-weight: bold;
 				margin-bottom: 20px;
+				@include smlPad{
+					font-size: $mp;
+					letter-spacing: 2px;
+				}
+				@include smlPhone{
+					font-size: $sp;
+				}
 			}
 			div.askBody {
 				display: flex;
 				justify-content: space-between;
 				align-items: flex-end;
+				@include bigPad{
+					display: block;
+				}
 				div.askBodyLeft {
 					font-size: $mp;
 					margin-left: 40px;
 					@include laptop{
 						margin-left: 20px;
+					}
+					@include bigPad{
+						margin-bottom: 10px;
+					}
+					@include smlPad{
+						font-size: $sp;
+						margin-left: 0px;
+					}
+					@include smlPhone{
+						font-size: 12px;
 					}
 					div.top {
 						margin-bottom: 10px;
@@ -50,6 +104,17 @@ div.tutorial {
 						text-align: center;
 						line-height: 20px;
 						margin-right: 10px;
+						@include smlPad{
+							width: 25px;
+							height: 25px;
+							line-height: 15px;
+						}
+						@include smlPhone{
+							width: 20px;
+							height: 20px;
+							line-height: 20px;
+							padding: 0px;
+						}
 					}
 					p {
 						display: inline-block;
@@ -58,12 +123,24 @@ div.tutorial {
 				div.askBodyRight {
 					display: flex;
 					align-items: center;
+					@include bigPad{
+						justify-content: center;
+					}
 					div.orange {
 						height: 30px;
 						width: 30px;
 						border-radius: 100%;
 						background-color: $orange;
 						margin-right: 10px;
+						@include smlPad{
+							height: 25px;
+							width: 25px;
+						}
+						@include smlPhone{
+							height: 20px;
+							width: 20px;
+							margin-right: 5px;
+						}
 					}
 					div.red {
 						height: 30px;
@@ -71,12 +148,27 @@ div.tutorial {
 						border-radius: 100%;
 						background-color: $red;
 						margin-right: 10px;
+						@include smlPad{
+							height: 25px;
+							width: 25px;
+						}
+						@include smlPhone{
+							height: 20px;
+							width: 20px;
+							margin-right: 5px;
+						}
 					}
 					p {
 						font-size: $mp;
 						margin-right: 40px;
 						@include laptop{
 							margin-right: 20px;
+						}
+						@include smlPad{
+							font-size: $sp;
+						}
+						@include smlPhone{
+							font-size: 12px;
 						}
 					}
 				}
@@ -91,6 +183,13 @@ div.tutorial {
 				@include laptop{
 					height: 130px;
 				}
+				@include bigPad{
+					height: 160px;
+				}
+				@include smlPhone{
+					height: auto;
+					background-color: transparent;
+				}
 				div.nowMonth {
 					position: relative;
 					position: absolute;
@@ -100,11 +199,28 @@ div.tutorial {
 					@include laptop{
 						left: 6%;
 					}
+					@include bigPad{
+						top: 65%;
+						left: 8%;
+					}
+					@include smlPhone{
+						left: -2%;
+					}
 					p#month {
 						font-size: $h2;
 						width: 100px;
 						white-space: nowrap;
 						text-align: center;
+						@include smlPad{
+							font-size: $h3;
+						}
+						@include bigPhone{
+							font-size: $h4;
+						}
+						@include smlPhone{
+							font-size: $bp;
+							color: $blue2;
+						}
 					}
 					p#year {
 						font-size: $bp;
@@ -113,6 +229,15 @@ div.tutorial {
 						top: -70%;
 						left: 35%;
 						transform: translateX(-50%);
+						@include smlPad{
+							font-size: $mp;
+						}
+						@include bigPhone{
+							font-size: $sp;
+						}
+						@include smlPhone{
+							display: none;
+						}
 					}
 					img.arrowLeft {
 						width: 30px;
@@ -121,6 +246,17 @@ div.tutorial {
 						top: 50%;
 						left: -35%;
 						transform: translateY(-50%) rotate(180deg);
+						@include smlPad{
+							width: 25px;
+							left: -30%;
+						}
+						@include bigPhone{
+							width: 20px;
+							left: -15%;
+						}
+						@include smlPhone{
+							display: none;
+						}
 						&:hover {
 							cursor: pointer;
 							background-color: $blue2;
@@ -133,11 +269,51 @@ div.tutorial {
 						top: 50%;
 						right: -35%;
 						transform: translateY(-50%);
+						@include smlPad{
+							width: 25px;
+							right: -30%;
+						}
+						@include bigPhone{
+							width: 20px;
+							right: -15%;
+						}
+						@include smlPhone{
+							display: none;
+						}
 						&:hover {
 							cursor: pointer;
 							background-color: $blue2;
 							border-radius: 100%;
 						}
+					}
+					img.upArrow{
+						display: none;
+						@include smlPhone{
+							display: block;
+							position: absolute;
+							top: 20%;
+							right: 0;
+							width: 16px;
+							transform: rotate(180deg);
+						}
+					}
+					img.upArrow.none{
+						@include smlPhone{
+							display: none;
+						}
+					}
+					img.downArrow{
+						display: none;
+						@include smlPhone{
+							display: block;
+							position: absolute;
+							top: 20%;
+							right: 0;
+							width: 16px;
+						}
+					}
+					img.downArrow.none{
+						display: none;
 					}
 				}
 				div.filterAll {
@@ -148,6 +324,22 @@ div.tutorial {
 					width: 55%;
 					margin: 0 auto;
 					transform: translate(5%, 5%);
+					@include bigPad{
+						align-items: flex-start;
+						width: 80%;
+						height: auto;
+						transform: translate(5%, 15%);
+					}
+					@include bigPhone{
+						width: 95%;
+						transform: translate(0, 5%);
+					}
+					@include smlPhone{
+						height: auto;
+						background-color: $orange;
+						width: 100%;
+						padding: 10px 5px;
+					}
 					select {
 						outline: none;
 						appearance: none;
@@ -165,9 +357,25 @@ div.tutorial {
 						@include laptop{
 							width: 150px;
 						}
+						@include smlPad{
+							font-size: $sp;
+							background-size: 22px;
+						}
+						@include bigPhone{
+							width: 120px;
+							background-size: 18px;
+						}
+						@include smlPhone{
+							font-size: 12px;
+							width: 100px;
+							background-size: 16px;
+						}
 						option.textColor {
 							color: $blue1;
 							font-size: $mp;
+							@include smlPad{
+								font-size: $sp;
+							}
 						}
 					}
 				}
@@ -175,6 +383,13 @@ div.tutorial {
 					position: absolute;
 					top: 8%;
 					right: 2%;
+					@include bigPad{
+						top: 40%;
+					}
+					@include smlPhone{
+						display: flex;
+						top: 60%;
+					}
 					button {
 						outline: none;
 						display: block;
@@ -186,6 +401,13 @@ div.tutorial {
 						border: none;
 						background-color: rgba(0, 0, 0, 0.3);
 						color: $blue1;
+						@include smlPhone{
+							color: $white;
+							width: 100px;
+							&:last-child{
+								margin-left: 10px;
+							}
+						}
 						&:hover {
 							cursor: pointer;
 						}
@@ -193,13 +415,31 @@ div.tutorial {
 					button.-on {
 						background-color: $blue1;
 						color: $blue2;
+						@include smlPhone{
+							background-color: $yellow;
+							color: $black;
+						}
+					}
+				}
+				div.smlPhone{
+					@include smlPhone{
+						height: 56px;
+						width: 100%;
+						background-color: $blue1;
 					}
 				}
 			}
 			div.calendarBody {
+				display: block;
 				margin-bottom: 250px;
 				@include laptop{
 					margin-bottom: 150px;
+				}
+				@include smlPad{
+					margin-bottom: 30px;
+				}
+				@include smlPhone{
+					display: none;
 				}
 				div.calendarTitle {
 					width: 100%;
@@ -210,9 +450,21 @@ div.tutorial {
 					@include laptop{
 						padding: 20px 0;
 					}
+					@include smlPhone{
+						background-color: transparent;
+					}
 					p {
 						font-size: $h4;
 						color: $blue2;
+						@include smlPad{
+							font-size: $bp;
+						}
+						@include bigPhone{
+							font-size: $sp;
+						}
+						@include smlPhone{
+							color: $white;
+						}
 					}
 				}
 				div.calendarDate {
@@ -230,6 +482,22 @@ div.tutorial {
 						@include laptop{
 							height: 120px;
 						}
+						@include smlPad{
+							font-size: $sp;
+							height: 100px;
+						}
+						@include bigPhone{
+							padding: 5px;
+							height: 80px;
+						}
+						@include smlPhone{
+							background-color: transparent;
+							height: 60px;
+							text-align: center;
+							padding-top: 10px;
+							border: none;
+							border-radius: 50%;;
+						}
 						&:hover {
 							background-color: rgba(255, 177, 2, 0.8);
 						}
@@ -240,12 +508,70 @@ div.tutorial {
 				}
 			}
 		}
+		div.phoneCourseTime{
+			display: none;
+			@include smlPhone{
+				display: block;
+				height: 65vh;
+				overflow-y: scroll;
+				margin-bottom: 30px;
+			}
+			div.phoneDay{
+				padding: 8px 15px;
+				display: flex;
+				height: 75px;
+				div.phoneDayLeft{
+					width: 10%;
+					justify-content: center;
+					text-align: center;
+					margin-right: 20px;
+					p{
+						&:first-child{
+							color: gray;
+							margin-bottom: 4px;
+						}
+						&:last-child{
+							font-size: $mp;
+							color: $blue2;
+						}
+					}
+				}
+				div.phoneDayRight{
+					align-self: flex-end;
+					background-color: $blue1;
+					width: 85%;
+					padding: 15px 0px 15px 20px;
+					border-radius: 10px;
+					p{
+						display: inline-block;
+						color: $blue2;
+						&:first-child{
+							margin-right: 15px;
+						}
+						&:nth-child(2){
+							margin-right: 5px;
+							width: 35%;
+						}
+					}
+				}
+			}
+		}
 		div.booking {
 			display: flex;
 			justify-content: space-around;
+			@include smlPad{
+				flex-direction: column;
+				align-items: center;
+			}
 			div.book {
 				width: 300px;
 				@include laptop{
+					width: 250px;
+				}
+				@include bigPad{
+					width: 200px;
+				}
+				@include smlPad{
 					width: 250px;
 				}
 				div.bookImages {
@@ -253,6 +579,9 @@ div.tutorial {
 					margin-top: 150px;
 					@include laptop{
 						margin-top: 100px;
+					}
+					@include smlPad{
+						margin-top: 40px;
 					}
 					div.bookNumber {
 						width: 50px;
@@ -288,6 +617,12 @@ div.tutorial {
 						margin-top: 50px;
 						margin-bottom: 200px;
 					}
+					@include smlPad{
+						font-size: $h4;
+						margin-top: 30px;
+						margin-bottom: 20px;
+
+					}
 				}
 			}
 		}
@@ -298,26 +633,60 @@ div.tutorial {
 			align-items: center;
 			position: relative;
 			z-index: 1;
+			padding: 0 30px;
 			@include laptop{
 				margin-top: 100px;
-			}
-			@include laptop{
 				display: block;
+				margin-bottom: 80px;
 			}
+			@include bigPhone{
+				margin-top: 80px;
+				margin-bottom: 50px;
+			}
+			
 			img {
 				width: 50%;
 				@include laptop{
-					float: left;
-					@include clearfixed;
-					margin-right: 20px;
-					margin-bottom: 5px;
+					width: 60%;
+					position: relative;
+					left: 50%;
+					transform: translateX(-50%);
+					margin-bottom: 30px;
 				}
 			}
 			p {
-				padding: 0 30px;
+				margin-left: 30px;
 				font-size: $bp;
 				line-height: 38px;
 				letter-spacing: 2px;
+				text-indent: $bp*2;
+				&:first-child{
+					margin-bottom: $h2;
+				}
+				&:nth-child(2){
+					margin-bottom: $h2;
+				}
+				@include smlPad{
+					font-size: $mp;
+					text-indent: $mp*2;
+					&:first-child{
+						margin-bottom: $h3;
+					}
+					&:nth-child(2){
+						margin-bottom: $h3;
+					}
+				}
+				@include bigPhone{
+					font-size: $sp;
+					text-indent: $sp*2;
+					&:first-child{
+						margin-bottom: $bp;
+					}
+					&:nth-child(2){
+						margin-bottom: $bp;
+					}
+				}
+				
 			}
 		}
 		div.roomCenter {
@@ -325,6 +694,10 @@ div.tutorial {
 			justify-content: space-around;
 			position: relative;
 			z-index: 1;
+			@include smlPad{
+				flex-direction: column;
+				align-items: center;
+			}
 			div.cardBack {
 				width: 300px;
 				height: 300px;
@@ -334,6 +707,16 @@ div.tutorial {
 					width: 250px;
 					height: 250px;
 				}
+				@include bigPad{
+					width: 200px;
+					height: 200px;
+				}
+				@include smlPad{
+					width: 250px;
+					height: 250px;
+					margin: 10px 0;
+				}
+				
 				div.cardLine {
 					width: 90%;
 					height: 90%;
@@ -369,6 +752,7 @@ div.tutorial {
 						letter-spacing: 2px;
 						@include laptop{
 							letter-spacing: 1px;
+							font-size: $sp;
 						}
 					}
 				}
@@ -384,18 +768,49 @@ div.tutorial {
 			z-index: 1;
 			@include laptop{
 				display: block;
+				margin-top: 80px;
+				margin-bottom: 100px;
 			}
+			@include bigPhone{
+				margin-top: 50px;
+				margin-bottom: 60px;
+			}
+			
 			p {
 				padding: 0 30px;
 				font-size: $bp;
 				line-height: 38px;
 				letter-spacing: 2px;
+				text-indent: $bp*2;
+				&:first-child{
+					margin-bottom: $h2;
+				}
+				@include smlPad{
+					font-size: $mp;
+					text-indent: $mp*2;
+					&:first-child{
+						margin-bottom: $h3;
+					}
+				}
+				@include bigPhone{
+					font-size: $sp;
+					text-indent: $sp*2;
+					&:first-child{
+						margin-bottom: $bp;
+					}
+				}
 			}
 			img {
 				width: 50%;
-				float: right;
 				margin-left: 20px;
 				margin-bottom: 5px;
+				@include laptop{
+					width: 60%;
+					margin: 0 0 30px 0;
+					position: relative;
+					left: 50%;
+					transform: translateX(-50%);
+				}
 			}
 		}
 	}

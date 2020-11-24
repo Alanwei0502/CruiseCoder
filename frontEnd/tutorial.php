@@ -29,19 +29,15 @@
         <div class="askBody">
           <div class="askBodyLeft">
             <div class="top">
-              <span>1</span>
-              <p>點選月曆中的已購買課程</p>
+              <span>1</span><p>點選月曆中的已購買課程</p>
             </div>
             <div class="bottom">
-              <span>2</span>
-              <p>確認師資與課程無誤,點選「 我要預約 」</p>
+              <span>2</span><p>確認師資與課程無誤,點選「 我要預約 」</p>
             </div>
           </div>
           <div class="askBodyRight">
-            <div class="orange"></div>
-            <p>可預約</p>
-            <div class="red"></div>
-            <p>預約額滿</p>
+            <div class="orange"></div><p>可預約</p>
+            <div class="red"></div><p>預約額滿</p>
           </div>
         </div>
       </div>
@@ -52,6 +48,8 @@
             <p id="month"></p>
             <img src="./../images/tutorial/arrow.png" id="arrowLeft" class="arrowLeft" alt="圖片無法顯示">
             <img src="./../images/tutorial/arrow.png" id="arrowRight" class="arrowRight" alt="圖片無法顯示">
+            <img src="./../images/tutorial/upDownArrow.png" id="upArrow" class="upArrow" alt="圖片無法顯示">
+            <img src="./../images/tutorial/upDownArrow.png" id="downArrow" class="downArrow none" alt="圖片無法顯示">
           </div>
           <div class="filterAll">
             <select name="months" class="filterMonth">
@@ -71,9 +69,10 @@
             </select>
           </div>
           <div class="allOrBuy">
-            <button>顯示已購買</button>
-            <button class="-on">顯示全部</button>
+            <button id="alreadyBuy">顯示已購買</button>
+            <button id="showAll" class="-on">顯示全部</button>
           </div>
+          <div class="smlPhone"></div>
         </div>
         <div class="calendarBody">
           <div class="calendarTitle">
@@ -86,6 +85,85 @@
             <p>六</p>
           </div>
           <div id="calendarDate" class="calendarDate"></div>
+        </div>
+      </div>
+      <div class="phoneCourseTime">
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Sun</p>
+            <p>1</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>張互賓</p>
+            <p>HTML</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Mon</p>
+            <p>2</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>黃語昕</p>
+            <p>JavaScript</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Sat</p>
+            <p>13</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>黃瀚霆</p>
+            <p>SCSS</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Tus</p>
+            <p>20</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>小姐姐</p>
+            <p>RDB</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Sat</p>
+            <p>69</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>黃家偉</p>
+            <p>好爽喔</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Sat</p>
+            <p>69</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>黃家偉</p>
+            <p>好爽喔</p>
+            <p>18:00~22:00</p>
+          </div>
+        </div>
+        <div class="phoneDay">
+          <div class="phoneDayLeft">
+            <p>Sat</p>
+            <p>69</p>
+          </div>
+          <div class="phoneDayRight">
+            <p>黃家偉</p>
+            <p>好爽喔</p>
+            <p>18:00~22:00</p>
+          </div>
         </div>
       </div>
       <h2>&lt;如何預約&#47;&gt;</h2>
@@ -115,7 +193,11 @@
       <h2>&lt;CouiseCoder 我們的學習空間&#47;&gt;</h2>
       <div class="roomTop">
         <img src="./../images/tutorial/room1.jpg" alt="無法顯示圖片">
-        <p>我們有專屬於學員的學習空間，只要您有購買我們的課程，即可在該課的輔導時間，申請預約。學習空間有強大的電腦設備，讓您不管是在寫程式，或是使用設計類的軟體，都能有擁有非常好的效能及效率，以及良好的學習品質。我們的老師都是精挑細選過，有的曾是業界裡頭的翹楚，程式端的權威，資歷超過十年，有的則是授課經驗豐富，深受同學們的好評、喜愛，該門課的老師都會在現場，如果您有任何程式語言上的困難、或是對於課程中有問題，都可以利用預約我們學習空間，在現場直接向老師詢問，幫您解決問題。</p>
+        <div>
+          <p>我們有專屬於學員的學習空間，只要您有購買我們的課程，即可在該課的輔導時間，申請預約。</p>
+          <p>我們的老師，有的曾是業界裡頭的翹楚，程式端的權威，資歷超過十年，有的則是授課經驗豐富，深受同學們的喜愛。</p>
+          <p>該門課的老師都會在現場，如果您有任何程式語言上的困難、或是對於課程中有問題，都可以利用預約我們學習空間，在現場直接向老師詢問，幫您解決問題。</p>
+        </div>
       </div>
       <div class="roomCenter">
         <div class="cardBack">
@@ -139,7 +221,10 @@
       </div>
       <div class="roomBottom">
         <img src="./../images/tutorial/room2.jpg" alt="無法顯示圖片">
-        <p>我們將學習空間的環境，配置的非常舒適，椅子都是非常符合人體工學的，久坐也不會不舒服，座位有一定的間格，一點都不會擁擠，每次人數上限控制在二十人，令大家都能有詢問老師問題的時間，現場每個人都能有專屬的桌上型電腦可以使用，當然，也可以使用自己的筆電。提供這個學習環境，營造一個同儕共同學習的氣氛，同學們間可以互相討論，在這種氛圍上一起學習進步也比自己一個人獨自努力，更加地有效果。只要你有購買我們的課程，就能免費享有優質的師資、強大的設備、舒適的環境，以及同儕學習氛圍，心動不如馬上行動。直接預約起我們的學習空間吧!!!</p>
+        <div>
+          <p>我們將學習空間的環境，配置的非常舒適，椅子都是非常符合人體工學的，久坐也不會不舒服，座位有一定的間格，一點都不會擁擠，每次人數上限控制在二十人，令大家都能有詢問老師問題的時間。現場每個人都能有專屬的桌上型電腦可以使用，當然，也可以使用自己的筆電。</p>
+          <p>提供這個學習環境，營造一個同儕共同學習的氣氛，同學們間可以互相討論，在這種氛圍上一起學習進步也比自己一個人獨自努力，更加地有效果。</p>
+        </div>
       </div>
     </main>
     <?php
