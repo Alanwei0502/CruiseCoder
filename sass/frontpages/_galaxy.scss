@@ -6,7 +6,7 @@
 
     main {
         max-width: 1200px;
-        width: 100%;
+        width: 95%;
         margin: 0 auto;
         color: $white;
 
@@ -213,16 +213,16 @@
                         }
                     }
                 }
-                .planet0{
+                .planetOne{
                     left: -350px;
                     transform: scale(0.5);
                     z-index: -10;
                 }
-                .planet1{   
+                .planetTwo{   
                     left: 0;
                     z-index: 1;
                 }
-                .planet2{
+                .planetThree{
                     left: 350px;
                     transform: scale(0.5);
                     z-index: -10;
@@ -253,11 +253,6 @@
                         line-height: $fontSize*2;
                         text-indent: $sp*2;
                     }
-                    // @include smlPhone{
-                    //     font-size: $bp;
-                    //     line-height: $fontSize;
-                    //     text-indent: $bp*2;
-                    // }
                 }
 
                 a{
@@ -287,13 +282,31 @@
                 text-indent: $bp*2;
                 text-align: center;
                 
-                // letter-spacing: normal;
+                @include smlPad{
+                    font-size: $mp;
+                    line-height: $fontSize*3;
+                    text-indent: $mp*2;
+                }
+                @include bigPhone{
+                    font-size: $sp;
+                    line-height: $fontSize*2;
+                    text-indent: $sp*2;
+                }
             }
 
             .planetBadge{
                 display: flex;
                 justify-content: space-around;
                 margin: $fontSize*5 0 $fontSize*10;
+                @include smlPad{
+                    margin: $fontSize*4 0 $fontSize*8;
+                }
+                @include bigPhone{
+                    margin: $fontSize*3 0 $fontSize*6;
+                }
+                @include smlPhone{
+                    margin: $fontSize*2 0 $fontSize*4;
+                }
 
                 img{
                     display: block;
@@ -307,6 +320,15 @@
 
                     &:hover{
                         transform: rotate(-10deg);
+                    }
+                    @include smlPad{
+                        height: $fontSize * 10;
+                    }
+                    @include bigPhone{
+                        height: $fontSize * 7.5;
+                    }
+                    @include smlPhone{
+                        height: $fontSize * 5;
                     }
                 }
             }
@@ -322,6 +344,16 @@
                     transform-style: preserve-3d;
                     border-radius: 50%;
                     animation: glowing 2s linear infinite;
+
+                    @include smlPad{
+                        height: $fontSize * 16.25;
+                    }
+                    @include bigPhone{
+                        height: $fontSize * 13.75;
+                    }
+                    @include smlPhone{
+                        height: $fontSize * 11.25;
+                    } 
                 }
             }
         }

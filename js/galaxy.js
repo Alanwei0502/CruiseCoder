@@ -1,41 +1,51 @@
 //=========星球輪播 
 var planet = document.getElementsByClassName('planet');
 var carousel = document.getElementsByClassName('carousel');
-var planet0 = document.getElementsByClassName('planet0')[0];
-var planet1 = document.getElementsByClassName('planet1')[0];
-var planet2 = document.getElementsByClassName('planet2')[0];
+var planetOne = document.getElementsByClassName('planetOne')[0];
+var planetTwo = document.getElementsByClassName('planetTwo')[0];
+var planetThree = document.getElementsByClassName('planetThree')[0];
 
 
 for (let i = 0; i < planet.length; i++) {
     planet[i].addEventListener("click", function () {
         if (i === 0) {
-            planet0.classList.add('planet1');
-            planet0.classList.remove('planet2');
-            planet0.classList.remove('planet0');
+            planetOne.classList.add('planetTwo');
+            planetOne.classList.remove('planetThree');
+            planetOne.classList.remove('planetOne');
 
-            planet1.classList.add('planet2');
-            planet1.classList.remove('planet1');
-            planet1.classList.remove('planet0');
+            planetTwo.classList.add('planetThree');
+            planetTwo.classList.remove('planetTwo');
+            planetTwo.classList.remove('planetOne');
 
-            planet2.classList.add('planet0');
-            planet2.classList.remove('planet2');
-            planet2.classList.remove('planet1');
+            planetThree.classList.add('planetOne');
+            planetThree.classList.remove('planetThree');
+            planetThree.classList.remove('planetTwo');
         }
         if (i === 1) {
+            planetOne.classList.add('planetOne');
+            planetOne.classList.remove('planetThree');
+            planetOne.classList.remove('planetTwo');
 
+            planetTwo.classList.add('planetTwo');
+            planetTwo.classList.remove('planetThree');
+            planetTwo.classList.remove('planetOne');
+
+            planetThree.classList.add('planetThree');
+            planetThree.classList.remove('planetOne');
+            planetThree.classList.remove('planetTwo');
         }
         if (i === 2) {
-            planet0.classList.add('planet2');
-            planet0.classList.remove('planet1');
-            planet0.classList.remove('planet0');
+            planetOne.classList.add('planetThree');
+            planetOne.classList.remove('planetTwo');
+            planetOne.classList.remove('planetOne');
 
-            planet1.classList.add('planet0');
-            planet1.classList.remove('planet1');
-            planet1.classList.remove('planet2');
+            planetTwo.classList.add('planetOne');
+            planetTwo.classList.remove('planetTwo');
+            planetTwo.classList.remove('planetThree');
 
-            planet2.classList.add('planet1');
-            planet2.classList.remove('planet2');
-            planet2.classList.remove('planet0');
+            planetThree.classList.add('planetTwo');
+            planetThree.classList.remove('planetThree');
+            planetThree.classList.remove('planetOne');
         }
     });
 }

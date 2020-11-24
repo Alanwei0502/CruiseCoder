@@ -424,21 +424,21 @@ $smlPad:768px;		//iPad Mini(直)、iPad(直)
 $bigPhone:576px;	//568px	iPhone 5/SE(橫)
 $smlPhone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
 
-//筆電，用法  @include laptop{}
+//筆電1200px，用法  @include laptop{}
 @mixin laptop {
     @media screen and (max-width: $laptop) {
 		@content;
 	}
 }
 					
-//大平板，用法  @include bigPad{}
+//大平板992px，用法  @include bigPad{}
 @mixin bigPad {
 	@media screen and (max-width: $bigPad) {
 		@content;
 	}
 }
 
-//小平板，用法  @include smlPad{}
+//小平板768px，用法  @include smlPad{}
 @mixin smlPad {
 	@media screen and (max-width: $smlPad) {
 		// h2用h3的字體大小
@@ -447,7 +447,7 @@ $smlPhone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的�
 	}
 }
 
-//大手機，用法  @include bigPhone{}
+//大手機576px，用法  @include bigPhone{}
 @mixin bigPhone {
 	@media screen and (max-width: $bigPhone) {
 		// h2用h4的字體大小
@@ -456,7 +456,7 @@ $smlPhone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的�
 	}
 }
 
-//小手機，用法  @include smlPhone{}
+//小手機414px，用法  @include smlPhone{}
 @mixin smlPhone {
 	@media screen and (max-width: $smlPhone) {
 		// h2用bp的字體大小
