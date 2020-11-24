@@ -148,7 +148,7 @@
 				width: 100%;
 				height: 80%;
 				font-size: 0px;
-				background-color: rgba(255, 255, 255, 0.267);
+				background-color: rgba(24, 39, 73, 0.7);
 				margin-top: 10px;
 
 				div.leftBlock {
@@ -266,6 +266,7 @@
 						border: 5px solid #ffa307;
 						background-color: #642e2ec7;
 						color: white;
+						line-height: 18px;
 					}
 
 					button {
@@ -276,7 +277,7 @@
 						border-radius: 10px;
 						width: 150px;
 						height: 40px;
-						margin-top: 30px;
+						margin: 10px;
 						cursor: pointer;
 						position: absolute;
 						bottom: 0%;
