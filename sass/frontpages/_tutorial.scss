@@ -4,6 +4,9 @@ div.tutorial {
 		color: $white;
 		width: 1200px;
 		margin: 0 auto;
+		@include laptop{
+			width: 900px;
+		}
 		h2 {
 			@include h2;
 			color: $white;
@@ -31,6 +34,9 @@ div.tutorial {
 				div.askBodyLeft {
 					font-size: $mp;
 					margin-left: 40px;
+					@include laptop{
+						margin-left: 20px;
+					}
 					div.top {
 						margin-bottom: 10px;
 					}
@@ -69,6 +75,9 @@ div.tutorial {
 					p {
 						font-size: $mp;
 						margin-right: 40px;
+						@include laptop{
+							margin-right: 20px;
+						}
 					}
 				}
 			}
@@ -79,12 +88,18 @@ div.tutorial {
 				width: 100%;
 				background-color: $orange;
 				position: relative;
+				@include laptop{
+					height: 130px;
+				}
 				div.nowMonth {
 					position: relative;
 					position: absolute;
 					top: 30%;
 					left: 4%;
 					color: $black;
+					@include laptop{
+						left: 6%;
+					}
 					p#month {
 						font-size: $h2;
 						width: 100px;
@@ -147,6 +162,9 @@ div.tutorial {
 						background-size: 30px;
 						background-position: center right 10px;
 						background-color: rgba(0, 0, 0, 0.3);
+						@include laptop{
+							width: 150px;
+						}
 						option.textColor {
 							color: $blue1;
 							font-size: $mp;
@@ -180,12 +198,18 @@ div.tutorial {
 			}
 			div.calendarBody {
 				margin-bottom: 250px;
+				@include laptop{
+					margin-bottom: 150px;
+				}
 				div.calendarTitle {
 					width: 100%;
 					display: flex;
 					justify-content: space-around;
 					padding: 30px 0;
 					background-color: $blue1;
+					@include laptop{
+						padding: 20px 0;
+					}
 					p {
 						font-size: $h4;
 						color: $blue2;
@@ -203,6 +227,9 @@ div.tutorial {
 						background-color: $beige;
 						padding: 10px;
 						border: 1px solid #707070;
+						@include laptop{
+							height: 120px;
+						}
 						&:hover {
 							background-color: rgba(255, 177, 2, 0.8);
 						}
@@ -218,9 +245,15 @@ div.tutorial {
 			justify-content: space-around;
 			div.book {
 				width: 300px;
+				@include laptop{
+					width: 250px;
+				}
 				div.bookImages {
 					position: relative;
 					margin-top: 150px;
+					@include laptop{
+						margin-top: 100px;
+					}
 					div.bookNumber {
 						width: 50px;
 						height: 50px;
@@ -234,10 +267,14 @@ div.tutorial {
 						top: -8%;
 						left: 50%;
 						transform: translateX(-50%);
+						@include laptop{
+							width: 40px;
+							height: 40px;
+							line-height: 40px;
+						}
 					}
 					img {
 						max-width: 100%;
-						height: 300px;
 						border-radius: 50%;
 					}
 				}
@@ -247,6 +284,10 @@ div.tutorial {
 					font-size: $h3;
 					margin-top: 70px;
 					margin-bottom: 250px;
+					@include laptop{
+						margin-top: 50px;
+						margin-bottom: 200px;
+					}
 				}
 			}
 		}
@@ -257,8 +298,20 @@ div.tutorial {
 			align-items: center;
 			position: relative;
 			z-index: 1;
+			@include laptop{
+				margin-top: 100px;
+			}
+			@include laptop{
+				display: block;
+			}
 			img {
 				width: 50%;
+				@include laptop{
+					float: left;
+					@include clearfixed;
+					margin-right: 20px;
+					margin-bottom: 5px;
+				}
 			}
 			p {
 				padding: 0 30px;
@@ -277,6 +330,10 @@ div.tutorial {
 				height: 300px;
 				background-color: $beige;
 				border-radius: 20px;
+				@include laptop{
+					width: 250px;
+					height: 250px;
+				}
 				div.cardLine {
 					width: 90%;
 					height: 90%;
@@ -310,6 +367,9 @@ div.tutorial {
 						transform: translateX(-50%);
 						line-height: 28px;
 						letter-spacing: 2px;
+						@include laptop{
+							letter-spacing: 1px;
+						}
 					}
 				}
 			}
@@ -319,8 +379,12 @@ div.tutorial {
 			margin-bottom: 150px;
 			display: flex;
 			align-items: center;
+			flex-direction: row-reverse;
 			position: relative;
 			z-index: 1;
+			@include laptop{
+				display: block;
+			}
 			p {
 				padding: 0 30px;
 				font-size: $bp;
@@ -329,6 +393,9 @@ div.tutorial {
 			}
 			img {
 				width: 50%;
+				float: right;
+				margin-left: 20px;
+				margin-bottom: 5px;
 			}
 		}
 	}
