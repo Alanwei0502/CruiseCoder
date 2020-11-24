@@ -43,7 +43,7 @@
 
 				a {
 					margin-top: 50px;
-					@include btn;
+					@include btn($h4);
 				}
 			}
 

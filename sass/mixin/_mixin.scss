@@ -1,21 +1,33 @@
 @import '../base/var';
 
-// 按鈕，用法：@include btn
-@mixin btn {
-	font-size: $h4;
+// 按鈕，用法：@include btn;
+
+// 各RWD斷點使用的btn
+// @include btn($h4);
+// @include smlPad{
+// 	@include btn($bp);
+// }
+// @include bigPhone{
+// 	@include btn($mp);
+// }
+// @include smlPhone{
+// 	@include btn($sp);
+// }
+@mixin btn ($px) {
+	font-size: $px;
 	outline: none;
 	transform-style: preserve-3d;
 	text-decoration: none;
 	color: $blue1;
-	border-radius: 10px;
-	padding: 10px 30px;
+	border-radius: ($px/3);
+	padding: ($px/3) $px;
 	font-weight: bold;
 	position: relative;
 	overflow: hidden;
 	transition: width .5s;
 	z-index: 1;
-	border-bottom: 5px solid #b47f02;
-	border-left: 5px solid #b47f02;
+	border-bottom: ($px/6) solid #b47f02;
+	border-left: ($px/6) solid #b47f02;
 	cursor: pointer;
 
 	&:before {
@@ -42,11 +54,7 @@
 
 	&:hover {
 		color: $black;
-		top: 3px;
-		left: -3px;
-		padding: 11px 31px;
-		border-bottom: 3px solid #d49603;
-		border-left: 3px solid #d49603;
+		transform: translateX($px/10) translateY($px/10);
 		&:after {
 			width: 100%;
 		}
@@ -54,11 +62,8 @@
 
 	&:active {
 		color: $black;
-		top: 6px;
-		left: -6px;
-		padding: 11px 31px;
-		border-bottom: 3px solid transparent;
-		border-left: 3px solid transparent;
+		transform: translateX($px/5) translateY($px/5);
+		padding: ($px/3) $px;
 		&:after {
 			width: 100%;
 		}
@@ -80,7 +85,8 @@
         left: 0;
         bottom: -10px;
         display: block;
-        width: 1200px;
+		max-width: 1200px;
+		width: 100%;
         border-bottom: 1px solid $beige;
     }
     &:after{
@@ -89,7 +95,8 @@
         left: 0;
         bottom: -10px;
         display: block;
-        width: 300px;
+		width: 300px;
+		width: 25%;
         border-bottom: 10px solid $yellow;
 	}
 	@content;
@@ -415,39 +422,45 @@ $laptop:1200px;
 $bigPad:992px;
 $smlPad:768px;		//iPad Mini(直)、iPad(直)
 $bigPhone:576px;	//568px	iPhone 5/SE(橫)
-$smlphone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
+$smlPhone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
 
-//筆電
+//筆電，用法  @include laptop{}
 @mixin laptop {
     @media screen and (max-width: $laptop) {
 		@content;
 	}
 }
-
-//大平板
+					
+//大平板，用法  @include bigPad{}
 @mixin bigPad {
 	@media screen and (max-width: $bigPad) {
 		@content;
 	}
 }
 
-//小平板
+//小平板，用法  @include smlPad{}
 @mixin smlPad {
 	@media screen and (max-width: $smlPad) {
+		// h2用h3的字體大小
+		// h3用h4的字體大小
 		@content;
 	}
 }
 
-//大手機
+//大手機，用法  @include bigPhone{}
 @mixin bigPhone {
 	@media screen and (max-width: $bigPhone) {
+		// h2用h4的字體大小
+		// h3用bp的字體大小
 		@content;
 	}
 }
 
-//小手機
-@mixin smlphone {
-	@media screen and (max-width: $smlphone) {
+//小手機，用法  @include smlPhone{}
+@mixin smlPhone {
+	@media screen and (max-width: $smlPhone) {
+		// h2用bp的字體大小
+		// h3用mp的字體大小
 		@content;
 	}
 }

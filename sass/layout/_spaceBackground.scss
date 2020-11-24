@@ -1,9 +1,9 @@
 /* spaceBackground開始 */
 @function multiple-box-shadow ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  $value: '#{random(3000)}px #{random(3000)}px #FFF';
 
   @for $i from 2 through $n {
-      $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+      $value: '#{$value} , #{random(3000)}px #{random(3000)}px #FFF';
   }
 
   @return unquote($value);
@@ -20,12 +20,12 @@ $shadows-big: multiple-box-shadow(100);
   border-radius: 50%;
   background: transparent;
   box-shadow: $shadows-small;
-  animation: animStar 50s linear infinite;
+  animation: animStar 60s linear infinite;
 
   &::after {
       content: " ";
       position: absolute;
-      top: 2000px;
+      top: 3000px;
       width: 1px;
       height: 1px;
       border-radius: 50%;
@@ -46,7 +46,7 @@ $shadows-big: multiple-box-shadow(100);
   &::after {
       content: " ";
       position: absolute;
-      top: 2000px;
+      top: 3000px;
       width: 2px;
       height: 2px;
       border-radius: 50%;
@@ -62,12 +62,12 @@ $shadows-big: multiple-box-shadow(100);
   border-radius: 50%;
   background: transparent;
   box-shadow: $shadows-big;
-  animation: animStar 150s linear infinite;
+  animation: animStar 130s linear infinite;
 
   &::after {
       content: " ";
       position: absolute;
-      top: 2000px;
+      top: 3000px;
       width: 3px;
       height: 3px;
       border-radius: 50%;
@@ -82,7 +82,7 @@ $shadows-big: multiple-box-shadow(100);
   }
 
   to {
-      transform: translateY(-2000px);
+      transform: translateY(-3000px);
   }
 }
 

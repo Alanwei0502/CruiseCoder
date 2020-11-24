@@ -343,7 +343,7 @@
             button {
                 float: right;
                 margin-right: 30px;
-                @include btn
+                @include btn($h4);
             }
         }
     }
