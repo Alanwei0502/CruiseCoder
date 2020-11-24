@@ -2,9 +2,18 @@
     main{
         h2{
             @include h2;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
         }
         max-width: 1200px;
-        width: 100%;
+        width: 95%;
         margin: 0 auto;
         color: $white;
 
@@ -16,11 +25,23 @@
             background-repeat: no-repeat;
             background-size: cover;
             border: 5px solid $orange;
-            margin-bottom: 50px;
+            margin-bottom: $fontSize*3;
             padding: $fontSize * 3;
             font-weight: bold;
             position: relative;
             @include clearfixed;
+            @include smlPad{
+                margin-bottom: $fontSize*2;
+                padding: $fontSize * 2;
+            }
+            @include bigPhone{
+                margin-bottom: $fontSize*1.5;
+                padding: $fontSize * 1.5;
+            }
+            @include smlPhone{
+                margin-bottom: $fontSize;
+                padding: $fontSize;
+            }
 
             img{
                 position: absolute;
@@ -38,9 +59,24 @@
                 h3{
                     font-size: $h3;
                     margin-bottom: $fontSize*2;
+                    @include smlPad{
+                        font-size: $h4;
+                    }
+                    @include bigPhone{
+                        font-size: $bp;
+                    }
+                    @include smlPhone{
+                        font-size: $mp;
+                    }
                 }
                 div{
                     margin-bottom: $fontSize*2;
+                    @include smlPad{
+                        margin-bottom: $fontSize*1.5;
+                    }
+                    @include bigPhone{
+                        margin-bottom: $fontSize;
+                    }
                     p{
                         font-size: $bp;
                         // border: 1px solid green;
@@ -48,6 +84,13 @@
                         padding-bottom: $fontSize*2;
                         display: flex;
                         align-items: start;
+                        @include smlPad{
+                            font-size: $mp;
+                        }
+                        @include bigPhone{
+                            font-size: $sp;
+                        }
+                        
                         
                         &:before{
                             content: '';
@@ -60,6 +103,14 @@
                             width: $h2;
                             // border: 1px solid red;
                             margin-right: $fontSize;
+                            @include smlPad{
+                                height: $h3;
+                                width: $h3;
+                            }
+                            @include bigPhone{
+                                height: $h4;
+                                width: $h4;
+                            }
                         }
 
                         &:nth-child(2){
@@ -80,12 +131,28 @@
                     font-size: $mp;
                     align-self: flex-start;
                     line-height: $h3;
+                    @include smlPad{
+                        font-size: $sp;
+                        line-height: $h4;
+                    }
+                    input{
+                        margin-right: $fontSize;
+                    }
                 }
             }
             button{
                 @include btn($h4);
                 display: block;
                 float: right;
+                @include smlPad{
+                	@include btn($bp);
+                }
+                @include bigPhone{
+                	@include btn($mp);
+                }
+                @include smlPhone{
+                	@include btn($sp);
+                }
             }
         }
         .inQuiz{
@@ -93,13 +160,29 @@
             .question{
                 font-size: $h4;
                 align-self: flex-start;
+                @include smlPad{
+                	font-size: $bp;
+                }
+                @include bigPhone{
+                	font-size: $mp;
+                }
             }
             .answer{
                 display: flex;
                 flex-direction: column;
                 label{
+                    font-weight: normal;
                     line-height: $h1;
                     cursor: pointer;
+                    @include smlPad{
+                        line-height: $h2;
+                    }
+                    @include bigPhone{
+                        line-height: $h3;
+                    }
+                    @include smlPhone{
+                        line-height: $h4;
+                    }
                 }
             }
         }
