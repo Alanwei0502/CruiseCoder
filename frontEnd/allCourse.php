@@ -218,6 +218,8 @@
     <?php
     include 'layout/footer.php';
     ?>
+    <script src="../js/allCourse.js"></script>
+
   </div>
 </body>
 

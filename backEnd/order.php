@@ -91,13 +91,17 @@
           </tbody>
         </table>
       </div>
+      <div class="changePage">
+        <button class="lastPage">上一頁</button>
+        <button class="nextPage">下一頁</button>
+      </div>
     </main><!-- 在這裡面coding -->
     <!-- 訂單資訊 -->
     <div class="orderInfo">
       <section>
         <h2>訂單資訊</h2>
-          <img src="../images/backEnd/blackCancel.png" alt="" class="close">
-        
+        <img src="../images/backEnd/blackCancel.png" alt="" class="close">
+
         <div class="orderList">
           <table>
             <tbody>

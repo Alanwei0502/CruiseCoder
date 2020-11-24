@@ -34,7 +34,7 @@
                             <p class="courseTitle">課程名稱</p>
                             <p class="courseName">一變應萬變：RWD 響應式網頁設計</p>
                         </div>
-                        <a href=""><i class="far fa-times-circle"></i></a>
+                        <a href=""><i class="far fa-times-circle close"></i></a>
                     </div>
                     <p class="type">已開課</p>
                     <p class="price">NT,1200</p>
@@ -43,9 +43,9 @@
                     <div class="top">
                         <div class="title">
                             <p class="courseTitle">課程名稱</p>
-                            <p class="courseName">一變應萬變：RWD 響應式網頁設計</p>
+                            <p class="courseName">張老闆帶你飛</p>
                         </div>
-                        <a href=""><i class="far fa-times-circle"></i></a>
+                        <a href=""><i class="far fa-times-circle close"></i></a>
                     </div>
                     <p class="type">已開課</p>
                     <p class="price">NT,1200</p>
@@ -149,6 +149,8 @@
         <?php
         include 'layout/footer.php';
         ?>
+        <script src="../js/checkOut.js"></script>
+
     </div>
 </body>
 
