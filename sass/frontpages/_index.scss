@@ -140,7 +140,7 @@
 
 		div.galaxyBlock {
 			width: 1200px;
-			height: 80vh;
+			height: 612px;
 			margin: 0 auto;
 			margin-bottom: 50px;
 
@@ -382,16 +382,16 @@ $scrollTime: 1s;
 
 		&--left {
 			left: 0;
-			transform: translate3d(-$magicVH, 100%, 0);
+			transform: translate(-$magicVH, 100%);
 		}
 
 		&--right {
 			left: 50%;
-			transform: translate3d($magicVH, -100%, 0);
+			transform: translate($magicVH, -100%);
 		}
 
 		.skw-page.active & {
-			transform: translate3d(0, 0, 0);
+			transform: translate(0, 0);
 		}
 	}
 
