@@ -96,16 +96,16 @@
 
             <section class="planetQuiz">
                 <h2>&lt; 星球關卡 &#47;&gt;</h2>
-                <div class="carousel" data-planet="">
-                    <div class="planet planetOne">
+                <div class="carousel">
+                    <div class="planet  blue planetOne">
                         <img src="../images/trial/planets/html1.png" alt="初級html星球">
                         <div>HTML初級星球</div>
                     </div>
-                    <div class="planet planetTwo">
+                    <div class="planet red planetTwo">
                         <img src="../images/trial/planets/html2.png" alt="中級html星球">
                         <div>HTML中級星球</div>
                     </div>
-                    <div class="planet planetThree">
+                    <div class="planet green planetThree">
                         <img src="../images/trial/planets/html3.png" alt="高級html星球">
                         <div>HTML高級星球</div>
                     </div>
