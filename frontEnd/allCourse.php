@@ -22,16 +22,14 @@
     ?>
     <main>
       <div class="top">
-        <h2>
-          < 外星課程 />
-        </h2>
-        <section class="block"></section>
-        <section class="line"></section>
         <!-- 搜尋列 -->
         <div class="filter">
-          <form class="search" action="">
+            <h2>
+              < 外星課程 />
+            </h2>
+          <form class="search" action="" method="POST">
             <input type="search" placeholder="找課程名稱">
-            <button>
+            <button type="submit">
               <i class="fas fa-search"></i>
             </button>
           </form>

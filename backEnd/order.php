@@ -24,7 +24,7 @@
     <main>
       <!-- 在這裡面coding -->
       <h2>訂單管理</h2>
-      <div class="filter">
+      <form class="filter">
         <div class="date">
           <label for="">購買日期</label>
           <input type="text" id="datepicker1" readonly="true">
@@ -37,10 +37,10 @@
           <label for="">會員編號</label>
           <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
         </div>
-        <button>
+        <button type="submit">
           搜尋
         </button>
-      </div>
+      </form>
       <div class="searchResult">
         <table>
           <thead>

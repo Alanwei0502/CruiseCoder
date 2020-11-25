@@ -16,7 +16,7 @@
             @include backTitle;
         }
 
-        .filter {
+        form.filter {
             @include blockStyle;
             display: flex;
             flex-wrap: nowrap;
@@ -99,7 +99,8 @@
                 cursor: pointer;
             }
         }
-// 換頁按鈕
+
+        // 換頁按鈕
         .changePage {
             display: flex;
             justify-content: flex-end;
@@ -111,7 +112,8 @@
             }
         }
     }
-// 燈箱
+
+    // 燈箱
     .orderInfo.-on {
         /* 加上 -on 之後，訂單資訊 漸漸出現，因為有設定 transition */
         opacity: 1;
