@@ -344,6 +344,18 @@
                 float: right;
                 margin-right: 30px;
                 @include btn($h4);
+
+                @include smlPad {
+                    @include btn($bp);
+                }
+
+                @include bigPhone {
+                    @include btn($mp);
+                }
+
+                @include smlPhone {
+                    @include btn($sp);
+                }
             }
         }
     }
