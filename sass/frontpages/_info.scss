@@ -1,26 +1,34 @@
 .info{
-    // display: none;
-    main{
-        width: 1200px;
+    width: 100%;  
+    .info_main{
+        max-width: 1200px;
         margin: 0 auto;
-        // border: tan 1px solid;
         position: relative;
+
 
         .info_title{
             @include h2;
             color: $white;
             font-size: $h2;
             border-bottom: $orange 10px solid;
-            width: 200px;
-            
+            width: 200px;  
             
         }
 
         .info_area{
+            width: 100%;
             padding: 80px 0;
-            // border: honeydew 1px solid;
             display: flex;
             justify-content: space-evenly;
+            @include laptop{
+                display: flex;
+                flex-direction: column;
+                // align-content: center;
+                align-items: center;
+                border: 1px solid #fff;
+                
+                
+            }
 
             .op_circle{
                 width: 200px;
@@ -28,13 +36,16 @@
                 background-color: #fff;
                 border-radius: 50%;
                 // position: relative;
+                @include laptop{
+                    margin-bottom: 30px;
+                }
                 
                 .account_pic{
                     border: $orange 5px solid;
                     border-radius: 50%;
                     width: 200px;
                     height: 200px;
-                    // overflow: hidden; 
+                    overflow: hidden; 
     
                     img{
                         width: 200px;  
@@ -44,9 +55,7 @@
                         i{
                             background-color: #fff;
                             color: #fff;
-                            z-index: 100;
-
-                            
+                            z-index: 100; 
                         }
                     }
                     
@@ -75,6 +84,15 @@
 
                 display: flex;
                 justify-content: center;
+                @include laptop{
+                    margin: 0 auto;
+                }
+                @include smlPad{
+                    width: 450px;
+                    
+                }
+                
+    
                 
                 p{
                     // text-align: center;
@@ -87,6 +105,9 @@
                 }
             }
             .info_card{
+                @include laptop{
+                    margin-top: 20px;
+                }
                 
                 
                 form{
@@ -96,6 +117,16 @@
                     display: flex;
                     flex-direction: column;
                     font-size: $bp;
+                    @include laptop{
+                      width: 750px;
+                    }
+
+                    @include smlPad{
+                        width: 450px;
+                        margin: 0 auto;
+                    }
+
+                    
                     .editFile{
                         text-align: center;
                         align-self: flex-end;
@@ -104,9 +135,17 @@
                         cursor: pointer;
                         width: 180px;
                         color: #9B9595;
+                        @include smlPad{
+                            font-size: $sp;
+                            width: 100px;
+                        }    
                     }
                     label{
                         padding: 10px;
+                        @include smlPad{
+                            font-size: $mp;
+                            
+                        }  
                         input{
                             border: none;
                             border-radius: 20px;
@@ -118,7 +157,7 @@
                     }
                 }
                 .sendBtn{
-                    @include btn
+                    @include btn;
                     width: 200px;
                     align-self: flex-end;
                 }
@@ -142,7 +181,22 @@
         .course{
             display: flex;
 			justify-content: space-between;
-			flex-wrap: wrap;
+            flex-wrap: wrap;
+            @include laptop{
+                width: 1000px;
+                border: 1px solid #fff;
+                margin: 0 auto;
+            }
+            @include bigPad{
+                width: 800px;
+                border: 1px solid #fff;
+                margin: 0 100px;
+            }
+            @include smlPad{
+                width: 100%;
+                border: 1px solid #fff;
+                margin: 0 50px;
+            }
             .wrapGeneral {
             margin-bottom: 50px !important;
             margin-top: 50px !important;
@@ -151,6 +205,13 @@
             background-color: $white;
             position: relative;
             overflow: visible;
+            @include laptop{
+                width: 300px;
+                           
+            }
+            @include bigPad{
+                width: 250px;
+            }
 
             .favorites {
                 border-radius: 50%;
@@ -165,6 +226,11 @@
                     padding: 10px;
                     cursor: pointer;
                     color: rgb(212, 212, 212);
+                    @include bigPad{
+                        font-size: 20px;
+                        padding: 9px;
+                    }
+
                 }
             }
 
@@ -175,6 +241,10 @@
                 top: 0;
                 left: 0;
                 transform: translate(25%, -50%);
+                @include bigPad{
+                    width: 60px;
+                }
+                
             }
 
             a.img {
@@ -191,24 +261,38 @@
 
                 a.title {
                     padding-top: 10px;
-                    font-size: 26px;
+                    font-size: $bp;
                     font-weight: 600;
                     line-height: 35px;
                     text-decoration: none;
                     display: inline-block;
                     color: black;
                     margin-bottom: 25px;
+                    @include bigPad{
+                        font-size: $mp;
+                        
+                    }
                 }
 
                 .time {
-                    font-size: 22px;
+                    font-size: $mp;
                     margin-bottom: 20px;
+                    @include bigPad{
+                        font-size: $sp;
+                        margin-bottom: 10px;
+                        
+                    }
                 }
 
                 .comment {
                     display: flex;
-                    font-size: 22px;
+                    font-size: $mp;
                     margin-bottom: 40px;
+                    @include bigPad{
+                        font-size: $sp;
+                        margin-bottom: 30px;
+                        
+                    }
 
                     i {
                         font-size: 20px;
@@ -228,6 +312,10 @@
                     text-align: right;
                     margin-bottom: 10px;
                     margin-right: 10px;
+                    @include bigPad{
+                        font-size: $bp;
+                        
+                    }
                 }
             }
         }
@@ -261,7 +349,6 @@
                 }
                 p{
                    color: $white; 
-                //    font-size: $h3;
                    margin-top: 20px;
                 }
 
@@ -281,36 +368,49 @@
             
             .big_a{
 
-                width: 1200px;
+                width: 100%;
                 background-color: $blue2;
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: space-evenly;
 
                 img{
                     width: 100px;
+                    margin: 10px 25px;
                 }
             }
             .little_a{
+                padding: 50px;
                 margin-top: 50px;
-                width: 1200px;
+                width: 100%;
                 background-color: $blue2;
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
                 flex-wrap: wrap;
 
                 img{
                     width: 100px;
+                    margin: 10px 25px;
                 }
+                
             }
         }
 
 
         
     }
-
-        
-
  }  
+
+ 
+
+
+    
+
+
+
+
+
+
 }
 // TinyBunny info end
 

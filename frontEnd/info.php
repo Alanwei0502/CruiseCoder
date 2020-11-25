@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
 </head>
@@ -29,7 +28,7 @@
     include('layout/header.php');
     ?>
 
-      <main>
+      <main class="info_main">
           <div class="info_title"><p>個人檔案</p></div>
 
           <div class="info_area">
@@ -40,8 +39,9 @@
                     
                     </div>  
                   <label>
-                    <input id="upload_img"  type="file">
                     <i class="fas fa-camera fa-3x"></i>上傳圖片
+                    <input id="upload_img"  type="file">
+                    
                   </label>
                 </div>
                 
@@ -307,7 +307,44 @@
               </div>
 
               <div class="little_a">
-                 
+                
+                 <div><img src="../images/trial/badge/html1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/html2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/html3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/css1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/css2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/css3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/sass1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/sass2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/sass3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/php1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/php2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/php3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/js1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/js2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/js3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/jq1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/jq2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/jq3.png" alt=""></div>
+                 <div><img src="../images/trial/badge/mysql1.png" alt=""></div>
+                 <div><img src="../images/trial/badge/mysql2.png" alt=""></div>
+                 <div><img src="../images/trial/badge/mysql3.png" alt=""></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               </div>
           </div>
