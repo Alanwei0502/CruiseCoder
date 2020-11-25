@@ -27,71 +27,110 @@
                 align-items: center;
                 border: 1px solid #fff;
                 
-                
-            }
+            }    
+        }
 
-            .op_circle{
+        .op_circle {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 50%;
+            // position: relative;
+
+            
+                
+            .account_pic{
+                border: $orange 5px solid;
+                border-radius: 50%;
                 width: 200px;
                 height: 200px;
-                background-color: #fff;
-                border-radius: 50%;
-                // position: relative;
-                @include laptop{
-                    margin-bottom: 30px;
+                overflow: hidden; 
+
+                img{
+                    width: 200px;  
                 }
-                
-                .account_pic{
-                    border: $orange 5px solid;
-                    border-radius: 50%;
-                    width: 200px;
-                    height: 200px;
-                    overflow: hidden; 
-    
-                    img{
-                        width: 200px;  
-                    }
-                    label{
+                label{
+                    color: #fff;
+                    i{
+                        background-color: #fff;
                         color: #fff;
-                        i{
-                            background-color: #fff;
-                            color: #fff;
-                            z-index: 100; 
-                        }
+                        z-index: 100; 
                     }
-                    
+
                 }
             }
 
-            .left_cc{
-                
-                flex-direction: column;
-                align-content: space-around;
-                
+        }
+    
+
+        .left_cc {
+
+            flex-direction: column;
+            align-content: space-around;
+
+        }
+
+        .notice_bar {
+            font-size: $bp;
+            width: 525px;
+            border: 5px solid $orange;
+            border-radius: 10px;
+            background-color: #FFF3D8;
+            margin-bottom: 30px;
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+
+            p {
+                // text-align: center;
+                color: $black;
+
             }
 
-            
-            
-            
+            img {
+                width: 30px;
 
-            .notice_bar{
-                font-size: $bp;
-                width: 525px;
-                border: 5px solid $orange;
-                border-radius: 10px;
-                background-color: #FFF3D8;
-                margin-bottom: 30px;
-                padding: 10px;
+            }
+        }
 
+        .info_card {
+
+            @include laptop{
+                margin-top: 20px;
+            }
+
+            form{
+                padding: 40px;
+                background-color: $beige;
+                width: 850px;
                 display: flex;
-                justify-content: center;
+                flex-direction: column;
+                font-size: $bp;
                 @include laptop{
+                    width: 750px;
                     margin: 0 auto;
                 }
+
                 @include smlPad{
                     width: 450px;
-                    
                 }
                 
+                label{
+                    padding: 10px;
+                    @include smlPad{
+                        font-size: $mp;
+                        
+                    }  
+                    input{
+                        border: none;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 300px;
+                        
+                        outline: none;
+                    }
+                }
     
                 
                 p{
@@ -104,225 +143,166 @@
                     
                 }
             }
-            .info_card{
-                @include laptop{
-                    margin-top: 20px;
+            
+            .editFile{
+                text-align: center;
+                align-self: flex-end;
+                border-bottom: $orange 5px solid;
+                padding-bottom: 6px;
+                cursor: pointer;
+                width: 180px;
+                color: #9B9595;
+                @include smlPad{
+                    font-size: $sp;
+                    width: 100px;
+                }    
+            }
+                
+            .sendBtn{
+                @include btn{
+                     width: 200px;
                 }
-                
-                
-                form{
-                    padding: 40px;
-                    background-color: $beige;
-                    width: 850px;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: $bp;
+                align-self: flex-end;
+            }
+              
+
+        }
+
+        .info_second {
+
+
+            .course{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                @include laptop{
+                    width: 1000px;
+                    border: 1px solid #fff;
+                    margin: 0 auto;
+                }
+                @include bigPad{
+                    width: 800px;
+                    border: 1px solid #fff;
+                    margin: 0 100px;
+                }
+                @include smlPad{
+                    width: 100%;
+                    border: 1px solid #fff;
+                    margin: 0 50px;
+                }
+                .wrapGeneral {
+                    margin-bottom: 50px !important;
+                    margin-top: 50px !important;
+                    width: 340px;
+                    border-radius: 20px;
+                    background-color: $white;
+                    position: relative;
+                    overflow: visible;
                     @include laptop{
-                      width: 750px;
+                        width: 300px;
+                                
+                    }
+                    @include bigPad{
+                        width: 250px;
                     }
 
-                    @include smlPad{
-                        width: 450px;
-                        margin: 0 auto;
-                    }
+                    .favorites {
+                        border-radius: 50%;
+                        background-color: $white;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        transform: translate(-10%, 270%);
 
-                    
-                    .editFile{
-                        text-align: center;
-                        align-self: flex-end;
-                        border-bottom: $orange 5px solid;
-                        padding-bottom: 6px;
-                        cursor: pointer;
-                        width: 180px;
-                        color: #9B9595;
-                        @include smlPad{
-                            font-size: $sp;
-                            width: 100px;
-                        }    
-                    }
-                    label{
-                        padding: 10px;
-                        @include smlPad{
-                            font-size: $mp;
-                            
-                        }  
-                        input{
-                            border: none;
-                            border-radius: 20px;
-                            height: 35px;
-                            width: 300px;
-                            
-                            outline: none;
+                        i {
+                            font-size: 30px;
+                            padding: 10px;
+                            cursor: pointer;
+                            color: rgb(212, 212, 212);
+                            @include bigPad{
+                                font-size: 20px;
+                                padding: 9px;
+                            }
+
                         }
                     }
-                }
-                .sendBtn{
-                    align-self: flex-end;
-                    @include btn{
-                        width: 200px;
+
+                    img.tImg {
+                        width: 80px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(25%, -50%);
+                        @include bigPad{
+                            width: 60px;
+                        }
                         
                     }
-                    
-                }
+
+                    a.img {
+                        display: inline-block;
+        
+                        img {
+                            width: 100%;
+                            border-radius: 20px 20px 0 0;
+                        }
+                    }
+                
+                    .c_Main {
+                        padding-left: 10px;
+
+                        a.title {
+                            padding-top: 10px;
+                            font-size: 26px;
+                            font-weight: 600;
+                            line-height: 35px;
+                            text-decoration: none;
+                            display: inline-block;
+                            color: black;
+                            margin-bottom: 25px;
+                        }
+
+                        .time {
+                            font-size: 22px;
+                            margin-bottom: 20px;
+                        }
+
+                        .comment {
+                            display: flex;
+                            font-size: 22px;
+                            margin-bottom: 40px;
+
+                            i {
+                                font-size: 20px;
+                                color: $yellow;
+                            }
+
+                            a.text {
+                                margin-left: 10px;
+                                text-decoration: none;
+                                color: black;
+                            }
+                        }
+
+                        .price {
+                            font-size: $h4;
+                            font-weight: 800;
+                            text-align: right;
+                            margin-bottom: 10px;
+                            margin-right: 10px;
+                        }
+                    }
 
                 
+
+
+                }
             }
-        
-         
-        }
 
-      .info_second{
-        
-
-        .course_title,.loveCourse_title,.love_title{
-            @include h2;
-            color: $beige;
             
-            
-        } 
-
-        .course{
-            display: flex;
-			justify-content: space-between;
-            flex-wrap: wrap;
-            @include laptop{
-                width: 1000px;
-                border: 1px solid #fff;
-                margin: 0 auto;
-            }
-            @include bigPad{
-                width: 800px;
-                border: 1px solid #fff;
-                margin: 0 100px;
-            }
-            @include smlPad{
-                width: 100%;
-                border: 1px solid #fff;
-                margin: 0 50px;
-            }
-            .wrapGeneral {
-            margin-bottom: 50px !important;
-            margin-top: 50px !important;
-            width: 340px;
-            border-radius: 20px;
-            background-color: $white;
-            position: relative;
-            overflow: visible;
-            @include laptop{
-                width: 300px;
-                           
-            }
-            @include bigPad{
-                width: 250px;
-            }
-
-            .favorites {
-                border-radius: 50%;
-                background-color: $white;
-                position: absolute;
-                top: 0;
-                right: 0;
-                transform: translate(-10%, 270%);
-
-                i {
-                    font-size: 30px;
-                    padding: 10px;
-                    cursor: pointer;
-                    color: rgb(212, 212, 212);
-                    @include bigPad{
-                        font-size: 20px;
-                        padding: 9px;
-                    }
-
-                }
-            }
-
-            img.tImg {
-                width: 80px;
-                border-radius: 50%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: translate(25%, -50%);
-                @include bigPad{
-                    width: 60px;
-                }
-                
-            }
-
-            a.img {
-                display: inline-block;
-
-                img {
-                    width: 100%;
-                    border-radius: 20px 20px 0 0;
-                }
-            }
-
-            .c_Main {
-                padding-left: 10px;
-
-                a.title {
-                    padding-top: 10px;
-                    font-size: $bp;
-                    font-weight: 600;
-                    line-height: 35px;
-                    text-decoration: none;
-                    display: inline-block;
-                    color: black;
-                    margin-bottom: 25px;
-                    @include bigPad{
-                        font-size: $mp;
-                        
-                    }
-                }
-
-                .time {
-                    font-size: $mp;
-                    margin-bottom: 20px;
-                    @include bigPad{
-                        font-size: $sp;
-                        margin-bottom: 10px;
-                        
-                    }
-                }
-
-                .comment {
-                    display: flex;
-                    font-size: $mp;
-                    margin-bottom: 40px;
-                    @include bigPad{
-                        font-size: $sp;
-                        margin-bottom: 30px;
-                        
-                    }
-
-                    i {
-                        font-size: 20px;
-                        color: $yellow;
-                    }
-
-                    a.text {
-                        margin-left: 10px;
-                        text-decoration: none;
-                        color: black;
-                    }
-                }
-
-                .price {
-                    font-size: $h4;
-                    font-weight: 800;
-                    text-align: right;
-                    margin-bottom: 10px;
-                    margin-right: 10px;
-                    @include bigPad{
-                        font-size: $bp;
-                        
-                    }
-                }
-            }
         }
-        }
+    
         
 
         // ------ 收藏文章 -----
@@ -355,33 +335,31 @@
                    margin-top: 20px;
                 }
 
-                
-            }
 
-            
+            }
         }
-        .achievement_title{
+
+        .achievement_title {
             margin-top: 100px;
             @include h2;
             color: $beige;
-            
 
-        }
-        .info_achievement{
-            
-            .big_a{
 
-                width: 100%;
-                background-color: $blue2;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
+            width: 100%;
+            background-color: $blue2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            text-align: center;
 
-                img{
-                    width: 100px;
-                    margin: 10px 25px;
-                }
+
+            img{
+                width: 100px;
+                margin: 10px 25px;
             }
+
+
+            
             .little_a{
                 padding: 50px;
                 margin-top: 50px;
@@ -395,25 +373,10 @@
                     width: 100px;
                     margin: 10px 25px;
                 }
-                
-            }
-        }
-
-
+            }    
+        } 
         
-    }
- }  
-
- 
-
-
-    
-
-
-
-
-
+            
+    }      
 
 }
-// TinyBunny info end
-
