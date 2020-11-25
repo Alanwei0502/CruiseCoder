@@ -159,9 +159,9 @@
             }
                 
             .sendBtn{
-                @include btn{
-                     width: 200px;
-                }
+                @include btn($h4);
+                //  width: 200px;
+                
                 align-self: flex-end;
             }
               
