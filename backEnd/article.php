@@ -165,7 +165,7 @@
     </main>
   </div>
   <script src="./../js/datepicker.js"></script>
-  <script src="./../js/article.js"></script>
+  <script src="./../js/articleB.js"></script>
 </body>
 
 </html>

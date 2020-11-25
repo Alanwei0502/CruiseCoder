@@ -77,6 +77,20 @@ div.article{
       z-index: 3;
       transform: translateX(-50%);
       width: 1200px;
+      @include laptop{
+        width: 900px;
+        height: 800px;
+        margin-top: 20px;
+      }
+      @include bigPad{
+        width: 700px;
+      }
+      @include smlPad{
+        width: 530px;
+      }
+      @include bigPhone{
+        width: 100%;
+      }
       div.blur{
         position: absolute;
         top: 2.5%;
@@ -84,12 +98,29 @@ div.article{
         width: 96%;
         height: 94.5%;
         overflow: hidden;
+        @include bigPhone{
+          display: none;
+        }
         img{
           position: absolute;
           top: -2.5%;
           left: -32.5%;
           -webkit-filter: blur(10px);
           filter: blur(10px);
+          @include laptop{
+            left: -61%;
+            top: -5.5%;
+          }
+          @include bigPad{
+            left: -92.5%;
+            top: -5%;
+          }
+          @include smlPad{
+            left: -107%;
+          }
+          @include smlPad{
+            left: -138%;
+          }
         }
       }
       div.backColor{
@@ -100,11 +131,32 @@ div.article{
         height: 94.5%;
         background-color: rgba(24, 39, 73, .7);
         z-index: 4;
+        @include bigPhone{
+          background-color: rgba(11, 17, 32, 0.9);
+          -webkit-filter: blur(2px);
+          filter: blur(2px);
+        }
       }
       div.panel{
         width: 100%;
         position: relative;
         z-index: 5;
+        img{
+          width: 100%;
+          @include laptop{
+            height: 800px;
+            width: 900px;
+          }
+          @include bigPad{
+            width: 700px;
+          }
+          @include smlPad{
+            width: 530px;
+          }
+          @include bigPhone{
+            width: 100%;
+          }
+        }
         
       }
       div.panelTop{
@@ -120,8 +172,36 @@ div.article{
           position: absolute;
           top: 0;
           left: 8%;
+          @include laptop{
+            left: 5%;
+            font-size: $h3;
+          }
+          @include bigPad{
+            font-size: $h4;
+            top: -2%;
+            left: 6%;
+          }
+          @include smlPad{
+            font-size: $bp;
+          }
+          @include bigPhone{
+            left: 7%;
+            width: 85%;
+          }
           &::before{
             width: 1000px;
+            @include laptop{
+              width: 800px;
+            }
+            @include bigPad{
+              width: 610px;
+            }
+            @include smlPad{
+              width: 465px;
+            }
+            @include bigPhone{
+              width: 100%;
+            }
           }
         }
         input{
@@ -139,16 +219,44 @@ div.article{
           background-repeat: no-repeat;
           background-position: center right 10px;
           background-size: 35px 35px;
+          @include laptop{
+            width: 300px;
+            top: 5%;
+            left: 36%;
+          }
+          @include bigPad{
+            font-size: $sp;
+            width: 250px;
+            top: 12%;
+            left: 32%;
+          }
+          @include smlPad{
+            width: 200px;
+            left: 31%;
+          }
+          @include smlPhone{
+            width: 180px;
+            left: 28%;
+          }
         }
         img.battery{
           position: absolute;
           top: 6%;
-          right: 5%;
+          right: 7%;
+          @include laptop{
+            top: 5%;
+          }
+          @include bigPad{
+            width: 120px;
+          }
+          @include smlPad{
+            top: 4%;
+          }
         }
-        p{
+        p.prePage{
           position: absolute;
-          top: 14.5%;
-          right: 8%;
+          top: 13.5%;
+          right: 10%;
           font-size: $h4;
           color: $blue2;
           font-weight: 700;
@@ -156,10 +264,18 @@ div.article{
             cursor: pointer;
             color: $blue1;
           }
+          @include laptop{
+            top: 13.5%;
+          }
+          @include smlPad{
+            font-size: $mp;
+            right: 10%;
+            top: 15%;
+          }
         }
         div.content{
-          width: 85%;
-          height: 74%;
+          width: 84%;
+          height: 71%;
           position: relative;
           left: 7.5%;
           top: 20%;
@@ -184,7 +300,23 @@ div.article{
             flex-wrap: wrap;
             div.articleInside{
               width: 350px;
-              margin: 50px 78px;
+              margin: 50px 75px;
+              @include laptop{
+                width: 250px;
+                margin: 40px 60px;
+              }
+              @include bigPad{
+                margin: 40px 45px;
+                width: 200px;
+              }
+              @include smlPad{
+                width: 160px;
+                margin: 30px 28px;
+              }
+              @include bigPhone{
+                width: 900%;
+                margin: 30px 20px;
+              }
               div.articleImageScale{
                 width: 100%;
                 margin-bottom: 20px;
@@ -203,22 +335,167 @@ div.article{
                 font-size: $h4;
                 color: $white;
                 text-align: center;
+                @include bigPad{
+                  font-size: $bp;
+                }
+                @include smlPad{
+                  font-size: $mp;
+                }
               }
             }
           }
+          div.articleTitle.none{
+            display: none;
+          }
+          div.articleContent{
+            padding: 30px 50px;
+            color: $white;
+            @include bigPad{
+              padding: 30px 40px;
+            }
+            @include smlPad{
+              padding: 20px 30px;
+            }
+            @include bigPhone{
+              padding: 15px 15px;
+            }
+            h3{
+              font-size: $h3;
+              font-weight: bold;
+              margin-bottom: 30px;
+              @include bigPad{
+                font-size: $h4;
+              }
+              @include smlPad{
+                font-size: $bp;
+              }
+            }
+            img{
+              width: 300px;
+              margin: 40px 0px 20px 30px;
+              @include bigPad{
+                width: 250px;
+              }
+              @include smlPad{
+                width: 200px;
+              }
+            }
+            h4{
+              font-size: $h4;
+              margin: 20px 0px 25px 30px;
+              font-weight: bold;
+              line-height: $h3;
+              @include bigPad{
+                font-size: $bp;
+                line-height: $h4;
+              }
+              @include smlPad{
+                font-size: $mp;
+                line-height: $bp;
+              }
+            }
+            p{
+              margin: 20px 0px 20px 30px;
+              font-size: $mp;
+              letter-spacing: 2px;
+              line-height: $bp;
+              @include smlPad{
+                font-size: $sp;
+              }
+            }
+
+          }
+          div.articleContent.none{
+            display: none;
+          }
         }
       }
-      svg{
+      div.frame{
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 5;
-        polyline.outLine{
-          fill:none;
-          stroke:#FCC93D;
-          stroke-width:5;
+        img{
+          width: 150px;
+          @include laptop{
+            width: 120px;
+          }
+          @include smlPad{
+            width: 80px;
+          }
+        }
+        img.topLeft{
+          transform: rotate(270deg);
+          position: absolute;
+          top: 15.5%;
+          left: 4.5%;
+          @include laptop{
+            top: 16.5%;
+          }
+          @include bigPad{
+            left: 3.5%;
+          }
+          @include smlPad{
+            top: 17.5%;
+            left: 4%;
+          }
+          
+        }
+        img.topRight{
+          position: absolute;
+          top: 15.5%;
+          right: 5.5%;
+          opacity: 0.8;
+          @include laptop{
+            top: 16.5%;
+          }
+          @include bigPad{
+            right: 4.5%;
+          }
+          @include smlPad{
+            top: 17.5%;
+            right: 5%;
+          }
+          @include smlPhone{
+            right: 4%;
+          }
+        }
+        img.bottomLeft{
+          transform: rotate(180deg);
+          position: absolute;
+          top: 77%;
+          left: 4.5%;
+          @include laptop{
+            top: 79.5%;
+          }
+          @include bigPad{
+            left: 3.5%;
+          }
+          @include smlPad{
+            top: 83.5%;
+            left: 4%;
+          }
+        }
+        img.bottomRight{
+          transform: rotate(90deg);
+          position: absolute;
+          top: 77%;
+          right: 5.5%;
+          @include laptop{
+            top: 79.5%;
+          }
+          @include bigPad{
+            right: 4.5%;
+          }
+          @include smlPad{
+            top: 83.5%;
+            right: 5%;
+          }
+          @include smlPhone{
+            right: 4%;
+          }
         }
       }
     }
@@ -227,7 +504,9 @@ div.article{
       left: 3%;
       bottom: 20%;
       z-index: 3;
+      opacity: 1;
       animation: upDown 5s infinite linear;
+      transition: all 1s;
       img{
         height: 200px;
         width: 400px;
@@ -253,11 +532,19 @@ div.article{
         }
       }
     }
+    div.ecgBack.colse{
+      @media screen and (max-width: 1750px) {
+        opacity: 0;
+        z-index: -1;
+      }
+    }
     div.radarBack{
       position: absolute;
       right: 4%;
       bottom: 17%;
       z-index: 3;
+      opacity: 1;
+      transition: all 1s;
       img.radarBackImage{
         width: 350px;
         animation: radarBackRotate 60s infinite linear;
@@ -311,6 +598,12 @@ div.article{
         }
       }
     }
+    div.radarBack.close{
+      @media screen and (max-width: 1750px) {
+        opacity: 0;
+        z-index: -1;
+      }
+    }
     div.bluelight{
       width: 350px;
       height: 5px;
@@ -323,6 +616,22 @@ div.article{
       transform: translateX(-50%) perspective(100px) rotateX(-60deg);
       backface-visibility: hidden;
       animation: blueLight 2.5s infinite alternate;
+      transition: width 2s;
+      @media screen and (max-width: 1750px) {
+        width: 220px;
+      }
+      @include laptop{
+        width: 180px;
+      }
+      @include bigPad{
+        width: 140px;
+      }
+      @include smlPad{
+        width: 100px;
+      }
+      @include smlPhone{
+        width: 80px;
+      }
     }
   }
   @keyframes astronautFly1{

@@ -52,11 +52,6 @@
             <img src="./../images/tutorial/upDownArrow.png" id="downArrow" class="downArrow none" alt="圖片無法顯示">
           </div>
           <div class="filterAll">
-            <select name="months" class="filterMonth">
-              <option class="textColor" value="1" selected>月份</option>
-              <option class="textColor" value="2">1</option>
-              <option class="textColor" value="3">2</option>
-            </select>
             <select name="courses" class="filterCourse">
               <option class="textColor" value="1" selected>課程類型</option>
               <option class="textColor" value="2">HTML</option>
@@ -74,7 +69,7 @@
           </div>
           <div class="smlPhone"></div>
         </div>
-        <div class="calendarBody">
+        <div class="calendarBody smlPhone">
           <div class="calendarTitle">
             <p>日</p>
             <p>一</p>
@@ -224,6 +219,20 @@
         <div>
           <p>我們將學習空間的環境，配置的非常舒適，椅子都是非常符合人體工學的，久坐也不會不舒服，座位有一定的間格，一點都不會擁擠，每次人數上限控制在二十人，令大家都能有詢問老師問題的時間。現場每個人都能有專屬的桌上型電腦可以使用，當然，也可以使用自己的筆電。</p>
           <p>提供這個學習環境，營造一個同儕共同學習的氣氛，同學們間可以互相討論，在這種氛圍上一起學習進步也比自己一個人獨自努力，更加地有效果。</p>
+        </div>
+      </div>
+
+      <div class="bookLightBoxAll">
+        <div class="bookLightBoxBack"></div>
+        <div class="bookLightBox">
+          <img src="./../images/article/grayCancel.png" class="cancelBtn" alt="圖片無法顯示">
+          <div>
+            <p>JavaScript</p>
+            <p>黃語昕</p>
+            <p>18:00~22:00</p>
+            <p>目前人數 20 / 20</p>
+            <button>我要預約</button>
+          </div>
         </div>
       </div>
     </main>
