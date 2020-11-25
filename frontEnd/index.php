@@ -133,9 +133,7 @@
 
 
             <!-- 圓餅圖開始 -->
-            <h2 class="H2title">
-                < 我們的三大優勢 />
-            </h2>
+            <h2 class="H2title">< 我們的三大優勢 /></h2>
             <div class="PieChart">
                 <div class="position">
                     <div id="container"></div>
@@ -159,9 +157,7 @@
 
 
             <!-- 課程輪撥開始 -->
-            <h2 class="H2title">
-                < 外星課程 / >
-            </h2>
+            <h2 class="H2title">< 外星課程 / ></h2>
             <div class="Course">
                 <div class="slide" id="slide">
                     <div class="wrapGeneral">
@@ -399,9 +395,7 @@
 
 
             <!-- 宇宙試煉開始 -->
-            <h2 class="H2title">
-                < 語宙試煉 / >
-            </h2>
+            <h2 class="H2title">< 語宙試煉 / ></h2>
             <div class="galaxyBlock">
                 <div class="galaxyWarp">
                     <div class="leftBlock">
@@ -431,6 +425,38 @@
                 </div>
             </div>
             <!-- 宇宙試煉結束 -->
+
+            <!-- 太空補給站開始 -->
+            <h2 class="H2title">< 太空補給站 / ></h2>
+            <div class="articleBlock">
+                <div class="leftBlock">
+                    <div class="bigBlock">
+                        <img src="https://picsum.photos/id/200/500/500">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur rerum dicta laudantium beatae velit tempore quidem, ratione rem inventore veniam natus nesciunt quam repellat, necessitatibus reprehenderit voluptate blanditiis, at fugiat.
+                        Placeat assumenda!</p>
+                    </div>
+                </div>
+                <div class="rightBlock">
+                    <div>
+                        <div class="imgWarp"><img src="https://picsum.photos/id/237/200/200"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                    </div>
+                    <div>
+                        <div class="imgWarp"><img src="https://picsum.photos/id/238/200/200"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                    </div>
+                    <div>
+                        <div class="imgWarp"><img src="https://picsum.photos/id/239/200/200"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                    </div>
+                    <div>
+                        <div class="imgWarp"><img src="https://picsum.photos/id/236/200/200"></div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 太空補給站結束 -->
+
 
         </main>
         <?php
