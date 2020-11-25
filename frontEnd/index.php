@@ -457,6 +457,40 @@
             </div>
             <!-- 太空補給站結束 -->
 
+            <!-- 蟲動練功坊開始 -->
+            <h2 class="H2title">< 蟲洞練功坊/ ></h2>
+            <div class="tutorialBlock">
+                <div class="upBlock">
+                    <div class="leftBlock">
+                        <div class="imgWarp"><img src="./../images/tutorial/room2.jpg" width="100%"></div>
+                    </div>
+                    <div class="rightBlock">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptates exercitationem tenetur saepe adipisci, hic totam quibusdam unde soluta sed facere repudiandae obcaecati necessitatibus ipsa provident deleniti doloremque cumque aliquam!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptates exercitationem tenetur saepe adipisci, hic totam quibusdam unde soluta sed facere repudiandae obcaecati </p>
+                    </div>
+                </div>
+                <div class="roomCenter">
+                    <div class="cardBack">
+                        <div class="cardLine">
+                        <img src="./../images/tutorial/openbook.png" alt="無法顯示圖片">
+                        <p>提供優質的師資<br>幫助您解開任何問題</p>
+                        </div>
+                    </div>
+                    <div class="cardBack">
+                        <div class="cardLine">
+                        <img src="./../images/tutorial/pencil.png" alt="無法顯示圖片" class="pencil">
+                        <p>提供強大的設備<br>令您打破傳統的限制</p>
+                        </div>
+                    </div>
+                    <div class="cardBack">
+                        <div class="cardLine">
+                        <img src="./../images/tutorial/house.png" alt="無法顯示圖片" class="house">
+                        <p>提供舒適的環境<br>讓您心無旁騖的學習</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 蟲動練功坊結束 -->
+
 
         </main>
         <?php
