@@ -143,71 +143,28 @@
                     
                 }
             }
-            .info_card{
-                @include laptop{
-                    margin-top: 20px;
+            
+            .editFile{
+                text-align: center;
+                align-self: flex-end;
+                border-bottom: $orange 5px solid;
+                padding-bottom: 6px;
+                cursor: pointer;
+                width: 180px;
+                color: #9B9595;
+                @include smlPad{
+                    font-size: $sp;
+                    width: 100px;
+                }    
+            }
+                
+            .sendBtn{
+                @include btn{
+                     width: 200px;
                 }
-                
-                
-                form{
-                    padding: 40px;
-                    background-color: $beige;
-                    width: 850px;
-                    display: flex;
-                    flex-direction: column;
-                    font-size: $bp;
-                    @include laptop{
-                      width: 750px;
-                    }
-
-                    @include smlPad{
-                        width: 450px;
-                        margin: 0 auto;
-                    }
-
-                    
-                    .editFile{
-                        text-align: center;
-                        align-self: flex-end;
-                        border-bottom: $orange 5px solid;
-                        padding-bottom: 6px;
-                        cursor: pointer;
-                        width: 180px;
-                        color: #9B9595;
-                        @include smlPad{
-                            font-size: $sp;
-                            width: 100px;
-                        }    
-                    }
-                    label{
-                        padding: 10px;
-                        @include smlPad{
-                            font-size: $mp;
-                            
-                        }  
-                        input{
-                            border: none;
-                            border-radius: 20px;
-                            height: 35px;
-                            width: 300px;
-                            
-                            outline: none;
-                        }
-                    }
-                    .sendBtn{
-                        @include btn{
-                            width: 200px;
-                        };
-                        align-self: flex-end;
-                    }
-
-
-                }
-                
-
-                
-                
-                
+                align-self: flex-end;
+            }
+              
 
         }
 
