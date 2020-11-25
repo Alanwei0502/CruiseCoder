@@ -135,6 +135,7 @@
         include('layout/footer.php');
         ?>
         <script src="../js/galaxy.js"></script>
+        <script src="../js/header.js"></script>
     </div>
 </body>
 
