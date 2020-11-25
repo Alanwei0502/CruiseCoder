@@ -6,9 +6,17 @@
 	main {
 		max-width: 1200px;
 		width: 95%;
-
 		margin: $center;
 		// border: 1px solid $white;
+
+		@include laptop {
+			border: 3px solid $white;
+		}
+
+		@include bigPad {
+			border: 3px solid $red;
+
+		}
 
 		.top {
 			.filter {
@@ -38,6 +46,14 @@
 
 						:focus {
 							outline: 0;
+						}
+
+						@include laptop{
+							order: -1;
+					position: absolute;
+					top: 0;
+					right: 0;
+					transform: translate(20px, 50px);
 						}
 					}
 
@@ -154,8 +170,6 @@
 
 			// 課程開始
 			.course {
-				max-width: 98%;
-				// margin-top: 50px;
 				display: flex;
 				justify-content: space-between;
 				flex-wrap: wrap;
@@ -420,34 +434,3 @@
 		/* 頁碼結束 */
 	}
 }
-
-@include laptop() {
-	main {
-
-		max-width: 1200px;
-		border: 3px solid $yellow;
-
-		.top {
-			border: 3px solid $red;
-
-			.filter {
-				justify-content: flex-start;
-
-				h2 {
-					color: $red;
-				}
-
-				form.search {
-					order: -1;
-					position: absolute;
-					top: 0;
-					right: 0;
-					transform: translate(20px, 50px);
-				}
-			}
-		}
-	}
-}
-
-
-;
