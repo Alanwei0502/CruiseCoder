@@ -1,12 +1,12 @@
 @import './base/reset';
 @import './base/var';
+@import './mixin/mixin';
 @import './layout/all';
+@import './plugins/allPlugin';
 @import './layout/header';
 @import './layout/footer';
 @import './layout/login';
 @import './layout/spaceBackground';
-@import './mixin/mixin';
-@import './plugins/allPlugin';
 @import './frontpages/galaxy';
 @import './frontpages/allCourse';
 @import './frontpages/article';

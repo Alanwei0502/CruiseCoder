@@ -1,6 +1,6 @@
 @import '../base/var';
 
-// 按鈕，用法：@include btn;
+// 按鈕，用法：@include btn($px);
 
 // 各RWD斷點使用的btn
 // @include btn($h4);
@@ -74,6 +74,16 @@
 
 
 // 標題黃線，用法：@include h2;
+// 各RWD斷點使用的h2
+// @include smlPad{
+// 	font-size: $h3;
+// }
+// @include bigPhone{
+// 	font-size: $h4;
+// }
+// @include smlPhone{
+// 	font-size: $bp;
+// }
 @mixin h2{
     font-size: $h2;
     font-weight: bold;
