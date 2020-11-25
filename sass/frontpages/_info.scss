@@ -157,9 +157,11 @@
                     }
                 }
                 .sendBtn{
-                    @include btn;
-                    width: 200px;
                     align-self: flex-end;
+                    @include btn{
+                        width: 200px;
+                    }
+                    
                 }
 
                 
