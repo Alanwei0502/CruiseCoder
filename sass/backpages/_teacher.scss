@@ -1,0 +1,79 @@
+div.teacher {
+	main {
+		h2 {
+			@include backTitle;
+		}
+		.searchbar {
+			@include blockStyle;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			div {
+				display: flex;
+				label {
+					font-size: $bp;
+					display: block;
+					input {
+						@include selectStyle;
+						width: $fontSize * 20;
+						margin-right: $fontSize * 2;
+					}
+				}
+			}
+			button {
+				@include backBtn;
+				white-space: nowrap;
+			}
+		}
+
+		.table {
+			.btns {
+				border: 1px solid;
+				display: flex;
+				justify-content: flex-end;
+				button {
+					margin: $fontSize*2;
+				}
+				.add {
+					@include addBtn;
+				}
+			}
+
+			table {
+				font-size: $bp;
+				width: 90%;
+				margin: 0 auto;
+
+				button {
+					@include editBtn;
+					cursor: pointer;
+				}
+				tr {
+					width: 100%;
+					label {
+						cursor: pointer;
+					}
+
+					th {
+						font-weight: bold;
+						padding: $fontSize*1.5 0;
+						text-align: left;
+					}
+					td {
+						padding: $fontSize*1.5 0;
+					}
+				}
+			}
+
+			.changePage {
+				display: flex;
+				justify-content: flex-end;
+				.lastPage,
+				.nextPage {
+					@include changePage;
+					margin: $fontSize * 2;
+				}
+			}
+		}
+	}
+}
