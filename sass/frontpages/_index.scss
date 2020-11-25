@@ -142,7 +142,7 @@
 			width: 1200px;
 			height: 612px;
 			margin: 0 auto;
-			margin-bottom: 50px;
+			margin-bottom: 70px;
 
 			div.galaxyWarp {
 				width: 100%;
@@ -294,7 +294,7 @@
 				margin-top: 20px;
 
 				img {
-					height: 100%;
+					height: 90%;
 					margin: 0px 35px;
 					cursor: pointer;
 				}
@@ -351,6 +351,94 @@
 			}
 			100% {
 				transform: translate(210%, 275%);
+			}
+		}
+
+		div.articleBlock {
+			width: 1200px;
+			height: 600px;
+			margin: 0 auto;
+			font-size: 0px;
+
+			div.leftBlock {
+				display: inline-block;
+				width: 50%;
+				height: 100%;
+				// background-color: cadetblue;
+				vertical-align: top;
+
+				div.bigBlock {
+					width: 500px;
+					height: 500px;
+					// border: 1px solid;
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+					margin: 0 auto;
+					overflow: hidden;
+
+					p {
+						font-size: 16px;
+						padding: 20px;
+						position: absolute;
+						bottom: 0px;
+						background-color: rgba(0, 0, 0, 0.301);
+						margin: 0px;
+						transition: all 1s;
+						transform: translateY(100%);
+						color: white;
+						line-height: 18px;
+					}
+
+					&:hover p {
+						transform: translateY(0%);
+					}
+				}
+			}
+
+			div.rightBlock {
+				display: inline-flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				width: 50%;
+				height: 100%;
+				// background-color: #5f79a0;
+				vertical-align: top;
+
+				div {
+					display: inline-block;
+					width: 200px;
+					height: 250px;
+					// border: 1px solid;
+					margin: 45px 1px 0px 1px;
+					overflow: hidden;
+
+					div.imgWarp {
+						width: 100%;
+						height: 200px;
+						// border: 1px solid;
+						vertical-align: top;
+						box-sizing: border-box;
+						margin: 0;
+						img {
+							transition: all 1.3s;
+							transform: scale(1);
+
+							&:hover {
+								transform: scale(1.05);
+							}
+						}
+					}
+					p {
+						margin: 0px;
+						padding: 5px;
+						font-size: 20px;
+						line-height: 22px;
+						width: 100%;
+						height: 80px;
+						color: white;
+					}
+				}
 			}
 		}
 	}
@@ -508,7 +596,7 @@ $scrollTime: 1s;
 h2.H2title {
 	width: 1200px;
 	margin: 0 auto !important;
-	margin-top: 100px !important;
+	margin-top: 10px !important;
 	color: $white;
 	font-size: $h2;
 	font-weight: bold;
