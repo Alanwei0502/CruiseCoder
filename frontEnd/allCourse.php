@@ -41,7 +41,11 @@
               <option value="Cate"" style=" display:none">課程類型</option>
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
-              <option value="JavaScript">JavaScript</option>
+              <option value="JavaScript">jQuery</option>
+              <option value="JavaScript">SASS</option>
+              <option value="JavaScript">PHP</option>
+              <option value="JavaScript">MySQL</option>
+              <option value="JavaScript">Vue</option>
             </select>
           </div>
         </div>
