@@ -9,20 +9,38 @@
 		margin: $center;
 		// border: 1px solid $white;
 
-		@include laptop {
-			border: 3px solid $white;
-		}
+		// @include laptop {
+		// 	border: 3px solid $white;
+		// }
 
-		@include bigPad {
-			border: 3px solid $red;
+		// @include bigPad {
+		// 	border: 3px solid $red;
+		// }
 
-		}
+		// @include smlPad {
+		// 	border: 3px solid $blue2;
+		// }
+
+		// @include bigPhone {
+		// 	border: 3px solid $yellow;
+		// }
+
+		// @include smlPhone {
+		// 	border: 3px solid pink;
+		// }
+
 
 		.top {
 			.filter {
 				margin-bottom: 50px;
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: flex-start;
+
+				@include laptop {
+					justify-content: space-evenly;
+
+				}
 
 				h2 {
 					color: $white;
@@ -30,9 +48,48 @@
 					font-weight: bold;
 					@include h2;
 					flex-basis: 100%;
+
+					@include smlPad {
+						font-size: $h3;
+					}
+
+					@include bigPhone {
+						font-size: $h4;
+					}
+
+					@include smlPhone {
+						font-size: $bp;
+					}
 				}
 
+				// 搜尋框
 				form.search {
+					position: relative;
+					margin-right: 20px;
+
+					@include laptop {
+						order: -1;
+						position: absolute;
+						top: 0;
+						right: 0;
+						transform: translate(0px, 50px);
+						margin-right: 0px;
+					}
+
+					@include bigPhone {
+						transform: translate(0px, 40px);
+					}
+
+					@include smlPad {
+						transform: translate(0px, 45px);
+					}
+
+					@include smlPhone {
+						transform: translate(0px, 40px);
+
+					}
+
+
 					input {
 						color: $black;
 						border-radius: 50px;
@@ -42,19 +99,24 @@
 						font-size: 30px;
 						padding: 8px 30px;
 						border: 0 solid transparent;
-						position: relative;
 
 						:focus {
 							outline: 0;
 						}
 
-						@include laptop{
-							order: -1;
-					position: absolute;
-					top: 0;
-					right: 0;
-					transform: translate(20px, 50px);
+						@include smlPad {
+							width: 250px;
+							font-size: $bp;
 						}
+
+						@include bigPhone {
+							font-size: $fontSize * 1.1;
+							;
+							width: 180px;
+							padding: 10px 30px;
+						}
+
+
 					}
 
 					//放大鏡圖示
@@ -64,16 +126,40 @@
 						/*自定義邊框*/
 						cursor: pointer;
 						/*碰到按鈕鼠標會變手*/
-						position: relative;
+						position: absolute;
 						top: 0;
 						right: 0;
-						transform: translateX(-60px);
+						transform: translate(-25px, 10px);
 						outline: none;
+
+						@include bigPad {
+							// border: 3px solid $red;
+						}
+
+						@include smlPad {
+							// border: 3px solid $blue2;
+						}
+
+						@include bigPhone {
+							// border: 3px solid $yellow;
+							transform: translate(-21px, 9px);
+							font-size: 22px;
+
+						}
+
+						@include smlPhone {
+							// border: 3px solid pink;
+						}
 
 
 						i {
 							color: rgb(198, 197, 197);
-							font-size: 25px;
+							font-size: 30px;
+
+							@include bigPhone {
+								font-size: 25px;
+
+							}
 						}
 					}
 				}
@@ -82,23 +168,60 @@
 					// border: 1px solid $white;
 					display: flex;
 
+					@include laptop {
+						justify-content: space-evenly;
+						width: 100%;
+					}
+
 					button {
 						border-radius: 50px;
 						font-size: $bp;
 						/*碰到按鈕鼠標會變手*/
 						cursor: pointer;
-						margin: 0 30px 0 0;
+						margin: 0 20px 0 0;
 						border: 5px solid $yellow;
-						padding: 0 30px;
+						padding: 0 35px;
 						color: $white;
 						background-color: transparent;
 						outline: none;
 						transition: all 0.3s;
+						font-weight: 600;
+
+
+						@include laptop {
+							margin: 0 0px 0 0;
+							padding: 2px 35px;
+
+						}
+
+						@include bigPad {
+							// margin: 0 10px 0 0;
+							padding: 4px 14px;
+							font-size: $fontSize * 1.5;
+						}
+
+						@include smlPad {
+							font-size: $fontSize*1.2;
+							padding: 4px 12px;
+							border: 3px solid $yellow;
+						}
+
+						@include bigPhone {
+							font-size: $fontSize;
+							padding: 5px 10px;
+							border: 2px solid $yellow;
+						}
+
+						@include smlPhone {
+							font-size: $fontSize *0.9;
+							padding: 2px 10px;
+							border: 3px solid $yellow;
+
+						}
 
 						&:hover {
 							background-color: $red;
 							color: $white;
-							font-weight: 600;
 							text-shadow: 1px 1px 2px rgb(71, 71, 71);
 						}
 					}
@@ -112,10 +235,9 @@
 
 
 					select {
-						width: 180px;
 						border-radius: 50px;
 						font-size: $bp;
-						padding: 0 30px;
+						padding: 0px 45px 0px 30px;
 						//隱藏預設箭頭
 						appearance: none;
 						background-color: transparent;
@@ -123,6 +245,43 @@
 						border: 5px solid $yellow;
 						outline: none;
 						transition: all 0.3s;
+						font-weight: 600;
+						//載入客製化箭頭
+						background: url('../images/allCourse/down.png') 90% 50% no-repeat transparent;
+						background-size: 15px 13px;
+
+
+						&:hover {
+							background-color: $red;
+							color: $white;
+							text-shadow: 1px 1px 2px rgb(71, 71, 71);
+						}
+
+						@include bigPad {
+							// margin: 0 15px 0 0;
+							// padding: 0 20px;
+							font-size: $fontSize * 1.5;
+						}
+
+						@include smlPad {
+							font-size: $fontSize*1.2;
+							padding: 0px 30px 0px 20px;
+							border: 3px solid $yellow;
+							background-size: 12px 10px;
+						}
+
+						@include bigPhone {
+							font-size: $fontSize;
+							padding: 0px 25px 0px 10px;
+							background-size: 10px 8px;
+							border: 2px solid $yellow;
+						}
+
+						@include smlPhone {
+							font-size: $fontSize *0.9;
+
+						}
+
 
 
 						option {
@@ -130,24 +289,28 @@
 							color: rgb(0, 0, 0);
 						}
 					}
-
-					select:hover {
-						background-color: $red;
-						color: $white;
-						font-weight: 600;
-						text-shadow: 1px 1px 2px rgb(71, 71, 71);
-					}
 				}
 			}
 		}
 
 		.content {
+
+			// 標題：熱門課程
 			h3 {
 				color: $white;
 				font-size: $h3;
 				text-align: center;
 				position: relative;
 				margin-bottom: 50px;
+
+				@include bigPhone {
+					font-size: $h4;
+				}
+
+				@include smlPhone {
+					font-size: $bp;
+
+				}
 			}
 
 			h3::before,
@@ -156,17 +319,43 @@
 				position: absolute;
 				top: 50%;
 				background: $yellow;
-				width: 35%;
+				width: 34%;
 				height: 3px;
+
+				@include bigPad {
+					width: 33%;
+				}
+
+				@include smlPad {
+					width: 30%;
+					height: 5px;
+
+
+				}
+
+				@include bigPhone {
+					width: 27%;
+
+				}
 			}
 
 			h3::before {
 				left: 5%;
+
+				@include bigPad {
+					left: 3%;
+				}
 			}
+
 
 			h3::after {
 				right: 5%;
+
+				@include bigPad {
+					right: 3%;
+				}
 			}
+
 
 			// 課程開始
 			.course {
@@ -174,7 +363,12 @@
 				justify-content: space-between;
 				flex-wrap: wrap;
 
+				@include laptop {
+					justify-content: space-evenly;
+				}
+
 				/*一般課程*/
+				
 				.wrapGeneral {
 					margin: 50px 0px;
 					width: 340px;
@@ -182,6 +376,17 @@
 					background-color: $white;
 					position: relative;
 					overflow: visible;
+
+					@include laptop {
+						margin: 50px 20px;
+					}
+
+					@include bigPhone {
+						display: flex;
+						width: 430px;
+						margin: 20px 0px;
+					}
+
 
 					// 愛心按鈕
 					.favorites {
@@ -192,12 +397,22 @@
 						right: 0;
 						transform: translate(-10%, 270%);
 
+						@include bigPhone {
+							transform: translate(-20%, 310%);
+							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+						}
+
 						// font
 						i {
 							font-size: 30px;
 							padding: 10px;
 							cursor: pointer;
 							color: rgb(212, 212, 212);
+
+							@include bigPhone {
+								font-size: 25px;
+								padding: 10px;
+							}
 						}
 
 						i.is-active {
@@ -213,33 +428,61 @@
 						top: 0;
 						left: 0;
 						transform: translate(25%, -50%);
+
+						@include bigPhone {
+							display: none;
+						}
 					}
 
 					a.img {
 						display: inline-block;
 
+						@include bigPhone {
+							width: 200px;
+							margin: 4% 2%;
+						}
+
 						img {
 							width: 100%;
 							border-radius: 20px 20px 0 0;
+
+							@include bigPhone {
+								border-radius: 10px 10px 10px 10px;
+							}
 						}
 					}
 
 					.c_Main {
 						padding: 3% 3% 5%;
 
-						a.title {
+						@include bigPhone {
+							padding: 4% 2% 4% 0%;
+
+						}
+
+						p.title {
 							padding-bottom: 5%;
 							font-size: 26px;
 							font-weight: 600;
 							line-height: 35px;
-							text-decoration: none;
-							display: inline-block;
-							color: black;
+							// text-decoration: none;
+							// display: inline-block;
+							// color: black;
+
+							@include bigPhone {
+								font-size: 22px;
+								line-height: 30px;
+							}
 						}
 
 						.time {
 							font-size: 22px;
 							padding-bottom: 5%;
+
+							@include bigPhone {
+								font-size: 16px;
+
+							}
 						}
 
 						.comment {
@@ -247,9 +490,20 @@
 							font-size: 22px;
 							margin-bottom: 40px;
 
+							@include bigPhone {
+								font-size: 16px;
+								margin-bottom: 20px;
+
+
+							}
+
 							i {
 								font-size: 20px;
 								color: $yellow;
+
+								@include bigPhone {
+									font-size: 16px;
+								}
 							}
 
 							a.text {
@@ -263,21 +517,38 @@
 							font-size: $h4;
 							font-weight: 800;
 							text-align: right;
+
 							// padding: 0px 4% 20px 0px;
+							@include bigPhone {
+								font-size: $bp;
+								margin-right: 30%;
+								font-weight: 600;
+
+							}
 						}
 					}
 				}
 
 				/*募資課程*/
 				.wrapFundraising {
-					margin-bottom: 50px !important;
-					margin-top: 50px !important;
+					margin: 50px 0px;
 					width: 340px;
 					border-radius: 20px;
 					background-color: $white;
 					position: relative;
 					overflow: visible;
 
+					@include laptop {
+						margin: 50px 20px;
+					}
+
+					@include bigPhone {
+						display: flex;
+						width: 430px;
+						margin: 20px 0px;
+					}
+
+					// 愛心按鈕
 					.favorites {
 						border-radius: 50%;
 						background-color: $white;
@@ -286,11 +557,21 @@
 						right: 0;
 						transform: translate(-10%, 270%);
 
+						@include bigPhone {
+							transform: translate(-20%, 310%);
+							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+						}
+
 						i {
 							font-size: 30px;
 							padding: 10px;
 							cursor: pointer;
 							color: rgb(212, 212, 212);
+
+							@include bigPhone {
+								font-size: 25px;
+								padding: 10px;
+							}
 						}
 
 						i.is-active {
@@ -305,39 +586,72 @@
 						top: 0;
 						left: 0;
 						transform: translate(25%, -50%);
+
+						@include bigPhone {
+							display: none;
+						}
 					}
 
 					a.img {
 						display: inline-block;
 
+						@include bigPhone {
+							width: 200px;
+							margin: 4% 2%;
+						}
+
 						img {
 							width: 100%;
 							border-radius: 20px 20px 0 0;
+
+							@include bigPhone {
+								border-radius: 10px 10px 10px 10px;
+							}
 						}
 					}
 
 					.c_Main {
 						padding: 3% 3% 5%;
 
-						a.title {
+						@include bigPhone {
+							padding: 4% 2% 4% 0%;
+
+						}
+
+						p.title {
 							padding-bottom: 5%;
 							font-size: 26px;
 							font-weight: 600;
 							line-height: 35px;
-							text-decoration: none;
-							display: inline-block;
-							color: black;
+							// text-decoration: none;
+							// display: inline-block;
+							// color: black;
+
+							@include bigPhone {
+								font-size: 22px;
+								line-height: 30px;
+							}
 
 						}
 
 						.time {
 							font-size: 22px;
 							padding-bottom: 5%;
+
+							@include bigPhone {
+								font-size: 16px;
+
+							}
 						}
 
 						.price {
 							display: flex;
 							justify-content: space-between;
+
+							@include bigPhone {
+								flex-wrap: wrap;
+
+							}
 
 							p.fundraising {
 								background-color: $red;
@@ -346,6 +660,14 @@
 								line-height: 34px;
 								padding: 0px 2%;
 								text-shadow: 1px 1px 3px rgb(46, 46, 46);
+								white-space: nowrap;
+
+								@include bigPhone {
+									flex-wrap: wrap;
+									margin: 0px 50px 10px 0px;
+									line-height: 30px;
+
+								}
 							}
 
 							.text {
@@ -356,12 +678,21 @@
 								p.preOrder {
 									font-size: 26px;
 									margin-right: 5px;
+
+									@include bigPhone {
+										font-size: 20px;
+									}
 								}
 
 								p.price {
 									font-size: $h4;
 									color: $red;
 									font-weight: 800;
+
+									@include bigPhone {
+										font-size: 26px;
+										font-weight: 600;
+									}
 								}
 							}
 						}
@@ -373,6 +704,11 @@
 							position: relative;
 							overflow: hidden;
 							margin: 7% 0px;
+
+							@include bigPhone {
+								display: none;
+
+							}
 
 							span.progress {
 								display: inline-block;
@@ -388,49 +724,84 @@
 						.funNum {
 							font-size: 19px;
 							text-align: center;
+
+							@include bigPhone {
+								display: none;
+
+							}
 						}
 					}
 				}
 			}
 		}
+	}
 
-		/* 頁碼開始 */
-		.pagenum {
-			margin-bottom: 40px;
-			font-size: 12px;
-			/* border: 1px solid rgb(255, 115, 0); */
-			margin-top: 0px;
+	/* 頁碼開始 */
+	.pagenum {
+		margin-bottom: 40px;
+		font-size: 12px;
+		/* border: 1px solid rgb(255, 115, 0); */
+		margin-top: 0px;
 
-			ul {
-				display: flex;
-				justify-content: center;
+		@include bigPhone {
+			margin-top: 20px;
 
-				li {
-					margin-right: 30px;
-					background-color: #404040;
-					border-radius: 30%;
 
-					a {
-						color: rgb(255, 255, 255);
-						display: inline-block;
-						//width: 100%;
-						padding: 10px 20px;
-						text-decoration: none;
-						font-weight: 600;
-						font-size: 30px;
-					}
-
-					a:hover {
-						color: rgb(39, 38, 38);
-					}
-				}
-
-				li:hover {
-					background-color: $yellow;
-				}
-			}
 		}
 
-		/* 頁碼結束 */
+		ul {
+			display: flex;
+			justify-content: center;
+
+
+			li {
+				margin-right: 30px;
+				background-color: #404040;
+				border-radius: 30%;
+
+				@include smlPad {
+					margin-right: 4%;
+				}
+
+				@include bigPhone {
+					border-radius: 40%;
+
+				}
+
+
+				a {
+					color: rgb(255, 255, 255);
+					display: inline-block;
+					//width: 100%;
+					padding: 10px 20px;
+					text-decoration: none;
+					font-weight: 600;
+					font-size: 30px;
+
+					@include bigPhone {
+						font-size: 20px;
+						padding: 8px 13px;
+
+					}
+				}
+
+				a:hover {
+					color: rgb(39, 38, 38);
+				}
+
+				&:last-child {
+					margin-right: 0px;
+					// background-color: #ee0000;
+				}
+			}
+
+
+
+			li:hover {
+				background-color: $yellow;
+			}
+		}
 	}
+
+	/* 頁碼結束 */
 }
