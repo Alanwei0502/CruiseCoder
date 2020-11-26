@@ -28,13 +28,8 @@
         <main>
             <!-- banner開始 -->
             <div class="banner">
-<<<<<<< HEAD
-                <img src="/images/index/bannerLeft.svg" class="bannerLeft">
-                <img src="/images/index/bannerRight.svg" class="bannerRight">
-=======
-                <img src="./images/index/bannerLeft.svg" class="bannerLeft">
-                <img src="./images/index/bannerRight.svg" class="bannerRight">
->>>>>>> Myword
+                <img src="../images/index/bannerLeft.svg" class="bannerLeft">
+                <img src="../images/index/bannerRight.svg" class="bannerRight">
                 <div class="container">
                     <h1>外星課程</h1>
                     <p>
