@@ -30,6 +30,7 @@
             <label>名字
               <input type="text">
             </label>
+            
           </div>
 
           <button type="button">搜尋</button>
@@ -45,31 +46,32 @@
               <tr>
                 <th>編號</th>
                 <th>姓名</th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>CCL0000001</td>
+                <td>M0001</td>
                 <td>張老闆</td>
                 <td><button>編輯</button></td>
               </tr>
               <tr>
-                <td>CCL0000002</td>
+                <td>M0002</td>
                 <td>SexFat</td>
                 <td><button>編輯</button></td>
               </tr>
               <tr>
-                <td>CCL0000003</td>
+                <td>M0003</td>
                 <td>黃語昕</td>
                 <td><button>編輯</button></td>
               </tr>
               <tr>
-                <td>CCL0000004</td>
+                <td>M0004</td>
                 <td>李偉銘</td>
                 <td><button>編輯</button></td>
               </tr>
               <tr>
-                <td>CCL0000005</td>
+                <td>M0005</td>
                 <td>曾景鴻</td>
                 <td><button>編輯</button></td>
               </tr>
@@ -82,7 +84,12 @@
           </div>
         </section>
 
-
+        <div class="addBlock">
+          <div class="grayBlock"></div>
+          <div class="addContent">
+            
+          </div>
+        </div>
         <!-- 在這裡面codeing -->
       </main>
     </div>
