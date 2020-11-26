@@ -343,6 +343,7 @@
 			height: 612px;
 			margin: 0 auto;
 			margin-bottom: 70px;
+			margin-top: 35px;
 
 			div.galaxyWarp {
 				width: 100%;
@@ -456,7 +457,7 @@
 						color: white;
 						font-size: 40px;
 						margin-bottom: 15px;
-						margin-top: 80px;
+						margin-top: 50px;
 					}
 
 					p {
@@ -473,8 +474,8 @@
 					button {
 						@include btn(18px);
 						align-self: flex-end;
-						margin-top: 20px;
-						margin-right: 10px;
+						margin-top: 45px;
+						margin-right: 15px;
 					}
 				}
 			}
@@ -767,7 +768,8 @@
 .skw-pages {
 	overflow: hidden;
 	position: relative;
-	height: 574.5px;
+	height: 620px;
+	margin-bottom: 35px;
 }
 
 $skewDeg: 18deg;
@@ -784,7 +786,7 @@ $scrollTime: 1s;
 		position: absolute;
 		top: 0;
 		width: 50%;
-		height: 574.5px;
+		height: 620px;
 		transition: transform $scrollTime;
 
 		&--left {
@@ -855,7 +857,7 @@ $scrollTime: 1s;
 	}
 
 	&__heading {
-		margin-bottom: 15px;
+		margin-bottom: 40px;
 		text-transform: uppercase;
 		font-size: 25px;
 		text-align: center;
@@ -863,6 +865,7 @@ $scrollTime: 1s;
 
 	&__description {
 		font-size: 18px;
+		line-height: 26px;
 		text-align: center;
 	}
 
@@ -872,8 +875,10 @@ $scrollTime: 1s;
 
 	&-1 {
 		.skw-page__half--left .skw-page__content {
-			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-1.jpg');
-			background-size: 100% 100%;
+			background-image: url('../images/index/slide3.jpg');
+			// background-size: 100% 100%;
+			background-position-x: 98%;
+			background-repeat: no-repeat;
 		}
 
 		.skw-page__half--right .skw-page__content {
@@ -887,33 +892,14 @@ $scrollTime: 1s;
 		}
 
 		.skw-page__half--right .skw-page__content {
-			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg');
+			background-image: url('../images/index/slide2.jpg');
 		}
 	}
 
 	&-3 {
 		.skw-page__half--left .skw-page__content {
-			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-2.jpg');
-		}
-
-		.skw-page__half--right .skw-page__content {
-			background: lighten(#1c1c1c, 5%);
-		}
-	}
-
-	&-4 {
-		.skw-page__half--left .skw-page__content {
-			background: lighten(#1c1c1c, 5%);
-		}
-
-		.skw-page__half--right .skw-page__content {
-			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg');
-		}
-	}
-
-	&-5 {
-		.skw-page__half--left .skw-page__content {
-			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/img-test.jpg');
+			background-image: url('../images/index/slide1.jpg');
+			background-position-x: -40%;
 		}
 
 		.skw-page__half--right .skw-page__content {
@@ -999,7 +985,7 @@ div.index {
 			width: 3600px;
 			display: flex;
 			position: relative;
-			margin-top: 50px;
+			margin-top: 30px;
 
 			.wrapGeneral {
 				flex-shrink: 0;
