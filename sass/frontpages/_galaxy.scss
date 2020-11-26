@@ -1,8 +1,6 @@
-
 /* ===============語宙試煉css開始===================== */
 
-.galaxy{
-    
+.galaxy {
 
     main {
         max-width: 1200px;
@@ -10,39 +8,87 @@
         margin: 0 auto;
         color: $white;
 
-        .outGalaxy{
-            .inGalaxy{
+        section.introduction {
+            @include clearfixed;
+
+            p {
+                font-size: $bp;
+                font-weight: bold;
+                line-height: $fontSize*4;
+                text-indent: $bp*2;
+                padding: 0 $fontSize;
+
+                // letter-spacing: normal;
+                @include smlPad {
+                    font-size: $mp;
+                    line-height: $fontSize*3;
+                    text-indent: $mp*2;
+                }
+
+                @include bigPhone {
+                    font-size: $sp;
+                    line-height: $fontSize*2;
+                    text-indent: $sp*2;
+                }
+
+                @include smlPhone {
+                    line-height: $fontSize*1.5;
+                }
+            }
+
+            img {
+                float: right;
+                height: $fontSize * 12.5;
+                margin-top: $fontSize;
                 transform-style: preserve-3d;
-                margin-bottom: $fontSize*3;
+
+                @include smlPad {
+                    height: $fontSize * 10;
+                }
+
+                @include bigPhone {
+                    height: $fontSize * 7.5;
+                }
+
+                @include smlPhone {
+                    height: $fontSize * 5;
+                }
+            }
+        }
+
+        .outGalaxy {
+            .inGalaxy {
+                transform-style: preserve-3d;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                @include smlPad{
-                    margin-bottom: $fontSize*2;
-                }
 
-                ul{
+                ul {
                     display: flex;
                     justify-content: center;
                     align-self: start;
                     flex-wrap: wrap;
-                    margin: $fontSize*3 auto;
+                    margin: 0 auto;
+
                     // border: 1px solid red;
-                    @include smlPad{
+                    @include smlPad {
                         margin: $fontSize auto;
                     }
-                    
-                    li{
+
+                    li {
                         // border: 1px solid green;
                         width: 25%;
                         margin: $fontSize*2 0;
-                        @include smlPad{
+
+                        @include smlPad {
                             width: 33.33333%;
                         }
-                        @include smlPhone{
+
+                        @include smlPhone {
                             width: 50%;
                         }
-                        a{
+
+                        a {
                             display: block;
                             text-decoration: none;
                             color: $white;
@@ -51,27 +97,33 @@
                             display: flex;
                             flex-direction: column;
                             align-items: center;
+
                             // border: 1px solid white;
-                            @include bigPhone{
+                            @include bigPhone {
                                 font-size: $sp;
                             }
 
-                            &:hover{
+                            &:hover {
                                 transform: scale(1.1);
                             }
-                            img{
+
+                            img {
                                 // border: 1px solid gray;
                                 display: block;
-                                &:nth-child(2){
+
+                                &:nth-child(2) {
                                     height: $fontSize * 7.5;
                                     animation: floating 5s linear infinite;
-                                    @include smlPad{
+
+                                    @include smlPad {
                                         height: $fontSize * 6;
                                     }
                                 }
-                                &:nth-child(3){
+
+                                &:nth-child(3) {
                                     width: $fontSize * 6;
-                                    @include smlPad{
+
+                                    @include smlPad {
                                         width: $fontSize * 5;
                                     }
                                 }
@@ -80,86 +132,92 @@
                     }
                 }
             }
+
+            .scrolldown {
+                width: 80%;
+                background-color: rgba(255, 255, 255, .3);
+                border-radius: $fontSize*2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: $fontSize;
+                margin: 0 auto;
+
+                p {
+                    font-size: $bp;
+                    margin-bottom: $fontSize*0.5;
+
+                    @include smlPad {
+                        font-size: $mp;
+                    }
+
+                    @include bigPhone {
+                        font-size: $sp;
+                    }
+                }
+
+                img {
+                    display: block;
+                    width: 50px;
+
+                    @include smlPad {
+                        width: 30px;
+                    }
+
+                    @include bigPhone {
+                        width: 15px;
+                    }
+                }
+
+                .arrow1 {
+                    animation: downOne 1s linear infinite;
+                }
+
+                .arrow2 {
+                    animation: downTwo 1s linear infinite;
+                }
+            }
         }
-        
-    
-        h2{
+
+
+        h2 {
             @include h2;
-            @include smlPad{
+
+            @include smlPad {
                 font-size: $h3;
             }
-            @include bigPhone{
+
+            @include bigPhone {
                 font-size: $h4;
             }
-            @include smlPhone{
+
+            @include smlPhone {
                 font-size: $bp;
             }
         }
-    
-        h3{
+
+        h3 {
             font-size: $h3;
             font-weight: bold;
             margin-bottom: $fontSize*2;
-            @include smlPad{
+
+            @include smlPad {
                 font-size: $h4;
             }
-            @include bigPhone{
+
+            @include bigPhone {
                 font-size: $bp;
             }
-            @include smlPhone{
+
+            @include smlPhone {
                 font-size: $mp;
             }
         }
-        .universe{
-            
-        
-            article{
-                padding: $fontSize;
-                background-color: rgba(24, 39, 73, .7);
-                @include clearfixed;
-    
-                p{
-                    font-size: $bp;
-                    font-weight: bold;
-                    line-height: $fontSize*4;
-                    text-indent: $bp*2;
-                    padding: 0 $fontSize;
-                    // letter-spacing: normal;
-                    @include smlPad{
-                        font-size: $mp;
-                        line-height: $fontSize*3;
-                        text-indent: $mp*2;
-                    }
-                    @include bigPhone{
-                        font-size: $sp;
-                        line-height: $fontSize*2;
-                        text-indent: $sp*2;
-                    }
-                    @include smlPhone{
-                        line-height: $fontSize*1.5;
-                    }
-                }
-    
-                img{
-                    float: right;
-                    height: $fontSize * 12.5;
-                    transform-style: preserve-3d;
-                    @include smlPad{
-                        height: $fontSize * 10;
-                    }
-                    @include bigPhone{
-                        height: $fontSize * 7.5;
-                    }
-                    @include smlPhone{
-                        height: $fontSize * 5;
-                    }
-                }
-            }
-        }
-        
-        .planetQuiz{
+
+        .planetQuiz {
+
             // border: 1px solid yellow;
-            .carousel{
+            .carousel {
                 // border: 1px solid green;
                 margin: 0 auto;
                 width: $fontSize * 18.75;
@@ -167,26 +225,28 @@
                 text-align: center;
                 position: relative;
                 perspective: 1000px;
-                perspective-origin:50% 50%;
+                perspective-origin: 50% 50%;
                 transform-style: preserve-3d;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
-                @include bigPad{
+                @include bigPad {
                     width: $fontSize * 12;
                     height: $fontSize * 20;
                 }
-                @include smlPad{
+
+                @include smlPad {
                     width: $fontSize * 9;
                     height: $fontSize * 15;
                 }
-                @include bigPhone{
+
+                @include bigPhone {
                     width: $fontSize * 6.5;
                     height: $fontSize * 11;
                 }
 
-                .planet{
+                .planet {
                     // border: 1px solid red;
                     margin: auto;
                     width: 100%;
@@ -195,155 +255,137 @@
                     justify-content: center;
                     align-items: center;
                     position: absolute;
-                    cursor: pointer; 
+                    cursor: pointer;
                     transition: 1.5s;
-    
-                    img{
+
+                    img {
                         transform-style: preserve-3d;
                         width: 100%;
-                        
+
                     }
-                    div{
+
+                    div {
                         letter-spacing: 2px;
                         white-space: nowrap;
                         margin-top: $bp;
                         font-size: $bp;
                         font-weight: bold;
-                        @include smlPad{
+
+                        @include smlPad {
                             margin-top: $mp;
                             font-size: $mp;
                         }
-                        @include bigPhone{
+
+                        @include bigPhone {
                             margin-top: $sp;
                             font-size: $sp;
                         }
                     }
                 }
-                .planetOne{
+
+                .planetOne {
                     left: -($fontSize * 20);
                     transform: scale(0.5);
                     z-index: -10;
-                    @include bigPad{
-                        left:-($fontSize * 16);
+
+                    @include bigPad {
+                        left: -($fontSize * 16);
                     }
-                    @include smlPad{
-                        left:-($fontSize * 12);
+
+                    @include smlPad {
+                        left: -($fontSize * 12);
                     }
-                    @include bigPhone{
-                        left:-($fontSize * 8);
+
+                    @include bigPhone {
+                        left: -($fontSize * 8);
                         transform: scale(0.6);
                     }
-                    @include smlPhone{
-                        left:-($fontSize * 4);
-                        transform: scale(0.8);
+
+                    @include smlPhone {
+                        left: -($fontSize * 6);
+                        transform: scale(0.6);
                     }
                 }
-                .planetTwo{   
+
+                .planetTwo {
                     left: 0;
                     z-index: 1;
                 }
-                .planetThree{
+
+                .planetThree {
                     left: $fontSize * 20;
                     transform: scale(0.5);
                     z-index: -10;
-                    @include bigPad{
-                        left:$fontSize * 16;
+
+                    @include bigPad {
+                        left: $fontSize * 16;
                     }
-                    @include smlPad{
-                        left:$fontSize * 12;
+
+                    @include smlPad {
+                        left: $fontSize * 12;
                     }
-                    @include bigPhone{
-                        left:$fontSize * 8;
+
+                    @include bigPhone {
+                        left: $fontSize * 8;
                         transform: scale(0.6);
                     }
-                    @include smlPhone{
-                        left:$fontSize * 4;
-                        transform: scale(0.8);
+
+                    @include smlPhone {
+                        left: $fontSize * 6;
+                        transform: scale(0.6);
                     }
                 }
             }
-            article{
+
+            article {
                 width: 80%;
                 padding: $fontSize;
                 background-color: rgba(24, 39, 73, .7);
                 border: $fontSize*0.3 solid $orange;
                 margin: $fontSize*3 auto;
                 @include clearfixed;
-    
-                p{
+
+                p {
                     font-size: $bp;
                     font-weight: bold;
                     line-height: $fontSize*4;
                     text-indent: $bp*2;
                     padding: 0 $fontSize;
+
                     // letter-spacing: normal;
-                    @include smlPad{
+                    @include smlPad {
                         font-size: $mp;
                         line-height: $fontSize*3;
                         text-indent: $mp*2;
                     }
-                    @include bigPhone{
+
+                    @include bigPhone {
                         font-size: $sp;
                         line-height: $fontSize*2;
                         text-indent: $sp*2;
                     }
                 }
 
-                a{
+                a {
                     @include btn($h4);
                     float: right;
-                    @include smlPad{
+
+                    @include smlPad {
                         @include btn($bp);
                     }
-                    @include bigPhone{
+
+                    @include bigPhone {
                         @include btn($mp);
                     }
-                    @include smlPhone{
+
+                    @include smlPhone {
                         @include btn($sp);
                     }
                 }
-            }
-        }
 
-        .badge{
-            padding: $fontSize;
-            background-color: rgba(24, 39, 73, .7);
-    
-            p{
-                font-size: $bp;
-                font-weight: bold;
-                line-height: $fontSize*4;
-                text-indent: $bp*2;
-                text-align: center;
-                
-                @include smlPad{
-                    font-size: $mp;
-                    line-height: $fontSize*3;
-                    text-indent: $mp*2;
-                }
-                @include bigPhone{
-                    font-size: $sp;
-                    line-height: $fontSize*2;
-                    text-indent: $sp*2;
-                }
-            }
-
-            .planetBadge{
-                display: flex;
-                justify-content: space-around;
-                margin: $fontSize*5 0 $fontSize*10;
-                @include smlPad{
-                    margin: $fontSize*4 0 $fontSize*8;
-                }
-                @include bigPhone{
-                    margin: $fontSize*3 0 $fontSize*6;
-                }
-                @include smlPhone{
-                    margin: $fontSize*2 0 $fontSize*4;
-                }
-
-                img{
+                img {
                     display: block;
+                    margin: $fontSize auto;
                     height: $fontSize * 12.5;
                     transform-style: preserve-3d;
                     border-radius: 50%;
@@ -352,42 +394,72 @@
                     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
                     transition: transform .2s;
 
-                    &:hover{
+                    &:hover {
                         transform: rotate(-10deg);
                     }
-                    @include smlPad{
+
+                    @include smlPad {
                         height: $fontSize * 10;
                     }
-                    @include bigPhone{
+
+                    @include bigPhone {
                         height: $fontSize * 7.5;
                     }
-                    @include smlPhone{
+
+                    @include smlPhone {
                         height: $fontSize * 5;
                     }
                 }
             }
+        }
 
-            .galaxyBadge{
+        .badge {
+            padding: $fontSize;
+            background-color: rgba(24, 39, 73, .7);
+
+            p {
+                font-size: $bp;
+                font-weight: bold;
+                line-height: $fontSize*4;
+                text-indent: $bp*2;
+                text-align: center;
+
+                @include smlPad {
+                    font-size: $mp;
+                    line-height: $fontSize*3;
+                    text-indent: $mp*2;
+                }
+
+                @include bigPhone {
+                    font-size: $sp;
+                    line-height: $fontSize*2;
+                    text-indent: $sp*2;
+                }
+            }
+
+            .galaxyBadge {
                 display: flex;
                 justify-content: center;
-                margin-bottom: $fontSize*2;
+                margin: $fontSize*2 0;
 
-                img{
+                img {
                     display: block;
                     height: $fontSize * 18.75;
                     transform-style: preserve-3d;
                     border-radius: 50%;
                     animation: glowing 2s linear infinite;
 
-                    @include smlPad{
+                    @include smlPad {
                         height: $fontSize * 16.25;
                     }
-                    @include bigPhone{
+
+                    @include bigPhone {
                         height: $fontSize * 13.75;
                     }
-                    @include smlPhone{
+
+                    @include smlPhone {
                         height: $fontSize * 11.25;
-                    } 
+                    }
                 }
             }
         }
@@ -397,45 +469,75 @@
 
 
 // 動畫keyframe
-@include keyframes(floating){
-    0%{
+@include keyframes(floating) {
+    0% {
         transform: translateY(10px);
     }
-    50%{
+
+    50% {
         transform: translateY(0px);
     }
-    100%{
+
+    100% {
         transform: translateY(10px);
     }
 }
 
-@include keyframes(glowing){
-    10%{
+@include keyframes(glowing) {
+    10% {
         -webkit-filter: drop-shadow(5px 5px 20px rgba(252, 201, 61, .7));
         filter: drop-shadow(5px 5px 20px rgba(252, 201, 61, .7));
     }
-    30%{
+
+    30% {
         -webkit-filter: drop-shadow(-5px -10px 20px rgba(249, 67, 62, .7));
         filter: drop-shadow(-5px -10px 20px rgba(249, 67, 62, .7));
     }
-    50%{
+
+    50% {
         -webkit-filter: drop-shadow(-10px -5px 20px rgba(228, 159, 0, .7));
         filter: drop-shadow(10px -5px 20px rgba(228, 159, 0, .7));
     }
-    70%{
+
+    70% {
         -webkit-filter: drop-shadow(0px 0px 20px rgba(251, 247, 235, .7));
-        filter: drop-shadow(0px 0px 20px  rgba(251, 247, 235, .7));
+        filter: drop-shadow(0px 0px 20px rgba(251, 247, 235, .7));
     }
-    90%{
+
+    90% {
         -webkit-filter: drop-shadow(5px 10px 20px rgba(249, 67, 62, .7));
         filter: drop-shadow(5px 10px 20px rgba(249, 67, 62, .7));
     }
-    100%{
+
+    100% {
         -webkit-filter: drop-shadow(-10px 10px 20px rgba(91, 196, 227, .7));
         filter: drop-shadow(-10px 10px 20px rgba(91, 196, 227, .7));
     }
 }
 
+@include keyframes(downOne) {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}
+
+@include keyframes(downTwo) {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+}
 
 /* =================語宙試煉css結束=====================  */
