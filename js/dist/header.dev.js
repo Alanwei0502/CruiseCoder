@@ -1,6 +1,6 @@
 "use strict";
 
-// login js
+// login的js
 $(document).ready(function () {
   $('.item1 > button').click(function () {
     $('.upArea').toggleClass('move');
@@ -33,7 +33,7 @@ $('.greyGlass').click(function () {
 }); // $('#member').click(function(){//點擊會員icon  叫出登入燈箱
 //     $('#loginWrap').css('display','block');
 // });
-// header js
+// header的js
 
 var shoppingCar = document.getElementsByClassName('shoppingCar')[0];
 var label = shoppingCar.querySelector('label');
@@ -60,4 +60,13 @@ labelM.addEventListener('mouseup', function () {
   } else {
     ul.classList.remove('on');
   }
-});
+}); // inputM.checked = false;
+// ul.classList.remove('on');
+// input.checked = false;
+// section.classList.remove('on');
+// $(window).click(function() { 
+//     inputM.checked = false;
+//     ul.classList.remove('on');
+//     input.checked = false;
+//     section.classList.remove('on');
+// });
