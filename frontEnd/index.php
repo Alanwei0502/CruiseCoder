@@ -119,8 +119,8 @@
                             <div class="skw-page__content">
                                 <h2 class="skw-page__heading">Epic finale</h2>
                                 <p class="skw-page__description">
-                                    Feel free to check 
-                                    <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on 
+                                    Feel free to check
+                                    <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on
                                     <a class="skw-page__link" href="https://twitter.com/NikolayTalanov" target="_blank">Twitter</a>
                                 </p>
                             </div>
@@ -133,7 +133,9 @@
 
 
             <!-- 圓餅圖開始 -->
-            <h2 class="H2title">< 我們的三大優勢 /></h2>
+            <h2 class="H2title">
+                < 我們的三大優勢 />
+            </h2>
             <div class="PieChart">
                 <div class="position">
                     <div id="container"></div>
@@ -157,7 +159,9 @@
 
 
             <!-- 課程輪撥開始 -->
-            <h2 class="H2title">< 外星課程 / ></h2>
+            <h2 class="H2title">
+                < 外星課程 />
+            </h2>
             <div class="Course">
                 <div class="slide" id="slide">
                     <div class="wrapGeneral">
@@ -173,11 +177,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -198,11 +202,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -223,11 +227,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -248,11 +252,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -273,11 +277,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -298,11 +302,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -323,11 +327,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -348,11 +352,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -373,11 +377,11 @@
                             <div class="time">課程總長：120分鐘</div>
                             <div class="comment">
                                 <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
                                 <a class="text" href="">24則評價</a>
                             </div>
@@ -395,7 +399,9 @@
 
 
             <!-- 宇宙試煉開始 -->
-            <h2 class="H2title">< 語宙試煉 / ></h2>
+            <h2 class="H2title">
+                < 語宙試煉 />
+            </h2>
             <div class="galaxyBlock">
                 <div class="galaxyWarp">
                     <div class="leftBlock">
@@ -414,7 +420,7 @@
                         <p>HTML是一種網頁使用的語言，是一種描述超文件的註記語言SGML(Standard Generalized Markup Language)所制訂出的一種網頁語言，基本上現行的瀏覽器都可以讀取HTML，使用HTML可以編輯設計出網頁，也可以在網頁中加入所有HTML語言可支援的方式，例如表格、表單、圖片、文字、連結、程式等等。</p>
                         <button>查看更多</button>
                     </div>
-                    
+
                 </div>
                 <div class="planetWarp">
                     <img src="../images/trial/badge/css.png">
@@ -427,13 +433,15 @@
             <!-- 宇宙試煉結束 -->
 
             <!-- 太空補給站開始 -->
-            <h2 class="H2title">< 太空補給站 / ></h2>
+            <h2 class="H2title">
+                < 太空補給站 />
+            </h2>
             <div class="articleBlock">
                 <div class="leftBlock">
                     <div class="bigBlock">
                         <img src="https://picsum.photos/id/200/500/500">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur rerum dicta laudantium beatae velit tempore quidem, ratione rem inventore veniam natus nesciunt quam repellat, necessitatibus reprehenderit voluptate blanditiis, at fugiat.
-                        Placeat assumenda!</p>
+                            Placeat assumenda!</p>
                     </div>
                 </div>
                 <div class="rightBlock">
@@ -458,7 +466,9 @@
             <!-- 太空補給站結束 -->
 
             <!-- 蟲動練功坊開始 -->
-            <h2 class="H2title">< 蟲洞練功坊/ ></h2>
+            <h2 class="H2title">
+                < 蟲洞練功坊/>
+            </h2>
             <div class="tutorialBlock">
                 <div class="upBlock">
                     <div class="leftBlock">
@@ -471,20 +481,20 @@
                 <div class="roomCenter">
                     <div class="cardBack">
                         <div class="cardLine">
-                        <img src="./../images/tutorial/openbook.png" alt="無法顯示圖片">
-                        <p>提供優質的師資<br>幫助您解開任何問題</p>
+                            <img src="./../images/tutorial/openbook.png" alt="無法顯示圖片">
+                            <p>提供優質的師資<br>幫助您解開任何問題</p>
                         </div>
                     </div>
                     <div class="cardBack">
                         <div class="cardLine">
-                        <img src="./../images/tutorial/pencil.png" alt="無法顯示圖片" class="pencil">
-                        <p>提供強大的設備<br>令您打破傳統的限制</p>
+                            <img src="./../images/tutorial/pencil.png" alt="無法顯示圖片" class="pencil">
+                            <p>提供強大的設備<br>令您打破傳統的限制</p>
                         </div>
                     </div>
                     <div class="cardBack">
                         <div class="cardLine">
-                        <img src="./../images/tutorial/house.png" alt="無法顯示圖片" class="house">
-                        <p>提供舒適的環境<br>讓您心無旁騖的學習</p>
+                            <img src="./../images/tutorial/house.png" alt="無法顯示圖片" class="house">
+                            <p>提供舒適的環境<br>讓您心無旁騖的學習</p>
                         </div>
                     </div>
                 </div>

@@ -56,6 +56,7 @@
 				animation-duration: 15s;
 				animation-iteration-count: infinite;
 			}
+
 			img.Planet2 {
 				width: 150px;
 				position: absolute;
@@ -65,6 +66,7 @@
 				animation-duration: 25s;
 				animation-iteration-count: infinite;
 			}
+
 			img.Planet3 {
 				width: 180px;
 				position: absolute;
@@ -74,6 +76,7 @@
 				animation-duration: 16s;
 				animation-iteration-count: infinite;
 			}
+
 			img.Planet4 {
 				width: 120px;
 				position: absolute;
@@ -84,19 +87,24 @@
 				animation-iteration-count: infinite;
 			}
 		}
+
 		@keyframes Planet1 {
 			0% {
 				transform: translateY(-10px);
 			}
+
 			25% {
 				transform: translateY(10px);
 			}
+
 			50% {
 				transform: translateY(-10px);
 			}
+
 			75% {
 				transform: translateY(10px);
 			}
+
 			100% {
 				transform: translateY(-10px);
 			}
@@ -106,15 +114,19 @@
 			0% {
 				transform: translateY(10px);
 			}
+
 			25% {
 				transform: translateY(-10px);
 			}
+
 			50% {
 				transform: translateY(10px);
 			}
+
 			75% {
 				transform: translateY(-10px);
 			}
+
 			100% {
 				transform: translateY(10px);
 			}
@@ -124,15 +136,19 @@
 			0% {
 				transform: translateY(-13px);
 			}
+
 			25% {
 				transform: translateY(-10px);
 			}
+
 			50% {
 				transform: translateY(8px);
 			}
+
 			75% {
 				transform: translateY(-15px);
 			}
+
 			100% {
 				transform: translateY(-13px);
 			}
@@ -157,6 +173,7 @@
 					height: 100%;
 					vertical-align: top;
 					position: relative;
+
 					span {
 						display: inline-block;
 					}
@@ -292,19 +309,24 @@
 				}
 			}
 		}
+
 		@keyframes galaxyPlanet1 {
 			0% {
 				transform: translate(-250%, -25%);
 			}
+
 			25% {
 				transform: translate(-250%, -20%);
 			}
+
 			50% {
 				transform: translate(-250%, -25%);
 			}
+
 			75% {
 				transform: translate(-250%, -20%);
 			}
+
 			100% {
 				transform: translate(-250%, -25%);
 			}
@@ -314,15 +336,19 @@
 			0% {
 				transform: translate(-230%, 155%);
 			}
+
 			25% {
 				transform: translate(-230%, 147%);
 			}
+
 			50% {
 				transform: translate(-230%, 155%);
 			}
+
 			75% {
 				transform: translate(-230%, 146%);
 			}
+
 			100% {
 				transform: translate(-230%, 155%);
 			}
@@ -332,15 +358,19 @@
 			0% {
 				transform: translate(210%, 275%);
 			}
+
 			25% {
 				transform: translate(210%, 267%);
 			}
+
 			50% {
 				transform: translate(210%, 275%);
 			}
+
 			75% {
 				transform: translate(210%, 267%);
 			}
+
 			100% {
 				transform: translate(210%, 275%);
 			}
@@ -413,6 +443,7 @@
 						vertical-align: top;
 						box-sizing: border-box;
 						margin: 0;
+
 						img {
 							transition: all 1.3s;
 							transform: scale(1);
@@ -422,6 +453,7 @@
 							}
 						}
 					}
+
 					p {
 						margin: 0px;
 						padding: 5px;
@@ -494,11 +526,13 @@
 				position: relative;
 				z-index: 1;
 				margin-bottom: 100px;
+
 				div.cardBack {
 					width: 300px;
 					height: 300px;
 					background-color: $beige;
 					border-radius: 20px;
+
 					div.cardLine {
 						width: 90%;
 						height: 90%;
@@ -508,6 +542,7 @@
 						left: 50%;
 						transform: translate(-50%, -50%);
 						border-radius: 15px;
+
 						img {
 							width: 100px;
 							position: absolute;
@@ -515,12 +550,15 @@
 							left: 50%;
 							transform: translateX(-50%);
 						}
+
 						img.pencil {
 							width: 50px;
 						}
+
 						img.house {
 							width: 75px;
 						}
+
 						p {
 							color: $black;
 							text-align: center;
@@ -557,6 +595,7 @@ $scrollTime: 1s;
 	left: 0;
 	top: 0;
 	width: 100%;
+
 	&__half {
 		position: absolute;
 		top: 0;
@@ -591,6 +630,7 @@ $scrollTime: 1s;
 		.skw-page__half--left & {
 			left: -40%;
 		}
+
 		.skw-page__half--right & {
 			right: -40%;
 		}
@@ -617,6 +657,7 @@ $scrollTime: 1s;
 			padding-right: 30%;
 			transform-origin: 100% 0;
 		}
+
 		.skw-page__half--right & {
 			padding-left: 30%;
 			padding-right: 30%;
@@ -650,43 +691,53 @@ $scrollTime: 1s;
 			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-1.jpg');
 			background-size: 100% 100%;
 		}
+
 		.skw-page__half--right .skw-page__content {
 			background: lighten(#1c1c1c, 5%);
 		}
 	}
+
 	&-2 {
 		.skw-page__half--left .skw-page__content {
 			background: lighten(#1c1c1c, 5%);
 		}
+
 		.skw-page__half--right .skw-page__content {
 			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg');
 		}
 	}
+
 	&-3 {
 		.skw-page__half--left .skw-page__content {
 			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-2.jpg');
 		}
+
 		.skw-page__half--right .skw-page__content {
 			background: lighten(#1c1c1c, 5%);
 		}
 	}
+
 	&-4 {
 		.skw-page__half--left .skw-page__content {
 			background: lighten(#1c1c1c, 5%);
 		}
+
 		.skw-page__half--right .skw-page__content {
 			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg');
 		}
 	}
+
 	&-5 {
 		.skw-page__half--left .skw-page__content {
 			background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/img-test.jpg');
 		}
+
 		.skw-page__half--right .skw-page__content {
 			background: lighten(#1c1c1c, 5%);
 		}
 	}
 }
+
 /*輪撥 結束 Alan_Hong*/
 /*圓餅圖 結束 Alan_Hong*/
 h2.H2title {
@@ -698,6 +749,7 @@ h2.H2title {
 	font-weight: bold;
 	@include h2;
 }
+
 div.PieChart {
 	display: block;
 	width: 1200px;
@@ -732,12 +784,15 @@ div.PieChart {
 				line-height: $h1;
 				text-align: inherit;
 				letter-spacing: 2px;
+
 				&:nth-child(1) {
 					display: none;
 				}
+
 				&:nth-child(2) {
 					display: block;
 				}
+
 				&:nth-child(3) {
 					display: none;
 				}
@@ -745,6 +800,7 @@ div.PieChart {
 		}
 	}
 }
+
 /*圓餅圖 結束 Alan_Hong*/
 /*課程輪撥 開始 Alan_Hong*/
 div.index {
@@ -855,6 +911,7 @@ div.index {
 			}
 		}
 	}
+
 	.controlCircle {
 		display: flex;
 		width: 1200px;
