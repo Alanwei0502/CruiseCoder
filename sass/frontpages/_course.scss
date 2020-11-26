@@ -345,7 +345,7 @@ footer{
       top: 0;
       left: 0;
       @include size(100%,100%);
-      background-image: linear-gradient(to right,$orange1 0%,$orange 30% , $yellow 100%);
+      background-image: linear-gradient(to right,$orange 0%,$orange 30% , $yellow 100%);
     }
   }
   .times{
@@ -1097,7 +1097,7 @@ main#payed-page{
       top: 40px;
       right: 0;
       @include cr(#fff);
-      border: solid 4px $orange1;
+      border: solid 4px $orange;
       border-radius: 10px;
       cursor: pointer;
       background-color: transparent;
@@ -1112,19 +1112,19 @@ main#payed-page{
       }
       @include bigPhone{
         top: 0;
-        background-color: $orange1;
+        background-color: $orange;
         padding: 5px 10px;
         font-size: 14px;
       }
       i{
         margin-left: 15px;
-        @include cr($orange1);
+        @include cr($orange);
         @include smlPad{
           display: none;
         }
       }
       &:hover{
-        background-color: $orange1;
+        background-color: $orange;
         i{
           @include cr(#fff);
         }
