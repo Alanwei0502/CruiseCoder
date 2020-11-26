@@ -27,11 +27,7 @@ $price_2 = "2,400";
     ?>
     <main>
       <section id="class-info">
-<<<<<<< HEAD
         <h1>HTML快速入門-張老闆帶你飛</h1>
-=======
-        <h1>這樣做設計思考更有用！UX有感提案</h1>
->>>>>>> fcc712d57e7a4caf624a0a6d9563993e775030fa
         <div class="row">
           <div class="video">
             <iframe src="https://www.youtube.com/embed/T7GQTD_X02w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

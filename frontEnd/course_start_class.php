@@ -133,7 +133,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>想請教老師此堂課程有沒有參考書籍可以購買呢，因為我個人學習習慣是線上課程搭配對應書籍</p>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>想請教老師此堂課程有沒有參考書籍可以購買呢，因為我個人學習習慣是線上課程搭配對應書籍</p>
                   </div>
                 </div>
               </div>
@@ -191,7 +191,7 @@
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>>會介紹如何由範例延伸解決實際問題的做法，一起加油!</p>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>>會介紹如何由範例延伸解決實際問題的做法，一起加油!</p>
                   </div>
                 </div>
               </div>
@@ -226,7 +226,7 @@
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
                   </div>
                 </div>
               </div>
