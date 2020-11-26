@@ -84,13 +84,52 @@
           </div>
         </section>
 
-        <div class="addBlock">
+        <div class="addBlock addBlockhidden">
           <div class="grayBlock"></div>
-          <div class="addContent">
-            
-          </div>
+          <form class="addContent">
+            <h2>新增老師</h2>
+            <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal">
+            <div>
+              <label for="">編號</label>
+              <input type="text">
+            </div>
+            <div>
+              <label for="">姓名</label>
+              <input type="text">
+            </div>
+            <div>
+              <label id='forTextarea'>介紹</label>
+              <textarea name="" id="" cols="50" rows="20"></textarea>
+            </div>
+            <button type="submit">確認送出</button>
+          </form>
         </div>
-        <!-- 在這裡面codeing -->
+
+        <!-- <div class="editBlock addBlockhidden">
+          <div class="grayBlock"></div>
+          <form class="addContent">
+            <h2>老師基本資料</h2>
+            <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal">
+            <div>
+              <label for="">編號</label>
+              <input type="text">
+            </div>
+            <div>
+              <label for="">姓名</label>
+              <input type="text">
+            </div>
+            <div>
+              <label id='forTextarea'>介紹</label>
+              <textarea name="" id="" cols="50" rows="20"></textarea>
+            </div>
+            <div class="edit">
+              <button class="delete" type="submit">刪除老師</button>
+              <button class="submit" type="submit">確認送出</button>
+            </div>
+
+          </form>
+        </div> -->
+        <-- 在這裡面codeing -->
       </main>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
