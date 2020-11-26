@@ -4,7 +4,7 @@ div.loginWrap {
 	height: 100vh;
 	position: fixed;
 	display: none;
-	z-index: 9;
+	z-index: 20;
 
 	div.greyGlass {
 		width: 100%;
@@ -289,7 +289,6 @@ div.loginWrap {
 
 /*  login 結束*/
 
-
 /* header 開始 */
 header {
 	font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
@@ -362,7 +361,6 @@ header {
 	}
 
 	div.headerRight {
-
 		// border: 1px solid green;
 		ul {
 			display: flex;
@@ -374,8 +372,6 @@ header {
 				cursor: pointer;
 				margin-right: $fontSize*2;
 			}
-
-
 
 			li.shoppingCar {
 				label {
@@ -479,8 +475,6 @@ header {
 					z-index: 10;
 				}
 			}
-
-
 
 			li.member {
 				label {

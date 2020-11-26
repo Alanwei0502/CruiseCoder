@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宇宙漫遊</title>
+    <title>Cruise Coders | 宇宙漫遊</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -28,6 +28,8 @@
         <main>
             <!-- banner開始 -->
             <div class="banner">
+                <img src="./images/index/bannerLeft.svg" class="bannerLeft">
+                <img src="./images/index/bannerRight.svg" class="bannerRight">
                 <div class="container">
                     <h1>外星課程</h1>
                     <p>
