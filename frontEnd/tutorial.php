@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇宙漫遊</title>
+  <title>Cruise Coder | 蟲洞練功坊</title>
   <link rel="stylesheet" href="./../css/main.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
@@ -66,7 +66,7 @@
           </div>
           <div class="smlPhone"></div>
         </div>
-        <div class="calendarBody smlPhone">
+        <div class="calendarBody">
           <div class="calendarTitle">
             <p>日</p>
             <p>一</p>

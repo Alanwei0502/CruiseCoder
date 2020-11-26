@@ -443,13 +443,18 @@ div.tutorial {
 			div.calendarBody {
 				position: relative;
 				z-index: 1;
-				display: block;
 				margin-bottom: 250px;
 				@include laptop{
 					margin-bottom: 150px;
 				}
 				@include smlPad{
 					margin-bottom: 30px;
+				}
+				@include smlPhone{
+					display: none;
+				}
+				@media screen and (min-width: 415px) {
+					display: block !important;
 				}
 				div.calendarTitle {
 					width: 100%;
@@ -639,6 +644,18 @@ div.tutorial {
 							margin-right: 5px;
 							width: 35%;
 						}
+					}
+				}
+				div.phoneDayRight.buy{
+					background-color: $yellow;
+					p{
+						color: $blue1;
+					}
+				}
+				div.phoneDayRight.full{
+					background-color: $red;
+					p{
+						color: $blue1;
 					}
 				}
 			}
