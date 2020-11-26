@@ -16,14 +16,14 @@
 
 <body>
   <!-- include('layout/login.php'); -->
-  <div class="wrap course_start_class">
+  <div class="wrap course">
     <?php
     include('layout/spacebackground.php');
     include('layout/header.php');
     ?>
     <main id="sell-page">
       <section id="class-info">
-        <h1>這樣做設計思考更有用！UX有感提案</h1>
+        <h1>HTML快速入門-張老闆帶你飛</h1>
         <div class="row-sell">
           <div class="video">
             <iframe src="https://www.youtube.com/embed/T7GQTD_X02w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -85,7 +85,7 @@
           </div>
           <div class="info">
             <h4>課程簡介</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui nulla reprehenderit voluptatem perspiciatis mollitia adipisci fugit ab minima itaque eos, non laboriosam, porro dicta corrupti. Non inventore neque hic veniam recusandae, libero culpa quibusdam ullam et iusto cumque itaque animi quasi voluptatibus quod id aperiam corporis deleniti, molestias repudiandae!<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatem quidem, eum dolorum cupiditate, veniam dolorem doloribus hic enim obcaecati laboriosam est, voluptate harum illo? Inventore soluta nostrum repudiandae officia.</p>
+            <p>可以入門網站基礎的架構與開發，網頁元素精準的掌控，刻出簡單有趣，視覺好看的網頁與小動畫，也會講基本的架構手法，讓你做出來的網頁易於維護也能讓工程師接手，知道出錯的時候要如何請股歌大人諭示，才能找到解決的辦法。</p>
           </div>
           <div class="info">
             <h4>關於老師 張老闆</h4>
@@ -93,7 +93,7 @@
               <div class="pic">
                 <img src="../images/course/5.png" alt="">
               </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus nobis aspernatur beatae, modi eveniet suscipit accusantium similique culpa cumque a quia atque ad, omnis perferendis doloremque ex quam unde.</p>
+              <p>擁有高超的職業技巧，張老師是一個充滿熱情又經驗豐富的自由網站設計師、前端工程師、部落客、數位創業家。過去他在加拿大受到很好的教育，也有很多相當多的教學經驗，這讓她有充分的技巧可以解決問題以及教授網站設計相關知識。(還有如何讓程式碼更容易被理解。)</p>
             </div>
           </div>
         </div>

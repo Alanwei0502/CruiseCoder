@@ -16,14 +16,14 @@
 
 <body>
   <!-- include('layout/login.php'); -->
-  <div class="wrap course_purchased">
+  <div class="wrap course">
     <?php
     include('layout/spacebackground.php');
     include('layout/header.php');
     ?>
     <main id="payed-page">
       <section id="class-info">
-        <h1>這樣做設計思考更有用！UX有感提案</h1>
+        <h1>HTML快速入門-張老闆帶你飛</h1>
         <div class="row-payed">
           <div class="video">
             <iframe src="https://www.youtube.com/embed/T7GQTD_X02w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -58,7 +58,7 @@
           </div>
           <div class="info">
             <h4>課程簡介</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui nulla reprehenderit voluptatem perspiciatis mollitia adipisci fugit ab minima itaque eos, non laboriosam, porro dicta corrupti. Non inventore neque hic veniam recusandae, libero culpa quibusdam ullam et iusto cumque itaque animi quasi voluptatibus quod id aperiam corporis deleniti, molestias repudiandae!<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptatem quidem, eum dolorum cupiditate, veniam dolorem doloribus hic enim obcaecati laboriosam est, voluptate harum illo? Inventore soluta nostrum repudiandae officia.</p>
+            <p>可以入門網站基礎的架構與開發，網頁元素精準的掌控，刻出簡單有趣，視覺好看的網頁與小動畫，也會講基本的架構手法，讓你做出來的網頁易於維護也能讓工程師接手，知道出錯的時候要如何請股歌大人諭示，才能找到解決的辦法。</p>
           </div>
           <div class="info">
             <h4>關於老師 張老闆</h4>
@@ -66,7 +66,7 @@
               <div class="pic">
                 <img src="../images/course/5.png" alt="">
               </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus nobis aspernatur beatae, modi eveniet suscipit accusantium similique culpa cumque a quia atque ad, omnis perferendis doloremque ex quam unde.</p>
+              <p>擁有高超的職業技巧，張老師是一個充滿熱情又經驗豐富的自由網站設計師、前端工程師、部落客、數位創業家。過去他在加拿大受到很好的教育，也有很多相當多的教學經驗，這讓她有充分的技巧可以解決問題以及教授網站設計相關知識。(還有如何讓程式碼更容易被理解。)</p>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@
                 <div class="content">
                   <div class="post-header">
                     <h5>Kuo0122</h5>
-                    <span class="date">2020.10.26</span>
+                    <span class="date">2020.11.27</span>
                   </div>
                   <div class="stars" data-score="5" data-color="red">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -110,7 +110,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>這堂課程老師一步步扎實的從零教起，不需要有任何基礎也可以輕鬆學習。 每個單元老師都講解得很清楚，不只程式碼，設計網頁的觀念與一些小技巧也都會講解到。 此外，還會分享很多好用便捷的套件與工具，可以說是全方位都兼顧到的教學。</p>
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>當初上網自己爬文還是看不懂flex用法 但看老師教學，學會了之後 覺得非常的好用!! 可以應付好多種類型排版</p>
                   </div>
                 </div>
               </div>
@@ -167,11 +167,11 @@
                 <div class="pic"><img src="../images/course/4.png" alt=""></div>
                 <div class="content">
                   <div class="post-header">
-                    <h5>tiffany0622</h5>
-                    <span class="date">2020.10.26</span>
+                    <h5>blackjosh</h5>
+                    <span class="date">2020.11.01</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>希望能夠多講一些現階段準備出社會、步入職場可以用到的實戰經驗與演練題，感謝!by 社會新鮮人</p>
                   </div>
                 </div>
               </div>
@@ -180,11 +180,11 @@
                 <div class="pic"><img src="../images/course/5.png" alt=""></div>
                 <div class="content">
                   <div class="post-header">
-                    <h5>tiffany0622</h5>
+                    <h5>WuhaCoro</h5>
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>想請教老師此堂課程有沒有參考書籍可以購買呢，因為我個人學習習慣是線上課程搭配對應書籍</p>
                   </div>
                 </div>
               </div>
@@ -193,11 +193,11 @@
                 <div class="pic"><img src="../images/course/5.png" alt=""></div>
                 <div class="content">
                   <div class="post-header">
-                    <h5>tiffany0622</h5>
+                    <h5>授課老師</h5>
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>會介紹如何由範例延伸解決實際問題的做法，一起加油!</p>
                   </div>
                 </div>
               </div>
@@ -215,11 +215,11 @@
                 <div class="pic"><img src="../images/course/4.png" alt=""></div>
                 <div class="content">
                   <div class="post-header">
-                    <h5>tiffany0622</h5>
+                    <h5>授課老師</h5>
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, sit. Deleniti excepturi praesentium delectus quae at minima rerum quidem facilis, consectetur qui ea a blanditiis iusto ab mollitia nihil nobis!</p>
+                    <p>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
                   </div>
                 </div>
               </div>
