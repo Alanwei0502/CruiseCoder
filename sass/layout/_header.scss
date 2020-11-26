@@ -315,7 +315,7 @@ header {
 
 	div.headerMiddle {
 		nav {
-			ul {
+			ul.computerNav {
 				display: flex;
 
 				@include laptop {

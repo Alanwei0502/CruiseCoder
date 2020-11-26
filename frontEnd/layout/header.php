@@ -59,7 +59,7 @@
   </div>
   <div class="headerMiddle">
     <nav>
-      <ul>
+      <ul class="computerNav">
         <li>
           <a href="./allCourse.php">外星課程</a>
         </li>
