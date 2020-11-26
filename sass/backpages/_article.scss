@@ -94,7 +94,7 @@ div.article{
             }
           }
         }
-        img{
+        img.cancelBack{
           position: absolute;
           width: 50px;
           top: 10px;
@@ -208,7 +208,7 @@ div.article{
             }
           }
         }
-        img{
+        img.cancelBack{
           position: absolute;
           width: 50px;
           top: 10px;
@@ -279,18 +279,17 @@ div.article{
       }
     }
     div.table{
-      font-size: $mp;
+      font-size: $bp;
       max-width: 100%;
-      padding: 0px 50px;
       div.tr{
         display: flex;
         flex-shrink: 0;
-        padding: 20px 10px;
+        padding: $fontSize 10px;
         &:nth-child(2n){
           background: $beige;
         }
         div.td{
-          width: 60px;
+          width: 80px;
           display: flex;
           align-items: center;
           line-height: 32px;
@@ -321,7 +320,7 @@ div.article{
       float: right;
       @include clearfixed;
       margin-right: 30px;
-      margin-top: 5px;
+      margin-top: 30px;
       button{
         @include changePage;
       }
