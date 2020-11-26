@@ -1,7 +1,5 @@
-<php?
-
-?>
-
+<php? ?>
+    <!-- 
 <div class="loginWrap" id="loginWrap">
     <div class="greyGlass"></div>
     <div class="loginBox">
@@ -49,4 +47,4 @@
         </div>
         <img src="../images/backEnd/cancel.png" id="closeIcon">
     </div>
-</div>
+</div> -->

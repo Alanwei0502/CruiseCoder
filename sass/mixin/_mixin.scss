@@ -13,6 +13,7 @@
 // @include smlPhone{
 // 	@include btn($sp);
 // }
+
 @mixin btn ($px) {
 	font-size: $px;
 	outline: none;
