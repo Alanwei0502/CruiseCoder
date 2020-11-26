@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇宙漫遊</title>
+  <title>Cruise Coders | 外星課程</title>
   <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
@@ -24,9 +24,9 @@
       <div class="top">
         <!-- 搜尋列 -->
         <div class="filter">
-            <h2>
-              < 外星課程 />
-            </h2>
+          <h2>
+            < 外星課程 />
+          </h2>
           <form class="search" action="" method="POST">
             <input type="search" placeholder="找課程名稱">
             <button type="submit">
@@ -37,11 +37,15 @@
             <button id="hot" data-target="tab1" class="tab -on">熱門課程</button>
             <button id="fundraising" data-target="tab2" class="tab">募資課程</button>
             <button id="all" data-target="tab3" class="tab">所有課程</button>
-            <select name="" id="">
+            <select name="" id="" data-target="tab4" class="tab">
               <option value="Cate"" style=" display:none">課程類型</option>
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
-              <option value="JavaScript">JavaScript</option>
+              <option value="JavaScript">jQuery</option>
+              <option value="JavaScript">SASS</option>
+              <option value="JavaScript">PHP</option>
+              <option value="JavaScript">MySQL</option>
+              <option value="JavaScript">Vue</option>
             </select>
           </div>
         </div>
@@ -56,11 +60,37 @@
             <div class="favorites">
               <i class="fas fa-heart"></i>
             </div>
-            <a class="img" href="">
+            <a class="img" href="course_start_class.php">
+              <img src="../images/allCourse/course01.png" alt="">
+            </a>
+            <!-- <a href="" class="Main"> -->
+            <div class="c_Main">
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
+              <div class="time">課程總長：120分鐘</div>
+              <div class="comment">
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <a class="text" href="">24則評價</a>
+              </div>
+              <div class="price">NT.1,200</div>
+            </div>
+            <!-- </a> -->
+          </div>
+          <div class="wrapGeneral ">
+            <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+            <div class="favorites">
+              <i class="fas fa-heart"></i>
+            </div>
+            <a class="img" href="course_start_class.php">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
             <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
               <div class="time">課程總長：120分鐘</div>
               <div class="comment">
                 <div class="star">
@@ -80,35 +110,11 @@
             <div class="favorites">
               <i class="fas fa-heart"></i>
             </div>
-            <a class="img" href="">
+            <a class="img" href="course_start_class.php">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
             <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="comment">
-                <div class="star">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <a class="text" href="">24則評價</a>
-              </div>
-              <div class="price">NT.1,200</div>
-            </div>
-          </div>
-          <div class="wrapGeneral ">
-            <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <a class="img" href="">
-              <img src="../images/allCourse/course01.png" alt="">
-            </a>
-            <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
               <div class="time">課程總長：120分鐘</div>
               <div class="comment">
                 <div class="star">
@@ -129,11 +135,11 @@
             <div class="favorites">
               <i class="fas fa-heart"></i>
             </div>
-            <a class="img" href="">
+            <a class="img" href="course_Fundraising.php">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
             <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
               <div class="time">課程總長：120分鐘</div>
               <div class="price">
                 <p class="fundraising">募資中</p>
@@ -153,11 +159,11 @@
             <div class="favorites">
               <i class="fas fa-heart"></i>
             </div>
-            <a class="img" href="">
+            <a class="img" href="course_Fundraising.php">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
             <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
               <div class="time">課程總長：120分鐘</div>
               <div class="price">
                 <p class="fundraising">募資中</p>
@@ -177,11 +183,11 @@
             <div class="favorites">
               <i class="fas fa-heart"></i>
             </div>
-            <a class="img" href="">
+            <a class="img" href="course_Fundraising.php">
               <img src="../images/allCourse/course01.png" alt="">
             </a>
             <div class="c_Main">
-              <a class="title" href="">HTML快速入門-張老闆帶你飛</a>
+              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
               <div class="time">課程總長：120分鐘</div>
               <div class="price">
                 <p class="fundraising">募資中</p>
@@ -217,7 +223,7 @@
     include 'layout/footer.php';
     ?>
     <script src="../js/allCourse.js"></script>
-
+    <script src="../js/header.js"></script>
   </div>
 </body>
 

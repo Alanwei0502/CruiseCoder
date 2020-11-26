@@ -233,13 +233,12 @@ div.reservation{
       }
     }
     div.table{
-      font-size: $mp;
-      max-width: 100%;
-      padding: 0px 50px;
+      font-size: $bp;
+      max-width: 100%;  
       div.tr{
         display: flex;
         flex-shrink: 0;
-        padding: 20px 10px;
+        padding: $fontSize 10px;
         &:nth-child(2n){
           background: $beige;
         }
@@ -247,7 +246,7 @@ div.reservation{
       div.td{
         display: flex;
         align-items: center;
-        width: 60px;
+        width: 80px;
         line-height: 32px;
         label{
           cursor: pointer;
@@ -282,7 +281,7 @@ div.reservation{
       float: right;
       @include clearfixed;
       margin-right: 30px;
-      margin-top: 20px;
+      margin-top: 70px;
       button{
         @include changePage;
       }

@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cruise Coders</title>
+  <title>Cruise Coders | 個人檔案</title>
   <link rel="stylesheet" href="../css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -17,9 +17,6 @@
 
 </head>
 <body>
-<?php
-  include('layout/login.php');
-  ?>
   <div class="wrap info">
 
   
@@ -34,21 +31,22 @@
           <div class="info_area">
               <div class="op_circle right_cc">
 
-                    <div class="account_pic">
+                <div class="account_pic">
                     <img  src="../images/info/street_girl.jpeg" alt="no pic">
-                    
-                    </div>  
-                  <label>
-                    <i class="fas fa-camera fa-3x"></i>上傳圖片
-                    <input id="upload_img"  type="file">
-                    
-                  </label>
-                </div>
+                </div>  
+
+                <label for="upload_img">
+                  <img src="../images/info/plusCamera.png" alt="">
+                  <input id="upload_img"  type="file" style="display: none;">
+                  
+                </label>
+                  
+              </div>
                 
               
                 <div class="left_cc">
                     <div class="notice_bar">
-                        <div><p>目前擁有  19,850 CC Point   = NT$ 198&ensp;  </p></div>
+                        <div><p>目前擁有  19,850 CC Point   = NT$ 198&ensp;</p></div>
                         <div><img src="../images/info/cc_coin.png" alt="">  </div>
                     </div>    
 
@@ -56,13 +54,13 @@
                     <div class="info_card">
                         <form action="">
                             <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
-                            <label for="name">姓名&ensp;:&ensp;
+                            <label for="name1">姓名&ensp;:&ensp;
 
-                                <input type="text" id="name" disabled value="月野兔"/>
+                                <input type="text" id="name1"  value="月野兔" disabled/>
                             </label>
-                            <label for="account">帳號&ensp;:&ensp;
+                            <label for="account1">帳號&ensp;:&ensp;
 
-                                <input type="text" id="account" value="Fion1522" disabled/>
+                                <input type="text" id="account1" value="Fion1522" disabled/>
                             </label>
                             <label for="pwd">密碼&ensp;:&ensp;
 
@@ -269,13 +267,13 @@
 
           <div class="info_article">
             <div class="aic_1">
-                <div class="aic_circle"><i class="fas fa-heart fa-2x"></i></div>
+                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
                 <img src="../images/info/w_c.jpeg" alt="">  
                 <div><p>2020最佳的十個套件推薦</p></div> 
             </div>
 
             <div class="aic_2">
-                <div class="aic_circle"><i class="fas fa-heart fa-2x"></i></div>
+                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
                 <img src="../images/info/w_c.jpeg" alt=""> 
                 <div><p>2020最佳的十個套件推薦</p></div> 
 
@@ -283,7 +281,7 @@
             </div>
 
             <div class="aic_3">
-                <div class="aic_circle"><i class="fas fa-heart fa-2x"></i></div>
+                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
                 <img src="../images/info/w_c.jpeg" alt="">  
                 <div><p>2020最佳的十個套件推薦</p></div> 
 
@@ -301,9 +299,7 @@
                   <div><img src="../images/big_badge/css3徽章.png" alt=""></div>
                   <div><img src="../images/big_badge/php徽章.png" alt=""></div>
                   <div><img src="../images/big_badge/js徽章.png" alt=""></div>
-                  <div><img src="../images/big_badge/mysql徽章.png" alt=""></div>
-
-                    
+                  <div><img src="../images/big_badge/mysql徽章.png" alt=""></div>   
               </div>
 
               <div class="little_a">
@@ -329,23 +325,6 @@
                  <div><img src="../images/trial/badge/mysql1.png" alt=""></div>
                  <div><img src="../images/trial/badge/mysql2.png" alt=""></div>
                  <div><img src="../images/trial/badge/mysql3.png" alt=""></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               </div>
           </div>
         </div>
@@ -361,10 +340,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script>
-
-     
-
-  </script>
+  <script src="../js/header.js"> </script>
 </body>
 </html>

@@ -106,7 +106,7 @@
                 <div class="fileStyle">
                   <input type="file" class="inputFile">
                   <p class="pFileName"></p>
-                  <button></button>
+                  <button type="button"></button>
                 </div>
               </div>
               <div class="articleImageOutline">

@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宇宙漫遊</title>
+    <title>Cruise Coders | 宇宙漫遊</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -28,6 +28,8 @@
         <main>
             <!-- banner開始 -->
             <div class="banner">
+                <img src="../images/index/bannerLeft.svg" class="bannerLeft">
+                <img src="../images/index/bannerRight.svg" class="bannerRight">
                 <div class="container">
                     <h1>外星課程</h1>
                     <p>
@@ -57,8 +59,8 @@
                     <div class="skw-page__half skw-page__half--right">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading">Skewed One Page Scroll</h2>
-                                <p class="skw-page__description">Just scroll down</p>
+                                <h2 class="skw-page__heading"><關於我們/></h2>
+                                <p class="skw-page__description">由一群愛好程式的學生，在學習的路上，協助其他也想學習程式的人</p>
                             </div>
                         </div>
                     </div>
@@ -67,8 +69,8 @@
                     <div class="skw-page__half skw-page__half--left">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading">Page 2</h2>
-                                <p class="skw-page__description">Nothing to do here, continue scrolling.</p>
+                                <h2 class="skw-page__heading"><空間預約/></h2>
+                                <p class="skw-page__description">擁有良好的學習環境，讓每個學員能夠有一個可以互相討論、學習的空間。</p>
                             </div>
                         </div>
                     </div>
@@ -87,42 +89,8 @@
                     <div class="skw-page__half skw-page__half--right">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading">Page 3</h2>
-                                <p class="skw-page__description">The end is near, I promise!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skw-page skw-page-4">
-                    <div class="skw-page__half skw-page__half--left">
-                        <div class="skw-page__skewed">
-                            <div class="skw-page__content">
-                                <h2 class="skw-page__heading">Page 4</h2>
-                                <p class="skw-page__description">Ok, ok, just one more scroll!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skw-page__half skw-page__half--right">
-                        <div class="skw-page__skewed">
-                            <div class="skw-page__content"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skw-page skw-page-5">
-                    <div class="skw-page__half skw-page__half--left">
-                        <div class="skw-page__skewed">
-                            <div class="skw-page__content"></div>
-                        </div>
-                    </div>
-                    <div class="skw-page__half skw-page__half--right">
-                        <div class="skw-page__skewed">
-                            <div class="skw-page__content">
-                                <h2 class="skw-page__heading">Epic finale</h2>
-                                <p class="skw-page__description">
-                                    Feel free to check
-                                    <a class="skw-page__link" href="https://codepen.io/suez/pens/public/" target="_blank">my other pens</a> and follow me on
-                                    <a class="skw-page__link" href="https://twitter.com/NikolayTalanov" target="_blank">Twitter</a>
-                                </p>
+                                <h2 class="skw-page__heading"><師資輔導/></h2>
+                                <p class="skw-page__description">擁有優良師資協助輔導各位的學習問題。</p>
                             </div>
                         </div>
                     </div>
@@ -508,8 +476,8 @@
         ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="../js/login.js"></script>
     <script src="../js/index.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 
 </html>
