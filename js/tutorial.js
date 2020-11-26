@@ -55,9 +55,47 @@ function render(){
 
 function renderDate(date, calendarDate){
   let cell = document.createElement("div");
+  let dayNumber = document.createElement("p");
+  dayNumber.className = `dayNumber ${date.getDate()}`;
   cell.className = "date" + (date.getMonth() === state.current.getMonth()? "": " fadeout");
-  cell.textContent = date.getDate();
+  dayNumber.textContent = date.getDate();
+
+  let cellBody = document.createElement("div");
+  cellBody.className = "cellBody";
+
+  let teacherName = document.createElement("p");
+  teacherName.className = "teacherName";
+  let courseName = document.createElement("p");
+  courseName.className = "courseName";
+  teacherName.textContent ="黃語昕";
+  courseName.textContent ="JavaScritp";
+
+  let smallPoint = document.createElement("div");
+  smallPoint.className = "smallPoint";
+
+  cellBody.appendChild(teacherName);
+  cellBody.appendChild(courseName);
+
+  cell.appendChild(dayNumber);
+  if(date.getDate() == 1){
+ 
+    cell.appendChild(cellBody);
+    cell.appendChild(smallPoint);
+  }else if(date.getDate() == 2){
+    cellBody.classList.add("buy");
+    smallPoint.classList.add("buy");
+    cell.appendChild(cellBody);
+    cell.appendChild(smallPoint);
+  }else if(date.getDate() == 3){
+    cellBody.classList.add("full");
+    smallPoint.classList.add("full");
+    cell.appendChild(cellBody);
+    cell.appendChild(smallPoint);
+  }
   calendarDate.appendChild(cell);
+
+
+  
 }
 
 calendar();
@@ -68,6 +106,26 @@ let arrowRight = document.querySelector("#arrowRight");
 arrowLeft.addEventListener("click", preMonth);
 
 arrowRight.addEventListener("click", nextMonth);
+
+let cellBody = document.getElementsByClassName("cellBody")[0];
+let phoneDayRight = document.getElementsByClassName("phoneDayRight")[0];
+let bookLightBoxAll = document.getElementsByClassName("bookLightBoxAll")[0];
+let bookLightBoxBack = document.getElementsByClassName("bookLightBoxBack")[0];
+let cancelBtn = document.getElementsByClassName("cancelBtn")[0];
+
+cellBody.addEventListener("click", function(){
+  bookLightBoxAll.classList.add("on");
+});
+phoneDayRight.addEventListener("click", function(){
+  bookLightBoxAll.classList.add("on");
+});
+
+bookLightBoxBack.addEventListener("click", function(){
+  bookLightBoxAll.classList.remove("on");
+});
+cancelBtn.addEventListener("click", function(){
+  bookLightBoxAll.classList.remove("on");
+});
 
 
 $(document).ready(function(){
@@ -92,7 +150,6 @@ $(document).ready(function(){
     $("#showAll").addClass("-on");
     $("#alreadyBuy").removeClass("-on");
   });
-
-  
   
 });
+

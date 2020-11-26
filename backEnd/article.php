@@ -106,7 +106,7 @@
                 <div class="fileStyle">
                   <input type="file" class="inputFile">
                   <p class="pFileName"></p>
-                  <button></button>
+                  <button type="button"></button>
                 </div>
               </div>
               <div class="articleImageOutline">
@@ -165,7 +165,7 @@
     </main>
   </div>
   <script src="./../js/datepicker.js"></script>
-  <script src="./../js/article.js"></script>
+  <script src="./../js/articleB.js"></script>
 </body>
 
 </html>

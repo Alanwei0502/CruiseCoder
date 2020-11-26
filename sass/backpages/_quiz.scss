@@ -1,104 +1,123 @@
-div.quiz{
-    main{
-        h2{
+div.quiz {
+    main {
+        h2 {
             @include backTitle;
         }
-        .searchbar{
+
+        .searchbar {
             @include blockStyle;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            div{
+
+            div {
                 display: flex;
-                label{
+
+                label {
                     font-size: $bp;
                     display: block;
-                    select{
+
+                    select {
                         @include selectStyle;
                         width: $fontSize * 20;
                         margin-right: $fontSize * 2;
                     }
                 }
             }
-            button{
+
+            button {
                 @include backBtn;
                 white-space: nowrap;
             }
         }
-        .table{
-            .btns{
+
+        section.table {
+            .btns {
                 display: flex;
                 justify-content: flex-end;
-                button{
+
+                button {
                     margin: $fontSize*2;
                 }
-                .off{
+
+                .off {
                     @include cancelBtn;
                 }
-                .add{
+
+                .add {
                     @include addBtn;
                 }
             }
 
-            table{
+            table {
                 font-size: $bp;
-                width:90%;
                 margin: 0 auto;
+                width: 100%;
 
-                input{
+                input {
                     @include checkbox;
                 }
-                button{
+
+                button {
                     @include editBtn;
                     cursor: pointer;
                 }
-                tr{
+
+                tr {
                     width: 100%;
-                    label{
+
+                    label {
                         cursor: pointer;
                     }
-                    
-                    th{
+
+                    th {
                         font-weight: bold;
                         padding: $fontSize*1.5 0;
                         text-align: left;
 
-                        &:nth-child(1){
+                        &:nth-child(1) {
                             width: 10%;
-                            label{
+
+                            label {
                                 cursor: pointer;
                             }
                         }
-                        &:nth-child(4){
+
+                        &:nth-child(4) {
                             width: 20%;
                         }
                     }
-                    td{
+
+                    td {
                         padding: $fontSize*1.5 0;
                     }
                 }
             }
-            .changePage{
+
+            .changePage {
                 display: flex;
                 justify-content: flex-end;
-                .lastPage, .nextPage{
+
+                .lastPage,
+                .nextPage {
                     @include changePage;
                     margin: $fontSize * 2;
                 }
             }
         }
-        .quizModalBg{
+
+        .quizModalBg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background: hsla(0%,0%,0%,.5);
+            background: hsla(0%, 0%, 0%, .5);
             opacity: 0;
             z-index: -1;
             transition: all .3s;
 
-            .quizModal{
+            .quizModal {
                 background-color: $beige;
                 width: 90%;
                 height: 95%;
@@ -112,49 +131,56 @@ div.quiz{
                 right: 0;
                 margin: auto;
 
-                img.closeModal{
+                img.closeModal {
                     width: $h2;
                     position: absolute;
                     top: $fontSize;
                     right: $fontSize;
-                    cursor:pointer;
+                    cursor: pointer;
                 }
-                
-               .overflowArea{
+
+                .overflowArea {
                     width: 100%;
                     height: 85%;
                     overflow: hidden;
                     overflow-y: auto;
                     background-color: $white;
-               }
-                form{
+                }
+
+                form {
                     padding: $fontSize*2;
                     @include clearfixed;
 
-                    > div{
+                    >div {
                         padding: $fontSize 0;
-                        > span{
+
+                        >span {
                             font-size: $bp;
                             display: inline-block;
                             width: 120px;
                             white-space: nowrap;
                         }
-                        .quizLevel{
+
+                        .quizLevel {
                             @include selectStyle;
                         }
-                        .newField{
+
+                        .newField {
                             @include inputTextStyle;
                         }
-                        input[type=file]{
+
+                        input[type=file] {
                             @include uploadImg;
                         }
-                        .topFunction{
+
+                        .topFunction {
                             background-color: $blue1;
                             border-radius: 30px 30px 0 0;
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
-                            label{
+
+                            label {
                                 font-size: $mp;
                                 display: block;
                                 background-color: $beige;
@@ -162,42 +188,52 @@ div.quiz{
                                 border-radius: 30px;
                                 margin-left: $fontSize;
                                 cursor: pointer;
-                                &:hover{
+
+                                &:hover {
                                     background-color: $blue2;
                                 }
-                                input[type=checkbox]{
+
+                                input[type=checkbox] {
                                     @include checkbox;
                                 }
                             }
-                            > div{
+
+                            >div {
                                 padding: $fontSize 0;
-                                .deleteQ{
+
+                                .deleteQ {
                                     @include cancelBtn;
                                     margin-right: $fontSize;
                                 }
-                                .createQ{
+
+                                .createQ {
                                     @include addBtn;
                                     margin-right: $fontSize;
                                 }
-                            }   
+                            }
                         }
-                        .downQuestion{
+
+                        .downQuestion {
                             display: flex;
                             background-color: $beige;
-                            label{
+
+                            label {
                                 display: block;
                                 flex-grow: 1;
                                 padding: $fontSize 0;
                                 display: flex;
                                 justify-content: center;
-                                input[type=checkbox]{
+
+                                input[type=checkbox] {
                                     @include checkbox;
                                 }
                             }
-                            .contentQ{
+
+                            .contentQ {
                                 flex-grow: 25;
                                 padding: $fontSize*0.5;
-                                textarea{
+
+                                textarea {
                                     width: 100%;
                                     resize: none;
                                     border: none;
@@ -207,17 +243,20 @@ div.quiz{
                                     height: $mp*4;
                                     box-shadow: 5px 5px 10px -5px gray;
                                 }
-                                ul{
-                                    li{
+
+                                ul {
+                                    li {
                                         font-size: $bp;
                                         display: flex;
                                         align-items: flex-start;
                                         margin: $fontSize auto;
-                                        span{
+
+                                        span {
                                             display: block;
                                             margin-right: $fontSize*0.5;
                                         }
-                                        textarea{
+
+                                        textarea {
                                             margin: 0;
                                             height: $mp*3;
                                             box-shadow: 5px 5px 10px -5px gray;
@@ -225,13 +264,15 @@ div.quiz{
                                     }
                                 }
                             }
-                            .ansAndSta{
+
+                            .ansAndSta {
                                 flex-grow: 2;
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
                                 padding: $fontSize $fontSize*0.5;
-                                select{
+
+                                select {
                                     outline: none;
                                     border: none;
                                     display: block;
@@ -243,9 +284,10 @@ div.quiz{
                                     box-shadow: 5px 5px 10px -5px gray;
                                 }
                             }
-                        } 
+                        }
                     }
-                    button[type=submit]{
+
+                    button[type=submit] {
                         @include addBtn;
                         float: right;
                     }
@@ -254,6 +296,7 @@ div.quiz{
         }
     }
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     $fontSize: 14px;
 }

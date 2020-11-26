@@ -8,15 +8,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇宙漫遊</title>
+  <title>Cruise Coder | 蟲洞練功坊</title>
   <link rel="stylesheet" href="./../css/main.css">
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
 <body>
-  <?php
-  include('layout/login.php');
-  ?>
   <div class="wrap tutorial">
     <?php
     include('layout/spacebackground.php');
@@ -52,11 +49,6 @@
             <img src="./../images/tutorial/upDownArrow.png" id="downArrow" class="downArrow none" alt="圖片無法顯示">
           </div>
           <div class="filterAll">
-            <select name="months" class="filterMonth">
-              <option class="textColor" value="1" selected>月份</option>
-              <option class="textColor" value="2">1</option>
-              <option class="textColor" value="3">2</option>
-            </select>
             <select name="courses" class="filterCourse">
               <option class="textColor" value="1" selected>課程類型</option>
               <option class="textColor" value="2">HTML</option>
@@ -226,12 +218,26 @@
           <p>提供這個學習環境，營造一個同儕共同學習的氣氛，同學們間可以互相討論，在這種氛圍上一起學習進步也比自己一個人獨自努力，更加地有效果。</p>
         </div>
       </div>
+
+      <div class="bookLightBoxAll">
+        <div class="bookLightBoxBack"></div>
+        <div class="bookLightBox">
+          <img src="./../images/article/grayCancel.png" class="cancelBtn" alt="圖片無法顯示">
+          <div>
+            <p>JavaScript</p>
+            <p>黃語昕</p>
+            <p>18:00~22:00</p>
+            <p>目前人數 20 / 20</p>
+            <button>我要預約</button>
+          </div>
+        </div>
+      </div>
     </main>
     <?php
     include('layout/footer.php');
     ?>
   </div>
-  <script src="./../js/login.js"></script>
+  <script src="./../js/header.js"></script>
   <script src="./../js/tutorial.js"></script>
 </body>
 
