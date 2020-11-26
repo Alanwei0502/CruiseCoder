@@ -10,26 +10,74 @@
 .index {
 	main {
 		div.banner {
+			.bannerLeft {
+				width: 40%;
+				position: absolute;
+				left: 0%;
+				bottom: 0%;
+
+				@include bigPhone {
+					width: 60%;
+				}
+			}
+
+			.bannerRight {
+				width: 40%;
+				position: absolute;
+				right: 0%;
+				bottom: 0%;
+
+				@include bigPhone {
+					display: none;
+				}
+			}
 			width: 100%;
 			max-width: 1920px;
-			height: 700px;
-			background-image: url('../images/index/indexBanner.png');
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
+			height: calc(100vh - 84px);
+			max-height: 870px;
+			min-height: 700px;
 			display: block;
 			position: relative;
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: flex-start;
+
+			@include laptop {
+				height: 680px;
+			}
+			@include bigPad {
+				height: 600px;
+				min-height: auto;
+			}
+			@media screen and (max-width: 635px) {
+				height: 475px !important;
+				min-height: auto;
+			}
+
+			@include smlPad {
+				height: 530px;
+				min-height: auto;
+			}
 
 			div.container {
+				position: relative;
+				top: 170px;
 				color: $white;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				@include laptop {
+					top: 110px;
+				}
 
 				h1 {
 					font-size: $h1;
+					@include smlPad {
+						font-size: $h2;
+					}
+					@include bigPhone {
+						font-size: $h4 !important;
+					}
 				}
 
 				p {
@@ -38,23 +86,94 @@
 					margin-top: 40px;
 					line-height: 30px;
 					position: relative;
-					z-index: 50;
+					z-index: 10;
+					@include smlPad {
+						font-size: 18px;
+					}
+					@include bigPhone {
+						font-size: 16px !important;
+					}
+					@include smlPhone {
+						margin-top: 20px;
+						font-size: 14px !important;
+					}
 				}
 
 				a {
 					margin-top: 50px;
 					@include btn($h4);
+					@include smlPad {
+						@include btn(20px);
+						margin-top: 20px;
+					}
+				}
+				@media screen and (max-width: 635px) {
+					top: 60px !important;
+				}
+				@include bigPhone {
+					top: 40px !important;
 				}
 			}
 
 			img.Planet1 {
 				width: 200px;
 				position: absolute;
-				left: 17%;
-				bottom: 30%;
+				left: 15%;
+				bottom: 32%;
 				animation-name: Planet1;
 				animation-duration: 15s;
 				animation-iteration-count: infinite;
+
+				@keyframes Planet1 {
+					0% {
+						transform: translateY(-10px);
+					}
+
+					25% {
+						transform: translateY(10px);
+					}
+
+					50% {
+						transform: translateY(-10px);
+					}
+
+					75% {
+						transform: translateY(10px);
+					}
+
+					100% {
+						transform: translateY(-10px);
+					}
+				}
+				@media screen and (max-width: 1250px) {
+					left: 15%;
+					bottom: 26%;
+				}
+				@include laptop {
+					right: 25%;
+					bottom: 18%;
+					width: 175px;
+				}
+				@include bigPad {
+					width: 145px;
+					left: 15%;
+					bottom: 19%;
+				}
+				@media screen and (max-width: 635px) {
+					width: 125px !important;
+					left: 12% !important;
+					bottom: 17% !important;
+				}
+				@include smlPad {
+					width: 140px;
+					left: 12%;
+					bottom: 20%;
+				}
+				@include bigPhone {
+					width: 110px !important;
+					left: 22% !important;
+					bottom: 17% !important;
+				}
 			}
 
 			img.Planet2 {
@@ -65,16 +184,62 @@
 				animation-name: Planet2;
 				animation-duration: 25s;
 				animation-iteration-count: infinite;
+				@include laptop {
+					width: 118px;
+					left: 25%;
+					bottom: 2%;
+				}
+
+				@include bigPad {
+					width: 85px;
+					bottom: 2%;
+				}
+				@media screen and (max-width: 635px) {
+					width: 71px !important;
+					bottom: 2% !important;
+				}
+				@include smlPad {
+					width: 85px;
+					bottom: 2%;
+				}
+				@include bigPhone {
+					width: 66px !important;
+					bottom: 1% !important;
+					left: 46%;
+				}
+				@include smlPhone {
+					left: 44%;
+				}
 			}
 
 			img.Planet3 {
 				width: 180px;
 				position: absolute;
 				right: 17%;
-				bottom: 20%;
+				bottom: 30%;
 				animation-name: Planet3;
 				animation-duration: 16s;
 				animation-iteration-count: infinite;
+				@include laptop {
+					width: 150px;
+					right: 17%;
+					bottom: 20%;
+				}
+				@include bigPad {
+					width: 116px;
+					right: 15%;
+					bottom: 19%;
+				}
+				@media screen and (max-width: 635px) {
+					width: 92px !important;
+					bottom: 15% !important;
+				}
+				@include smlPad {
+					width: 105px;
+				}
+				@include bigPhone {
+					display: none;
+				}
 			}
 
 			img.Planet4 {
@@ -85,6 +250,25 @@
 				animation-name: Planet1;
 				animation-duration: 25s;
 				animation-iteration-count: infinite;
+				@include laptop {
+					width: 100px;
+					right: 29%;
+					bottom: 2%;
+				}
+				@include bigPad {
+					width: 70px;
+					right: 29%;
+					bottom: 5%;
+				}
+				@media screen and (max-width: 635px) {
+					width: 60px !important;
+				}
+				@include smlPad {
+					width: 85px;
+				}
+				@include bigPhone {
+					display: none;
+				}
 			}
 		}
 
