@@ -1,21 +1,21 @@
 /* spaceStation 開始 */
 
-div.article{
+div.article {
   $light: #0c76f0;
   $radarSize: 200px;
-  main{
+  main {
     height: 1000px;
     position: relative;
     z-index: 2;
     overflow: hidden;
-    img.astronaut1{
+    img.astronaut1 {
       position: absolute;
       top: 2000px;
       left: 0;
       z-index: 1;
       animation: astronautFly1 90s infinite;
     }
-    img.astronaut2{
+    img.astronaut2 {
       position: absolute;
       width: 150px;
       top: 2000px;
@@ -23,7 +23,7 @@ div.article{
       z-index: 1;
       animation: astronautFly2 180s infinite;
     }
-    img.astronaut3{
+    img.astronaut3 {
       position: absolute;
       width: 300px;
       top: 300px;
@@ -31,7 +31,7 @@ div.article{
       z-index: 1;
       animation: astronautFly3 60s infinite;
     }
-    img.planet1{
+    img.planet1 {
       position: absolute;
       width: 100px;
       top: 1000px;
@@ -39,7 +39,7 @@ div.article{
       z-index: 1;
       animation: planet1 120s infinite;
     }
-    img.planet2{
+    img.planet2 {
       position: absolute;
       width: 50px;
       top: 400px;
@@ -47,7 +47,7 @@ div.article{
       z-index: 1;
       animation: planet2 240s infinite;
     }
-    img.planet3{
+    img.planet3 {
       position: absolute;
       width: 30px;
       top: 750px;
@@ -55,21 +55,21 @@ div.article{
       z-index: 0;
       animation: planet3 300s infinite;
     }
-    img.planet4{
+    img.planet4 {
       position: absolute;
       width: 10px;
       top: 450px;
       left: 300px;
       z-index: 0;
-      animation: planet4 240s infinite cubic-bezier(.86,.12,.95,.61);
+      animation: planet4 240s infinite cubic-bezier(0.86, 0.12, 0.95, 0.61);
     }
-    img.bottomLayer{
+    img.bottomLayer {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
     }
-    div.allContent{
+    div.allContent {
       position: relative;
       position: absolute;
       top: 0;
@@ -77,139 +77,138 @@ div.article{
       z-index: 3;
       transform: translateX(-50%);
       width: 1200px;
-      @include laptop{
+      @include laptop {
         width: 900px;
         height: 800px;
         margin-top: 20px;
       }
-      @include bigPad{
+      @include bigPad {
         width: 700px;
       }
-      @include smlPad{
+      @include smlPad {
         width: 530px;
       }
-      @include bigPhone{
+      @include bigPhone {
         width: 100%;
       }
-      div.blur{
+      div.blur {
         position: absolute;
         top: 2.5%;
         left: 2%;
         width: 96%;
         height: 94.5%;
         overflow: hidden;
-        @include bigPhone{
+        @include bigPhone {
           display: none;
         }
-        img{
+        img {
           position: absolute;
           top: -2.5%;
           left: -32.5%;
           -webkit-filter: blur(10px);
           filter: blur(10px);
-          @include laptop{
+          @include laptop {
             left: -61%;
             top: -5.5%;
           }
-          @include bigPad{
+          @include bigPad {
             left: -92.5%;
             top: -5%;
           }
-          @include smlPad{
+          @include smlPad {
             left: -107%;
           }
-          @include smlPad{
+          @include smlPad {
             left: -138%;
           }
         }
       }
-      div.backColor{
+      div.backColor {
         position: absolute;
         top: 2.5%;
         left: 2%;
         width: 96%;
         height: 94.5%;
-        background-color: rgba(24, 39, 73, .7);
+        background-color: rgba(24, 39, 73, 0.7);
         z-index: 4;
-        @include bigPhone{
+        @include bigPhone {
           background-color: rgba(11, 17, 32, 0.9);
           -webkit-filter: blur(2px);
           filter: blur(2px);
         }
       }
-      div.panel{
+      div.panel {
         width: 100%;
         position: relative;
         z-index: 5;
-        img{
+        img {
           width: 100%;
-          @include laptop{
+          @include laptop {
             height: 800px;
             width: 900px;
           }
-          @include bigPad{
+          @include bigPad {
             width: 700px;
           }
-          @include smlPad{
+          @include smlPad {
             width: 530px;
           }
-          @include bigPhone{
+          @include bigPhone {
             width: 100%;
           }
         }
-        
       }
-      div.panelTop{
+      div.panelTop {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 6;
-        h2{
+        h2 {
           @include h2;
           color: $white;
           position: absolute;
           top: 0;
           left: 8%;
-          @include laptop{
+          @include laptop {
             left: 5%;
             font-size: $h3;
           }
-          @include bigPad{
+          @include bigPad {
             font-size: $h4;
             top: -2%;
             left: 6%;
           }
-          @include smlPad{
+          @include smlPad {
             font-size: $bp;
           }
-          @include bigPhone{
+          @include bigPhone {
             left: 7%;
             width: 85%;
           }
-          &::before{
+          &::before {
             width: 1000px;
-            @include laptop{
+            @include laptop {
               width: 800px;
             }
-            @include bigPad{
+            @include bigPad {
               width: 610px;
             }
-            @include smlPad{
+            @include smlPad {
               width: 465px;
             }
-            @include bigPhone{
+            @include bigPhone {
               width: 100%;
             }
           }
         }
-        input{
+        input {
           position: absolute;
           top: 6%;
           left: 40%;
           z-index: 5;
-          border: 2px solid #FCC93D;
+          border: 2px solid #fcc93d;
           border-radius: 10px;
           outline: none;
           padding: 10px 50px 10px 15px;
@@ -219,287 +218,198 @@ div.article{
           background-repeat: no-repeat;
           background-position: center right 10px;
           background-size: 35px 35px;
-          @include laptop{
+          @include laptop {
             width: 300px;
             top: 5%;
             left: 36%;
           }
-          @include bigPad{
+          @include bigPad {
             font-size: $sp;
             width: 250px;
             top: 12%;
             left: 32%;
           }
-          @include smlPad{
+          @include smlPad {
             width: 200px;
             left: 31%;
           }
-          @include smlPhone{
+          @include smlPhone {
             width: 180px;
             left: 28%;
           }
         }
-        img.battery{
+        img.battery {
           position: absolute;
           top: 6%;
           right: 7%;
-          @include laptop{
+          @include laptop {
             top: 5%;
           }
-          @include bigPad{
+          @include bigPad {
             width: 120px;
           }
-          @include smlPad{
+          @include smlPad {
             top: 4%;
           }
         }
-        p.prePage{
+        p.prePage {
           position: absolute;
-          top: 13.5%;
+          top: 15.5%;
           right: 10%;
           font-size: $h4;
           color: $blue2;
           font-weight: 700;
-          &:hover{
+          &:hover {
             cursor: pointer;
             color: $blue1;
           }
-          @include laptop{
-            top: 13.5%;
-          }
-          @include smlPad{
-            font-size: $mp;
-            right: 10%;
+          @include laptop {
             top: 15%;
           }
+          @include smlPad {
+            font-size: $mp;
+            right: 11%;
+            top: 17%;
+          }
         }
-        div.content{
+        div.content {
           width: 84%;
           height: 71%;
           position: relative;
           left: 7.5%;
           top: 20%;
           overflow-y: scroll;
-          &::-webkit-scrollbar{
-            width:8px;
-            height:8px;
+          &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
           }
           &::-webkit-scrollbar-thumb {
             border-radius: 100px;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
-            background:rgba(0, 85, 244, 0.9);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+            background: rgba(0, 85, 244, 0.9);
           }
-          &::-webkit-scrollbar-track {   
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
-            border-radius: 0;       
-            background:rgba(0,0,0,0.5);
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.5);
           }
-          div.articleTitle{
+          div.articleTitle {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            div.articleInside{
+            div.articleInside {
               width: 350px;
               margin: 50px 75px;
-              @include laptop{
+              @include laptop {
                 width: 250px;
                 margin: 40px 60px;
               }
-              @include bigPad{
+              @include bigPad {
                 margin: 40px 45px;
                 width: 200px;
               }
-              @include smlPad{
+              @include smlPad {
                 width: 160px;
                 margin: 30px 28px;
               }
-              @include bigPhone{
+              @include bigPhone {
                 width: 900%;
                 margin: 30px 20px;
               }
-              div.articleImageScale{
+              div.articleImageScale {
                 width: 100%;
                 margin-bottom: 20px;
                 overflow: hidden;
-                img{
+                img {
                   width: 100%;
                   transition: all 1s;
-                  &:hover{
+                  &:hover {
                     cursor: pointer;
                     transform: scale(1.2);
                   }
                 }
               }
-              h4{
+              h4 {
                 width: 100%;
                 font-size: $h4;
                 color: $white;
                 text-align: center;
-                @include bigPad{
+                @include bigPad {
                   font-size: $bp;
                 }
-                @include smlPad{
+                @include smlPad {
                   font-size: $mp;
                 }
               }
             }
           }
-          div.articleTitle.none{
+          div.articleTitle.none {
             display: none;
           }
-          div.articleContent{
+          div.articleContent {
             padding: 30px 50px;
             color: $white;
-            @include bigPad{
+            @include bigPad {
               padding: 30px 40px;
             }
-            @include smlPad{
+            @include smlPad {
               padding: 20px 30px;
             }
-            @include bigPhone{
+            @include bigPhone {
               padding: 15px 15px;
             }
-            h3{
+            h3 {
               font-size: $h3;
               font-weight: bold;
               margin-bottom: 30px;
-              @include bigPad{
+              @include bigPad {
                 font-size: $h4;
               }
-              @include smlPad{
+              @include smlPad {
                 font-size: $bp;
               }
             }
-            img{
+            img {
               width: 300px;
               margin: 40px 0px 20px 30px;
-              @include bigPad{
+              @include bigPad {
                 width: 250px;
               }
-              @include smlPad{
+              @include smlPad {
                 width: 200px;
               }
             }
-            h4{
+            h4 {
               font-size: $h4;
               margin: 20px 0px 25px 30px;
               font-weight: bold;
               line-height: $h3;
-              @include bigPad{
+              @include bigPad {
                 font-size: $bp;
                 line-height: $h4;
               }
-              @include smlPad{
+              @include smlPad {
                 font-size: $mp;
                 line-height: $bp;
               }
             }
-            p{
+            p {
               margin: 20px 0px 20px 30px;
               font-size: $mp;
               letter-spacing: 2px;
               line-height: $bp;
-              @include smlPad{
+              @include smlPad {
                 font-size: $sp;
               }
             }
-
           }
-          div.articleContent.none{
+          div.articleContent.none {
             display: none;
           }
         }
       }
-      div.frame{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        img{
-          width: 150px;
-          @include laptop{
-            width: 120px;
-          }
-          @include smlPad{
-            width: 80px;
-          }
-        }
-        img.topLeft{
-          transform: rotate(270deg);
-          position: absolute;
-          top: 15.5%;
-          left: 4.5%;
-          @include laptop{
-            top: 16.5%;
-          }
-          @include bigPad{
-            left: 3.5%;
-          }
-          @include smlPad{
-            top: 17.5%;
-            left: 4%;
-          }
-          
-        }
-        img.topRight{
-          position: absolute;
-          top: 15.5%;
-          right: 5.5%;
-          opacity: 0.8;
-          @include laptop{
-            top: 16.5%;
-          }
-          @include bigPad{
-            right: 4.5%;
-          }
-          @include smlPad{
-            top: 17.5%;
-            right: 5%;
-          }
-          @include smlPhone{
-            right: 4%;
-          }
-        }
-        img.bottomLeft{
-          transform: rotate(180deg);
-          position: absolute;
-          top: 77%;
-          left: 4.5%;
-          @include laptop{
-            top: 79.5%;
-          }
-          @include bigPad{
-            left: 3.5%;
-          }
-          @include smlPad{
-            top: 83.5%;
-            left: 4%;
-          }
-        }
-        img.bottomRight{
-          transform: rotate(90deg);
-          position: absolute;
-          top: 77%;
-          right: 5.5%;
-          @include laptop{
-            top: 79.5%;
-          }
-          @include bigPad{
-            right: 4.5%;
-          }
-          @include smlPad{
-            top: 83.5%;
-            right: 5%;
-          }
-          @include smlPhone{
-            right: 4%;
-          }
-        }
-      }
     }
-    div.ecgBack{
+    div.ecgBack {
       position: absolute;
       left: 3%;
       bottom: 20%;
@@ -507,49 +417,48 @@ div.article{
       opacity: 1;
       animation: upDown 5s infinite linear;
       transition: all 1s;
-      img{
+      img {
         height: 200px;
         width: 400px;
         opacity: 0.9;
       }
-      svg{
+      svg {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        polyline{
+        polyline {
           fill: none;
           stroke: $blue2;
-          stroke-width:3;
+          stroke-width: 3;
           stroke-linecap: round;
           stroke-dashoffset: 1000;
           stroke-dasharray: 1000;
           opacity: 0;
           animation: ecg 2s linear forwards infinite;
           box-shadow: 1px 1px 10px 3px black;
-          
         }
       }
     }
-    div.ecgBack.colse{
+    div.ecgBack.colse {
       @media screen and (max-width: 1750px) {
         opacity: 0;
         z-index: -1;
       }
     }
-    div.radarBack{
+    div.radarBack {
       position: absolute;
       right: 4%;
       bottom: 17%;
       z-index: 3;
       opacity: 1;
       transition: all 1s;
-      img.radarBackImage{
+      img.radarBackImage {
         width: 350px;
         animation: radarBackRotate 60s infinite linear;
       }
-      div.radar{
+      div.radar {
         position: relative;
         position: absolute;
         bottom: 12%;
@@ -559,7 +468,7 @@ div.article{
         height: $radarSize;
         background-image: url("./../images/article/radar.png");
         background-size: $radarSize $radarSize;
-        div.radarLine{
+        div.radarLine {
           position: absolute;
           z-index: 3;
           left: 10.5820106%;
@@ -568,13 +477,14 @@ div.article{
           bottom: 50%;
           transform-origin: 50% 100%;
           border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-          background-image: linear-gradient(135deg, 
-            rgba(5, 53, 185, 0.8) 0%, 
+          background-image: linear-gradient(
+            135deg,
+            rgba(5, 53, 185, 0.8) 0%,
             rgba(0, 0, 0, 0.02) 70%,
             rgba(0, 0, 0, 0) 100%
-            );
+          );
           animation: radarRotate 3s infinite linear;
-          &::after{
+          &::after {
             content: "";
             position: absolute;
             width: 50%;
@@ -598,13 +508,13 @@ div.article{
         }
       }
     }
-    div.radarBack.close{
+    div.radarBack.close {
       @media screen and (max-width: 1750px) {
         opacity: 0;
         z-index: -1;
       }
     }
-    div.bluelight{
+    div.bluelight {
       width: 350px;
       height: 5px;
       position: absolute;
@@ -620,135 +530,110 @@ div.article{
       @media screen and (max-width: 1750px) {
         width: 220px;
       }
-      @include laptop{
+      @include laptop {
         width: 180px;
       }
-      @include bigPad{
+      @include bigPad {
         width: 140px;
       }
-      @include smlPad{
+      @include smlPad {
         width: 100px;
       }
-      @include smlPhone{
+      @include smlPhone {
         width: 80px;
       }
     }
   }
-  @keyframes astronautFly1{
-    0%{
+  @keyframes astronautFly1 {
+    0% {
       transform: translateY(0px);
     }
-    100%{
-      transform: translate(2300px,-2500px);
+    100% {
+      transform: translate(2300px, -2500px);
     }
   }
-  @keyframes astronautFly2{
-    0%{
+  @keyframes astronautFly2 {
+    0% {
       transform: translateY(0px);
     }
-    100%{
+    100% {
       transform: translateY(-3800px) rotate(-720deg);
     }
   }
-  @keyframes astronautFly3{
-    0%{
+  @keyframes astronautFly3 {
+    0% {
       transform: translateX(0px);
     }
-    100%{
+    100% {
       transform: translateX(-3000px);
     }
   }
-  @keyframes planet1{
-    0%{
+  @keyframes planet1 {
+    0% {
       transform: translateY(0px);
     }
-    100%{
+    100% {
       transform: translateY(-2000px);
     }
   }
-  @keyframes planet2{
-    0%{
+  @keyframes planet2 {
+    0% {
       transform: translate(0px, 0px);
     }
-    100%{
-      transform: translate(3500px,-3500px);
+    100% {
+      transform: translate(3500px, -3500px);
     }
   }
-  @keyframes planet3{
-    0%{
+  @keyframes planet3 {
+    0% {
       transform: translate(0px, 0px);
     }
-    100%{
-      transform: translate(-5500px,-2000px);
+    100% {
+      transform: translate(-5500px, -2000px);
     }
   }
-  @keyframes planet4{
-    0%{
+  @keyframes planet4 {
+    0% {
       opacity: 0;
       transform: translate(0px, 0px);
     }
-    10%{
+    10% {
       opacity: 1;
       transform: scale(2);
     }
-    100%{
+    100% {
       transform: translate(-1200px, -100px) scale(180);
     }
   }
   @keyframes blueLight {
     from {
-    box-shadow:
-    0 0px 1px rgba($light, .9),
-    0 -20px 20px rgba($light, .9),
-    0 -40px 30px rgba($light, .9),
-    0 -50px 20px rgba($light, .9),
-    0 -60px 30px rgba($light, .9),
-    0 -70px 20px rgba($light, .9),
-    0 -80px 20px rgba($light, .9),
-    0 -85px 5px rgba($light, .5),
-    0 -1px 2px rgba($light, .8),
-    0 -80px 5px rgba($light, .15),
-    0 -2px 3px rgba($light, .8),
-    0 -3px 4px rgba($light, .8),
-    0 -4px 6px rgba($light, .8),
-    0 -5px 10px rgba($light, .75),
-    0 -7px 20px rgba($light, .75),
-    0 -10px 30px rgba($light, .75),
-    0 -15px 40px rgba($light, .75),
-    0 -25px 50px rgba($light, .75),
-    0 -35px 60px rgba($light, .85),
-    0 -45px 70px rgba($light, .95),
-    0 -65px 80px rgba($light, 1),
-    0 -75px 90px rgba($light, 1),
-    ;
-    } to {
-    box-shadow:
-    0 0px 1px rgba($light, .9),
-    0 -20px 15px rgba($light, .9),
-    0 -40px 15px rgba($light, .9),
-    0 -50px 15px rgba($light, .9),
-    0 -60px 10px rgba($light, .9),
-    0 -70px 15px rgba($light, .9),
-    0 -80px 15px rgba($light, .9),
-    0 -80px 5px rgba($light, .3),
-    0 -1px 2px rgba($light, .8),
-    0 -1px 5px rgba($light, .15),
-    0 -2px 3px rgba($light, .8),
-    0 -3px 4px rgba($light, .8),
-    0 -4px 6px rgba($light, .8),
-    0 -5px 7px rgba($light, .75),
-    0 -7px 10px rgba($light, .75),
-    0 -10px 15px rgba($light, .75),
-    0 -15px 20px rgba($light, .75),
-    0 -25px 25px rgba($light, .75),
-    0 -35px 30px rgba($light, .85),
-    0 -45px 35px rgba($light, .95),
-    0 -65px 40px rgba($light, 1),
-    0 -75px 50px rgba($light, 1),
-    ;
+      box-shadow: 0 0px 1px rgba($light, 0.9), 0 -20px 20px rgba($light, 0.9),
+        0 -40px 30px rgba($light, 0.9), 0 -50px 20px rgba($light, 0.9),
+        0 -60px 30px rgba($light, 0.9), 0 -70px 20px rgba($light, 0.9),
+        0 -80px 20px rgba($light, 0.9), 0 -85px 5px rgba($light, 0.5),
+        0 -1px 2px rgba($light, 0.8), 0 -80px 5px rgba($light, 0.15),
+        0 -2px 3px rgba($light, 0.8), 0 -3px 4px rgba($light, 0.8),
+        0 -4px 6px rgba($light, 0.8), 0 -5px 10px rgba($light, 0.75),
+        0 -7px 20px rgba($light, 0.75), 0 -10px 30px rgba($light, 0.75),
+        0 -15px 40px rgba($light, 0.75), 0 -25px 50px rgba($light, 0.75),
+        0 -35px 60px rgba($light, 0.85), 0 -45px 70px rgba($light, 0.95),
+        0 -65px 80px rgba($light, 1), 0 -75px 90px rgba($light, 1);
+    }
+    to {
+      box-shadow: 0 0px 1px rgba($light, 0.9), 0 -20px 15px rgba($light, 0.9),
+        0 -40px 15px rgba($light, 0.9), 0 -50px 15px rgba($light, 0.9),
+        0 -60px 10px rgba($light, 0.9), 0 -70px 15px rgba($light, 0.9),
+        0 -80px 15px rgba($light, 0.9), 0 -80px 5px rgba($light, 0.3),
+        0 -1px 2px rgba($light, 0.8), 0 -1px 5px rgba($light, 0.15),
+        0 -2px 3px rgba($light, 0.8), 0 -3px 4px rgba($light, 0.8),
+        0 -4px 6px rgba($light, 0.8), 0 -5px 7px rgba($light, 0.75),
+        0 -7px 10px rgba($light, 0.75), 0 -10px 15px rgba($light, 0.75),
+        0 -15px 20px rgba($light, 0.75), 0 -25px 25px rgba($light, 0.75),
+        0 -35px 30px rgba($light, 0.85), 0 -45px 35px rgba($light, 0.95),
+        0 -65px 40px rgba($light, 1), 0 -75px 50px rgba($light, 1);
     }
   }
-  @keyframes radarBackRotate{
+  @keyframes radarBackRotate {
     0% {
       transform: rotate(0deg);
     }
@@ -774,20 +659,20 @@ div.article{
       stroke-dashoffset: 1000;
     }
   }
-  @keyframes upDown{
-    0%{
+  @keyframes upDown {
+    0% {
       transform: translateY(0%);
     }
-    25%{
+    25% {
       transform: translateY(-2%);
     }
-    50%{
+    50% {
       transform: translateY(0%);
     }
-    75%{
+    75% {
       transform: translateY(2%);
     }
-    100%{
+    100% {
       transform: translateY(0%);
     }
   }

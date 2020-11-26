@@ -14,9 +14,6 @@
 </head>
 
 <body>
-  <?php
-  include('layout/login.php');
-  ?>
   <div class="wrap tutorial">
     <?php
     include('layout/spacebackground.php');
@@ -240,7 +237,7 @@
     include('layout/footer.php');
     ?>
   </div>
-  <script src="./../js/login.js"></script>
+  <script src="./../js/header.js"></script>
   <script src="./../js/tutorial.js"></script>
 </body>
 

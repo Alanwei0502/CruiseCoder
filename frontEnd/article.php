@@ -10,12 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>宇宙漫遊</title>
   <link rel="stylesheet" href="./../css/main.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
 <body>
-  <?php
-    include('layout/login.php');
-  ?>
   <div class="wrap article">
     <?php
     include('layout/spacebackground.php');
@@ -94,12 +92,6 @@
             </div>
           </div>
         </div>
-        <div class="frame">
-          <img src="./../images/article/frame.png" class="topLeft" alt="圖片無法顯示">
-          <img src="./../images/article/frame.png" class="topRight" alt="圖片無法顯示">
-          <img src="./../images/article/frame.png" class="bottomLeft" alt="圖片無法顯示">
-          <img src="./../images/article/frame.png" class="bottomRight" alt="圖片無法顯示">
-        </div>
       </div>
       <div class="ecgBack colse">
         <img src="./../images/article/panel2.png" alt="圖片無法顯示">
@@ -120,8 +112,7 @@
     include('layout/footer.php');
     ?>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="../js/login.js"></script>
+  <script src="../js/header.js"></script>
   <script src="./../js/article.js"></script>
 </body>
 
