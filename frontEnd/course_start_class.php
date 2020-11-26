@@ -16,7 +16,7 @@
 
 <body>
   <!-- include('layout/login.php'); -->
-  <div class="wrap galaxy">
+  <div class="wrap course_start_class">
     <?php
     include('layout/spacebackground.php');
     include('layout/header.php');
