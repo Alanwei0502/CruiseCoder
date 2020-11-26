@@ -1,32 +1,34 @@
-.info{
-    width: 100%;  
-    .info_main{
+.info {
+    width: 100%;
+
+    .info_main {
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
 
 
-        .info_title{
+        .info_title {
             @include h2;
             color: $white;
             font-size: $h2;
             border-bottom: $orange 10px solid;
-            width: 200px;  
-            
+            width: 200px;
+
         }
 
-        .info_area{
+        .info_area {
             width: 100%;
             padding: 80px 0;
             display: flex;
             justify-content: space-evenly;
-            @include laptop{
+
+            @include laptop {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 border: 1px solid #fff;
-                   
-            }    
+
+            }
         }
 
         .op_circle {
@@ -36,38 +38,40 @@
             border-radius: 50%;
             position: relative;
 
-            @include laptop{
+            @include laptop {
                 margin-bottom: 50px;
             }
 
-            
-                
-            .account_pic{
+
+
+            .account_pic {
                 border: $orange 5px solid;
                 border-radius: 50%;
                 width: 200px;
                 height: 200px;
-                overflow: hidden; 
+                overflow: hidden;
 
-                img{
-                    width: 200px;  
+                img {
+                    width: 200px;
                 }
-            
+
             }
-            label{
+
+            label {
                 position: relative;
                 bottom: 60px;
                 left: 140px;
-                img{
+
+                img {
                     width: 50px;
                     cursor: pointer;
-                   
+
                 }
 
             }
 
         }
-    
+
 
         .left_cc {
 
@@ -87,7 +91,7 @@
 
             display: flex;
             justify-content: center;
-            
+
 
             p {
                 // text-align: center;
@@ -99,10 +103,11 @@
 
             }
 
-            @include laptop{
-               margin: 0 auto;
+            @include laptop {
+                margin: 0 auto;
             }
-            @include smlPad{
+
+            @include smlPad {
                 width: 400px;
                 font-size: $mp;
                 text-align: center;
@@ -112,68 +117,74 @@
 
         .info_card {
 
-            @include laptop{
+            @include laptop {
                 margin-top: 20px;
             }
 
-            form{
+            form {
                 padding: 40px;
                 background-color: $beige;
                 width: 850px;
                 display: flex;
                 flex-direction: column;
                 font-size: $bp;
-                @include laptop{
+
+                @include laptop {
                     width: 750px;
                     margin: 0 auto;
                 }
 
-                @include smlPad{
+                @include smlPad {
                     width: 450px;
                     font-size: $mp;
                 }
 
-                @include bigPhone{
+                @include bigPhone {
                     width: 300px;
                     padding: 20px;
-                    
+
                 }
-                @include smlPhone{
+
+                @include smlPhone {
                     width: 280px;
                 }
-                
-                label{
+
+                label {
                     padding: 10px;
-                    @include smlPad{
+
+                    @include smlPad {
                         font-size: $mp;
-                        
-                    }  
-                    input{
+
+                    }
+
+                    input {
                         border: none;
                         padding: 20px;
                         border-radius: 20px;
                         height: 35px;
                         width: 300px;
                         outline: none;
-                        @include bigPhone{
+
+                        @include bigPhone {
                             height: 25px;
                             width: 200px;
                         }
                     }
                 }
-                   
-                p{
+
+                p {
                     // text-align: center;
                     color: $black;
-         
+
                 }
-                img{
+
+                img {
                     width: 30px;
-                    
+
                 }
             }
-            
-            .editFile{
+
+            .editFile {
                 text-align: center;
                 align-self: flex-end;
                 border-bottom: $orange 5px solid;
@@ -181,23 +192,27 @@
                 cursor: pointer;
                 width: 180px;
                 color: #9B9595;
-                @include smlPad{
+
+                @include smlPad {
                     font-size: $sp;
                     width: 100px;
-                }    
+                }
             }
-                
-            .sendBtn{
+
+            .sendBtn {
                 @include btn($h4);
                 //  width: 200px;
                 align-self: flex-end;
-                @include smlPad{
+
+                @include smlPad {
                     @include btn($bp);
                 }
-                @include bigPhone{
+
+                @include bigPhone {
                     @include btn($mp);
                 }
-                @include smlPhone{
+
+                @include smlPhone {
                     @include btn($sp);
                 }
 
@@ -207,25 +222,29 @@
         .info_second {
 
 
-            .course{
+            .course {
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
-                @include laptop{
+
+                @include laptop {
                     width: 1000px;
                     border: 1px solid #fff;
                     margin: 0 auto;
                 }
-                @include bigPad{
+
+                @include bigPad {
                     width: 800px;
                     border: 1px solid #fff;
                     margin: 0 100px;
                 }
-                @include smlPad{
+
+                @include smlPad {
                     width: 100%;
                     border: 1px solid #fff;
                     margin: 0 50px;
                 }
+
                 .wrapGeneral {
                     margin-bottom: 50px !important;
                     margin-top: 50px !important;
@@ -234,11 +253,13 @@
                     background-color: $white;
                     position: relative;
                     overflow: visible;
-                    @include laptop{
+
+                    @include laptop {
                         width: 300px;
-                                
+
                     }
-                    @include bigPad{
+
+                    @include bigPad {
                         width: 250px;
                     }
 
@@ -255,7 +276,8 @@
                             padding: 10px;
                             cursor: pointer;
                             color: rgb(212, 212, 212);
-                            @include bigPad{
+
+                            @include bigPad {
                                 font-size: 20px;
                                 padding: 9px;
                             }
@@ -269,21 +291,22 @@
                         top: 0;
                         left: 0;
                         transform: translate(25%, -50%);
-                        @include bigPad{
+
+                        @include bigPad {
                             width: 60px;
                         }
-                        
+
                     }
 
                     a.img {
                         display: inline-block;
-        
+
                         img {
                             width: 100%;
                             border-radius: 20px 20px 0 0;
                         }
                     }
-                
+
                     .c_Main {
                         padding-left: 10px;
 
@@ -329,41 +352,46 @@
                         }
                     }
 
-                
+
 
 
                 }
             }
 
-            
+
         }
-    
-        
+
+
 
         // ------ 收藏文章 -----
-        .love_title{
+        .love_title {
             margin-top: 100px;
             // margin-bottom: 50px;
         }
-        .info_article{
+
+        .info_article {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
             text-align: center;
-            
-            @include smlPad{
+
+            @include smlPad {
                 flex-direction: column;
                 align-items: center;
             }
-            .aic_1,.aic_2,.aic_3{
+
+            .aic_1,
+            .aic_2,
+            .aic_3 {
                 position: relative;
+
                 // border: 1px solid #fff;
-                @include smlPad{
+                @include smlPad {
                     margin: 15px 0;
                 }
-                
-                .love_arc{
-                    img{
+
+                .love_arc {
+                    img {
                         position: absolute;
                         width: 70px;
                         top: 4px;
@@ -371,22 +399,25 @@
                         cursor: pointer;
                     }
                 }
-                
-                
-                img{
+
+
+                img {
                     width: 300px;
                     cursor: pointer;
-                    @include bigPad{
+
+                    @include bigPad {
                         width: 250px;
                     }
-                    @include smlPad{
+
+                    @include smlPad {
                         width: 300px;
                     }
 
                 }
-                p{
-                   color: $white; 
-                   margin-top: 20px;
+
+                p {
+                    color: $white;
+                    margin-top: 20px;
                 }
 
 
@@ -398,26 +429,28 @@
             @include h2;
             color: $beige;
         }
-        .info_achievement{
-            width: 100%;
-           
 
-            .big_a{
+        .info_achievement {
+            width: 100%;
+
+
+            .big_a {
                 background-color: $blue2;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-                
-                img{
+
+                img {
                     width: 100px;
                     margin: 10px 25px;
-                    @include smlPhone{
+
+                    @include smlPhone {
                         width: 80px;
                     }
                 }
             }
 
-            .little_a{
+            .little_a {
                 margin-top: 50px;
                 padding: 50px;
                 width: 100%;
@@ -425,21 +458,20 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                @include smlPhone{
+
+                @include smlPhone {
                     padding: 25px;
                 }
 
-                img{
+                img {
                     width: 100px;
                     margin: 10px 25px;
-                    @include smlPhone{
+
+                    @include smlPhone {
                         width: 60px;
                     }
                 }
-            }             
-        }     
-    }      
+            }
+        }
+    }
 }
-
-
-
