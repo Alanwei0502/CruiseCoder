@@ -287,18 +287,10 @@
 					}
 
 					button {
-						background-color: #fcc93d;
-						font-size: 16px;
-						outline: none;
-						border: 0px;
-						border-radius: 10px;
-						width: 150px;
-						height: 40px;
-						margin: 10px;
-						cursor: pointer;
-						position: absolute;
-						bottom: 0%;
-						right: 0%;
+						@include btn(18px);
+						align-self: flex-end;
+						margin-top: 20px;
+						margin-right: 10px;
 					}
 				}
 			}
@@ -931,7 +923,7 @@ div.index {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
-			border: 1px solid #afafafa8;
+			border: 1px solid $blue2;
 			border-radius: 50%;
 			cursor: pointer;
 			margin: 0px 8px;
@@ -939,7 +931,7 @@ div.index {
 	}
 
 	.bgcBlack {
-		background-color: #afafafa8;
+		background-color: $blue2;
 	}
 }
 
