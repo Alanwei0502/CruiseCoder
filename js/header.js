@@ -1,4 +1,4 @@
-// login js
+// login的js
 $(document).ready(function(){
     $('.item1 > button').click(function(){
         $('.upArea').toggleClass('move');
@@ -40,7 +40,7 @@ $('.greyGlass').click(function(){//點擊蒙版 關閉login
 
 
 
-// header js
+// header的js
 var shoppingCar = document.getElementsByClassName('shoppingCar')[0];
 var label = shoppingCar.querySelector('label');
 var section = shoppingCar.querySelector('section');
@@ -49,8 +49,6 @@ var member = document.getElementsByClassName('member')[0];
 var labelM = member .querySelector('label');
 var ul = member.querySelector('ul');
 var inputM = labelM.querySelector('input');
-
-
 
 label.addEventListener('mouseup', function () {
     if (!input.checked) {
@@ -72,3 +70,15 @@ labelM.addEventListener('mouseup', function () {
     }
 });
 
+
+// inputM.checked = false;
+// ul.classList.remove('on');
+// input.checked = false;
+// section.classList.remove('on');
+
+// $(window).click(function() { 
+//     inputM.checked = false;
+//     ul.classList.remove('on');
+//     input.checked = false;
+//     section.classList.remove('on');
+// }); 

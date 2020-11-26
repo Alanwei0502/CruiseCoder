@@ -41,6 +41,7 @@
 		background-color: $orange;
 		z-index: -2;
 	}
+
 	&:after {
 		content: '';
 		position: absolute;
@@ -56,6 +57,7 @@
 	&:hover {
 		color: $black;
 		transform: translateX($px/10) translateY($px/10);
+
 		&:after {
 			width: 100%;
 		}
@@ -65,10 +67,12 @@
 		color: $black;
 		transform: translateX($px/5) translateY($px/5);
 		padding: ($px/3) $px;
+
 		&:after {
 			width: 100%;
 		}
 	}
+
 	@content;
 }
 
@@ -85,31 +89,34 @@
 // @include smlPhone{
 // 	font-size: $bp;
 // }
-@mixin h2{
-    font-size: $h2;
-    font-weight: bold;
-    position: relative;
-    margin: 50px 0;
-    &:before{
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        display: block;
+@mixin h2 {
+	font-size: $h2;
+	font-weight: bold;
+	position: relative;
+	margin: 50px 0;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -10px;
+		display: block;
 		max-width: 1200px;
 		width: 100%;
-        border-bottom: 1px solid $beige;
-    }
-    &:after{
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        display: block;
+		border-bottom: 1px solid $beige;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -10px;
+		display: block;
 		width: 300px;
 		width: 25%;
-        border-bottom: 10px solid $yellow;
+		border-bottom: 10px solid $yellow;
 	}
+
 	@content;
 }
 
@@ -118,10 +125,10 @@
 
 // 使用float時的清除浮動方法: @include clearfixed;
 @mixin clearfixed {
-    &:after{
-        content: '';
-        display: table;
-        clear: both;
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
 	}
 }
 
@@ -132,16 +139,19 @@
 // keyframe動畫：引用方法在下面描述，用法
 
 @mixin keyframes($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-    @keyframes #{$name} {
-        @content;
-    }
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
 }
+
 //keyframe動畫引用方式
 // @include keyframes(rotating) {
 //     0% {
@@ -165,14 +175,14 @@
 // ==============後台的樣式================
 
 // 標題 ex課程管理、專欄管理、預約管理, 用法 @include backTitle;
-@mixin backTitle{
+@mixin backTitle {
 	font-size: $h4;
 	margin: 50px 0px 20px 30px;
 	font-weight: bold;
 }
 
 // 後台管理上面有搜尋按鈕的區塊  用法 @include blockStyle;
-@mixin blockStyle{
+@mixin blockStyle {
 	background-color: $beige;
 	// margin-left: 30px;
 	padding: 20px 30px;
@@ -183,7 +193,7 @@
 
 // 下拉式選單樣式 主要統一大概樣式 至於長度各位在自己調整
 // 用法 @include selectStyle; 放在select
-@mixin selectStyle{
+@mixin selectStyle {
 	font-size: $mp;
 	padding: 5px;
 	border-radius: 8px;
@@ -193,7 +203,7 @@
 }
 
 // 月曆輸入框樣式 用法 @include datepickerStyle;
-@mixin datepickerStyle{
+@mixin datepickerStyle {
 	font-size: $mp;
 	border-radius: 8px;
 	outline: none;
@@ -202,14 +212,15 @@
 	background-repeat: no-repeat;
 	background-size: 30px;
 	background-position: center right 10px;
-	&:hover{
+
+	&:hover {
 		cursor: pointer;
 	}
 }
 
 
 // 文字輸入框  用法 @include inputTextStyle;
-@mixin inputTextStyle{
+@mixin inputTextStyle {
 	font-size: $mp;
 	border-radius: 8px;
 	outline: none;
@@ -219,10 +230,10 @@
 //checkbox打勾勾，用法 @include checkbox;
 //使用時，結構要長這樣<label><input type="checkbox"><span></span></label>
 //label要記得給cursor: pointer;
-@mixin checkbox{
-		display: none;
+@mixin checkbox {
+	display: none;
 
-	+span{
+	+span {
 		background-image: url('../images/backEnd/blank-check-box.svg');
 		display: inline-block;
 		width: $mp;
@@ -230,9 +241,10 @@
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: contain;
-		margin-left: $fontSize * 0.5;
+		margin-left: $fontSize;
 	}
-	&:checked+span{
+
+	&:checked+span {
 		width: $mp;
 		height: $mp;
 		display: inline-block;
@@ -240,7 +252,7 @@
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-size: contain;
-		margin-left: $fontSize * 0.5;
+		margin-left: $fontSize;
 	}
 
 	@content;
@@ -249,7 +261,7 @@
 
 
 // 搜尋btn樣式  用法 @include backBtn; 
-@mixin backBtn{
+@mixin backBtn {
 	cursor: pointer;
 	height: 50px;
 	outline: none;
@@ -264,7 +276,8 @@
 	background-size: 20px 20px;
 	background-position: center left 13px;
 	box-shadow: 5px 5px 10px -5px black;
-	&:hover{
+
+	&:hover {
 		color: $blue1;
 		background-color: $blue2;
 		background-image: url("./../images/backEnd/searchicon1.png");
@@ -272,7 +285,7 @@
 }
 
 // 新增按鈕樣式  用法 @include addBtn;
-@mixin addBtn{
+@mixin addBtn {
 	cursor: pointer;
 	outline: none;
 	border: none;
@@ -283,10 +296,11 @@
 	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/addicon.png");
 	background-repeat: no-repeat;
-	background-size: 28px 28px; 
+	background-size: 28px 28px;
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
-	&:hover{
+
+	&:hover {
 		color: $blue1;
 		background-color: $blue2;
 		background-image: url("./../images/backEnd/addicon1.png");
@@ -294,7 +308,7 @@
 }
 
 // 下架按鈕樣式 用法 @include cancelBtn;
-@mixin cancelBtn{
+@mixin cancelBtn {
 	cursor: pointer;
 	outline: none;
 	border: none;
@@ -305,10 +319,11 @@
 	border-radius: $fontSize*2;
 	background-image: url("./../images/backEnd/cancelicon.png");
 	background-repeat: no-repeat;
-	background-size: 28px 28px; 
+	background-size: 28px 28px;
 	background-position: center left 10px;
 	box-shadow: 5px 5px 10px -5px black;
-	&:hover{
+
+	&:hover {
 		color: $blue1;
 		background-color: $blue2;
 		background-image: url("./../images/backEnd/cancelicon1.png");
@@ -316,7 +331,7 @@
 }
 
 // 編輯按鈕樣式 用法 @include editBtn;
-@mixin editBtn{
+@mixin editBtn {
 	outline: none;
 	border: none;
 	color: $blue1;
@@ -326,7 +341,8 @@
 	font-size: $sp;
 	padding: 5px 15px;
 	box-shadow: 5px 5px 10px -5px black;
-	&:hover{
+
+	&:hover {
 		color: $blue1;
 		background-color: $blue2;
 		cursor: pointer;
@@ -335,7 +351,7 @@
 
 
 //上一頁和下一頁的按鈕樣式，用法  @include changePage;
-@mixin changePage{
+@mixin changePage {
 	cursor: pointer;
 	border: none;
 	outline: none;
@@ -345,7 +361,8 @@
 	padding: $fontSize*0.5 $fontSize*2;
 	border-radius: $fontSize*2;
 	box-shadow: 5px 5px 10px -5px black;
-	&:hover{
+
+	&:hover {
 		background-color: $blue2;
 		color: $blue1;
 	}
@@ -353,7 +370,7 @@
 
 
 //圖片上傳的input按鈕樣式，用法  @include uploadImg;
-@mixin uploadImg{
+@mixin uploadImg {
 	font-size: $mp;
 	padding: 5px;
 	border-radius: 8px;
@@ -364,7 +381,7 @@
 
 
 // 儲存按鈕樣式 用法 @include saveBtn;
-@mixin saveBtn{
+@mixin saveBtn {
 	cursor: pointer;
 	outline: none;
 	border: none;
@@ -375,9 +392,10 @@
 	border-radius: 30px;
 	background-image: url("./../images/backEnd/saveicon.png");
 	background-repeat: no-repeat;
-	background-size: 24px 24px; 
+	background-size: 24px 24px;
 	background-position: center left 20px;
-	&:hover{
+
+	&:hover {
 		color: $blue1;
 		background-color: $blue2;
 		background-image: url("./../images/backEnd/saveicon1.png");
@@ -387,37 +405,40 @@
 // input file樣式  用法 @include inputFileStyle;
 // html格式<div><input type="file"><p></p><button></button></div>
 // 自行+class 或 id , 要寫js來連動input file用的 可參考article.js
-@mixin inputFileStyle{
-  border: 2px solid gray;
-  border-radius: 8px;
-  height: 40px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: cell;
-  input{
-    display: none;
-  }
-  p{
-    font-size: $mp;
-    max-width: 285px;
-    overflow: hidden;
-    text-overflow : ellipsis;
-    white-space : nowrap;
-  }
-  button{
-    outline: none;
-    border: none;
-    background-color: $yellow;
-    border-radius: 20px;
-    padding: 20px 30px;
-    background-image: url("./../images/backEnd/camera.png");
-    background-repeat: no-repeat;
-    background-size: 30px;
-    background-position: center;
-    cursor: pointer;
-  }
+@mixin inputFileStyle {
+	border: 2px solid gray;
+	border-radius: 8px;
+	height: 40px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: cell;
+
+	input {
+		display: none;
+	}
+
+	p {
+		font-size: $mp;
+		max-width: 285px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	button {
+		outline: none;
+		border: none;
+		background-color: $yellow;
+		border-radius: 20px;
+		padding: 20px 30px;
+		background-image: url("./../images/backEnd/camera.png");
+		background-repeat: no-repeat;
+		background-size: 30px;
+		background-position: center;
+		cursor: pointer;
+	}
 }
 
 
@@ -431,17 +452,17 @@
 //media queries的width變數
 $laptop:1200px;
 $bigPad:992px;
-$smlPad:768px;		//iPad Mini(直)、iPad(直)
-$bigPhone:576px;	//568px	iPhone 5/SE(橫)
-$smlPhone:414px;	//iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
+$smlPad:768px; //iPad Mini(直)、iPad(直)
+$bigPhone:576px; //568px	iPhone 5/SE(橫)
+$smlPhone:414px; //iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
 
 //筆電1200px，用法  @include laptop{}
 @mixin laptop {
-    @media screen and (max-width: $laptop) {
+	@media screen and (max-width: $laptop) {
 		@content;
 	}
 }
-					
+
 //大平板992px，用法  @include bigPad{}
 @mixin bigPad {
 	@media screen and (max-width: $bigPad) {
