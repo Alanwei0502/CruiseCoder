@@ -5,13 +5,10 @@ $(document).ready(function(){
             tr[i].style.cssText = 'background-color: #FBF7EB';
         }
     }
-
-
     $('button.add').click(function(){
         $('div.addBlock').removeClass('addBlockhidden');
         
     })
-
     $('div.grayBlock').click(function(){
         $('div.addBlock').addClass('addBlockhidden');
     })
@@ -19,5 +16,4 @@ $(document).ready(function(){
         $('div.addBlock').addClass('addBlockhidden');
     })
 
-})
-
+});
