@@ -48,12 +48,12 @@
 							outline: 0;
 						}
 
-						@include laptop{
+						@include laptop {
 							order: -1;
-					position: absolute;
-					top: 0;
-					right: 0;
-					transform: translate(20px, 50px);
+							position: absolute;
+							top: 0;
+							right: 0;
+							transform: translate(20px, 50px);
 						}
 					}
 
