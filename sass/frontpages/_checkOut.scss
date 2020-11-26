@@ -11,6 +11,8 @@
         width: $label;
         font-weight: 500;
         // vertical-align: middle;
+        // border: 1px solid rgb(233, 163, 13);
+
     }
 
     // 使用方法: @include paymentInput;
@@ -22,6 +24,7 @@
         outline: none;
         font-size: 30px;
         padding-left: 10px;
+        // border: 1px solid blue;
     }
 
     // 使用方法: @include paymenIfon;
@@ -29,20 +32,55 @@
         // display: table-cell;
         margin: 10px 0px 30px 50px;
         height: 50px;
+        // border: 1px solid rgb(57, 233, 13);
     }
 
 
     main {
         max-width: 1200px;
+        width: 95%;
         margin: $center;
-        // border: 1px solid white;
+        // border: 1px solid $white;
+
+        // @include laptop {
+        //     border: 3px solid orange;
+        // }
+
+        // @include bigPad {
+        //     border: 3px solid $red;
+        // }
+
+        // @include smlPad {
+        //     border: 3px solid $blue2;
+        // }
+
+        // @include bigPhone {
+        //     border: 3px solid $yellow;
+        // }
+
+        // @include smlPhone {
+        //     border: 3px solid pink;
+        // }
 
         h2 {
             margin-top: 50px;
             color: aliceblue;
             font-size: $h2;
             font-weight: bold;
-            @include h2
+
+            @include h2;
+
+            @include smlPad {
+                font-size: $h3;
+            }
+
+            @include bigPhone {
+                font-size: $h4;
+            }
+
+            @include smlPhone {
+                font-size: $bp;
+            }
         }
 
         h3 {
@@ -51,6 +89,18 @@
             font-size: $h3;
             font-weight: bold;
 
+            @include smlPad {
+                font-size: $h3;
+            }
+
+            @include bigPhone {
+                font-size: $h4;
+            }
+
+            @include smlPhone {
+                font-size: $bp;
+            }
+
         }
 
         .shoppingList {
@@ -58,57 +108,162 @@
             margin: $center;
             margin-top: 50px;
             font-size: 40px;
+            // border: 1px solid $white;
+
+            @include smlPad {
+                margin-top: 0px;
+
+            }
 
             .course {
                 border: 10px solid $orange;
                 background-color: $beige;
-
                 margin-top: 30px;
+
+                @include bigPad {
+                    border: 8px solid $orange;
+                }
+
 
                 .top {
                     display: flex;
                     justify-content: space-between;
                     color: rgb(0, 0, 0);
-                    font-size: 32px;
+                    font-size: $h4;
                     padding: 30px 0px 20px 25px;
 
-                    .title {
-                        display: flex;
-
-                        p.courseTitle {
-                            font-weight: 600;
-                            margin-right: 30px;
-                        }
-
+                    @include bigPad {
+                        padding: 10px 10px 10px 10px;
+                        flex-direction: column;
                     }
 
 
-                    a {
-                        // text-align: right;
-                        // flex-direction: row-reverse;
-                        // align-self: end;
+                    .left {
+                        display: flex;
+                        flex-grow: 2;
 
+                        @include bigPhone {
+                            flex-direction: column;
+                            justify-content: center;
+                            margin-top: 8px;
+                        }
+
+
+                        .course_Img {
+                            width: 300px;
+
+                            // flex-grow: 2;
+                            @include laptop {
+                                max-width: 250px;
+                            }
+
+                            @include bigPad {
+                                max-width: 200px;
+                            }
+
+                            @include bigPhone {
+                                max-width: 280px;
+                                align-self: center;
+                            }
+
+                            // @include smlPad {
+                            //     max-width: 300px;
+
+                            // }
+
+                            a {
+                                display: inline-block;
+
+                                img {
+                                    max-width: 100%;
+                                }
+                            }
+                        }
+
+                        .title {
+                            // max-width: 65%;
+                            padding: 3% 3% 0 2%;
+                            line-height: $h4*1.5;
+                            flex-grow: 2;
+                            font-weight: 600;
+
+                            // border: 1px solid red;
+                            @include bigPad {
+                                font-size: $bp;
+                            }
+
+                            @include smlPad {
+                                padding: 1% 1% 0 2%;
+                                font-size: $mp;
+                                line-height: $h4;
+                            }
+
+                            @include bigPhone {
+
+                                align-self: center;
+                            }
+
+
+                            a {
+                                text-decoration: none;
+                                color: $black;
+                            }
+                        }
+                    }
+
+                    a {
+                        margin-right: 2%;
+
+                        @include bigPad {
+                            order: -1;
+                            align-self: flex-end;
+                            margin-right: 0;
+                        }
 
                         i {
                             color: rgb(100, 100, 100);
                             font-size: 40px;
-                            margin-right: 30px;
+
+                            // margin-right: 30px;
+                            @include smlPad {
+                                font-size: 30px;
+                            }
                         }
                     }
                 }
 
-                p.type {
-                    font-size: 26px;
-                    padding: 0px 0px 20px 25px;
+                .bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0px 30px 30px 30px;
 
-                }
+                    @include smlPad {
+                        margin: 5px 15px 20px 15px;
 
-                p.price {
-                    text-align: right;
-                    font-size: 32px;
-                    color: #003B80;
-                    font-weight: 600;
-                    margin: 0px 30px 30px 0px;
+                    }
+
+                    p.type {
+                        font-size: $bp;
+                        // padding: 0px 0px 10px 25px;
+                        color: rgb(100, 100, 100);
+
+                        @include smlPad {
+                            font-size: 20px;
+                        }
+
+                    }
+
+                    p.price {
+                        text-align: right;
+                        font-size: $h4;
+                        color: #003B80;
+                        font-weight: 600;
+                        // margin: 0px 30px 30px 0px;
+
+                        @include smlPad {
+                            font-size: $bp;
+                        }
+                    }
                 }
             }
         }
@@ -126,7 +281,21 @@
                 padding: 45px;
                 border-radius: 20px;
                 font-size: 30px;
+
                 // width: 960px;
+                @include laptop {
+                    padding: 35px;
+                    margin: 40px 30px 80px 30px;
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+
+                @include bigPad {
+                    margin: 30px 30px 50px 30px;
+                    font-size: 22px;
+                    line-height: 26px;
+                    padding: 20px;
+                }
 
                 .ccPoint {
                     justify-content: center;
@@ -148,6 +317,13 @@
                     border-radius: 10px;
                     outline: none;
                     text-align: right;
+
+                    @include bigPad {
+                        width: 80px;
+                        font-size: 22px;
+                        height: 35px;
+
+                    }
                 }
             }
 
@@ -159,6 +335,10 @@
                 align-items: flex-end;
                 font-weight: 600;
                 margin: 0px 30px 20px 0px;
+
+                @include bigPad {
+                    font-size: $bp;
+                }
 
 
 
@@ -195,6 +375,7 @@
             }
         }
 
+        // 填寫付款資料
         .payment {
             @include clearfixed;
             margin-bottom: 150px;
@@ -204,6 +385,18 @@
                 color: $white;
                 padding: 0px 0px 30px 30px;
                 font-weight: 600;
+
+                @include smlPad {
+                    font-size: $h3;
+                }
+
+                @include bigPhone {
+                    font-size: $h4;
+                }
+
+                @include smlPhone {
+                    font-size: $bp;
+                }
             }
 
 
@@ -216,9 +409,31 @@
                     font-size: $h4;
                     display: flex;
 
+                    @include bigPad {
+                        font-size: $bp;
+                    }
+
+                    // @include smlPad {
+
+                    //     color: red;
+                    // }
+
+                    @include bigPhone {
+                        font-size: $mp;
+                        // color: rgb(17, 0, 255);
+                    }
+
                     p {
                         padding: 70px 20px 20px 50px;
                         font-weight: 600;
+
+                        @include smlPad {
+                            padding: 30px 20px 20px 30px;
+                        }
+
+                        @include bigPhone {
+                            padding: 30px 10px 20px 20px;
+                        }
                     }
 
                     .img {
@@ -226,6 +441,20 @@
                         width: 200px;
                         position: relative;
                         margin-top: 60px;
+
+                        @include smlPad {
+                            margin-top: 20px;
+                            width: 180px;
+                            height: 45px;
+                            // border: 1px solid red;
+                        }
+
+                        @include bigPhone {
+                            width: 160px;
+                            height: 40px;
+                            // border: 1px solid blue;
+
+                        }
 
                         img {
                             max-height: 100%;
@@ -247,37 +476,94 @@
                     color: #707070;
                     padding: 0px 0px 30px 40px;
                     font-size: $bp;
+
+                    @include smlPad {
+                        font-size: 20px;
+                        padding: 0px 0px 30px 10px;
+
+                    }
+
+                    @include bigPhone {}
                 }
 
                 .name {
                     @include paymenIfon;
 
+                    @include smlPad {
+                        margin: 10px 0px 30px 30px;
+                        height: auto;
+                    }
+
+                    @include bigPhone {
+                        margin: 10px 0px 30px 20px;
+                    }
+
+
                     label {
                         @include paymentLabel;
+
                     }
 
                     input {
                         @include paymentInput;
+
+                        @include smlPad {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            font-size: $mp;
+                        }
                     }
                 }
 
                 .phoneNum {
                     @include paymenIfon;
 
+                    @include smlPad {
+                        margin: 10px 0px 30px 30px;
+                        height: auto;
+
+                    }
+
+                    @include bigPhone {
+                        margin: 10px 0px 30px 20px;
+                    }
+
+
                     label {
                         @include paymentLabel;
                     }
 
                     input {
                         @include paymentInput;
+
+                        @include smlPad {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            font-size: $mp;
+
+                        }
                     }
                 }
 
                 .creditCardNum {
                     @include paymenIfon;
 
+                    @include smlPad {
+                        margin: 10px 0px 30px 30px;
+                        height: auto;
+                    }
+
+                    @include bigPhone {
+                        margin: 10px 0px 30px 20px;
+                    }
+
                     label {
                         @include paymentLabel;
+
+                        @include smlPad {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
                     }
 
                     input {
@@ -285,15 +571,37 @@
                         width: 90px;
                         margin-right: 10px;
 
+                        @include bigPhone{
+                        width: 70px;
+
+                            font-size: $mp;
+
+                        }
+
+
                     }
                 }
 
                 .date {
                     @include paymenIfon;
 
+                    @include smlPad {
+                        margin: 10px 0px 30px 30px;
+                        height: auto;
+                    }
+
+                    @include bigPhone {
+                        margin: 10px 0px 30px 20px;
+                    }
+
                     label {
                         display: inline-block;
                         width: $label;
+
+                        @include smlPad {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
                     }
 
                     select {
@@ -305,6 +613,13 @@
                         font-size: $h4;
                         font-size: 25px;
 
+                        @include bigPad {
+                            font-size: $bp;
+                        }
+                        @include bigPhone{
+                            font-size: $mp;
+
+                        }
                     }
 
                     label.months {
@@ -313,6 +628,10 @@
                         font-size: 28px;
                         font-weight: 500;
                         padding-left: 3px;
+
+                        @include bigPad {
+                            font-size: $bp;
+                        }
                     }
 
                     label.years {
@@ -321,6 +640,10 @@
                         font-size: 28px;
                         font-weight: 500;
                         padding-left: 3px;
+
+                        @include bigPad {
+                            font-size: $bp;
+                        }
                     }
                 }
 
@@ -328,13 +651,32 @@
                     @include paymenIfon;
                     padding-bottom: 100px;
 
+                    @include smlPad {
+                        margin: 10px 0px 30px 30px;
+                        height: auto;
+                        padding-bottom: 30px;
+                    }
+
+                    @include bigPhone {
+                        margin: 10px 0px 30px 20px;
+                    }
+
                     label {
                         @include paymentLabel;
+
+                        @include smlPad {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
                     }
 
                     input {
                         @include paymentInput;
                         width: 90px;
+                        @include bigPhone{
+                            font-size: $mp;
+
+                        }
 
                     }
                 }
