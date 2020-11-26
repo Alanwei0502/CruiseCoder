@@ -12,9 +12,6 @@
     <title>Cruise Coders ｜ 訂單資訊</title>
 </head>
 <body>
-<?php
-  include('layout/login.php');
-  ?>
     <div class="wrap order">
     <?php
     include('layout/spacebackground.php');

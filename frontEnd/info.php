@@ -17,9 +17,6 @@
 
 </head>
 <body>
-<?php
-  include('layout/login.php');
-  ?>
   <div class="wrap info">
 
   
