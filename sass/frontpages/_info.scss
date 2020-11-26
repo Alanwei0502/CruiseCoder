@@ -23,10 +23,9 @@
             @include laptop{
                 display: flex;
                 flex-direction: column;
-                // align-content: center;
                 align-items: center;
                 border: 1px solid #fff;
-                
+                   
             }    
         }
 
@@ -35,7 +34,11 @@
             height: 200px;
             background-color: #fff;
             border-radius: 50%;
-            // position: relative;
+            position: relative;
+
+            @include laptop{
+                margin-bottom: 50px;
+            }
 
             
                 
@@ -49,15 +52,18 @@
                 img{
                     width: 200px;  
                 }
-                label{
-                    color: #fff;
-                    i{
-                        background-color: #fff;
-                        color: #fff;
-                        z-index: 100; 
-                    }
-
+            
+            }
+            label{
+                position: relative;
+                bottom: 60px;
+                left: 140px;
+                img{
+                    width: 50px;
+                    cursor: pointer;
+                   
                 }
+
             }
 
         }
@@ -81,16 +87,26 @@
 
             display: flex;
             justify-content: center;
+            
 
             p {
                 // text-align: center;
                 color: $black;
-
             }
 
             img {
                 width: 30px;
 
+            }
+
+            @include laptop{
+               margin: 0 auto;
+            }
+            @include smlPad{
+                width: 400px;
+                font-size: $mp;
+                text-align: center;
+                letter-spacing: 1px;
             }
         }
 
@@ -114,6 +130,16 @@
 
                 @include smlPad{
                     width: 450px;
+                    font-size: $mp;
+                }
+
+                @include bigPhone{
+                    width: 300px;
+                    padding: 20px;
+                    
+                }
+                @include smlPhone{
+                    width: 280px;
                 }
                 
                 label{
@@ -124,15 +150,18 @@
                     }  
                     input{
                         border: none;
+                        padding: 20px;
                         border-radius: 20px;
                         height: 35px;
                         width: 300px;
-                        
                         outline: none;
+                        @include bigPhone{
+                            height: 25px;
+                            width: 200px;
+                        }
                     }
                 }
-    
-                
+                   
                 p{
                     // text-align: center;
                     color: $black;
@@ -161,11 +190,18 @@
             .sendBtn{
                 @include btn($h4);
                 //  width: 200px;
-                
                 align-self: flex-end;
-            }
-              
+                @include smlPad{
+                    @include btn($bp);
+                }
+                @include bigPhone{
+                    @include btn($mp);
+                }
+                @include smlPhone{
+                    @include btn($sp);
+                }
 
+            }
         }
 
         .info_second {
@@ -223,7 +259,6 @@
                                 font-size: 20px;
                                 padding: 9px;
                             }
-
                         }
                     }
 
@@ -312,23 +347,42 @@
         }
         .info_article{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
             text-align: center;
+            
+            @include smlPad{
+                flex-direction: column;
+                align-items: center;
+            }
             .aic_1,.aic_2,.aic_3{
                 position: relative;
-                
-                i{
-                    position: absolute;
-                    color: $red;
-                    top: 5px;
-                    right: 7px;
-                    cursor: pointer;
-                       
+                // border: 1px solid #fff;
+                @include smlPad{
+                    margin: 15px 0;
                 }
+                
+                .love_arc{
+                    img{
+                        position: absolute;
+                        width: 70px;
+                        top: 4px;
+                        right: 0px;
+                        cursor: pointer;
+                    }
+                }
+                
                 
                 img{
                     width: 300px;
                     cursor: pointer;
+                    @include bigPad{
+                        width: 250px;
+                    }
+                    @include smlPad{
+                        width: 300px;
+                    }
+
                 }
                 p{
                    color: $white; 
@@ -343,40 +397,49 @@
             margin-top: 100px;
             @include h2;
             color: $beige;
-
-
+        }
+        .info_achievement{
             width: 100%;
-            background-color: $blue2;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            text-align: center;
+           
 
-
-            img{
-                width: 100px;
-                margin: 10px 25px;
+            .big_a{
+                background-color: $blue2;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                
+                img{
+                    width: 100px;
+                    margin: 10px 25px;
+                    @include smlPhone{
+                        width: 80px;
+                    }
+                }
             }
 
-
-            
             .little_a{
-                padding: 50px;
                 margin-top: 50px;
+                padding: 50px;
                 width: 100%;
                 background-color: $blue2;
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
+                @include smlPhone{
+                    padding: 25px;
+                }
 
                 img{
                     width: 100px;
                     margin: 10px 25px;
+                    @include smlPhone{
+                        width: 60px;
+                    }
                 }
-            }    
-        } 
-        
-            
+            }             
+        }     
     }      
-
 }
+
+
+

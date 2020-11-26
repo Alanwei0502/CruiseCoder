@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cruise Coders</title>
+  <title>Cruise Coders ｜ CC點數</title>
   <link rel="stylesheet" href="../css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     include('layout/header.php');
     ?>
   
-    <main>
+    <main class="cc_main">
 
       <div class="noticeGroup">
         <div class="ccNotice">
@@ -144,24 +144,27 @@
               </ul>
             </div>
 
-            <div>好康會不定期更新，敬請期待！</div>
+            <div class="square_words"><img src="../images/ccPoint/2x/資產 6@2x.png" alt=""></div>
 
-            <div><img  class="save_jan_img" src="../images/ccPoint/資產 4.svg" alt=""></div>
+            <div class="save_janDiv"><img  class="save_jan_img" src="../images/ccPoint/資產 4.svg" alt=""></div>
 
 
 
           </div>
           
           <div class="tab tab3">
-              每日登入簽到即可獲得CC Point， 持續登入能獲得的CC Point更多唷！
-            <p>讓學習變成你的習慣
+            <div class="tab3_fw">
+            每日登入簽到即可獲得CC Point， 持續登入能獲得的CC Point更多唷！
+            </div>
+          
+            <p>讓學習變成你的習慣！<br>
               Cruise Coders助你一臂之力！
             </p>
 
             <div>
               <ul>
-                <li><i class="fas fa-circle"></i>累積 100 CC Point，可以折抵 NT$1</li>
-                <li><i class="fas fa-circle"></i>累積的 CC Point 可在下一次結帳時折抵 Cruise Coders 站內所有課程</li>
+                <li><i class="fas fa-circle"></i>&emsp;累積 100 CC Point，可以折抵 NT$1</li>
+                <li><i class="fas fa-circle"></i>&emsp;累積的 CC Point 可在下一次結帳時折抵 Cruise Coders 站內所有課程</li>
               </ul>
             </div>
            
@@ -235,5 +238,7 @@
 
 
   </script>
+  <script src="../js/header.js"> </script>
+
 </body>
 </html>
