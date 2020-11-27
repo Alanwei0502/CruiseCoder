@@ -133,7 +133,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>想請教老師此堂課程有沒有參考書籍可以購買呢，因為我個人學習習慣是線上課程搭配對應書籍</p>
+                    <p>清楚分析，淺顯易懂</p>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
-                    <p>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
+                    <p>蠻好的 對於有興趣進入此領域的人特別有幫助，都有很實質的建議.</p>
                   </div>
                 </div>
               </div>
