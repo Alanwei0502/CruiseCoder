@@ -105,7 +105,7 @@
     
 
     <div class="second_area">
-      <p class="ccHow"><關於 CC Point/></p>
+      <p class="ccHow">< 關於 CC Point /></p>
       <div class="tab_container">
   
         <div class="tab_list_block">

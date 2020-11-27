@@ -8,11 +8,16 @@
 
         .info_title{
             @include h2;
-            color: $white;
-            font-size: $h2;
-            border-bottom: $orange 10px solid;
-            width: 200px;  
-            
+            color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
         }
 
         .info_area{
@@ -24,7 +29,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                // border: 1px solid #fff;
+                
                    
             }    
         }
@@ -96,7 +101,6 @@
 
             img {
                 width: 30px;
-
             }
 
             @include laptop{
@@ -148,13 +152,14 @@
                         font-size: $mp;
                         
                     }  
-                    input{
+                    input.input{
                         border: none;
                         padding: 20px;
                         border-radius: 20px;
                         height: 35px;
                         width: 300px;
                         outline: none;
+                        font-size: $bp;
                         @include bigPhone{
                             height: 25px;
                             width: 200px;
@@ -188,11 +193,11 @@
             }
                 
             .sendBtn{
-                @include btn($h4);
+                @include btn($bp);
                 //  width: 200px;
                 align-self: flex-end;
                 @include smlPad{
-                    @include btn($bp);
+                    @include btn($mp);
                 }
                 @include bigPhone{
                     @include btn($mp);
@@ -206,24 +211,36 @@
 
         .info_second {
 
+            .course_title{
+                @include h2;
+                color: $beige;
+                @include smlPad{
+                    font-size: $h3;
+                }
+                @include bigPhone{
+                    font-size: $h4;
+                }
+                @include smlPhone{
+                    font-size: $bp;
+                }
 
+            }
             .course{
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
                 @include laptop{
                     width: 1000px;
-                    border: 1px solid #fff;
                     margin: 0 auto;
                 }
                 @include bigPad{
                     width: 800px;
-                    border: 1px solid #fff;
+                   
                     margin: 0 100px;
                 }
                 @include smlPad{
                     width: 100%;
-                    border: 1px solid #fff;
+                   
                     margin: 0 50px;
                 }
                 .wrapGeneral {
@@ -334,8 +351,6 @@
 
                 }
             }
-
-            
         }
     
         
@@ -343,7 +358,18 @@
         // ------ 收藏文章 -----
         .love_title{
             margin-top: 100px;
-            // margin-bottom: 50px;
+            @include h2;
+            color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
+           
         }
         .info_article{
             display: flex;
@@ -397,6 +423,15 @@
             margin-top: 100px;
             @include h2;
             color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
         }
         .info_achievement{
             width: 100%;
@@ -426,14 +461,14 @@
                 justify-content: center;
                 flex-wrap: wrap;
                 @include smlPhone{
-                    padding: 25px;
+                    padding: 20px;
                 }
 
                 img{
                     width: 100px;
                     margin: 10px 25px;
                     @include smlPhone{
-                        width: 60px;
+                        width: 70px;
                     }
                 }
             }             

@@ -27,6 +27,15 @@ $ccFontNum:  'Roboto Mono', monospace;
                 width: 250px;
                 margin-bottom: 50px;
             }
+            @include smlPhone{
+               
+                padding: 20px;
+                font-size: $sp;
+                width: 200px;
+
+            }
+
+            
             
     
             p{
@@ -56,6 +65,12 @@ $ccFontNum:  'Roboto Mono', monospace;
                 @include bigPad{
                     width: 400px;
                     font-size: $bp;
+                }
+                @include smlPhone{
+                    width: 350px;
+                    padding: 10px;
+                    font-size: $mp;
+
                 }
     
             }
@@ -135,6 +150,16 @@ $ccFontNum:  'Roboto Mono', monospace;
                 @include h2;
                 color: $beige;
                 
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
+                
             }
                  
             .tab_list{
@@ -144,13 +169,13 @@ $ccFontNum:  'Roboto Mono', monospace;
                 }
                 //576
                 @include bigPhone{
-                    width: 500px; 
-                    margin: 0 auto;                                 
+                    // width: 500px; 
+                    // margin: 0 auto;                                 
                 }
                 @include smlPhone{
                     // margin: 0 auto;
                     // align-items: center;
-                    justify-content: center;
+                    // justify-content: center;
                     
                 }
 
@@ -231,11 +256,11 @@ $ccFontNum:  'Roboto Mono', monospace;
                     background-color:#F7DA99;
                     p{
                         text-align: center;
-                        font-size: $h2;
+                        font-size: $h4;
                         font-weight: 600;
                          //768
                         @include smlPad{
-                        font-size: $h3;
+                        font-size: $bp;
                         }
                     }
                 }
@@ -255,7 +280,7 @@ $ccFontNum:  'Roboto Mono', monospace;
                     font-size: $bp;
                     padding-bottom: 100px;
                     @include smlPad{
-                        font-size: $mp;
+                        font-size: $sp;
                     }
                     span{
                         font-size: $bp*2;
@@ -314,10 +339,10 @@ $ccFontNum:  'Roboto Mono', monospace;
                             width: 500px;
                         }
                         @include bigPhone{
-                            width: 400px;
+                            width: 350px;
                         }
                         @include smlPhone{
-                            width: 350px;
+                            width: 300px;
                         }
         
                         ul{
@@ -373,6 +398,14 @@ $ccFontNum:  'Roboto Mono', monospace;
                         .save_jan_img{
                             opacity: .7;
                             width: 500px;
+                            @include bigPhone{
+                                width: 400px;
+                            }
+                            @include smlPhone{
+                                width: 300px;
+                                top: 250px;
+                            }
+
                         }
                     }
                     
@@ -443,6 +476,9 @@ $ccFontNum:  'Roboto Mono', monospace;
                                 @include smlPad{
                                     width: 150px;
                                 }
+                                @include smlPhone{
+                                    width: 100px;
+                                }
                             }   
                         }
                         .scale_100{
@@ -458,11 +494,19 @@ $ccFontNum:  'Roboto Mono', monospace;
                                 width: 180px;
                                 font-size: $h3;
                             }
+                            @include smlPhone{
+                                border: $orange 5px solid;
+                                width: 100px;
+                                font-size: $mp;
+                            }
                         }
                         .cc_girl{
                             width: 100px;
                             @include smlPad{
                                 width: 80px;
+                            }
+                            @include smlPhone{
+                                width: 50px;
                             }
                         }
 

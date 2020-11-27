@@ -54,29 +54,29 @@
                     <div class="info_card">
                         <form action="">
                             <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
-                            <label for="name1">姓名&ensp;:&ensp;
+                            <label>姓名&ensp;:&ensp;
 
-                                <input type="text" id="name1"  value="月野兔" disabled/>
+                                <input type="text"  class="input" value="月野兔" disabled/>
                             </label>
-                            <label for="account1">帳號&ensp;:&ensp;
+                            <label>帳號&ensp;:&ensp;
 
-                                <input type="text" id="account1" value="Fion1522" disabled/>
+                                <input type="text" class="input" value="Fion1522" disabled/>
                             </label>
-                            <label for="pwd">密碼&ensp;:&ensp;
+                            <label>密碼&ensp;:&ensp;
 
-                                <input type="password" id="pwd" value="info22"disabled/>
+                                <input type="password" class="input" value="info22"disabled/>
                             </label>
-                            <label for="birthday">生日&ensp;:&ensp;
+                            <label>生日&ensp;:&ensp;
 
-                                <input type="test" id="birthday" value="1994/01/22" disabled/>
+                                <input type="test" class="input" value="1994/01/22" disabled/>
                             </label>
-                            <label for="mobile">手機號碼&ensp;:&ensp;
+                            <label>手機號碼&ensp;:&ensp;
 
-                                <input name="phone" id="mobile" value="0927385834"pattern=’\d{4}[-]\d{6}’ disabled/>
+                                <input name="phone" class="input" value="0927385834"pattern=’\d{4}[-]\d{6}’ disabled/>
                             </label>
-                            <label for="mail">電子信箱&ensp;:&ensp;
+                            <label>電子信箱&ensp;:&ensp;
 
-                                <input type="email" id="mail" value="a6401433@g.pccu.edu.tw" name="email" disabled/>
+                                <input type="email" class="input" value="a6401433@g.pccu.edu.tw" name="email" disabled/>
                             </label> 
 
                             <div class="sendBtn">確認修改</div>
