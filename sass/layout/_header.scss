@@ -305,6 +305,16 @@ header {
 	div.headerLeft {
 		img.logo {
 			width: $fontSize*18.75;
+			@include bigPhone{
+				display: none;
+			} 
+		}
+		img.logo1{
+			display: none;
+			@include bigPhone{
+				width: $fontSize*5;
+				display: block;
+			} 
 		}
 
 		a {

@@ -55,6 +55,7 @@
   <div class="headerLeft">
     <a href="./index.php">
       <img class="logo" src="./../images/logoCruise.png" alt="圖片無法顯示">
+      <img class="logo1" src="./../images/logoCruise1.png" alt="圖片無法顯示">
     </a>
   </div>
   <div class="headerMiddle">
