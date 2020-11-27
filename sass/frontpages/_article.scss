@@ -6,7 +6,7 @@ div.article {
   main {
     height: 1000px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     overflow: hidden;
     img.astronaut1 {
       position: absolute;
@@ -52,7 +52,7 @@ div.article {
       width: 30px;
       top: 750px;
       right: -100px;
-      z-index: 0;
+      z-index: 1;
       animation: planet3 300s infinite;
     }
     img.planet4 {
@@ -60,7 +60,7 @@ div.article {
       width: 10px;
       top: 450px;
       left: 300px;
-      z-index: 0;
+      z-index: 1;
       animation: planet4 240s infinite cubic-bezier(0.86, 0.12, 0.95, 0.61);
     }
     img.bottomLayer {
@@ -74,8 +74,8 @@ div.article {
       position: absolute;
       top: 0;
       left: 50%;
-      z-index: 3;
-      transform: translateX(-50%);
+      z-index: 5;
+      transform: translateX(-50%) translateZ(100px);
       width: 1200px;
       @include laptop {
         width: 900px;
@@ -141,6 +141,7 @@ div.article {
         width: 100%;
         position: relative;
         z-index: 5;
+        overflow: hidden;
         img {
           width: 100%;
           @include laptop {
@@ -413,7 +414,7 @@ div.article {
       position: absolute;
       left: 3%;
       bottom: 20%;
-      z-index: 3;
+      z-index: 6;
       opacity: 1;
       animation: upDown 5s infinite linear;
       transition: all 1s;
@@ -451,7 +452,7 @@ div.article {
       position: absolute;
       right: 4%;
       bottom: 17%;
-      z-index: 3;
+      z-index: 6;
       opacity: 1;
       transition: all 1s;
       img.radarBackImage {
