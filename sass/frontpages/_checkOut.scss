@@ -571,8 +571,8 @@
                         width: 90px;
                         margin-right: 10px;
 
-                        @include bigPhone{
-                        width: 70px;
+                        @include bigPhone {
+                            width: 70px;
 
                             font-size: $mp;
 
@@ -616,7 +616,8 @@
                         @include bigPad {
                             font-size: $bp;
                         }
-                        @include bigPhone{
+
+                        @include bigPhone {
                             font-size: $mp;
 
                         }
@@ -673,32 +674,34 @@
                     input {
                         @include paymentInput;
                         width: 90px;
-                        @include bigPhone{
+
+                        @include bigPhone {
                             font-size: $mp;
 
                         }
 
                     }
                 }
+
+                button {
+                    float: right;
+                    margin-right: 30px;
+                    @include btn($h4);
+
+                    @include smlPad {
+                        @include btn($bp);
+                    }
+
+                    @include bigPhone {
+                        @include btn($mp);
+                    }
+
+                    @include smlPhone {
+                        @include btn($sp);
+                    }
+                }
             }
 
-            button {
-                float: right;
-                margin-right: 30px;
-                @include btn($h4);
-
-                @include smlPad {
-                    @include btn($bp);
-                }
-
-                @include bigPhone {
-                    @include btn($mp);
-                }
-
-                @include smlPhone {
-                    @include btn($sp);
-                }
-            }
         }
     }
 }
