@@ -59,7 +59,7 @@
       </section>
       <section id="class-detail">
         <ul class="tab">
-          <li class="active"><a href="#class">課程資訊</a></li>
+          <li class="active"><a href="#class" style:display:flex;display: block;justify-content: center;align-items:center;>課程資訊</a></li>
           <li><a href="#score">課程評價</a></li>
           <li><a href="#qa">留言發問</a></li>
         </ul>
@@ -249,6 +249,7 @@
     include('layout/footer.php');
     ?>
     <script src="../js/galaxy.js"></script>
+    <script src="../js/header.js"></script>
     <!-- <script src="../js/app.min.js"></script> -->
     <script>
       var class_ajax = {

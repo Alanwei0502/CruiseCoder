@@ -219,7 +219,7 @@
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
-                    <p>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
+                    <p>請問完全沒有程式語言基礎的人適合本課程嗎？。</p>
                   </div>
                 </div>
               </div>
@@ -242,6 +242,7 @@
     include('layout/footer.php');
     ?>
     <script src="../js/galaxy.js"></script>
+    <script src="../js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script>
       $(function(){
