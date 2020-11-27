@@ -127,7 +127,6 @@
                         <label class="text">
                             * 有效日期
                         </label>
-
                         <select>
                             <option value="">1</option>
                             <option value="">2</option>
@@ -159,8 +158,8 @@
                         </label>
                         <input type="text">
                     </div>
+                    <button type="submit">確認並送出</button>
                 </form>
-                <button>確認並送出</button>
             </div>
 
         </main>
