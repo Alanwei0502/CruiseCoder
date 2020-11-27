@@ -1,225 +1,510 @@
 $bdr: 20px;
-$ccFontNum:  'Roboto Mono', monospace;
-.ccPoint{
-    main{
-        width: 1200px;
+$ccFontNum: 'Roboto Mono',
+monospace;
+
+.ccPoint {
+    width: 100%;
+
+    .cc_main {
+        max-width: 1200px;
         margin: 0 auto;
-        // border: #8b7474 1px solid;
-        .noticeGroup{
+
+        .noticeGroup {
             margin-top: 50px;
             display: flex;
             justify-content: space-around;
-            align-items:center;
-            
-        }
-        
-        .ccNotice{
-            background-color: $beige;
-            width: 250px;
-            padding: 30px;
-            line-height: 25px;
-    
-            p{
-                text-align: center;
+            align-items: center;
+
+
+            //768
+            @include smlPad {
+                flex-direction: column;
             }
         }
-    
-        .getNotice{
-            p{
-                width: 400px;
+
+        .ccNotice {
+            background-color: $beige;
+            width: 300px;
+            padding: 30px;
+
+            @include laptop {
+                width: 250px;
+                margin-bottom: 50px;
+            }
+
+
+            p {
+                text-align: center;
+                font-size: $h4;
+
+                @include laptop {
+                    font-size: $bp;
+                }
+
+            }
+        }
+
+        .getNotice {
+            p {
+                width: 550px;
                 padding: 15px;
                 border-radius: $bdr;
                 border: $orange solid 6px;
                 background-color: $blue2;
                 text-align: center;
                 color: #fff;
-    
-            }
-        
-        }
-    
-        .ccPointDay{
+                font-size: $h3;
 
+                @include laptop {
+                    font-size: $h4;
+
+                }
+
+                @include bigPad {
+                    width: 400px;
+                    font-size: $bp;
+                }
+
+            }
+
+        }
+
+        .ccPointDay {
+            // border: solid 1px #fff;
             margin-top: 50px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             flex-wrap: wrap;
-            // border: solid 1px ;
-    
-            div{
-                >p{
-                    color: $white;
-                }
-                // border: solid 1px ;
+
+            @include laptop {
+                width: 1000px;
+                margin: 0 auto;
+            }
+
+            @include bigPad {
+                width: 100%;
+            }
+
+
+            div {
                 text-align: center;
-    
-                .countCoin{
+
+                @include bigPad {
+                    margin: 25px;
+                }
+
+                // @include smlPad{
+                //     margin: 50px 0;
+                // }
+
+                >p {
+                    color: $white;
+                    font-size: $bp;
+                    margin-bottom: 10px;
+
+                    @include smlPad {
+                        font-size: $mp;
+
+                    }
+
+                }
+
+
+                .countCoin {
                     font-family: $ccFontNum;
                     background-color: $orange;
                     padding: 10px;
                     border-radius: 5px;
                     color: $blue1;
-                    
+                    font-size: $mp;
+                    margin-top: 10px;
+
+                    @include smlPad {
+                        padding: 5px;
+                    }
+
                 }
-    
-                img{
+
+                img {
                     width: 80px;
                     padding: 10px;
-                        
+
+                    @include smlPad {
+                        width: 65px;
+
+                    }
+
                 }
-                
+
             }
-                
+
         }
 
-        
 
-
-    
-        .second_area{
+        .second_area {
             margin-top: 150px;
-            .ccHow{
+
+            .ccHow {
                 @include h2;
                 color: $beige;
-                // font-size: $h2;
-                // border-bottom: $orange 10px solid;
-                // width: 375px;
+
             }
-                 
-            
-            .tab_list{
-                >li{
+
+            .tab_list {
+                @include laptop {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                //576
+                @include bigPhone {
+                    width: 500px;
+                    margin: 0 auto;
+                }
+
+                @include smlPhone {
+                    // margin: 0 auto;
+                    // align-items: center;
+                    justify-content: center;
+
+                }
+
+                >li {
                     display: inline-block;
-                    background-color:#F4F4F4;
-                    padding: 10px 30px;
-                    border-radius: 5px 5px 0 0;
+                    background-color: #F4F4F4;
+                    padding: 20px 30px;
+                    border-radius: 20px 20px 0 0;
                     font-size: $h4;
-                    // .gg{
-                    //     background-color: rgb(207, 129, 129);
-                        
-                    // }
-            
-                    >a{
+
+                    @include smlPad {
+                        font-size: $mp;
+                    }
+
+                    //576
+                    @include bigPhone {
+                        font-size: $sp;
+
+                    }
+
+
+                    @include smlPhone {
+                        font-size: $sp;
+                        padding: 15px 20px;
+                    }
+
+                    >a {
                         text-decoration: none;
                         color: #707070;
-                        // background-color: #F4F4F4;
+
                     }
-                    
-                      
+
+
                 }
-                li.-on{
+
+                li.-on {
                     color: #0a91b3;
-                    background-color:#F7DA99;
-                    
+                    background-color: #F7DA99;
+
                 }
-               
+
             }
-            .tab_contents{
-                .tab{
+
+            .tab_contents {
+
+                .tab {
                     border-radius: 0 10px 10px 10px;
                     padding: 10px;
                     display: none;
                     color: #707070;
+
+                    @include laptop {
+                        width: 1000px;
+                        margin: 0 auto;
+                        border-radius: 10px 10px 10px 10px;
+
+                    }
+
+                    @include bigPad {
+                        width: 800px;
+                        border-radius: 10px 10px 10px 10px;
+                    }
+
+                    //768
+                    @include smlPad {
+                        width: 604px;
+
+                    }
+
+                    //576
+                    @include bigPhone {
+                        width: 500px;
+                    }
+
+                    //414
+                    @include smlPhone {
+                        width: 400px;
+                    }
                 }
-    
-                .tab1{
-                    background-color:#F7DA99;
-                    p{
+
+                .tab1 {
+                    background-color: #F7DA99;
+
+                    p {
                         text-align: center;
                         font-size: $h2;
+                        font-weight: 600;
+
+                        //768
+                        @include smlPad {
+                            font-size: $h3;
+                        }
                     }
                 }
-                .cc_coin_out{
+
+                .cc_coin_out {
                     display: flex;
-                   justify-content: flex-end;
-                   img{
-                       width: 130px;
-                   }
-                    
+                    justify-content: flex-end;
+
+                    img {
+                        width: 130px;
+
+                        @include smlPad {
+                            width: 80px;
+                        }
+
+                    }
+
                 }
-                .tabWords_1{
+
+                .tabWords_1 {
                     font-size: $bp;
                     padding-bottom: 100px;
-                    span{
-                    font-size: $bp*2;
-                    
+
+                    @include smlPad {
+                        font-size: $mp;
+                    }
+
+                    span {
+                        font-size: $bp*2;
+
+                        @include smlPad {
+                            font-size: $mp*2;
+                        }
+
                     }
                 }
-                
-                .pig{
+
+                .pig {
                     width: 250px;
+
+                    @include smlPad {
+                        width: 200px;
+                    }
                 }
-                .tab2_title{
-                    font-size: $bp;
-                    font-weight: 500;
-                    margin-bottom: 50px;
-                }
+
 
 
                 // ---- 第二個頁籤 ----
-                .tab2{
-                    .tab2_title{
+                .tab2_title {
+                    font-size: $bp;
+                    font-weight: 500;
+                    margin: 50px;
+                }
+
+                .tab2 {
+                    position: relative;
+
+                    .tab2_title {
                         text-align: center;
                         font-weight: 500;
+
+                        position: relative;
+                        z-index: 1;
                     }
-                    >p{
+
+                    >p {
                         text-align: center;
                     }
-                    
-                    .save_jan{
+
+                    .save_jan {
+                        z-index: 1;
+                        position: relative;
+                        opacity: .7;
+
                         background-color: #fff;
                         border-radius: 10px;
                         width: 950px;
-        
-                        ul{
+
+                        @include laptop {
+                            width: 800px;
+                        }
+
+                        @include bigPad {
+                            width: 750px;
+                            margin: 0 auto;
+                        }
+
+                        @include smlPad {
+                            width: 500px;
+                        }
+
+                        @include bigPhone {
+                            width: 400px;
+                        }
+
+                        @include smlPhone {
+                            width: 350px;
+                        }
+
+                        ul {
                             padding: 30px;
                             font-size: $h4;
-                            li{
+
+                            @include smlPad {
+                                padding: 20px;
+                            }
+
+                            @include bigPhone {
+                                padding: 10px;
+
+                            }
+
+                            li {
                                 line-height: 60px;
+
+                                @include laptop {
+                                    font-size: $bp;
+                                }
+
+                                @include bigPad {
+                                    font-size: $mp;
+                                }
+
+                                @include smlPad {
+                                    font-size: $sp;
+                                    line-height: 50px;
+                                }
+
+                                @include bigPhone {
+                                    line-height: 30px;
+                                }
+
+
                             }
                         }
                     }
-                    .save_jan_img{
-                        width: 500px;
-                        position: relative;
-                        left: 600px;
-                        
-                        
-                        
-                    }
 
-                }
-                
-    
-    
-    
-    
-                .tab3{
-                   font-size: $bp;
-                    >p{
-                        font-size: $mp;
-                    }
-                    >ul{
-                        font-size: $bp;
-                        >.fa-circle{
-                            color: $white!important;
-                           
+                    .square_words {
+
+                        z-index: 1;
+                        position: relative;
+                        margin: 100px 0;
+
+                        img {
+                            width: 550px;
+
+                            @include bigPhone {
+                                width: 400px;
+                            }
+
+                            @include smlPhone {
+                                width: 300px;
+                            }
                         }
                     }
-                    .cc_people{
+
+                    .save_janDiv {
+                        z-index: 0;
+                        position: absolute;
+                        top: 100px;
+                        right: 30px;
+
+                        .save_jan_img {
+                            opacity: .7;
+                            width: 500px;
+                        }
+                    }
+
+
+                }
+
+
+                .tab3 {
+                    font-size: $h4;
+
+                    .tab3_fw {
+                        margin: 50px 0;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+
+                    >p {
+                        font-size: $mp;
+
+                        margin-bottom: 50px;
+                        margin-left: 150px;
+                        font-style: italic;
+
+                        @include bigPhone {
+                            margin: 0 auto;
+                        }
+                    }
+
+                    ul {
+                        font-size: $bp;
+                        display: inline-block;
+                        margin: 0 150px;
+
+                        //768
+                        @include smlPad {
+                            display: inline;
+                            margin: 0px;
+                        }
+
+                        //576
+                        @include bigPhone {
+                            display: inline;
+
+                        }
+
+
+                        li {
+                            @include bigPad {
+                                font-size: $mp;
+                            }
+
+                            @include smlPad {
+                                font-size: $sp;
+                                width: 100%;
+
+                            }
+
+                            >.fa-circle {
+                                color: $white !important;
+                            }
+
+                        }
+
+                    }
+
+                    .cc_people {
                         margin-top: 50px;
                         display: flex;
                         justify-content: space-around;
-                        border: rgb(3, 44, 3) 1px solid;
 
-                        div{
-                            // border: palegreen 1px solid;
-                            .cc_boy{
+                        div {
+
+                            .cc_boy {
                                 width: 210px;
-                            }   
+
+                                @include smlPad {
+                                    width: 150px;
+                                }
+                            }
                         }
-                        .scale_100{
+
+                        .scale_100 {
                             border: $orange 15px solid;
                             width: 350px;
                             text-align: center;
@@ -228,40 +513,47 @@ $ccFontNum:  'Roboto Mono', monospace;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            p{
-                               
+
+                            @include smlPad {
+                                width: 180px;
+                                font-size: $h3;
                             }
                         }
-                        .cc_girl{
+
+                        .cc_girl {
                             width: 100px;
+
+                            @include smlPad {
+                                width: 80px;
+                            }
                         }
 
 
 
 
-                        
+
                     }
-                    
-    
-    
+
+
+
                 }
-                .-on{
+
+                .-on {
                     display: block;
-                    background-color:#F7DA99;
+                    background-color: #F7DA99;
                     font-size: 25px;
                     line-height: 40px;
-                    padding: 30px;
-                    
-                    
-                
+                    padding: 50px;
+
+                    @include bigPad {
+                        padding: 30px;
+                    }
+
                 }
-           }                  
-                                        
+            }
+
         }
 
     }
-    
+
 }
-
-
-

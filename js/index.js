@@ -31,7 +31,7 @@ $(document).ready(function() {
     };
 
     setInterval(function(){
-        if($('.skw-page-5').is('.active')){
+        if($('.skw-page-3').is('.active')){
             var readyMove = $('.skw-page')
             for(let i = 0; i < readyMove.length; i++){
                 readyMove[i].classList.remove('active');
@@ -131,6 +131,8 @@ $(document).ready(function() {
         // $('#text3').css('display','none'); 
         $('#text3').css('display','block'); 
     });
+
+    $('.highcharts-label text').css('font-size','15px')
     // 圓餅圖套件結束
 
 

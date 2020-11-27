@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宇宙漫遊</title>
+    <title>Cruise Coders | 購物車</title>
     <link rel="stylesheet" href="./../css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
@@ -22,33 +22,51 @@
         ?>
         <main>
             <h2>
-                < 結帳頁面 />
+                < 購物車 />
             </h2>
-            <section class="block"></section>
-            <section class="line"></section>
             <h3>購買列表</h3>
             <div class="shoppingList">
                 <div class="course">
                     <div class="top">
-                        <div class="title">
-                            <p class="courseTitle">課程名稱</p>
-                            <p class="courseName">一變應萬變：RWD 響應式網頁設計</p>
+                        <div class="left">
+                            <div class="course_Img">
+                                <a href="course_start_class.php">
+                                    <img src="../images/allCourse/course01.png" alt="">
+                                </a>
+                            </div>
+                            <div class="title">
+                                <a href="course_start_class.php">
+                                    一變應萬變：RWD 響應式網頁設計讓你變高手
+                                </a>
+                            </div>
                         </div>
                         <a href=""><i class="far fa-times-circle close"></i></a>
                     </div>
-                    <p class="type">已開課</p>
-                    <p class="price">NT,1200</p>
+                    <div class="bottom">
+                        <p class="type">已開課</p>
+                        <p class="price">NT,1200</p>
+                    </div>
                 </div>
                 <div class="course">
                     <div class="top">
-                        <div class="title">
-                            <p class="courseTitle">課程名稱</p>
-                            <p class="courseName">張老闆帶你飛</p>
+                        <div class="left">
+                            <div class="course_Img">
+                                <a href="course_Fundraising.php">
+                                    <img src="../images/allCourse/course01.png" alt="">
+                                </a>
+                            </div>
+                            <div class="title">
+                                <a href="course_Fundraising.php">
+                                    Alan Wei Wei 讓你變CSS高手
+                                </a>
+                            </div>
                         </div>
                         <a href=""><i class="far fa-times-circle close"></i></a>
                     </div>
-                    <p class="type">已開課</p>
-                    <p class="price">NT,1200</p>
+                    <div class="bottom">
+                        <p class="type">募資中</p>
+                        <p class="price">NT,1200</p>
+                    </div>
                 </div>
             </div>
             <div class="price">
@@ -150,6 +168,7 @@
         include 'layout/footer.php';
         ?>
         <script src="../js/checkOut.js"></script>
+        <script src="../js/header.js"></script>
 
     </div>
 </body>
