@@ -443,7 +443,11 @@
                         <div class="imgWarp"><img src="./../images/tutorial/room2.jpg" width="100%"></div>
                     </div>
                     <div class="rightBlock">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptates exercitationem tenetur saepe adipisci, hic totam quibusdam unde soluta sed facere repudiandae obcaecati necessitatibus ipsa provident deleniti doloremque cumque aliquam!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptates exercitationem tenetur saepe adipisci, hic totam quibusdam unde soluta sed facere repudiandae obcaecati </p>
+                        <p>
+                            我們有專屬於學員的學習空間，只要您有購買我們的課程，即可在該課的輔導時間，申請預約。<br><br>
+                            我們的老師，有的曾是業界裡頭的翹楚，程式端的權威，資歷超過十年，有的則是授課經驗豐富，深受同學們的喜愛。<br><br>
+                            該門課的老師都會在現場，如果您有任何程式語言上的困難、或是對於課程中有問題，都可以利用預約我們學習空間，在現場直接向老師詢問，幫您解決問題。
+                        </p>
                     </div>
                 </div>
                 <div class="roomCenter">
