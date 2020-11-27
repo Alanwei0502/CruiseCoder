@@ -31,9 +31,18 @@ monospace;
                 width: 250px;
                 margin-bottom: 50px;
             }
+            @include smlPhone{
+               
+                padding: 20px;
+                font-size: $sp;
+                width: 200px;
 
+            }
 
-            p {
+            
+            
+    
+            p{
                 text-align: center;
                 font-size: $h4;
 
@@ -64,7 +73,13 @@ monospace;
                     width: 400px;
                     font-size: $bp;
                 }
+                @include smlPhone{
+                    width: 350px;
+                    padding: 10px;
+                    font-size: $mp;
 
+                }
+    
             }
 
         }
@@ -148,7 +163,17 @@ monospace;
             .ccHow {
                 @include h2;
                 color: $beige;
-
+                
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
+                
             }
 
             .tab_list {
@@ -158,16 +183,16 @@ monospace;
                 }
 
                 //576
-                @include bigPhone {
-                    width: 500px;
-                    margin: 0 auto;
+                @include bigPhone{
+                    // width: 500px; 
+                    // margin: 0 auto;                                 
                 }
 
                 @include smlPhone {
                     // margin: 0 auto;
                     // align-items: center;
-                    justify-content: center;
-
+                    // justify-content: center;
+                    
                 }
 
                 >li {
@@ -252,12 +277,11 @@ monospace;
 
                     p {
                         text-align: center;
-                        font-size: $h2;
+                        font-size: $h4;
                         font-weight: 600;
-
-                        //768
-                        @include smlPad {
-                            font-size: $h3;
+                         //768
+                        @include smlPad{
+                        font-size: $bp;
                         }
                     }
                 }
@@ -280,9 +304,8 @@ monospace;
                 .tabWords_1 {
                     font-size: $bp;
                     padding-bottom: 100px;
-
-                    @include smlPad {
-                        font-size: $mp;
+                    @include smlPad{
+                        font-size: $sp;
                     }
 
                     span {
@@ -348,13 +371,11 @@ monospace;
                         @include smlPad {
                             width: 500px;
                         }
-
-                        @include bigPhone {
-                            width: 400px;
-                        }
-
-                        @include smlPhone {
+                        @include bigPhone{
                             width: 350px;
+                        }
+                        @include smlPhone{
+                            width: 300px;
                         }
 
                         ul {
@@ -423,6 +444,14 @@ monospace;
                         .save_jan_img {
                             opacity: .7;
                             width: 500px;
+                            @include bigPhone{
+                                width: 400px;
+                            }
+                            @include smlPhone{
+                                width: 300px;
+                                top: 250px;
+                            }
+
                         }
                     }
 
@@ -501,7 +530,10 @@ monospace;
                                 @include smlPad {
                                     width: 150px;
                                 }
-                            }
+                                @include smlPhone{
+                                    width: 100px;
+                                }
+                            }   
                         }
 
                         .scale_100 {
@@ -518,6 +550,11 @@ monospace;
                                 width: 180px;
                                 font-size: $h3;
                             }
+                            @include smlPhone{
+                                border: $orange 5px solid;
+                                width: 100px;
+                                font-size: $mp;
+                            }
                         }
 
                         .cc_girl {
@@ -525,6 +562,9 @@ monospace;
 
                             @include smlPad {
                                 width: 80px;
+                            }
+                            @include smlPhone{
+                                width: 50px;
                             }
                         }
 

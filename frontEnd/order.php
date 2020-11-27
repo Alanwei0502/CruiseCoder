@@ -17,83 +17,197 @@
     include('layout/spacebackground.php');
     include('layout/header.php');
     ?>
-        <main>
-            <p><訂單資訊/></p>
+
+        <main class="orderMain">
+        <p class="order_title"> < 訂單資訊 /> </p>
             <div class="orderArea">
-          
-                
-
                 <div class="accordion">
-                            <!------- 第一張訂單明細 ------->              
-                    <div class="option">
-                        <input type="checkbox" id="toggle1" class="toggle"/>
-                        <label class="title" for="toggle1">
-                            <div class="Order_1">
+                    <!------- 第一張訂單明細 ------->              
+                    <div class="option option_1">
+                        <input type="checkbox" id="toggle1" class="toggle"/><label class="title" for="toggle1">
+                                <div class="Order_1">
                                 <div><img src="../images/order/computer.jpeg" alt=""></div>
-                                <div>
-                                    <ul>
-                                        <li>HTML快速入門-張老闆帶你飛</li>
-                                        <li>HTML快速入門-張老闆帶你飛</li>
-                                        <li>JavaScript快速入門-張老闆帶你滾</li>
-                                    </ul>
+                                    <div>
+                                        <p>訂單編號：202006072235</p>
+                                    </div>
+                                    <div>
+                                        <p>NT$2,400</p>
+                                    </div>
+                                    <!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
                                 </div>
-                                <div>
-                                    <p>訂單編號：202006072235</p>
-                                    <p>NT$2,400</p>
-                                </div>
-                                <!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
-                            </div>
                         </label>
-                    </div>
-                            <!------- 下方收合明細 ------->
-                    <div class="content">
-                        <table>
-                            <tr>
-                                <th>課程名稱</th>
-                                <th>折抵</th>
-                                <th>售價</th>
-                                <th>卡號末四碼</th>
-                                <th>訂單成立</th>    
-                            </tr>
-                            <tr>
-                                <td >HTML快速入門-張老闆帶你飛</td> 
-                                <td>CC Point折抵：NT$100</td> 
-                                <td>NT$2,500</td>
-                                <td>卡號末四碼：6969</td> 
-                                <td>訂單成立：2020-06-07 22:35</td>
-                            </tr>
-                            <tr>
-                            <td>HTML快速入門-張老闆帶你飛</td>
-                            <td></td>  
-                            <td></td>
-                            <td></td>
+                                                <!------- 下方收合明細 ------->
+                        <div class="content">
+                            <table>
+                                <tr>
+                                        <th>課程名稱</th>
+                                        <th>折抵</th>
+                                        <th>售價</th>
+                                        <th>卡號末四碼</th>
+                                        <th>訂單成立</th>    
+                                </tr>
+                                <tr>
+                                        <td >HTML快速入門-張老闆帶你飛</td> 
+                                        <td>CC Point折抵：NT$100</td> 
+                                        <td>NT$2,500</td>
+                                        <td>卡號末四碼：6969</td> 
+                                        <td>訂單成立：2020-06-07 22:35</td>
+                                </tr>
+                                <tr>
+                                    <td>職人必修的 RWD 網頁入門班</td>      
+                                </tr>
+                                <tr>
+                                    <td>Node.js 網站開發 with React.js</td>      
+                                </tr>
 
-                            
-                            </tr>
-                            <tr>
-                            <td>HTML快速入門-張老闆帶你飛</td>    
-                            <td>NT$1,280</td>  
-                            </tr>
+                            </table>
+                        </div>
+                    </div>  
 
-                        </table>
-                    </div>
-                </div>
+                    <!-- 2 -->
 
-                
-                           
+                    <div class="option option_2">
+                        <input type="checkbox" id="toggle2" class="toggle"/><label class="title" for="toggle2">
+                                <div class="Order_2">
+                                    <div><img src="../images/order/computer.jpeg" alt=""></div>
+                                    <div>
+                                        <p>訂單編號：202006072235</p>
+                                    </div>
+                                    <div>
+                                        
+                                        <p>NT$2,400</p>
+                                    </div>
+                                    <!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
+                                </div>
+                        </label>
+                                                <!------- 下方收合明細 ------->
+                        <div class="content">
+                            <table>
+                                <tr>
+                                        <th>課程名稱</th>
+                                        <th>折抵</th>
+                                        <th>售價</th>
+                                        <th>卡號末四碼</th>
+                                        <th>訂單成立</th>    
+                                </tr>
+                                <tr>
+                                        <td >HTML快速入門-張老闆帶你飛</td> 
+                                        <td>CC Point折抵：NT$100</td> 
+                                        <td>NT$2,500</td>
+                                        <td>卡號末四碼：6969</td> 
+                                        <td>訂單成立：2020-06-07 22:35</td>
+                                </tr>
+                                <tr>
+                                    <td>職人必修的 RWD 網頁入門班</td>      
+                                </tr>
+                                <tr>
+                                    <td>Node.js 網站開發 with React.js</td>      
+                                </tr>
 
-<!------- 逛逛課程按鈕 ------->
-    
+                            </table>
+                        </div>
+                    </div>  
 
+                    <!-- 3 -->
+
+                    <div class="option option_3">
+                        <input type="checkbox" id="toggle3" class="toggle"/><label class="title" for="toggle3">
+                                <div class="Order_3">
+                                <div><img src="../images/order/computer.jpeg" alt=""></div>
+                                    <div>
+                                        <p>訂單編號：202006072235</p>
+                                    </div>
+                                    <div>
+                                        <!-- <p>訂單編號：202006072235</p> -->
+                                        <p>NT$2,400</p>
+                                    </div>
+                                    <!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
+                                </div>
+                        </label>
+                                                <!------- 下方收合明細 ------->
+                        <div class="content">
+                            <table>
+                                <tr>
+                                        <th>課程名稱</th>
+                                        <th>折抵</th>
+                                        <th>售價</th>
+                                        <th>卡號末四碼</th>
+                                        <th>訂單成立</th>    
+                                </tr>
+                                <tr>
+                                        <td >HTML快速入門-張老闆帶你飛</td> 
+                                        <td>CC Point折抵：NT$100</td> 
+                                        <td>NT$2,500</td>
+                                        <td>卡號末四碼：6969</td> 
+                                        <td>訂單成立：2020-06-07 22:35</td>
+                                </tr>
+                                <tr>
+                                    <td>職人必修的 RWD 網頁入門班</td>      
+                                </tr>
+                                <tr>
+                                    <td>Node.js 網站開發 with React.js</td>      
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>  
+
+                    <!-- 4 -->
+
+
+                    <div class="option option_4">
+                        <input type="checkbox" id="toggle4" class="toggle"/><label class="title" for="toggle4">
+                                <div class="Order_4">
+                                <div><img src="../images/order/computer.jpeg" alt=""></div>
+                                    <div>
+                                        <p>訂單編號：202006072235</p>
+                                    </div>
+                                    <div>
+                                        <!-- <p>訂單編號：202006072235</p> -->
+                                        <p>NT$2,400</p>
+                                    </div>
+                                    <!-- <i class="fas fa-chevron-circle-up fa-2x"></i> -->
+                                </div>
+                        </label>
+                                                <!------- 下方收合明細 ------->
+                        <div class="content">
+                            <table>
+                                <tr>
+                                        <th>課程名稱</th>
+                                        <th>折抵</th>
+                                        <th>售價</th>
+                                        <th>卡號末四碼</th>
+                                        <th>訂單成立</th>    
+                                </tr>
+                                <tr>
+                                        <td >HTML快速入門-張老闆帶你飛</td> 
+                                        <td>CC Point折抵：NT$100</td> 
+                                        <td>NT$2,500</td>
+                                        <td>卡號末四碼：6969</td> 
+                                        <td>訂單成立：2020-06-07 22:35</td>
+                                </tr>
+                                <tr>
+                                    <td>職人必修的 RWD 網頁入門班</td>      
+                                </tr>
+                                <tr>
+                                    <td>Node.js 網站開發 with React.js</td>      
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>  
+
+                <!-- acc結束 -->
+                </div> 
+                   
             </div>
-        
-            <div class="newCouseBtn">逛逛最新課程</div>
-
         </main>
-    <?php
-    include('layout/footer.php');
-    ?>
+        <?php
+        include('layout/footer.php');
+        ?>
     </div>
+   
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="../js/header.js"> </script>
