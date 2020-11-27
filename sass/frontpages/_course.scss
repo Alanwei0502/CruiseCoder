@@ -626,6 +626,7 @@
 		}
 		#class-detail {
 			padding-bottom: 250px;
+
 			position: relative;
 			z-index: 2;
 			@include laptop {
@@ -637,6 +638,7 @@
 			@include bigPhone {
 				padding-bottom: 30px;
 			}
+
 			.tab {
 				display: flex;
 				margin-bottom: 200px;
