@@ -21,12 +21,16 @@
     include('layout/sideBar.php'); //aside
     ?>
 
-<main>
+    <main>
       <h2>專欄管理</h2>
       <div class="searchContent">
         <div class="upLoadTime">
           <label>上架日期</label>
-          <input type="text" id="datepicker1" readonly="true">
+          <div class="dateRange">
+            <input type="text" id="datepicker1" readonly="true">
+            <p>至</p>
+            <input type="text" id="datepicker2" >
+          </div>
         </div>
         <div class="status">
           <label>狀態</label>
@@ -108,6 +112,7 @@
                   <p class="pFileName"></p>
                   <button type="button"></button>
                 </div>
+                <p class="imagesPrompt">圖片比例依寬度(高度 > 寬度則<span>1:1</span>壓縮)<br>圖片檔案格式應為: <span>JPEG、PNG、GIF</span></p>
               </div>
               <div class="articleImageOutline">
                 <div class="articleImage"></div>
@@ -138,6 +143,7 @@
                   <p class="pFileName"></p>
                   <button></button>
                 </div>
+                <p class="imagesPrompt">圖片比例依寬度(高度 > 寬度則<span>1:1</span>壓縮)<br>圖片檔案格式應為: <span>JPEG、PNG、GIF</span></p>
                 <label>狀態</label>
                 <select>
                   <option value="1" selected>上架</option>

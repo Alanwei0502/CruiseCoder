@@ -59,6 +59,15 @@ div.article{
               div.fileStyle{
                 @include inputFileStyle;
               }
+              p.imagesPrompt{
+                font-size: $sp;
+                margin-top: 20px;
+                float: right;
+                line-height: 20px;
+                span{
+                  color: $red;
+                }
+              }
             }
             div.articleImageOutline{
               border: 1px solid gray;
@@ -92,6 +101,7 @@ div.article{
               height: 500px;
               resize: none;
             }
+            
           }
         }
         img.cancelBack{
@@ -173,6 +183,15 @@ div.article{
                 @include selectStyle;
                 width: 374px;
               }
+              p.imagesPrompt{
+                font-size: $sp;
+                margin-top: 10px;
+                float: right;
+                line-height: 20px;
+                span{
+                  color: $red;
+                }
+              }
             }
             div.articleImageOutline{
               border: 1px solid gray;
@@ -236,8 +255,20 @@ div.article{
       div.upLoadTime{
         display: inline-block;
         margin-bottom: 20px;
-        input{
-          @include datepickerStyle;
+        div.dateRange{
+          display: flex;
+          input{
+            @include datepickerStyle;
+            width: 200px;
+            &:first-child{
+              margin-right: 15px;
+            }
+          }
+          p{
+            font-size: $mp;
+            line-height: 40px;
+            margin-right: 15px;
+          }
         }
       }
       div.status{
