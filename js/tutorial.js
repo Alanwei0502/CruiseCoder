@@ -68,7 +68,7 @@ function renderDate(date, calendarDate){
   let courseName = document.createElement("p");
   courseName.className = "courseName";
   teacherName.textContent ="黃語昕";
-  courseName.textContent ="JavaScritp";
+  courseName.textContent ="JavaScript";
 
   let smallPoint = document.createElement("div");
   smallPoint.className = "smallPoint";

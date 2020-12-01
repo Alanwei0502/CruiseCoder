@@ -21,12 +21,16 @@
     include('layout/sideBar.php'); 
     ?>  
 
-<main>
+    <main>
       <h2>預約管理</h2>
       <div class="reservationContent">
         <div class="reservationTime">
           <label>課輔時間</label>
-          <input type="text" id="datepicker1" readonly="true">
+          <div class="dateRange">
+            <input type="text" id="datepicker1" readonly="true">
+            <p>至</p>
+            <input type="text" id="datepicker2">
+          </div>
         </div>
         <div class="course">
           <label>課程</label>
@@ -116,7 +120,7 @@
             <div>
               <label>課輔日期</label>
               <input type="text" id="deadline" value="23:59:59">
-              <input type="text" id="datepicker2" readonly="true">
+              <input type="text" id="datepicker3" readonly="true">
             </div>
             <div>
               <label>課程</label>
@@ -149,7 +153,7 @@
           <form action="" class="editForm">
             <div class="data">
               <label>課輔日期</label>
-              <input type="text" id="datepicker3" readonly="true">
+              <input type="text" id="datepicker4" readonly="true">
               <label>課程</label>
               <select name="courseType">
                 <option value="1">JavaScript</option>

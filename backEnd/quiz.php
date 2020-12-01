@@ -25,9 +25,14 @@
         <div>
           <label>領域
             <select>
-              <option value="1">html</option>
-              <option value="2">css</option>
-              <option value="3">Javascript</option>
+              <option value="html">html</option>
+              <option value="css">css</option>
+              <option value="javascript">Javascript</option>
+              <option value="jquery">jQuery</option>
+              <option value="sass">SASS</option>
+              <option value="mysql">MySQL</option>
+              <option value="php">PHP</option>
+              <option value="vue">Vue</option>
             </select>
           </label>
 
@@ -108,7 +113,24 @@
             <form action="quiz.php" method="get">
               <div>
                 <span>領域</span>
+                <select class="quizField">
+                  <option value="" selected>請選擇領域</option>
+                  <option value="html">html</option>
+                  <option value="css">css</option>
+                  <option value="javascript">javascript</option>
+                  <option value="jquery">jquery</option>
+                  <option value="sass">sass</option>
+                  <option value="mysql">mysql</option>
+                  <option value="php">php</option>
+                  <option value="vue">vue</option>
+                  <option value="create" class="createField">新增領域</option>
+                </select>
                 <input type="text" class="newField" placeholder="請輸入新增的領域名稱">
+              </div>
+
+              <div class="galaxyImg">
+                <span>星系徽章</span>
+                <input type="file" accept="image/*">
               </div>
 
               <div>
@@ -121,8 +143,8 @@
                 </select>
               </div>
 
-              <div>
-                <span>徽章圖案</span>
+              <div class="planetImg">
+                <span>星球關卡徽章</span>
                 <input type="file" accept="image/*">
               </div>
 
