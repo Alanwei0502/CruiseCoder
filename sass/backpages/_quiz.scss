@@ -157,22 +157,25 @@ div.quiz {
                         >span {
                             font-size: $bp;
                             display: inline-block;
-                            width: 120px;
+                            width: 180px;
                             white-space: nowrap;
                         }
-
+                        .quizField{
+                            @include selectStyle;
+                            margin-right: $fontSize;
+                        }
+                        .newField{
+                            display: none;
+                        }
                         .quizLevel {
                             @include selectStyle;
                         }
-
                         .newField {
                             @include inputTextStyle;
                         }
-
                         input[type=file] {
                             @include uploadImg;
                         }
-
                         .topFunction {
                             background-color: $blue1;
                             border-radius: 30px 30px 0 0;
