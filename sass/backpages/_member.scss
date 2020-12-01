@@ -1,0 +1,341 @@
+div.member{
+    main{
+        h2 {
+			@include backTitle;
+        }
+        .searchbar {
+            @include blockStyle;
+            position: relative;
+			.account_select{
+                margin-bottom: 20px;
+                display: inline-block;
+				label {
+					font-size: $mp;
+                    display: block;
+                    margin-right: 30px;
+                }    
+                
+                input{
+                    @include inputTextStyle;
+                    margin: 0 10px;
+                }
+
+            }
+            
+			button {
+				@include backBtn;
+                white-space: nowrap;
+                position: absolute;
+                right: 30px;
+                bottom: 15px;
+                
+            }
+            
+            .memberPower{
+                display: inline-block;
+                label{
+                    font-size: $mp;
+                    display: block;
+                }
+                
+                select{
+                    @include selectStyle;
+                    margin-right: 30px;
+                }
+            }
+            .poDate{
+                display: inline-block;
+                label{
+                    font-size: $mp;
+                    display: block;
+                }
+                input{
+                    @include datepickerStyle;
+                }
+                i{
+                    font-size: $bp;
+                    margin: 0 5px;
+                }
+            }
+
+        }        
+        .table {
+			table {
+				font-size: $bp;
+				width: 100%;
+				margin: 0 auto;
+				button {
+					@include editBtn;
+					cursor: pointer;
+                }
+                thead{
+					th {
+						font-weight: bold;
+						padding: $fontSize*1.5 0;
+                        text-align: center;
+                       
+                       
+					}
+                }
+                tbody{
+                    tr {
+                    width: 100%;
+                    
+					// label {
+					// 	cursor: pointer;
+                    // }
+                    &:nth-child(1){
+                        background-color: $beige;
+                    }
+                    &:nth-child(3){
+                        background-color: $beige;
+                    }
+                    &:nth-child(5){
+                        background-color: $beige;
+                    }
+
+					td {
+                        padding: $fontSize*1.5 0;
+                        font-size: $mp;
+                        text-align: center;
+                        
+                        
+					}
+                }
+				
+				}
+            }
+        }        
+        .changePage {
+            display: flex;
+            justify-content: flex-end;
+            .lastPage,
+            .nextPage {
+                @include changePage;
+                margin: $fontSize * 2;
+            }
+        }
+
+        .overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: hsla(0, 0%, 0%, .5);
+            opacity: 0;
+            z-index: -1;
+            transition: all 0.5s;
+            .outColor{
+                background-color: #fbf7eb;
+                width: 80%;
+                height: 95%;
+                max-width: 1200px;
+                border-radius: 10px;
+                padding: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: relative;
+
+
+                .closeBtn_{
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    img{
+                        width: $h2;
+                        top: $fontSize;
+                        right: $fontSize;
+                        cursor: pointer;
+                        display: flex;
+                        align-self: left;
+                    }
+                }
+                .weAreInside{
+                  
+                    overflow: scroll;
+                    position: relative;
+                    background-color: white;
+                    height: 100%;
+                    .accountArea{
+                        margin-top: 50px;
+                        padding: 0 20px;
+                        display: flex;
+                     
+                        .accountImg{
+                            border: 5px solid $orange;
+                            width: 200px;
+                            height: 200px;
+                            margin: 0 30px;
+                            img{
+                            width: 100%;
+                            height: 100%;
+                            }
+                        }
+    
+                        .rightInputArea{
+                            select{
+                                @include selectStyle;
+                            }
+                            input{
+                                @include inputTextStyle;
+                                margin: 10px 0;
+                            }
+                            label{
+                                font-size: $mp;
+                                margin-right: 30px;
+                            }
+                        }
+    
+                    }
+
+                    // badge table-------------
+                    .badge_table{
+                        table {
+                            font-size: $bp;
+                            width: 100%;
+                            margin: 0 auto;
+                            thead{
+                                tr{
+                                    background-color: $beige;
+
+                                }
+                                th {
+                                    font-weight: bold;
+                                    padding: $fontSize*1.5 0;
+                                    text-align: center;
+                                }
+                            }
+                            tbody{
+                                tr {
+                                width: 100%;
+                                
+                                &:nth-child(2){
+                                    background-color: $beige;
+                                }
+                                &:nth-child(4){
+                                    background-color: $beige;
+                                }
+                                &:nth-child(6){
+                                    background-color: $beige;
+                                }
+                                &:nth-child(8){
+                                    background-color: $beige;
+                                }
+                                
+                                td {
+                                    padding: $fontSize*1.5 0;
+                                    font-size: $mp;
+                                    text-align: center;
+                                }
+                            }
+                            
+                            }
+                        }
+                    }
+
+
+                    // order Detail table-------------
+                    .orderDetail_table{
+                        font-size: $bp;
+                        width: 100%;
+                        margin: 0 auto;
+                        table {
+                            font-size: $bp;
+                            width: 100%;
+                            margin: 0 auto;
+                            thead{
+                                tr{
+                                    background-color: $beige;
+
+                                }
+                                th {
+                                    font-weight: bold;
+                                    padding: $fontSize*1.5 0;
+                                    text-align: center;
+                                }
+                            }
+                            tbody{
+                                tr {
+                                width: 100%;
+                                
+                                &:nth-child(2){
+                                    background-color: $beige;
+                                }
+                                
+                                td {
+                                    padding: $fontSize*1.5 0;
+                                    font-size: $mp;
+                                    text-align: center;
+                                }
+                            }
+                            
+                            }
+                        }
+                    }
+
+                    // course Detail table-------------
+                    .courseDetail_table{
+                        font-size: $bp;
+                        width: 100%;
+                        margin: 0 auto;
+
+                        table {
+                            font-size: $bp;
+                            width: 100%;
+                            margin: 0 auto;
+                            thead{
+                                tr{
+                                    background-color: $beige;
+
+                                }
+                                th {
+                                    font-weight: bold;
+                                    padding: $fontSize*1.5 0;
+                                    text-align: center;
+                                    background-color: $beige;
+                                
+                                }
+                            }
+                            tbody{
+                                tr {
+                                width: 100%;
+                            
+                                &:nth-child(2){
+                                    background-color: $beige;
+                                }
+                                
+                                td {
+                                    padding: $fontSize*1.5 0;
+                                    font-size: $mp;
+                                    text-align: center;
+                                }
+                            }
+                            
+                            }
+                        }
+                    }
+            
+                }
+                .saveBtn{
+
+                    @include saveBtn;
+                    width: 50px;
+                    position: absolute;
+                    right: 10px;
+                    margin: 100px 0;
+                }
+
+            }
+            
+        }
+        div.overlay.-on{
+            opacity: 1;
+            z-index: 1;
+        }
+            
+        
+    }
+}

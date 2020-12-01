@@ -15,7 +15,6 @@ monospace;
             justify-content: space-around;
             align-items: center;
 
-
             //768
             @include smlPad {
                 flex-direction: column;
@@ -39,9 +38,7 @@ monospace;
 
             }
 
-            
-            
-    
+                
             p{
                 text-align: center;
                 font-size: $h4;
