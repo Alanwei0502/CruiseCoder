@@ -144,14 +144,14 @@
                 }
 
                 @include bigPhone {
-                    width: 300px;
+                    width: 400px;
                     padding: 20px;
 
                 }
 
-                @include smlPhone {
-                    width: 280px;
-                }
+                // @include smlPhone {
+                //     width: 300px;
+                // }
 
                 label {
                     padding: 10px;
@@ -160,6 +160,10 @@
                         font-size: $mp;
                         
                     }  
+                    @include smlPhone{
+                        font-size: $sp;
+
+                    }
                     input.input{
                         border: none;
                         padding: 20px;
@@ -171,6 +175,11 @@
                         @include bigPhone{
                             height: 25px;
                             width: 200px;
+                            font-size: $mp;
+                        }
+                        @include smlPhone{
+                            font-size: $sp;
+
                         }
                     }
                 }
@@ -183,7 +192,8 @@
 
                 img {
                     width: 30px;
-
+				    box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+        
                 }
             }
 
@@ -220,7 +230,7 @@
 
             }
         }
-
+                    // 第二部分（我的課程）
         .info_second {
 
             .course_title{
@@ -273,8 +283,8 @@
 						border-radius: 50%;
 						background-color: $white;
 						position: absolute;
-						top: 0;
-						right: 0;
+						top: 0px;
+						right: 0px;
 						transform: translate(-10%, 270%);
 
 						@include bigPhone {
@@ -368,8 +378,7 @@
 						.comment {
 							display: flex;
 							font-size: 22px;
-                            margin-bottom: 40px;
-                            
+							margin-bottom: 40px;
 
 							@include bigPhone {
 								font-size: 16px;
@@ -410,213 +419,228 @@
 					}
 				}
 
-				/*募資課程*/
-				.wrapFundraising {
-					margin: 50px 0px;
-					width: 340px;
-					border-radius: 20px;
-					background-color: $white;
-					position: relative;
-					overflow: visible;
-
-					@include laptop {
-						margin: 50px 20px;
-					}
-
-					@include bigPhone {
-						display: flex;
-						width: 430px;
-						margin: 20px 0px;
-					}
-
-					// 愛心按鈕
-					.favorites {
-						border-radius: 50%;
-						background-color: $white;
-						position: absolute;
-						top: 0;
-						right: 0;
-						transform: translate(-10%, 270%);
-
-						@include bigPhone {
-							transform: translate(-20%, 310%);
-							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
-						}
-
-						i {
-							font-size: 30px;
-							padding: 10px;
-							cursor: pointer;
-							color: rgb(212, 212, 212);
-
-							@include bigPhone {
-								font-size: 25px;
-								padding: 10px;
-							}
-						}
-
-						i.is-active {
-							color: $red;
-						}
-					}
-
-					img.tImg {
-						width: 80px;
-						border-radius: 50%;
-						position: absolute;
-						top: 0;
-						left: 0;
-						transform: translate(25%, -50%);
-
-						@include bigPhone {
-							display: none;
-						}
-					}
-
-					a.img {
-						display: inline-block;
-
-						@include bigPhone {
-							width: 200px;
-							margin: 4% 2%;
-						}
-
-						img {
-							width: 100%;
-							border-radius: 20px 20px 0 0;
-
-							@include bigPhone {
-								border-radius: 10px 10px 10px 10px;
-							}
-						}
-					}
-
-					.c_Main {
-                        padding: 3% 3% 5%;
-						text-decoration: none;
-                        
-
-						@include bigPhone {
-							padding: 4% 2% 4% 0%;
-
-						}
-
-						a.title {
-							padding-bottom: 5%;
-							font-size: 26px;
-							font-weight: 600;
-							line-height: 35px;
-							text-decoration: none;
-							// display: inline-block;
-							// color: black;
-
-							@include bigPhone {
-								font-size: 22px;
-								line-height: 30px;
-							}
-
-						}
-
-						.time {
-							font-size: 22px;
-							padding-bottom: 5%;
-
-							@include bigPhone {
-								font-size: 16px;
-
-							}
-						}
-
-						.price {
-							display: flex;
-							justify-content: space-between;
-
-							@include bigPhone {
-								flex-wrap: wrap;
-
-							}
-
-							p.fundraising {
-								background-color: $red;
-								color: $white;
-								font-size: 17px;
-								line-height: 34px;
-								padding: 0px 2%;
-								text-shadow: 1px 1px 3px rgb(46, 46, 46);
-								white-space: nowrap;
-
-								@include bigPhone {
-									flex-wrap: wrap;
-									margin: 0px 50px 10px 0px;
-									line-height: 30px;
-
-								}
-							}
-
-							.text {
-								display: flex;
-								margin-right: 10px;
-								align-items: flex-end;
-
-								p.preOrder {
-									font-size: 26px;
-									margin-right: 5px;
-
-									@include bigPhone {
-										font-size: 20px;
-									}
-								}
-
-								p.price {
-									font-size: $h4;
-									color: $red;
-									font-weight: 800;
-
-									@include bigPhone {
-										font-size: 26px;
-										font-weight: 600;
-									}
-								}
-							}
-						}
-
-						.progressbar {
-							height: 15px;
-							background-color: #e9ecef;
-							border-radius: 8px;
-							position: relative;
-							overflow: hidden;
-							margin: 7% 0px;
-
-							@include bigPhone {
-								display: none;
-
-							}
-
-							span.progress {
-								display: inline-block;
-								position: absolute;
-								top: 0;
-								left: 0;
-								height: 100%;
-								box-sizing: border-box;
-								background-color: $blue2;
-							}
-						}
-
-						.funNum {
-							font-size: 19px;
-							text-align: center;
-
-							@include bigPhone {
-								display: none;
-
-							}
-						}
-					}
-				}
 			}
         }
+
+                    //  （收藏課程）
+        .loveCourse_area{
+            .loveCourse_title{
+                @include h2;
+                    color: $beige;
+                    @include smlPad{
+                        font-size: $h3;
+                    }
+                    @include bigPhone{
+                        font-size: $h4;
+                    }
+                    @include smlPhone{
+                        font-size: $bp;
+                    }
+            }
+            .wrapFundraising {
+                margin: 50px 0px;
+                width: 340px;
+                border-radius: 20px;
+                background-color: $white;
+                position: relative;
+                overflow: visible;
+    
+                @include laptop {
+                    margin: 50px 20px;
+                }
+    
+                @include bigPhone {
+                    display: flex;
+                    width: 430px;
+                    margin: 20px 0px;
+                }
+    
+                // 愛心按鈕
+                .favorites {
+                    border-radius: 50%;
+                    background-color: $white;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translate(-10%, 270%);
+    
+                    @include bigPhone {
+                        transform: translate(-20%, 310%);
+                        box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+                    }
+    
+                    i {
+                        font-size: 30px;
+                        padding: 10px;
+                        cursor: pointer;
+                        color: rgb(212, 212, 212);
+    
+                        @include bigPhone {
+                            font-size: 25px;
+                            padding: 10px;
+                        }
+                    }
+    
+                    i.is-active {
+                        color: $red;
+                    }
+                }
+    
+                img.tImg {
+                    width: 80px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translate(25%, -50%);
+    
+                    @include bigPhone {
+                        display: none;
+                    }
+                }
+    
+                a.img {
+                    display: inline-block;
+    
+                    @include bigPhone {
+                        width: 200px;
+                        margin: 4% 2%;
+                    }
+    
+                    img {
+                        width: 100%;
+                        border-radius: 20px 20px 0 0;
+    
+                        @include bigPhone {
+                            border-radius: 10px 10px 10px 10px;
+                        }
+                    }
+                }
+    
+                .c_Main {
+                    padding: 3% 3% 5%;
+    
+                    @include bigPhone {
+                        padding: 4% 2% 4% 0%;
+    
+                    }
+    
+                    p.title {
+                        padding-bottom: 5%;
+                        font-size: 26px;
+                        font-weight: 600;
+                        line-height: 35px;
+                        // text-decoration: none;
+                        // display: inline-block;
+                        // color: black;
+    
+                        @include bigPhone {
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+    
+                    }
+    
+                    .time {
+                        font-size: 22px;
+                        padding-bottom: 5%;
+    
+                        @include bigPhone {
+                            font-size: 16px;
+    
+                        }
+                    }
+    
+                    .price {
+                        display: flex;
+                        justify-content: space-between;
+    
+                        @include bigPhone {
+                            flex-wrap: wrap;
+    
+                        }
+    
+                        p.fundraising {
+                            background-color: $red;
+                            color: $white;
+                            font-size: 17px;
+                            line-height: 34px;
+                            padding: 0px 2%;
+                            text-shadow: 1px 1px 3px rgb(46, 46, 46);
+                            white-space: nowrap;
+    
+                            @include bigPhone {
+                                flex-wrap: wrap;
+                                margin: 0px 50px 10px 0px;
+                                line-height: 30px;
+    
+                            }
+                        }
+    
+                        .text {
+                            display: flex;
+                            margin-right: 10px;
+                            align-items: flex-end;
+    
+                            p.preOrder {
+                                font-size: 26px;
+                                margin-right: 5px;
+    
+                                @include bigPhone {
+                                    font-size: 20px;
+                                }
+                            }
+    
+                            p.price {
+                                font-size: $h4;
+                                color: $red;
+                                font-weight: 800;
+    
+                                @include bigPhone {
+                                    font-size: 26px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+    
+                    .progressbar {
+                        height: 15px;
+                        background-color: #e9ecef;
+                        border-radius: 8px;
+                        position: relative;
+                        overflow: hidden;
+                        margin: 7% 0px;
+    
+                        @include bigPhone {
+                            display: none;
+    
+                        }
+    
+                        span.progress {
+                            display: inline-block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            box-sizing: border-box;
+                            background-color: $blue2;
+                        }
+                    }
+    
+                    .funNum {
+                        font-size: 19px;
+                        text-align: center;
+    
+                        @include bigPhone {
+                            display: none;
+    
+                        }
+                    }
+                }
+            }
+        }
+        
 
 
 
