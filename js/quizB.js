@@ -157,3 +157,14 @@ var deleteQ = document.getElementsByClassName('deleteQ')[0];
 //         }
 //     };
 // });
+
+
+// 新增領域
+var quizField = document.getElementsByClassName('quizField')[0];
+var createField = document.getElementsByClassName('createField')[0];
+var newField = document.getElementsByClassName('newField')[0];
+createField.addEventListener('onchange', function () {
+    if (createField.selected) {
+        newField.style.cssText = "display: block;";
+    }
+});
