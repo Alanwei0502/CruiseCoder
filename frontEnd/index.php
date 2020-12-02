@@ -371,8 +371,44 @@
                 < 語宙試煉 />
             </h2>
             <div class="galaxyBlock">
+                <div class="planetWarp">
+                    <div>
+                        <img src="../images/trial/badge/css.png">
+                    </div>
+                    <div>
+                        <img src="../images/trial/badge/html.png">
+                    </div>
+                    <div>
+                        <img src="../images/trial/badge/javascript.png">
+                    </div>
+                    <div>
+                        <img src="../images/trial/badge/mysql.png">
+                    </div>
+                    <div>
+                        <img src="../images/trial/badge/php.png">
+                    </div>
+                </div>
+
+
+
                 <div class="galaxyWarp">
                     <div class="leftBlock">
+
+                        <div class="changeBlock">
+                            <div>
+                                <img src="../images/trial/planets/html1.png">
+                                <p>初級</p>
+                            </div>
+                            <div>
+                                <img src="../images/trial/planets/html2.png">
+                                <p>中級</p>
+                            </div>
+                            <div>
+                                <img src="../images/trial/planets/html3.png">
+                                <p>高級</p>
+                            </div>
+                        </div>
+
                         <span class="line1"></span>
                         <span class="line2"></span>
                         <span class="line3"></span>
@@ -390,13 +426,7 @@
                     </div>
 
                 </div>
-                <div class="planetWarp">
-                    <img src="../images/trial/badge/css.png">
-                    <img src="../images/trial/badge/html.png">
-                    <img src="../images/trial/badge/javascript.png">
-                    <img src="../images/trial/badge/mysql.png">
-                    <img src="../images/trial/badge/php.png">
-                </div>
+
             </div>
             <!-- 宇宙試煉結束 -->
 
@@ -407,28 +437,33 @@
             <div class="articleBlock">
                 <div class="leftBlock">
                     <div class="bigBlock">
-                        <img src="https://picsum.photos/id/200/500/500">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur rerum dicta laudantium beatae velit tempore quidem, ratione rem inventore veniam natus nesciunt quam repellat, necessitatibus reprehenderit voluptate blanditiis, at fugiat.
-                            Placeat assumenda!</p>
+                        <a href="">
+                            <img src="./../images/article/topBook.jpg" height="500" width="500">
+                        </a>
+                        <p>學網站製作、做網站、網站切版、網站架設、前端編程⋯⋯等很多不同的名稱。總之一切的一切都要從最基本的 HTML、CSS學習開始，基本上網站前端切版是用：HTML + CSS + Javascript，而他們其實各自都是不同的「語言」。看到這邊先別擔心，除了 javascript 之外，另外兩個都是比較「簡單」的程式語言。</p>
                     </div>
+                    <p>十大好書推薦</p>
                 </div>
                 <div class="rightBlock">
                     <div>
-                        <div class="imgWarp"><img src="https://picsum.photos/id/237/200/200"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                        <a href="" class="imgWarp"><img src="./../images/article/editor.jpg" ></a>
+                        <p>編輯器推薦</p>
                     </div>
                     <div>
-                        <div class="imgWarp"><img src="https://picsum.photos/id/238/200/200"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                        <a href="" class="imgWarp"><img src="./../images/article/study.jpg" ></a>
+                        <p>自學力網站資源</p>
                     </div>
                     <div>
-                        <div class="imgWarp"><img src="https://picsum.photos/id/239/200/200"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                        <a href="" class="imgWarp"><img src="./../images/article/software.jpg" ></a>
+                        <p>軟體推薦</p>
                     </div>
                     <div>
-                        <div class="imgWarp"><img src="https://picsum.photos/id/236/200/200"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam odit et eum aliquid libero dolores repudiandae blanditiis voluptatum optio voluptate. Possimus hic, sequi quo nam soluta est. Ab, ea voluptas!</p>
+                        <a href="" class="imgWarp"><img src="./../images/article/tools.jpg"></a>
+                        <p>好用套件推薦</p>
                     </div>
+                </div>
+                <div class="buttonWarp">
+                    <button>查看更多</button>
                 </div>
             </div>
             <!-- 太空補給站結束 -->

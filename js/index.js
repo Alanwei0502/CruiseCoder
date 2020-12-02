@@ -41,7 +41,7 @@ $(document).ready(function() {
             curPage = 0;
         }
         navigateDown();
-    }, 2500);
+    }, 4500);
     // 輪撥圖結束
 
 
