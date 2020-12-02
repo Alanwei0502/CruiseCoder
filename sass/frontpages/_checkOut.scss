@@ -119,6 +119,7 @@
                 border: 10px solid $orange;
                 background-color: $beige;
                 margin-top: 30px;
+                transform-style: preserve-3d;
 
                 @include bigPad {
                     border: 8px solid $orange;
@@ -297,34 +298,33 @@
                     padding: 20px;
                 }
 
-                .ccPoint {
+                form.ccPoint {
                     justify-content: center;
                     align-items: center;
-                    display: flex;
+                    // display: flex;
                     letter-spacing: .1rem;
                     color: $white;
                     font-weight: 500;
-                }
 
+                    input {
+                        width: 100px;
+                        height: 40px;
+                        font-size: 30px;
+                        padding: 0px 5px;
+                        border: none;
+                        margin: 0px 5px;
+                        border-radius: 10px;
+                        outline: none;
+                        text-align: right;
 
-                input {
-                    width: 100px;
-                    height: 40px;
-                    font-size: 30px;
-                    padding: 0px 10px;
-                    border: none;
-                    margin: 0px 10px;
-                    border-radius: 10px;
-                    outline: none;
-                    text-align: right;
-
-                    @include bigPad {
-                        width: 80px;
-                        font-size: 22px;
-                        height: 35px;
-
+                        @include bigPad {
+                            width: 50px;
+                            font-size: 22px;
+                            height: 35px;
+                        }
                     }
                 }
+
             }
 
             .sum {
@@ -346,8 +346,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
 
                     p.price {
@@ -359,8 +367,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
                 }
 
@@ -368,8 +384,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
                 }
             }
@@ -383,7 +407,7 @@
             .title {
                 font-size: $h3;
                 color: $white;
-                padding: 0px 0px 30px 30px;
+                padding: 30px 0px 30px 30px;
                 font-weight: 600;
 
                 @include smlPad {
@@ -474,12 +498,17 @@
 
                 p.note {
                     color: #707070;
-                    padding: 0px 0px 30px 40px;
-                    font-size: $bp;
+                    padding: 0px 0px 30px 50px;
+                    font-size: $mp;
+
+                    &:before {
+                        content: '*';
+                        color: $red;
+                    }
 
                     @include smlPad {
-                        font-size: 20px;
-                        padding: 0px 0px 30px 10px;
+                        font-size: $sp;
+                        padding: 0px 0px 30px 20px;
 
                     }
 
@@ -502,6 +531,10 @@
                     label {
                         @include paymentLabel;
 
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
                     }
 
                     input {
@@ -531,6 +564,11 @@
 
                     label {
                         @include paymentLabel;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
                     }
 
                     input {
@@ -559,6 +597,11 @@
 
                     label {
                         @include paymentLabel;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
 
                         @include smlPad {
                             display: block;
@@ -594,14 +637,20 @@
                         margin: 10px 0px 30px 20px;
                     }
 
-                    label {
+                    label.text {
                         display: inline-block;
                         width: $label;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
 
                         @include smlPad {
                             display: block;
                             margin-bottom: 10px;
                         }
+
                     }
 
                     select {
@@ -633,6 +682,11 @@
                         @include bigPad {
                             font-size: $bp;
                         }
+
+                        @include bigPhone {
+                            font-size: $mp;
+
+                        }
                     }
 
                     label.years {
@@ -644,6 +698,11 @@
 
                         @include bigPad {
                             font-size: $bp;
+                        }
+
+                        @include bigPhone {
+                            font-size: $mp;
+
                         }
                     }
                 }
@@ -664,6 +723,11 @@
 
                     label {
                         @include paymentLabel;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
 
                         @include smlPad {
                             display: block;

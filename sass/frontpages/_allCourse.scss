@@ -286,6 +286,14 @@
 						background-color: #f6f7f7;
 						color: rgb(0, 0, 0);
 					}
+
+				}
+
+				select.-on {
+					background-color: $red;
+					color: $white;
+					// font-weight: 600;
+					// text-shadow: 1px 1px 2px rgb(71, 71, 71);
 				}
 			}
 		}
@@ -365,177 +373,176 @@
 				}
 
 				/*一般課程*/
-				
-
-					.wrapGeneral {
-						margin: 50px 0px;
-						width: 340px;
-						border-radius: 20px;
-						background-color: $white;
-						position: relative;
-						overflow: visible;
-
-						@include laptop {
-							margin: 50px 20px;
-						}
-
-						@include bigPhone {
-							display: flex;
-							width: 430px;
-							margin: 20px 0px;
-						}
-
-
-						// 愛心按鈕
-						.favorites {
-							border-radius: 50%;
-							background-color: $white;
-							position: absolute;
-							top: 0;
-							right: 0;
-							transform: translate(-10%, 270%);
-
-							@include bigPhone {
-								transform: translate(-20%, 310%);
-								box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
-							}
-
-							// font
-							i {
-								font-size: 30px;
-								padding: 10px;
-								cursor: pointer;
-								color: rgb(212, 212, 212);
-
-								@include bigPhone {
-									font-size: 25px;
-									padding: 10px;
-								}
-							}
-
-							i.is-active {
-								color: $red;
-							}
-						}
-
-
-						img.tImg {
-							width: 80px;
-							border-radius: 50%;
-							position: absolute;
-							top: 0;
-							left: 0;
-							transform: translate(25%, -50%);
-
-							@include bigPhone {
-								display: none;
-							}
-						}
-
-						a.img {
-							display: inline-block;
-
-							@include bigPhone {
-								width: 200px;
-								margin: 4% 2%;
-							}
-
-							img {
-								width: 100%;
-								border-radius: 20px 20px 0 0;
-
-								@include bigPhone {
-									border-radius: 10px 10px 10px 10px;
-								}
-							}
-						}
-
-						.c_Main {
-							padding: 3% 3% 5%;
-
-							@include bigPhone {
-								padding: 4% 2% 4% 0%;
-
-							}
-
-							p.title {
-								padding-bottom: 5%;
-								font-size: 26px;
-								font-weight: 600;
-								line-height: 35px;
-								// text-decoration: none;
-								// display: inline-block;
-								// color: black;
-
-								@include bigPhone {
-									font-size: 22px;
-									line-height: 30px;
-								}
-							}
-
-							.time {
-								font-size: 22px;
-								padding-bottom: 5%;
-
-								@include bigPhone {
-									font-size: 16px;
-
-								}
-							}
-
-							.comment {
-								display: flex;
-								font-size: 22px;
-								margin-bottom: 40px;
-
-								@include bigPhone {
-									font-size: 16px;
-									margin-bottom: 20px;
-
-
-								}
-
-								i {
-									font-size: 20px;
-									color: $yellow;
-
-									@include bigPhone {
-										font-size: 16px;
-									}
-								}
-
-								a.text {
-									margin-left: 10px;
-									text-decoration: none;
-									color: black;
-								}
-							}
-
-							.price {
-								font-size: $h4;
-								font-weight: 800;
-								text-align: right;
-
-								// padding: 0px 4% 20px 0px;
-								@include bigPhone {
-									font-size: $bp;
-									margin-right: 30%;
-									font-weight: 600;
-
-								}
-							}
-						}
-					}
-				
-
-				/*募資課程*/
-				.wrapFundraising {
+				a.general {
+					display: block;
 					margin: 50px 0px;
 					width: 340px;
 					border-radius: 20px;
 					background-color: $white;
 					position: relative;
 					overflow: visible;
+					text-decoration: none;
+					color: $black;
+
+					@include laptop {
+						margin: 50px 20px;
+					}
+
+					@include bigPhone {
+						display: flex;
+						width: 430px;
+						margin: 20px 0px;
+					}
+
+
+					// 愛心按鈕
+					.favorites {
+						border-radius: 50%;
+						background-color: $white;
+						position: absolute;
+						top: 0;
+						right: 0;
+						transform: translate(-10%, 270%);
+
+						@include bigPhone {
+							transform: translate(-20%, 310%);
+							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+						}
+
+						// fontAwesome
+						i {
+							font-size: 30px;
+							padding: 10px;
+							cursor: pointer;
+							color: rgb(212, 212, 212);
+
+							@include bigPhone {
+								font-size: 25px;
+								padding: 10px;
+							}
+						}
+
+						i.is-active {
+							color: $red;
+						}
+					}
+
+					.teacherPic {
+						width: 80px;
+						position: absolute;
+						top: 0;
+						left: 0;
+						transform: translate(25%, -50%);
+
+						@include bigPhone {
+							display: none;
+						}
+
+						img {
+							max-width: 100%;
+							border-radius: 50%;
+						}
+					}
+
+					.coursePic {
+						width: 100%;
+
+						@include bigPhone {
+							width: 200px;
+							margin: 4% 2%;
+						}
+
+
+						img {
+							max-width: 100%;
+							border-radius: 20px 20px 0 0;
+
+							@include bigPhone {
+								border-radius: 10px 10px 10px 10px;
+							}
+						}
+					}
+
+					.c_Main {
+						padding: 3% 3% 5%;
+
+						@include bigPhone {
+							padding: 4% 2% 4% 0%;
+						}
+
+						p.title {
+							padding-bottom: 5%;
+							font-size: 26px;
+							font-weight: 600;
+							line-height: 35px;
+
+							@include bigPhone {
+								font-size: 22px;
+								line-height: 30px;
+							}
+						}
+
+						.time {
+							font-size: 22px;
+							padding-bottom: 5%;
+
+							@include bigPhone {
+								font-size: 16px;
+							}
+						}
+
+						.comment {
+							display: flex;
+							font-size: 22px;
+							margin-bottom: 40px;
+
+							@include bigPhone {
+								font-size: 16px;
+								margin-bottom: 20px;
+							}
+
+							i {
+								font-size: 20px;
+								color: $yellow;
+
+								@include bigPhone {
+									font-size: 16px;
+								}
+							}
+
+							p.text {
+								margin-left: 10px;
+								text-decoration: none;
+								color: black;
+							}
+						}
+
+						.price {
+							font-size: $h4;
+							font-weight: 800;
+							text-align: right;
+
+							// padding: 0px 4% 20px 0px;
+							@include bigPhone {
+								font-size: $bp;
+								margin-right: 30%;
+								font-weight: 600;
+							}
+						}
+					}
+				}
+
+
+				/*募資課程*/
+				a.fundraising {
+					margin: 50px 0px;
+					width: 340px;
+					border-radius: 20px;
+					background-color: $white;
+					position: relative;
+					overflow: visible;
+					text-decoration: none;
+					color: $black;
 
 					@include laptop {
 						margin: 50px 20px;
@@ -578,9 +585,8 @@
 						}
 					}
 
-					img.tImg {
+					.teacherPic {
 						width: 80px;
-						border-radius: 50%;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -589,18 +595,24 @@
 						@include bigPhone {
 							display: none;
 						}
+
+						img {
+							max-width: 100%;
+							border-radius: 50%;
+						}
 					}
 
-					a.img {
-						display: inline-block;
+					.coursePic {
+						width: 100%;
 
 						@include bigPhone {
 							width: 200px;
 							margin: 4% 2%;
 						}
 
+
 						img {
-							width: 100%;
+							max-width: 100%;
 							border-radius: 20px 20px 0 0;
 
 							@include bigPhone {
@@ -652,7 +664,7 @@
 
 							}
 
-							p.fundraising {
+							p.fundraisingTag {
 								background-color: $red;
 								color: $white;
 								font-size: 17px;
@@ -669,7 +681,7 @@
 								}
 							}
 
-							.text {
+							.textFund {
 								display: flex;
 								margin-right: 10px;
 								align-items: flex-end;
@@ -696,6 +708,7 @@
 							}
 						}
 
+						// 進度條
 						.progressbar {
 							height: 15px;
 							background-color: #e9ecef;
