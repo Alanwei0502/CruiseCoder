@@ -71,11 +71,9 @@
             </div>
             <div class="price">
                 <div class="discount">
-                    <div class="ccPoint">
-                        <p>現有 19,850 CC Point，您可以折抵NT$198，欲折</p>
-                        <input type="text" value="198">
-                        <p>元</p>
-                    </div>
+                    <form action="" class="ccPoint">
+                        現有 19,850 CC Point，您可以折抵NT$198，欲折<input type="text" name="" id="" value="198">元
+                    </form>
                 </div>
                 <div class="sum">
                     <div class="ccPoint">
@@ -101,31 +99,31 @@
                             <img src="../images/allCourse/creditcard.png" alt="">
                         </div>
                     </div>
-                    <p class="note">（ * 為必填欄位）</p>
+                    <p class="note">為必填欄位</p>
                     <div class="name">
                         <label class="text">
-                            * 持卡人姓名
+                            持卡人姓名
                         </label>
                         <input type="text">
                     </div>
                     <div class="phoneNum">
                         <label class="text">
-                            * 手機號碼
+                            手機號碼
                         </label>
-                        <input type="text">
+                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <div class="creditCardNum">
                         <label class="text">
-                            * 信用卡卡號
+                            信用卡卡號
                         </label>
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <div class="date">
                         <label class="text">
-                            * 有效日期
+                            有效日期
                         </label>
                         <select>
                             <option value="">1</option>
@@ -154,9 +152,9 @@
                     </div>
                     <div class="creditCardCsc">
                         <label class="text">
-                            * 背面末三碼
+                            背面末三碼
                         </label>
-                        <input type="text">
+                        <input type="text" maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <button type="submit">確認並送出</button>
                 </form>

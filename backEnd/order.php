@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="backEndWrap order">
+  <div class="backEndWrap orderMain">
     <?php
     include('layout/sideBar.php'); //aside
     ?>
@@ -28,6 +28,7 @@
         <div class="date">
           <label for="">購買日期</label>
           <input type="text" id="datepicker1" readonly="true">
+          <input type="text" id="datepicker2" readonly="true">
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>

@@ -286,6 +286,14 @@
 						background-color: #f6f7f7;
 						color: rgb(0, 0, 0);
 					}
+
+				}
+
+				select.-on {
+					background-color: $red;
+					color: $white;
+					// font-weight: 600;
+					// text-shadow: 1px 1px 2px rgb(71, 71, 71);
 				}
 			}
 		}
@@ -365,14 +373,16 @@
 				}
 
 				/*一般課程*/
-
-				.wrapGeneral {
+				a.general {
+					display: block;
 					margin: 50px 0px;
 					width: 340px;
 					border-radius: 20px;
 					background-color: $white;
 					position: relative;
 					overflow: visible;
+					text-decoration: none;
+					color: $black;
 
 					@include laptop {
 						margin: 50px 20px;
@@ -399,7 +409,7 @@
 							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
 						}
 
-						// font
+						// fontAwesome
 						i {
 							font-size: 30px;
 							padding: 10px;
@@ -417,10 +427,8 @@
 						}
 					}
 
-
-					img.tImg {
+					.teacherPic {
 						width: 80px;
-						border-radius: 50%;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -429,18 +437,24 @@
 						@include bigPhone {
 							display: none;
 						}
+
+						img {
+							max-width: 100%;
+							border-radius: 50%;
+						}
 					}
 
-					a.img {
-						display: inline-block;
+					.coursePic {
+						width: 100%;
 
 						@include bigPhone {
 							width: 200px;
 							margin: 4% 2%;
 						}
 
+
 						img {
-							width: 100%;
+							max-width: 100%;
 							border-radius: 20px 20px 0 0;
 
 							@include bigPhone {
@@ -454,7 +468,6 @@
 
 						@include bigPhone {
 							padding: 4% 2% 4% 0%;
-
 						}
 
 						p.title {
@@ -462,9 +475,6 @@
 							font-size: 26px;
 							font-weight: 600;
 							line-height: 35px;
-							// text-decoration: none;
-							// display: inline-block;
-							// color: black;
 
 							@include bigPhone {
 								font-size: 22px;
@@ -478,7 +488,6 @@
 
 							@include bigPhone {
 								font-size: 16px;
-
 							}
 						}
 
@@ -490,8 +499,6 @@
 							@include bigPhone {
 								font-size: 16px;
 								margin-bottom: 20px;
-
-
 							}
 
 							i {
@@ -503,7 +510,7 @@
 								}
 							}
 
-							a.text {
+							p.text {
 								margin-left: 10px;
 								text-decoration: none;
 								color: black;
@@ -520,20 +527,22 @@
 								font-size: $bp;
 								margin-right: 30%;
 								font-weight: 600;
-
 							}
 						}
 					}
 				}
 
+
 				/*募資課程*/
-				.wrapFundraising {
+				a.fundraising {
 					margin: 50px 0px;
 					width: 340px;
 					border-radius: 20px;
 					background-color: $white;
 					position: relative;
 					overflow: visible;
+					text-decoration: none;
+					color: $black;
 
 					@include laptop {
 						margin: 50px 20px;
@@ -576,9 +585,8 @@
 						}
 					}
 
-					img.tImg {
+					.teacherPic {
 						width: 80px;
-						border-radius: 50%;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -587,18 +595,24 @@
 						@include bigPhone {
 							display: none;
 						}
+
+						img {
+							max-width: 100%;
+							border-radius: 50%;
+						}
 					}
 
-					a.img {
-						display: inline-block;
+					.coursePic {
+						width: 100%;
 
 						@include bigPhone {
 							width: 200px;
 							margin: 4% 2%;
 						}
 
+
 						img {
-							width: 100%;
+							max-width: 100%;
 							border-radius: 20px 20px 0 0;
 
 							@include bigPhone {
@@ -650,12 +664,12 @@
 
 							}
 
-							p.fundraising {
+							p.fundraisingTag {
 								background-color: $red;
 								color: $white;
 								font-size: 17px;
 								line-height: 34px;
-								padding: 0px 2%;
+								padding: 0px 3%;
 								text-shadow: 1px 1px 3px rgb(46, 46, 46);
 								white-space: nowrap;
 
@@ -667,7 +681,7 @@
 								}
 							}
 
-							.text {
+							.textFund {
 								display: flex;
 								margin-right: 10px;
 								align-items: flex-end;
@@ -694,6 +708,7 @@
 							}
 						}
 
+						// 進度條
 						.progressbar {
 							height: 15px;
 							background-color: #e9ecef;
