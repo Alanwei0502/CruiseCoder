@@ -362,6 +362,9 @@
                 <span id="Circle" class="Circle bgcBlack"></span>
                 <span class="Circle"></span>
                 <span class="Circle"></span>
+                <span class="Circle"></span>
+                <span class="Circle"></span>
+                <span class="Circle"></span>
             </div>
             <!-- 課程輪撥結束 -->
 
@@ -484,6 +487,7 @@
                             該門課的老師都會在現場，如果您有任何程式語言上的困難、或是對於課程中有問題，都可以利用預約我們學習空間，在現場直接向老師詢問，幫您解決問題。
                         </p>
                     </div>
+                    <button>查看更多</button>
                 </div>
                 <div class="roomCenter">
                     <div class="cardBack">

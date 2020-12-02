@@ -41,7 +41,7 @@ $(document).ready(function() {
             curPage = 0;
         }
         navigateDown();
-    }, 4500);
+    }, 6500);
     // 輪撥圖結束
 
 
@@ -108,6 +108,8 @@ $(document).ready(function() {
         "top":"50%",
         "transform":"translateY(-25%)"
     });
+
+    
     //↑移除套件預設圖型
     $('.highcharts-color-0').click(function(){
         $('#text1,#text2,#text3').css('display','none'); 
@@ -115,6 +117,8 @@ $(document).ready(function() {
         // $('#text3').css('display','none'); 
         $('#text1').css('display','block'); 
     });
+
+    $('.highcharts-root').css('overflow','visible');
 
     $('.highcharts-color-1').click(function(){
         $('#text1,#text2,#text3').css('display','none'); 
@@ -133,6 +137,9 @@ $(document).ready(function() {
     });
 
     $('.highcharts-label text').css('font-size','15px')
+    if(window.outerWidth <= 590){
+        $('.highcharts-label text').css('font-size','12px')
+    }
     // 圓餅圖套件結束
 
 
@@ -140,6 +147,15 @@ $(document).ready(function() {
 
 
     // 課程輪撥開始
+
+    var itemWidth = $('div.wrapGeneral').outerWidth(true);
+    // var CourseWidth = $('.Course').outerWidth();
+    // var controlCircle= $('div.controlCircle')[0];
+
+    window.onresize = function(){
+        itemWidth = $('div.wrapGeneral').outerWidth(true);
+    }
+
     $('span.Circle').click(function(){
         var span = $('span');
 
@@ -154,7 +170,7 @@ $(document).ready(function() {
 
         // 輪撥執行   
         $('#slide').animate({
-        left: index * 1200 * -1
+        left: index * itemWidth * -1
         },1200);
 
         // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
@@ -186,10 +202,128 @@ $(document).ready(function() {
             var bgcBlack_index = $('span.bgcBlack').index();
 
             $('#slide').animate({
-                left: bgcBlack_index * 1200 * -1
+                left: bgcBlack_index * itemWidth * -1
             },1200);
         }
     }
     add = setInterval(startMove, 4200)
+
+    // window.onresize = function(){
+    //     itemWidth = $('div.wrapGeneral').outerWidth(true);
+    //     console.log(CourseWidth);
+    // }
+
+
+    // if(CourseWidth <= 768){
+    //     var Circle = `<span class="Circle"></span>`;
+    //     for(let i = 0; i < 6 ;i++){
+    //         controlCircle.insertAdjacentHTML("beforeend", Circle);
+    //     }
+    //     $('span.Circle').click(function(){
+    //         var span = $('span');
+    
+    //         // 使用迴圈來清除所有的bgcBlack
+    //         for(let i = 0; i < span.length; i++){
+    //             span[i].classList.remove('bgcBlack');
+    //         }
+    
+    //         // 點擊的span加上bgcBlack
+    //         $(this).addClass('bgcBlack');
+    //         var index = $(this).index();
+    
+    //         // 輪撥執行   
+    //         $('#slide').animate({
+    //         left: index * itemWidth * -1
+    //         },1200);
+    
+    //         // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
+    //         clearInterval(add);
+    
+    //         // 重新再給一次setInterval
+    //         setTimeout(function(){
+    //             add = setInterval(startMove, 4200);
+    //         })
+    
+    //     });
+    
+    
+    //     function startMove(){
+    //         // 清除bgcBlack  並在下一個span加上bgcBlack
+    //         $('span.bgcBlack').removeClass('bgcBlack').next().addClass('bgcBlack');
+    
+    //         // 如果沒有任何一個span有bgcBlack  並在第一個加上bgcBlack
+    //         if($('span.bgcBlack').index() == -1){
+    //             $('div.controlCircle span').first().addClass('bgcBlack');
+    
+    //             // 回到0的位置
+    //             $('#slide').animate({
+    //                 left: 0
+    //             },1200);
+    
+    //         }else{
+    //             // 取得span.bgcBlack目前索引值
+    //             var bgcBlack_index = $('span.bgcBlack').index();
+    
+    //             $('#slide').animate({
+    //                 left: bgcBlack_index * itemWidth * -1
+    //             },1200);
+    //         }
+    //     }
+    //     add = setInterval(startMove, 4200);
+    // }
+    // else{
+    //     $('span.Circle').click(function(){
+    //         var span = $('span');
+    
+    //         // 使用迴圈來清除所有的bgcBlack
+    //         for(let i = 0; i < span.length; i++){
+    //             span[i].classList.remove('bgcBlack');
+    //         }
+    
+    //         // 點擊的span加上bgcBlack
+    //         $(this).addClass('bgcBlack');
+    //         var index = $(this).index();
+    
+    //         // 輪撥執行   
+    //         $('#slide').animate({
+    //         left: index * (itemWidth * 3) * -1
+    //         },1200);
+    
+    //         // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
+    //         clearInterval(add);
+    
+    //         // 重新再給一次setInterval
+    //         setTimeout(function(){
+    //             add = setInterval(startMove, 4200);
+    //         })
+    
+    //     });
+    
+    
+    //     function startMove(){
+    //         // 清除bgcBlack  並在下一個span加上bgcBlack
+    //         $('span.bgcBlack').removeClass('bgcBlack').next().addClass('bgcBlack');
+    
+    //         // 如果沒有任何一個span有bgcBlack  並在第一個加上bgcBlack
+    //         if($('span.bgcBlack').index() == -1){
+    //             $('div.controlCircle span').first().addClass('bgcBlack');
+    
+    //             // 回到0的位置
+    //             $('#slide').animate({
+    //                 left: 0
+    //             },1200);
+    
+    //         }else{
+    //             // 取得span.bgcBlack目前索引值
+    //             var bgcBlack_index = $('span.bgcBlack').index();
+    
+    //             $('#slide').animate({
+    //                 left: bgcBlack_index * (itemWidth * 3) * -1
+    //             },1200);
+    //         }
+    //     }
+    //     add = setInterval(startMove, 4200)
+    // }
+
     // 課程輪撥結束
 });

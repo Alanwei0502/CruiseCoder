@@ -1033,6 +1033,9 @@
 				height: 455px;
 				font-size: 0px;
 				position: relative;
+				@include bigPhone {
+					margin-bottom: 100px;
+				}
 
 				div.leftBlock {
 					display: inline-block;
@@ -1074,6 +1077,7 @@
 					height: 100%;
 					box-sizing: border-box;
 					align-items: center;
+					position: relative;
 					@include bigPhone {
 						display: block;
 						position: absolute;
@@ -1109,6 +1113,24 @@
 							font-size: 16px;
 							line-height: 18px;
 						}
+					}
+				}
+
+				button {
+					@include btn(18px);
+					align-self: center;
+					position: absolute;
+					right: 0px;
+					bottom: 0px;
+					margin: 0px 40px 20px 0px;
+					@include bigPhone {
+						margin: 0px;
+						right: 50%;
+						bottom: -50px;
+						transform: translateX(50%);
+					}
+					@include smlPhone {
+						bottom: -25px;
 					}
 				}
 			}
@@ -1153,9 +1175,6 @@
 							top: 10%;
 							left: 50%;
 							transform: translateX(-50%);
-							@include smlPad {
-								width: 80px;
-							}
 						}
 
 						img.pencil {
@@ -1309,6 +1328,9 @@ $scrollTime: 1s;
 		@include bigPhone {
 			font-size: 22px;
 		}
+		@include smlPhone {
+			font-size: 16px;
+		}
 	}
 
 	&__description {
@@ -1317,6 +1339,9 @@ $scrollTime: 1s;
 		text-align: center;
 		@include bigPhone {
 			font-size: 14px;
+		}
+		@include smlPhone {
+			font-size: 13px;
 		}
 	}
 
@@ -1350,10 +1375,10 @@ $scrollTime: 1s;
 	&-3 {
 		.skw-page__half--left .skw-page__content {
 			background-image: url('../images/index/slide1.jpg');
-			background-position-x: -40%;
-			@include smlPad {
-				background-position-x: -10%;
-			}
+			// background-position-x: -40%;
+			// @include smlPad {
+			// 	background-position-x: -10%;
+			// }
 		}
 
 		.skw-page__half--right .skw-page__content {
@@ -1512,11 +1537,30 @@ div.index {
 		overflow-y: hidden;
 		overflow-x: hidden;
 
+		@include laptop {
+			width: 992px;
+		}
+		@include bigPad {
+			width: 768px;
+		}
+		@include smlPad {
+			width: 576px;
+		}
+		@include bigPhone {
+			width: 414px;
+		}
+		@include smlPhone {
+			width: 320px;
+		}
+
 		div.slide {
 			width: 3600px;
 			display: flex;
 			position: relative;
 			margin-top: 30px;
+			// @include laptop {
+			// 	width: 2976px;
+			// }
 
 			.wrapGeneral {
 				flex-shrink: 0;
@@ -1528,6 +1572,24 @@ div.index {
 				border-radius: 20px;
 				background-color: $white;
 				position: relative;
+				@include laptop {
+					width: 270.67px;
+				}
+				@include bigPad {
+					width: 226px;
+					margin: 0px 15px;
+				}
+				@include smlPad {
+					width: 310px;
+					margin: 0px 133px;
+				}
+				@include bigPhone {
+					margin: 0px 52px;
+				}
+				@include smlPhone {
+					width: 300px;
+					margin: 0px 10px;
+				}
 
 				.favorites {
 					border-radius: 50%;
@@ -1577,17 +1639,30 @@ div.index {
 						margin-bottom: 25px;
 						white-space: wrap;
 						word-wrap: break-word;
+						@include laptop {
+							font-size: 24px;
+						}
+						@include bigPad {
+							font-size: 22px;
+						}
 					}
 
 					.time {
 						font-size: 22px;
 						margin-bottom: 20px;
+						@include bigPad {
+							font-size: 18px;
+						}
 					}
 
 					.comment {
 						display: flex;
 						font-size: 22px;
 						margin-bottom: 40px;
+
+						@include bigPad {
+							font-size: 18px;
+						}
 
 						i {
 							font-size: 20px;
@@ -1607,6 +1682,9 @@ div.index {
 						text-align: right;
 						margin-bottom: 10px;
 						margin-right: 10px;
+						@include bigPad {
+							font-size: 30px;
+						}
 					}
 				}
 			}
@@ -1619,7 +1697,21 @@ div.index {
 		justify-content: center;
 		margin: 0 auto;
 		margin-bottom: 50px;
-
+		@include laptop {
+			width: 992px;
+		}
+		@include bigPad {
+			width: 768px;
+		}
+		@include smlPad {
+			width: 576px;
+		}
+		@include bigPhone {
+			width: 414px;
+		}
+		@include smlPhone {
+			width: 320px;
+		}
 		.Circle {
 			display: inline-block;
 			width: 20px;
