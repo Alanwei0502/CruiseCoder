@@ -581,6 +581,11 @@
 
                         }
                     }
+                    input::-webkit-input-placeholder {
+                        color: #b9b9b9;    /* 更改placeholder的字體顏色  */
+                        font-size:10px;    /* 更改placeholder的字體大小  */
+                      }
+
                 }
 
                 .creditCardNum {
