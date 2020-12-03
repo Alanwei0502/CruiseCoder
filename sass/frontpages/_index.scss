@@ -597,8 +597,8 @@
 						}
 					}
 
-					button {
-						@include btn(18px);
+					a {
+						@include btn(22px);
 						align-self: center;
 						margin-top: 45px;
 						margin-right: 15px;
@@ -993,8 +993,8 @@
 					justify-content: center;
 				}
 
-				button {
-					@include btn(18px);
+				a {
+					@include btn(22px);
 					align-self: center;
 					float: right;
 					margin-right: 5px;
@@ -1116,8 +1116,8 @@
 					}
 				}
 
-				button {
-					@include btn(18px);
+				a {
+					@include btn(22px);
 					align-self: center;
 					position: absolute;
 					right: 0px;
