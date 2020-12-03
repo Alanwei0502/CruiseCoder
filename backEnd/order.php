@@ -27,8 +27,11 @@
       <form class="filter">
         <div class="date">
           <label for="">購買日期</label>
-          <input type="text" id="datepicker1" readonly="true">
-          <input type="text" id="datepicker2" readonly="true">
+          <div class="date_input">
+            <input type="text" id="datepicker1" readonly="true">
+            <p>至</p>
+            <input type="text" id="datepicker2" readonly="true">
+          </div>
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>
@@ -102,7 +105,6 @@
       <section>
         <h2>訂單資訊</h2>
         <img src="../images/backEnd/blackCancel.png" alt="" class="close">
-
         <div class="orderList">
           <table>
             <tbody>

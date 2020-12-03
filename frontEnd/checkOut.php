@@ -92,7 +92,7 @@
             </div>
             <div class="payment">
                 <div class="title">填寫付款資料</div>
-                <form class="infon">
+                <form class="infon" method="post" action="" onclick="return false">
                     <div class="text">
                         <p>付款方式-信用卡</p>
                         <div class="img">
@@ -104,7 +104,7 @@
                         <label class="text">
                             持卡人姓名
                         </label>
-                        <input type="text">
+                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名">
                     </div>
                     <div class="phoneNum">
                         <label class="text">
@@ -154,7 +154,7 @@
                         <label class="text">
                             背面末三碼
                         </label>
-                        <input type="text" maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" id="credit_CardCsc" maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <button type="submit">確認並送出</button>
                 </form>

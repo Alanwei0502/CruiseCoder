@@ -20,6 +20,9 @@ function doFirst() {
     });
 
     // ==========付款資料控制==============
+
+    $().on();
+
     // 手機號碼只能輸入數字
     $('#phone_Num').on('keydown', function (e) {
         if (e.which >= 48 && e.which <= 57 || e.which == 8) { // 8 是刪除鍵
@@ -28,14 +31,14 @@ function doFirst() {
         }
     });
 
-    // 卡號輸入四碼後跳到下一欄
+    // 卡號欄位輸入四碼後跳到下一欄
     $('.creditCard_Num').on('keyup change', function () {
         if ($(this).val().length > 3) {
             $(this).next().focus();
         }
     });
 
-    //只能輸入數字
+    //卡號欄位只能輸入數字
     $('.creditCard_Num').on('keydown', function (e) {
         if (e.which >= 48 && e.which <= 57 || e.which == 8) { // 8 是刪除鍵
             if ($(this).val().length == 0 && e.which == 8) {
@@ -48,24 +51,20 @@ function doFirst() {
         }
     });
 
-    //  卡號輸入_控制輸入非英數字元會變成空字串
+    // 卡號欄位_控制輸入非英數字元會變成空字串
     var cards = document.getElementsByClassName("creditCard_Num");
     for (let i = 0; i < cards.length; i++) {
         cards[i].addEventListener("keyup", function (e) {
             let str = (e.target.value).replace(/\D/g, "");
             e.target.value = str;
             //取得元素用 e.target.value 或用 this.value
-            console.log(str);
-
+            // console.log(str);
         });
     };
 
-    $('#phone_Num').on('keydown', function (e) {
-        if (e.which >= 48 && e.which <= 57 || e.which == 8) { // 8 是刪除鍵
-        } else {
-            e.preventDefault(); // 停止預設行為(在欄位上出現所打的文字)
-        }
-    });
+
+
+
 
 
 
