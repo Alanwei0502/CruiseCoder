@@ -21,7 +21,7 @@ function doFirst() {
 
     // ==========付款資料控制==============
 
-    $().on();
+
 
     // 手機號碼只能輸入數字
     $('#phone_Num').on('keydown', function (e) {
@@ -64,10 +64,121 @@ function doFirst() {
 
 
 
+    // 點擊按鈕時，檢查資料有無填寫完整
+    // var the_form = document.getElementsByClassName("info");
+    $('#submit_Btn').on('click', function (e) {
+        let send_data = true;
+
+        // 有無填寫姓名
+        if ($('#card_Name').val() == '') {
+            $('#card_Name').addClass('-error');
+            send_data = false;
+        } else {
+            $('#card_Name').removeClass('-error');
+        }
+
+        // 有無填寫手機號碼、驗證手機號碼格式
+        function isPhoneNo(phone) {
+            var pattern = /^09\d{8}$/;
+            return pattern.test(phone);
+        }
+
+        // console.log( isPhoneNo($('#phone_Num').val()) );
+
+        if ($('#phone_Num').val() == '') {
+            $('#phone_Num').addClass('-error');
+            send_data = false;
+        } else {
+            if (isPhoneNo($('#phone_Num').val()) == false) {
+                $('#phone_Num').addClass('-error');
+                send_data = false;
+
+            } else {
+                $('#phone_Num').removeClass('-error');
+            }
+        }
+
+
+        // 有無填寫背面末三碼
+        if ($('#credit_CardCsc').val().length < 3) {
+            $('#credit_CardCsc').addClass('-error');
+            send_data = false;
+        } else {
+            $('#credit_CardCsc').removeClass('-error');
+        }
+        console.log($('#credit_CardCsc').val().length);
 
 
 
+        // 驗證信用卡號是否正確
+        let creditCard_Str = '';
+        for (let i = 0; i < $('.creditCard_Num').length; i++) {
+            creditCard_Str += $('.creditCard_Num').eq(i).val();
+        }
+        console.log(creditCard_Str);
 
+        if (is.creditCard(creditCard_Str)) {
+            for (let i = 0; i < $('.creditCard_Num').length; i++) {
+                $('.creditCard_Num').eq(i).removeClass("-error");
+            }
+        } else {
+            for (let i = 0; i < $('.creditCard_Num').length; i++) {
+                $('.creditCard_Num').eq(i).addClass("-error");
+                send_data = false;
+            }
+        }
+
+        // if (!send_data) {
+        //     e.preventDefault();
+        // } else {
+        //     // send_data = true;
+        //     console.log(send_data);
+        //     document.info.submit();
+        //     $('.success').addClass('-on');
+        // }
+
+        if (!send_data) {
+            e.preventDefault();
+            console.log(send_data);
+            $('.failed').addClass('-on');
+
+
+        } else {
+            // send_data = true;
+            console.log(send_data);
+            // document.info.submit();
+            $('.success').addClass('-on');
+        }
+
+        // 觸發submit事件，執行下面function
+        $('#info').submit(function (e) {
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    alert(data); // show response from the php script.
+                }
+            });
+
+            // 停止預設事件，停止轉跳
+            e.preventDefault();
+        })
+
+        // 點擊按鈕------>前往課程
+        $('.go_Course').on('click', function () {
+            window.location.href = "course_start_class.php";
+        });
+
+        // 點擊按鈕------>留在付款頁面
+        $('.go_checkOut').on('click', function () {
+            $('.failed').removeClass('-on');
+        });
+
+    });
 }
 
 
