@@ -1,3 +1,5 @@
+//測驗登入提醒
+
 //測驗須知，checkbox勾選，頁籤切換
 var startQuiz = document.getElementsByClassName('startQuiz');
 var checkOne = document.getElementById('checkOne');
@@ -26,14 +28,7 @@ startQuiz[0].addEventListener('click', function () {
 
 
 // 是否前往會員中心的判斷
-// var login = false;
-complete[0].addEventListener('click', function () {
-    // if (login == false){
-    alert('請先登入會員');
-    // }else{
-    //     // 轉跳會員中心
-    // }
-});
+
 
 
 
