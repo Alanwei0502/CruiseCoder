@@ -92,7 +92,8 @@
             </div>
             <div class="payment">
                 <div class="title">填寫付款資料</div>
-                <form class="infon" method="post" action="" onclick="return false">
+                <form class="info" method="post" action="./checkOutR.php" name="info" id="info">
+                    <!-- <form class="info" method="post" action=""  name="info" onclick="return false"> -->
                     <div class="text">
                         <p>付款方式-信用卡</p>
                         <div class="img">
@@ -104,19 +105,19 @@
                         <label class="text">
                             持卡人姓名
                         </label>
-                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名">
+                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName">
                     </div>
                     <div class="phoneNum">
                         <label class="text">
                             手機號碼
                         </label>
-                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼">
+                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼" name="number">
                     </div>
                     <div class="creditCardNum">
                         <label class="text">
                             信用卡卡號
                         </label>
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="creditCardNum">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
@@ -154,19 +155,46 @@
                         <label class="text">
                             背面末三碼
                         </label>
-                        <input type="text" id="credit_CardCsc" maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" id="credit_CardCsc" maxlength="3" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="creditCardCsc">
                     </div>
-                    <button type="submit">確認並送出</button>
+                    <button type="submit" id="submit_Btn">確認並送出</button>
                 </form>
             </div>
-
+            <!-- 付款成功燈箱 -->
+            <div class="success">
+                <section>
+                    <!-- 叉叉 -->
+                    <!-- <div class="close">
+                        <img src="../images/backEnd/cancel.png" alt="" class="close">
+                    </div> -->
+                    <div class="successfulTransaction">
+                        <img src="../images/checkOut/successfulTransaction.png" alt="">
+                    </div>
+                    <p class="title">交易完成</p>
+                    <button class="go_Course">前往課程</button>
+                </section>
+            </div>
+            <!-- 付款失敗燈箱 -->
+            <div class="failed">
+                <section>
+                    <!-- 叉叉 -->
+                    <!-- <div class="close">
+                        <img src="../images/backEnd/cancel.png" alt="" class="close">
+                    </div> -->
+                    <div class="failedTransaction">
+                        <img src="../images/checkOut/failedTransaction.png" alt="">
+                    </div>
+                    <p class="failed_Title">交易失敗</p>
+                    <button class="go_checkOut">回到結帳頁面</button>
+                </section>
+            </div>
         </main>
         <?php
         include 'layout/footer.php';
         ?>
         <script src="../js/checkOut.js"></script>
         <script src="../js/header.js"></script>
-
+        <script src="../js/is.js"></script>
     </div>
 </body>
 
