@@ -69,18 +69,18 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <main>
             <h2><?= "< " . $name . " />" ?></h2>
-            <section class="beforeQuiz">
-                <div class="notice blueBg">
-                    <h3>測驗須知</h3>
-                    <div>
-                        <p>測驗時間：1分鐘</p>
-                        <p>總共題目：2題</p>
-                        <p>確認選項後，請按下一題繼續作答</p>
-                    </div>
-                    <label class="note" for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
-                    <label class="note" for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+            <?= "<section class='beforeQuiz' style='background-image: url(../images/quiz/background/" . $qData[0]["qBackground"] . ");'>" ?>
+            <div class="notice blueBg">
+                <h3>測驗須知</h3>
+                <div>
+                    <p>測驗時間：1分鐘</p>
+                    <p>總共題目：2題</p>
+                    <p>確認選項後，請按下一題繼續作答</p>
                 </div>
-                <button class="startQuiz">開始試煉</button>
+                <label class="note" for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
+                <label class="note" for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+            </div>
+            <button class="startQuiz">開始試煉</button>
             </section>
 
             <?php
@@ -90,7 +90,7 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($sData as $sIndex => $sRow) {
                     $sCurrent = $sData[$sIndex];
                     if ($sCurrent["sQuiz"] === $qCurrent["qNumber"]) {
-                        echo  "<label>" . "<input type='radio'>" . htmlspecialchars($sRow["sContent"]) . "</label>";
+                        echo  "<label>" . "<input class='selection' type='radio' name='selection'>" . $sRow["sOption"] . ". " . htmlspecialchars($sRow["sContent"]) . "</label>";
                     }
                 }
                 echo "</div>" . "</div>" . "<button class='nextQuestion'>下一題</button>" . "</section>";
