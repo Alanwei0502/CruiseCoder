@@ -19,13 +19,12 @@ function doFirst() {
         });
     });
 
-    // ==========付款資料控制==============
+    // ==========付款資料表單驗證==============
 
 
-
-    // 手機號碼只能輸入數字
+    // 手機號碼只能輸入數字、刪除、左右鍵
     $('#phone_Num').on('keydown', function (e) {
-        if (e.which >= 48 && e.which <= 57 || e.which == 8) { // 8 是刪除鍵
+        if (e.which >= 48 && e.which <= 57 || e.which == 8 || e.which == 37 || e.which == 39) { //48到57是數字0~9 、8 是刪除鍵、37左、39右
         } else {
             e.preventDefault(); // 停止預設行為(在欄位上出現所打的文字)
         }
@@ -38,9 +37,9 @@ function doFirst() {
         }
     });
 
-    //卡號欄位只能輸入數字
+    //卡號欄位只能輸入數字、刪除、左右鍵
     $('.creditCard_Num').on('keydown', function (e) {
-        if (e.which >= 48 && e.which <= 57 || e.which == 8) { // 8 是刪除鍵
+        if (e.which >= 48 && e.which <= 57 || e.which == 8 || e.which == 37 || e.which == 39) { //48到57是數字0~9 、8 是刪除鍵、37左、39右
             if ($(this).val().length == 0 && e.which == 8) {
                 if ($(this).prev() != null) {
                     $(this).prev().focus();
@@ -63,13 +62,12 @@ function doFirst() {
     };
 
 
-
-    // 點擊按鈕時，檢查資料有無填寫完整
-    // var the_form = document.getElementsByClassName("info");
+    // 點擊「送出」按鈕時，檢查資料有無填寫完整
     $('#submit_Btn').on('click', function (e) {
         let send_data = true;
+        //用來判斷資料最後是否要送出
 
-        // 有無填寫姓名
+        // 檢查有無填寫姓名
         if ($('#card_Name').val() == '') {
             $('#card_Name').addClass('-error');
             send_data = false;
@@ -77,14 +75,14 @@ function doFirst() {
             $('#card_Name').removeClass('-error');
         }
 
-        // 有無填寫手機號碼、驗證手機號碼格式
+        // 驗證手機號碼格式
         function isPhoneNo(phone) {
             var pattern = /^09\d{8}$/;
             return pattern.test(phone);
         }
-
         // console.log( isPhoneNo($('#phone_Num').val()) );
 
+        // 檢查有無填寫手機號碼、
         if ($('#phone_Num').val() == '') {
             $('#phone_Num').addClass('-error');
             send_data = false;
@@ -99,7 +97,7 @@ function doFirst() {
         }
 
 
-        // 有無填寫背面末三碼
+        // 檢查有無填寫背面末三碼
         if ($('#credit_CardCsc').val().length < 3) {
             $('#credit_CardCsc').addClass('-error');
             send_data = false;
@@ -128,32 +126,25 @@ function doFirst() {
             }
         }
 
-        // if (!send_data) {
-        //     e.preventDefault();
-        // } else {
-        //     // send_data = true;
-        //     console.log(send_data);
-        //     document.info.submit();
-        //     $('.success').addClass('-on');
-        // }
 
         if (!send_data) {
-            e.preventDefault();
+            e.preventDefault(); //停止預設行為
             console.log(send_data);
-            $('.failed').addClass('-on');
+            $('.failed').addClass('-on');//顯示交易失敗燈箱
 
 
         } else {
             // send_data = true;
             console.log(send_data);
             // document.info.submit();
-            $('.success').addClass('-on');
+            $('.success').addClass('-on');//顯示交易完成燈箱
         }
 
-        // 觸發submit事件，執行下面function
+        // 若表格驗證成功(true)，點擊按鈕後觸發submit事件，執行下面function
         $('#info').submit(function (e) {
             var form = $(this);
             var url = form.attr('action');
+            // 寫在form標籤裡的 action="./checkOutR.php"
 
             $.ajax({
                 type: "POST",
@@ -164,10 +155,11 @@ function doFirst() {
                 }
             });
 
-            // 停止預設事件，停止轉跳
+            // 停止預設事件，submit預設會跳轉網頁----->停止轉跳
             e.preventDefault();
-        })
+        });
 
+        // ======交易完成&交易失敗燈箱的按鈕設定==========
         // 點擊按鈕------>前往課程
         $('.go_Course').on('click', function () {
             window.location.href = "course_start_class.php";
@@ -179,7 +171,73 @@ function doFirst() {
         });
 
     });
+
+
+    // ==========CCpoint===============
+    new Vue({
+        el: '#app',
+        data: {
+            message: 0,
+            ccp: 0,
+
+        },
+
+        methods: {
+            setMessage(e) {
+                this.message = parseInt(e.target.value);
+
+                if (isNaN(this.message)) {
+                    this.message = '';
+                } else {
+                    return this.message;
+                }
+            },
+
+
+            //     if (isNaN(this.message)) {
+            //         this.message = '';
+            //     } else {
+            //         if (this.message <= ccpNt) {
+            //             return this.message;
+            //         } else {
+            //             return ccpNt;
+            //         }
+            //     }
+            // },
+
+        },
+
+        computed: {
+            //取得cc.Point
+            ccPoint() {
+                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                // console.log(ccp);
+                return this.ccp;
+            },
+
+            //將cc.Point轉為現金折抵
+            ccPointNt() {
+                ccpNt = Math.floor(this.ccp / 100);
+                this.message = ccpNt;
+                return ccpNt;
+            },
+        },
+    });
+
+
+    // 取得課程單價
+    let price = $("p.singlePrice");
+    let newPrice = 3700;
+    price.text(`NT${newPrice}`);
+    console.log(`${price.text()}`);
+
+
+
+
 }
+
+
+
 
 
 

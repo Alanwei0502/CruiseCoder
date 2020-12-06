@@ -114,7 +114,7 @@
         <label id="member"><input type="checkbox"><span></span></label>
         <!-- <img src="./../images/backEnd/memberIcon.png" alt="圖片無法顯示"> -->
         <ul>
-          <li><a href="./ccPoint.php" class="ccp">200</a></li>
+          <li><a href="./ccPoint.php" class="ccp">19850</a></li>
           <li class="smlSize"><a href="./allCourse.php">外星課程</a></li>
           <li class="smlSize"><a href="./galaxy.php">語宙試煉</a></li>
           <li class="smlSize"><a href="./article.php">太空補給站</a></li>

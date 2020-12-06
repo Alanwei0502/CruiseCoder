@@ -44,7 +44,7 @@
                     </div>
                     <div class="bottom">
                         <p class="type">已開課</p>
-                        <p class="price">NT,1200</p>
+                        <p class="singlePrice">NT,1200</p>
                     </div>
                 </div>
                 <div class="course">
@@ -65,28 +65,28 @@
                     </div>
                     <div class="bottom">
                         <p class="type">募資中</p>
-                        <p class="price">NT,1200</p>
+                        <p class="singlePrice">NT,1200</p>
                     </div>
                 </div>
             </div>
-            <div class="price">
+            <div class="price" id="app">
                 <div class="discount">
                     <form action="" class="ccPoint">
-                        現有 19,850 CC Point，您可以折抵NT$198，欲折<input type="text" name="" id="" value="198">元
+                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id=""   @input="setMessage" :value="message">元
                     </form>
                 </div>
                 <div class="sum">
                     <div class="ccPoint">
                         <p class="text">CC Point 折抵</p>
-                        <p class="price">- NT$ 198</p>
+                        <p class="price">- NT$ {{message}} </p>
                     </div>
                     <div class="total">
                         <p class="text">總計</p>
-                        <div class="price">NT$ 3,180</div>
+                        <div class="price">NT$ 2,400</div>
                     </div>
                     <div class="pay">
                         <p class="text">結帳總金額：</p>
-                        <div class="price">NT$ 2,982</div>
+                        <div class="price">NT$ 2,202</div>
                     </div>
                 </div>
             </div>
@@ -195,6 +195,8 @@
         <script src="../js/checkOut.js"></script>
         <script src="../js/header.js"></script>
         <script src="../js/is.js"></script>
+        <script src="../js/vue.js"></script>
+
     </div>
 </body>
 
