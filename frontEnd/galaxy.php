@@ -76,7 +76,7 @@ $gStatement = "";
                             <h3>{{planetsInfo.planetName}}</h3>
                             <p>{{planetsInfo.description}}</p>
                             <img :src="planetsInfo.badgeSrc">
-                            <a href="quiz.php" class="goToQuiz" :data-subject="planetsInfo.subject" :data-level="planetsInfo.level">進入試煉</a>
+                            <a :href="'quiz.php?subject='+planetsInfo.subject+'&level='+planetsInfo.level+'&name='+planetsInfos.planetName" class="goToQuiz">進入試煉</a>
                         </article>
                     </template>
                 </div>

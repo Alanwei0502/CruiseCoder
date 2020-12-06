@@ -20,8 +20,10 @@ $sStatement = $pdo->prepare($sStatement);
 // }
 
 // 綁定參數
-$subject = "html";
-$level = 1;
+// if (isset($_GET["subject"]), isset($_GET["level"])){
+$subject = $_GET["subject"];
+$level = $_GET["level"];
+$name = $_GET["name"];
 
 $qStatement->bindParam(1, $subject);
 $qStatement->bindParam(2, $level);
@@ -43,6 +45,9 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
 // print_r($qData);
 // echo "<br/>";
 // print_r($sData);
+// }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +56,7 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cruise Coders | HTML初級星球</title>
+    <title>Cruise Coders | 試煉開始</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -63,7 +68,7 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
 
         ?>
         <main>
-            <h2>&lt; HTML初級星球 &#47;&gt;</h2>
+            <h2><?= "< " . $name . " />" ?></h2>
             <section class="beforeQuiz">
                 <div class="notice blueBg">
                     <h3>測驗須知</h3>
@@ -72,8 +77,8 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
                         <p>總共題目：2題</p>
                         <p>確認選項後，請按下一題繼續作答</p>
                     </div>
-                    <label for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
-                    <label for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+                    <label class="note" for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
+                    <label class="note" for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
                 </div>
                 <button class="startQuiz">開始試煉</button>
             </section>
@@ -81,7 +86,7 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
             <?php
             foreach ($qData as $qIndex => $qRow) {
                 $qCurrent = $qData[$qIndex];
-                echo "<section class='inQuiz'>" . "<div class='blueBg'>" . "<div class='question'>" . $qRow["qContent"] . "</div>" . "<div class='answer'>";
+                echo "<section class='inQuiz'>" . "<div class='blueBg'>" . "<div class='question'>" . htmlspecialchars($qRow["qContent"]) . "</div>" . "<div class='answer'>";
                 foreach ($sData as $sIndex => $sRow) {
                     $sCurrent = $sData[$sIndex];
                     if ($sCurrent["sQuiz"] === $qCurrent["qNumber"]) {

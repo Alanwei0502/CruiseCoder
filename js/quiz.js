@@ -1,4 +1,5 @@
 //測驗登入提醒
+alert('請先登入會員，才可以收集到徽章喔！');
 
 //測驗須知，checkbox勾選，頁籤切換
 var startQuiz = document.getElementsByClassName('startQuiz');
