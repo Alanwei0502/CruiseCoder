@@ -99,9 +99,8 @@ let planetTwo = document.getElementsByClassName('planetTwo')[0];
 let planetThree = document.getElementsByClassName('planetThree')[0];
 let insideArticle = document.getElementsByClassName('insideArticle');
 
+
 for (let i = 0; i < planet.length; i++) {
-
-
     insideArticle[1].style.cssText = "display: block;";
 
     planet[i].addEventListener("click", function () {
@@ -147,6 +146,8 @@ for (let i = 0; i < planet.length; i++) {
             }
         }
         changeArticle();
+
+
     });
 }
 
@@ -173,8 +174,7 @@ $(document).ready(function () {
                     $('.insideArticle h3').eq(j).text(array[j].bName);
                     $('.insideArticle p').eq(j).text(array[j].bInfo);
                     $('.insideArticle img').eq(j).attr("src", array[j].bImage);
-                    $('.insideArticle a').eq(j).attr("data-subject", array[j].bGalaxy);
-                    $('.insideArticle a').eq(j).attr("data-level", array[j].bLevel);
+                    $('.goToQuiz').eq(j).attr("href", `quiz.php?subject=${array[j].bGalaxy}&level=${array[j].bLevel}&name=${array[j].bName}`);
                 }
 
                 $('.galaxyBadge img').attr("src", array[3].bImage);
@@ -186,4 +186,4 @@ $(document).ready(function () {
 });
 
 
-// 點擊進入試煉，連到對應的題庫
+

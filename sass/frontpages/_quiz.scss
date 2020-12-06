@@ -126,10 +126,13 @@
                     }
                     
                 }
+                .note{
+                    text-decoration: underline;
+                }
                 label{
                     font-size: $mp;
-                    align-self: flex-start;
                     line-height: $h3;
+                    font-weight: normal;
                     @include smlPad{
                         font-size: $sp;
                         line-height: $h4;
