@@ -11,13 +11,25 @@ function doFirst() {
     //         this.closest('div.course').remove();
     //     });
     // };
-    //   // 刪除購買商品(jQuery寫法)
+    // // 刪除購買商品(jQuery寫法)
+    // 點擊叉叉時，移除商品，並判斷購物車內有無商品
     $(document).ready(function () {
         $('i.close').closest('a').click(function (e) {
             e.preventDefault();
             $(this).closest('div.course').remove();
+            courseNum();
         });
     });
+
+    // 進入購物車時先判斷是否有商品
+    courseNum();
+    
+    
+
+
+    
+
+
 
     // ==========付款資料表單驗證==============
 
@@ -130,7 +142,7 @@ function doFirst() {
         if (!send_data) {
             e.preventDefault(); //停止預設行為
             console.log(send_data);
-            $('.failed').addClass('-on');//顯示交易失敗燈箱
+            // $('.failed').addClass('-on');//顯示交易失敗燈箱
 
 
         } else {
@@ -151,7 +163,7 @@ function doFirst() {
                 url: url,
                 data: form.serialize(), // serializes the form's elements.
                 success: function (data) {
-                    alert(data); // show response from the php script.
+                    // alert(data); // show response from the php script.
                 }
             });
 
@@ -170,6 +182,14 @@ function doFirst() {
             $('.failed').removeClass('-on');
         });
 
+    });
+
+    // 信用卡有效日期下拉選單，vue動態綁定
+    new Vue({
+        el: '#app2',
+        data: {
+            years: [2020, 2021, 2022, 2023, 2024],
+        },
     });
 
 
@@ -231,13 +251,22 @@ function doFirst() {
     price.text(`NT${newPrice}`);
     console.log(`${price.text()}`);
 
-
+    
 
 
 }
 
 
-
+ // 判斷購物車內是否有商品
+function courseNum() {
+    var course = document.getElementsByClassName('course').length;
+    console.log(course);
+    if (course == 0) { 
+        $('div.price').css('visibility','hidden');
+        $('div.payment').css('visibility','hidden');
+        $('div.shoppingList').text('您的購物車內無任何商品').addClass('-on');
+    }
+};
 
 
 
