@@ -41,6 +41,7 @@ $sData = [];
 
 
 $qData = $qStatement->fetchAll(PDO::FETCH_ASSOC);
+// $qData = $qStatement->fetchAll();
 $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
 // print_r($qData);
 // echo "<br/>";
@@ -86,26 +87,26 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
             <?php
             foreach ($qData as $qIndex => $qRow) {
                 $qCurrent = $qData[$qIndex];
-                echo "<section class='inQuiz'>" . "<div class='blueBg'>" . "<div class='question'>" . htmlspecialchars($qRow["qContent"]) . "</div>" . "<div class='answer'>";
+                echo "<section class='inQuiz' style='background-image: url(../images/quiz/background/" . $qCurrent["qBackground"] . ");'>" . "<div class='blueBg'>" . "<div class='question' data-answer='" . $qRow["qAnswer"] . "'>" . htmlspecialchars($qRow["qContent"]) . "</div>" . "<div class='answer'>";
                 foreach ($sData as $sIndex => $sRow) {
                     $sCurrent = $sData[$sIndex];
                     if ($sCurrent["sQuiz"] === $qCurrent["qNumber"]) {
-                        echo  "<label>" . "<input class='selection' type='radio' name='selection'>" . $sRow["sOption"] . ". " . htmlspecialchars($sRow["sContent"]) . "</label>";
+                        echo  "<label>" . "<input class='selection' value='" . $sRow["sOption"] . "' type='radio' name='selection'>" . $sRow["sOption"] . ". " . htmlspecialchars($sRow["sContent"]) . "</label>";
                     }
                 }
                 echo "</div>" . "</div>" . "<button class='nextQuestion'>下一題</button>" . "</section>";
             }
             ?>
-            <section class="afterQuiz">
-                <div class="notice blueBg">
-                    <h3>恭喜您完成試煉!</h3>
-                    <div>
-                        <p>答對題數：</p>
-                        <p>徽章解鎖標準：答對2題</p>
-                        <p>請至您的會員中心查看您擁有的徽章</p>
-                    </div>
+            <?= "<section class='afterQuiz' style='background-image: url(../images/quiz/background/" . $qData[0]["qBackground"] . ");'>" ?>
+            <div class="notice blueBg">
+                <h3>恭喜您完成試煉!</h3>
+                <div>
+                    <p class="correctCount"></p>
+                    <p>徽章解鎖標準：答對2題</p>
+                    <p>請至會員中心查看您擁有的徽章</p>
                 </div>
-                <button class="complete">前往會員中心</button>
+            </div>
+            <a href="http://localhost/CruiseCoder/frontEnd/info.php" class="complete">前往會員中心</a>
             </section>
         </main>
         <?php

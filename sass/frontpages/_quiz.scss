@@ -20,7 +20,6 @@
         section{
             width: 100%;
             padding: $fontSize;
-            background-image: url('../images/quiz/background/1.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -192,6 +191,28 @@
             }
         }
         .afterQuiz{
+            display: none;
+
+            a{
+                @include btn($h4);
+                display: block;
+                float: right;
+                @include smlPad{
+                	@include btn($bp);
+                }
+                @include bigPhone{
+                	@include btn($mp);
+                }
+                @include smlPhone{
+                	@include btn($sp);
+                }
+            }
+        }
+
+        .-show{
+            display: block;
+        }
+        .-hide{
             display: none;
         }
         
