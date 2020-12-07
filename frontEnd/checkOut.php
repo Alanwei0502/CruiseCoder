@@ -72,7 +72,7 @@
             <div class="price" id="app">
                 <div class="discount">
                     <form action="" class="ccPoint">
-                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id=""   @input="setMessage" :value="message">元
+                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" :value="message">元
                     </form>
                 </div>
                 <div class="sum">
@@ -111,7 +111,7 @@
                         <label class="text">
                             手機號碼
                         </label>
-                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼" name="number">
+                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼" name="number" required="required">
                     </div>
                     <div class="creditCardNum">
                         <label class="text">
@@ -122,13 +122,13 @@
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
-                    <div class="date">
+                    <div class="date" id="app2">
                         <label class="text">
                             有效日期
                         </label>
                         <select>
-                            <option value="">1</option>
-                            <option value="">2</option>
+                            <option :value="index+1" v-for="(month,index) in 12">{{month}}</option>
+                            <!-- <option value="">2</option>
                             <option value="">3</option>
                             <option value="">4</option>
                             <option value="">5</option>
@@ -138,16 +138,16 @@
                             <option value="">9</option>
                             <option value="">10</option>
                             <option value="">11</option>
-                            <option value="">12</option>
+                            <option value="">12</option> -->
                         </select>
                         <label for="" class="months">月</label>
 
                         <select>
-                            <option value="">2020</option>
-                            <option value="">2021</option>
+                            <option :value="year" v-for="year in years">{{year}}</option>
+                            <!-- <option value="">2021</option>
                             <option value="">2022</option>
                             <option value="">2023</option>
-                            <option value="">2024</option>
+                            <option value="">2024</option> -->
                         </select>
                         <label for="" class="years">年</label>
                     </div>

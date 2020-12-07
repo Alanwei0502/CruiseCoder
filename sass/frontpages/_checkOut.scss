@@ -269,11 +269,24 @@
             }
         }
 
+        .shoppingList.-on {
+            color: $white;
+            font-size: $h4;
+            text-align: center;
+            margin-top: 80px;
+
+
+
+            @include smlPad {
+                font-size: $bp;
+            }
+        }
+
         .price {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-
+            position: relative;
 
 
             .discount {
@@ -403,6 +416,8 @@
         .payment {
             @include clearfixed;
             margin-bottom: 150px;
+            position: relative;
+
 
             .title {
                 font-size: $h3;
