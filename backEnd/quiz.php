@@ -25,17 +25,13 @@
         <div>
           <label id="field">領域
             <select>
-              <template v-for="(field, index) in fields">
-                <option :value="field.name">{{field.name}}</option>
-              </template>
+              <option v-for="field in fields" :value="field.name">{{field.name}}</option>
             </select>
           </label>
 
           <label id="difficulty">難易度
             <select>
-              <template v-for="(difficulty, index) in difficulties">
-                <option :value="difficulty.value">{{difficulty.level}}</option>
-              </template>
+              <option v-for="difficulty in difficulties" :value="difficulty.value">{{difficulty.level}}</option>
             </select>
           </label>
         </div>
@@ -56,40 +52,48 @@
               <th><label><input type="checkbox" class="checkAll"><span></span></label></th>
               <th>領域</th>
               <th>難易度</th>
+              <th>狀態</th>
               <th>操作</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
+          <tbody id="bodyArea">
+            <!-- <my-tr-component></my-tr-component> -->
+
+            <!-- <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>初級</td>
+              <td>上架</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>中級</td>
+              <td>上架</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>高級</td>
+              <td>上架</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>css</td>
               <td>初級</td>
+              <td>上架</td>
               <td><button>編輯</button></td>
             </tr>
             <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>css</td>
               <td>中級</td>
+              <td>上架</td>
               <td><button>編輯</button></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
 

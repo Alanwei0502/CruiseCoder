@@ -76,15 +76,9 @@ div.quiz {
                         text-align: left;
 
                         &:nth-child(1) {
-                            width: 10%;
-
                             label {
                                 cursor: pointer;
                             }
-                        }
-
-                        &:nth-child(4) {
-                            width: 20%;
                         }
                     }
 

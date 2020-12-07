@@ -1,5 +1,5 @@
 // vue instance
-let vm = new Vue({
+let searchArea = new Vue({
     el: '.searchbar',
     data: {
         fields: [
@@ -28,9 +28,25 @@ let vm = new Vue({
             },
         ],
     },
+});
 
-})
 
+// let bodyArea = new Vue({
+//     el: "#bodyArea",
+//     data: {
+
+//     },
+//     template: `
+//         <tr>
+//             <td><label><input type="checkbox"><span></span></label></td>
+//             <td>${}</td>
+//             <td>${}</td>
+//             <td>${}</td>
+//             <td><button>編輯</button></td>
+//         </tr>
+//     `,
+
+// })
 
 
 let tbody = document.getElementsByTagName('tbody')[0];
