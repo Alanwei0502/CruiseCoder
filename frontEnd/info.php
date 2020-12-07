@@ -1,4 +1,14 @@
 <?php
+
+  include("linkFion.php");
+
+   //建立SQL
+   $sql = "SELECT * FROM member WHERE mNumber = ?";
+   $mNumber = "M0001";
+   $statement = $pdo->prepare($sql);
+   $statement->bindValue(1 , "$mNumber");
+   $statement->execute();
+   $infoMember = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +42,17 @@
               <div class="op_circle right_cc">
 
                 <div class="account_pic">
-                    <img  src="../images/info/street_girl.jpeg" alt="no pic">
+                  <?php
+                      foreach($infoMember as $index => $row){
+                  ?>
+                    <img  src=<?=$row["mPhoto"]?> alt="no pic" name="mPhoto">
+                  <?php } ?>
                 </div>  
 
-                <label for="upload_img">
+                <label for="upload_img" method="post" action="">
+                
                   <img src="../images/info/plusCamera.png" alt="">
-                  <input id="upload_img"  type="file" style="display: none;">
+                  <input id="upload_img" type="file"   style="display: none;">
                   
                 </label>
                   
@@ -46,43 +61,44 @@
               
                 <div class="left_cc">
                     <div class="notice_bar">
-                        <div><p>目前擁有  19,850 CC Point   = NT$ 198&ensp;</p></div>
-                        <div><img src="../images/info/cc_coin.png" alt="">  </div>
+
+                   
+                        <div><p>目前擁有 <span><?=$row["mCC"] ?></span> CC Point = NT$ 198&ensp;</p></div>
+                    
+                        <div><img src="../images/info/cc_coin.png" alt=""> </div>
                     </div>    
 
                     
                     <div class="info_card">
-                        <form action="">
+                        <form method="post" action="">
                             <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
-                            <label>姓名&ensp;:&ensp;
 
-                                <input type="text"  class="input" value="月野兔" disabled/>
+
+
+                            <label>姓名&ensp;:&ensp;
+                              
+                                <input type="text"  class="input" value="<?=$row["mName"] ?>" name="mName" disabled/>
+                              
                             </label>
                             <label>帳號&ensp;:&ensp;
-
-                                <input type="text" class="input" value="a6401433" disabled/>
+                                <input type="text" class="input" value="<?=$row["mAccount"] ?>" name="mAccount" disabled/>
                             </label>
                             <label>密碼&ensp;:&ensp;
 
-                                <input type="password" class="input" value="info22"disabled/>
+                                <input type="password" class="input" value="<?=$row["mPassword"] ?>" name="mPassword" disabled/>
                             </label>
                             <!-- 電子信箱設定成無法編輯 -->
                             <label>電子信箱&ensp;:&ensp;
 
-                                <input type="email" class="input" value="a6401433@g.pccu.edu.tw" name="email" disabled/>
+                                <input type="email" class="input" value="<?=$row["mEmail"] ?>" name="mEmail" disabled/>
                             </label> 
-                            <!-- 生日設定成無法編輯 -->
-                            <label>生日&ensp;:&ensp;
 
-                                <input type="test" class="input" value="1994/01/22" disabled/>
-                            </label>
                             <label>手機號碼&ensp;:&ensp;
 
-                                <input name="phone" class="input" value="0927385834"pattern=’\d{4}[-]\d{6}’ disabled/>
+                                <input name="phone" class="input" value="<?=$row["mPhone"] ?>" name="mPhone"  pattern=’\d{4}[-]\d{6}’ disabled/>
                             </label>
                             
-
-                            <div class="sendBtn">確認修改</div>
+                            <div class="sendBtn" type="submit">確認修改</div>
 
                         </form>
 
@@ -428,5 +444,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="../js/header.js"> </script>
+  <script>
+    $(document).ready(function(){
+      $('.editFile').click(function(){
+        // alert('hi');
+        $('label.input').attr('disabled', false);
+        // $('label.input').attr({
+        //   disabled: false,
+        // });
+        
+      });
+      // $('.sendBtn').click(function(){
+      //   $('label.input').attr('disabled', true);
+      // })
+
+    });
+  </script>
 </body>
 </html>

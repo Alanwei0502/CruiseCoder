@@ -1,62 +1,380 @@
 .orderMain{
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 .order_title{
   @include h2;
-  color: $beige;
+    color: $beige;
   @include smlPad{
     font-size: $h3;
 }
-@include bigPhone{
+  @include bigPhone{
     font-size: $h4;
-}
-@include smlPhone{
+  }
+  @include smlPhone{
     font-size: $bp;
-}
+  }
 }  
   
   .orderArea{
           border: $orange 10px solid;
+          width: 100%;
+         
+          .underOrderNum{
+            font-size: $bp;
+            text-align: right;
+            padding-right: 10px;
+            padding-top: 10px;
+            @include bigPad{
+              font-size: $mp;
+            }
+          }
+          .UnderCard_1200{
+            background-color: #fff;
+            padding: 10px 20px;
+            display: none;
+            @include laptop{
+              display: block;
+            }
+
+
+            .UnderChild_1{
+              margin: 30px 0;
+              padding: 30px 20px;
+              display: flex;
+
+              //768
+              @include smlPad{
+                flex-direction: column;
+              }
+
+              div{
+                &:nth-child(1){
+                  width: 25%;
+                
+                }
+                &:nth-child(2){
+                  width: 25%;
+                }
+                &:nth-child(3){
+                  text-align: right;
+                  width: 50%;
+                  align-self: flex-end;
+                }
+                
+
+                //992
+                @include bigPad{
+
+                  &:nth-child(1){
+                    width: 33.33%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 33.33%;
+                    text-align: left;
+                  
+                   
+                  }
+                  &:nth-child(3){
+                    text-align: center;
+                    width: 33.33%;
+                  }
+                }
+                
+                //768
+                @include smlPad{
+                  &:nth-child(1){
+                    width: 40%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 60%;
+                    text-align: left;
+                  }
+
+                }
+
+
+                //576
+                @include bigPhone{
+                  &:nth-child(2){
+                    width: 100%;
+                    text-align: left;
+                  }
+                }
+
+              }
+             
+              
+              h3{
+                font-weight: 600;
+                font-size: $bp;
+                @include bigPhone{
+                  font-size: $mp;
+                }
+              }
+           
+              div{
+                img{
+                  width: 180px;
+                } 
+              }
+            }
+            .UnderChild_2{
+              border-top: 1px solid #000;
+              margin: 30px 0;
+              padding: 30px 20px;
+              display: flex;
+
+              //768
+              @include smlPad{
+                flex-direction: column;
+              }
+
+              div{
+                &:nth-child(1){
+                  width: 25%;
+                
+                }
+                &:nth-child(2){
+                  width: 25%;
+                }
+                &:nth-child(3){
+                  text-align: right;
+                  width: 50%;
+                  align-self: flex-end;
+                }
+                //992
+                @include bigPad{
+                
+                  &:nth-child(1){
+                    width: 33.33%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 33.33%;
+                    text-align: left;
+                  }
+                  &:nth-child(3){
+                    text-align: center;
+                    width: 33.33%;
+                  }
+                }
+
+                //768
+                @include smlPad{
+                  &:nth-child(1){
+                    width: 40%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 60%;
+                    text-align: left;
+                  }
+
+                }
+
+                //576
+                @include bigPhone{
+                  &:nth-child(2){
+                    width: 100%;
+                    text-align: left;
+                  }
+
+                }
+              }
+
+              }
+              
+              h3{
+                font-weight: 600;
+                font-size: $bp;
+                @include bigPhone{
+                  font-size: $mp;
+                }
+
+              }
+              div{
+                img{
+                  width: 180px;
+                } 
+              }
+            }
+
+            .UnderChild_3{
+              border-top: 1px solid #000;
+              margin: 30px 0;
+              padding: 30px 20px;
+              display: flex;
+
+              //768
+              @include smlPad{
+                flex-direction: column;
+              }
+
+              div{
+                &:nth-child(1){
+                  width: 25%;
+                
+                }
+                &:nth-child(2){
+                  width: 25%;
+                }
+                &:nth-child(3){
+                  text-align: right;
+                  width: 50%;
+                  align-self: flex-end;
+                }
+                //992
+                @include bigPad{
+                  img{
+                      width: 100px;
+                  }
+                  &:nth-child(1){
+                    width: 33.33%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 33.33%;
+                    text-align: left;
+                  }
+                  &:nth-child(3){
+                    text-align: center;
+                    width: 33.33%;
+                  }
+                }
+
+                //768
+                @include smlPad{
+                  &:nth-child(1){
+                    width: 40%;
+                    align-self: auto;
+                  }
+                  &:nth-child(2){
+                    width: 60%;
+                    text-align: left;
+                  }
+
+                }
+
+                //576
+                @include bigPhone{
+                  &:nth-child(2){
+                    width: 100%;
+                    text-align: left;
+                  }
+                  
+                }
+             
+              }
+              h3{
+                font-weight: 600;
+                font-size: $bp;
+                @include bigPhone{
+                  font-size: $mp;
+                }
+              }
+              div{
+                img{
+                  width: 180px;
+                } 
+              }
+            }
+
+            .transactionDetails{
+              border-top: 5px dashed $orange;
+              
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              div{
+                display: flex;
+                &:nth-child(2){
+                  align-items: center;
+                }
+                &:nth-child(3){
+                  margin-top: 100px;
+                }
+                img{
+                width: 35px; 
+                }
+              }
+              .lastPeace{
+                font-size: $h4;
+              }
+              @include smlPad{
+                div{
+                  &:nth-child(1){
+                    width: 20%;
+                  }
+                  &:nth-child(2){
+                    width: 50%;
+                  }
+                  &:nth-child(3){
+                    width: 40%;
+                  }
+
+                  
+                }
+                
+              }
+              @include bigPhone{
+               
+                
+              }
+              h2{
+                font-weight: 600;
+                
+              }
+             
+            }
+          }
           
+
+
+
+
+
           .accordion{                        
             max-width: 80em;
             background-color: #fff;
+            @include laptop{
+              display: none;
+            }  
               .Order_1,.Order_3{
-              background-color:#FFF3D8;
+                background-color:#FFF3D8;
               }
               .Order_1,.Order_2,.Order_3,.Order_4{
-                  display: flex;
-                  justify-content: space-around;
-                  padding: 20px; 
-                 
-                  div{
-                        
-                      img{
-                          width: 160px;
-                      }
-                  }
-                  ul{
-                      li{
-                          margin: 8px;
-                      }
-                  }
-                      i{
-                          color: $blue1;
-                          display: flex;
-                          align-self: flex-end;         
-                      } 
-                  }
-                  p{
-                      margin: 8px;
-
-                  }  
+                display: flex;
+                justify-content: space-around;
+                padding: 20px; 
+                div{
+                      
+                    img{
+                        width: 160px;
+                    }
+                }
+                ul{
+                    li{
+                        margin: 8px;
+                    }
+                }
+                    i{
+                        color: $blue1;
+                        display: flex;
+                        align-self: flex-end;         
+                    } 
+                }
+                p{
+                    margin: 8px;
+                }  
               }
               
-              
+
+
           }
-          
-            
-      }
+                      
+  
       
       table{
           border-collapse:collapse;
@@ -74,8 +392,7 @@
               padding: 30px;    
           }    
       }      
- 
-
+     
 // test
   .accordion {
     .option_1,.option_3{
@@ -99,7 +416,6 @@
           }
           .title {
             background: #fff;
-          
             display: block;
             color: $black;
             font-weight: bold;
@@ -118,13 +434,13 @@
             transform: rotate(90deg);
           }
           .content {
-            max-height: 0;
-            overflow: hidden;
+           
+            // max-height: 0;
+            // overflow: hidden;
             background-color: #fff;
             .td{
                 height: 50px;
-            }
-          
+            }         
             p{
               margin: 0;
               padding: 0.5em 1em 1em;
@@ -132,14 +448,14 @@
               line-height: 1.5;          
             }
         }
-        .toggle:checked {
-            & + .title + .content {
-              max-height: 500px;
-            }
-            & + .title:before {
-              transform: rotate(90deg) !important;
-            }
-        }
+        // .toggle:checked {
+        //     & + .title + .content {
+        //       max-height: 500px;
+        //     }
+        //     & + .title:before {
+        //       transform: rotate(90deg) !important;
+        //     }
+        // }
       }    
   }
 

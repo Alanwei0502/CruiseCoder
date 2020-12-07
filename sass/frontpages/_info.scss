@@ -213,6 +213,7 @@
             }
                 
             .sendBtn{
+                display: none;
                 @include btn($bp);
                 //  width: 200px;
                 align-self: flex-end;
