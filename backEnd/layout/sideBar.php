@@ -18,6 +18,7 @@
             <li><a href="reservation.php">預約管理</a></li>
             <li><a href="order.php">訂單管理</a></li>
             <li><a href="quiz.php">題庫管理</a></li>
+            <li><a href="badge.php">徽章管理</a></li>
             <li><a href="#0">登出</a></li>
         </ul>
     </nav>
