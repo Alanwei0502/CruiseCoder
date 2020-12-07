@@ -1,8 +1,58 @@
-//checkbox全選功能
-var tbody = document.getElementsByTagName('tbody')[0];
-var checkbox = tbody.querySelectorAll('input');
-var checkAll = document.getElementsByClassName('checkAll')[0];
+// vue instance
+let vm = new Vue({
+    el: '.searchbar',
+    data: {
+        fields: [
 
+            { name: "全部星系" },
+            { name: "HTML星系" },
+            { name: "CSS星系" },
+            { name: "Javascript星系" },
+            { name: "jQuery星系" },
+            { name: "SASS星系" },
+            { name: "MySQL星系" },
+            { name: "PHP星系" },
+        ],
+        difficulties: [
+            {
+                level: "初級",
+                value: 1,
+            },
+            {
+                level: "中級",
+                value: 2,
+            },
+            {
+                level: "高級",
+                value: 3,
+            },
+        ],
+    },
+
+})
+
+
+
+let tbody = document.getElementsByTagName('tbody')[0];
+let checkbox = tbody.querySelectorAll('input');
+let checkAll = document.getElementsByClassName('checkAll')[0];
+let tr = tbody.querySelectorAll('tr');
+let addQuiz = document.getElementsByClassName('add')[0];
+let quizModalBg = document.getElementsByClassName('quizModalBg')[0];
+let closeModal = document.getElementsByClassName('closeModal')[0];
+let off = document.getElementsByClassName('off')[0];
+let quizLevel = document.getElementsByClassName('quizLevel')[0];
+let mainEdit = document.getElementsByClassName('mainEdit')[0];
+let createQ = document.getElementsByClassName('createQ')[0];
+let topFunction = document.getElementsByClassName('topFunction')[0];
+let selectAll = document.getElementsByClassName('selectAll')[0];
+let deleteQ = document.getElementsByClassName('deleteQ')[0];
+let quizField = document.getElementsByClassName('quizField')[0];
+let createField = document.getElementsByClassName('createField')[0];
+let newField = document.getElementsByClassName('newField')[0];
+
+
+//checkbox全選功能
 checkAll.addEventListener('click', function () {
     if (checkAll.checked) {
         for (let i = 0; i < checkbox.length; i++) {
@@ -16,31 +66,24 @@ checkAll.addEventListener('click', function () {
 });
 
 //table顏色交錯
-var tr = tbody.querySelectorAll('tr');
-
 for (let i = 0; i < checkbox.length; i++) {
     if (i % 2 === 0) {
         tr[i].style.cssText = 'background-color: #FBF7EB';
     }
 }
 
-
 // 新增試題功能
-var addQuiz = document.getElementsByClassName('add')[0];
-var quizModalBg = document.getElementsByClassName('quizModalBg')[0];
 addQuiz.addEventListener('click', function () {
     quizModalBg.style.cssText = 'opacity: 1; z-index: 1;';
 });
 
 
 //跳出modal視窗，叉叉按鈕
-var closeModal = document.getElementsByClassName('closeModal')[0];
 closeModal.addEventListener('click', function () {
     quizModalBg.style.cssText = 'opacity: 0; z-index: -1;';
 });
 
 //下架試題按鈕功能
-var off = document.getElementsByClassName('off')[0];
 off.addEventListener('click', function () {
     // var choose = checkbox.some(e => e.checked);
     // console.log(choose);
@@ -60,9 +103,6 @@ off.addEventListener('click', function () {
 });
 
 //難易度選擇星系時，無法新增題目
-var quizLevel = document.getElementsByClassName('quizLevel')[0];
-var mainEdit = document.getElementsByClassName('mainEdit')[0];
-
 quizLevel.addEventListener('change', function () {
     if (quizLevel.value == 0) {
         mainEdit.style.cssText = 'display:none;';
@@ -73,10 +113,6 @@ quizLevel.addEventListener('change', function () {
 
 
 //新增題目按鈕
-var createQ = document.getElementsByClassName('createQ')[0];
-var topFunction = document.getElementsByClassName('topFunction')[0];
-var selectAll = document.getElementsByClassName('selectAll')[0];
-
 createQ.addEventListener('click', function () {
     var str = `
     <div class="downQuestion">
@@ -120,8 +156,8 @@ createQ.addEventListener('click', function () {
     topFunction.insertAdjacentHTML("afterend", str);
 
     //若有新增題目都會重新清除全選
-    var mainEdit = document.getElementsByClassName('mainEdit')[0];
-    var checkForQ = mainEdit.querySelectorAll('.checkForQ');
+    let mainEdit = document.getElementsByClassName('mainEdit')[0];
+    let checkForQ = mainEdit.querySelectorAll('.checkForQ');
     (function () {
         selectAll.checked = false;
         for (let i = 0; i < checkForQ.length; i++) {
@@ -146,25 +182,16 @@ createQ.addEventListener('click', function () {
 });
 
 //刪除題目按鈕
-var deleteQ = document.getElementsByClassName('deleteQ')[0];
-// deleteQ.addEventListener('click', function () {
-//     var mainEdit = document.getElementsByClassName('mainEdit')[0];
-//     var checkForQ = mainEdit.querySelectorAll('.checkForQ');
 
-//     for (let i = 0; i < checkForQ.length; i++) {
-//         if(checkForQ[i].checked){
-//             checkForQ[i].
-//         }
-//     };
-// });
 
 
 // 新增領域
-var quizField = document.getElementsByClassName('quizField')[0];
-var createField = document.getElementsByClassName('createField')[0];
-var newField = document.getElementsByClassName('newField')[0];
 createField.addEventListener('onchange', function () {
     if (createField.selected) {
         newField.style.cssText = "display: block;";
     }
 });
+
+
+
+// axios抓資料

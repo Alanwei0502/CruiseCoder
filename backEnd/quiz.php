@@ -15,7 +15,7 @@
 <body>
   <div class="backEndWrap quiz">
     <?php
-    include('layout/sideBar.php'); //aside
+    include('layout/sideBar.php');
     ?>
 
     <main>
@@ -23,30 +23,24 @@
       <h2>題庫管理</h2>
       <section class="searchbar">
         <div>
-          <label>領域
+          <label id="field">領域
             <select>
-              <option value="html">html</option>
-              <option value="css">css</option>
-              <option value="javascript">Javascript</option>
-              <option value="jquery">jQuery</option>
-              <option value="sass">SASS</option>
-              <option value="mysql">MySQL</option>
-              <option value="php">PHP</option>
-              <option value="vue">Vue</option>
+              <template v-for="(field, index) in fields">
+                <option :value="field.name">{{field.name}}</option>
+              </template>
             </select>
           </label>
 
-          <label>難易度
+          <label id="difficulty">難易度
             <select>
-              <option value="1">初級</option>
-              <option value="2">中級</option>
-              <option value="3">高級</option>
-              <option value="0">星系</option>
+              <template v-for="(difficulty, index) in difficulties">
+                <option :value="difficulty.value">{{difficulty.level}}</option>
+              </template>
             </select>
           </label>
         </div>
 
-        <button type="button">搜尋</button>
+        <button id="filterSearch" type="button">搜尋</button>
 
       </section>
 
@@ -170,6 +164,8 @@
 
     </main><!-- 在這裡面codeing -->
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.common.dev.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="../js/quizB.js"></script>
 </body>
 
