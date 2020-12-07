@@ -1,4 +1,13 @@
 <?php
+  include("linkFion.php");
+
+  //建立SQL
+  $sql = "SELECT * FROM member WHERE mNumber = ?";
+  $mNumber = "M0001";
+  $statement = $pdo->prepare($sql);
+  $statement->bindValue(1 , "$mNumber");
+  $statement->execute();
+  $infoMember = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +37,17 @@
 
       <div class="noticeGroup">
         <div class="ccNotice">
+          <?php
+              foreach($infoMember as $index => $row){
+          ?>
           <p>目前擁有<br>
-            19,850 CC Point (CC幣) <br>
+             <span><?=$row["mCC"] ?></span>CC Point (CC幣) <br>
             = NT$ 198 </p>
+            <?php } ?>
         </div>
       
         <div class="getNotice">
-          <p>今日簽到獲得10 CC Point!</p>
+          <p>今日簽到獲得<span><?=$row["mCC"]?></span>CC Point!</p>
         </div>
       </div>
       <div class="ccPointDay">
