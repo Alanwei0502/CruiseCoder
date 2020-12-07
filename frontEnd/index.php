@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruise Coders | 宇宙漫遊</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -155,7 +156,7 @@
                             </div>
                             <div class="price">NT.1,200</div>
                         </div>
-                    </div>
+                    </div>   
 
                     <div class="wrapGeneral">
                         <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
