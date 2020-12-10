@@ -59,7 +59,7 @@
           <tbody id="bodyArea">
             <!-- <my-tr-component></my-tr-component> -->
 
-            <!-- <tr>
+            <tr>
               <td><label><input type="checkbox"><span></span></label></td>
               <td>html</td>
               <td>初級</td>
@@ -93,7 +93,7 @@
               <td>中級</td>
               <td>上架</td>
               <td><button>編輯</button></td>
-            </tr> -->
+            </tr>
           </tbody>
         </table>
 

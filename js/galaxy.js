@@ -159,7 +159,7 @@ $(document).ready(function () {
             data: { name },
             success: function (res) {
                 let array = JSON.parse(res);
-                console.log(array);
+                // console.log(array);
 
                 for (let i = 0; i < planet.length; i++) {
                     planet[i].querySelector('img').setAttribute('src', array[i].bPlanet);
@@ -181,6 +181,3 @@ $(document).ready(function () {
         });
     });
 });
-
-
-

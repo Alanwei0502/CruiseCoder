@@ -22,3 +22,14 @@ if (isset($_POST["name"])) {
     // print_r($gData);
     echo json_encode($gData);
 }
+
+// $subject = "HTML星系";
+
+// $gStatement->bindParam(1, $subject);
+
+// $gStatement->execute();
+
+// $gData = $gStatement->fetchAll(PDO::FETCH_ASSOC);
+
+// print_r($gData);
+// echo json_encode($gData);
