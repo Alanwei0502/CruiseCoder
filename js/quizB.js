@@ -1,54 +1,135 @@
-// vue instance
-let searchArea = new Vue({
-    el: '.searchbar',
-    data: {
-        fields: [
 
-            { name: "全部星系" },
-            { name: "HTML星系" },
-            { name: "CSS星系" },
-            { name: "Javascript星系" },
-            { name: "jQuery星系" },
-            { name: "SASS星系" },
-            { name: "MySQL星系" },
-            { name: "PHP星系" },
-        ],
-        difficulties: [
-            {
-                level: "初級",
-                value: 1,
-            },
-            {
-                level: "中級",
-                value: 2,
-            },
-            {
-                level: "高級",
-                value: 3,
-            },
-        ],
+Vue.component("searchArea", {
+    props: ["fields"],
+    template: "#searchArea",
+
+    methods: {
+        searchField() {
+            let selectField = $('.selectField option:selected').val();
+            this.$emit('choosed', selectField);
+        },
+    },
+
+});
+
+Vue.component("tableArea", {
+    props: ["fields", "galaxys"],
+    template: "#tableArea",
+    data() {
+        return {
+            pages: [0, 5],
+        };
+    },
+    watch: {
+        pages(newVal, oldVal) {
+            console.log(newVal, oldVal);
+        }
+    },
+    methods: {
+        minusPages() {
+            // console.log(this.pages);
+            if (this.pages[0] == 0 && this.pages[1] == 5) {
+                // do nothing
+            } else {
+                this.$forceUpdate();
+                this.pages[0] -= 5;
+                this.pages[1] -= 5;
+                // pages.forEach(function (value, index) {
+                //     value -= 5;
+                // });
+                // doNothing();
+            }
+        },
+        plusPages() {
+            // console.log(this.pages);
+            if (this.pages[1] > this.fields.length) {
+                // do nothing
+                // alert();
+            } else {
+                // alert();
+                this.$forceUpdate();
+                this.pages[0] += 5;
+                this.pages[1] += 5;
+                // pages.forEach(function (value, index) {
+                //     value += 5;
+                // });
+                // doNothing();
+            }
+        },
+    }
+});
+
+Vue.component("tableRow", {
+    props: ["galaxys", "pages"],
+    template: '#tableRow',
+    methods: {
+        // doNothing() {
+        //     let doNothing = this.pages;
+        // },
+        // rowColor() {
+        //     for (let i = 0; i < galaxys.length; i++) {
+        //         if (i % 2 === 0) {
+        //             $('tr').eq(i).style.cssText = 'background-color: #FBF7EB';
+        //         }
+        //     }
+        // }
     },
 });
 
 
-// let bodyArea = new Vue({
-//     el: "#bodyArea",
-//     data: {
 
-//     },
-//     template: `
-//         <tr>
-//             <td><label><input type="checkbox"><span></span></label></td>
-//             <td>${}</td>
-//             <td>${}</td>
-//             <td>${}</td>
-//             <td><button>編輯</button></td>
-//         </tr>
-//     `,
+let vm = new Vue({
+    el: '#main',
+    data: {
+        fields: [],
+        status: {
+            on: 1,
+            off: 0,
+        },
+        selectField: '%星系%',
+        galaxys: [],
+    },
+    methods: {
+        chooseField(selectField) {
+            this.selectField = selectField;
+            this.ajax();
+        },
+        ajax() {
+            let selectField = this.selectField;
+            let that = this;
+            $.ajax({
+                type: 'POST',
+                url: 'quizR.php',
+                data: { selectField },
+                dataType: 'json',
+                success: function (res) {
+                    // vm.galaxys = JSON.parse(res);
+                    console.log(res);
+                    vm.fields = res[0];
+                    for (let i = 0; i < res[1].length; i++) {
+                        if (res[1][i].gStatus == 1) {
+                            res[1][i].gStatus = "上架";
+                        } else {
+                            res[1][i].gStatus = "下架";
+                        }
+                    }
+                    vm.galaxys = res[1];
+                    // console.log(vm.galaxys);
 
-// })
+                },
+            });
+        },
+    },
+    created() {
+        this.ajax();
+    },
+});
 
 
+
+
+
+// 一堆功能
 let tbody = document.getElementsByTagName('tbody')[0];
 let checkbox = tbody.querySelectorAll('input');
 let checkAll = document.getElementsByClassName('checkAll')[0];
@@ -108,7 +189,15 @@ off.addEventListener('click', function () {
     // } else {
 
     // }
-    alert('確定要刪除以勾選的題目');
+
+    swal({
+        title: "確定要刪除以勾選的題目",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    });
+
+    // alert('確定要刪除以勾選的題目');
     for (let i = 0; i < checkbox.length; i++) {
         if (checkbox[i].checked) {
             checkbox[i].closest('tr').remove();
@@ -197,17 +286,9 @@ createQ.addEventListener('click', function () {
 
 });
 
-//刪除題目按鈕
-
-
-
 // 新增領域
 createField.addEventListener('onchange', function () {
     if (createField.selected) {
         newField.style.cssText = "display: block;";
     }
 });
-
-
-
-// axios抓資料

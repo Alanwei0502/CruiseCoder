@@ -157,9 +157,10 @@ $(document).ready(function () {
             type: 'POST',
             url: 'galaxyR.php',
             data: { name },
+            // dataType: 'json',
             success: function (res) {
                 let array = JSON.parse(res);
-                // console.log(array);
+                console.log(array);
 
                 for (let i = 0; i < planet.length; i++) {
                     planet[i].querySelector('img').setAttribute('src', array[i].bPlanet);

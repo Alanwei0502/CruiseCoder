@@ -20,7 +20,6 @@ div.quiz {
                     select {
                         @include selectStyle;
                         width: $fontSize * 20;
-                        margin-right: $fontSize * 2;
                     }
                 }
             }
@@ -30,6 +29,7 @@ div.quiz {
                 white-space: nowrap;
             }
         }
+        
 
         section.table {
             .btns {

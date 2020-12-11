@@ -14,6 +14,7 @@ $gStatement = "";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruise Coders | 語宙試煉</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -95,7 +96,7 @@ $gStatement = "";
         include('layout/footer.php');
         ?>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.common.dev.js"></script>
+    <script src="../js/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/galaxy.js"></script>

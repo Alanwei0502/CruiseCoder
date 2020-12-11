@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 題庫管理</title>
   <link rel="stylesheet" href="./../css/main2.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -18,90 +19,11 @@
     include('layout/sideBar.php');
     ?>
 
-    <main>
-      <!-- 在這裡面codeing -->
+    <main id="main">
       <h2>題庫管理</h2>
-      <section class="searchbar">
-        <div>
-          <label id="field">領域
-            <select>
-              <option v-for="field in fields" :value="field.name">{{field.name}}</option>
-            </select>
-          </label>
+      <section is="searchArea" :fields="fields" @choosed="chooseField"></section>
 
-          <label id="difficulty">難易度
-            <select>
-              <option v-for="difficulty in difficulties" :value="difficulty.value">{{difficulty.level}}</option>
-            </select>
-          </label>
-        </div>
-
-        <button id="filterSearch" type="button">搜尋</button>
-
-      </section>
-
-      <section class="table">
-        <div class="btns">
-          <button class="off">下架試題</button>
-          <button class="add">新增試題</button>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th><label><input type="checkbox" class="checkAll"><span></span></label></th>
-              <th>領域</th>
-              <th>難易度</th>
-              <th>狀態</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody id="bodyArea">
-            <!-- <my-tr-component></my-tr-component> -->
-
-            <tr>
-              <td><label><input type="checkbox"><span></span></label></td>
-              <td>html</td>
-              <td>初級</td>
-              <td>上架</td>
-              <td><button>編輯</button></td>
-            </tr>
-            <tr>
-              <td><label><input type="checkbox"><span></span></label></td>
-              <td>html</td>
-              <td>中級</td>
-              <td>上架</td>
-              <td><button>編輯</button></td>
-            </tr>
-            <tr>
-              <td><label><input type="checkbox"><span></span></label></td>
-              <td>html</td>
-              <td>高級</td>
-              <td>上架</td>
-              <td><button>編輯</button></td>
-            </tr>
-            <tr>
-              <td><label><input type="checkbox"><span></span></label></td>
-              <td>css</td>
-              <td>初級</td>
-              <td>上架</td>
-              <td><button>編輯</button></td>
-            </tr>
-            <tr>
-              <td><label><input type="checkbox"><span></span></label></td>
-              <td>css</td>
-              <td>中級</td>
-              <td>上架</td>
-              <td><button>編輯</button></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="changePage">
-          <button class="lastPage">上一頁</button>
-          <button class="nextPage">下一頁</button>
-        </div>
-      </section>
+      <section is="tableArea" :fields="fields" :galaxys="galaxys"></section>
 
       <section class="quizModalBg">
         <section class="quizModal">
@@ -166,9 +88,81 @@
       <section class="question"></section>
 
 
-    </main><!-- 在這裡面codeing -->
+    </main>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.common.dev.js"></script>
+
+
+
+
+
+  <script type="text/x-template" id="searchArea">
+    <section class="searchbar">
+          <div>
+            <label>題庫領域 &nbsp;&nbsp;
+              <select class="selectField">
+                <option value="%星系%" selected>全部星系</option>
+                <option v-for="field in fields" :value="field.gName">{{field.gName}}</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit"  @click="searchField">搜尋</button>
+    </section>
+  </script>
+
+
+
+
+
+
+  <script type="text/x-template" id="tableArea">
+    <section class="table">
+        <div class="btns">
+          <button class="off">下架試題</button>
+          <button class="add">新增試題</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th><label><input type="checkbox" class="checkAll"><span></span></label></th>
+              <th>編號</th>
+              <th>領域</th>
+              <th>狀態</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody is="tableRow" :fields="fields" :galaxys="galaxys" :pages.sync="pages"></tbody>
+        </table>
+
+        <div class="changePage">
+          <button class="lastPage" @click="minusPages">上一頁</button>
+          <button class="nextPage" @click="plusPages">下一頁</button>
+        </div>
+      </section>
+  </script>
+
+
+
+
+  <script type="text/x-template" id="tableRow">
+    <tbody>
+      <template v-for="(galaxy,index) in galaxys.slice(pages[0],pages[1])">
+      <tr>
+        <td><label><input type="checkbox"><span></span></label></td>
+        <td>{{galaxy.gNumber}}</td>
+        <td>{{galaxy.gName}}</td>
+        <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
+        <td v-else style="color: red;">{{galaxy.gStatus}}</td>
+        <td><button>編輯</button></td>
+        <td>{{pages[0]}} {{pages[1]}}</td>
+      </tr>
+      </template>  
+    </tbody> 
+  </script>
+
+
+
+  <script src="../js/vue.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="../js/quizB.js"></script>
 </body>

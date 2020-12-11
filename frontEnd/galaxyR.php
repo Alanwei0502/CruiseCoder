@@ -3,6 +3,7 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
+
 $gStatement = "SELECT * FROM badge WHERE bGalaxy = ?;";
 
 // 使用prepare方法將這個字串進行一個預存產生一個物件
@@ -22,14 +23,3 @@ if (isset($_POST["name"])) {
     // print_r($gData);
     echo json_encode($gData);
 }
-
-// $subject = "HTML星系";
-
-// $gStatement->bindParam(1, $subject);
-
-// $gStatement->execute();
-
-// $gData = $gStatement->fetchAll(PDO::FETCH_ASSOC);
-
-// print_r($gData);
-// echo json_encode($gData);
