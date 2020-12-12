@@ -305,16 +305,16 @@ header {
 	div.headerLeft {
 		img.logo {
 			width: $fontSize*18.75;
-			@include bigPhone{
+			@include bigPhone {
 				display: none;
-			} 
+			}
 		}
-		img.logo1{
+		img.logo1 {
 			display: none;
-			@include bigPhone{
+			@include bigPhone {
 				width: $fontSize*5;
 				display: block;
-			} 
+			}
 		}
 
 		a {
@@ -560,7 +560,7 @@ header {
 
 				ul.on {
 					display: flex;
-					z-index: 10;
+					z-index: 20;
 				}
 			}
 		}
