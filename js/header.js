@@ -27,6 +27,25 @@ $(document).ready(function () {
         return "";
     }
 
+
+    //檢測註冊帳號密碼的長度，不可小於六碼↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  新增功能：註冊帳號密碼不可小於6碼、不可為中文。
+    var checkArr = $('input.checkString');
+    for(let i = 0; i < checkArr.length; i++){
+        checkArr[i].addEventListener('blur',function(e){
+            let getStringLength = e.target.value.length; //取得input數入的長度
+            let inputName = e.target.previousElementSibling.innerText.slice(0, 2);//取得input欄位名稱
+            if(getStringLength < 6 && getStringLength != 0){ //當長度小於六、裡面不是空字串時
+                e.target.value = "";
+                checkArr[i].placeholder = `${inputName}長度小於6`;
+                e.target.classList.add('BorderColor');
+            }else{
+                checkArr[i].placeholder = "";
+                e.target.classList.remove('BorderColor');
+            };
+        });
+    };    
+    //檢測註冊帳號密碼的長度，不可小於六碼↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
     if (checkCookie('user')) {
         // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
         var userAccount = getCookie('user');

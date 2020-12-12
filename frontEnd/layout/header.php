@@ -8,13 +8,13 @@
     <div class="createArea">
       <form action="" id="createForm" class="createHide">
         <label for="name">姓名:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" >
 
         <label for="account">帳號:</label>
-        <input type="text" id="account" name="account">
+        <input type="text" id="account" name="account" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
 
         <label for="password">密碼:</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
 
         <label for="confirmPassword">確認密碼:</label>
         <input type="password" id="confirmPassword">
