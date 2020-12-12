@@ -4,7 +4,6 @@
 var startQuiz = document.getElementsByClassName('startQuiz');
 var checkOne = document.getElementById('checkOne');
 var checkTwo = document.getElementById('checkTwo');
-// var complete = document.getElementsByClassName('complete');
 var section = document.getElementsByTagName('section');
 var nextQuestion = document.getElementsByClassName('nextQuestion');
 var answerCount = 0;
@@ -16,7 +15,7 @@ startQuiz[0].addEventListener('click', function () {
         this.closest("section").classList.add('-hide');
         this.closest("section").nextElementSibling.classList.add('-show');
     } else {
-        alert('請先閱讀完並勾選所有測驗規則');
+        swal("請先閱讀完並勾選所有測驗規則", "", "info");
     }
 });
 
@@ -63,10 +62,13 @@ for (let j = 0; j < nextQuestion.length; j++) {
                     // console.log(answerCount);
                 }
             }
+            else {
+                // swal("別放棄！請先作答再進入下一題", "", "info");
+            }
         }
         if (j = 1) {
             correctCount.innerText = `答對題數：${answerCount}題`;
-            console.log(correctCount);
+            // console.log(correctCount);
         }
     });
 

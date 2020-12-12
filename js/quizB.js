@@ -27,13 +27,12 @@ Vue.component("tableArea", {
     },
     methods: {
         minusPages() {
-            // console.log(this.pages);
             if (this.pages[0] == 0 && this.pages[1] == 5) {
                 // do nothing
             } else {
-                this.$forceUpdate();
                 this.pages[0] -= 5;
                 this.pages[1] -= 5;
+                this.$forceUpdate();
                 // pages.forEach(function (value, index) {
                 //     value -= 5;
                 // });
@@ -41,15 +40,12 @@ Vue.component("tableArea", {
             }
         },
         plusPages() {
-            // console.log(this.pages);
             if (this.pages[1] > this.fields.length) {
                 // do nothing
-                // alert();
             } else {
-                // alert();
-                this.$forceUpdate();
                 this.pages[0] += 5;
                 this.pages[1] += 5;
+                this.$forceUpdate();
                 // pages.forEach(function (value, index) {
                 //     value += 5;
                 // });
@@ -88,6 +84,7 @@ let vm = new Vue({
         },
         selectField: '%星系%',
         galaxys: [],
+        pages: [0, 5],
     },
     methods: {
         chooseField(selectField) {

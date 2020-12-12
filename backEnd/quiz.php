@@ -23,7 +23,7 @@
       <h2>題庫管理</h2>
       <section is="searchArea" :fields="fields" @choosed="chooseField"></section>
 
-      <section is="tableArea" :fields="fields" :galaxys="galaxys"></section>
+      <section is="tableArea" :fields="fields" :galaxys="galaxys" :pages="pages"></section>
 
       <section class="quizModalBg">
         <section class="quizModal">
