@@ -13,7 +13,7 @@ Vue.component("searchArea", {
 });
 
 Vue.component("tableArea", {
-    props: ["fields", "galaxys"],
+    props: ["fields", "galaxys", "pages"],
     template: "#tableArea",
     data() {
         return {
@@ -27,6 +27,7 @@ Vue.component("tableArea", {
     },
     methods: {
         minusPages() {
+
             if (this.pages[0] == 0 && this.pages[1] == 5) {
                 // do nothing
             } else {
@@ -40,6 +41,8 @@ Vue.component("tableArea", {
             }
         },
         plusPages() {
+            // let totalPage = parseInt(this.fields.length / 5);
+            // totalPage += (this.fields.length % 5 == 0) ? 0 : 1;
             if (this.pages[1] > this.fields.length) {
                 // do nothing
             } else {

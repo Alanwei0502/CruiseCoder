@@ -131,7 +131,7 @@
               <th>操作</th>
             </tr>
           </thead>
-          <tbody is="tableRow" :fields="fields" :galaxys="galaxys" :pages.sync="pages"></tbody>
+          <tbody is="tableRow" :fields="fields" :galaxys="galaxys" :pages="pages"></tbody>
         </table>
 
         <div class="changePage">
