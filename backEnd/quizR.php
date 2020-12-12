@@ -24,4 +24,5 @@ if (isset($_POST["selectField"])) {
     array_push($data, $AllGalStatement->fetchAll(PDO::FETCH_ASSOC), $GalStatement->fetchAll(PDO::FETCH_ASSOC));
 
     echo json_encode($data);
+    // print_r($data);
 }

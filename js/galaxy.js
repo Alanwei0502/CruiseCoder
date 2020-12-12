@@ -87,7 +87,7 @@ let article = new Vue({
             },
         ],
     }
-})
+});
 
 //星球輪播、星球介紹與徽章切換===============================================
 let planet = document.getElementsByClassName('planet');
