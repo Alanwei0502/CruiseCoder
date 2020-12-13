@@ -104,7 +104,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
     if ($hasAccount == 0) {
         echo "NoAccount";
     } else if ($hasAccount == 1) {
-        $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC` FROM member WHERE mAccount = ?";
+        $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`, `mSignIn` FROM member WHERE mAccount = ?";
         $getPrepare = $pdo->prepare($getLastTime);
         $getPrepare->bindValue(1, $loginAccount);
         $getPrepare->execute();
@@ -113,6 +113,9 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
         $lastTimeLogin = $result[0]['day(mLogindate)']; //上次登入日期
         $continuousLoginDay = $result[0]['mSignIn']; //連續登入天數
         $ccPoint = $result[0]['mCC']; //cc點數
+        $nickname = $result[0]['mName']; //名字
+        $mSignIn = $result[0]['mSignIn'];//連續登入天數
+        $newSignIn = $mSignIn +1 ;
 
         $continuousDay = $toDay - $lastTimeLogin; //判斷是否為連續登入 如果是 1 , -30 , -29 , -28 , -27 就是連續登入
 
@@ -133,21 +136,29 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
                 $upTime->bindValue(3, $loginAccount);
                 $upTime->execute();
 
-                echo $result[0]['mCC'] . ",loginSuccess";
+                echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn;
             } else if ($remainder == 0) { //如果餘數是0的時候 ex: 
-                $countC_Point = (1 * 10) + 30; //計算這次登入取得的ccPoint
+                $countC_Point = (7 * 10) + 30; //計算這次登入取得的ccPoint
                 $upDataNewPoint = $countC_Point + $ccPoint; //這次取得的cc＋現有的cc
 
                 $upLoginTime = "UPDATE member SET mLogindate= NOW(),`mSignIn` = ? , `mCC`= ?  WHERE mAccount = ?";
                 $upTime = $pdo->prepare($upLoginTime);
-                $upTime->bindValue(1, 1);
+                $upTime->bindValue(1, 0);
                 $upTime->bindValue(2, $upDataNewPoint);
                 $upTime->bindValue(3, $loginAccount);
                 $upTime->execute();
 
-                echo $result[0]['mCC'] . ",loginSuccess";
+                echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn; 
             }
-        } else {
+        }
+        else if($continuousDay == 0 ){//如果是當天重複登入
+            $upLoginTime = "UPDATE member SET mLogindate= NOW() WHERE mAccount = ?";
+            $upTime = $pdo->prepare($upLoginTime);
+            $upTime->bindValue(1, $loginAccount);
+            $upTime->execute();
+
+            echo $result[0]['mCC'] . ",loginSuccess1".",".$nickname.",".$countC_Point.",".$newSignIn;
+        }else if ($continuousDay != 1 || $continuousDay != -30 || $continuousDay != -29 || $continuousDay != -28 || $continuousDay != -27|| $continuousDay != 0){
 
             $countC_Point = (1 * 10) + 30; //計算這次登入取得的ccPoint
             $upDataNewPoint = $countC_Point + $ccPoint; //這次取得的cc＋現有的cc
@@ -159,12 +170,11 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
             $upTime->bindValue(3, $loginAccount);
             $upTime->execute();
 
-            echo $result[0]['mCC'] . ",loginSuccess";
+            echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn;
         }
 
 
-
-        // 更新登入時間↓↓↓↓↓
+        // 更新登入時間↓↓↓↓↓ 4630
         // $upLoginTime = "UPDATE member SET mLogindate= NOW() WHERE mAccount = ?";
         // $upTime = $pdo->prepare($upLoginTime);
         // $upTime->bindValue(1 , $loginAccount);

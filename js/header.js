@@ -27,6 +27,25 @@ $(document).ready(function () {
         return "";
     }
 
+
+    //檢測註冊帳號密碼的長度，不可小於六碼↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  新增功能：註冊帳號密碼不可小於6碼、不可為中文。
+    var checkArr = $('input.checkString');
+    for(let i = 0; i < checkArr.length; i++){
+        checkArr[i].addEventListener('blur',function(e){
+            let getStringLength = e.target.value.length; //取得input數入的長度
+            let inputName = e.target.previousElementSibling.innerText.slice(0, 2);//取得input欄位名稱
+            if(getStringLength < 6 && getStringLength != 0){ //當長度小於六、裡面不是空字串時
+                e.target.value = "";
+                checkArr[i].placeholder = `${inputName}長度小於6`;
+                e.target.classList.add('BorderColor');
+            }else{
+                checkArr[i].placeholder = "";
+                e.target.classList.remove('BorderColor');
+            };
+        });
+    };    
+    //檢測註冊帳號密碼的長度，不可小於六碼↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
     if (checkCookie('user')) {
         // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
         var userAccount = getCookie('user');
@@ -222,7 +241,7 @@ $(document).ready(function () {
                                                 window.location.reload();
                                             }
                                         });
-                                }
+                                };
                             }
                         });
                     }
@@ -385,6 +404,10 @@ $(document).ready(function () {
                                 var dataArr = data.split(',');
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
+                                var name = dataArr[2];
+                                var toDayCC = dataArr[3];
+                                var SignInDay = dataArr[4];
+                                console.log(dataArr);
                                 if (data == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -397,14 +420,31 @@ $(document).ready(function () {
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
                                     // var my_cookies = document.cookie.substring(5);
-                                    swal("登入成功!", "歡迎回來！！!", "success")
+                                    swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　　cc`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
 
                                                 window.location.reload();
                                             }
                                         });
-                                }
+                                }else if (loginString == "loginSuccess1") {
+                                    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                                    let gettoday = new Date();
+                                    let year = gettoday.getFullYear();
+                                    let month = gettoday.getMonth();
+                                    let date = gettoday.getDate();
+
+
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    // var my_cookies = document.cookie.substring(5);
+                                    swal("登入成功!", `${name}　歡迎回來！！!`, "success")
+                                        .then((willDelete) => {
+                                            if (willDelete) {
+
+                                                window.location.reload();
+                                            }
+                                        });
+                                };
                             }
                         });
                     }
