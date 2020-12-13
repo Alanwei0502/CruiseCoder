@@ -65,7 +65,10 @@ div.quiz {
 
                 tr {
                     width: 100%;
-
+                    background-color: #FBF7EB;
+                    &:nth-child(2n+1){
+                        background-color: #FBF7EB;
+                    }
                     label {
                         cursor: pointer;
                     }

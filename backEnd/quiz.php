@@ -19,12 +19,16 @@
     include('layout/sideBar.php');
     ?>
 
+    <!-- <main id="main" :pageChange="changeIt"> -->
     <main id="main">
       <h2>題庫管理</h2>
+      <!-- 搜尋區域 -->
       <section is="searchArea" :fields="fields" @choosed="chooseField"></section>
 
-      <section is="tableArea" :fields="fields" :galaxys="galaxys" :pages="pages"></section>
+      <!-- 表格欄位區域 -->
+      <section is="tableArea" :fields="fields" :galaxys="galaxys"></section>
 
+      <!-- 編輯新增區域 -->
       <section class="quizModalBg">
         <section class="quizModal">
           <h2>新增試題</h2>
@@ -94,7 +98,7 @@
 
 
 
-
+  <!-- 搜尋區域 -->
   <script type="text/x-template" id="searchArea">
     <section class="searchbar">
           <div>
@@ -113,7 +117,7 @@
 
 
 
-
+  <!-- 表格區域 -->
   <script type="text/x-template" id="tableArea">
     <section class="table">
         <div class="btns">
@@ -131,6 +135,7 @@
               <th>操作</th>
             </tr>
           </thead>
+          <!-- 欄位區域 -->
           <tbody is="tableRow" :fields="fields" :galaxys="galaxys" :pages="pages"></tbody>
         </table>
 
@@ -143,7 +148,7 @@
 
 
 
-
+  <!-- 欄位區域 -->
   <script type="text/x-template" id="tableRow">
     <tbody>
       <template v-for="(galaxy,index) in galaxys.slice(pages[0],pages[1])">
@@ -156,6 +161,16 @@
         <td><button>編輯</button></td>
         <td>{{pages[0]}} {{pages[1]}}</td>
       </tr>
+
+      <!-- <tr v-else>
+        <td><label><input type="checkbox"><span></span></label></td>
+        <td>{{galaxy.gNumber}}</td>
+        <td>{{galaxy.gName}}</td>
+        <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
+        <td v-else style="color: red;">{{galaxy.gStatus}}</td>
+        <td><button>編輯</button></td>
+        <td>{{pages[0]}} {{pages[1]}}</td>
+      </tr> -->
       </template>  
     </tbody> 
   </script>

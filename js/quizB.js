@@ -1,4 +1,4 @@
-
+// 搜尋區域元件
 Vue.component("searchArea", {
     props: ["fields"],
     template: "#searchArea",
@@ -12,18 +12,15 @@ Vue.component("searchArea", {
 
 });
 
+// 表格區域元件
 Vue.component("tableArea", {
-    props: ["fields", "galaxys", "pages"],
+    // props: ["fields", "galaxys", "pages"],
+    props: ["fields", "galaxys"],
     template: "#tableArea",
     data() {
         return {
-            pages: [0, 5],
+            pages: [0, 10],
         };
-    },
-    watch: {
-        pages(newVal, oldVal) {
-            console.log(newVal, oldVal);
-        }
     },
     methods: {
         minusPages() {
@@ -34,6 +31,7 @@ Vue.component("tableArea", {
                 this.pages[0] -= 5;
                 this.pages[1] -= 5;
                 this.$forceUpdate();
+                // this.$emit('pageChange', pages);
                 // pages.forEach(function (value, index) {
                 //     value -= 5;
                 // });
@@ -49,6 +47,7 @@ Vue.component("tableArea", {
                 this.pages[0] += 5;
                 this.pages[1] += 5;
                 this.$forceUpdate();
+                // this.$emit('pageChange', pages);
                 // pages.forEach(function (value, index) {
                 //     value += 5;
                 // });
@@ -58,25 +57,21 @@ Vue.component("tableArea", {
     }
 });
 
+// 欄位區域元件
 Vue.component("tableRow", {
     props: ["galaxys", "pages"],
+    // data() {
+    //     return {
+    //         pages: this.pages,
+    //     };
+    // },
     template: '#tableRow',
     methods: {
-        // doNothing() {
-        //     let doNothing = this.pages;
-        // },
-        // rowColor() {
-        //     for (let i = 0; i < galaxys.length; i++) {
-        //         if (i % 2 === 0) {
-        //             $('tr').eq(i).style.cssText = 'background-color: #FBF7EB';
-        //         }
-        //     }
-        // }
     },
 });
 
 
-
+// Vue Instance
 let vm = new Vue({
     el: '#main',
     data: {
@@ -87,9 +82,12 @@ let vm = new Vue({
         },
         selectField: '%星系%',
         galaxys: [],
-        pages: [0, 5],
+        // pages: [0, 5],
     },
     methods: {
+        // changeIt(pages) {
+        //     this.pages = pages;
+        // },
         chooseField(selectField) {
             this.selectField = selectField;
             this.ajax();
@@ -130,10 +128,9 @@ let vm = new Vue({
 
 
 // 一堆功能
-let tbody = document.getElementsByTagName('tbody')[0];
-let checkbox = tbody.querySelectorAll('input');
+
+
 let checkAll = document.getElementsByClassName('checkAll')[0];
-let tr = tbody.querySelectorAll('tr');
 let addQuiz = document.getElementsByClassName('add')[0];
 let quizModalBg = document.getElementsByClassName('quizModalBg')[0];
 let closeModal = document.getElementsByClassName('closeModal')[0];
@@ -149,6 +146,17 @@ let createField = document.getElementsByClassName('createField')[0];
 let newField = document.getElementsByClassName('newField')[0];
 
 
+let tbody = document.getElementsByTagName('tbody')[0];
+let tr = tbody.querySelectorAll('tr');
+let checkbox = tbody.querySelectorAll('input');
+
+//table顏色交錯
+for (let i = 0; i < checkbox.length; i++) {
+    if (i % 2 === 0) {
+        tr[i].style.cssText = 'background-color: #FBF7EB';
+    }
+}
+
 //checkbox全選功能
 checkAll.addEventListener('click', function () {
     if (checkAll.checked) {
@@ -162,12 +170,7 @@ checkAll.addEventListener('click', function () {
     }
 });
 
-//table顏色交錯
-for (let i = 0; i < checkbox.length; i++) {
-    if (i % 2 === 0) {
-        tr[i].style.cssText = 'background-color: #FBF7EB';
-    }
-}
+
 
 // 新增試題功能
 addQuiz.addEventListener('click', function () {
