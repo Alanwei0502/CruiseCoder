@@ -241,7 +241,7 @@ $(document).ready(function () {
                                                 window.location.reload();
                                             }
                                         });
-                                }
+                                };
                             }
                         });
                     }
@@ -404,6 +404,10 @@ $(document).ready(function () {
                                 var dataArr = data.split(',');
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
+                                var name = dataArr[2];
+                                var toDayCC = dataArr[3];
+                                var SignInDay = dataArr[4];
+                                console.log(dataArr);
                                 if (data == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -416,14 +420,31 @@ $(document).ready(function () {
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
                                     // var my_cookies = document.cookie.substring(5);
-                                    swal("登入成功!", "歡迎回來！！!", "success")
+                                    swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　　cc`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
 
                                                 window.location.reload();
                                             }
                                         });
-                                }
+                                }else if (loginString == "loginSuccess1") {
+                                    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                                    let gettoday = new Date();
+                                    let year = gettoday.getFullYear();
+                                    let month = gettoday.getMonth();
+                                    let date = gettoday.getDate();
+
+
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    // var my_cookies = document.cookie.substring(5);
+                                    swal("登入成功!", `${name}　歡迎回來！！!`, "success")
+                                        .then((willDelete) => {
+                                            if (willDelete) {
+
+                                                window.location.reload();
+                                            }
+                                        });
+                                };
                             }
                         });
                     }
