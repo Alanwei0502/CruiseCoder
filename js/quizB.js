@@ -59,23 +59,18 @@ Vue.component("tableArea", {
         },
         // 快速下架試題
         mutipleOff() {
-            swal({
-                title: "確定要刪除以勾選的題目",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true
-            }).then((value) => {
-                if (value) {
-                    alert('deleting');
-                    // let gNum = [];
-                    // for (let i = 0; i < this.galaxys.length; i++) {
-                    //     if ($(".checkRow").eq(i).checked) {
-                    //         gNum.push($(".checkRow").eq(i).closest('tr').children('.gNumber').text());
-                    //     }
-                    // }
+            let id = [];
+            // let checkRow = $(e.target).closest('.table').find('.checkRow');
+            let checkRow = document.getElementsByClassName('checkRow');
+            // console.log(checkRow);
+            for (let i = 0; i < checkRow.length; i++) {
+                if (checkRow[i].checked) {
+                    let a = checkRow[i].closest('tr').querySelector('.gNumber').innerText;
+                    console.log(a);
+                    id.push(a);
                 }
-            });
-
+            }
+            console.log(id);
         },
         // 新增試題按鈕
         createQuiz() {
@@ -117,7 +112,6 @@ Vue.component("createAndEdit", {
                 { diff: "初級" }, { diff: "中級" }, { diff: "高級" }, { diff: "星系" }
             ],
             newFeildName: '',
-            imgName: '',
         }
     },
     methods: {
@@ -265,24 +259,3 @@ let vm = new Vue({
         this.ajax();
     },
 });
-
-
-
-// modal內的題目checkbox，勾選時，全選checkbox會勾起來
-// document.addEventListener('click', function (e) {
-//     if ($(e.target).hasClass('checkLabel') || $(e.target).parent('label').hasClass('checkLabel')) {
-//         let allItems = $(e.target).closest('.mainEdit').find('.checkForQ');
-//         let checkAll = $(e.target).closest('.mainEdit').find('.selectAll');
-
-
-//         allItems.forEach(function () {
-//             let itemChecked = $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", true);
-//             if (itemChecked.length == allItems.length) {
-//                 checkAll.checked = true;
-//             } else {
-//                 checkAll.checked = false;
-//             }
-
-//         });
-//     }
-// });

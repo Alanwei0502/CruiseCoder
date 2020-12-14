@@ -102,7 +102,6 @@
         <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
         <td><button>編輯</button></td>
-        <td></td>
       </tr>
       </template>  
     </tbody> 
@@ -166,7 +165,7 @@
                 <p v-else>{{level.diff}}星球</p>
                 <div class="galaxyImg">
                   <label>星系圖</label>
-                  <span><span v-model.trim="imgName"></span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*" v-model.trim="imgName"></span>
+                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*"></span>
                 </div>
 
                 <div class="planetImg" v-if="!(level.diff == '星系')">
