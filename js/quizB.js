@@ -14,62 +14,208 @@ Vue.component("searchArea", {
 
 // 表格區域元件
 Vue.component("tableArea", {
-    // props: ["fields", "galaxys", "pages"],
     props: ["fields", "galaxys"],
     template: "#tableArea",
     data() {
         return {
-            pages: [0, 10],
+            pages: {
+                start: 0,
+                end: 5,
+            },
+            galaxy: [],
         };
     },
     methods: {
+        // 上一頁按鈕
         minusPages() {
 
-            if (this.pages[0] == 0 && this.pages[1] == 5) {
+            if (this.pages.start == 0 && this.pages.end == 5) {
                 // do nothing
             } else {
-                this.pages[0] -= 5;
-                this.pages[1] -= 5;
-                this.$forceUpdate();
-                // this.$emit('pageChange', pages);
-                // pages.forEach(function (value, index) {
-                //     value -= 5;
-                // });
-                // doNothing();
+                this.pages.start -= 5;
+                this.pages.end -= 5;
+                // this.$forceUpdate();
             }
         },
+        // 下一頁按鈕
         plusPages() {
             // let totalPage = parseInt(this.fields.length / 5);
             // totalPage += (this.fields.length % 5 == 0) ? 0 : 1;
-            if (this.pages[1] > this.fields.length) {
+            if (this.pages.end > this.fields.length) {
                 // do nothing
             } else {
-                this.pages[0] += 5;
-                this.pages[1] += 5;
-                this.$forceUpdate();
-                // this.$emit('pageChange', pages);
-                // pages.forEach(function (value, index) {
-                //     value += 5;
-                // });
-                // doNothing();
+                this.pages.start += 5;
+                this.pages.end += 5;
+                // this.$forceUpdate();
             }
         },
+        // 全選或全不選checkbox
+        checkAll() {
+            if ($('#checkAll').prop("checked")) {
+                $(".checkRow").prop("checked", true);
+            } else {
+                $(".checkRow").prop("checked", false);
+            }
+        },
+        // 快速下架試題
+        mutipleOff() {
+            swal({
+                title: "確定要刪除以勾選的題目",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true
+            }).then((value) => {
+                if (value) {
+                    alert('deleting');
+                    // let gNum = [];
+                    // for (let i = 0; i < this.galaxys.length; i++) {
+                    //     if ($(".checkRow").eq(i).checked) {
+                    //         gNum.push($(".checkRow").eq(i).closest('tr').children('.gNumber').text());
+                    //     }
+                    // }
+                }
+            });
+
+        },
+        // 新增試題按鈕
+        createQuiz() {
+            $('.quizModalBg').css("opacity", 1).css("z-index", 1);
+        }
+
     }
 });
 
 // 欄位區域元件
 Vue.component("tableRow", {
     props: ["galaxys", "pages"],
-    // data() {
-    //     return {
-    //         pages: this.pages,
-    //     };
-    // },
     template: '#tableRow',
     methods: {
+        // 全選或全不選欄位checkbox
+        checkOne() {
+            let allItems = document.querySelectorAll(".checkRow");
+            let checkAll = document.getElementById('checkAll');
+            allItems.forEach(function () {
+                let itemChecked = document.querySelectorAll(".checkRow:checked");
+                if (itemChecked.length == allItems.length) {
+                    checkAll.checked = true;
+                } else {
+                    checkAll.checked = false;
+                }
+
+            });
+        }
     },
 });
 
+// 編輯和新增的彈跳視窗元件
+Vue.component("createAndEdit", {
+    props: ["fields"],
+    template: "#createAndEdit",
+    data() {
+        return {
+            levels: [
+                { diff: "初級" }, { diff: "中級" }, { diff: "高級" }, { diff: "星系" }
+            ],
+            newFeildName: '',
+            imgName: '',
+        }
+    },
+    methods: {
+        // 新增試題頁籤
+        openQuiz() {
+            $('.openQuiz').css('background-color', 'white');
+            $('.openBadge').css('background-color', ' rgb(251, 247, 235)');
+            $("#forQuiz").css('display', 'block');
+            $("#forBadge").css('display', 'none');
+        },
+        // 新增徽章頁籤
+        openBadge() {
+            $('.openBadge').css('background-color', 'white');
+            $('.openQuiz').css('background-color', ' rgb(251, 247, 235)');
+            $("#forBadge").css('display', 'block').css('background-color', 'white');
+            $("#forQuiz").css('display', 'none');
+        },
+        // 跳出彈跳視窗按鈕
+        closeModal() {
+            $('.quizModalBg').css("opacity", 0).css("z-index", -1);
+            $('.selectAll').prop("checked", false);
+            // let a = $('.downQuestion').has('textarea:empty');
+            // console.log(a);
+            // textareaNoContent.remove();
+            // if(textareaNoContent. == 5){
+            // }
+        },
+        // 新增試題按鈕
+        createQ(e) {
+            let str = `
+                <div class="downQuestion">
+                <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
+                <div class="contentQ">
+                <textarea placeholder="請輸入題目內容"></textarea>
+                <ul>
+                    <li>
+                    <span>A:</span>
+                    <textarea placeholder="請輸入選項內容"></textarea>
+                    </li>
+                    <li>
+                    <span>B:</span>
+                    <textarea placeholder="請輸入選項內容"></textarea>
+                    </li>
+                    <li>
+                    <span>C:</span>
+                    <textarea placeholder="請輸入選項內容"></textarea>
+                    </li>
+                    <li>
+                    <span>D:</span>
+                    <textarea placeholder="請輸入選項內容"></textarea>
+                    </li>
+                </ul>
+                </div>
+                <div class="ansAndSta">
+                <select>
+                    <option value="">A</option>
+                    <option value="">B</option>
+                    <option value="">C</option>
+                    <option value="">D</option>
+                </select>
+                <select>
+                    <option value="">on</option>
+                    <option value="">off</option>
+                </select>
+                </div>
+                </div>
+            `;
+
+            $(e.target).closest('.topFunction').after(str);
+        },
+        // 刪除試題按鈕
+        deleteQ(e) {
+            if ($(e.target).closest('.mainEdit').find('.checkForQ').prop("checked")) {
+                swal({
+                    title: "確定要刪除以勾選的題目",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+                }).then((value) => {
+                    if (value) {
+                        let checkedQuestion = $(e.target).closest('.mainEdit').find('.downQuestion').has('.checkForQ:checked');
+                        checkedQuestion.remove();
+                    }
+                });
+            }
+
+
+        },
+        // 全選按鈕
+        selectAll(e) {
+            if ($(e.target).prop("checked")) {
+                $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", true);
+            } else {
+                $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", false);
+            }
+        },
+    },
+});
 
 // Vue Instance
 let vm = new Vue({
@@ -80,14 +226,11 @@ let vm = new Vue({
             on: 1,
             off: 0,
         },
+        level: [],
         selectField: '%星系%',
         galaxys: [],
-        // pages: [0, 5],
     },
     methods: {
-        // changeIt(pages) {
-        //     this.pages = pages;
-        // },
         chooseField(selectField) {
             this.selectField = selectField;
             this.ajax();
@@ -125,173 +268,21 @@ let vm = new Vue({
 
 
 
+// modal內的題目checkbox，勾選時，全選checkbox會勾起來
+// document.addEventListener('click', function (e) {
+//     if ($(e.target).hasClass('checkLabel') || $(e.target).parent('label').hasClass('checkLabel')) {
+//         let allItems = $(e.target).closest('.mainEdit').find('.checkForQ');
+//         let checkAll = $(e.target).closest('.mainEdit').find('.selectAll');
 
 
-// 一堆功能
+//         allItems.forEach(function () {
+//             let itemChecked = $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", true);
+//             if (itemChecked.length == allItems.length) {
+//                 checkAll.checked = true;
+//             } else {
+//                 checkAll.checked = false;
+//             }
 
-
-let checkAll = document.getElementsByClassName('checkAll')[0];
-let addQuiz = document.getElementsByClassName('add')[0];
-let quizModalBg = document.getElementsByClassName('quizModalBg')[0];
-let closeModal = document.getElementsByClassName('closeModal')[0];
-let off = document.getElementsByClassName('off')[0];
-let quizLevel = document.getElementsByClassName('quizLevel')[0];
-let mainEdit = document.getElementsByClassName('mainEdit')[0];
-let createQ = document.getElementsByClassName('createQ')[0];
-let topFunction = document.getElementsByClassName('topFunction')[0];
-let selectAll = document.getElementsByClassName('selectAll')[0];
-let deleteQ = document.getElementsByClassName('deleteQ')[0];
-let quizField = document.getElementsByClassName('quizField')[0];
-let createField = document.getElementsByClassName('createField')[0];
-let newField = document.getElementsByClassName('newField')[0];
-
-
-let tbody = document.getElementsByTagName('tbody')[0];
-let tr = tbody.querySelectorAll('tr');
-let checkbox = tbody.querySelectorAll('input');
-
-//table顏色交錯
-for (let i = 0; i < checkbox.length; i++) {
-    if (i % 2 === 0) {
-        tr[i].style.cssText = 'background-color: #FBF7EB';
-    }
-}
-
-//checkbox全選功能
-checkAll.addEventListener('click', function () {
-    if (checkAll.checked) {
-        for (let i = 0; i < checkbox.length; i++) {
-            checkbox[i].checked = true;
-        };
-    } else {
-        for (let i = 0; i < checkbox.length; i++) {
-            checkbox[i].checked = false;
-        };
-    }
-});
-
-
-
-// 新增試題功能
-addQuiz.addEventListener('click', function () {
-    quizModalBg.style.cssText = 'opacity: 1; z-index: 1;';
-});
-
-
-//跳出modal視窗，叉叉按鈕
-closeModal.addEventListener('click', function () {
-    quizModalBg.style.cssText = 'opacity: 0; z-index: -1;';
-});
-
-//下架試題按鈕功能
-off.addEventListener('click', function () {
-    // var choose = checkbox.some(e => e.checked);
-    // console.log(choose);
-    // if () {
-
-    // } else {
-
-    // }
-
-    swal({
-        title: "確定要刪除以勾選的題目",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true
-    });
-
-    // alert('確定要刪除以勾選的題目');
-    for (let i = 0; i < checkbox.length; i++) {
-        if (checkbox[i].checked) {
-            checkbox[i].closest('tr').remove();
-        }
-    }
-
-
-});
-
-//難易度選擇星系時，無法新增題目
-quizLevel.addEventListener('change', function () {
-    if (quizLevel.value == 0) {
-        mainEdit.style.cssText = 'display:none;';
-    } else {
-        mainEdit.style.cssText = 'display:block;';
-    }
-});
-
-
-//新增題目按鈕
-createQ.addEventListener('click', function () {
-    var str = `
-    <div class="downQuestion">
-    <label><input type="checkbox" class="checkForQ"><span></span></label>
-    <div class="contentQ">
-    <textarea placeholder="請輸入題目內容"></textarea>
-    <ul>
-        <li>
-        <span>A:</span>
-        <textarea placeholder="請輸入選項內容"></textarea>
-        </li>
-        <li>
-        <span>B:</span>
-        <textarea placeholder="請輸入選項內容"></textarea>
-        </li>
-        <li>
-        <span>C:</span>
-        <textarea placeholder="請輸入選項內容"></textarea>
-        </li>
-        <li>
-        <span>D:</span>
-        <textarea placeholder="請輸入選項內容"></textarea>
-        </li>
-    </ul>
-    </div>
-    <div class="ansAndSta">
-    <select>
-        <option value="">A</option>
-        <option value="">B</option>
-        <option value="">C</option>
-        <option value="">D</option>
-    </select>
-    <select>
-        <option value="">on</option>
-        <option value="">off</option>
-    </select>
-    </div>
-    </div>
-`;
-    //將新增的標籤插入到div.topFunction的結尾標籤之後
-    topFunction.insertAdjacentHTML("afterend", str);
-
-    //若有新增題目都會重新清除全選
-    let mainEdit = document.getElementsByClassName('mainEdit')[0];
-    let checkForQ = mainEdit.querySelectorAll('.checkForQ');
-    (function () {
-        selectAll.checked = false;
-        for (let i = 0; i < checkForQ.length; i++) {
-            checkForQ[i].checked = false;
-        };
-    })();
-
-
-    // 彈跳視窗內的checkbox全選功能
-    selectAll.addEventListener('click', function () {
-        if (selectAll.checked) {
-            for (let i = 0; i < checkForQ.length; i++) {
-                checkForQ[i].checked = true;
-            };
-        } else {
-            for (let i = 0; i < checkForQ.length; i++) {
-                checkForQ[i].checked = false;
-            };
-        }
-    });
-
-});
-
-// 新增領域
-createField.addEventListener('onchange', function () {
-    if (createField.selected) {
-        newField.style.cssText = "display: block;";
-    }
-});
+//         });
+//     }
+// });

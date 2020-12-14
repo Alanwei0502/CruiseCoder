@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 題庫管理</title>
-  <link rel="stylesheet" href="./../css/main2.css">
+  <link rel="stylesheet" href="./../css/mainB.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -19,7 +19,7 @@
     include('layout/sideBar.php');
     ?>
 
-    <!-- <main id="main" :pageChange="changeIt"> -->
+    <!-- -------------------------vue instance------------------------------------- -->
     <main id="main">
       <h2>題庫管理</h2>
       <!-- 搜尋區域 -->
@@ -29,71 +29,13 @@
       <section is="tableArea" :fields="fields" :galaxys="galaxys"></section>
 
       <!-- 編輯新增區域 -->
-      <section class="quizModalBg">
-        <section class="quizModal">
-          <h2>新增試題</h2>
-          <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal">
-          <section class="overflowArea">
-            <form action="quiz.php" method="get">
-              <div>
-                <span>領域</span>
-                <select class="quizField">
-                  <option value="" selected>請選擇領域</option>
-                  <option value="html">html</option>
-                  <option value="css">css</option>
-                  <option value="javascript">javascript</option>
-                  <option value="jquery">jquery</option>
-                  <option value="sass">sass</option>
-                  <option value="mysql">mysql</option>
-                  <option value="php">php</option>
-                  <option value="vue">vue</option>
-                  <option value="create" class="createField">新增領域</option>
-                </select>
-                <input type="text" class="newField" placeholder="請輸入新增的領域名稱">
-              </div>
+      <section is="createAndEdit"></section>
 
-              <div class="galaxyImg">
-                <span>星系徽章</span>
-                <input type="file" accept="image/*">
-              </div>
-
-              <div>
-                <span>難易度</span>
-                <select class="quizLevel">
-                  <option value="1">初級</option>
-                  <option value="2">中級</option>
-                  <option value="3">高級</option>
-                  <option value="0">星系</option>
-                </select>
-              </div>
-
-              <div class="planetImg">
-                <span>星球關卡徽章</span>
-                <input type="file" accept="image/*">
-              </div>
-
-              <div class="mainEdit">
-                <div class="topFunction">
-                  <label>全選<input type="checkbox" class="selectAll"><span></span></label>
-                  <div>
-                    <button type="button" class="deleteQ">刪除題目</button>
-                    <button type="button" class="createQ">新增題目</button>
-                  </div>
-                </div>
-              </div>
-
-
-              <button type="submit">確認新增</button>
-            </form>
-          </section>
-        </section>
-      </section>
 
       <section class="question"></section>
-
-
     </main>
   </div>
+  <!-- ----------------------------下方是元件部分------------------------------------ -->
 
 
 
@@ -121,14 +63,14 @@
   <script type="text/x-template" id="tableArea">
     <section class="table">
         <div class="btns">
-          <button class="off">下架試題</button>
-          <button class="add">新增試題</button>
+          <button class="off" @click="mutipleOff">下架試題</button>
+          <button class="add" @click="createQuiz">新增試題</button>
         </div>
 
         <table>
           <thead>
             <tr>
-              <th><label><input type="checkbox" class="checkAll"><span></span></label></th>
+              <th><label><input type="checkbox" id="checkAll" @click="checkAll"><span></span></label></th>
               <th>編號</th>
               <th>領域</th>
               <th>狀態</th>
@@ -137,6 +79,7 @@
           </thead>
           <!-- 欄位區域 -->
           <tbody is="tableRow" :fields="fields" :galaxys="galaxys" :pages="pages"></tbody>
+
         </table>
 
         <div class="changePage">
@@ -151,29 +94,96 @@
   <!-- 欄位區域 -->
   <script type="text/x-template" id="tableRow">
     <tbody>
-      <template v-for="(galaxy,index) in galaxys.slice(pages[0],pages[1])">
+      <template v-for="(galaxy,index) in galaxys.slice(pages.start,pages.end)">
       <tr>
-        <td><label><input type="checkbox"><span></span></label></td>
-        <td>{{galaxy.gNumber}}</td>
+        <td><label><input type="checkbox" class="checkRow" @click="checkOne"><span></span></label></td>
+        <td class="gNumber">{{galaxy.gNumber}}</td>
         <td>{{galaxy.gName}}</td>
         <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
         <td><button>編輯</button></td>
-        <td>{{pages[0]}} {{pages[1]}}</td>
+        <td></td>
       </tr>
-
-      <!-- <tr v-else>
-        <td><label><input type="checkbox"><span></span></label></td>
-        <td>{{galaxy.gNumber}}</td>
-        <td>{{galaxy.gName}}</td>
-        <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
-        <td v-else style="color: red;">{{galaxy.gStatus}}</td>
-        <td><button>編輯</button></td>
-        <td>{{pages[0]}} {{pages[1]}}</td>
-      </tr> -->
       </template>  
     </tbody> 
   </script>
+
+
+  <!-- 編輯和新增的彈跳視窗 -->
+  <script type="text/x-template" id="createAndEdit">
+    <section class="quizModalBg">
+      <section class="quizModal">
+        <div class="editArea">
+          <!-- 頁籤切換和離開彈跳視窗按鈕 -->
+          <div class="navPage">
+            <div>
+              <h2 @click="openQuiz" class="openQuiz">新增試題</h2>
+              <h2 @click="openBadge" class="openBadge">新增徽章</h2>
+            </div>
+            <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal" @click="closeModal">
+          </div>
+          <!-- 送出表單 -->
+          <form action="quiz.php" method="get">
+            <!-- 新增試題 -->
+            <div id="forQuiz">
+              <!-- 輸入領域的input -->
+              <div>
+                <label for="fieldName">領域</label>
+                <input type="text" class="fieldName" name="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
+                <span>星系</span>
+              </div>
+
+              <!-- 輸入題目的input -->
+              <template v-for="level in levels.slice(0,3)">
+                  <div class="mainEdit">
+                    <label>{{level.diff}}星球</label>
+              
+                    <div class="topFunction">
+                      <label>全選<input type="checkbox" class="selectAll" @change="selectAll"><span></span></label>
+                      <div>
+                        <button type="button" class="deleteQ" @click="deleteQ">刪除題目</button>
+                        <button type="button" class="createQ" @click="createQ">新增題目</button>
+                      </div>
+                    </div>
+                    <!-- 要insert的component -->
+                    
+                    
+                </div>
+              </template>
+            </div>
+
+            <!-- 新增徽章 -->
+            <div id="forBadge">
+              <div>
+                <label for="fieldName">領域</label>
+                <input type="text" class="fieldName" name="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
+                <span>星系</span>
+              </div>
+
+              <template v-for="level in levels">
+                <section>
+                <p v-if="level.diff == '星系'">{{level.diff}}徽章</p>
+                <p v-else>{{level.diff}}星球</p>
+                <div class="galaxyImg">
+                  <label>星系圖</label>
+                  <span><span v-model.trim="imgName"></span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*" v-model.trim="imgName"></span>
+                </div>
+
+                <div class="planetImg" v-if="!(level.diff == '星系')">
+                  <label>星球圖</label>
+                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*"></span>
+                </div>
+                
+                </section>
+              </template>
+              <button type="submit">確認新增</button>
+            </div>
+            
+          </form>
+        </div>
+        </section>
+      </section>
+</script>
 
 
 

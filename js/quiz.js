@@ -1,4 +1,7 @@
-
+// 沒登入的提醒
+// if (!checkCookie('user')) {
+//     swal("登入後才可以獲得徽章喔", "", "info");
+// };
 
 //測驗須知，checkbox勾選，頁籤切換===================================
 var startQuiz = document.getElementsByClassName('startQuiz');
@@ -28,21 +31,12 @@ startQuiz[0].addEventListener('click', function () {
 // }
 
 
+// 綁定下一題的按鈕
 for (let j = 0; j < nextQuestion.length; j++) {
-
-    nextQuestion[j].addEventListener('click', function abc() {
+    nextQuestion[j].addEventListener('click', function () {
         let selections = this.closest("section").querySelectorAll('.selection');
 
-        // console.log(selections);
-        // let choosedAnswer = selections.some(selection => selection.checked === true);
-        // if (choosedAnswer) {
-        //     console.log("true");
-        // } else {
-        //     console.log("false");
-        // }
-
         for (let i = 0; i < selections.length; i++) {
-
 
             if (selections[i].checked) {
                 this.closest("section").classList.add('-hide');
@@ -50,25 +44,22 @@ for (let j = 0; j < nextQuestion.length; j++) {
 
                 // 判斷作答是否正確
                 let chooseOption = selections[i].value;
-                // console.log(chooseOption);
                 let correctAnswer = this.closest("section").querySelectorAll('div.question')[0].getAttribute("data-answer");
-                // console.log(correctAnswer);
 
                 if (chooseOption === correctAnswer) {
                     function answerCountPlus() {
                         answerCount = answerCount + 1;
                     }
                     answerCountPlus();
-                    // console.log(answerCount);
                 }
             }
             else {
-                // swal("別放棄！請先作答再進入下一題", "", "info");
+                swal("別放棄！請先作答再進入下一題", "", "info");
             }
+
         }
         if (j = 1) {
             correctCount.innerText = `答對題數：${answerCount}題`;
-            // console.log(correctCount);
         }
     });
 
