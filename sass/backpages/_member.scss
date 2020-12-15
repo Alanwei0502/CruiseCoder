@@ -73,26 +73,16 @@ div.member{
 						font-weight: bold;
 						padding: $fontSize*1.5 0;
                         text-align: center;
-                       
-                       
 					}
                 }
                 tbody{
                     tr {
                     width: 100%;
                     
-					// label {
-					// 	cursor: pointer;
-                    // }
-                    &:nth-child(1){
+                    &:nth-child(2n+1){
                         background-color: $beige;
                     }
-                    &:nth-child(3){
-                        background-color: $beige;
-                    }
-                    &:nth-child(5){
-                        background-color: $beige;
-                    }
+                    
 
 					td {
                         padding: $fontSize*1.5 0;
@@ -188,11 +178,34 @@ div.member{
                                 margin-right: 30px;
                             }
                         }
+
+
     
                     }
 
+
+                    .teacherTextarea{
+                        display: none;
+                        margin: 0 auto;
+                        width: 49%;
+                        font-size: $mp;
+                        padding: 20px 0;
+
+                        label{
+                            vertical-align: top;
+                            font-size: $mp;
+                        }
+                        textarea{
+                            resize: none;
+                            border-radius: 8px;
+                        }
+                    }
+
+
+
                     // badge table-------------
                     .badge_table{
+                        display: block;
                         table {
                             font-size: $bp;
                             width: 100%;
@@ -212,18 +225,10 @@ div.member{
                                 tr {
                                 width: 100%;
                                 
-                                &:nth-child(2){
+                                &:nth-child(2n){
                                     background-color: $beige;
                                 }
-                                &:nth-child(4){
-                                    background-color: $beige;
-                                }
-                                &:nth-child(6){
-                                    background-color: $beige;
-                                }
-                                &:nth-child(8){
-                                    background-color: $beige;
-                                }
+                                
                                 
                                 td {
                                     padding: $fontSize*1.5 0;
@@ -239,6 +244,7 @@ div.member{
 
                     // order Detail table-------------
                     .orderDetail_table{
+                        display: block;
                         font-size: $bp;
                         width: 100%;
                         margin: 0 auto;
@@ -261,7 +267,7 @@ div.member{
                                 tr {
                                 width: 100%;
                                 
-                                &:nth-child(2){
+                                &:nth-child(2n){
                                     background-color: $beige;
                                 }
                                 
@@ -278,6 +284,7 @@ div.member{
 
                     // course Detail table-------------
                     .courseDetail_table{
+                        display: block;
                         font-size: $bp;
                         width: 100%;
                         margin: 0 auto;
@@ -303,7 +310,7 @@ div.member{
                                 tr {
                                 width: 100%;
                             
-                                &:nth-child(2){
+                                &:nth-child(2n){
                                     background-color: $beige;
                                 }
                                 

@@ -42,6 +42,8 @@
             background-color: #fff;
             border-radius: 50%;
             position: relative;
+            animation: fadeInLeft; 
+            animation-duration: 2s; 
 
             @include laptop {
                 margin-bottom: 50px;
@@ -97,6 +99,9 @@
             display: flex;
             justify-content: center;
 
+            animation: fadeInRight; 
+            animation-duration: 2s; 
+
 
             p {
                 // text-align: center;
@@ -120,7 +125,8 @@
         }
 
         .info_card {
-
+            animation: fadeInRight; 
+            animation-duration: 2s; 
             @include laptop {
                 margin-top: 20px;
             }
@@ -149,12 +155,14 @@
 
                 }
 
-                // @include smlPhone {
-                //     width: 300px;
-                // }
 
                 label {
                     padding: 10px;
+                    span{
+                        padding-left: 10px;
+                        color: rgb(177, 177, 177);
+                        font-size: $sp;
+                    }
 
                     @include smlPad {
                         font-size: $mp;
@@ -165,13 +173,18 @@
 
                     }
                     input.input{
-                        border: none;
+                        // border: none;
+                        border: rgba(255, 255, 255, 0) solid;
                         padding: 20px;
                         border-radius: 20px;
                         height: 35px;
                         width: 300px;
                         outline: none;
                         font-size: $bp;
+                        .errorTextColor{
+                            color: $red;
+                        }
+                        
                         @include bigPhone{
                             height: 25px;
                             width: 200px;
@@ -231,7 +244,7 @@
 
             }
         }
-                    // 第二部分（我的課程）
+        // 第二部分（我的課程）
         .info_second {
 
             .course_title{
@@ -735,23 +748,30 @@
         .info_achievement {
             width: 100%;
 
-
+            //大徽章尚未獲得前，呈現狀態是 灰階＋透明。
             .big_a {
                 background-color: $blue2;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-
-                img {
-                    width: 100px;
-                    margin: 10px 25px;
-
-                    @include smlPhone {
-                        width: 80px;
-                    }
+                div {
+                    img {
+                        width: 100px;
+                        margin: 10px 25px;
+                        filter: opacity(30%)grayscale(50%);;
+                        -webkit-filter: opacity(30%)grayscale(50%);
+    
+                        
+    
+                        @include smlPhone {
+                            width: 80px;
+                        }
+                    }    
                 }
+                
             }
 
+             //小徽章尚未獲得前，呈現狀態是 灰階＋透明。
             .little_a {
                 margin-top: 50px;
                 padding: 50px;
@@ -767,6 +787,9 @@
                 img {
                     width: 100px;
                     margin: 10px 25px;
+                    filter: opacity(30%)grayscale(50%);;
+                    -webkit-filter: opacity(30%)grayscale(50%);
+
                     @include smlPhone{
                         width: 70px;
                     }
