@@ -1,5 +1,5 @@
 <?php
-    include("../frontEnd/layout/connect.php");
+    include("./layout/connect.php");
     
 
     //建立SQL

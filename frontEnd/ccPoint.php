@@ -1,6 +1,5 @@
 <?php
-    include("../frontEnd/layout/connect.php");
-  
+    include("./layout/connect.php");
 
   //建立SQL
   $sql = "SELECT * FROM member WHERE mNumber = ?";
