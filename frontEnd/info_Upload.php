@@ -1,5 +1,6 @@
 <?php
-    include("linkFion.php");
+    include("../frontEnd/layout/connect.php");
+    
 
     //取得POST過來的值
     $mName = $_POST["mName"];

@@ -102,7 +102,8 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
     $hasAccount = $statement->rowCount();
 
     if ($hasAccount == 0) {
-        echo "NoAccount";
+        // echo "NoAccount";
+        echo "0". ",NoAccount".",". "0" .",". "0" .",". "0"; 
     } else if ($hasAccount == 1) {
         $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`, `mSignIn` FROM member WHERE mAccount = ?";
         $getPrepare = $pdo->prepare($getLastTime);
