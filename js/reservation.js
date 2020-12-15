@@ -1,3 +1,20 @@
+$.ajax({
+  type: 'POST',
+  url: "./layout/loginR.php",
+  data: {
+      userAccount: userAccount,
+  },
+  dataType: "text",
+  success: function (data) {
+      document.querySelector('a.ccp').innerText = data;
+  }
+});
+
+
+
+
+
+
 let addBtn = document.getElementsByClassName("addButton")[0];
 let addReservationBack = document.getElementsByClassName("addReservationBack")[0];
 let cancelBack = document.getElementsByClassName("cancelBack")[0];
