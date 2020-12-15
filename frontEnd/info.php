@@ -1,6 +1,7 @@
 <?php
 
-  include("linkFion.php");
+  include("../frontEnd/layout/connect.php");
+  
 
    //建立SQL
    $sql = "SELECT * FROM member WHERE mNumber = ?";
