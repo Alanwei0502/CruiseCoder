@@ -185,16 +185,16 @@ function doFirst() {
             var url = form.attr('action');
             // 寫在form標籤裡的 action="./checkOutR.php"
 
-            $.ajax({
-                // let divText = $('div').text();
-                type: "POST",
-                url: 'checkOutR.php',
-                data: form.serialize(), // serializes the form's elements.
-                success: function (data) {
-                    // alert(data); // show response from the php script.
-                    console.log(data);
-                }
-            });
+            // $.ajax({
+            //     // let divText = $('div').text();
+            //     type: "POST",
+            //     url: 'checkOutR.php',
+            //     data: form.serialize(), // serializes the form's elements.
+            //     success: function (data) {
+            //         // alert(data); // show response from the php script.
+            //         console.log(data);
+            //     }
+            // });
 
             // 停止預設事件，submit預設會跳轉網頁----->停止轉跳
             e.preventDefault();
@@ -376,7 +376,7 @@ function doFirst() {
             $.ajax({
                 type: "POST",
                 // method: "POST",  
-                url: "../frontEnd/layout/connectTest.php",
+                url: "checkOutR.php",
 
                 data: {
                     //封裝的東西丟這邊
