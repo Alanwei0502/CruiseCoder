@@ -129,7 +129,7 @@
               <!-- 輸入領域的input -->
               <div>
                 <label for="fieldName">領域</label>
-                <input type="text" class="fieldName" name="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
+                <input type="text" class="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
                 <span>星系</span>
               </div>
 
@@ -182,7 +182,7 @@
                 
                 </section>
               </template>
-              <button type="submit">確認新增</button>
+              <button type="button" @click="update">確認新增</button>
             </div>
             </section>
         </div>

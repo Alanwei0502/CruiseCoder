@@ -74,16 +74,16 @@ Vue.component("tableArea", {
             // let that = this;
             $.ajax({
                 type: 'POST',
-                url: 'quizR.php',
+                url: 'quizRD.php',
                 data: { offId },
                 // dataType: 'json',
                 success: function (res) {
                     // a = JSON.parse(res);
+                    // console.log(a);
                     console.log(res);
-
+                    vm.ajax();
                 },
             });
-
         },
         // 新增試題按鈕
         createQuiz() {
@@ -225,8 +225,6 @@ Vue.component("createAndEdit", {
                     }
                 });
             }
-
-
         },
         // 全選按鈕
         selectAll(e) {
@@ -236,6 +234,12 @@ Vue.component("createAndEdit", {
                 $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", false);
             }
         },
+        // 確認新增按鈕
+        update() {
+            let quizModalBg = document.getElementsByClassName('quizModalBg')[0];
+            let fieldName = document.getElementsByClassName('fieldName')[0];
+            let
+        }
     },
 });
 
@@ -262,7 +266,7 @@ let vm = new Vue({
             let that = this;
             $.ajax({
                 type: 'POST',
-                url: 'quizR.php',
+                url: 'quizRS.php',
                 data: { selectField },
                 dataType: 'json',
                 success: function (res) {
