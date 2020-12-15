@@ -20,7 +20,9 @@
     include 'layout/spacebackground.php';
     include 'layout/header.php';
     ?>
-    <main>
+
+
+    <main id="feedBack">
       <div class="top">
         <!-- 搜尋列 -->
         <div class="filter">
@@ -34,18 +36,18 @@
             </button>
           </form>
           <div class="category">
-            <button id="hot" data-target="tab1" class="tab -on">熱門課程</button>
-            <button id="fundraising" data-target="tab2" class="tab">募資課程</button>
-            <button id="all" data-target="tab3" class="tab">所有課程</button>
-            <select class="tab">
-              <option value="Cate"" style=" display:none">課程類型</option>
-              <option value="HTML" data-target="tab4" class="tab">HTML</option>
-              <option value="CSS" data-target="tab5" class="tab">CSS</option>
-              <option value="jQuery" data-target="tab6" class="tab">jQuery</option>
-              <option value="SASS" data-target="tab7" class="tab">SASS</option>
-              <option value="PHP" data-target="tab8" class="tab">PHP</option>
-              <option value="MySQL" data-target="tab9" class="tab">MySQL</option>
-              <option value="Vue" data-target="tab10" class="tab">Vue</option>
+            <!-- <button id="hot" data-target="tab1" class="tab -on">熱門課程</button> -->
+            <button id="all" data-target="tab3" class="tab -on" @click="allOpen">所有課程</button>
+            <button id="fundraising" data-target="tab2" class="tab" @click="fundingOpen">募資課程</button>
+            <select class="tab" @change="type" id="SelectId">
+              <option value="Cate" class='tab' selected="selected">課程類型</option>
+              <option value="html" class="tab">HTML</option>
+              <option value="css" class="tab">CSS</option>
+              <option value="jquery" class="tab">jQuery</option>
+              <option value="sass" class="tab">SASS</option>
+              <option value="php" class="tab">PHP</option>
+              <option value="mysql" class="tab">MySQL</option>
+              <option value="Vue" data-target="vue" class="tab">Vue</option>
             </select>
           </div>
         </div>
@@ -55,165 +57,58 @@
         <!-- 課程開始 -->
         <div class="course">
           <!-- 一般課程 -->
+          <template v-for="course in courses">
+            <a class="course " :href=`course_start_class.php?CourseID=${course.cNumber}` :data-type="course.cType">
 
-          <a class="general " href="course_start_class.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="comment">
-                <div class="star">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p class="text">24則評價</p>
+              <div class="teacherPic">
+                <img class="tImg" :src="course.mPhoto" alt="">
               </div>
-              <div class="price">NT.1,200</div>
-            </div>
-          </a>
-          <a class="general " href="course_start_class.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="comment">
-                <div class="star">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p class="text">24則評價</p>
-              </div>
-              <div class="price">NT.1,200</div>
-            </div>
-          </a>
-          <a class="general " href="course_start_class.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="comment">
-                <div class="star">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p class="text">24則評價</p>
-              </div>
-              <div class="price">NT.1,200</div>
-            </div>
-          </a>
-          <!-- 募資課程 -->
-          <a class="fundraising" href="course_Fundraising.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="price">
-                <p class="fundraisingTag">募資中</p>
-                <div class="textFund">
-                  <p class="preOrder">預購價</p>
-                  <p class="price">NT.900</p>
-                </div>
-              </div>
-              <div class="progressbar">
-                <span class="progress" style="width: 50%;"></span>
-              </div>
-              <div class="funNum">已募資 25/50 人</div>
-            </div>
-          </a>
-          <a class="fundraising" href="course_Fundraising.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="price">
-                <p class="fundraisingTag">募資中</p>
-                <div class="textFund">
-                  <p class="preOrder">預購價</p>
-                  <p class="price">NT.900</p>
-                </div>
-              </div>
-              <div class="progressbar">
-                <span class="progress" style="width: 50%;"></span>
-              </div>
-              <div class="funNum">已募資 25/50 人</div>
-            </div>
-          </a>
-          <a class="fundraising" href="course_Fundraising.php">
-            <div class="teacherPic">
-              <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-            </div>
-            <div class="favorites">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="coursePic">
-              <img src="../images/allCourse/course01.png" alt="">
-            </div>
-            <div class="c_Main">
-              <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-              <div class="time">課程總長：120分鐘</div>
-              <div class="price">
-                <p class="fundraisingTag">募資中</p>
-                <div class="textFund">
-                  <p class="preOrder">預購價</p>
-                  <p class="price">NT.900</p>
-                </div>
-              </div>
-              <div class="progressbar">
-                <span class="progress" style="width: 50%;"></span>
-              </div>
-              <div class="funNum">已募資 25/50 人</div>
-            </div>
-          </a>
 
+              <div class="coursePic">
+                <img :src="course.cImage" alt="">
+              </div>
+              <div>
+                <div class="favorites">
+                  <i class="fas fa-heart" @click.prevent="favorites"></i>
+                  <!-- .prevent  解決冒泡事件-->
+                </div>
+
+                <div class="c_Main">
+                  <p class="title" href="">{{course.cTitle}}</p>
+                  <div class="time">課程總長：{{course.cTime}}</div>
+                  <div class="courseFundraising" v-if="course.cStatus == 3">
+                    <div class="price">
+                      <p class="fundraisingTag">募資中</p>
+                      <div class="textFund">
+                        <p class="preOrder">預購價</p>
+                        <p class="price">NT.900</p>
+                      </div>
+                    </div>
+                    <div class="progressbar">
+                      <span class="progress" style="width: 50%;"></span>
+                    </div>
+                    <div class="funNum">已募資 5/10 人</div>
+                  </div>
+                  <div class="courseStart" v-else="course.cStatus == 1">
+                    <div class="comment">
+                      <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <p class="text">{{course.rCount}}則評價</p>
+                    </div>
+                    <div class="price">NT.{{course.cPrice}}</div>
+                  </div>
+                </div>
+              </div>
+
+
+            </a>
+
+          </template>
         </div>
       </div>
       <!--頁碼開始-->
@@ -230,11 +125,16 @@
       </div>
       <!--頁碼結束-->
     </main>
+
+
+
     <?php
     include 'layout/footer.php';
     ?>
-    <script src="../js/allCourse.js"></script>
+    <script src="../js/vue.js"></script>
     <script src="../js/header.js"></script>
+    <script src="../js/allCourse.js"></script>
+
   </div>
 </body>
 

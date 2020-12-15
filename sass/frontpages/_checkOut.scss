@@ -224,6 +224,8 @@
                         i {
                             color: rgb(100, 100, 100);
                             font-size: 40px;
+                            cursor: pointer;
+
 
                             // margin-right: 30px;
                             @include smlPad {
@@ -338,6 +340,14 @@
                     }
                 }
 
+
+
+
+            }
+
+            p.overCcp {
+                margin-right: 30px;
+                color: $red;
             }
 
             .sum {
