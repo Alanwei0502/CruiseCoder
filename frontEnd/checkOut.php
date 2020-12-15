@@ -25,26 +25,26 @@
                 < 購物車 />
             </h2>
             <h3>購買列表</h3>
-            <div class="shoppingList">
-                <div class="course">
+            <div class="shoppingList" id="app3">
+                <!-- <div class="course">
                     <div class="top">
                         <div class="left">
                             <div class="course_Img">
                                 <a href="course_start_class.php">
-                                    <img src="../images/allCourse/course01.png" alt="">
+                                    <img :src="course[0].cImage" alt="">
                                 </a>
                             </div>
                             <div class="title">
                                 <a href="course_start_class.php">
-                                    一變應萬變：RWD 響應式網頁設計讓你變高手
+                                    {{course[0].cTitle}}
                                 </a>
                             </div>
                         </div>
                         <a href=""><i class="far fa-times-circle close"></i></a>
                     </div>
                     <div class="bottom">
-                        <p class="type">已開課</p>
-                        <p class="singlePrice">NT,1200</p>
+                        <p class="type">{{status[1]}}</p>
+                        <p class="singlePrice">NT{{course[0].cPrice}}</p>
                     </div>
                 </div>
                 <div class="course">
@@ -67,14 +67,16 @@
                         <p class="type">募資中</p>
                         <p class="singlePrice">NT,1200</p>
                     </div>
-                </div>
+                </div> -->
+                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice"></table-component>
             </div>
             <div class="price" id="app">
                 <div class="discount">
-                    <form action="" class="ccPoint">
-                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" :value="message">元
+                    <form class="ccPoint" :data-id="ccPointNt">
+                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  onkeypress="if (event.keyCode == 13) {return false;}" >元
                     </form>
                 </div>
+                <p class="overCcp"></p>
                 <div class="sum">
                     <div class="ccPoint">
                         <p class="text">CC Point 折抵</p>
@@ -82,11 +84,11 @@
                     </div>
                     <div class="total">
                         <p class="text">總計</p>
-                        <div class="price">NT$ 2,400</div>
+                        <div class="price">NT$ {{total}}</div>
                     </div>
                     <div class="pay">
                         <p class="text">結帳總金額：</p>
-                        <div class="price">NT$ 2,202</div>
+                        <div class="price">NT$ {{totalPrice}}</div>
                     </div>
                 </div>
             </div>
@@ -128,26 +130,11 @@
                         </label>
                         <select>
                             <option :value="index+1" v-for="(month,index) in 12">{{month}}</option>
-                            <!-- <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                            <option value="">11</option>
-                            <option value="">12</option> -->
                         </select>
                         <label for="" class="months">月</label>
 
                         <select>
                             <option :value="year" v-for="year in years">{{year}}</option>
-                            <!-- <option value="">2021</option>
-                            <option value="">2022</option>
-                            <option value="">2023</option>
-                            <option value="">2024</option> -->
                         </select>
                         <label for="" class="years">年</label>
                     </div>
