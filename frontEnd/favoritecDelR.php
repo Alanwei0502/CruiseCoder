@@ -2,9 +2,9 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
-$dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
+// $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
 
-$pdo = new PDO($dsn, $db_user, $db_pass);
+// $pdo = new PDO($dsn, $db_user, $db_pass);
 
 
 // 刪除

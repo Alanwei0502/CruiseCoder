@@ -18,6 +18,7 @@ let app = new Vue({
 
     methods: {
         ajax() {
+            // 撈所有課程的資料
             let that = this;
             let star = 1;
             $.ajax({
@@ -32,6 +33,7 @@ let app = new Vue({
             });
         },
         getmember() {
+            // 取得會員編號
             getCookie('user');
             let userAccount = getCookie('user');
             let that = this;

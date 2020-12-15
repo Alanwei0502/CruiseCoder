@@ -2,9 +2,9 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
-$dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
+// $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
 
-$pdo = new PDO($dsn, $db_user, $db_pass);
+// $pdo = new PDO($dsn, $db_user, $db_pass);
 
 // 寫入收藏愛心
 $sqlFavoriteI = "INSERT INTO favorite_c (fcNumber, fcCourse, fcMember, fcDate) VALUES (DATE_FORMAT(NOW(),'%Y%m%d%H%i%s'), ?, ?, NOW());";
