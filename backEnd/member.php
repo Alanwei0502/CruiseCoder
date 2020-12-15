@@ -1,5 +1,12 @@
 <?php
-
+  include("linkFion.php");
+  //建立SQL
+  $sql = "SELECT * FROM member WHERE mNumber = ?";
+  $mNumber = "M0002";
+  $statement = $pdo->prepare($sql);
+  $statement->bindValue(1 , "$mNumber");
+  $statement->execute();
+  $infoMember = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +39,7 @@
             <label>權限</label>
               <select>
                 <option value="1">管理員</option>
+                <option value="2">老師</option>
                 <option value="2">會員</option>
                 <option value="3">停權</option>
               </select>
@@ -42,14 +50,8 @@
             <i class="fas fa-arrow-right"></i>
             <input type="text">
           </div>
-           
-            
-            
-
-          
           <button>搜尋</button>
-  
-          
+
       </section>
 
       <section class="table">
@@ -67,11 +69,15 @@
             </thead>
             <tbody>
               <tr>
+                <?php
+                foreach($infoMember as $index => $row){
+                ?>
                 <td>CCM0000001</td>
-                <td>chiawei_huang</td>
-                <td>黃家偉</td>
-                <td>管理員</td>
+                <td><?=$row["mAccount"] ?></td>
+                <td name="mName" ><?=$row["mName"] ?></td>
+                <td name="mLevel"><?=$row["mLevel"] ?></td>
                 <td>2020/08/06</td>
+                <?php } ?>
                 <td><button class="btn_modal">編輯</button></td>
               </tr>
               <tr>
@@ -138,10 +144,11 @@
 
                 <div>
                   <label for="">權限</label>
-                  <select name="" id="">
-                    <option value="1">管理員</option>
-                    <option value="2">會員</option>
-                    <option value="3">停權</option>
+                  <select name="ganName" id="gansss">
+                    <option value="1" >管理員</option>
+                    <option value="2" >老師</option>
+                    <option value="3" >會員</option>
+                    <option value="4" >停權</option>
                   </select>
                 </div>
 
@@ -177,7 +184,7 @@
                 
                 <div>
                   <label for="">E-mail </label>
-                  <input type="text" value="a6402433@gmail.com" disabled>
+                  <input type="text" value="chiawei_huang@gmail.com" disabled>
                 </div>
 
                 <div>
@@ -193,6 +200,12 @@
               </div>
             </section>
             <!-------- input end -------->
+
+
+            <div class="teacherTextarea">
+              <label id='forTextarea'>介紹</label>
+              <textarea name="" id="" cols="50" rows="20"></textarea>
+            </div>
 
           
             <section class="badge_table">
@@ -321,8 +334,6 @@
 
         </div>
         
-        
-
       </div>
 
     </main><!-- 在這裡面codeing -->
@@ -331,20 +342,37 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script>
-        $(function(){
-      
-        // 開啟 Modal 彈跳視窗
-        $(".btn_modal").on("click", function(){
-          $("div.overlay").addClass("-on");
-        });
-        
-        // 關閉 Modal
-        $("div.closeBtn_").on("click", function(){
-          $("div.overlay").removeClass("-on");
-          
-        });
+  $(function(){
+  
+    // 開啟 Modal 彈跳視窗
+    $(".btn_modal").on("click", function(){
+      $("div.overlay").addClass("-on");
+    });
+    
+    // 關閉 Modal
+    $("div.closeBtn_").on("click", function(){
+      $("div.overlay").removeClass("-on");
       
     });
+    
+  });
+
+  $("#gansss").change(function(){
+    let checkValue=$("#gansss").val(); 
+    if(checkValue == 2){
+      $('.teacherTextarea').css("display","block");
+      $('.badge_table').css("display","none");
+      $('.orderDetail_table').css("display","none");
+      $('.courseDetail_table').css("display","none");
+
+    }else{
+      $('.teacherTextarea').css("display","none");
+      $('.badge_table').css("display","block");
+      $('.orderDetail_table').css("display","block");
+      $('.courseDetail_table').css("display","block");
+    }
+
+  });
   </script>
 </body>
 

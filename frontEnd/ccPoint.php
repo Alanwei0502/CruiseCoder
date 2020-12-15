@@ -18,8 +18,12 @@
   <title>Cruise Coders ｜ CC點數</title>
   <link rel="stylesheet" href="../css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
 
 </head>
@@ -42,7 +46,7 @@
           ?>
           <p>目前擁有<br>
              <span><?=$row["mCC"] ?></span>CC Point (CC幣) <br>
-            = NT$ 198 </p>
+            = NT$ <?=floor($row["mCC"]*0.0111) ?> </p>
             <?php } ?>
         </div>
       
@@ -207,9 +211,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script>
-
-
-
       $(function () {
         $("a[href*=#]").on("click", function (e) {
           e.preventDefault();
@@ -236,18 +237,11 @@
         });
       });
 
-      
-
       $('.tab_list>li').click(function(){
 
         $('.tab_list>li').removeClass('-on');
         $(this).addClass('-on');
       });
-
-
-
-      
-
 
   </script>
   <script src="../js/header.js"> </script>

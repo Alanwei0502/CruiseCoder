@@ -15,6 +15,8 @@ monospace;
             justify-content: space-around;
             align-items: center;
 
+            
+
             //768
             @include smlPad {
                 flex-direction: column;
@@ -61,6 +63,9 @@ monospace;
                 color: #fff;
                 font-size: $h3;
 
+                animation: flipInX; 
+                animation-duration: 2.5s; 
+
                 @include laptop {
                     font-size: $h4;
 
@@ -82,7 +87,7 @@ monospace;
         }
 
         .ccPointDay {
-            // border: solid 1px #fff;
+            
             margin-top: 50px;
             display: flex;
             flex-direction: row;
@@ -106,9 +111,10 @@ monospace;
                     margin: 25px;
                 }
 
-                // @include smlPad{
-                //     margin: 50px 0;
-                // }
+                img{
+                    filter: opacity(30%)grayscale(50%);;
+                    -webkit-filter: opacity(30%)grayscale(50%);
+                }
 
                 >p {
                     color: $white;
