@@ -163,7 +163,7 @@ $(document).ready(function () {
                 console.log(array);
 
                 for (let i = 0; i < planet.length; i++) {
-                    planet[i].querySelector('img').setAttribute('src', array[i].bPlanet);
+                    planet[i].querySelector('img').setAttribute('src', array[i].bIcon);
                     planet[i].querySelector('div').innerText = array[i].bName;
                 }
 
@@ -171,11 +171,11 @@ $(document).ready(function () {
                 for (let j = 0; j < insideArticle.length; j++) {
                     $('.insideArticle h3').eq(j).text(array[j].bName);
                     $('.insideArticle p').eq(j).text(array[j].bInfo);
-                    $('.insideArticle img').eq(j).attr("src", array[j].bImage);
+                    $('.insideArticle img').eq(j).attr("src", array[j].bBadge);
                     $('.goToQuiz').eq(j).attr("href", `quiz.php?subject=${array[j].bGalaxy}&level=${array[j].bLevel}&name=${array[j].bName}`);
                 }
 
-                $('.galaxyBadge img').attr("src", array[3].bImage);
+                $('.galaxyBadge img').attr("src", array[3].bBadge);
 
                 $('.badge p span').text(array[3].bGalaxy);
             },
