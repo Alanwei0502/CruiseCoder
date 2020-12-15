@@ -235,7 +235,7 @@ $(document).ready(function () {
                                     let date = gettoday.getDate();
 
 
-                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
@@ -436,7 +436,7 @@ $(document).ready(function () {
                                     let date = gettoday.getDate();
 
 
-                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
                                     // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {
