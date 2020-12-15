@@ -168,12 +168,10 @@ div.quiz {
                     }
 
     
-                    form {
+                    section.form {
                         overflow-y: auto;
                         height: 100%;
                         
-
-
                         #forQuiz, #forBadge{
                             background-color: $white;
                             width: 100%;

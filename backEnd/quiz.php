@@ -97,8 +97,8 @@
       <template v-for="(galaxy,index) in galaxys.slice(pages.start,pages.end)">
       <tr>
         <td><label><input type="checkbox" class="checkRow" @click="checkOne"><span></span></label></td>
-        <td class="gNumber">{{galaxy.gNumber}}</td>
-        <td>{{galaxy.gName}}</td>
+        <td>{{galaxy.gNumber}}</td>
+        <td class="gNumber">{{galaxy.gName}}</td>
         <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
         <td><button>編輯</button></td>
@@ -122,7 +122,8 @@
             <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal" @click="closeModal">
           </div>
           <!-- 送出表單 -->
-          <form action="quiz.php" method="get">
+          <!-- <form action="quizR1.php" method="post"> -->
+          <section class="form">
             <!-- 新增試題 -->
             <div id="forQuiz">
               <!-- 輸入領域的input -->
@@ -155,30 +156,35 @@
             <div id="forBadge">
               <div>
                 <label for="fieldName">領域</label>
-                <input type="text" class="fieldName" name="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
+                <input type="text" class="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
                 <span>星系</span>
               </div>
 
               <template v-for="level in levels">
                 <section>
-                <p v-if="level.diff == '星系'">{{level.diff}}徽章</p>
+                <p v-if="level.diff == '星系'">{{level.diff}}</p>
                 <p v-else>{{level.diff}}星球</p>
-                <div class="galaxyImg">
+                
+                <div class="iconImg" v-if="level.diff == '星系'">
                   <label>星系圖</label>
-                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*"></span>
+                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg[]" accept="image/*"></span>
                 </div>
 
-                <div class="planetImg" v-if="!(level.diff == '星系')">
+                <div class="iconImg" v-else>
                   <label>星球圖</label>
-                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" accept="image/*"></span>
+                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg[]" accept="image/*"></span>
+                </div>
+
+                <div class="badgeImg">
+                  <label>徽章圖</label>
+                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg[]" accept="image/*"></span>
                 </div>
                 
                 </section>
               </template>
               <button type="submit">確認新增</button>
             </div>
-            
-          </form>
+            </section>
         </div>
         </section>
       </section>

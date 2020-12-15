@@ -35,6 +35,8 @@ Vue.component("tableArea", {
                 this.pages.start -= 5;
                 this.pages.end -= 5;
                 // this.$forceUpdate();
+                $(".checkRow").prop("checked", false);
+                $('#checkAll').prop("checked", false);
             }
         },
         // 下一頁按鈕
@@ -47,6 +49,8 @@ Vue.component("tableArea", {
                 this.pages.start += 5;
                 this.pages.end += 5;
                 // this.$forceUpdate();
+                $(".checkRow").prop("checked", false);
+                $('#checkAll').prop("checked", false);
             }
         },
         // 全選或全不選checkbox
@@ -59,18 +63,27 @@ Vue.component("tableArea", {
         },
         // 快速下架試題
         mutipleOff() {
-            let id = [];
-            // let checkRow = $(e.target).closest('.table').find('.checkRow');
+            let offId = [];
             let checkRow = document.getElementsByClassName('checkRow');
-            // console.log(checkRow);
             for (let i = 0; i < checkRow.length; i++) {
                 if (checkRow[i].checked) {
-                    let a = checkRow[i].closest('tr').querySelector('.gNumber').innerText;
-                    console.log(a);
-                    id.push(a);
+                    offId.push(checkRow[i].closest('tr').querySelector('.gNumber').innerText);
                 }
             }
-            console.log(id);
+            // console.log(offId);
+            // let that = this;
+            $.ajax({
+                type: 'POST',
+                url: 'quizR.php',
+                data: { offId },
+                // dataType: 'json',
+                success: function (res) {
+                    // a = JSON.parse(res);
+                    console.log(res);
+
+                },
+            });
+
         },
         // 新增試題按鈕
         createQuiz() {
@@ -109,7 +122,22 @@ Vue.component("createAndEdit", {
     data() {
         return {
             levels: [
-                { diff: "初級" }, { diff: "中級" }, { diff: "高級" }, { diff: "星系" }
+                {
+                    diff: "初級",
+                    qLevel: 1,
+                },
+                {
+                    diff: "中級",
+                    qLevel: 2,
+                },
+                {
+                    diff: "高級",
+                    qLevel: 3,
+                },
+                {
+                    diff: "星系",
+                }
+
             ],
             newFeildName: '',
         }
@@ -145,36 +173,36 @@ Vue.component("createAndEdit", {
                 <div class="downQuestion">
                 <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
                 <div class="contentQ">
-                <textarea placeholder="請輸入題目內容"></textarea>
+                <textarea name="qContent[]" placeholder="請輸入題目內容"></textarea>
                 <ul>
                     <li>
                     <span>A:</span>
-                    <textarea placeholder="請輸入選項內容"></textarea>
+                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
                     </li>
                     <li>
                     <span>B:</span>
-                    <textarea placeholder="請輸入選項內容"></textarea>
+                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
                     </li>
                     <li>
                     <span>C:</span>
-                    <textarea placeholder="請輸入選項內容"></textarea>
+                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
                     </li>
                     <li>
                     <span>D:</span>
-                    <textarea placeholder="請輸入選項內容"></textarea>
+                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
                     </li>
                 </ul>
                 </div>
                 <div class="ansAndSta">
-                <select>
-                    <option value="">A</option>
-                    <option value="">B</option>
-                    <option value="">C</option>
-                    <option value="">D</option>
+                <select name="qAnswer[]">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
                 </select>
-                <select>
-                    <option value="">on</option>
-                    <option value="">off</option>
+                <select name"qState[]">
+                    <option value="1">on</option>
+                    <option value="0">off</option>
                 </select>
                 </div>
                 </div>
