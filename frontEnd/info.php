@@ -3,9 +3,10 @@
   include("./layout/connect.php");
   
 
+
    //建立SQL
-   $sql = "SELECT * FROM member WHERE mNumber = ?";
-   $mNumber = "M0003";
+   $sql = "SELECT * FROM member WHERE mAccount = ?";
+   $mNumber = $_COOKIE["user"];
   //  $mNumber = $_POST['member'];
    $statement = $pdo->prepare($sql);
    $statement->bindValue(1 , "$mNumber");
@@ -459,6 +460,60 @@
   <script>
   $(document).ready(function(){
 
+    if (checkCookie('user')) {
+        // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
+        var userAccount = getCookie('user');
+
+        $.ajax({
+        url:'info_Upload.php',
+        type:'POST',
+        dataType:'text',
+        data:{
+          // mName,
+          // PictureName,
+          // mPhone,
+          // mPasswrod,
+          userAccount,
+        },
+        success(res){
+          let array = JSON.parse(res);
+          console.log(array);
+          // console.log(res);
+          // window.location.reload();
+        }
+      });
+        
+  }
+    
+
+      // 取得 cookie 的值
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  // 檢查某 cookie 是否存在
+  function checkCookie(cname) {
+    var cookie_value = getCookie(cname);
+    if (cookie_value != "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+ 
+ 
+  // console.log(userAccount);
 
     //編輯檔案
     $('.editFile').click(function(){
@@ -565,20 +620,6 @@
       let mPasswrod = $('.pwd_test').val();
 
       
-      $.ajax({
-        url:'info_Upload.php',
-        type:'POST',
-        dataType:'text',
-        data:{
-          mName,
-          PictureName,
-          mPhone,
-          mPasswrod
-        },
-        success(res){
-          window.location.reload();
-        }
-      })
 
     })
 

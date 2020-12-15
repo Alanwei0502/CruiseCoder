@@ -1,17 +1,17 @@
 <?php
-    include("../frontEnd/layout/connect.php");
+    include("./layout/connect.php");
     
 
     //取得POST過來的值
     $mName = $_POST["mName"];
-    echo $mName.'<br>';
+    // echo $mName.'<br>';
     $mPasswrod = $_POST["mPasswrod"];
-    echo $mPasswrod.'<br>';
+    // echo $mPasswrod.'<br>';
     $mNumber = "M0003";
     $mPhone = $_POST["mPhone"];
-    echo $phone.'<br>';
+    // echo $phone.'<br>';
     $PictureName = $_FILES["myFile"]["name"];
-    echo $PictureName;
+    // echo $PictureName;
 
     $Util = new UtilClass();
 
@@ -45,7 +45,7 @@
 
     //建立SQL
     $sql = "UPDATE member set mName = ? ,mPhone = ?, mPhoto = ? ,mPasswrod = ?  where mNumber = ? ";
-    // $sql = "UPDATE mPhoto = ?, UpdateDate = NOW() WHERE ID = ?";
+   
 
     //執行
     $statement = $pdo->prepare($sql);
@@ -58,6 +58,24 @@
     $statement->bindValue(5 , $mNumber);
 
     $statement->execute();
+
+    header('location: ./info.php')
+
+    // // 抓cookie會員帳號
+    // $account = $_POST["userAccount"];
+    // // echo $account;
+
+    // $findMember = " SELECT * FROM `member` WHERE mAccount = ? ";
+
+    // $findMember = $pdo->prepare($findMember);
+
+    // $findMember->bindValue(1 , $account); 
+
+    // $findMember->execute();
+
+    // $data = $findMember->fetchAll(PDO::FETCH_ASSOC);
+
+    // echo json_encode($data);
 
 
 
