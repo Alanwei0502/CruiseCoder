@@ -32,14 +32,3 @@ $OffQuizStatement = "UPDATE `cruisecoder`.`quiz` SET `qState` = '0' WHERE (`qNum
 
 $OffGalStatement = $pdo->prepare($OffGalStatement);
 $OffQuizStatement = $pdo->prepare($OffQuizStatement);
-
-
-// 傳陣列如何送到sql語法中？
-if (isset($_POST["offId"])) {
-
-    $galaxyName = $_POST["offId"];
-    print_r($galaxyName);
-
-    // $OffGalStatement->execute();
-    // $OffQuizStatement->execute();
-}

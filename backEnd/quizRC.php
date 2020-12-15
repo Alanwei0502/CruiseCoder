@@ -1,5 +1,5 @@
 <?php
-// include("../frontEnd/layout/connect.php");
+include("../frontEnd/layout/connect.php");
 
 // $AllGalStatement = "SELECT gName FROM cruisecoder.galaxy";
 // $GalStatement = "SELECT * FROM cruisecoder.galaxy WHERE gName like ?";
