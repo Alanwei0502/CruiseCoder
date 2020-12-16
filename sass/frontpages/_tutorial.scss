@@ -1,19 +1,34 @@
 /* tutorial開始 */
 div.tutorial {
+	@mixin bookAlready($px){
+		font-size: $px;
+		outline: none;
+		color: $blue1;
+		background-color: $blue2;
+		border-radius: ($px/3);
+		padding: ($px/3) $px;
+		font-weight: bold;
+		z-index: 1;
+		cursor: not-allowed;
+		@content;
+	}
+	@mixin bookFullBtn ($px){
+		font-size: $px;
+		outline: none;
+		color: $black;
+		background-color: $red;
+		border-radius: ($px/3);
+		padding: ($px/3) $px;
+		font-weight: bold;
+		z-index: 1;
+		cursor: not-allowed;
+		@content;
+	}
 	main {
 		color: $white;
 		max-width: 1200px;
 		width: 95%;
 		margin: 0 auto;
-		// @include laptop{
-		// 	width: 900px;
-		// }
-		// @include bigPad{
-		// 	width: 700px;
-		// }
-		// @include smlPad{
-		// 	width: 600px;
-		// }
 		@include smlPhone{
 			width: 100%;
 		}
@@ -126,11 +141,11 @@ div.tutorial {
 					@include bigPad{
 						justify-content: center;
 					}
-					div.orange {
+					div.blue1 {
 						height: 30px;
 						width: 30px;
 						border-radius: 100%;
-						background-color: $orange;
+						background-color: $blue1;
 						margin-right: 10px;
 						@include smlPad{
 							height: 25px;
@@ -533,39 +548,37 @@ div.tutorial {
 						}
 						div.cellBody{
 							font-size: $sp;
-							background-color: $blue1;
+							background-color: $yellow;
+							color: $blue1;
 							padding: 10px;
 							border-radius: 10px;
 							white-space: nowrap;
-							overflow: hidden;
-							display: flex;
-							justify-content: space-between;
+							// overflow: hidden;
 							cursor: pointer;
-							@include laptop{
-								display: block;
-								text-align: center;
-							}
 							@include smlPhone{
 								display: none;
 							}
 							p{
+								overflow: hidden;
+								text-overflow: ellipsis;
 								@include bigPhone{
 									font-size: 12px;
-								}
-								@include bigPad{
-									&:first-child{
-										margin-bottom: 5px;
-									}
 								}
 							}
 						}
 						div.cellBody.buy{
-							background-color: $yellow;
-							color: $blue1;
+							background-color: $blue1;
+							color: $blue2;
 						}
 						div.cellBody.full{
 							background-color: $red;
 							color: $blue1;
+						}
+						div.cellBody.none{
+							display: none;
+						}
+						div.cellBody.notBuy{
+							display: none;
 						}
 						div.smallPoint{
 							display: none;
@@ -574,15 +587,21 @@ div.tutorial {
 								width: 12px;
 								height: 12px;
 								border-radius: 50%;;
-								background-color: $blue1;
+								background-color: $yellow;
 								margin: 0 auto;
 							}
 						}
 						div.smallPoint.buy{
-							background-color: $yellow;
+							background-color: $blue1;
 						}
 						div.smallPoint.full{
 							background-color: $red;
+						}
+						div.smallPoint.none{
+							display: none;
+						}
+						div.smallPoint.notBuy{
+							display: none;
 						}
 					}
 					div.fadeout {
@@ -604,7 +623,7 @@ div.tutorial {
 			display: none;
 			@include smlPhone{
 				display: block;
-				height: 65vh;
+				height: 45vh;
 				overflow-y: scroll;
 				margin-bottom: 30px;
 			}
@@ -630,26 +649,21 @@ div.tutorial {
 				}
 				div.phoneDayRight{
 					align-self: flex-end;
-					background-color: $blue1;
+					background-color: $yellow;
 					width: 85%;
 					padding: 15px 0px 15px 20px;
 					border-radius: 10px;
 					p{
-						display: inline-block;
 						color: $blue2;
-						&:first-child{
-							margin-right: 15px;
-						}
-						&:nth-child(2){
-							margin-right: 5px;
-							width: 35%;
-						}
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
 					}
 				}
 				div.phoneDayRight.buy{
-					background-color: $yellow;
+					background-color: $blue1;
 					p{
-						color: $blue1;
+						color: $blue2;
 					}
 				}
 				div.phoneDayRight.full{
@@ -658,6 +672,12 @@ div.tutorial {
 						color: $blue1;
 					}
 				}
+			}
+			div.phoneDay.none{
+				display: none;
+			}
+			div.phoneDay.notBuy{
+				display: none;
 			}
 		}
 		div.booking {
@@ -938,20 +958,17 @@ div.tutorial {
         left: 50%;
 				transform: translate(-50%, -50%);
 				width: 400px;
-				height: 500px;
+				// height: 600px;
+				padding: 80px 33px 30px;
 				background-color: $blue1;
 				border: 5px solid $orange;
 				border-radius: 15px;
-				font-size: $h4;
 				@include smlPad{
-					font-size: $bp;
 					width: 360px;
-					height: 420px;
+					padding: 70px 30px 30px;
 				}
 				@include smlPhone{
-					font-size: $mp;
 					width: 300px;
-					height: 380px;
 				}
 				img{
 					position: absolute;
@@ -969,53 +986,89 @@ div.tutorial {
 				div{
 					display: inline-block;
 					position: relative;
-					top: 50%;
 					left: 50%;
-					transform: translate(-50%, -50%);
+					transform: translateX(-50%);
 					p{
 						color: $blue2;
-						margin-bottom: 15px;
-						@include smlPhone{
-							margin-bottom: 10px;
-						}
 						&:nth-child(1){
 							font-size: $h3;
-							margin-bottom: 25px;
+							text-align: center;
+							line-height: 45px;
+							margin-bottom: 45px;
 							@include smlPad{
 								font-size: $h4;
-							}
-							@include smlPhone{
-								font-size: $bp;
-								margin-bottom: 15px;
+								line-height: 40px;
+								margin-bottom: 35px;
 							}
 						}
 						&:nth-child(2){
-							margin-bottom: 35px;
-							font-size: $h3;
+							font-size: $bp;
+							text-align: center;
 							@include smlPad{
-								font-size: $h4;
+								font-size: $mp;
 							}
-							@include smlPhone{
+						}
+						span{
+							font-size: $mp;
+							margin-left: 20px;
+							@include smlPad{
+								font-size: $sp;
+							margin-left: 15px;
+							}
+						}
+						&:nth-child(3){
+							font-size: $h4;
+							margin-top: 25px;
+							margin-bottom: 10px;
+							text-align: center;
+							@include smlPad{
 								font-size: $bp;
-								margin-bottom: 25px;
+								margin-top: 15px;
 							}
 						}
 						&:nth-child(4){
-							margin-bottom: 50px;
-							@include smlPhone{
-								margin-bottom: 40px;
+							font-size: $h4;
+							text-align: center;
+							margin-bottom: 25px;
+							@include smlPad{
+								font-size: $bp;
 							}
 						}
+						
 					}
-					button{
+					button.booking{
 						@include btn($h4);
-						margin: 0px 15px;
+						margin: 0 62px;
 						@include smlPad{
 							@include btn($bp);
-							margin: 0px 10px;
 						}
 						@include smlPhone{
 							@include btn($mp);
+							margin: 0 45px;
+						}
+					}
+					button.bookAlready{
+						@include bookAlready($h4);
+						margin: 0 80px;
+						@include smlPad{
+							@include bookAlready($bp);
+							margin: 0 78px;
+						}
+						@include smlPhone{
+							@include bookAlready($mp);
+							margin: 0 58px;
+						}
+						
+					}
+					button.bookFullBtn{
+						@include bookFullBtn($h4);
+						margin: 0 62px;
+						@include smlPad{
+							@include bookFullBtn($bp);
+						}
+						@include smlPhone{
+							@include bookFullBtn($mp);
+							margin: 0 45px;
 						}
 					}
 				}

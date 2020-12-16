@@ -1,3 +1,4 @@
+// 製作萬年曆
 let state = null;
 
 function calendar(){
@@ -22,7 +23,9 @@ function render(){
   let calendarYear = document.querySelector("#year");
   let calendarMonth = document.querySelector("#month");
   calendarYear.textContent = state.current.getFullYear() + " 年";
+  calendarYear.dataset.year = state.current.getFullYear();
   calendarMonth.textContent = (state.current.getMonth() + 1) + "月";
+  calendarMonth.dataset.month = (state.current.getMonth() + 1);
 
   let calendarDate = document.querySelector("#calendarDate");
   calendarDate.innerHTML = ""; //先清空畫面
@@ -61,40 +64,60 @@ function renderDate(date, calendarDate){
   dayNumber.textContent = date.getDate();
 
   let cellBody = document.createElement("div");
-  cellBody.className = "cellBody";
-
-  let teacherName = document.createElement("p");
-  teacherName.className = "teacherName";
-  let courseName = document.createElement("p");
-  courseName.className = "courseName";
-  teacherName.textContent ="黃語昕";
-  courseName.textContent ="JavaScript";
-
-  let smallPoint = document.createElement("div");
-  smallPoint.className = "smallPoint";
-
-  cellBody.appendChild(teacherName);
-  cellBody.appendChild(courseName);
-
+  cellBody.className = `cellBody ${date.getFullYear()}${((date.getMonth() + 1) < 10? "0":"") + (date.getMonth() + 1)}${(date.getDate() < 10? "0":"") + date.getDate()}`;
+  cellBody.dataset.date = `${date.getFullYear()}${((date.getMonth() + 1) < 10? "0":"") + (date.getMonth() + 1)}${(date.getDate() < 10? "0":"") + date.getDate()}`;
+  
   cell.appendChild(dayNumber);
-  if(date.getDate() == 1){
- 
-    cell.appendChild(cellBody);
-    cell.appendChild(smallPoint);
-  }else if(date.getDate() == 2){
-    cellBody.classList.add("buy");
-    smallPoint.classList.add("buy");
-    cell.appendChild(cellBody);
-    cell.appendChild(smallPoint);
-  }else if(date.getDate() == 3){
-    cellBody.classList.add("full");
-    smallPoint.classList.add("full");
-    cell.appendChild(cellBody);
-    cell.appendChild(smallPoint);
-  }
+
+  let firstPost = 0;
+  $.post('tutorialR.php',{firstPost},function(res){
+    let tutorialData = JSON.parse(res);
+    
+    for(let i = 0; i < tutorialData.length; i++){
+      if(cellBody.classList.contains(`${tutorialData[i].tDate}`)){
+        let courseTitle = document.createElement("p");
+        courseTitle.className = "courseTitle";
+        
+        courseTitle.textContent =`${tutorialData[i].cTitle}`;
+        
+        cellBody.dataset.teachername = `${tutorialData[i].mName}`;
+        cellBody.dataset.coursetype = `${tutorialData[i].cType}`;
+
+        cellBody.appendChild(courseTitle);
+
+        let smallPoint = document.createElement("div");
+        smallPoint.className = "smallPoint";
+        smallPoint.dataset.teachername = `${tutorialData[i].mName}`;
+        smallPoint.dataset.coursetype = `${tutorialData[i].cType}`;
+
+
+        cell.appendChild(cellBody);
+        cell.appendChild(smallPoint);
+
+        // 要用if判斷有無登入 之後要多傳一個使用者帳號的值
+        let tCourse = tutorialData[i].tCourse;
+        $.post('tutorialR.php',{tCourse},function(res){
+          let buyNumber = res;
+          if(buyNumber > 0){
+            cellBody.classList.add("buy");
+            smallPoint.classList.add("buy");
+          }
+        });
+
+        let tNumber = tutorialData[i].tNumber;
+        $.post('tutorialR.php',{tNumber},function(res){
+          let fullNumber = res;
+          if(fullNumber == 10){
+            cellBody.classList.add("full");
+            smallPoint.classList.add("full");
+          }
+        });
+        
+      }
+    }
+  });
+
   calendarDate.appendChild(cell);
-
-
   
 }
 
@@ -103,22 +126,193 @@ calendar();
 let arrowLeft = document.querySelector("#arrowLeft");
 let arrowRight = document.querySelector("#arrowRight");
 
-arrowLeft.addEventListener("click", preMonth);
+arrowLeft.addEventListener("click", function(){
+  preMonth();
+  let theYear = document.getElementById("year").getAttribute("data-year");
+  let theMonth = document.getElementById("month").getAttribute("data-month");
+  let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
 
-arrowRight.addEventListener("click", nextMonth);
+  $.post('tutorialR.php',{yearMonth}, function(res){
+    $("#phoneFeedBack").html(res);
+    // 換頁時會看到一瞬間
+    setTimeout(function(){
+      filter();
+    }, 0.5);
+    
+    setTimeout(function(){
+      let alreadyBuyBtn = document.getElementById("alreadyBuy");
+      if(alreadyBuyBtn.classList.contains("-on")){
+        notBuy();
+      }
+    }, 60);
+    
+  });
 
-let cellBody = document.getElementsByClassName("cellBody")[0];
-let phoneDayRight = document.getElementsByClassName("phoneDayRight")[0];
+  // $.ajax({
+  //   url: 'tutorialR.php',
+  //   data: {yearMonth},
+  //   type: 'POST',
+  //   success(res){
+  //     preMonth();
+  //     let theYear = document.getElementById("year").getAttribute("data-year");
+  //     let theMonth = document.getElementById("month").getAttribute("data-month");
+  //     let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
+  //     $("#phoneFeedBack").html(res);
+  //   },
+  //   complete(){
+  //     filter();
+  //     let alreadyBuyBtn = document.getElementById("alreadyBuy");
+  //     if(alreadyBuyBtn.classList.contains("-on")){
+  //       notBuy();
+  //     }
+  //   },
+  // });
+  
+
+});
+
+arrowRight.addEventListener("click", function(){
+  nextMonth();
+  let theYear = document.getElementById("year").getAttribute("data-year");
+  let theMonth = document.getElementById("month").getAttribute("data-month");
+  let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
+
+  $.post('tutorialR.php',{yearMonth}, function(res){
+    $("#phoneFeedBack").html(res);
+    // 換頁時會看到一瞬間
+    setTimeout(function(){
+      filter();
+
+    }, 0.5);
+    
+    setTimeout(function(){
+      let alreadyBuyBtn = document.getElementById("alreadyBuy");
+      if(alreadyBuyBtn.classList.contains("-on")){
+        notBuy();
+      }
+    }, 60);
+  });
+
+  // $.ajax({
+  //   url: 'tutorialR.php',
+  //   data: {yearMonth},
+  //   type: 'POST',
+  //   success(res){
+  //     nextMonth();
+  //     let theYear = document.getElementById("year").getAttribute("data-year");
+  //     let theMonth = document.getElementById("month").getAttribute("data-month");
+  //     let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
+  //     $("#phoneFeedBack").html(res);
+  //   },
+  //   complete(){
+  //     alert();
+  //     filter();
+  //     let alreadyBuyBtn = document.getElementById("alreadyBuy");
+  //     console.log(alreadyBuyBtn);
+  //     // if(alreadyBuyBtn.classList.contains("-on")){
+  //     //   notBuy();
+  //     // }
+  //   },
+  // });
+
+
+});
+
+// 篩選條件 隱藏不符合課輔時間
+function filter(){
+  // 篩選課程select
+  let courseValue = document.getElementsByClassName("filterCourses")[0].value;
+  // 篩選老師select
+  let teacherValue = document.getElementsByClassName("filterTeachers")[0].value;
+  // 電腦版課輔時間
+  let allCellBody = document.getElementsByClassName("cellBody");
+  // 手機版課輔時間
+  let phoneDay = document.getElementsByClassName("phoneDay");
+  // 手機月曆的小點點
+  let phoneSmallPoint = document.getElementsByClassName("smallPoint");
+
+  // 電腦
+  for(let i = 0; i < allCellBody.length; i++) {
+    allCellBody[i].classList.add("none");
+    let courseType = allCellBody[i].getAttribute("data-coursetype");
+    let teacherName = allCellBody[i].getAttribute("data-teachername");
+    if(courseValue == "all" & teacherValue == "all"){
+      allCellBody[i].classList.remove("none");
+    }else if(courseValue == courseType & teacherValue == "all"){
+      allCellBody[i].classList.remove("none");
+    }else if(courseValue == "all" & teacherValue == teacherName){
+      allCellBody[i].classList.remove("none");
+    }else if(courseValue == courseType & teacherValue == teacherName){
+      allCellBody[i].classList.remove("none");
+    }
+  }
+
+  // 手機月曆的小點點
+  for(let j = 0; j < phoneSmallPoint.length; j++){
+    phoneSmallPoint[j].classList.add("none");
+    let smallPointCourseType = phoneSmallPoint[j].getAttribute("data-coursetype");
+    let smallPointTeacherName = phoneSmallPoint[j].getAttribute("data-teachername");
+    if(courseValue == "all" & teacherValue == "all"){
+      phoneSmallPoint[j].classList.remove("none");
+    }else if(courseValue == smallPointCourseType & teacherValue == "all"){
+      phoneSmallPoint[j].classList.remove("none");
+    }else if(courseValue == "all" & teacherValue == smallPointTeacherName){
+      phoneSmallPoint[j].classList.remove("none");
+    }else if(courseValue == smallPointCourseType & teacherValue == smallPointTeacherName){
+      phoneSmallPoint[j].classList.remove("none");
+    }
+  }
+
+  // 手機
+  for(let p = 0; p < phoneDay.length; p++){
+    phoneDay[p].classList.add("none");
+    let phoneCourseType = phoneDay[p].getAttribute("data-coursetype");
+    let phoneTeacherName = phoneDay[p].getAttribute("data-teachername");
+    if(courseValue == "all" & teacherValue == "all"){
+      phoneDay[p].classList.remove("none");
+    }else if(courseValue == phoneCourseType & teacherValue == "all"){
+      phoneDay[p].classList.remove("none");
+    }else if(courseValue == "all" & teacherValue == phoneTeacherName){
+      phoneDay[p].classList.remove("none");
+    }else if(courseValue == phoneCourseType & teacherValue == phoneTeacherName){
+      phoneDay[p].classList.remove("none");
+    }
+  }
+}
+
+// 過濾沒購買課程的課輔時間
+function notBuy(){
+  // 電腦
+  let allCellBody = document.getElementsByClassName("cellBody");
+
+  for(let i = 0; i < allCellBody.length; i++){
+    if(!(allCellBody[i].classList.contains("buy"))){
+      allCellBody[i].classList.add("notBuy");
+    }
+  }
+  // 手機
+  let phoneDayRight = document.getElementsByClassName("phoneDayRight");
+
+  for(let j = 0; j < phoneDayRight.length; j++){
+    if(!(phoneDayRight[j].classList.contains("buy"))){
+      phoneDayRight[j].parentElement.classList.add("notBuy");
+    }
+  }
+
+  // 手機月曆上的小點點
+  let theSmallPoint = document.getElementsByClassName("smallPoint");
+
+  for(let s = 0; s < theSmallPoint.length; s++){
+    if(!(theSmallPoint[s].classList.contains("buy"))){
+      theSmallPoint[s].classList.add("notBuy");
+    }
+  }
+}
+
+
 let bookLightBoxAll = document.getElementsByClassName("bookLightBoxAll")[0];
 let bookLightBoxBack = document.getElementsByClassName("bookLightBoxBack")[0];
 let cancelBtn = document.getElementsByClassName("cancelBtn")[0];
-
-cellBody.addEventListener("click", function(){
-  bookLightBoxAll.classList.add("on");
-});
-phoneDayRight.addEventListener("click", function(){
-  bookLightBoxAll.classList.add("on");
-});
 
 bookLightBoxBack.addEventListener("click", function(){
   bookLightBoxAll.classList.remove("on");
@@ -140,16 +334,274 @@ $(document).ready(function(){
     $("#downArrow").addClass("none");
     $("#upArrow").removeClass("none");
   });
-  // 結束
-  // 顯示已購買 顯示全部按鈕換色
+
+  
   $("#alreadyBuy").click(function(){
+    // 顯示已購買按鈕換色 
     $("#alreadyBuy").addClass("-on");
     $("#showAll").removeClass("-on");
+
+    // 過濾沒購買課程的課輔時間
+    // 電腦
+    let allCellBody = document.getElementsByClassName("cellBody");
+    for(let i = 0; i < allCellBody.length; i++){
+      if(!(allCellBody[i].classList.contains("buy"))){
+        allCellBody[i].classList.add("notBuy");
+      }
+    }
+    // 手機
+    let phoneDayRight = document.getElementsByClassName("phoneDayRight");
+    for(let j = 0; j < phoneDayRight.length; j++){
+      if(!(phoneDayRight[j].classList.contains("buy"))){
+        phoneDayRight[j].parentElement.classList.add("notBuy");
+      }
+    }
+
+    // 手機月曆上的小點點
+    let theSmallPoint = document.getElementsByClassName("smallPoint");
+    for(let s = 0; s < theSmallPoint.length; s++){
+      if(!(theSmallPoint[s].classList.contains("buy"))){
+        theSmallPoint[s].classList.add("notBuy");
+      }
+    }
   });
   $("#showAll").click(function(){
+    // 顯示全部按鈕換色
     $("#showAll").addClass("-on");
     $("#alreadyBuy").removeClass("-on");
+
+    // 顯示全部課輔時間
+    // 電腦
+    let allCellBody = document.getElementsByClassName("cellBody");
+    for(let i = 0; i < allCellBody.length; i++){
+      allCellBody[i].classList.remove("notBuy");
+    }
+    // 手機
+    let phoneDayRight = document.getElementsByClassName("phoneDayRight");
+    for(let j = 0; j < phoneDayRight.length; j++){
+      phoneDayRight[j].parentElement.classList.remove("notBuy");
+    }
+
+    // 手機月曆上的小點點
+    let theSmallPoint = document.getElementsByClassName("smallPoint");
+    for(let s = 0; s < theSmallPoint.length; s++){
+      theSmallPoint[s].classList.remove("notBuy");
+    }
   });
-  
+
+  // 抓資料庫
+  // let firstPost = 0;
+  // $.post('tutorialR.php',{firstPost},function(res){
+  //   let tutorialData = JSON.parse(res);
+  //   for(let i = 0; i < tutorialData.length; i++){
+  //     // console.log(tutorialData[i].tDate);
+  //     // console.log(tutorialData[i].tDate);
+  //     let cellBody = document.getElementsByClassName(`${tutorialData[i].tDate}`);
+  //     console.log(cellBody);
+  //     let relativelyDate = tutorialData[i].tDate;
+  //     // console.log(relativelyDate);
+  //     let cellBodyTutorial = $(relativelyDate);
+  //     // let cellBodyTutorial = document.getElementsByClassName()[0];
+  //     // cellBodyTutorial.addEventListener("click", function(){
+  //     //   alert();
+  //     // });
+  //     // console.log(cellBodyTutorial);
+
+  //   }
+  // });
 });
 
+document.addEventListener("click", function(e){
+  // 月曆內課輔時間點擊跳窗帶入資料(背景)
+  if(e.target.classList.contains("cellBody")){
+    bookLightBoxAll.classList.add("on");
+    let reservationDate = e.target.getAttribute("data-date")
+    $.post('tutorialR.php',{reservationDate},function(res){
+      $('#feedBack').html(res);
+    });
+  }
+  // 月曆內課輔時間點擊跳窗帶入資料、手機橫列式(文字)
+  if(e.target.classList.contains("courseTitle")){
+    bookLightBoxAll.classList.add("on");
+    let reservationDate = e.target.parentElement.getAttribute("data-date");
+    $.post('tutorialR.php',{reservationDate},function(res){
+      $('#feedBack').html(res);
+    });
+  }
+
+  // 手機板橫列式點擊跳窗帶入資料(背景)
+  if(e.target.classList.contains("phoneDayRight")){
+    bookLightBoxAll.classList.add("on");
+    let reservationDate = e.target.getAttribute("data-date")
+    $.post('tutorialR.php',{reservationDate},function(res){
+      $('#feedBack').html(res);
+    });
+  }
+
+  // 預約功能
+  if(e.target.classList.contains("booking")){
+    // 使用者未登入 告知使用者需先登入
+
+    // 使用者有登入狀態但為購買課程 告知使用者須購買課程才能預約
+
+    // 使用者有登入狀態下並且有購買課程 執行預約功能
+    // 要多傳一個使用者帳號值
+    let courseNumber = e.target.getAttribute("data-tnumber");
+    $.post('tutorialR.php', {courseNumber},function(res){
+      alert("預約成功");
+      window.location.reload();
+    });
+  }
+
+});
+
+// 篩選條件資料
+let vm = new Vue({
+  el: '#conditionChoice',
+  data: {
+    courseTeacherCombination: [],
+    teacherName: [],
+    courseType: [],
+  },
+  methods: {
+    condition() {
+      // 篩選課程select
+      let courseValue = document.getElementsByClassName("filterCourses")[0].value;
+      // 篩選老師select
+      let teacherValue = document.getElementsByClassName("filterTeachers")[0].value;
+      // 電腦版課輔時間
+      let allCellBody = document.getElementsByClassName("cellBody");
+      // 手機版課輔時間
+      let phoneDay = document.getElementsByClassName("phoneDay");
+      // 手機月曆的小點點
+      let phoneSmallPoint = document.getElementsByClassName("smallPoint");
+
+      let check = 0;
+      // 電腦
+      for(let i = 0; i < allCellBody.length; i++) {
+        allCellBody[i].classList.add("none");
+        let courseType = allCellBody[i].getAttribute("data-coursetype");
+        let teacherName = allCellBody[i].getAttribute("data-teachername");
+        if(courseValue == "all" & teacherValue == "all"){
+          allCellBody[i].classList.remove("none");
+        }else if(courseValue == courseType & teacherValue == "all"){
+          allCellBody[i].classList.remove("none");
+        }else if(courseValue == "all" & teacherValue == teacherName){
+          allCellBody[i].classList.remove("none");
+        }else if(courseValue == courseType & teacherValue == teacherName){
+          allCellBody[i].classList.remove("none");
+        }
+      }
+
+      // 手機月曆的小點點
+      for(let j = 0; j < phoneSmallPoint.length; j++){
+        phoneSmallPoint[j].classList.add("none");
+        let smallPointCourseType = phoneSmallPoint[j].getAttribute("data-coursetype");
+        let smallPointTeacherName = phoneSmallPoint[j].getAttribute("data-teachername");
+        if(courseValue == "all" & teacherValue == "all"){
+          phoneSmallPoint[j].classList.remove("none");
+        }else if(courseValue == smallPointCourseType & teacherValue == "all"){
+          phoneSmallPoint[j].classList.remove("none");
+        }else if(courseValue == "all" & teacherValue == smallPointTeacherName){
+          phoneSmallPoint[j].classList.remove("none");
+        }else if(courseValue == smallPointCourseType & teacherValue == smallPointTeacherName){
+          phoneSmallPoint[j].classList.remove("none");
+        }
+      }
+
+      // 手機
+      for(let p = 0; p < phoneDay.length; p++){
+        phoneDay[p].classList.add("none");
+        let phoneCourseType = phoneDay[p].getAttribute("data-coursetype");
+        let phoneTeacherName = phoneDay[p].getAttribute("data-teachername");
+        if(courseValue == "all" & teacherValue == "all"){
+          phoneDay[p].classList.remove("none");
+        }else if(courseValue == phoneCourseType & teacherValue == "all"){
+          phoneDay[p].classList.remove("none");
+        }else if(courseValue == "all" & teacherValue == phoneTeacherName){
+          phoneDay[p].classList.remove("none");
+        }else if(courseValue == phoneCourseType & teacherValue == phoneTeacherName){
+          phoneDay[p].classList.remove("none");
+        }
+      }
+      
+      // 如果 沒有這個組合 提醒使用者老師並沒這門課 然後重回全部
+      let courseTeacherCombination = this.courseTeacherCombination;
+      if(courseValue != "all" & teacherValue != "all"){
+        for(let c = 0; c < courseTeacherCombination.length; c++){
+          if(!(courseTeacherCombination[c].cType == courseValue & courseTeacherCombination[c].mName == teacherValue)){
+            check += 1;
+          }
+        }
+      }
+      if(check == courseTeacherCombination.length){
+        alert("目前這位老師沒有開這語言的課唷 !");
+        let filterCourses = document.getElementsByClassName("filterCourses")[0];
+        let filterTeachers = document.getElementsByClassName("filterTeachers")[0];
+        filterCourses.value = "all";
+        filterTeachers.value = "all";
+        // 月曆的課輔時間
+        for(let i = 0; i < allCellBody.length; i++){
+          allCellBody[i].classList.remove("none");
+        }
+        // 手機月曆內小點點
+        for(let j = 0; j < phoneSmallPoint.length; j++){
+          phoneSmallPoint[j].classList.remove("none");
+        }
+        // 手機橫列式課輔時間
+        for(let p = 0; p < phoneDay.length; p++){
+          phoneDay[p].classList.remove("none");
+        }
+      }
+    },
+  },
+  computed: {
+    
+  },
+  mounted() {
+    let courseTeacherCombination = this.courseTeacherCombination;
+    let teacherName = this.teacherName;
+    let courseType = this.courseType;
+    $.ajax({
+      url: 'tutorialR.php',
+      data: {documentStart: 0},
+      type: 'POST',
+      success(conditionChoice){
+        let conditionChoiceData = JSON.parse(conditionChoice);
+        for(let i = 0; i < conditionChoiceData.length; i++){ 
+          let courseTeacherCombinations = conditionChoiceData[i];
+          let teacherNames = conditionChoiceData[i].mName;
+          let courseTypes = conditionChoiceData[i].cType;
+          courseTeacherCombination.push(courseTeacherCombinations);
+          teacherName.push(teacherNames);
+          courseType.push(courseTypes);
+        }
+      },
+    });
+  },
+});
+
+// 一開始載入 手機板橫列的課輔
+let theYear = document.getElementById("year").getAttribute("data-year");
+let theMonth = document.getElementById("month").getAttribute("data-month");
+let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
+$.post('tutorialR.php',{yearMonth}, function(res){
+  $("#phoneFeedBack").html(res);
+});
+
+// 手機版月曆滑動更換
+let phoneCalendarDate = document.getElementsByClassName("calendarDate")[0];
+phoneCalendarDate.addEventListener("touchstart", function(e) {
+  startX = e.targetTouches[0].pageX;
+});  
+phoneCalendarDate.addEventListener("touchend", function(e){
+  endX = e.changedTouches[0].pageX;
+
+  move = startX - endX;
+
+  if(move > 50){
+    arrowRight.click();
+  }else if (move < -50){
+    arrowLeft.click();
+  }
+});
