@@ -1,3 +1,45 @@
+// 檢查某 cookie 是否存在
+function checkCookie(cname) {
+  var cookie_value = getCookie(cname);
+  if (cookie_value != "") {
+      return true;
+  } else {
+      return false;
+  }
+}
+
+// 取得 cookie 的值
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return "";
+}
+
+if (checkCookie('user')) {
+  // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
+  var userAccount = getCookie('user');
+  $.ajax({
+    type: 'POST',
+    url: "./layout/loginR.php",
+    data: {
+        userAccount: userAccount,
+    },
+    dataType: "text",
+    success: function (data) {
+        document.querySelector('a.ccp').innerText = data;
+    }
+  });
+}
+
 // 製作萬年曆
 let state = null;
 
@@ -95,14 +137,16 @@ function renderDate(date, calendarDate){
         cell.appendChild(smallPoint);
 
         // 要用if判斷有無登入 之後要多傳一個使用者帳號的值
-        let tCourse = tutorialData[i].tCourse;
-        $.post('tutorialR.php',{tCourse},function(res){
-          let buyNumber = res;
-          if(buyNumber > 0){
-            cellBody.classList.add("buy");
-            smallPoint.classList.add("buy");
-          }
-        });
+        if(checkCookie('user')){
+          let tCourse = tutorialData[i].tCourse;
+          $.post('tutorialR.php',{tCourse, userAccount},function(res){
+            let buyNumber = res;
+            if(buyNumber > 0){
+              cellBody.classList.add("buy");
+              smallPoint.classList.add("buy");
+            }
+          });
+        }
 
         let tNumber = tutorialData[i].tNumber;
         $.post('tutorialR.php',{tNumber},function(res){
@@ -132,43 +176,30 @@ arrowLeft.addEventListener("click", function(){
   let theMonth = document.getElementById("month").getAttribute("data-month");
   let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
 
-  $.post('tutorialR.php',{yearMonth}, function(res){
-    $("#phoneFeedBack").html(res);
-    // 換頁時會看到一瞬間
-    setTimeout(function(){
-      filter();
-    }, 0.5);
-    
-    setTimeout(function(){
-      let alreadyBuyBtn = document.getElementById("alreadyBuy");
-      if(alreadyBuyBtn.classList.contains("-on")){
-        notBuy();
-      }
-    }, 60);
-    
-  });
-
-  // $.ajax({
-  //   url: 'tutorialR.php',
-  //   data: {yearMonth},
-  //   type: 'POST',
-  //   success(res){
-  //     preMonth();
-  //     let theYear = document.getElementById("year").getAttribute("data-year");
-  //     let theMonth = document.getElementById("month").getAttribute("data-month");
-  //     let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
-  //     $("#phoneFeedBack").html(res);
-  //   },
-  //   complete(){
-  //     filter();
-  //     let alreadyBuyBtn = document.getElementById("alreadyBuy");
-  //     if(alreadyBuyBtn.classList.contains("-on")){
-  //       notBuy();
-  //     }
-  //   },
-  // });
-  
-
+  if(checkCookie('user')){
+    $.post('tutorialR.php',{yearMonth, userAccount}, function(res){
+      $("#phoneFeedBack").html(res);
+      // 換頁時會看到一瞬間
+      setTimeout(function(){
+        filter();
+      }, 0.5);
+      
+      setTimeout(function(){
+        let alreadyBuyBtn = document.getElementById("alreadyBuy");
+        if(alreadyBuyBtn.classList.contains("-on")){
+          notBuy();
+        }
+      }, 70);
+    });
+  }else{
+    $.post('tutorialR.php',{yearMonth}, function(res){
+      $("#phoneFeedBack").html(res);
+      // 換頁時會看到一瞬間
+      setTimeout(function(){
+        filter();
+      }, 0.5);
+    });
+  }
 });
 
 arrowRight.addEventListener("click", function(){
@@ -177,45 +208,30 @@ arrowRight.addEventListener("click", function(){
   let theMonth = document.getElementById("month").getAttribute("data-month");
   let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
 
-  $.post('tutorialR.php',{yearMonth}, function(res){
-    $("#phoneFeedBack").html(res);
-    // 換頁時會看到一瞬間
-    setTimeout(function(){
-      filter();
-
-    }, 0.5);
-    
-    setTimeout(function(){
-      let alreadyBuyBtn = document.getElementById("alreadyBuy");
-      if(alreadyBuyBtn.classList.contains("-on")){
-        notBuy();
-      }
-    }, 60);
-  });
-
-  // $.ajax({
-  //   url: 'tutorialR.php',
-  //   data: {yearMonth},
-  //   type: 'POST',
-  //   success(res){
-  //     nextMonth();
-  //     let theYear = document.getElementById("year").getAttribute("data-year");
-  //     let theMonth = document.getElementById("month").getAttribute("data-month");
-  //     let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
-  //     $("#phoneFeedBack").html(res);
-  //   },
-  //   complete(){
-  //     alert();
-  //     filter();
-  //     let alreadyBuyBtn = document.getElementById("alreadyBuy");
-  //     console.log(alreadyBuyBtn);
-  //     // if(alreadyBuyBtn.classList.contains("-on")){
-  //     //   notBuy();
-  //     // }
-  //   },
-  // });
-
-
+  if(checkCookie('user')){
+    $.post('tutorialR.php',{yearMonth, userAccount}, function(res){
+      $("#phoneFeedBack").html(res);
+      // 換頁時會看到一瞬間
+      setTimeout(function(){
+        filter();
+      }, 0.5);
+      
+      setTimeout(function(){
+        let alreadyBuyBtn = document.getElementById("alreadyBuy");
+        if(alreadyBuyBtn.classList.contains("-on")){
+          notBuy();
+        }
+      }, 70);
+    });
+  }else{
+    $.post('tutorialR.php',{yearMonth, userAccount}, function(res){
+      $("#phoneFeedBack").html(res);
+      // 換頁時會看到一瞬間
+      setTimeout(function(){
+        filter();
+      }, 0.5);
+    });
+  }
 });
 
 // 篩選條件 隱藏不符合課輔時間
@@ -337,32 +353,36 @@ $(document).ready(function(){
 
   
   $("#alreadyBuy").click(function(){
-    // 顯示已購買按鈕換色 
-    $("#alreadyBuy").addClass("-on");
-    $("#showAll").removeClass("-on");
-
-    // 過濾沒購買課程的課輔時間
-    // 電腦
-    let allCellBody = document.getElementsByClassName("cellBody");
-    for(let i = 0; i < allCellBody.length; i++){
-      if(!(allCellBody[i].classList.contains("buy"))){
-        allCellBody[i].classList.add("notBuy");
+    if(checkCookie('user')){
+      // 顯示已購買按鈕換色 
+      $("#alreadyBuy").addClass("-on");
+      $("#showAll").removeClass("-on");
+  
+      // 過濾沒購買課程的課輔時間
+      // 電腦
+      let allCellBody = document.getElementsByClassName("cellBody");
+      for(let i = 0; i < allCellBody.length; i++){
+        if(!(allCellBody[i].classList.contains("buy"))){
+          allCellBody[i].classList.add("notBuy");
+        }
       }
-    }
-    // 手機
-    let phoneDayRight = document.getElementsByClassName("phoneDayRight");
-    for(let j = 0; j < phoneDayRight.length; j++){
-      if(!(phoneDayRight[j].classList.contains("buy"))){
-        phoneDayRight[j].parentElement.classList.add("notBuy");
+      // 手機
+      let phoneDayRight = document.getElementsByClassName("phoneDayRight");
+      for(let j = 0; j < phoneDayRight.length; j++){
+        if(!(phoneDayRight[j].classList.contains("buy"))){
+          phoneDayRight[j].parentElement.classList.add("notBuy");
+        }
       }
-    }
-
-    // 手機月曆上的小點點
-    let theSmallPoint = document.getElementsByClassName("smallPoint");
-    for(let s = 0; s < theSmallPoint.length; s++){
-      if(!(theSmallPoint[s].classList.contains("buy"))){
-        theSmallPoint[s].classList.add("notBuy");
+  
+      // 手機月曆上的小點點
+      let theSmallPoint = document.getElementsByClassName("smallPoint");
+      for(let s = 0; s < theSmallPoint.length; s++){
+        if(!(theSmallPoint[s].classList.contains("buy"))){
+          theSmallPoint[s].classList.add("notBuy");
+        }
       }
+    }else{
+      swal("請先登入會員!", "", "error");
     }
   });
   $("#showAll").click(function(){
@@ -389,26 +409,6 @@ $(document).ready(function(){
     }
   });
 
-  // 抓資料庫
-  // let firstPost = 0;
-  // $.post('tutorialR.php',{firstPost},function(res){
-  //   let tutorialData = JSON.parse(res);
-  //   for(let i = 0; i < tutorialData.length; i++){
-  //     // console.log(tutorialData[i].tDate);
-  //     // console.log(tutorialData[i].tDate);
-  //     let cellBody = document.getElementsByClassName(`${tutorialData[i].tDate}`);
-  //     console.log(cellBody);
-  //     let relativelyDate = tutorialData[i].tDate;
-  //     // console.log(relativelyDate);
-  //     let cellBodyTutorial = $(relativelyDate);
-  //     // let cellBodyTutorial = document.getElementsByClassName()[0];
-  //     // cellBodyTutorial.addEventListener("click", function(){
-  //     //   alert();
-  //     // });
-  //     // console.log(cellBodyTutorial);
-
-  //   }
-  // });
 });
 
 document.addEventListener("click", function(e){
@@ -441,16 +441,30 @@ document.addEventListener("click", function(e){
   // 預約功能
   if(e.target.classList.contains("booking")){
     // 使用者未登入 告知使用者需先登入
+    if(!(checkCookie('user'))){
+      swal("請先登入會員!", "", "error");
+    }else{
 
-    // 使用者有登入狀態但為購買課程 告知使用者須購買課程才能預約
-
-    // 使用者有登入狀態下並且有購買課程 執行預約功能
-    // 要多傳一個使用者帳號值
-    let courseNumber = e.target.getAttribute("data-tnumber");
-    $.post('tutorialR.php', {courseNumber},function(res){
-      alert("預約成功");
-      window.location.reload();
-    });
+      let courseName = e.target.parentElement.firstElementChild.innerText;
+      $.post('tutorialR.php', {courseName, userAccount},function(checkBuyNumber){
+        // 使用者有登入狀態但未購買課程 告知使用者須購買課程才能預約
+        if(checkBuyNumber == 0){
+          swal("購買課程才有辦法預約唷!", "", "error");
+        }else{
+          // 使用者有登入狀態下並且有購買課程 執行預約功能
+          // 要多傳一個使用者帳號值
+          let courseNumber = e.target.getAttribute("data-tnumber");
+          $.post('tutorialR.php', {courseNumber, userAccount},function(res){
+            swal("預約成功", "", "success").then((willDelete) => {
+              if (willDelete) {
+                window.location.reload();
+              }
+            });
+          });
+        }
+      });
+      
+    }
   }
 
 });
@@ -535,7 +549,8 @@ let vm = new Vue({
         }
       }
       if(check == courseTeacherCombination.length){
-        alert("目前這位老師沒有開這語言的課唷 !");
+        swal("目前這位老師沒有開這語言的課唷 !", "", "error");
+        
         let filterCourses = document.getElementsByClassName("filterCourses")[0];
         let filterTeachers = document.getElementsByClassName("filterTeachers")[0];
         filterCourses.value = "all";
@@ -562,6 +577,7 @@ let vm = new Vue({
     let courseTeacherCombination = this.courseTeacherCombination;
     let teacherName = this.teacherName;
     let courseType = this.courseType;
+    // 老師和課程類型組合
     $.ajax({
       url: 'tutorialR.php',
       data: {documentStart: 0},
@@ -570,11 +586,33 @@ let vm = new Vue({
         let conditionChoiceData = JSON.parse(conditionChoice);
         for(let i = 0; i < conditionChoiceData.length; i++){ 
           let courseTeacherCombinations = conditionChoiceData[i];
-          let teacherNames = conditionChoiceData[i].mName;
-          let courseTypes = conditionChoiceData[i].cType;
           courseTeacherCombination.push(courseTeacherCombinations);
-          teacherName.push(teacherNames);
+        }
+      },
+    });
+    // 課程類型不重複
+    $.ajax({
+      url: 'tutorialR.php',
+      data: {courseTypeOne: 0},
+      type: 'POST',
+      success(conditionCourse){
+        let conditionCourseData = JSON.parse(conditionCourse);
+        for(let i = 0; i < conditionCourseData.length; i++){ 
+          let courseTypes = conditionCourseData[i].cType;
           courseType.push(courseTypes);
+        }
+      },
+    });
+    // 老師不重複值
+    $.ajax({
+      url: 'tutorialR.php',
+      data: {teacherNameOne: 0},
+      type: 'POST',
+      success(conditionTeacher){
+        let conditionTeacherData = JSON.parse(conditionTeacher);
+        for(let i = 0; i < conditionTeacherData.length; i++){ 
+          let teacherNames = conditionTeacherData[i].mName;
+          teacherName.push(teacherNames);
         }
       },
     });
@@ -585,9 +623,16 @@ let vm = new Vue({
 let theYear = document.getElementById("year").getAttribute("data-year");
 let theMonth = document.getElementById("month").getAttribute("data-month");
 let yearMonth = theYear + (theMonth < 9? '0' + theMonth: theMonth);
-$.post('tutorialR.php',{yearMonth}, function(res){
-  $("#phoneFeedBack").html(res);
-});
+// 確定有無登入
+if(checkCookie('user')){
+  $.post('tutorialR.php',{yearMonth, userAccount}, function(res){
+    $("#phoneFeedBack").html(res);
+  });
+}else{
+  $.post('tutorialR.php',{yearMonth}, function(res){
+    $("#phoneFeedBack").html(res);
+  });
+}
 
 // 手機版月曆滑動更換
 let phoneCalendarDate = document.getElementsByClassName("calendarDate")[0];
