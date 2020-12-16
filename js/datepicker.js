@@ -19,7 +19,7 @@ $(document).ready(function () {
     dateFormat: "yy/mm/dd",
     showMonthAfterYear: true,
     beforeShow: dateRange
-  }).datepicker("setDate", new Date());
+  });
 
   // 限制第二個input日期選擇 只能是第一個input日期之後
   function dateRange(input){

@@ -314,7 +314,7 @@ div.article {
                 margin: 30px 28px;
               }
               @include bigPhone {
-                width: 900%;
+                width: 90%;
                 margin: 30px 20px;
               }
               div.articleImageScale {
@@ -343,7 +343,7 @@ div.article {
                 }
               }
             }
-            div.articleInside.none{
+            div.articleInside.none {
               display: none;
             }
           }
@@ -374,18 +374,18 @@ div.article {
               }
             }
             img {
-              width: 300px;
+              display: block;
+              max-width: 600px;
+              max-height: 400px;
               margin: 40px 0px 20px 30px;
               @include bigPad {
-                width: 250px;
-              }
-              @include smlPad {
-                width: 200px;
+                max-height: 200px;
+                max-width: 300px;
               }
             }
             h4 {
               font-size: $h4;
-              margin: 20px 0px 25px 30px;
+              margin: 20px 0px 15px 30px;
               font-weight: bold;
               line-height: $h3;
               @include bigPad {
@@ -398,13 +398,18 @@ div.article {
               }
             }
             p {
-              margin: 20px 0px 20px 30px;
+              margin: 20px 0px 35px 30px;
               font-size: $mp;
               letter-spacing: 2px;
               line-height: $bp;
               @include smlPad {
                 font-size: $sp;
               }
+            }
+            a {
+              font-size: $mp;
+              color: $blue2;
+              margin: 0px 0px 20px 30px;
             }
           }
           div.articleContent.none {

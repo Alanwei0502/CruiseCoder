@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -9,10 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 文章管理</title>
+  <!-- datepicker -->
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="./../css/main2.css">
+  <!-- summernote -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  
+  <link rel="stylesheet" href="./../css/mainB.css">
 </head>
 
 <body>
@@ -34,65 +37,33 @@
         </div>
         <div class="status">
           <label>狀態</label>
-          <select name="status">
+          <select name="status" class="searchStatus">
+            <option value="0">下架</option>
             <option value="1" selected>上架</option>
-            <option value="2">下架</option>
           </select>
         </div>
         <div class="searchContentBottm">
           <div class="articleName">
             <label>專欄名稱</label>
-            <input type="text">
+            <input type="text" class="searchName">
           </div>
-          <button>搜尋</button>
+          <button id="searchBtn">搜尋</button>
         </div>
       </div>
       <div class="addOrCancle">
-        <button class="canleButton">下架專欄</button>
+        <button class="cancleButton">下架專欄</button>
         <button class="addButton">新增專欄</button>
       </div>
-      <div class="table">
+      <div class="table" id="table">
         <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
+          <div class="td"><label><input type="checkbox" class="allCheckBox"><span></span></label></div>
           <div class="td">上架日期</div>
           <div class="td">狀態</div>
           <div class="td">專欄名稱</div>
           <div class="td">操作</div>
         </div>
-        <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/11/20</div>
-          <div class="td">上架</div>
-          <div class="td">十大好書推薦</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>
-        <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/11/25</div>
-          <div class="td">上架</div>
-          <div class="td">自學力網站資源</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>
-        <div  class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/11/27</div>
-          <div class="td">上架</div>
-          <div class="td">推薦編譯器</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>
-        <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/12/02</div>
-          <div class="td">下架</div>
-          <div class="td">軟體推薦資料</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>
-        <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/12/03</div>
-          <div class="td">上架</div>
-          <div class="td">好用套件推薦</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
+        <div id="feedBack">
+          <!-- AJAX非同步回傳值位置 -->
         </div>
       </div>
 
@@ -101,18 +72,18 @@
         <div class="addArticle">
           <img src="./../images/backEnd/blackCancel.png" alt="無法顯示圖片" class="cancelBack">
           <h2>新增專欄</h2>
-          <form action="" class="addArticleForm">
+          <form action="articleR.php" method="post" id="addForm" class="addArticleForm" enctype="multipart/form-data">
             <div class="articleTop">
               <div class="articleName">
                 <label>專欄名稱</label>
-                <input type="text">
+                <input type="text" name="addArticleName" id="addArticleName">
                 <label>專欄預覽圖</label>
                 <div class="fileStyle">
-                  <input type="file" class="inputFile">
+                  <input type="file" class="inputFile" name="addArticleFileName" id="addArticleFileName" accept=".jpeg,.png,.gif">
                   <p class="pFileName"></p>
                   <button type="button"></button>
                 </div>
-                <p class="imagesPrompt">圖片比例依寬度(高度 > 寬度則<span>1:1</span>壓縮)<br>圖片檔案格式應為: <span>JPEG、PNG、GIF</span></p>
+                <p class="imagesPrompt">圖片比例建議為: <span>4:3</span><br>圖片檔案格式應為: <span>JPEG、PNG、GIF</span></p>
               </div>
               <div class="articleImageOutline">
                 <div class="articleImage"></div>
@@ -120,8 +91,9 @@
             </div>
             <div class="articleBottom">
               <label>專欄內容</label>
-              <textarea name="" id=""></textarea>
+              <textarea name="addSummernote" id="addSummernote"></textarea>
             </div>
+            <button class="addBtn" id="addArticleBtn" type="button">新增專欄</button>
           </form>
         </div>
       </div>
@@ -131,32 +103,9 @@
         <div class="editArticle">
           <img src="./../images/backEnd/blackCancel.png" alt="無法顯示圖片" class="cancelBack">
           <h2>專欄資訊</h2>
-          <form action="" class="editArticleForm">
-            <div class="articleTop">
-              <div class="articleName">
-                <p class="articleNumber">專欄編號: A0003</p>
-                <label>專欄名稱</label>
-                <input type="text">
-                <label>專欄預覽圖</label>
-                <div class="fileStyle">
-                  <input type="file" class="inputFile">
-                  <p class="pFileName"></p>
-                  <button></button>
-                </div>
-                <p class="imagesPrompt">圖片比例依寬度(高度 > 寬度則<span>1:1</span>壓縮)<br>圖片檔案格式應為: <span>JPEG、PNG、GIF</span></p>
-                <label>狀態</label>
-                <select>
-                  <option value="1" selected>上架</option>
-                  <option value="2">下架</option>
-                </select>
-              </div>
-              <div class="articleImageOutline">
-                <div class="articleImage"></div>
-              </div>
-            </div>
-            <div class="articleBottom">
-              <label>專欄內容</label>
-              <textarea name="" id=""></textarea>
+          <form action="articleR.php"  method="post" class="editArticleForm" enctype="multipart/form-data">
+            <div id="editArticle">
+              <!-- AJAX非同步回傳值位置 -->
             </div>
           </form>
         </div>
