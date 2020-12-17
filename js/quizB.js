@@ -75,7 +75,7 @@ Vue.component("tableArea", {
             }
             $.ajax({
                 type: 'POST',
-                url: 'quizRonoff.php',
+                url: 'quizRO.php',
                 data: { onId },
                 success: function (res) {
                     vm.ajax();
@@ -97,7 +97,7 @@ Vue.component("tableArea", {
 
             $.ajax({
                 type: 'POST',
-                url: 'quizRonoff.php',
+                url: 'quizRO.php',
                 data: { offId },
                 success: function (res) {
                     vm.ajax();
@@ -110,7 +110,7 @@ Vue.component("tableArea", {
         // 新增試題按鈕
         createQuiz() {
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
-        }
+        },
 
     }
 });
@@ -133,6 +133,22 @@ Vue.component("tableRow", {
                 }
 
             });
+        },
+
+        // 編輯試題按鈕
+        editQuiz(e) {
+            let gNumber = $(e.target).closest('tr').find('.gNumber').text();
+            // console.log(gNumber);
+            $.ajax({
+                type: 'POST',
+                url: 'quizRE.php',
+                data: { gNumber },
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                },
+            });
+            $('.quizModalBg').css("opacity", 1).css("z-index", 1);
         }
     },
 });
@@ -353,36 +369,36 @@ Vue.component("createAndEdit", {
 
             badge.push(bGalaxyName, bPlanetName, describe, pImg, bImg);
 
-            // let textarea = $('.quizModal textarea');
-            // let input = $('.quizModal input[type != "checkbox"]');
+            // confirming all input and textarea have been filled
             let mustFill = [];
             mustFill.push($('.quizModal textarea, .quizModal input[type != "checkbox"]'));
-            // console.log(mustFill);
-            let noEmpty = mustFill.every(function (item, index, array) {
-                // return item.value !=
-            });
-            console.log(noEmpty);
+            let mustFillArray = mustFill[0];
+            let empty = [];
+            for (let i = 0; i < mustFillArray.length; i++) {
+                if (mustFillArray[i].value == '') {
+                    empty.push(mustFillArray[i]);
+                }
+            }
+            if (empty.length == 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'quizRC.php',
+                    data: { newGalaxy, quiz, selections, badge },
+                    success: function (res) {
+                        // console.log(res);
+                        if (res == "success") {
+                            swal("已成功新增試題", "", "success").then((value) => {
+                                if (value) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
 
-            // if ($('.quizModal').find('input').val() == '' || $('.quizModal').find('textarea').val() == '') {
-            //     swal("請填入所有的試題資訊", "", "warning");
-            // } else {
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'quizRC.php',
-            //     data: { newGalaxy, quiz, selections, badge },
-            //     success: function (res) {
-            //         // console.log(res);
-            //         if (res == "success") {
-            //             swal("已成功新增試題", "", "success").then((value) => {
-            //                 if (value) {
-            //                     window.location.reload();
-            //                 }
-            //             });
-            //         }
-
-            //     },
-            // });
-            // }
+                    },
+                });
+            } else {
+                swal("請填入所有的試題資訊", "", "warning");
+            }
         }
     },
 });

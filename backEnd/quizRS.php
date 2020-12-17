@@ -1,16 +1,19 @@
 <?php
+// connecting to database
 include("../frontEnd/layout/connect.php");
 
+// loading in the beginning
 $AllGalStatement = "SELECT gName FROM cruisecoder.galaxy";
-$GalStatement = "SELECT * FROM cruisecoder.galaxy WHERE gName like ?";
-$TotalNum = "SELECT COUNT(*) AS num FROM cruisecoder.quiz";
-
-
 $AllGalStatement = $pdo->prepare($AllGalStatement);
-$GalStatement = $pdo->prepare($GalStatement);
-$TotalNum = $pdo->prepare($TotalNum);
-
 $AllGalStatement->execute();
+
+// searching the field
+$GalStatement = "SELECT * FROM cruisecoder.galaxy WHERE gName like ?";
+$GalStatement = $pdo->prepare($GalStatement);
+
+// counting how many rows in quiz table
+$TotalNum = "SELECT COUNT(*) AS num FROM cruisecoder.quiz";
+$TotalNum = $pdo->prepare($TotalNum);
 $TotalNum->execute();
 
 
@@ -27,9 +30,3 @@ if (isset($_POST["selectField"])) {
     array_push($data, $AllGalStatement->fetchAll(PDO::FETCH_ASSOC), $GalStatement->fetchAll(PDO::FETCH_ASSOC), $TotalNum->fetch(PDO::FETCH_ASSOC));
     echo json_encode($data);
 }
-
-$OffGalStatement = "UPDATE `cruisecoder`.`galaxy` SET `gStatus` = '0' WHERE (`gNumber` = 'G0001');";
-$OffQuizStatement = "UPDATE `cruisecoder`.`quiz` SET `qState` = '0' WHERE (`qNumber` = 'Q0001');";
-
-$OffGalStatement = $pdo->prepare($OffGalStatement);
-$OffQuizStatement = $pdo->prepare($OffQuizStatement);
