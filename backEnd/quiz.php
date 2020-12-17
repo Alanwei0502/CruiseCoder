@@ -102,14 +102,14 @@
         <td class="gNumber">{{galaxy.gName}}</td>
         <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
-        <td><button>編輯</button></td>
+        <td><button @click="editQuiz">編輯</button></td>
       </tr>
       </template>  
     </tbody> 
   </script>
 
 
-  <!-- 編輯和新增的彈跳視窗 -->
+  <!-- 新增和編輯的彈跳視窗 -->
   <script type="text/x-template" id="createAndEdit">
     <section class="quizModalBg">
       <section class="quizModal">
@@ -200,13 +200,13 @@
         </div>
       </section>
     </section>
-</script>
-
+  </script>
 
 
   <script src="../js/vue.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="../js/quizB.js"></script>
+
 </body>
 
 </html>

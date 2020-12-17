@@ -1,4 +1,5 @@
 <?php
+// connecting to database
 include("../frontEnd/layout/connect.php");
 
 // launching the galaxy
