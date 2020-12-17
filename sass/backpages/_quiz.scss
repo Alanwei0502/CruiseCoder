@@ -2,6 +2,7 @@ div.quiz {
     min-height: 100vh;
     font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
     main {
+        // position: relative;
         h2 {
             @include backTitle;
         }
@@ -45,6 +46,10 @@ div.quiz {
                     margin: $fontSize*2;
                 }
 
+                .on {
+                    @include onBtn;
+                }
+
                 .off {
                     @include cancelBtn;
                 }
@@ -85,6 +90,9 @@ div.quiz {
                                 cursor: pointer;
                             }
                         }
+                        &:nth-child(3) {
+                            width: 30%;
+                        }
                     }
 
                     td {
@@ -99,6 +107,9 @@ div.quiz {
             }
 
             .changePage {
+                // position: absolute;
+                // bottom: 0;
+                // right: 0;
                 display: flex;
                 justify-content: flex-end;
 
@@ -176,7 +187,12 @@ div.quiz {
                             background-color: $white;
                             width: 100%;
                             padding: $fontSize $fontSize $fontSize*3 $fontSize;
-                            
+
+                            select.onOrOff {
+                                @include selectStyle;
+                                margin-left: $fontSize*2;
+                            }
+
                             >div {
                                     padding: $fontSize;
             
@@ -312,6 +328,7 @@ div.quiz {
 
                                 >label{
                                     font-weight: bold;
+                                    font-size: $h4;
                                 }
                             }
                         }
@@ -323,7 +340,7 @@ div.quiz {
                                 margin-bottom: $fontSize*2;
                                 padding: $fontSize;
                                 p{
-                                    font-size: $bp;
+                                    font-size: $h4;
                                     font-weight: bold;
                                     padding: $fontSize 0;
                                 }
@@ -336,6 +353,18 @@ div.quiz {
 
                                 div{
                                     margin-bottom: $fontSize;
+                                    display: flex;
+                                    align-items: center;
+
+                                    textarea{
+                                        display: inline-block;
+                                        resize: none;
+                                        border-radius: 5px;
+                                        outline: none;
+                                        font-size: $mp; 
+                                        width: 550px; 
+                                        height: 100px;
+                                    }
 
                                     >span{
                                         font-size: $bp;
@@ -344,6 +373,7 @@ div.quiz {
                                         border-radius: 10px;
                                         position: relative;
                                         overflow: hidden;
+                                        
 
                                         img{
                                             position: absolute;
@@ -366,13 +396,13 @@ div.quiz {
                                             transform: translateX(-110px);
                                             padding-right: $fontSize*7;
                                         }
-
+                                        
                                     }
                                     
                                 }
                                 
                             }
-                            button[type=submit] {
+                            button.update {
                                 @include addBtn;
                                 float: right;
                                 margin-right: $fontSize*2;

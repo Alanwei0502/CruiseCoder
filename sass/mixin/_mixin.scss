@@ -330,6 +330,29 @@
 	}
 }
 
+// 上架按鈕樣式 用法 @include onBtn;
+@mixin onBtn {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	font-size: $mp;
+	color: $white;
+	background-color: #1eca07;
+	padding: 10px 10px 10px 45px;
+	border-radius: $fontSize*2;
+	background-image: url("./../images/backEnd/Icon awesome-check-circle.png");
+	background-repeat: no-repeat;
+	background-size: 28px 28px;
+	background-position: center left 10px;
+	box-shadow: 5px 5px 10px -5px black;
+
+	&:hover {
+		color: $blue1;
+		background-color: $blue2;
+		background-image: url("./../images/backEnd/Icon awesome-check-circle1.png");
+	}
+}
+
 // 編輯按鈕樣式 用法 @include editBtn;
 @mixin editBtn {
 	outline: none;

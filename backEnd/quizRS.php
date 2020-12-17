@@ -3,12 +3,15 @@ include("../frontEnd/layout/connect.php");
 
 $AllGalStatement = "SELECT gName FROM cruisecoder.galaxy";
 $GalStatement = "SELECT * FROM cruisecoder.galaxy WHERE gName like ?";
+$TotalNum = "SELECT COUNT(*) AS num FROM cruisecoder.quiz";
 
 
 $AllGalStatement = $pdo->prepare($AllGalStatement);
 $GalStatement = $pdo->prepare($GalStatement);
+$TotalNum = $pdo->prepare($TotalNum);
 
 $AllGalStatement->execute();
+$TotalNum->execute();
 
 
 if (isset($_POST["selectField"])) {
@@ -21,10 +24,8 @@ if (isset($_POST["selectField"])) {
 
     $data = [];
 
-    array_push($data, $AllGalStatement->fetchAll(PDO::FETCH_ASSOC), $GalStatement->fetchAll(PDO::FETCH_ASSOC));
-
+    array_push($data, $AllGalStatement->fetchAll(PDO::FETCH_ASSOC), $GalStatement->fetchAll(PDO::FETCH_ASSOC), $TotalNum->fetch(PDO::FETCH_ASSOC));
     echo json_encode($data);
-    // print_r($data);
 }
 
 $OffGalStatement = "UPDATE `cruisecoder`.`galaxy` SET `gStatus` = '0' WHERE (`gNumber` = 'G0001');";

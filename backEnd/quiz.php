@@ -63,6 +63,7 @@
   <script type="text/x-template" id="tableArea">
     <section class="table">
         <div class="btns">
+          <button class="on" @click="mutipleOn">上架試題</button>
           <button class="off" @click="mutipleOff">下架試題</button>
           <button class="add" @click="createQuiz">新增試題</button>
         </div>
@@ -121,8 +122,6 @@
             </div>
             <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal" @click="closeModal">
           </div>
-          <!-- 送出表單 -->
-          <!-- <form action="quizR1.php" method="post"> -->
           <section class="form">
             <!-- 新增試題 -->
             <div id="forQuiz">
@@ -131,11 +130,16 @@
                 <label for="fieldName">領域</label>
                 <input type="text" class="fieldName" placeholder="請輸入新增的領域名稱" v-model.trim="newFeildName">
                 <span>星系</span>
+
+                <select class="onOrOff">
+                  <option value="1">上架</option>
+                  <option value="0">下架</option>
+                </select> 
               </div>
 
               <!-- 輸入題目的input -->
               <template v-for="level in levels.slice(0,3)">
-                  <div class="mainEdit">
+                  <div class="mainEdit" :data-level="level.qLevel">
                     <label>{{level.diff}}星球</label>
               
                     <div class="topFunction">
@@ -146,9 +150,7 @@
                       </div>
                     </div>
                     <!-- 要insert的component -->
-                    
-                    
-                </div>
+                  </div>
               </template>
             </div>
 
@@ -161,33 +163,43 @@
               </div>
 
               <template v-for="level in levels">
-                <section>
-                <p v-if="level.diff == '星系'">{{level.diff}}</p>
-                <p v-else>{{level.diff}}星球</p>
-                
-                <div class="iconImg" v-if="level.diff == '星系'">
-                  <label>星系圖</label>
-                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg[]" accept="image/*"></span>
-                </div>
+                <section class="planetPic">
+                  <p v-if="level.diff == '星系'">{{level.diff}}徽章</p>
+                  <p v-else>{{level.diff}}星球</p>
+                  
+                  <div class="iconImg" v-if="level.diff == '星系'">
+                    <label>星系圖</label>
+                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImgGal" accept="image/*"></span>
+                    
+                  </div>
 
-                <div class="iconImg" v-else>
-                  <label>星球圖</label>
-                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg[]" accept="image/*"></span>
-                </div>
+                  <div class="iconImg" v-else>
+                    <label>星球圖</label>
+                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg" accept="image/*"></span>
+                    
+                  </div>
 
-                <div class="badgeImg">
-                  <label>徽章圖</label>
-                  <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg[]" accept="image/*"></span>
-                </div>
-                
+                  <div class="badgeImg">
+                    <label>徽章圖</label>
+                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg" accept="image/*"></span>
+                  </div>
+
+                  <div class="bgImg" v-if="level.diff !== '星系'">
+                    <label>試題背景圖</label>
+                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="bgImg" accept="image/*"></span>
+                  </div>
+
+                  <div v-if="level.diff == '星系'"><label>星系描述</label><textarea name="describe"></textarea></div>
+                  <div v-else><label>星球描述</label><textarea name="describe"></textarea></div>
+                  
                 </section>
               </template>
-              <button type="button" @click="update">確認新增</button>
+              <button class="update" @click="update">確認新增</button>
             </div>
-            </section>
+          </section>
         </div>
-        </section>
       </section>
+    </section>
 </script>
 
 
