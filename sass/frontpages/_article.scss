@@ -363,54 +363,56 @@ div.article {
             @include bigPhone {
               padding: 15px 15px;
             }
-            h3 {
-              font-size: $h3;
-              font-weight: bold;
-              margin-bottom: 30px;
-              @include bigPad {
+            div.original{
+              h3 {
+                font-size: $h3;
+                font-weight: bold;
+                margin-bottom: 30px;
+                @include bigPad {
+                  font-size: $h4;
+                }
+                @include smlPad {
+                  font-size: $bp;
+                }
+              }
+              img {
+                display: block;
+                max-width: 600px;
+                max-height: 400px;
+                margin: 40px 0px 20px 30px;
+                @include bigPad {
+                  max-height: 200px;
+                  max-width: 300px;
+                }
+              }
+              h4 {
                 font-size: $h4;
+                margin: 20px 0px 15px 30px;
+                font-weight: bold;
+                line-height: $h3;
+                @include bigPad {
+                  font-size: $bp;
+                  line-height: $h4;
+                }
+                @include smlPad {
+                  font-size: $mp;
+                  line-height: $bp;
+                }
               }
-              @include smlPad {
-                font-size: $bp;
-              }
-            }
-            img {
-              display: block;
-              max-width: 600px;
-              max-height: 400px;
-              margin: 40px 0px 20px 30px;
-              @include bigPad {
-                max-height: 200px;
-                max-width: 300px;
-              }
-            }
-            h4 {
-              font-size: $h4;
-              margin: 20px 0px 15px 30px;
-              font-weight: bold;
-              line-height: $h3;
-              @include bigPad {
-                font-size: $bp;
-                line-height: $h4;
-              }
-              @include smlPad {
+              p {
+                margin: 20px 0px 35px 30px;
                 font-size: $mp;
+                letter-spacing: 2px;
                 line-height: $bp;
+                @include smlPad {
+                  font-size: $sp;
+                }
               }
-            }
-            p {
-              margin: 20px 0px 35px 30px;
-              font-size: $mp;
-              letter-spacing: 2px;
-              line-height: $bp;
-              @include smlPad {
-                font-size: $sp;
+              a {
+                font-size: $mp;
+                color: $blue2;
+                margin: 0px 0px 20px 30px;
               }
-            }
-            a {
-              font-size: $mp;
-              color: $blue2;
-              margin: 0px 0px 20px 30px;
             }
             div.favoriteBack{
               position: absolute;
