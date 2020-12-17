@@ -39,6 +39,7 @@ Vue.component("tableArea", {
                 $('#checkAll').prop("checked", false);
             }
         },
+
         // 下一頁按鈕
         plusPages() {
             // let totalPage = parseInt(this.fields.length / 5);
@@ -53,6 +54,7 @@ Vue.component("tableArea", {
                 $('#checkAll').prop("checked", false);
             }
         },
+
         // 全選或全不選checkbox
         checkAll() {
             if ($('#checkAll').prop("checked")) {
@@ -61,6 +63,28 @@ Vue.component("tableArea", {
                 $(".checkRow").prop("checked", false);
             }
         },
+
+        // 快速上架試題
+        mutipleOn() {
+            let onId = [];
+            let checkRow = document.getElementsByClassName('checkRow');
+            for (let i = 0; i < checkRow.length; i++) {
+                if (checkRow[i].checked) {
+                    onId.push(checkRow[i].closest('tr').querySelector('.gNumber').innerText);
+                }
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'quizRonoff.php',
+                data: { onId },
+                success: function (res) {
+                    vm.ajax();
+                    $(".checkRow").prop("checked", false);
+                    $('#checkAll').prop("checked", false);
+                },
+            });
+        },
+
         // 快速下架試題
         mutipleOff() {
             let offId = [];
@@ -70,21 +94,19 @@ Vue.component("tableArea", {
                     offId.push(checkRow[i].closest('tr').querySelector('.gNumber').innerText);
                 }
             }
-            // console.log(offId);
-            // let that = this;
+
             $.ajax({
                 type: 'POST',
-                url: 'quizRD.php',
+                url: 'quizRonoff.php',
                 data: { offId },
-                // dataType: 'json',
                 success: function (res) {
-                    // a = JSON.parse(res);
-                    // console.log(a);
-                    console.log(res);
                     vm.ajax();
+                    $(".checkRow").prop("checked", false);
+                    $('#checkAll').prop("checked", false);
                 },
             });
         },
+
         // 新增試題按鈕
         createQuiz() {
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
@@ -124,15 +146,15 @@ Vue.component("createAndEdit", {
             levels: [
                 {
                     diff: "初級",
-                    qLevel: 1,
+                    qLevel: "1",
                 },
                 {
                     diff: "中級",
-                    qLevel: 2,
+                    qLevel: "2",
                 },
                 {
                     diff: "高級",
-                    qLevel: 3,
+                    qLevel: "3",
                 },
                 {
                     diff: "星系",
@@ -150,6 +172,7 @@ Vue.component("createAndEdit", {
             $("#forQuiz").css('display', 'block');
             $("#forBadge").css('display', 'none');
         },
+
         // 新增徽章頁籤
         openBadge() {
             $('.openBadge').css('background-color', 'white');
@@ -157,59 +180,57 @@ Vue.component("createAndEdit", {
             $("#forBadge").css('display', 'block').css('background-color', 'white');
             $("#forQuiz").css('display', 'none');
         },
+
         // 跳出彈跳視窗按鈕
         closeModal() {
             $('.quizModalBg').css("opacity", 0).css("z-index", -1);
             $('.selectAll').prop("checked", false);
-            // let a = $('.downQuestion').has('textarea:empty');
-            // console.log(a);
-            // textareaNoContent.remove();
-            // if(textareaNoContent. == 5){
-            // }
         },
+
         // 新增試題按鈕
         createQ(e) {
             let str = `
                 <div class="downQuestion">
-                <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
-                <div class="contentQ">
-                <textarea name="qContent[]" placeholder="請輸入題目內容"></textarea>
-                <ul>
-                    <li>
-                    <span>A:</span>
-                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
-                    </li>
-                    <li>
-                    <span>B:</span>
-                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
-                    </li>
-                    <li>
-                    <span>C:</span>
-                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
-                    </li>
-                    <li>
-                    <span>D:</span>
-                    <textarea name="sContent[]" placeholder="請輸入選項內容"></textarea>
-                    </li>
-                </ul>
-                </div>
-                <div class="ansAndSta">
-                <select name="qAnswer[]">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                </select>
-                <select name"qState[]">
-                    <option value="1">on</option>
-                    <option value="0">off</option>
-                </select>
-                </div>
+                    <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
+                    <div class="contentQ">
+                        <textarea name="qContent" placeholder="請輸入題目內容"></textarea>
+                        <ul>
+                            <li>
+                                <span>A</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>B</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>C</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>D</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ansAndSta">
+                        <select name="qAnswer">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                        <select name="qState">
+                            <option value="1">on</option>
+                            <option value="0">off</option>
+                        </select>
+                    </div>
                 </div>
             `;
 
             $(e.target).closest('.topFunction').after(str);
         },
+
         // 刪除試題按鈕
         deleteQ(e) {
             if ($(e.target).closest('.mainEdit').find('.checkForQ').prop("checked")) {
@@ -226,6 +247,7 @@ Vue.component("createAndEdit", {
                 });
             }
         },
+
         // 全選按鈕
         selectAll(e) {
             if ($(e.target).prop("checked")) {
@@ -234,11 +256,133 @@ Vue.component("createAndEdit", {
                 $(e.target).closest('.mainEdit').find('.checkForQ').prop("checked", false);
             }
         },
+
         // 確認新增按鈕
         update() {
-            let quizModalBg = document.getElementsByClassName('quizModalBg')[0];
-            let fieldName = document.getElementsByClassName('fieldName')[0];
-            let
+            let fieldName = $('.fieldName').val() + "星系";
+
+            // for galaxy table
+            let newGalaxy = [];
+            let gName = $('input[name="iconImgGal"]').val().split("\\");
+            let gImage = gName[(gName.length - 1)];
+            let onOrOff = $('.onOrOff').val();
+            newGalaxy.push(fieldName, gImage, onOrOff);
+
+
+            // for quiz table
+            let quiz = [];
+            let question = [];
+            let level = [];
+            let ans = [];
+            let status = [];
+            let bgImg = [];
+
+            // quiz
+            $('textarea[name="qContent"]').each(function () {
+                question.push($(this).val());
+            });
+            // level
+            $('textarea[name="qContent"]').each(function () {
+                level.push($(this).closest(".mainEdit").data("level"));
+            });
+            // answer
+            $('select[name="qAnswer"]').each(function () {
+                ans.push($(this).val());
+            });
+            // status
+            $('select[name="qState"]').each(function () {
+                status.push($(this).val());
+            });
+            // background
+            $('input[name="bgImg"]').each(function () {
+                let filePath = $(this).val().split("\\");
+                let fileName = filePath[(filePath.length - 1)];
+                bgImg.push(fileName);
+            });
+
+            quiz.push(fieldName, level, question, ans, status, bgImg);
+
+
+            // for selection table
+            let options = [];
+            let sContent = [];
+            let selections = [];
+
+            // option
+            $('textarea[name="sContent"]').each(function () {
+                options.push($(this).prev('span').text());
+            });
+            // content
+            $('textarea[name="sContent"]').each(function () {
+                sContent.push($(this).val());
+            });
+
+            selections.push(options, sContent);
+
+            // for badge table
+            let badge = [];
+            let bGalaxyName = [];
+            let bPlanetName = [];
+            let pImg = [];
+            let bImg = [];
+            let describe = [];
+
+            // galaxy name
+            bGalaxyName.push($('.fieldName').val());
+            // planet name
+            $('section.planetPic').each(function () {
+                bPlanetName.push($(this).find('p').text());
+            });
+            // planet image
+            $('input[name="iconImg"]').each(function () {
+                let filePath = $(this).val().split("\\");
+                let fileName = filePath[(filePath.length - 1)];
+                pImg.push(fileName);
+            });
+            pImg.push('');
+            // badge image
+            $('input[name="badgeImg"]').each(function () {
+                let filePath = $(this).val().split("\\");
+                let fileName = filePath[(filePath.length - 1)];
+                bImg.push(fileName);
+            });
+            // introduction
+            $('textarea[name="describe"]').each(function () {
+                describe.push($(this).val());
+            });
+
+            badge.push(bGalaxyName, bPlanetName, describe, pImg, bImg);
+
+            // let textarea = $('.quizModal textarea');
+            // let input = $('.quizModal input[type != "checkbox"]');
+            let mustFill = [];
+            mustFill.push($('.quizModal textarea, .quizModal input[type != "checkbox"]'));
+            // console.log(mustFill);
+            let noEmpty = mustFill.every(function (item, index, array) {
+                // return item.value !=
+            });
+            console.log(noEmpty);
+
+            // if ($('.quizModal').find('input').val() == '' || $('.quizModal').find('textarea').val() == '') {
+            //     swal("請填入所有的試題資訊", "", "warning");
+            // } else {
+            // $.ajax({
+            //     type: 'POST',
+            //     url: 'quizRC.php',
+            //     data: { newGalaxy, quiz, selections, badge },
+            //     success: function (res) {
+            //         // console.log(res);
+            //         if (res == "success") {
+            //             swal("已成功新增試題", "", "success").then((value) => {
+            //                 if (value) {
+            //                     window.location.reload();
+            //                 }
+            //             });
+            //         }
+
+            //     },
+            // });
+            // }
         }
     },
 });
@@ -255,6 +399,7 @@ let vm = new Vue({
         level: [],
         selectField: '%星系%',
         galaxys: [],
+        quizNum: 0,
     },
     methods: {
         chooseField(selectField) {
@@ -271,7 +416,7 @@ let vm = new Vue({
                 dataType: 'json',
                 success: function (res) {
                     // vm.galaxys = JSON.parse(res);
-                    console.log(res);
+                    // console.log(res);
                     vm.fields = res[0];
                     for (let i = 0; i < res[1].length; i++) {
                         if (res[1][i].gStatus == 1) {
@@ -281,8 +426,7 @@ let vm = new Vue({
                         }
                     }
                     vm.galaxys = res[1];
-                    // console.log(vm.galaxys);
-
+                    vm.quizNum = parseInt(res[2].num);
                 },
             });
         },
