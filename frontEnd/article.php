@@ -10,6 +10,8 @@ include('./articleR.php')
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coder | 太空補給站</title>
   <link rel="stylesheet" href="./../css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
@@ -55,39 +57,10 @@ include('./articleR.php')
               <?php
               }
               ?>
-              <!-- <div class="articleInside">
-                <div class="articleImageScale">
-                  <img src="./../images/article/topBook.jpg" alt="圖片無法顯示" class="articleImage">
-                </div>
-                <h4>十大好書推薦</h4>
-              </div>
-              <div class="articleInside">
-                <div class="articleImageScale">
-                  <img src="./../images/article/editor.jpg" alt="圖片無法顯示">
-                </div>
-                  <h4>編輯器推薦</h4>
-              </div>
-              <div class="articleInside">
-                <div class="articleImageScale">
-                  <img src="./../images/article/study.jpg" alt="圖片無法顯示">
-                </div>
-                <h4>自學力網站資源</h4>
-              </div>
-              <div class="articleInside">
-                <div class="articleImageScale">
-                  <img src="./../images/article/software.jpg" alt="圖片無法顯示">
-                </div>
-                <h4>軟體推薦</h4>
-              </div>
-              <div class="articleInside">
-                <div class="articleImageScale">
-                  <img src="./../images/article/tools.jpg" alt="圖片無法顯示">
-                </div>
-                <h4>好用套件推薦</h4>
-              </div> -->
+              
             </div>
             <div class="articleContent none">
-
+              
               <div id="feedBack"></div>
 
             </div>
