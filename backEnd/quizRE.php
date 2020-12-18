@@ -9,13 +9,10 @@ include("../frontEnd/layout/connect.php");
 $searchGalaxy = "SELECT * FROM cruisecoder.galaxy WHERE gName = ?";
 $searchGalaxy = $pdo->prepare($searchGalaxy);
 
-$searchQuiz = "SELECT * FROM cruisecoder.quiz WHERE qSubject = ?";
-$searchQuiz = $pdo->prepare($searchQuiz);
-
 $searchBadge = "SELECT * FROM cruisecoder.badge WHERE bGalaxy = ?";
 $searchBadge = $pdo->prepare($searchBadge);
 
-$searchSelection = "SELECT qSubject, sNumber, sQuiz, sOption, sContent FROM cruisecoder.quiz AS Q JOIN cruisecoder.selection AS S ON Q.qNumber = S.sQuiz WHERE qSubject = ?";
+$searchSelection = "SELECT qNumber, qLevel, qSubject, qContent, qAnswer, qBackground, sNumber, sOption, sContent FROM cruisecoder.quiz AS Q JOIN cruisecoder.selection AS S ON Q.qNumber = S.sQuiz WHERE qSubject = ?";
 $searchSelection = $pdo->prepare($searchSelection);
 
 
@@ -40,9 +37,6 @@ if (isset($_POST["gNumber"])) {
     $searchGalaxy->bindValue(1, $gName);
     $searchGalaxy->execute();
 
-    $searchQuiz->bindValue(1, $gName);
-    $searchQuiz->execute();
-
     $searchBadge->bindValue(1, $gName);
     $searchBadge->execute();
 
@@ -51,7 +45,7 @@ if (isset($_POST["gNumber"])) {
 
     $data = [];
 
-    array_push($data, $searchGalaxy->fetchAll(PDO::FETCH_ASSOC), $searchQuiz->fetchAll(PDO::FETCH_ASSOC), $searchBadge->fetch(PDO::FETCH_ASSOC), $searchSelection->fetch(PDO::FETCH_ASSOC));
+    array_push($data, $searchGalaxy->fetchAll(PDO::FETCH_ASSOC), $searchBadge->fetchAll(PDO::FETCH_ASSOC), $searchSelection->fetchAll(PDO::FETCH_ASSOC));
     echo json_encode($data);
 }
 
