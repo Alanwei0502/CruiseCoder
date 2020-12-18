@@ -68,7 +68,7 @@
                         <p class="singlePrice">NT,1200</p>
                     </div>
                 </div> -->
-                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice"></table-component>
+                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice" :mycNumber="single.cNumber"></table-component>
             </div>
             <div class="price" id="app">
                 <div class="discount">
@@ -94,7 +94,7 @@
             </div>
             <div class="payment">
                 <div class="title">填寫付款資料</div>
-                <form class="info" method="post" action="./checkOutR.php" name="info" id="info">
+                <form class="info" method="post" action="./checkOutInsertR.php" name="info" id="info">
                     <!-- <form class="info" method="post" action=""  name="info" onclick="return false"> -->
                     <div class="text">
                         <p>付款方式-信用卡</p>
@@ -119,10 +119,10 @@
                         <label class="text">
                             信用卡卡號
                         </label>
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="creditCardNum">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
                     </div>
                     <div class="date" id="app2">
                         <label class="text">

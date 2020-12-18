@@ -2,16 +2,6 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
-// $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
-
-// $pdo = new PDO($dsn, $db_user, $db_pass);
-
-
-// 撈出會員資料和收藏什麼課程
-// $sql="SELECT mNumber,mAccount FROM member;";
-// $sql="SELECT M.mNumber, M.mAccount,F.fcMember,F.fcCourse FROM cruisecoder.member AS M RIGHT JOIN (SELECT fcMember,fcCourse FROM favorite_c where fcMember='?') AS F on M.mNumber = F.fcMember;
-// ";
-
 
 // 找是哪個會員
 $sqlmember="SELECT mNumber FROM member where mAccount=?;";

@@ -8,28 +8,7 @@
 		width: 95%;
 		margin: $center;
 		// border: 1px solid $white;
-
-		// @include laptop {
-		// 	border: 3px solid $white;
-		// }
-
-		// @include bigPad {
-		// 	border: 3px solid $red;
-		// }
-
-		// @include smlPad {
-		// 	border: 3px solid $blue2;
-		// }
-
-		// @include bigPhone {
-		// 	border: 3px solid $yellow;
-		// }
-
-		// @include smlPhone {
-		// 	border: 3px solid pink;
-		// }
-
-
+		min-height: 100vh;
 		.top {
 			.filter {
 				margin-bottom: 50px;
@@ -493,7 +472,7 @@
 							@include bigPhone {
 								font-size: 22px;
 								line-height: 30px;
-								height:$fontSize*4;
+								height: $fontSize*4;
 
 							}
 						}

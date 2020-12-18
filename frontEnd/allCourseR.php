@@ -2,11 +2,9 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
-// $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
 
-// $pdo = new PDO($dsn, $db_user, $db_pass);
 
-// 所有課程
+// 撈出所有課程
 $sqlAllCourse = "SELECT C.cNumber, C.cTitle, C.cLecturer, C.cTime, C.cPrice, C.cStatus, C.cType, C.cImage, C.mPhoto, count(R.rNumber) AS rCount, (sum(R.rStar)/count(R.rCourse)) as rRate FROM CruiseCoder.review AS R RIGHT JOIN (SELECT cNumber, cTitle, cLecturer, cTime, cPrice, cStatus, cType, cImage, M.mPhoto FROM course AS C JOIN `member` AS M ON M.mNumber = C.cLecturer) AS C ON C.cNumber = R.rCourse group by C.cNumber;";
 
 $sqlAllCourse = $pdo->prepare($sqlAllCourse);

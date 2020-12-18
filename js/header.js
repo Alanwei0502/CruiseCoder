@@ -1,5 +1,136 @@
+
 // login的js
 $(document).ready(function () {
+
+    // ===== Vue #app ===== 購物車shoppingList =======
+    let navapp = new Vue({
+        el: '#navapp',
+        data: {
+            courses: [], //課程
+            status: [], //課程狀態，有4種
+            coursesTotal: 0,
+            priceTotal: 0,
+
+        },
+        created() {
+            this.ajax();
+        },
+        methods: {
+            Total() {
+
+                // this.priceTotal += parseInt(this.courses);
+                // console.log(this.courses);
+                // this.priceTotal = this.courses.cPrice;
+            },
+            ajax() {
+                let that = this;
+                let star = 1;
+
+                let list = JSON.parse(localStorage.getItem("lists"));
+                // console.log(list);
+                localStorage.removeItem(list);
+                // that.courses = [];
+
+                that.priceTotal = 0;
+                // list = ['C0004']
+                // 撈所有課程的資料
+                if (!list || list.length === 0) {
+                    $('ul.shoppingFancybox').css('visibility', 'hidden');
+                    $('div.shoppingTotal').css('visibility', 'hidden');
+                    $('.shoppingCar section').text('您的購物車內無任何商品');
+                    return;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: "checkOutR.php",
+                    data: {
+                        //封裝的東西丟這邊
+                        Name: list,
+                    },
+                    dataType: 'json',
+
+                    success: function (response) {
+                        that.courses.splice(0, that.courses.length);
+                        // console.log(response);
+                        // that.courses.push(res);
+                        that.courses = response;
+                        // that.courses = [];
+                        response.forEach((res, index) => {
+                            // console.log(res);
+                            that.coursesTotal = that.courses.length
+                            // console.log(that.courses.length);
+                            that.priceTotal += parseInt(res.cPrice);
+
+                            //課程狀態有4種，用switch case處理
+                            switch (res.cStatus) {
+                                case '0':
+                                    that.status.push('刪除');
+                                    break;
+                                case '1':
+                                    that.status.push('已開課');
+                                    break;
+                                case '2':
+                                    that.status.push('下架');
+                                    break;
+                                case '3':
+                                    that.status.push('募資');
+                                    break;
+                            }
+                        });
+                    },
+                    //失敗
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    }
+                });
+            },
+            getCourse() {
+
+                let list = JSON.parse(localStorage.getItem("lists"));
+                // console.log(list);
+
+                localStorage.clear();
+                localStorage.setItem("lists", JSON.stringify(list));
+                // alert('kk')
+              
+            },
+            shoppingcart(e) {
+
+                this.ajax();
+                // this.getCourse();
+                checkCookie('user');
+                getCookie('user');
+
+                if (!checkCookie('user')) {
+                    // $('.loginWrap').css('display', 'block');
+                    $('.logout').css('display', 'none');
+                    $('.callLoginBox').css('display', 'block');
+                    $('#loginWrap').css('display', 'block');
+
+                    $('#closeIcon').click(function () { //點擊close icon 關閉login
+                        $('#loginWrap').css('display', 'none');
+                    });
+
+                    $('.greyGlass').click(function () {//點擊蒙版 關閉login
+                        $('#loginWrap').css('display', 'none');
+                    });
+                    // return;
+                } else {
+                    // this.getCourse();
+
+
+                    $(e.target).closest('.shoppingCar').find('section').toggleClass('on');
+                    // console.log("用Vue打開購物車");
+
+                }
+            },
+        },
+    });
+
+
+
+
 
     // 檢查某 cookie 是否存在
     function checkCookie(cname) {
@@ -30,20 +161,20 @@ $(document).ready(function () {
 
     //檢測註冊帳號密碼的長度，不可小於六碼↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  新增功能：註冊帳號密碼不可小於6碼、不可為中文。
     var checkArr = $('input.checkString');
-    for(let i = 0; i < checkArr.length; i++){
-        checkArr[i].addEventListener('blur',function(e){
+    for (let i = 0; i < checkArr.length; i++) {
+        checkArr[i].addEventListener('blur', function (e) {
             let getStringLength = e.target.value.length; //取得input數入的長度
             let inputName = e.target.previousElementSibling.innerText.slice(0, 2);//取得input欄位名稱
-            if(getStringLength < 6 && getStringLength != 0){ //當長度小於六、裡面不是空字串時
+            if (getStringLength < 6 && getStringLength != 0) { //當長度小於六、裡面不是空字串時
                 e.target.value = "";
                 checkArr[i].placeholder = `${inputName}長度小於6`;
                 e.target.classList.add('BorderColor');
-            }else{
+            } else {
                 checkArr[i].placeholder = "";
                 e.target.classList.remove('BorderColor');
             };
         });
-    };    
+    };
     //檢測註冊帳號密碼的長度，不可小於六碼↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     if (checkCookie('user')) {
@@ -76,15 +207,15 @@ $(document).ready(function () {
         var ul = member.querySelector('ul');
         var inputM = labelM.querySelector('input');
 
-        label.addEventListener('mouseup', function () {
-            if (!input.checked) {
-                section.classList.add('on');
-                inputM.checked = false;
-                ul.classList.remove('on');
-            } else {
-                section.classList.remove('on');
-            }
-        });
+        // label.addEventListener('mouseup', function () {
+        //     if (!input.checked) {
+        //         section.classList.add('on');
+        //         inputM.checked = false;
+        //         ul.classList.remove('on');
+        //     } else {
+        //         section.classList.remove('on');
+        //     }
+        // });
 
         labelM.addEventListener('mouseup', function () {
             if (!inputM.checked) {
@@ -188,7 +319,7 @@ $(document).ready(function () {
                                     swal("註冊成功!", "恭喜你成為會員！！!", "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
-                                                window.location.reload();8
+                                                window.location.reload(); 8
                                             }
                                         });
                                 } else if (data == "EmailRepeat") {
@@ -408,7 +539,7 @@ $(document).ready(function () {
                                 var name = dataArr[2];
                                 var toDayCC = dataArr[3];
                                 var SignInDay = dataArr[4];
-                                console.log(dataArr);
+                                // console.log(dataArr);
                                 if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -428,7 +559,7 @@ $(document).ready(function () {
                                                 window.location.reload();
                                             }
                                         });
-                                }else if (loginString == "loginSuccess1") {
+                                } else if (loginString == "loginSuccess1") {
                                     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                                     let gettoday = new Date();
                                     let year = gettoday.getFullYear();
@@ -491,12 +622,13 @@ $(document).ready(function () {
 
 
     }
-
-
 });
 
+// let list = ['C0001', 'C0002', 'C0003', 'C0004']
 
-
+// localStorage.clear();
+// localStorage.setItem("lists", JSON.stringify(list));
+// console.log(list);
 
 
 
