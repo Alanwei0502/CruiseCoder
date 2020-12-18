@@ -423,19 +423,23 @@ div.article {
               right: 1%;
               top: 10px;
               display: inline-block;
-              background-color: $white;
-              padding: 10px;
-              font-size: $h3;
-              border-radius: 50%;
-              cursor: pointer;
+              font-size: $h4;
               @include smlPad{
-                font-size: $h4;
+                font-size: $bp;
               }
               @include smlPhone{
-                font-size: $bp;
+                font-size: $mp;
+              }
+              span{
+                margin-right: 10px;
+                font-size: 26px;
               }
               i{
                 color: #d4d4d4;
+                background-color: $white;
+                padding: 10px;
+                border-radius: 50%;
+                cursor: pointer;
               }
               i.collected{
                 color: $red;

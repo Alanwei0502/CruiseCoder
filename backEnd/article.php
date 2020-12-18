@@ -51,11 +51,12 @@
         </div>
       </div>
       <div class="addOrCancle">
+        <button class="putOnButton">上架專欄</button>
         <button class="cancleButton">下架專欄</button>
         <button class="addButton">新增專欄</button>
       </div>
       <div class="table" id="table">
-        <div class="tr">
+        <div class="tr title">
           <div class="td"><label><input type="checkbox" class="allCheckBox"><span></span></label></div>
           <div class="td">上架日期</div>
           <div class="td">狀態</div>

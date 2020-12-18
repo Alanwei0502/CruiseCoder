@@ -31,7 +31,7 @@
             </div>
           </div>
           <div class="askBodyRight">
-            <div class="blue1"></div><p>可預約</p>
+            <div class="blue1"></div><p>已購買課程</p>
             <div class="red"></div><p>預約額滿</p>
           </div>
         </div>
@@ -102,7 +102,7 @@
           <p>線上預約</p>
         </div>
       </div>
-      <h2>&lt;CouiseCoder 我們的學習空間&#47;&gt;</h2>
+      <h2>&lt;我們的學習空間&#47;&gt;</h2>
       <div class="roomTop">
         <img src="./../images/tutorial/room1.jpg" alt="無法顯示圖片">
         <div>
@@ -142,7 +142,7 @@
       <div class="bookLightBoxAll">
         <div class="bookLightBoxBack"></div>
         <div class="bookLightBox">
-          <img src="./../images/article/grayCancel.png" class="cancelBtn" alt="圖片無法顯示">
+          <img src="./../images/article/whiteCancel.png" class="cancelBtn" alt="圖片無法顯示">
           <div id="feedBack">
             <!-- 點擊課程會打開的預約燈箱 -->
           </div>

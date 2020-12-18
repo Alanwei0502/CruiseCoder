@@ -384,7 +384,7 @@ document.addEventListener("click", function(e){
   }
 
 
-  // 下嫁按鈕 修改專欄狀態
+  // 下架按鈕 修改專欄狀態
   if(e.target.classList.contains("cancleButton")){
     let inputCheckBox = e.target.closest("main").querySelectorAll("input.checkBox");
     for(let i = 0; i < inputCheckBox.length; i++){
@@ -395,6 +395,20 @@ document.addEventListener("click", function(e){
       }
     }
     alert("下架成功");
+    window.location.reload();
+  }
+
+  // 上架按鈕 修改專欄狀態
+  if(e.target.classList.contains("putOnButton")){
+    let inputCheckBox = e.target.closest("main").querySelectorAll("input.checkBox");
+    for(let i = 0; i < inputCheckBox.length; i++){
+      if(inputCheckBox[i].checked){
+        let putOnArticlName = inputCheckBox[i].closest("div.tr").querySelector("div.aTitle").innerText;
+        
+        $.post('articleR.php',{putOnArticlName},function(res){});
+      }
+    }
+    alert("上架成功");
     window.location.reload();
   }
 

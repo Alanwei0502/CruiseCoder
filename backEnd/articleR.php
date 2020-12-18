@@ -269,6 +269,13 @@ if(isset($_POST["checkEditArticlName"])){
   
   $sqlCheckEdit = "UPDATE article SET aStatus = 0 WHERE aTitle = '$checkEditArticlName'";
   $statement = $pdo->query($sqlCheckEdit);
-  
-  
 }
+
+// 勾選到的全部更改為上架
+if(isset($_POST["putOnArticlName"])){
+  $putOnArticlName = $_POST["putOnArticlName"];
+  
+  $sqlCheckEdit = "UPDATE article SET aStatus = 1 WHERE aTitle = '$putOnArticlName'";
+  $statement = $pdo->query($sqlCheckEdit);
+}
+
