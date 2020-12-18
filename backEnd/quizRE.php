@@ -12,7 +12,7 @@ $searchQuiz = $pdo->prepare($searchQuiz);
 $searchBadge = "SELECT * FROM cruisecoder.badge WHERE bGalaxy = ?";
 $searchBadge = $pdo->prepare($searchBadge);
 
-$searchSelection = "SELECT * FROM cruisecoder.selection WHERE sQuiz in ('...')";
+$searchSelection = "SELECT qSubject, sNumber, sQuiz, sOption, sContent FROM cruisecoder.quiz AS Q JOIN cruisecoder.selection AS S ON Q.qNumber = S.sQuiz WHERE qSubject = ?";
 $searchSelection = $pdo->prepare($searchSelection);
 
 
@@ -31,11 +31,26 @@ $editSelection = $pdo->prepare($editSelection);
 
 
 
-// 點擊編輯按鈕
+// click edit button
 if (isset($_POST["gNumber"])) {
     $gName = $_POST["gNumber"];
     $searchGalaxy->bindValue(1, $gName);
+    $searchGalaxy->execute();
+
+    $searchQuiz->bindValue(1, $gName);
+    $searchQuiz->execute();
+
+    $searchBadge->bindValue(1, $gName);
+    $searchBadge->execute();
+
+    $searchSelection->bindValue(1, $gName);
+    $searchSelection->execute();
+
+    $data = [];
+
+    array_push($data, $searchGalaxy->fetchAll(PDO::FETCH_ASSOC), $searchQuiz->fetchAll(PDO::FETCH_ASSOC), $searchBadge->fetch(PDO::FETCH_ASSOC), $searchSelection->fetch(PDO::FETCH_ASSOC));
+    echo json_encode($data);
 }
 
 
-// 點擊確認編輯按鈕
+// click edit confirmed button
