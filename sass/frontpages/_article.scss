@@ -6,7 +6,7 @@ div.article {
   main {
     height: 1000px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     overflow: hidden;
     img.astronaut1 {
       position: absolute;
@@ -52,7 +52,7 @@ div.article {
       width: 30px;
       top: 750px;
       right: -100px;
-      z-index: 0;
+      z-index: 1;
       animation: planet3 300s infinite;
     }
     img.planet4 {
@@ -60,7 +60,7 @@ div.article {
       width: 10px;
       top: 450px;
       left: 300px;
-      z-index: 0;
+      z-index: 1;
       animation: planet4 240s infinite cubic-bezier(0.86, 0.12, 0.95, 0.61);
     }
     img.bottomLayer {
@@ -74,8 +74,8 @@ div.article {
       position: absolute;
       top: 0;
       left: 50%;
-      z-index: 3;
-      transform: translateX(-50%);
+      z-index: 5;
+      transform: translateX(-50%) translateZ(100px);
       width: 1200px;
       @include laptop {
         width: 900px;
@@ -141,6 +141,7 @@ div.article {
         width: 100%;
         position: relative;
         z-index: 5;
+        overflow: hidden;
         img {
           width: 100%;
           @include laptop {
@@ -313,7 +314,7 @@ div.article {
                 margin: 30px 28px;
               }
               @include bigPhone {
-                width: 900%;
+                width: 90%;
                 margin: 30px 20px;
               }
               div.articleImageScale {
@@ -342,11 +343,15 @@ div.article {
                 }
               }
             }
+            div.articleInside.none {
+              display: none;
+            }
           }
           div.articleTitle.none {
             display: none;
           }
           div.articleContent {
+            position: relative;
             padding: 30px 50px;
             color: $white;
             @include bigPad {
@@ -358,48 +363,82 @@ div.article {
             @include bigPhone {
               padding: 15px 15px;
             }
-            h3 {
+            div.original{
+              h3 {
+                font-size: $h3;
+                font-weight: bold;
+                margin-bottom: 30px;
+                @include bigPad {
+                  font-size: $h4;
+                }
+                @include smlPad {
+                  font-size: $bp;
+                }
+              }
+              img {
+                display: block;
+                max-width: 600px;
+                max-height: 400px;
+                margin: 40px 0px 20px 30px;
+                @include bigPad {
+                  max-height: 200px;
+                  max-width: 300px;
+                }
+                @include smlPhone{
+                  max-height: 150px;
+                  max-width: 225px;
+                }
+              }
+              h4 {
+                font-size: $h4;
+                margin: 20px 0px 15px 30px;
+                font-weight: bold;
+                line-height: $h3;
+                @include bigPad {
+                  font-size: $bp;
+                  line-height: $h4;
+                }
+                @include smlPad {
+                  font-size: $mp;
+                  line-height: $bp;
+                }
+              }
+              p {
+                margin: 20px 0px 35px 30px;
+                font-size: $mp;
+                letter-spacing: 2px;
+                line-height: $bp;
+                @include smlPad {
+                  font-size: $sp;
+                }
+              }
+              a {
+                font-size: $mp;
+                color: $blue2;
+                margin: 0px 0px 20px 30px;
+              }
+            }
+            div.favoriteBack{
+              position: absolute;
+              right: 1%;
+              top: 10px;
+              display: inline-block;
+              background-color: $white;
+              padding: 10px;
               font-size: $h3;
-              font-weight: bold;
-              margin-bottom: 30px;
-              @include bigPad {
+              border-radius: 50%;
+              cursor: pointer;
+              @include smlPad{
                 font-size: $h4;
               }
-              @include smlPad {
+              @include smlPhone{
                 font-size: $bp;
               }
-            }
-            img {
-              width: 300px;
-              margin: 40px 0px 20px 30px;
-              @include bigPad {
-                width: 250px;
+              i{
+                color: #d4d4d4;
               }
-              @include smlPad {
-                width: 200px;
-              }
-            }
-            h4 {
-              font-size: $h4;
-              margin: 20px 0px 25px 30px;
-              font-weight: bold;
-              line-height: $h3;
-              @include bigPad {
-                font-size: $bp;
-                line-height: $h4;
-              }
-              @include smlPad {
-                font-size: $mp;
-                line-height: $bp;
-              }
-            }
-            p {
-              margin: 20px 0px 20px 30px;
-              font-size: $mp;
-              letter-spacing: 2px;
-              line-height: $bp;
-              @include smlPad {
-                font-size: $sp;
+              i.collected{
+                color: $red;
               }
             }
           }
@@ -413,7 +452,7 @@ div.article {
       position: absolute;
       left: 3%;
       bottom: 20%;
-      z-index: 3;
+      z-index: 6;
       opacity: 1;
       animation: upDown 5s infinite linear;
       transition: all 1s;
@@ -451,7 +490,7 @@ div.article {
       position: absolute;
       right: 4%;
       bottom: 17%;
-      z-index: 3;
+      z-index: 6;
       opacity: 1;
       transition: all 1s;
       img.radarBackImage {

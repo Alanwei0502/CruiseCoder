@@ -134,6 +134,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../js/teacher.js"></script>
+    <script>
+      
+    </script>
   </body>
 
 </html>

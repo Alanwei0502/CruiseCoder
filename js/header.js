@@ -225,7 +225,10 @@ $(document).ready(function () {
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
                                 var name = dataArr[2];
+<<<<<<< HEAD
                                 var number = dataArr[5];
+=======
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                 if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -237,7 +240,10 @@ $(document).ready(function () {
 
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+<<<<<<< HEAD
                                     document.cookie = `unumber =${number}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+=======
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
@@ -410,9 +416,13 @@ $(document).ready(function () {
                                 var name = dataArr[2];
                                 var toDayCC = dataArr[3];
                                 var SignInDay = dataArr[4];
+<<<<<<< HEAD
                                 var number = dataArr[5];
                                 console.log(dataArr);
                                 console.log(number);
+=======
+                                console.log(dataArr);
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                 if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -424,7 +434,10 @@ $(document).ready(function () {
 
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+<<<<<<< HEAD
                                     document.cookie = `unumber =${number}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+=======
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                     // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　CC幣`, "success")
                                         .then((willDelete) => {
@@ -441,8 +454,12 @@ $(document).ready(function () {
                                     let date = gettoday.getDate();
 
 
+<<<<<<< HEAD
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
                                     document.cookie = `unumber =${number}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+=======
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                     // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {

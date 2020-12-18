@@ -9,11 +9,16 @@
 
         .info_title {
             @include h2;
-            color: $white;
-            font-size: $h2;
-            border-bottom: $orange 10px solid;
-            width: 200px;
-
+            color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
         }
 
         .info_area {
@@ -26,7 +31,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                // border: 1px solid #fff;
+                
                    
             }    
         }
@@ -37,6 +42,8 @@
             background-color: #fff;
             border-radius: 50%;
             position: relative;
+            animation: fadeInLeft; 
+            animation-duration: 2s; 
 
             @include laptop {
                 margin-bottom: 50px;
@@ -92,6 +99,9 @@
             display: flex;
             justify-content: center;
 
+            animation: fadeInRight; 
+            animation-duration: 2s; 
+
 
             p {
                 // text-align: center;
@@ -100,7 +110,6 @@
 
             img {
                 width: 30px;
-
             }
 
             @include laptop {
@@ -116,7 +125,8 @@
         }
 
         .info_card {
-
+            animation: fadeInRight; 
+            animation-duration: 2s; 
             @include laptop {
                 margin-top: 20px;
             }
@@ -140,34 +150,49 @@
                 }
 
                 @include bigPhone {
-                    width: 300px;
+                    width: 400px;
                     padding: 20px;
 
                 }
 
-                @include smlPhone {
-                    width: 280px;
-                }
 
                 label {
                     padding: 10px;
+                    span{
+                        padding-left: 10px;
+                        color: rgb(177, 177, 177);
+                        font-size: $sp;
+                    }
 
                     @include smlPad {
                         font-size: $mp;
+                        
+                    }  
+                    @include smlPhone{
+                        font-size: $sp;
 
                     }
-
-                    input {
-                        border: none;
+                    input.input{
+                        // border: none;
+                        border: rgba(255, 255, 255, 0) solid;
                         padding: 20px;
                         border-radius: 20px;
                         height: 35px;
                         width: 300px;
                         outline: none;
-
-                        @include bigPhone {
+                        font-size: $bp;
+                        .errorTextColor{
+                            color: $red;
+                        }
+                        
+                        @include bigPhone{
                             height: 25px;
                             width: 200px;
+                            font-size: $mp;
+                        }
+                        @include smlPhone{
+                            font-size: $sp;
+
                         }
                     }
                 }
@@ -180,7 +205,8 @@
 
                 img {
                     width: 30px;
-
+				    box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+        
                 }
             }
 
@@ -198,14 +224,14 @@
                     width: 100px;
                 }
             }
-
-            .sendBtn {
-                @include btn($h4);
+                
+            .sendBtn{
+                display: none;
+                @include btn($bp);
                 //  width: 200px;
                 align-self: flex-end;
-
-                @include smlPad {
-                    @include btn($bp);
+                @include smlPad{
+                    @include btn($mp);
                 }
 
                 @include bigPhone {
@@ -218,155 +244,435 @@
 
             }
         }
-
+        // 第二部分（我的課程）
         .info_second {
 
+            .course_title{
+                @include h2;
+                color: $beige;
+                @include smlPad{
+                    font-size: $h3;
+                }
+                @include bigPhone{
+                    font-size: $h4;
+                }
+                @include smlPhone{
+                    font-size: $bp;
+                }
 
+            }
             .course {
-                display: flex;
-                justify-content: space-between;
+				display: flex;
+				justify-content: space-between;
                 flex-wrap: wrap;
+                text-decoration: none;
 
+				@include laptop {
+					justify-content: space-evenly;
+				}
+
+				/*一般課程*/
+
+				.wrapGeneral {
+					margin: 50px 0px;
+					width: 340px;
+					border-radius: 20px;
+					background-color: $white;
+					position: relative;
+					overflow: visible;
+
+					@include laptop {
+						margin: 50px 20px;
+					}
+
+					@include bigPhone {
+						display: flex;
+						width: 430px;
+						margin: 20px 0px;
+					}
+
+
+					// 愛心按鈕
+					.favorites {
+						border-radius: 50%;
+						background-color: $white;
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						transform: translate(-10%, 270%);
+
+						@include bigPhone {
+							transform: translate(-20%, 310%);
+							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
+						}
+
+						// font
+						i {
+							font-size: 30px;
+							padding: 10px;
+							cursor: pointer;
+							color: rgb(212, 212, 212);
+
+							@include bigPhone {
+								font-size: 25px;
+								padding: 10px;
+							}
+						}
+
+						i.is-active {
+							color: $red;
+						}
+					}
+
+
+					img.tImg {
+						width: 80px;
+						border-radius: 50%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						transform: translate(25%, -50%);
+
+						@include bigPhone {
+							display: none;
+						}
+					}
+
+					a.img {
+						display: inline-block;
+
+						@include bigPhone {
+							width: 200px;
+							margin: 4% 2%;
+						}
+
+						img {
+							width: 100%;
+							border-radius: 20px 20px 0 0;
+
+							@include bigPhone {
+								border-radius: 10px 10px 10px 10px;
+							}
+						}
+					}
+
+					.c_Main {
+						padding: 3% 3% 5%;
+
+						@include bigPhone {
+							padding: 4% 2% 4% 0%;
+
+						}
+
+						p.title {
+							padding-bottom: 5%;
+							font-size: 26px;
+							font-weight: 600;
+							line-height: 35px;
+							// text-decoration: none;
+							// display: inline-block;
+							// color: black;
+
+							@include bigPhone {
+								font-size: 22px;
+								line-height: 30px;
+							}
+						}
+
+						.time {
+							font-size: 22px;
+							padding-bottom: 5%;
+
+							@include bigPhone {
+								font-size: 16px;
+
+							}
+						}
+
+						.comment {
+							display: flex;
+							font-size: 22px;
+							margin-bottom: 40px;
+
+							@include bigPhone {
+								font-size: 16px;
+								margin-bottom: 20px;
+
+
+							}
+
+							i {
+								font-size: 20px;
+								color: $yellow;
+
+								@include bigPhone {
+									font-size: 16px;
+								}
+							}
+
+							a.text {
+								margin-left: 10px;
+								text-decoration: none;
+								color: black;
+							}
+						}
+
+						.price {
+							font-size: $h4;
+							font-weight: 800;
+							text-align: right;
+
+							// padding: 0px 4% 20px 0px;
+							@include bigPhone {
+								font-size: $bp;
+								margin-right: 30%;
+								font-weight: 600;
+
+							}
+						}
+					}
+				}
+
+			}
+        }
+
+                    //  （收藏課程）
+        .loveCourse_area{
+            .loveCourse_title{
+                @include h2;
+                    color: $beige;
+                    @include smlPad{
+                        font-size: $h3;
+                    }
+                    @include bigPhone{
+                        font-size: $h4;
+                    }
+                    @include smlPhone{
+                        font-size: $bp;
+                    }
+            }
+            .wrapFundraising {
+                margin: 50px 0px;
+                width: 340px;
+                border-radius: 20px;
+                background-color: $white;
+                position: relative;
+                overflow: visible;
+    
                 @include laptop {
-                    width: 1000px;
-                    border: 1px solid #fff;
-                    margin: 0 auto;
+                    margin: 50px 20px;
                 }
-
-                @include bigPad {
-                    width: 800px;
-                    border: 1px solid #fff;
-                    margin: 0 100px;
+    
+                @include bigPhone {
+                    display: flex;
+                    width: 430px;
+                    margin: 20px 0px;
                 }
-
-                @include smlPad {
-                    width: 100%;
-                    border: 1px solid #fff;
-                    margin: 0 50px;
-                }
-
-                .wrapGeneral {
-                    margin-bottom: 50px !important;
-                    margin-top: 50px !important;
-                    width: 340px;
-                    border-radius: 20px;
+    
+                // 愛心按鈕
+                .favorites {
+                    border-radius: 50%;
                     background-color: $white;
-                    position: relative;
-                    overflow: visible;
-
-                    @include laptop {
-                        width: 300px;
-
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translate(-10%, 270%);
+    
+                    @include bigPhone {
+                        transform: translate(-20%, 310%);
+                        box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
                     }
-
-                    @include bigPad {
-                        width: 250px;
-                    }
-
-                    .favorites {
-                        border-radius: 50%;
-                        background-color: $white;
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        transform: translate(-10%, 270%);
-
-                        i {
-                            font-size: 30px;
+    
+                    i {
+                        font-size: 30px;
+                        padding: 10px;
+                        cursor: pointer;
+                        color: rgb(212, 212, 212);
+    
+                        @include bigPhone {
+                            font-size: 25px;
                             padding: 10px;
-                            cursor: pointer;
-                            color: rgb(212, 212, 212);
-
-                            @include bigPad {
-                                font-size: 20px;
-                                padding: 9px;
+                        }
+                    }
+    
+                    i.is-active {
+                        color: $red;
+                    }
+                }
+    
+                img.tImg {
+                    width: 80px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translate(25%, -50%);
+    
+                    @include bigPhone {
+                        display: none;
+                    }
+                }
+    
+                a.img {
+                    display: inline-block;
+    
+                    @include bigPhone {
+                        width: 200px;
+                        margin: 4% 2%;
+                    }
+    
+                    img {
+                        width: 100%;
+                        border-radius: 20px 20px 0 0;
+    
+                        @include bigPhone {
+                            border-radius: 10px 10px 10px 10px;
+                        }
+                    }
+                }
+    
+                .c_Main {
+                    padding: 3% 3% 5%;
+    
+                    @include bigPhone {
+                        padding: 4% 2% 4% 0%;
+    
+                    }
+    
+                    p.title {
+                        padding-bottom: 5%;
+                        font-size: 26px;
+                        font-weight: 600;
+                        line-height: 35px;
+                        // text-decoration: none;
+                        // display: inline-block;
+                        // color: black;
+    
+                        @include bigPhone {
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+    
+                    }
+    
+                    .time {
+                        font-size: 22px;
+                        padding-bottom: 5%;
+    
+                        @include bigPhone {
+                            font-size: 16px;
+    
+                        }
+                    }
+    
+                    .price {
+                        display: flex;
+                        justify-content: space-between;
+    
+                        @include bigPhone {
+                            flex-wrap: wrap;
+    
+                        }
+    
+                        p.fundraising {
+                            background-color: $red;
+                            color: $white;
+                            font-size: 17px;
+                            line-height: 34px;
+                            padding: 0px 2%;
+                            text-shadow: 1px 1px 3px rgb(46, 46, 46);
+                            white-space: nowrap;
+    
+                            @include bigPhone {
+                                flex-wrap: wrap;
+                                margin: 0px 50px 10px 0px;
+                                line-height: 30px;
+    
                             }
                         }
-                    }
-
-                    img.tImg {
-                        width: 80px;
-                        border-radius: 50%;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        transform: translate(25%, -50%);
-
-                        @include bigPad {
-                            width: 60px;
-                        }
-
-                    }
-
-                    a.img {
-                        display: inline-block;
-
-                        img {
-                            width: 100%;
-                            border-radius: 20px 20px 0 0;
-                        }
-                    }
-
-                    .c_Main {
-                        padding-left: 10px;
-
-                        a.title {
-                            padding-top: 10px;
-                            font-size: 26px;
-                            font-weight: 600;
-                            line-height: 35px;
-                            text-decoration: none;
-                            display: inline-block;
-                            color: black;
-                            margin-bottom: 25px;
-                        }
-
-                        .time {
-                            font-size: 22px;
-                            margin-bottom: 20px;
-                        }
-
-                        .comment {
+    
+                        .text {
                             display: flex;
-                            font-size: 22px;
-                            margin-bottom: 40px;
-
-                            i {
-                                font-size: 20px;
-                                color: $yellow;
-                            }
-
-                            a.text {
-                                margin-left: 10px;
-                                text-decoration: none;
-                                color: black;
-                            }
-                        }
-
-                        .price {
-                            font-size: $h4;
-                            font-weight: 800;
-                            text-align: right;
-                            margin-bottom: 10px;
                             margin-right: 10px;
+                            align-items: flex-end;
+    
+                            p.preOrder {
+                                font-size: 26px;
+                                margin-right: 5px;
+    
+                                @include bigPhone {
+                                    font-size: 20px;
+                                }
+                            }
+    
+                            p.price {
+                                font-size: $h4;
+                                color: $red;
+                                font-weight: 800;
+    
+                                @include bigPhone {
+                                    font-size: 26px;
+                                    font-weight: 600;
+                                }
+                            }
                         }
                     }
-
-
-
-
+    
+                    .progressbar {
+                        height: 15px;
+                        background-color: #e9ecef;
+                        border-radius: 8px;
+                        position: relative;
+                        overflow: hidden;
+                        margin: 7% 0px;
+    
+                        @include bigPhone {
+                            display: none;
+    
+                        }
+    
+                        span.progress {
+                            display: inline-block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            box-sizing: border-box;
+                            background-color: $blue2;
+                        }
+                    }
+    
+                    .funNum {
+                        font-size: 19px;
+                        text-align: center;
+    
+                        @include bigPhone {
+                            display: none;
+    
+                        }
+                    }
                 }
             }
-
-
         }
+        
 
 
 
         // ------ 收藏文章 -----
         .love_title {
             margin-top: 100px;
-            // margin-bottom: 50px;
+            @include h2;
+            color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
+           
         }
 
         .info_article {
@@ -428,28 +734,44 @@
             margin-top: 100px;
             @include h2;
             color: $beige;
+            @include smlPad{
+                font-size: $h3;
+            }
+            @include bigPhone{
+                font-size: $h4;
+            }
+            @include smlPhone{
+                font-size: $bp;
+            }
         }
 
         .info_achievement {
             width: 100%;
 
-
+            //大徽章尚未獲得前，呈現狀態是 灰階＋透明。
             .big_a {
                 background-color: $blue2;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-
-                img {
-                    width: 100px;
-                    margin: 10px 25px;
-
-                    @include smlPhone {
-                        width: 80px;
-                    }
+                div {
+                    img {
+                        width: 100px;
+                        margin: 10px 25px;
+                        filter: opacity(30%)grayscale(50%);;
+                        -webkit-filter: opacity(30%)grayscale(50%);
+    
+                        
+    
+                        @include smlPhone {
+                            width: 80px;
+                        }
+                    }    
                 }
+                
             }
 
+             //小徽章尚未獲得前，呈現狀態是 灰階＋透明。
             .little_a {
                 margin-top: 50px;
                 padding: 50px;
@@ -458,17 +780,18 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-
-                @include smlPhone {
-                    padding: 25px;
+                @include smlPhone{
+                    padding: 20px;
                 }
 
                 img {
                     width: 100px;
                     margin: 10px 25px;
+                    filter: opacity(30%)grayscale(50%);;
+                    -webkit-filter: opacity(30%)grayscale(50%);
 
-                    @include smlPhone {
-                        width: 60px;
+                    @include smlPhone{
+                        width: 70px;
                     }
                 }
             }

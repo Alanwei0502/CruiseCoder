@@ -20,7 +20,6 @@
         section{
             width: 100%;
             padding: $fontSize;
-            background-image: url('../images/quiz/background/1.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -48,7 +47,6 @@
             }
             .blueBg{
                 padding: $fontSize;
-                width: 95%;
                 background-color: rgba(24, 39, 73, .8);
                 display: flex;
                 flex-direction: column;
@@ -127,10 +125,15 @@
                     }
                     
                 }
+                .note{
+                    text-decoration: underline;
+                }
                 label{
                     font-size: $mp;
-                    align-self: flex-start;
                     line-height: $h3;
+                    font-weight: normal;
+                    align-self: flex-start;
+                    
                     @include smlPad{
                         font-size: $sp;
                         line-height: $h4;
@@ -170,6 +173,7 @@
             .answer{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 label{
                     font-weight: normal;
                     line-height: $h1;
@@ -187,6 +191,28 @@
             }
         }
         .afterQuiz{
+            display: none;
+
+            a{
+                @include btn($h4);
+                display: block;
+                float: right;
+                @include smlPad{
+                	@include btn($bp);
+                }
+                @include bigPhone{
+                	@include btn($mp);
+                }
+                @include smlPhone{
+                	@include btn($sp);
+                }
+            }
+        }
+
+        .-show{
+            display: block;
+        }
+        .-hide{
             display: none;
         }
         

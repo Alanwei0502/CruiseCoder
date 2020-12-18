@@ -2,6 +2,7 @@ div.quiz {
     min-height: 100vh;
     font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
     main {
+        // position: relative;
         h2 {
             @include backTitle;
         }
@@ -45,6 +46,10 @@ div.quiz {
                     margin: $fontSize*2;
                 }
 
+                .on {
+                    @include onBtn;
+                }
+
                 .off {
                     @include cancelBtn;
                 }
@@ -85,6 +90,12 @@ div.quiz {
                                 cursor: pointer;
                             }
                         }
+<<<<<<< HEAD
+=======
+                        &:nth-child(3) {
+                            width: 30%;
+                        }
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                     }
 
                     td {
@@ -99,6 +110,9 @@ div.quiz {
             }
 
             .changePage {
+                // position: absolute;
+                // bottom: 0;
+                // right: 0;
                 display: flex;
                 justify-content: flex-end;
 
@@ -157,6 +171,32 @@ div.quiz {
                                 &.openQuiz{
                                     background-color: $white;
                                 }
+<<<<<<< HEAD
+=======
+                            }
+                        }
+                        img.closeModal {
+                            width: $h2;
+                            cursor: pointer;
+                            align-self: center;
+                            
+                        }
+                    }
+
+    
+                    section.form {
+                        overflow-y: auto;
+                        height: 100%;
+                        
+                        #forQuiz, #forBadge{
+                            background-color: $white;
+                            width: 100%;
+                            padding: $fontSize $fontSize $fontSize*3 $fontSize;
+
+                            select.onOrOff {
+                                @include selectStyle;
+                                margin-left: $fontSize*2;
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                             }
                         }
                         img.closeModal {
@@ -312,6 +352,10 @@ div.quiz {
 
                                 >label{
                                     font-weight: bold;
+<<<<<<< HEAD
+=======
+                                    font-size: $h4;
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                 }
                             }
                         }
@@ -323,7 +367,11 @@ div.quiz {
                                 margin-bottom: $fontSize*2;
                                 padding: $fontSize;
                                 p{
+<<<<<<< HEAD
                                     font-size: $bp;
+=======
+                                    font-size: $h4;
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                     font-weight: bold;
                                     padding: $fontSize 0;
                                 }
@@ -336,6 +384,21 @@ div.quiz {
 
                                 div{
                                     margin-bottom: $fontSize;
+<<<<<<< HEAD
+=======
+                                    display: flex;
+                                    align-items: center;
+
+                                    textarea{
+                                        display: inline-block;
+                                        resize: none;
+                                        border-radius: 5px;
+                                        outline: none;
+                                        font-size: $mp; 
+                                        width: 550px; 
+                                        height: 100px;
+                                    }
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 
                                     >span{
                                         font-size: $bp;
@@ -344,6 +407,10 @@ div.quiz {
                                         border-radius: 10px;
                                         position: relative;
                                         overflow: hidden;
+<<<<<<< HEAD
+=======
+                                        
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 
                                         img{
                                             position: absolute;
@@ -366,13 +433,21 @@ div.quiz {
                                             transform: translateX(-110px);
                                             padding-right: $fontSize*7;
                                         }
+<<<<<<< HEAD
 
+=======
+                                        
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                     }
                                     
                                 }
                                 
                             }
+<<<<<<< HEAD
                             button[type=submit] {
+=======
+                            button.update {
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                                 @include addBtn;
                                 float: right;
                                 margin-right: $fontSize*2;

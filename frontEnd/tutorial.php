@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -10,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coder | 蟲洞練功坊</title>
   <link rel="stylesheet" href="./../css/main.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +31,7 @@
             </div>
           </div>
           <div class="askBodyRight">
-            <div class="orange"></div><p>可預約</p>
+            <div class="blue1"></div><p>可預約</p>
             <div class="red"></div><p>預約額滿</p>
           </div>
         </div>
@@ -48,16 +46,14 @@
             <img src="./../images/tutorial/upDownArrow.png" id="upArrow" class="upArrow" alt="圖片無法顯示">
             <img src="./../images/tutorial/upDownArrow.png" id="downArrow" class="downArrow none" alt="圖片無法顯示">
           </div>
-          <div class="filterAll">
-            <select name="courses" class="filterCourse">
-              <option class="textColor" value="1" selected>課程類型</option>
-              <option class="textColor" value="2">HTML</option>
-              <option class="textColor" value="3">CSS</option>
+          <div class="filterAll" id="conditionChoice">
+            <select name="courses" class="filterCourses" @change="condition">
+              <option class="textColor" value="all" selected>全部課程</option>
+              <option v-for="courseTypes in courseType" :value="courseTypes">{{courseTypes}}</option>
             </select>
-            <select name="teachers" class="filterTeachers">
-              <option class="textColor" value="1" selected>老師</option>
-              <option class="textColor" value="2">黃語昕</option>
-              <option class="textColor" value="3">黃瀚霆</option>
+            <select name="teachers" class="filterTeachers" @change="condition">
+              <option class="textColor" value="all" selected>全部老師</option>
+              <option v-for="teacherNames in teacherName" :value="teacherNames">{{teacherNames}}</option>
             </select>
           </div>
           <div class="allOrBuy">
@@ -79,84 +75,8 @@
           <div id="calendarDate" class="calendarDate"></div>
         </div>
       </div>
-      <div class="phoneCourseTime">
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Sun</p>
-            <p>1</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>張互賓</p>
-            <p>HTML</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Mon</p>
-            <p>2</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>黃語昕</p>
-            <p>JavaScript</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Sat</p>
-            <p>13</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>黃瀚霆</p>
-            <p>SCSS</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Tus</p>
-            <p>20</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>小姐姐</p>
-            <p>RDB</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Sat</p>
-            <p>69</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>黃家偉</p>
-            <p>好爽喔</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Sat</p>
-            <p>69</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>黃家偉</p>
-            <p>好爽喔</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
-        <div class="phoneDay">
-          <div class="phoneDayLeft">
-            <p>Sat</p>
-            <p>69</p>
-          </div>
-          <div class="phoneDayRight">
-            <p>黃家偉</p>
-            <p>好爽喔</p>
-            <p>18:00~22:00</p>
-          </div>
-        </div>
+      <div class="phoneCourseTime" id="phoneFeedBack">
+        <!-- 資料庫feedBack 手機條列式課輔時間 -->
       </div>
       <h2>&lt;如何預約&#47;&gt;</h2>
       <div class="booking">
@@ -223,12 +143,8 @@
         <div class="bookLightBoxBack"></div>
         <div class="bookLightBox">
           <img src="./../images/article/grayCancel.png" class="cancelBtn" alt="圖片無法顯示">
-          <div>
-            <p>JavaScript</p>
-            <p>黃語昕</p>
-            <p>18:00~22:00</p>
-            <p>目前人數 20 / 20</p>
-            <button>我要預約</button>
+          <div id="feedBack">
+            <!-- 點擊課程會打開的預約燈箱 -->
           </div>
         </div>
       </div>

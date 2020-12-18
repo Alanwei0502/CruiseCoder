@@ -220,9 +220,15 @@ header.unsetcss {
       </section>
       <section id="class-detail">
         <ul class="tab">
+<<<<<<< HEAD
           <li class="active"><a id="a_class" href="#class" style:display:flex;display: block;justify-content: center;align-items:center;>課程資訊</a></li>
           <li><a id="a_score" href="#score">課程評價</a></li>
           <li><a id="a_qa" href="#qa">留言發問</a></li>
+=======
+          <li class="active"><a href="#class" style:display:flex;display: block;justify-content: center;align-items:center;>課程資訊</a></li>
+          <li><a href="#score">課程評價</a></li>
+          <li><a href="#qa">留言發問</a></li>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
         </ul>
         <!-- 課程資訊 -->
         <div class="tab-content active" id="class">
@@ -297,8 +303,12 @@ header.unsetcss {
                     <i class="fa fa-star" data-st="5" aria-hidden="true"></i>
                   </div>
                   <div class="text-box">
+<<<<<<< HEAD
                     <textarea name="review_content" id="" placeholder="我想評價..."></textarea>
                     <button class="btn sent" onclick="$('#form_score').submit()">發表評價</button>
+=======
+                    <p>清楚分析，淺顯易懂</p>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                   </div>
                 </form>
                 </div>
@@ -325,7 +335,11 @@ header.unsetcss {
                     <i class="fa fa-star" aria-hidden="false"></i>
                   </div>
                   <div class="text-box">
+<<<<<<< HEAD
                     <p><?PHP echo $v['rFeedback']?></p>
+=======
+                    <p>蠻好的 對於有興趣進入此領域的人特別有幫助，都有很實質的建議.</p>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                   </div>
                 </div>
               </div>
@@ -345,6 +359,22 @@ header.unsetcss {
             <!-- 發問表單 -->
             <div class="write-comment post">
               <div class="row">
+<<<<<<< HEAD
+=======
+                <div class="pic"><img src="../images/course/4.png" alt=""></div>
+                <div class="content">
+                  <div class="post-header">
+                    <h5>tiffany0622</h5>
+                    <span class="date">2020.10.26</span>
+                  </div>
+                  <div class="text-box">
+                    <p>想請教老師此堂課程有沒有參考書籍可以購買呢，因為我個人學習習慣是線上課程搭配對應書籍</p>
+                  </div>
+                </div>
+              </div>
+              <!-- 回覆1 -->
+              <div class="row reply">
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                 <div class="pic"><img src="../images/course/5.png" alt=""></div>
                 <div class="content">
 
@@ -353,11 +383,15 @@ header.unsetcss {
                 <h5><?PHP echo  $member['mName']??'未登入'?></h5>
                 </div>
                   <div class="text-box">
+<<<<<<< HEAD
                 <form id="form_qa" method="post" action='?CourseID=<?PHP echo $CourseID?>&page=a_qa'>
                   <input name="submit_type" type="hidden" value="a_qa">
                     <textarea name="dContent" id="dContent" placeholder="我想發問..."></textarea>
                     <button class="btn sent" onclick="$('#form_qa').submit()">發表留言</button>
                 </form>
+=======
+                    <p>>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                   </div>
                 </div>
               </div>
@@ -380,7 +414,11 @@ header.unsetcss {
                     <span class="date"><?PHP echo $v['dDate']?></span>
                   </div>
                   <div class="text-box">
+<<<<<<< HEAD
                     <p><?PHP echo $v['dContent']?></p>
+=======
+                    <p>>也會介紹如何由範例延伸解決實際問題的做法，一起加油!</p>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                   </div>
                 </div>
               </div>
@@ -393,7 +431,11 @@ header.unsetcss {
                     <span class="date">2020.10.26</span>
                   </div>
                   <div class="text-box">
+<<<<<<< HEAD
                     <p>>您好，這堂課程老師也有準備豐富的講義教材，開課時也會提供給學員們下載使用哦，祝您學習愉快。</p>
+=======
+                    <p>請問上課地點在哪裡？</p>
+>>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
                   </div>
                 </div>
               </div> -->

@@ -1,4 +1,13 @@
 <?php
+    include("./layout/connect.php");
+
+  //建立SQL
+  $sql = "SELECT * FROM member WHERE mNumber = ?";
+  $mNumber = "M0001";
+  $statement = $pdo->prepare($sql);
+  $statement->bindValue(1 , "$mNumber");
+  $statement->execute();
+  $infoMember = $statement->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +18,12 @@
   <title>Cruise Coders ｜ CC點數</title>
   <link rel="stylesheet" href="../css/main.css">
   <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
 
 </head>
@@ -28,13 +41,17 @@
 
       <div class="noticeGroup">
         <div class="ccNotice">
+          <?php
+              foreach($infoMember as $index => $row){
+          ?>
           <p>目前擁有<br>
-            19,850 CC Point (CC幣) <br>
-            = NT$ 198 </p>
+             <span><?=$row["mCC"] ?></span>CC Point (CC幣) <br>
+            = NT$ <?=floor($row["mCC"]*0.0111) ?> </p>
+            <?php } ?>
         </div>
       
         <div class="getNotice">
-          <p>今日簽到獲得10 CC Point!</p>
+          <p>今日簽到獲得<span><?=$row["mCC"]?></span>CC Point!</p>
         </div>
       </div>
       <div class="ccPointDay">
@@ -105,7 +122,7 @@
     
 
     <div class="second_area">
-      <p class="ccHow"><關於 CC Point/></p>
+      <p class="ccHow">< 關於 CC Point /></p>
       <div class="tab_container">
   
         <div class="tab_list_block">
@@ -194,9 +211,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script>
-
-
-
       $(function () {
         $("a[href*=#]").on("click", function (e) {
           e.preventDefault();
@@ -223,18 +237,11 @@
         });
       });
 
-      
-
       $('.tab_list>li').click(function(){
 
         $('.tab_list>li').removeClass('-on');
         $(this).addClass('-on');
       });
-
-
-
-      
-
 
   </script>
   <script src="../js/header.js"> </script>

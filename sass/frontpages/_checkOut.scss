@@ -119,6 +119,7 @@
                 border: 10px solid $orange;
                 background-color: $beige;
                 margin-top: 30px;
+                transform-style: preserve-3d;
 
                 @include bigPad {
                     border: 8px solid $orange;
@@ -223,6 +224,8 @@
                         i {
                             color: rgb(100, 100, 100);
                             font-size: 40px;
+                            cursor: pointer;
+
 
                             // margin-right: 30px;
                             @include smlPad {
@@ -253,7 +256,7 @@
 
                     }
 
-                    p.price {
+                    p.singlePrice {
                         text-align: right;
                         font-size: $h4;
                         color: #003B80;
@@ -268,11 +271,24 @@
             }
         }
 
+        .shoppingList.-on {
+            color: $white;
+            font-size: $h4;
+            text-align: center;
+            margin-top: 80px;
+
+
+
+            @include smlPad {
+                font-size: $bp;
+            }
+        }
+
         .price {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-
+            position: relative;
 
 
             .discount {
@@ -297,34 +313,41 @@
                     padding: 20px;
                 }
 
-                .ccPoint {
+                form.ccPoint {
                     justify-content: center;
                     align-items: center;
-                    display: flex;
+                    // display: flex;
                     letter-spacing: .1rem;
                     color: $white;
                     font-weight: 500;
-                }
 
+                    input {
+                        width: 100px;
+                        height: 40px;
+                        font-size: 30px;
+                        padding: 0px 5px;
+                        border: none;
+                        margin: 0px 5px;
+                        border-radius: 10px;
+                        outline: none;
+                        text-align: right;
 
-                input {
-                    width: 100px;
-                    height: 40px;
-                    font-size: 30px;
-                    padding: 0px 10px;
-                    border: none;
-                    margin: 0px 10px;
-                    border-radius: 10px;
-                    outline: none;
-                    text-align: right;
-
-                    @include bigPad {
-                        width: 80px;
-                        font-size: 22px;
-                        height: 35px;
-
+                        @include bigPad {
+                            width: 50px;
+                            font-size: 22px;
+                            height: 35px;
+                        }
                     }
                 }
+
+
+
+
+            }
+
+            p.overCcp {
+                margin-right: 30px;
+                color: $red;
             }
 
             .sum {
@@ -346,8 +369,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
 
                     p.price {
@@ -359,8 +390,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
                 }
 
@@ -368,8 +407,16 @@
                     display: flex;
                     margin-bottom: 30px;
 
+                    @include bigPad {
+                        margin-bottom: 20px;
+                    }
+
                     p.text {
                         margin-right: 50px;
+
+                        @include bigPad {
+                            margin-right: 30px;
+                        }
                     }
                 }
             }
@@ -379,11 +426,13 @@
         .payment {
             @include clearfixed;
             margin-bottom: 150px;
+            position: relative;
+
 
             .title {
                 font-size: $h3;
                 color: $white;
-                padding: 0px 0px 30px 30px;
+                padding: 30px 0px 30px 30px;
                 font-weight: 600;
 
                 @include smlPad {
@@ -400,7 +449,7 @@
             }
 
 
-            form.infon {
+            form.info {
                 background-color: $beige;
                 margin: $center;
                 width: 95%;
@@ -474,12 +523,17 @@
 
                 p.note {
                     color: #707070;
-                    padding: 0px 0px 30px 40px;
-                    font-size: $bp;
+                    padding: 0px 0px 30px 50px;
+                    font-size: $mp;
+
+                    &:before {
+                        content: '*';
+                        color: $red;
+                    }
 
                     @include smlPad {
-                        font-size: 20px;
-                        padding: 0px 0px 30px 10px;
+                        font-size: $sp;
+                        padding: 0px 0px 30px 20px;
 
                     }
 
@@ -502,6 +556,10 @@
                     label {
                         @include paymentLabel;
 
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
                     }
 
                     input {
@@ -512,6 +570,19 @@
                             margin-bottom: 10px;
                             font-size: $mp;
                         }
+
+
+                    }
+
+                    input::-webkit-input-placeholder {
+                        color: #b9b9b9;
+                        /* 更改placeholder的字體顏色  */
+                        font-size: 20px;
+                        /* 更改placeholder的字體大小  */
+                    }
+
+                    .-error {
+                        border: 1px solid red;
                     }
                 }
 
@@ -531,6 +602,15 @@
 
                     label {
                         @include paymentLabel;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
+                    }
+
+                    input#phone_Num.-error {
+                        border: 1px solid red;
                     }
 
                     input {
@@ -543,6 +623,14 @@
 
                         }
                     }
+
+                    input::-webkit-input-placeholder {
+                        color: #b9b9b9;
+                        /* 更改placeholder的字體顏色  */
+                        font-size: 20px;
+                        /* 更改placeholder的字體大小  */
+                    }
+
                 }
 
                 .creditCardNum {
@@ -560,6 +648,11 @@
                     label {
                         @include paymentLabel;
 
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
+
                         @include smlPad {
                             display: block;
                             margin-bottom: 10px;
@@ -571,14 +664,14 @@
                         width: 90px;
                         margin-right: 10px;
 
-                        @include bigPhone{
-                        width: 70px;
-
+                        @include bigPhone {
+                            width: 70px;
                             font-size: $mp;
-
                         }
+                    }
 
-
+                    .-error {
+                        border: 1px solid red;
                     }
                 }
 
@@ -594,14 +687,20 @@
                         margin: 10px 0px 30px 20px;
                     }
 
-                    label {
+                    label.text {
                         display: inline-block;
                         width: $label;
+
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
 
                         @include smlPad {
                             display: block;
                             margin-bottom: 10px;
                         }
+
                     }
 
                     select {
@@ -612,11 +711,13 @@
                         outline: none;
                         font-size: $h4;
                         font-size: 25px;
+                        padding: 0px 10px;
 
                         @include bigPad {
                             font-size: $bp;
                         }
-                        @include bigPhone{
+
+                        @include bigPhone {
                             font-size: $mp;
 
                         }
@@ -632,6 +733,11 @@
                         @include bigPad {
                             font-size: $bp;
                         }
+
+                        @include bigPhone {
+                            font-size: $mp;
+
+                        }
                     }
 
                     label.years {
@@ -643,6 +749,11 @@
 
                         @include bigPad {
                             font-size: $bp;
+                        }
+
+                        @include bigPhone {
+                            font-size: $mp;
+
                         }
                     }
                 }
@@ -664,6 +775,11 @@
                     label {
                         @include paymentLabel;
 
+                        &:before {
+                            content: '*';
+                            color: $red;
+                        }
+
                         @include smlPad {
                             display: block;
                             margin-bottom: 10px;
@@ -673,32 +789,135 @@
                     input {
                         @include paymentInput;
                         width: 90px;
-                        @include bigPhone{
+
+                        @include bigPhone {
                             font-size: $mp;
-
                         }
+                    }
 
+                    .-error {
+                        border: 1px solid red;
+                    }
+                }
+
+                button {
+                    float: right;
+                    margin-right: 30px;
+                    @include btn($h4);
+
+                    @include smlPad {
+                        @include btn($bp);
+                    }
+
+                    @include bigPhone {
+                        @include btn($mp);
+                    }
+
+                    @include smlPhone {
+                        @include btn($sp);
                     }
                 }
             }
 
-            button {
-                float: right;
-                margin-right: 30px;
-                @include btn($h4);
+        }
 
-                @include smlPad {
-                    @include btn($bp);
+        // 付款完成的燈箱
+        .success.-on,
+        .failed.-on {
+            /* 加上 -on 之後，訂單資訊 漸漸出現，因為有設定 transition */
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .success,
+        .failed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: hsla(0, 0%, 0%, .5);
+            overflow: hidden;
+
+            /* 預設：完全透明；設定 z-index: -1 會在整個頁面的後方，看不到，才不會擋到頁面元素。 */
+            opacity: 0;
+            z-index: -1;
+            transition: all .3s;
+
+            section {
+                position: relative;
+                min-width: 380px;
+                margin: 0 auto;
+                background-color: #182749;
+                border-radius: 20px;
+                padding: 60px 0px;
+
+                // 叉叉
+                .close {
+                    width: 50px;
+
+                    // margin: 0 auto;
+                    img {
+                        position: absolute;
+                        top: $fontSize;
+                        right: $fontSize;
+                        cursor: pointer;
+                        color: $white;
+                    }
                 }
 
-                @include bigPhone {
-                    @include btn($mp);
+                // 付款成功的圖片
+                .successfulTransaction,
+                .failedTransaction {
+                    width: 300px;
+                    margin: 0 auto;
+
+                    img {
+                        max-width: 100%;
+                    }
                 }
 
-                @include smlPhone {
-                    @include btn($sp);
+                p.title {
+                    font-size: $h1;
+                    font-weight: 600;
+                    margin: 30px 0px;
+                    color: $white;
+                    text-align: center;
+                    text-shadow: 2px 2px 6px black;
+                }
+
+                p.failed_Title {
+                    font-size: $h1;
+                    font-weight: 600;
+                    margin: 30px 0px;
+                    color: $red;
+                    text-align: center;
+                    text-shadow: 2px 2px 6px black;
+                }
+
+                button.go_Course,
+                button.go_checkOut {
+                    margin: 0 auto;
+                    display: block;
+                    @include btn($h4);
+
+                    @include smlPad {
+                        @include btn($bp);
+                    }
+
+                    @include bigPhone {
+                        @include btn($mp);
+                    }
+
+                    @include smlPhone {
+                        @include btn($sp);
+                    }
                 }
             }
         }
+
     }
 }
