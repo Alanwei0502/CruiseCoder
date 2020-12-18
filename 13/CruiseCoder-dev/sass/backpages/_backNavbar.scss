@@ -1,0 +1,71 @@
+.body {
+	margin: 0px;
+	padding: 0px;
+	font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
+}
+.backEndWrap {
+	width: 1200px;
+	display: flex;
+	margin: 0 auto;
+	font-size: 0px;	
+
+	aside {
+		width: 20%;
+		background-color: $blue1;
+		color: $white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h2.asideTitle {
+			text-align: center;
+			font-size: $h4;
+			font-weight: bold;
+			margin-top: $fontSize*2;
+			margin-bottom: 0px;
+			letter-spacing: 3px;
+			line-height: $fontSize*3;
+		}
+
+		div.user {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: $sp;
+			margin-top: $fontSize*2;
+			margin-bottom: $h2;
+
+			img {
+				width: 22%;
+				display: block;
+				margin-bottom: $fontSize;
+			}
+		}
+
+		nav{
+			ul{
+				li{
+					text-align: center;
+					a{
+						text-decoration: none;
+						color: $white;
+						font-size: $bp;
+						font-weight: bold;
+						display: block;
+						padding: $fontSize*1.5 $fontSize*4;
+						
+						&:hover{
+							background-color: $blue2;
+							color: $blue1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		width: 80%;
+		background-color: bisque;
+	}
+}

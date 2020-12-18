@@ -12,7 +12,6 @@
     <nav>
         <ul>
             <li><a href="member.php">會員管理</a></li>
-            <li><a href="teacher.php">老師管理</a></li>
             <li><a href="course.php">課程管理</a></li>
             <li><a href="article.php">專欄管理</a></li>
             <li><a href="reservation.php">預約管理</a></li>

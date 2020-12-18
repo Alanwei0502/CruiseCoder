@@ -1,0 +1,277 @@
+// // Login開始
+// div.loginWrap {
+// 	width: 100%;
+// 	height: 100vh;
+// 	position: fixed;
+// 	display: none;
+// 	z-index: 9;
+
+// 	div.greyGlass {
+// 		width: 100%;
+// 		height: 100vh;
+// 		background-color: rgba(134, 134, 134, 0.288);
+// 		z-index: 10;
+// 	}
+
+// 	div.loginBox {
+// 		width: 800px;
+// 		height: 500px;
+// 		font-size: 0px;
+// 		position: absolute;
+// 		left: 50%;
+// 		top: 50%;
+// 		transform: translate(-50%, -50%);
+// 		z-index: 95;
+// 		overflow: hidden;
+// 		border-radius: 10px;
+// 		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+// 		div.createArea {
+// 			display: inline-block;
+// 			width: 50%;
+// 			height: 100%;
+// 			background-color: #124f6e;
+// 			vertical-align: top;
+// 			color: white;
+// 			overflow: hidden;
+// 			z-index: 95;
+
+// 			form {
+// 				display: inline-block;
+// 				position: relative;
+// 				transition: all 0.6s ease-in-out;
+// 				left: 50%;
+// 				transform: translateX(-50%);
+// 				label:first-child {
+// 					margin-top: 60px;
+// 				}
+// 				label {
+// 					font-size: 16px;
+// 					display: block;
+// 					margin-top: 10px;
+// 					margin-bottom: 5px;
+// 					letter-spacing: 2px;
+// 				}
+// 				input {
+// 					font-size: 16px;
+// 					display: block;
+// 					border-radius: 15px;
+// 					border: 0px;
+// 					text-align: center;
+// 					height: 25px;
+// 					width: 200px;
+// 				}
+// 				#createAccount {
+// 					background-color: $yellow;
+// 					color: $black;
+// 					outline: none;
+// 					border: 0px;
+// 					border-radius: 10px;
+// 					width: 150px;
+// 					height: 40px;
+// 					margin-top: 40px;
+// 					cursor: pointer;
+// 					position: relative;
+// 					left: 50%;
+// 					transform: translateX(-50%);
+// 					font-size: 20px;
+// 				}
+// 			}
+// 			input:focus {
+// 				outline: none;
+// 			}
+// 		}
+// 		div.loginArea {
+// 			display: inline-block;
+// 			width: 50%;
+// 			height: 100%;
+// 			background-color: #124f6e;
+// 			vertical-align: top;
+// 			color: white;
+// 			overflow: hidden;
+// 			z-index: 95;
+
+// 			form {
+// 				display: inline-block;
+// 				position: relative;
+// 				transition: all 0.6s ease-in-out;
+// 				left: 50%;
+// 				transform: translateX(-50%);
+// 				img {
+// 					margin-top: 30%;
+// 					margin-bottom: 10%;
+// 				}
+// 				input {
+// 					font-size: 16px;
+// 					display: block;
+// 					border-radius: 15px;
+// 					border: 0px;
+// 					text-align: center;
+// 					height: 25px;
+// 					width: 200px;
+// 					margin: 0 auto;
+// 					margin-top: 20px;
+// 				}
+// 				#login {
+// 					background-color: $yellow;
+// 					color: $black;
+// 					outline: none;
+// 					border: 0px;
+// 					border-radius: 10px;
+// 					width: 150px;
+// 					height: 40px;
+// 					margin-top: 40px;
+// 					cursor: pointer;
+// 					position: relative;
+// 					left: 50%;
+// 					transform: translateX(-50%);
+// 					font-size: 20px;
+// 				}
+// 				input:focus {
+// 					outline: none;
+// 				}
+// 			}
+// 		}
+
+// 		div.upArea {
+// 			width: 400px;
+// 			height: 100%;
+// 			// border: 1px solid rgb(31, 102, 3);
+// 			background-color: #124f6e;
+// 			white-space: nowrap;
+// 			overflow: hidden;
+// 			z-index: 99;
+// 			position: absolute;
+// 			top: 0px;
+// 			left: 0px;
+// 			transition: all 0.6s ease-in-out;
+// 			transform: translateX(0%);
+
+// 			div.slideBlock {
+// 				width: 100%;
+// 				height: 100%;
+// 				position: relative;
+// 				transition: all .6s ease-in-out;
+// 				transform: translateX(0%);
+
+// 				div.item1 {
+// 					display: inline-block;
+// 					width: 100%;
+// 					height: 100%;
+// 					background-image: url("../images/login/createImg.png");
+// 					background-size: contain;
+// 					vertical-align: top;
+// 					transition: all 0.6s ease-in-out;
+// 					transform: translateX(0%);
+// 					p {
+// 						font-size: 16px;
+// 						color: white;
+// 						width: 100%;
+// 						text-align: center;
+// 						margin-top: 60%;
+// 						font-weight: 300;
+// 						transition: all .8s ease-in-out;
+// 						transform: translateX(0%);
+// 					}
+
+// 					button {
+// 						background-color: $red;
+// 						font-size: 16px;
+// 						color: white;
+// 						outline: none;
+// 						border: 0px;
+// 						border-radius: 10px;
+// 						width: 150px;
+// 						height: 40px;
+// 						margin-top: 30px;
+// 						cursor: pointer;
+// 						position: relative;
+// 						left: 50%;
+// 						transform: translateX(-50%);
+// 						transition: all .8s ease-in-out;
+// 					}
+// 				}
+
+// 				div.item2 {
+// 					display: inline-block;
+// 					width: 100%;
+// 					height: 100%;
+// 					background-image: url("../images/login/loginImg.png");
+// 					background-size: contain;
+// 					vertical-align: top;
+
+// 					p {
+// 						font-size: 16px;
+// 						color: white;
+// 						width: 100%;
+// 						text-align: center;
+// 						margin-top: 60%;
+// 						font-weight: 300;
+// 						transition: all .8s ease-in-out;
+// 						transform: translateX(0%);
+// 					}
+
+// 					button {
+// 						background-color: $red;
+// 						color: white;
+// 						outline: none;
+// 						font-size: 18px;
+// 						border: 0px;
+// 						border-radius: 10px;
+// 						width: 150px;
+// 						height: 40px;
+// 						margin-top: 30px;
+// 						cursor: pointer;
+// 						position: relative;
+// 						left: 50%;
+// 						transform: translateX(-50%);
+// 						transition: all .8s ease-in-out;
+// 					}
+// 				}
+// 			}
+// 		}
+
+// 		#closeIcon {
+// 			position: absolute;
+// 			z-index: 200;
+// 			width: 35px;
+// 			right: 0px;
+// 			top: 0px;
+// 			cursor: pointer;
+// 		}
+// 	}
+// }
+
+// .createHide {
+// 	left: 100% !important;
+// 	transform: translateX(0%) !important;
+// }
+
+// .loginHide {
+// 	left: -100% !important;
+// 	transform: translateX(-0%) !important;
+// }
+
+// .move {
+// 	transform: translateX(100%) !important;
+// }
+// .moveToLeft {
+// 	transform: translateX(-100%) !important;
+// }
+
+// .item1Pmove {
+// 	transform: translateX(-10%) !important;
+// }
+
+// .item1Pbotton {
+// 	transform: translateX(-80%) !important;
+// }
+
+// .item2Pmove {
+// 	transform: translateX(10%) !important;
+// }
+
+// .item2Pbotton {
+// 	transform: translateX(-20%) !important;
+// }
+// // Login結束

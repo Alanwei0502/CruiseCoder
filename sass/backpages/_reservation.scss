@@ -125,7 +125,7 @@ div.reservation{
               display: block;
               margin: 30px 0px 10px 0px;
             }
-            input#datepicker3{
+            input#datepicker4{
               @include datepickerStyle;
             }
             select{
@@ -194,19 +194,31 @@ div.reservation{
         display: block;
         margin-bottom: 5px;
       }
-      input{
-        @include datepickerStyle;
-      }
       select{
         @include selectStyle;
-        width: 170px;
+        width: 300px;
       }
       div.reservationTime{
-        display: inline-block;
+        display: block;
+        margin-bottom: 20px;
+        div.dateRange{
+          display: flex;
+          input{
+            @include datepickerStyle;
+            width: 200px;
+            &:first-child{
+              margin-right: 15px;
+            }
+          }
+          p{
+            font-size: $mp;
+            line-height: 40px;
+            margin-right: 15px;
+          }
+        }
       }
       div.course{
         display: inline-block;
-        margin-left: 30px;
       }
       div.teacher{
         display: inline-block;
@@ -214,7 +226,7 @@ div.reservation{
       }
       button{
         @include backBtn;
-        margin-left: 60px;
+        margin-left: 120px;
       }
     }
     div.addOrCancle{
@@ -233,13 +245,12 @@ div.reservation{
       }
     }
     div.table{
-      font-size: $mp;
-      max-width: 100%;
-      padding: 0px 50px;
+      font-size: $bp;
+      max-width: 100%;  
       div.tr{
         display: flex;
         flex-shrink: 0;
-        padding: 20px 10px;
+        padding: $fontSize 10px;
         &:nth-child(2n){
           background: $beige;
         }
@@ -247,7 +258,7 @@ div.reservation{
       div.td{
         display: flex;
         align-items: center;
-        width: 60px;
+        width: 80px;
         line-height: 32px;
         label{
           cursor: pointer;
@@ -282,7 +293,7 @@ div.reservation{
       float: right;
       @include clearfixed;
       margin-right: 30px;
-      margin-top: 20px;
+      margin-top: 70px;
       button{
         @include changePage;
       }

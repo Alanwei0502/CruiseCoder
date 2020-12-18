@@ -1,5 +1,14 @@
+//summernote
+.modal-backdrop{
+  display: none;
+}
+.modal-backdrop.in{
+  display: none;
+}
 div.article{
-
+  .error{
+    border: 3px solid $red;
+  }
   main{
     position: relative;
     div.addArticleBackAll{
@@ -8,7 +17,7 @@ div.article{
       left: 0;
       z-index: -1;
       opacity: 0;
-      transition: all 1s;
+      transition: all 0.5s;
       div.addArticleBack{
         position: relative;
         top: 0;
@@ -36,6 +45,7 @@ div.article{
           padding: 30px 0px;
           background-color: $white;
           overflow-y: scroll;
+          @include clearfixed;
           div.articleTop{
             width: 70%;
             margin: 0 auto;
@@ -58,12 +68,25 @@ div.article{
               }
               div.fileStyle{
                 @include inputFileStyle;
+                height: 50px;
+              }
+              div.fileStyle.error{
+                border: 3px solid $red;
+              }
+              p.imagesPrompt{
+                font-size: $sp;
+                margin-top: 20px;
+                float: right;
+                line-height: 20px;
+                span{
+                  color: $red;
+                }
               }
             }
             div.articleImageOutline{
               border: 1px solid gray;
               width: 400px;
-              height: 400px;
+              height: 300px;
               div.articleImage{
                 position: relative;
                 top: 50%;
@@ -73,7 +96,7 @@ div.article{
                 img{
                   width: 100%;
                   max-width: 400px;
-                  max-height: 400px;
+                  max-height: 300px;
                 }
               }
             }
@@ -86,15 +109,23 @@ div.article{
               display: block;
               margin-bottom: 10px;
             }
-            textarea{
-              @include inputTextStyle;
-              width: 97.5%;
-              height: 500px;
-              resize: none;
-            }
+            // textarea{
+            //   // @include inputTextStyle;
+            //   // width: 97.5%;
+            //   // height: 500px;
+            //   // resize: none;
+            // }    
+          }
+          button.addBtn{
+            @include addBtn;
+            float: right;
+            margin-top: 30px;
+            margin-right: 175px;
+            height: 50px;
+
           }
         }
-        img{
+        img.cancelBack{
           position: absolute;
           width: 50px;
           top: 10px;
@@ -115,7 +146,7 @@ div.article{
       left: 0;
       z-index: -1;
       opacity: 0;
-      transition: all 1s;
+      transition: all 0.5s;
       div.editArticleBack{
         position: relative;
         top: 0;
@@ -166,18 +197,29 @@ div.article{
                 @include inputTextStyle;
                 width: 350px;
               }
-              div.fileStyle{
+              div.editFileStyle{
                 @include inputFileStyle;
+                width: 350px;
+                height: 50px;
               }
               select{
                 @include selectStyle;
-                width: 374px;
+                width: 350px;
+              }
+              p.imagesPrompt{
+                font-size: $sp;
+                margin-top: 10px;
+                float: right;
+                line-height: 20px;
+                span{
+                  color: $red;
+                }
               }
             }
             div.articleImageOutline{
               border: 1px solid gray;
               width: 400px;
-              height: 400px;
+              height: 300px;
               div.articleImage{
                 position: relative;
                 top: 50%;
@@ -187,7 +229,7 @@ div.article{
                 img{
                   width: 100%;
                   max-width: 400px;
-                  max-height: 400px;
+                  max-height: 300px;
                 }
               }
             }
@@ -207,8 +249,14 @@ div.article{
               resize: none;
             }
           }
+          button.saveBtn{
+            @include saveBtn;
+            float: right;
+            margin-top: 30px;
+            margin-right: 175px;
+          }
         }
-        img{
+        img.cancelBack{
           position: absolute;
           width: 50px;
           top: 10px;
@@ -236,8 +284,20 @@ div.article{
       div.upLoadTime{
         display: inline-block;
         margin-bottom: 20px;
-        input{
-          @include datepickerStyle;
+        div.dateRange{
+          display: flex;
+          input{
+            @include datepickerStyle;
+            width: 200px;
+            &:first-child{
+              margin-right: 15px;
+            }
+          }
+          p{
+            font-size: $mp;
+            line-height: 40px;
+            margin-right: 15px;
+          }
         }
       }
       div.status{
@@ -255,7 +315,7 @@ div.article{
         div.articleName{
           input{
             @include inputTextStyle;
-            width: 700px;
+            width: 675px;
           }
         }
         button{
@@ -269,28 +329,29 @@ div.article{
       margin: 25px 0px;
       padding-right: 5px;
 
-      button.canleButton{
+      button.cancleButton{
         @include cancelBtn;
+        height: 50px;
       }
       button.addButton{
         @include addBtn;
         margin-left: 30px;
         margin-right: 20px;
+        height: 50px;
       }
     }
     div.table{
-      font-size: $mp;
+      font-size: $bp;
       max-width: 100%;
-      padding: 0px 50px;
       div.tr{
         display: flex;
         flex-shrink: 0;
-        padding: 20px 10px;
+        padding: $fontSize 10px;
         &:nth-child(2n){
           background: $beige;
         }
         div.td{
-          width: 60px;
+          width: 80px;
           display: flex;
           align-items: center;
           line-height: 32px;
@@ -321,9 +382,10 @@ div.article{
       float: right;
       @include clearfixed;
       margin-right: 30px;
-      margin-top: 5px;
+      margin-top: 30px;
       button{
         @include changePage;
+        height: 50px;
       }
       button.nextPage{
         margin-left: 40px;

@@ -1,0 +1,245 @@
+div.teacher {
+	main {
+		h2 {
+			@include backTitle;
+		}
+
+		.closeModal {
+			width: $h2;
+			position: absolute;
+			top: $fontSize;
+			right: $fontSize;
+			cursor: pointer;
+		}
+		.searchbar {
+			@include blockStyle;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			div {
+				display: flex;
+				label {
+					font-size: $bp;
+					display: block;
+					input {
+						@include selectStyle;
+						width: $fontSize * 20;
+						margin-right: $fontSize * 2;
+					}
+				}
+			}
+			button {
+				@include backBtn;
+				white-space: nowrap;
+			}
+		}
+
+		.table {
+			.btns {
+				// border: 1px solid;
+				display: flex;
+				justify-content: flex-end;
+				button {
+					margin: $fontSize*2;
+				}
+				.add {
+					@include addBtn;
+				}
+			}
+
+			table {
+				font-size: $bp;
+				width: 90%;
+				margin: 0 auto;
+
+				button {
+					@include editBtn;
+					cursor: pointer;
+				}
+				tr {
+					width: 100%;
+					label {
+						cursor: pointer;
+					}
+
+					th {
+						font-weight: bold;
+						padding: $fontSize*1.5 0;
+						text-align: left;
+
+						&:nth-child(1) {
+							width: 33.3%;
+							padding-left: 20px;
+						}
+						&:nth-child(2) {
+							width: 33.3%;
+						}
+						&:nth-child(3) {
+							width: 33.3%;
+						}
+					}
+					td {
+						// border: 1px solid;
+						padding: $fontSize*1.5 0;
+
+						&:nth-child(1) {
+							padding-left: 20px;
+						}
+					}
+				}
+			}
+
+			.changePage {
+				display: flex;
+				justify-content: flex-end;
+				.lastPage,
+				.nextPage {
+					@include changePage;
+					margin: $fontSize * 2;
+				}
+			}
+		}
+
+		.addBlockhidden {
+			display: none;
+		}
+
+		.addBlock {
+			position: fixed;
+			height: 100vh;
+			width: 100%;
+			top: 0;
+			left: 0;
+
+			.grayBlock {
+				cursor: pointer;
+				position: absolute;
+				width: 100%;
+				height: 100vh;
+				background-color: rgba(114, 114, 114, 0.76);
+			}
+			form {
+				background-color: #fbf7eb;
+				position: absolute;
+				height: 100vh;
+				width: 900px;
+				z-index: 50;
+				left: 50%;
+				top: 0%;
+				transform: translate(-50%);
+				div {
+					padding: 16px 0px;
+					label {
+						font-size: 26px;
+						margin: 0px 10px 0px 30px;
+					}
+					#forTextarea {
+						vertical-align: top;
+					}
+
+					input {
+						width: 70%;
+						height: 40px;
+						border-radius: 8px;
+						outline: none;
+						padding: 0px 10px;
+						font-size: 22px;
+					}
+					textarea {
+						width: 630px;
+						height: 300px;
+						border-radius: 8px;
+						outline: none;
+						padding: 10px 10px;
+						font-size: 22px;
+					}
+				}
+				button[type=submit] {
+					@include addBtn;
+					float: right;
+					margin: 20px 150px;
+				}
+			}
+		}
+
+		.editBlock {
+			position: fixed;
+			height: 100vh;
+			width: 100%;
+			top: 0;
+			left: 0;
+
+			.grayBlock {
+				cursor: pointer;
+				position: absolute;
+				width: 100%;
+				height: 100vh;
+				background-color: rgba(114, 114, 114, 0.76);
+			}
+			form {
+				background-color: #fbf7eb;
+				position: absolute;
+				height: 100vh;
+				width: 900px;
+				z-index: 50;
+				left: 50%;
+				top: 0%;
+				transform: translate(-50%);
+				div {
+					padding: 16px 0px;
+					label {
+						font-size: 26px;
+						margin: 0px 10px 0px 30px;
+					}
+					#forTextarea {
+						vertical-align: top;
+					}
+
+					input {
+						width: 70%;
+						height: 40px;
+						border-radius: 8px;
+						outline: none;
+						padding: 0px 10px;
+						font-size: 22px;
+					}
+					textarea {
+						width: 630px;
+						height: 300px;
+						border-radius: 8px;
+						outline: none;
+						padding: 10px 10px;
+						font-size: 22px;
+					}
+				}
+
+				div.edit {
+					width: 100%;
+					padding: 0px;
+					display: flex;
+					justify-content: flex-end;
+					button.submit {
+						@include addBtn;
+						margin-right: 160px;
+					}
+					button.delete {
+						cursor: pointer;
+						outline: none;
+						border: none;
+						font-size: 22px;
+						color: white;
+						background-color: #f9433e;
+						padding: 10px 10px 10px 45px;
+						border-radius: 32px;
+						background-image: url(./../images/backEnd/addicon.png);
+						background-repeat: no-repeat;
+						background-size: 28px 28px;
+						background-position: center left 10px;
+						box-shadow: 5px 5px 10px -5px black;
+						margin-right: 20px;
+					}
+				}
+			}
+		}
+	}
+}

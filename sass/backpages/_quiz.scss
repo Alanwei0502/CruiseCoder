@@ -1,4 +1,6 @@
 div.quiz {
+    min-height: 100vh;
+    font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
     main {
         h2 {
             @include backTitle;
@@ -20,7 +22,6 @@ div.quiz {
                     select {
                         @include selectStyle;
                         width: $fontSize * 20;
-                        margin-right: $fontSize * 2;
                     }
                 }
             }
@@ -30,8 +31,12 @@ div.quiz {
                 white-space: nowrap;
             }
         }
+        
 
         section.table {
+            display: flex;
+            flex-direction: column;
+            
             .btns {
                 display: flex;
                 justify-content: flex-end;
@@ -76,20 +81,19 @@ div.quiz {
                         text-align: left;
 
                         &:nth-child(1) {
-                            width: 10%;
-
                             label {
                                 cursor: pointer;
                             }
-                        }
-
-                        &:nth-child(4) {
-                            width: 20%;
                         }
                     }
 
                     td {
                         padding: $fontSize*1.5 0;
+                    }
+                }
+                tbody tr{
+                    &:nth-child(odd){
+                        background-color: #FBF7EB;
                     }
                 }
             }
@@ -118,12 +122,13 @@ div.quiz {
             transition: all .3s;
 
             .quizModal {
+                // border: 3px solid red;
                 background-color: $beige;
                 width: 90%;
                 height: 95%;
                 max-width: 1200px;
                 border-radius: 10px;
-                padding: 0 $fontSize;
+                padding: $fontSize;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -131,165 +136,249 @@ div.quiz {
                 right: 0;
                 margin: auto;
 
-                img.closeModal {
-                    width: $h2;
-                    position: absolute;
-                    top: $fontSize;
-                    right: $fontSize;
-                    cursor: pointer;
-                }
-
-                .overflowArea {
-                    width: 100%;
-                    height: 85%;
+                .editArea{
+                    // border: 3px solid blue;
+                    position: relative;
+                    height: 100%;
                     overflow: hidden;
-                    overflow-y: auto;
-                    background-color: $white;
-                }
-
-                form {
-                    padding: $fontSize*2;
-                    @include clearfixed;
-
-                    >div {
-                        padding: $fontSize 0;
-
-                        >span {
-                            font-size: $bp;
-                            display: inline-block;
-                            width: 120px;
-                            white-space: nowrap;
-                        }
-
-                        .quizLevel {
-                            @include selectStyle;
-                        }
-
-                        .newField {
-                            @include inputTextStyle;
-                        }
-
-                        input[type=file] {
-                            @include uploadImg;
-                        }
-
-                        .topFunction {
-                            background-color: $blue1;
-                            border-radius: 30px 30px 0 0;
+                    
+                    .navPage{
+                        display: flex;
+                        justify-content: space-between;
+                        >div{
                             display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-
-                            label {
-                                font-size: $mp;
-                                display: block;
-                                background-color: $beige;
-                                padding: 10px 20px;
-                                border-radius: 30px;
-                                margin-left: $fontSize;
+                            h2{
                                 cursor: pointer;
-
-                                &:hover {
-                                    background-color: $blue2;
-                                }
-
-                                input[type=checkbox] {
-                                    @include checkbox;
-                                }
-                            }
-
-                            >div {
-                                padding: $fontSize 0;
-
-                                .deleteQ {
-                                    @include cancelBtn;
-                                    margin-right: $fontSize;
-                                }
-
-                                .createQ {
-                                    @include addBtn;
-                                    margin-right: $fontSize;
+                                margin: 0;
+                                margin-top: $fontSize;
+                                padding: $fontSize*1.5 $fontSize*2;
+                                border-radius: 10px 10px 0 0;
+            
+                                &.openQuiz{
+                                    background-color: $white;
                                 }
                             }
                         }
-
-                        .downQuestion {
-                            display: flex;
-                            background-color: $beige;
-
-                            label {
-                                display: block;
-                                flex-grow: 1;
-                                padding: $fontSize 0;
-                                display: flex;
-                                justify-content: center;
-
-                                input[type=checkbox] {
-                                    @include checkbox;
-                                }
-                            }
-
-                            .contentQ {
-                                flex-grow: 25;
-                                padding: $fontSize*0.5;
-
-                                textarea {
-                                    width: 100%;
-                                    resize: none;
-                                    border: none;
-                                    margin: $fontSize*0.5 auto;
-                                    font-size: $mp;
-                                    outline: none;
-                                    height: $mp*4;
-                                    box-shadow: 5px 5px 10px -5px gray;
-                                }
-
-                                ul {
-                                    li {
-                                        font-size: $bp;
-                                        display: flex;
-                                        align-items: flex-start;
-                                        margin: $fontSize auto;
-
-                                        span {
-                                            display: block;
-                                            margin-right: $fontSize*0.5;
-                                        }
-
-                                        textarea {
-                                            margin: 0;
-                                            height: $mp*3;
-                                            box-shadow: 5px 5px 10px -5px gray;
-                                        }
-                                    }
-                                }
-                            }
-
-                            .ansAndSta {
-                                flex-grow: 2;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                padding: $fontSize $fontSize*0.5;
-
-                                select {
-                                    outline: none;
-                                    border: none;
-                                    display: block;
-                                    background-color: $white;
-                                    width: 100%;
-                                    font-size: $bp;
-                                    padding: $fontSize;
-                                    margin-bottom: $fontSize;
-                                    box-shadow: 5px 5px 10px -5px gray;
-                                }
-                            }
+                        img.closeModal {
+                            width: $h2;
+                            cursor: pointer;
+                            align-self: center;
+                            
                         }
                     }
 
-                    button[type=submit] {
-                        @include addBtn;
-                        float: right;
+    
+                    section.form {
+                        overflow-y: auto;
+                        height: 100%;
+                        
+                        #forQuiz, #forBadge{
+                            background-color: $white;
+                            width: 100%;
+                            padding: $fontSize $fontSize $fontSize*3 $fontSize;
+                            
+                            >div {
+                                    padding: $fontSize;
+            
+                                    >label {
+                                        font-size: $bp;
+                                        display: inline-block;
+                                        width: 180px;
+                                        white-space: nowrap;
+                                    }
+        
+                                    >span{
+                                        font-size: $bp;
+                                    }
+                                    .fieldName {
+                                        @include inputTextStyle;
+                                    }
+                                    
+                                    .topFunction {
+                                        background-color: $blue1;
+                                        border-radius: 30px 30px 0 0;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+            
+                                        label {
+                                            font-size: $mp;
+                                            display: block;
+                                            background-color: $beige;
+                                            padding: 10px 20px;
+                                            border-radius: 30px;
+                                            margin-left: $fontSize;
+                                            cursor: pointer;
+            
+                                            &:hover {
+                                                background-color: $blue2;
+                                            }
+            
+                                            input[type=checkbox] {
+                                                @include checkbox;
+                                            }
+                                        }
+            
+                                        >div {
+                                            padding: $fontSize 0;
+            
+                                            .deleteQ {
+                                                @include cancelBtn;
+                                                margin-right: $fontSize;
+                                            }
+            
+                                            .createQ {
+                                                @include addBtn;
+                                                margin-right: $fontSize;
+                                            }
+                                        }
+                                    }
+            
+                                    .downQuestion {
+                                        display: flex;
+                                        background-color: $beige;
+            
+                                        label {
+                                            display: block;
+                                            flex-grow: 1;
+                                            padding: $fontSize 0;
+                                            display: flex;
+                                            justify-content: center;
+            
+                                            input[type=checkbox] {
+                                                @include checkbox;
+                                            }
+                                        }
+            
+                                        .contentQ {
+                                            flex-grow: 25;
+                                            padding: $fontSize*0.5;
+            
+                                            textarea {
+                                                width: 100%;
+                                                resize: none;
+                                                border: none;
+                                                margin: $fontSize*0.5 auto;
+                                                font-size: $mp;
+                                                outline: none;
+                                                height: $mp*4;
+                                                box-shadow: 5px 5px 10px -5px gray;
+                                            }
+            
+                                            ul {
+                                                li {
+                                                    font-size: $bp;
+                                                    display: flex;
+                                                    align-items: flex-start;
+                                                    margin: $fontSize auto;
+            
+                                                    span {
+                                                        display: block;
+                                                        margin-right: $fontSize*0.5;
+                                                    }
+            
+                                                    textarea {
+                                                        margin: 0;
+                                                        height: $mp*3;
+                                                        box-shadow: 5px 5px 10px -5px gray;
+                                                    }
+                                                }
+                                            }
+                                        }
+            
+                                        .ansAndSta {
+                                            flex-grow: 2;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            padding: $fontSize $fontSize*0.5;
+            
+                                            select {
+                                                outline: none;
+                                                border: none;
+                                                display: block;
+                                                background-color: $white;
+                                                width: 100%;
+                                                font-size: $bp;
+                                                padding: $fontSize;
+                                                margin-bottom: $fontSize;
+                                                box-shadow: 5px 5px 10px -5px gray;
+                                            }
+                                        }
+                                    }
+                            }
+                            .mainEdit{
+                                margin-bottom: $fontSize;
+
+                                >label{
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        #forBadge{
+                            display: none;
+                            @include clearfixed;
+
+                            section{
+                                margin-bottom: $fontSize*2;
+                                padding: $fontSize;
+                                p{
+                                    font-size: $bp;
+                                    font-weight: bold;
+                                    padding: $fontSize 0;
+                                }
+                                label{
+                                    display: inline-block;
+                                    font-size: $bp;
+                                    width: 180px;
+                                    white-space: nowrap;
+                                }
+
+                                div{
+                                    margin-bottom: $fontSize;
+
+                                    >span{
+                                        font-size: $bp;
+                                        display: inline-block;
+                                        border: 1px solid gray;
+                                        border-radius: 10px;
+                                        position: relative;
+                                        overflow: hidden;
+
+                                        img{
+                                            position: absolute;
+                                            display: inline-block;
+                                            background-color: $yellow;
+                                            padding: $fontSize*0.5 $fontSize;
+                                            border-radius: 10px;
+                                            height: $fontSize*1.5;
+                                            right: $fontSize;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            cursor: pointer;
+                                        }
+
+                                        input[type=file] {
+                                            @include uploadImg;
+                                            border: none;
+                                            // opacity: 0;
+                                            width: 100%;
+                                            transform: translateX(-110px);
+                                            padding-right: $fontSize*7;
+                                        }
+
+                                    }
+                                    
+                                }
+                                
+                            }
+                            button[type=submit] {
+                                @include addBtn;
+                                float: right;
+                                margin-right: $fontSize*2;
+                                margin-bottom: $fontSize*3;
+                            }
+                        }
                     }
                 }
             }

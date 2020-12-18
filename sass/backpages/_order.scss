@@ -1,4 +1,4 @@
-.order {
+.orderMain {
     flex-wrap: wrap;
     //需告變數
     //置中
@@ -19,32 +19,52 @@
         form.filter {
             @include blockStyle;
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             margin-bottom: 100px;
+            justify-content: space-between;
+            flex-direction: row-reverse;
 
             .date,
             .orderNum,
             .memberNum {
-                margin-right: 20px;
-
                 label {
                     @include filterLabel;
                 }
             }
 
             .date {
+                .date_input {
+                    display: flex;
+                    margin-bottom: 20px;
+                    align-items: center;
+
+                    p {
+                        font-size: 22px;
+                        padding: 0px 10px;
+                    }
+
+                    input {
+                        @include datepickerStyle;
+                        width: 150px;
+                        border: .5px solid black;
+
+                    }
+                }
+            }
+
+
+            .orderNum {
                 input {
-                    @include datepickerStyle;
+                    @include selectStyle;
                     width: 200px;
                     border: .5px solid black;
                 }
             }
 
-            .orderNum,
             .memberNum {
                 input {
                     @include selectStyle;
-                    width: 220px;
+                    width: 150px;
                     border: .5px solid black;
                 }
             }
