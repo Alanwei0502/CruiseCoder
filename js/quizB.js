@@ -137,12 +137,56 @@ Vue.component("tableRow", {
             });
         },
 
+        addFromDB(where) {
+            let str = `
+                <div class="downQuestion">
+                    <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
+                    <div class="contentQ">
+                        <textarea name="qContent" placeholder="請輸入題目內容"></textarea>
+                        <ul>
+                            <li>
+                                <span>A</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>B</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>C</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                            <li>
+                                <span>D</span>
+                                <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ansAndSta">
+                        <select name="qAnswer">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                        <select name="qState">
+                            <option value="1">on</option>
+                            <option value="0">off</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+
+            $(where).find('.topFunction').after(str);
+        },
+
         // 編輯試題按鈕
         editQuiz(e) {
             let gNumber = $(e.target).closest('tr').find('.gNumber').text();
             // console.log(gNumber);
             $('.openQuiz').text('編輯試題');
             $('.openBadge').text('編輯徽章');
+            let that = this;
             $.ajax({
                 type: 'POST',
                 url: 'quizRE.php',
@@ -150,7 +194,66 @@ Vue.component("tableRow", {
                 dataType: 'json',
                 success: function (res) {
                     console.log(res);
-                    $('input.fieldName').val() = res[0]["gName"];
+                    // field
+                    let fieldName = res[0][0]["gName"];
+                    $('.fieldName').attr("value", fieldName.slice(0, fieldName.length - 2));
+                    // status
+                    if (res[0][0]["gStatus"] == "0") {
+                        $('.onOrOff option[value="0"]').attr("selected", true);
+                        $('.onOrOff option[value="1"]').attr("selected", false);
+                    } else {
+                        $('.onOrOff option[value="1"]').attr("selected", true);
+                        $('.onOrOff option[value="0"]').attr("selected", false);
+                    }
+                    // questions and options
+                    // $('.downQuestion').remove();
+                    // for (let i = 0; i < res[2].length; i++) {
+                    //     switch (res[1][i]["qLevel"]) {
+                    //         case "1":
+                    //             that.addFromDB('div[data-level="1"]');
+                    //             break;
+                    //         case "2":
+                    //             that.addFromDB('div[data-level="2"]');
+                    //             break;
+                    //         case "3":
+                    //             that.addFromDB('div[data-level="3"]');
+                    //             break;
+                    //     }
+                    // }
+                    // for (let i = 0; i < res[2].length; i++) {
+                    //     $('textarea[name = "qContent"]').eq(i).text(res[1][i]["qContent"]);
+                    //     $(`select[name = "qAnswer"] option[value = ${res[1][i]["qAnswer"]}]`).eq(i).attr("selected", true);
+                    //     $(`select[name = "qState"] option[value = ${res[1][i]["qState"]}]`).eq(i).attr("selected", true);
+
+                    // }
+
+                    // images
+                    for (let i = 0; i < res[1].length; i++) {
+                        switch (res[1][i]["bLevel"]) {
+                            // 初級
+                            case "1":
+                                $('section[data-type="1"] input[name="iconImg"]').attr("value", res[1][i]["bIcon"]);
+                                $('section[data-type="1"] input[name="badgeImg"]').attr("value", res[1][i]["bBadge"]);
+                                $('section[data-type="1"] input[name="bgImg"]').attr("value", res[1][i]["bBadge"]);
+                                break;
+                            // 中級
+                            case "2":
+                                $('section[data-type="2"] input[name="iconImg"]').attr("value", res[1][i]["bIcon"]);
+                                $('section[data-type="2"] input[name="badgeImg"]').attr("value", res[1][i]["bBadge"]);
+                                break;
+                            // 高級
+                            case "3":
+                                $('section[data-type="3"] input[name="iconImg"]').attr("value", res[1][i]["bIcon"]);
+                                $('section[data-type="3"] input[name="badgeImg"]').attr("value", res[1][i]["bBadge"]);
+                                break;
+                            // 星系
+                            case "0":
+                                $('section[data-type="0"]')
+                                break;
+                        }
+                    }
+
+                    // show modal
                     $('.quizModalBg').css("opacity", 1).css("z-index", 1);
                 },
             });
@@ -180,6 +283,7 @@ Vue.component("createAndEdit", {
                 },
                 {
                     diff: "星系",
+                    qLevel: "0",
                 }
 
             ],
