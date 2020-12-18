@@ -3,15 +3,15 @@
     
 
     //取得POST過來的值
+
+    $mAccount = $_POST["account_test"]; //取得info.php傳過來的會員帳號
+
     $mName = $_POST["mName"];
-    // echo $mName.'<br>';
-    $mPasswrod = $_POST["mPasswrod"];
-    // echo $mPasswrod.'<br>';
-    $mNumber = "M0003";
+    $mPassword = $_POST["mPassword"];
+    // $mNumber = "M0003";
     $mPhone = $_POST["mPhone"];
-    // echo $phone.'<br>';
     $PictureName = $_FILES["myFile"]["name"];
-    // echo $PictureName;
+  
 
     $Util = new UtilClass();
 
@@ -39,24 +39,31 @@
                 $message = "拷貝/移動上傳圖片失敗";
             }
         }
-    }    
+    }
+    
+    echo $mAccount;
+    echo $mName;
+    echo $mPassword;
+    echo $mPhone;
+    echo $PictureName;
 
 
 
     //建立SQL
-    $sql = "UPDATE member set mName = ? ,mPhone = ?, mPhoto = ? ,mPasswrod = ?  where mNumber = ? ";
+    $sql = "UPDATE member set mName = ? ,mPhone = ?, mPhoto = ? ,mPassword = ?  where mAccount = ? ";
    
 
-    //執行
+    //準備
     $statement = $pdo->prepare($sql);
 
     //給值    
     $statement->bindValue(1 , $mName);     
     $statement->bindValue(2 , $mPhone);
     $statement->bindValue(3 , '../images/info/'.$PictureName);
-    $statement->bindValue(4 , $mPasswrod);
-    $statement->bindValue(5 , $mNumber);
+    $statement->bindValue(4 , $mPassword);
+    $statement->bindValue(5 , $mAccount);
 
+    //執行
     $statement->execute();
 
     header('location: ./info.php')
@@ -78,6 +85,9 @@
     // echo json_encode($data);
 
 
+    //input(display:none;)傳 mAccount 值用 記得取name = "account_test" （一開始抓到的cookie）
+    //傳到在這一支裡，然後用
+    //$mAccount = $_POST["account_test"];
 
 
 

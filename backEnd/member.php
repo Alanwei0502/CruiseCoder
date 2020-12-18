@@ -1,12 +1,20 @@
 <?php
-  include("linkFion.php");
+  include("../frontEnd/layout/connect.php");
   //建立SQL
-  $sql = "SELECT * FROM member WHERE mNumber = ?";
-  $mNumber = "M0002";
+  $sql = "SELECT * FROM member";
+  // $mNumber = "M0002";
   $statement = $pdo->prepare($sql);
-  $statement->bindValue(1 , "$mNumber");
+  // $statement->bindValue(1 , "$mNumber");
   $statement->execute();
   $infoMember = $statement->fetchAll();
+?>
+
+<?php
+$Q = "SELECT * FROM member WHERE mNumber = ?";
+$statement = $pdo->prepare($Q);
+$statement->execute();
+$infoInside = $statement->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +26,9 @@
   <title>後台 | 會員管理</title>
   <link rel="stylesheet" href="./../css/main2.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 </head>
 
 <body>
@@ -40,15 +51,15 @@
               <select>
                 <option value="1">管理員</option>
                 <option value="2">老師</option>
-                <option value="2">會員</option>
-                <option value="3">停權</option>
+                <option value="3">會員</option>
+                <option value="4">停權</option>
               </select>
           </div>  
           <div class="poDate">
             <label>註冊日期</label>
-            <input type="text">
+            <input type="text" id="datepicker1" readonly="true">
             <i class="fas fa-arrow-right"></i>
-            <input type="text">
+            <input type="text" id="datepicker2">
           </div>
           <button>搜尋</button>
 
@@ -68,53 +79,18 @@
               </tr>
             </thead>
             <tbody>
+              <?php
+              foreach($infoMember as $index => $row){
+              ?>
               <tr>
-                <?php
-                foreach($infoMember as $index => $row){
-                ?>
-                <td>CCM0000001</td>
-                <td><?=$row["mAccount"] ?></td>
+                <td name=""><?=$row["mNumber"] ?></td>
+                <td name=""><?=$row["mAccount"] ?></td>
                 <td name="mName" ><?=$row["mName"] ?></td>
                 <td name="mLevel"><?=$row["mLevel"] ?></td>
-                <td>2020/08/06</td>
-                <?php } ?>
+                <td name=""><?=$row["mLogindate"] ?></td>
                 <td><button class="btn_modal">編輯</button></td>
               </tr>
-              <tr>
-                
-                <td>CCM0000002</td>
-                <td>tiffhsu0622</td>
-                <td>踢翻妮</td>
-                <td>管理員</td>
-                <td>2020/09/16</td>
-                <td><button class="btn_modal">編輯</button></td>
-              </tr>
-              <tr>
-                
-                <td>CCM0000003</td>
-                <td>jessicahuang</td>
-                <td>黃小雞</td>
-                <td>會員</td>
-                <td>2020/10/16</td>
-                <td><button class="btn_modal">編輯</button></td>
-              </tr>
-              <tr>
-                <td>CCM0000004</td>
-                <td>jessieho520</td>
-                <td>何雨錡</td>
-                <td>會員</td>
-                <td>2020/10/26</td>
-                <td><button class="btn_modal">編輯</button></td>
-              </tr>
-              <tr>
-                <td>CCM0000005</td>
-                <td>toosweet77</td>
-                <td>太田太甜</td>
-                <td>停權</td>
-                <td>2020/10/31</td>
-                <td><button class="btn_modal">編輯</button></td>
-              </tr>
-              
+              <?php }?>
             </tbody>
           </table>
 
@@ -135,11 +111,13 @@
             <section class="accountArea">
 
               <div class="accountImg"><img src="../images/info/street_girl.jpeg" alt=""></div>
-
+              <?php
+              foreach($infoInside as $index => $row){
+              ?>
               <div class="rightInputArea">
                 <div>
                   <label for="">編號</label>
-                  <input type="text" value="CCM0000001">
+                  <input type="text" value="<?=$row["mNumber"] ?>">
                 </div>
 
                 <div>
@@ -154,50 +132,51 @@
 
                 <div>
                   <label for="">帳號</label>
-                  <input type="text" value="chiawei_huang" disabled>
+                  <input type="text" value="<?=$row["mAccount"] ?>" disabled>
                 </div>
 
                 <div>
                   <label for="">姓名 </label>
-                  <input type="text" value="黃家偉">
+                  <input type="text" value="<?=$row["mName"] ?>">
                 </div>
 
                 <div>
                   <label for="">密碼 </label>
-                  <input type="password" value="0918375">
+                  <input type="password" value="<?=$row["mPassword"] ?>">
                 </div>
 
-                <div>
+                <!-- <div>
                   <label for="">生日  </label>
-                  <input type="text" value="1995/05/15">
-                </div>
+                  <input type="text" value="">
+                </div> -->
 
-                <div>
+                <!-- <div>
                   <label for="">性別 </label>
                   <input type="text" value="男">
-                </div>
+                </div> -->
 
                 <div>
                   <label for="">手機號碼 </label>
-                  <input type="text" value="0937265453">
+                  <input type="text" value="<?=$row["mPhone"] ?>">
                 </div>
                 
                 <div>
                   <label for="">E-mail </label>
-                  <input type="text" value="chiawei_huang@gmail.com" disabled>
+                  <input type="text" value="<?=$row["mEmail"] ?>" disabled>
                 </div>
 
                 <div>
                   <label for="">註冊日期 </label>
-                  <input type="text" value="2020/10/26 14:23" disabled>
+                  <input type="text" value="<?=$row["mJoindate"] ?>" disabled>
                 </div>
 
                 <div>
                   <label for="">CC.Point </label>
-                  <input type="text" value="1022">
+                  <input type="text" value="<?=$row["mCC"] ?>">
                 </div>
 
               </div>
+              <?php }?>
             </section>
             <!-------- input end -------->
 
@@ -340,6 +319,7 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./../js/datepicker.js"></script>
 
   <script>
   $(function(){

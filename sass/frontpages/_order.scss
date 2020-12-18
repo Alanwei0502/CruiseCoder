@@ -1,17 +1,4 @@
 /* 子瑄訂單頁面開始*/
-// *{
-//   outline: 1px solid red;
-// }
-// .wrap.order{
-//   min-height: calc(100vh-);
-//   footer{
-//     position: fixed;
-//     bottom: 0;
-    
-    
-//   }
-// }
-
 
 .orderMain{
   max-width: 1200px;
@@ -36,7 +23,6 @@
     }
     .haveNoOrder{
       // @include clearfixed;
-      display: none;
       background-color: $beige;
       border-radius: 20px;
       padding: 30px;
@@ -113,7 +99,7 @@
       border: $orange 10px solid;
       width: 100%;
       font-size: 0;
-      // display: none;
+      display: none;
       
       
       //RWD 1200px 以下的排版，濃縮成卡片形式。

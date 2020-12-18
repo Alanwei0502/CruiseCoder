@@ -1,7 +1,6 @@
 <?php
     include("./layout/connect.php");
     
-
     //建立SQL
   $sql = "SELECT * FROM myorder WHERE oNumber = ?";
   $oNumber = "2020120622";
@@ -9,10 +8,25 @@
   $statement->bindValue(1 , "$oNumber");
   $statement->execute();
   $orderDetail = $statement->fetchAll();
+
   if($orderDetail == []){
-     $block = "display: block;";
+    $block = "display: block;";
   }
+
 ?>
+
+<!-- 連結訂單表和會員表的會員編號 -->
+<?php
+$sql = "SELECT
+    e.oMember,
+    d.mNumber
+from
+    myorder e
+    join member d
+    on e.oMember = d.mNumber";
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +110,9 @@
                     </div>
                 
                 </div>
-
+                <?php
+                    foreach($orderDetail as $index => $row){
+                ?>                
                 <div class="accordion">
                     <div class="title accordion-control">
                         <div class="Order_1">
@@ -128,70 +144,7 @@
                         <div class="totalPrice">總計：NT$2,400</div>
                     </div> 
                 </div>
-
-                <div class="accordion">
-                    <div class="title accordion-control">
-                        <div class="Order_1">
-                            <div><img src="../images/order/computer.jpeg" alt=""></div>
-                            <div>訂單編號：2020122522</div>
-                            <div><span>NT$2,400</span></div> 
-                        </div>
-                    </div>    
-
-                    <!-- 1200px以上訂單形式 -->
-                    <div class="content accordion-panel">
-                        <div id="css_table">
-                            <div class="tHead css_tr" >
-                                <div class="css_td">課程名稱</div>
-                                <div class="css_td">CC Point折抵</div>
-                                <div class="css_td">售價</div>
-                                <div class="css_td">卡號末四碼</div>
-                                <div class="css_td">訂單成立</div>    
-                            </div>
-                            <div class="tChild css_tr">
-                                <div class="css_td">HTML快速入門-張老闆帶你飛</div> 
-                                <div class="css_td">NT$100</div> 
-                                <div class="css_td">NT$2,500</div>
-                                <div class="css_td">6969</div> 
-                                <div class="css_td">2020-06-07 22:35</div>
-                            </div>
-                        </div>
-
-                        <div class="totalPrice">總計：NT$2,400</div>
-                    </div> 
-                </div>
-
-                <div class="accordion">
-                    <div class="title accordion-control">
-                        <div class="Order_1">
-                            <div><img src="../images/order/computer.jpeg" alt=""></div>
-                            <div>訂單編號：2020122522</div>
-                            <div><span>NT$2,400</span></div> 
-                        </div>
-                    </div>    
-
-                    <!-- 1200px以上訂單形式 -->
-                    <div class="content accordion-panel">
-                        <div id="css_table">
-                            <div class="tHead css_tr" >
-                                <div class="css_td">課程名稱</div>
-                                <div class="css_td">CC Point折抵</div>
-                                <div class="css_td">售價</div>
-                                <div class="css_td">卡號末四碼</div>
-                                <div class="css_td">訂單成立</div>    
-                            </div>
-                            <div class="tChild css_tr">
-                                <div class="css_td">HTML快速入門-張老闆帶你飛</div> 
-                                <div class="css_td">NT$100</div> 
-                                <div class="css_td">NT$2,500</div>
-                                <div class="css_td">6969</div> 
-                                <div class="css_td">2020-06-07 22:35</div>
-                            </div>
-                        </div>
-
-                        <div class="totalPrice">總計：NT$2,400</div>
-                    </div> 
-                </div>
+                <?php } ?>
                     
             </div>
         </main>
@@ -213,13 +166,13 @@
 
     </script>
 
-    
-    <!-- <script type="text/javascript">
+    <!-- $block = "display: block;"; -->
+    <script type="text/javascript">
         var display = "<?= $block ?>";  
         // var display = "display: block;";  
-        let nothing = document.getElementById('div');
+        let nothing = document.getElementsByClassName('.haveNoOrder');
         nothing.style.cssText = `${display}`;
         // nothing.style.cssText = `display: block;`;
-    </script> -->
+    </script>
 </body>
 </html>
