@@ -20,8 +20,6 @@
     include 'layout/spacebackground.php';
     include 'layout/header.php';
     ?>
-
-
     <main id="feedBack">
       <div class="top">
         <!-- 搜尋列 -->
@@ -53,7 +51,7 @@
         </div>
       </div>
       <div class="content">
-        <h3>熱門課程</h3>
+        <h3>{{courseTitle}}</h3>
         <!-- 課程開始 -->
         <div class="course">
           <!-- 一般課程 -->
@@ -81,7 +79,7 @@
                       <p class="fundraisingTag">募資中</p>
                       <div class="textFund">
                         <p class="preOrder">預購價</p>
-                        <p class="price">NT.900</p>
+                        <p class="price">NT.{{course.cPrice}}</p>
                       </div>
                     </div>
                     <div class="progressbar">
@@ -91,7 +89,7 @@
                   </div>
                   <div class="courseStart" v-else="course.cStatus == 1">
                     <div class="comment">
-                      <div class="star">
+                      <div class="star" :data-star="course.rRate" >
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -112,7 +110,7 @@
         </div>
       </div>
       <!--頁碼開始-->
-      <div class="pagenum">
+      <!-- <div class="pagenum">
         <ul>
           <li><a href="#">
               <</a> </li> <li><a href="#">1</a></li>
@@ -122,7 +120,7 @@
           <li><a href="#">5</a></li>
           <li><a href="#">></a></li>
         </ul>
-      </div>
+      </div> -->
       <!--頁碼結束-->
     </main>
 

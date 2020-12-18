@@ -309,12 +309,15 @@ header {
 	div.headerLeft {
 		img.logo {
 			width: $fontSize*18.75;
+
 			@include bigPhone {
 				display: none;
 			}
 		}
+
 		img.logo1 {
 			display: none;
+
 			@include bigPhone {
 				width: $fontSize*5;
 				display: block;
@@ -375,6 +378,7 @@ header {
 	}
 
 	div.headerRight {
+
 		// border: 1px solid green;
 		ul {
 			display: flex;
@@ -427,14 +431,23 @@ header {
 							padding: $fontSize*0.5 0;
 							border-bottom: 1px solid $black;
 
+							// 課程照片
 							.image {
-								background-image: url('../images/allCourse/course01.png');
-								background-position: center center;
-								background-repeat: no-repeat;
-								background-size: cover;
-								// border: 1px solid red;
+								// background-image: url('../images/allCourse/course01.png');
+								// background-position: center center;
+								// background-repeat: no-repeat;
+								// background-size: cover;
+								// // border: 1px solid red;
 								height: 60px;
 								width: 100px;
+
+								img.course {
+									max-width: 100%;
+									width: 100%;
+									padding: 0;
+									margin-right: 0;
+
+								}
 							}
 
 							.info {

@@ -8,13 +8,13 @@
     <div class="createArea">
       <form action="" id="createForm" class="createHide">
         <label for="name">姓名:</label>
-        <input type="text" id="name" name="name" >
+        <input type="text" id="name" name="name">
 
         <label for="account">帳號:</label>
-        <input type="text" id="account" name="account" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+        <input type="text" id="account" name="account" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
 
         <label for="password">密碼:</label>
-        <input type="password" id="password" name="password" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+        <input type="password" id="password" name="password" class="checkString" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
 
         <label for="confirmPassword">確認密碼:</label>
         <input type="password" id="confirmPassword">
@@ -76,36 +76,32 @@
       </ul>
     </nav>
   </div>
-  <div class="headerRight">
+  <div class="headerRight" id="navapp">
     <ul>
       <li class="shoppingCar">
-        <label><input type="checkbox"><span></span></label>
+        <label><input type="checkbox" class="shopInput"><span @click="shoppingcart"></span></label>
         <!-- <img src="./../images/shoppingIcon.png" alt="圖片無法顯示"> -->
         <section>
           <ul class="shoppingFancybox">
-            <li class="shopping">
-              <div class="image"></div>
-              <div class="info">
-                <p class="courseTitle">一變應萬變：RWD 響應式網頁設計</p>
-                <div class="itemTextButtom">
-                  <p class="status">已開課</p>
-                  <p class="price">NT$ 1,200</p>
+            <template v-for="(course,index) in courses">
+              <li class="shopping">
+                <div class="image">
+                  <a href="course_start_class.php">
+                    <img class="course" :src="course.cImage" alt="">
+                  </a>
                 </div>
-              </div>
-            </li>
-            <li class="shopping">
-              <div class="image"></div>
-              <div class="info">
-                <p class="courseTitle">張老闆帶你飛</p>
-                <div class="itemTextButtom">
-                  <p class="status">已開課</p>
-                  <p class="price">NT$ 1,200</p>
+                <div class="info">
+                  <p class="courseTitle">{{course.cTitle}}</p>
+                  <div class="itemTextButtom">
+                    <p class="status">{{status[index]}}</p>
+                    <p class="price">NT$ {{course.cPrice}}</p>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            </template>
           </ul>
           <div class="shoppingTotal">
-            <p>總計 2 堂課<br><span>NT$ 2,400</span></p>
+            <p>總計 {{coursesTotal}} 堂課<br><span>NT$ {{priceTotal}}</span></p>
             <a href="./checkOut.php">前往購物車</a>
           </div>
         </section>
@@ -114,20 +110,21 @@
         <label id="member"><input type="checkbox"><span></span></label>
         <!-- <img src="./../images/backEnd/memberIcon.png" alt="圖片無法顯示"> -->
         <ul>
-          <li><a href="./ccPoint.php" class="ccp">19850</a></li>
+          <li><a href="./ccPoint.php" class="ccp"></a></li>
           <li class="smlSize"><a href="./allCourse.php">外星課程</a></li>
           <li class="smlSize"><a href="./galaxy.php">語宙試煉</a></li>
           <li class="smlSize"><a href="./article.php">太空補給站</a></li>
           <li class="smlSize"><a href="./tutorial.php">蟲洞練功坊</a></li>
           <li><a href="./info.php">個人檔案</a></li>
           <li><a href="./order.php">訂單資訊</a></li>
-          <li ><a class="callLoginBox" href="#" >登入</a></li>
-          <li ><a class="logout" href="#">登出</a></li>
+          <li><a class="callLoginBox" href="#">登入</a></li>
+          <li><a class="logout" href="#">登出</a></li>
         </ul>
       </li>
     </ul>
   </div>
 </header>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="../js/vue.js"></script>
 <!-- alert套件 ↓↓↓↓ -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
