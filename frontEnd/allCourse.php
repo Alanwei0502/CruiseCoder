@@ -45,7 +45,7 @@
               <option value="sass" class="tab">SASS</option>
               <option value="php" class="tab">PHP</option>
               <option value="mysql" class="tab">MySQL</option>
-              <option value="Vue" data-target="vue" class="tab">Vue</option>
+              <!-- <option value="Vue" data-target="vue" class="tab">Vue</option> -->
             </select>
           </div>
         </div>
