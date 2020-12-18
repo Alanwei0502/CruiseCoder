@@ -50,7 +50,6 @@ $gStatement = "";
                                     <a href="#0" class="galaxyIcon">
                                         <div>{{galaxyName.name}}</div>
                                         <img :src="galaxyName.pic">
-                                        <img src="../images/trial/rock/base.svg" alt="">
                                     </a>
                                 </li>
                             </template>

@@ -432,6 +432,7 @@ let vm = new Vue({
         ajax() {
             let selectField = this.selectField;
             let that = this;
+
             $.ajax({
                 type: 'POST',
                 url: 'quizRS.php',
@@ -439,7 +440,7 @@ let vm = new Vue({
                 dataType: 'json',
                 success: function (res) {
                     // vm.galaxys = JSON.parse(res);
-                    // console.log(res);
+                    console.log(res);
                     vm.fields = res[0];
                     for (let i = 0; i < res[1].length; i++) {
                         if (res[1][i].gStatus == 1) {
