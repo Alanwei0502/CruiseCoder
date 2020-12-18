@@ -24,7 +24,7 @@ $infoInside = $statement->fetch();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 會員管理</title>
-  <link rel="stylesheet" href="./../css/main2.css">
+  <link rel="stylesheet" href="./../css/mainB.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -87,7 +87,7 @@ $infoInside = $statement->fetch();
                 <td name=""><?=$row["mAccount"] ?></td>
                 <td name="mName" ><?=$row["mName"] ?></td>
                 <td name="mLevel"><?=$row["mLevel"] ?></td>
-                <td name=""><?=$row["mLogindate"] ?></td>
+                <td name=""><?=$row["mJoindate"] ?></td>
                 <td><button class="btn_modal">編輯</button></td>
               </tr>
               <?php }?>
@@ -318,7 +318,7 @@ $infoInside = $statement->fetch();
     </main><!-- 在這裡面codeing -->
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
   <script src="./../js/datepicker.js"></script>
 
   <script>

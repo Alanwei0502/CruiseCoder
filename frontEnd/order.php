@@ -17,13 +17,7 @@
 
 <!-- 連結訂單表和會員表的會員編號 -->
 <?php
-$sql = "SELECT
-    e.oMember,
-    d.mNumber
-from
-    myorder e
-    join member d
-    on e.oMember = d.mNumber";
+$sql = "SELECT * from myorder e join member d on e.oMember = d.mNumber";
 
 ?>
 
