@@ -34,10 +34,7 @@ $createBadge = "INSERT INTO `cruisecoder`.`badge` (`bNumber`, `bGalaxy`, `bName`
 $createBadge = $pdo->prepare($createBadge);
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
 
     // FOR GALAXY TABLE
@@ -140,14 +137,5 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
 
         $createBadge->execute();
     }
-<<<<<<< HEAD
-
-
-    echo "success";
-} else {
-    echo "failed";
-}
-=======
     echo "success";
 }
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05

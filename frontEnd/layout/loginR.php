@@ -105,11 +105,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
         // echo "NoAccount";
         echo "0". ",NoAccount".",". "0" .",". "0" .",". "0"; 
     } else if ($hasAccount == 1) {
-<<<<<<< HEAD
-        $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`,`mNumber`, `mSignIn` FROM member WHERE mAccount = ?";
-=======
         $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`, `mSignIn` FROM member WHERE mAccount = ?";
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
         $getPrepare = $pdo->prepare($getLastTime);
         $getPrepare->bindValue(1, $loginAccount);
         $getPrepare->execute();
@@ -119,10 +115,6 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
         $continuousLoginDay = $result[0]['mSignIn']; //連續登入天數
         $ccPoint = $result[0]['mCC']; //cc點數
         $nickname = $result[0]['mName']; //名字
-<<<<<<< HEAD
-        $number = $result[0]['mNumber']; //nu
-=======
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
         $mSignIn = $result[0]['mSignIn'];//連續登入天數
         $newSignIn = $mSignIn +1 ;
 
@@ -145,11 +137,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
                 $upTime->bindValue(3, $loginAccount);
                 $upTime->execute();
 
-<<<<<<< HEAD
-                echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn.",".$number;
-=======
                 echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn;
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
             } else if ($remainder == 0) { //如果餘數是0的時候 ex: 
                 $countC_Point = (7 * 10) + 30; //計算這次登入取得的ccPoint
                 $upDataNewPoint = $countC_Point + $ccPoint; //這次取得的cc＋現有的cc
@@ -161,11 +149,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
                 $upTime->bindValue(3, $loginAccount);
                 $upTime->execute();
 
-<<<<<<< HEAD
-                echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn.",".$number; 
-=======
                 echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn; 
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
             }
         }
         else if($continuousDay == 0 ){//如果是當天重複登入
@@ -174,11 +158,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
             $upTime->bindValue(1, $loginAccount);
             $upTime->execute();
 
-<<<<<<< HEAD
-            echo $result[0]['mCC'] . ",loginSuccess1".",".$nickname.",".$countC_Point.",".$newSignIn.",".$number;
-=======
             echo $result[0]['mCC'] . ",loginSuccess1".",".$nickname.",".$countC_Point.",".$newSignIn;
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
         }else if ($continuousDay != 1 || $continuousDay != -30 || $continuousDay != -29 || $continuousDay != -28 || $continuousDay != -27|| $continuousDay != 0){
 
             $countC_Point = (1 * 10) + 30; //計算這次登入取得的ccPoint
@@ -191,11 +171,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
             $upTime->bindValue(3, $loginAccount);
             $upTime->execute();
 
-<<<<<<< HEAD
-            echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn.",".$number;
-=======
             echo $result[0]['mCC'] . ",loginSuccess".",".$nickname.",".$countC_Point.",".$newSignIn;
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
         }
 
 

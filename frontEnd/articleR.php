@@ -16,9 +16,6 @@
     $articleContent->bindValue( 1 , $articleName);
     $articleContent->execute();
 
-<<<<<<< HEAD
-    foreach($articleContent as $index => $row){
-=======
     if(isset($_POST["userAccount"])){
       // 先取得會員編號
       $userAccount = $_POST["userAccount"];
@@ -55,7 +52,6 @@
         echo '<i class="fas fa-heart" data-anumber="'.$row["aNumber"].'"></i>';
       }
       echo '</div>';
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
       echo $row["aContent"];
     }
   }
@@ -70,8 +66,6 @@
 
 
 
-<<<<<<< HEAD
-=======
   // 收藏取消專欄功能
   if(isset($_POST["userAccount"], $_POST["aNumber"])){
     // 先取得會員編號
@@ -99,5 +93,4 @@
     }
   }
 
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 ?>

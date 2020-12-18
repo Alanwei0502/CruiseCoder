@@ -162,8 +162,8 @@
                 <span>星系</span>
               </div>
 
-              <template v-for="level in levels" >
-                <section class="planetPic" :data-level="level.qLevel">
+              <template v-for="level in levels">
+                <section class="planetPic">
                   <p v-if="level.diff == '星系'">{{level.diff}}徽章</p>
                   <p v-else>{{level.diff}}星球</p>
                   

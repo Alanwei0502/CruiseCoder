@@ -51,7 +51,7 @@
   </div>
 </div>
 
-<header class="unsetcss">
+<header>
   <div class="headerLeft">
     <a href="./index.php">
       <img class="logo" src="./../images/logoCruise.png" alt="圖片無法顯示">

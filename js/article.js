@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // 檢查某 cookie 是否存在
 function checkCookie(cname) {
   var cookie_value = getCookie(cname);
@@ -43,7 +41,6 @@ if (checkCookie('user')) {
 }
 
 
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 let articleImage = document.getElementsByClassName("articleImage");
 let articleTitle = document.getElementsByClassName("articleTitle")[0];
 let articleContent = document.getElementsByClassName("articleContent")[0];
@@ -52,12 +49,6 @@ for(let i = 0; i < articleImage.length; i++){
   articleImage[i].addEventListener("click", function(){
     
     let articleh4 = articleImage[i].closest("div.articleInside").querySelector("h4").innerText;
-<<<<<<< HEAD
-    // console.log(articleh4);
-    $.post('articleR.php',{articleh4},function(res){
-      $('#feedBack').html(res);
-    });
-=======
     // 使用者有登入會員,要確定使用者有無收藏過
     if(checkCookie('user')){
       $.post('articleR.php',{articleh4 ,userAccount},function(res){
@@ -68,7 +59,6 @@ for(let i = 0; i < articleImage.length; i++){
         $('#feedBack').html(res);
       });
     }
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
 
     articleTitle.classList.add("none");
     articleContent.classList.remove("none");
@@ -102,11 +92,6 @@ $(document).ready(function(){
         articleh4[i].closest("div.articleInside").classList.remove("none");   
       }
     }
-<<<<<<< HEAD
-
-  });
-});
-=======
   });
 });
 
@@ -132,4 +117,3 @@ document.addEventListener("click", function(e){
     }
   }
 });
->>>>>>> 1b31b660688f3f49ef769b0297f7bd13ceb75f05
