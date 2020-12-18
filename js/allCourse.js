@@ -6,7 +6,8 @@ let app = new Vue({
         courses: [],
         favCourse: [],
         theMember: '',
-
+        star: [],
+        courseTitle:'所有課程',
     },
     // ajax抓資料
     created() {
@@ -14,6 +15,7 @@ let app = new Vue({
         this.ajax();
         this.getmember();
         this.getFavCourse();
+        this.starrr();
     },
 
     methods: {
@@ -103,7 +105,7 @@ let app = new Vue({
                 });
             }, 500);
         },
-        clearFav() { 
+        clearFav() {
             // 先清除所有的愛心
             let faheart = document.querySelectorAll('.fa-heart');
             // console.log(faheart);
@@ -121,8 +123,10 @@ let app = new Vue({
             //  將select option回到預設-課程類型
             $('#SelectId')[0].selectedIndex = 0;
             this.clearFav();
-            this.getFavCourse()
-            
+            this.getFavCourse();
+            this.courseTitle = "所有課程";
+
+
         },
         fundingOpen() {
             //載入募資課程
@@ -148,16 +152,13 @@ let app = new Vue({
             // 將select option回到預設-課程類型
             $('#SelectId')[0].selectedIndex = 0;
             this.clearFav();
-            // let faheart = document.querySelectorAll('.fa-heart');
-            // faheart.forEach((e, i) => {
-            //     if (e.classList.contains("is-active")) {
-            //         e.classList.remove("is-active")
-            //     }
-            // });
-            this.getFavCourse()
+            this.getFavCourse();
+            this.courseTitle = "募資課程";
+
         },
         type() {
             if ($(".tab option:selected").val() == 'html') {
+                this.courseTitle = "HTML";
                 let that = this;
                 let star = 1;
                 $.ajax({
@@ -200,7 +201,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "CSS";
+
             }
             else if ($(".tab option:selected").val() == 'js') {
                 let that = this;
@@ -222,7 +225,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "Java Script";
+
             }
             else if ($(".tab option:selected").val() == 'jquery') {
                 let that = this;
@@ -244,7 +249,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "jQuery";
+
             }
             else if ($(".tab option:selected").val() == 'sass') {
                 let that = this;
@@ -266,7 +273,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "SASS";
+
             }
             else if ($(".tab option:selected").val() == 'php') {
                 let that = this;
@@ -288,7 +297,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "PHP";
+
             }
             else if ($(".tab option:selected").val() == 'mysql') {
                 let that = this;
@@ -310,7 +321,9 @@ let app = new Vue({
                     }
                 });
                 this.clearFav();
-                this.getFavCourse()
+                this.getFavCourse();
+                this.courseTitle = "MySQL";
+
             }
             else if ($(".tab option:selected").val() == 'vue') {
                 let that = this;
@@ -331,9 +344,11 @@ let app = new Vue({
                         // console.log(that.courses);
                     }
                 });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "Vue.js";
             }
-            this.clearFav();
-                this.getFavCourse()
+           
         },
         // // 點擊愛心，加上顏色
         favorites(e) {
@@ -434,6 +449,20 @@ let app = new Vue({
             // let cNumber = item.cNumber;
             // console.log(cNumber);
         },
+        starrr() {
+            let star = $('div.star');
+
+            // let star = document.getElementsByClassName('star');
+            // let star = starDiv.getAttribute('data-star');
+            console.log(star);
+
+            let starRate = [];
+            for (let i = 0; i < star.length ; i++) { 
+                starRate.push(star[i].getAttribute('data-star'));
+            }
+            console.log(starRate);
+        }
+
     },
 
 });
@@ -482,5 +511,4 @@ function getCookie(cname) {
     return "";
 }
 var userAccount = getCookie('user');
-// console.log(userAccount);
-// console.log(checkCookie('user'));
+
