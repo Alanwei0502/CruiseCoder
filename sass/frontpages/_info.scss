@@ -98,44 +98,6 @@
             align-content: space-around;
 
         }
-
-        .notice_bar {
-            font-size: $bp;
-            width: 525px;
-            border: 5px solid $orange;
-            border-radius: 10px;
-            background-color: #FFF3D8;
-            margin-bottom: 30px;
-            padding: 10px;
-
-            display: flex;
-            justify-content: center;
-
-            animation: fadeInRight; 
-            animation-duration: 2s; 
-
-
-            p {
-                // text-align: center;
-                color: $black;
-            }
-
-            img {
-                width: 30px;
-            }
-
-            @include laptop {
-                margin: 0 auto;
-            }
-
-            @include smlPad {
-                width: 400px;
-                font-size: $mp;
-                text-align: center;
-                letter-spacing: 1px;
-            }
-        }
-
         .info_card {
             animation: fadeInRight; 
             animation-duration: 2s; 
@@ -759,10 +721,18 @@
 
         .info_achievement {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+                color: $white;
+                font-size: $bp;
+                margin: $fontSize*2 0;
+                
+            }
 
             //大徽章尚未獲得前，呈現狀態是 灰階＋透明。
             .big_a {
-                background-color: $blue2;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
@@ -770,8 +740,8 @@
                     img {
                         width: 100px;
                         margin: 10px 25px;
-                        filter: opacity(30%)grayscale(50%);;
-                        -webkit-filter: opacity(30%)grayscale(50%);
+                        filter: grayscale(100%);
+                        -webkit-filter: grayscale(100%);
     
                         
     
@@ -788,7 +758,6 @@
                 margin-top: 50px;
                 padding: 50px;
                 width: 100%;
-                background-color: $blue2;
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
@@ -799,8 +768,8 @@
                 img {
                     width: 100px;
                     margin: 10px 25px;
-                    filter: opacity(30%)grayscale(50%);;
-                    -webkit-filter: opacity(30%)grayscale(50%);
+                    filter: grayscale(100%);
+                    -webkit-filter: grayscale(100%);
 
                     @include smlPhone{
                         width: 70px;

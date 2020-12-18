@@ -45,13 +45,13 @@
               foreach($infoMember as $index => $row){
           ?>
           <p>目前擁有<br>
-             <span><?=$row["mCC"] ?></span>CC Point (CC幣) <br>
+             <span><?=$row["mCC"] ?></span>CC Point<br>
             = NT$ <?=floor($row["mCC"]*0.0111) ?> </p>
             <?php } ?>
         </div>
       
         <div class="getNotice">
-          <p>今日簽到獲得<span><?=$row["mCC"]?></span>CC Point!</p>
+          <p>今日簽到已獲得<span></span>CC Point!</p>
         </div>
       </div>
       <div class="ccPointDay">
@@ -210,40 +210,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script>
-      $(function () {
-        $("a[href*=#]").on("click", function (e) {
-          e.preventDefault();
-          $("html, body").animate(
-            { scrollTop: $($(this).attr("href")).offset().top },
-            500,
-            "linear"
-          );
-        });
-      });
-
-
-     $(function(){
-        $("a.tab").on("click", function(e){
-          e.preventDefault();
-          
-          /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
-          $(this).closest("ul").find("a.tab").removeClass("-on");
-          $(this).addClass("-on");
-          
-          /* 找到對應的頁籤內容，加上 -on 來顯示 */
-          $("div.tab").removeClass("-on");
-          $("div.tab." + $(this).attr("data-target")).addClass("-on");
-        });
-      });
-
-      $('.tab_list>li').click(function(){
-
-        $('.tab_list>li').removeClass('-on');
-        $(this).addClass('-on');
-      });
-
-  </script>
+  <script src="../js/ccPoint.js"></script>
   <script src="../js/header.js"> </script>
 
 </body>

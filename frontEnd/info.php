@@ -1,228 +1,173 @@
 <?php
 
-  include("./layout/connect.php");
-  
-   //建立SQL
-   $sql = "SELECT * FROM member WHERE mAccount = ?";
-   $mNumber = $_COOKIE["user"];
-  //  $mNumber = $_POST['member'];
-   $statement = $pdo->prepare($sql);
-   $statement->bindValue(1 , "$mNumber");
-   $statement->execute();
-   $infoMember = $statement->fetchAll();
+include("./layout/connect.php");
+
+//建立SQL
+$sql = "SELECT * FROM member WHERE mAccount = ?";
+$mNumber = $_COOKIE["user"];
+//  $mNumber = $_POST['member'];
+$statement = $pdo->prepare($sql);
+$statement->bindValue(1, "$mNumber");
+$statement->execute();
+$infoMember = $statement->fetchAll();
 
 ?>
 
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coders | 個人檔案</title>
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
 
 
 </head>
+
 <body>
   <div class="wrap info">
 
-      
-      <?php
-        include('layout/spacebackground.php');
-        include('layout/header.php');
-        ?>
 
-      <main class="info_main">
-          <div class="info_title"><p>個人檔案</p></div>
+    <?php
+    include('layout/spacebackground.php');
+    include('layout/header.php');
+    ?>
 
-          <div class="info_area">
-              <div class="op_circle right_cc">
-
-
-
-
-
-                <!-- 個人檔案照片 -->
-
-                <div class="account_pic">
-                  <?php
-                      foreach($infoMember as $index => $row){
-                  ?>
-                    
-                    <img  src=<?=$row["mPhoto"]?> alt=""  id="show_image">
-                  <?php } ?>
-                </div>  
-
-                <label for="upload_img" class="plusCamera">
-                  
-                  <!-- ＋按鈕圖示 -->
-                  <img src="../images/info/plusCamera.png" alt="">
-
-                  <!-- <input type="submit" value="送出" /> -->
-                  
-                </label>
-                  
-              </div>
-                
-                <!-- ccPoint 1:100-->
-                <div class="left_cc">
-                    <div class="notice_bar">
-
-                   
-                        <div><p>目前擁有 <span><?=$row["mCC"] ?></span> CC Point = NT$ <?=floor($row["mCC"]*0.0111) ?>&ensp;</p></div>
-                    
-                        <div><img src="../images/info/cc_coin.png" alt=""> </div>
-                    </div>    
-
-                    
-                    <div class="info_card">
-                        <form method="post" action="info_Upload.php" enctype="multipart/form-data">
-                            <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
-
-                            <input type="text" name = "account_test"style="display: none;" value="<?=$row["mAccount"] ?>">
-
-                            <label>姓名&ensp;:&ensp;
-                              
-                            <input type="text"  class="input name_test" value="<?=$row["mName"] ?>" name="mName" readonly unselectable="on" /><span class='error4'></span>
-                              
-                            </label>
-
-                            <!-- 帳號設定成無法編輯 -->
-                            <label>帳號&ensp;:&ensp;
-                                <input type="text" class="input" value="<?=$row["mAccount"] ?>" name="mAccount" readonly unselectable="on"/>
-                            </label>
-                            <label>密碼&ensp;:&ensp;
-
-                                <input type="password" class="input pwd_test" value="<?=$row["mPassword"] ?>" name="mPassword" readonly unselectable="on"/><span class='error5'></span>
-                            </label>
-                            <!-- 電子信箱設定成無法編輯 -->
-                            <label>電子信箱&ensp;:&ensp;
-
-                                <input type="email" class="input" value="<?=$row["mEmail"] ?>" name="mEmail" readonly unselectable="on"/>
-                            </label> 
-
-                            <label>手機號碼&ensp;:&ensp;
-
-                                <input class="input fone" value="<?=$row["mPhone"] ?>" name="mPhone" readonly unselectable="on"/><span class='error3'></span>
-                            </label>
-
-                            <!-- 選擇檔案按鈕 -->
-                            <input id="upload_img" type="file" accept="image/jpeg,image/gif,image/png"  style="display: none;" name="myFile">
-
-                            <button class="sendBtn" type="submit">確認修改</button>
-
-                        </form>
-
-                        
-                                           
-                    </div>
-
-                </div>
-
-                
-              
-            </div>
-        <!-- 第二部分 --- 收藏課程 / 文章 --- 開始 -->
-        <div class="info_second">
-            <div class="course_area">
-              <p class="course_title">< 我的課程 /></p>
-              <div class="course">
-                  <div class="wrapGeneral ">
-                  <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-                  <div class="favorites">
-                    <i class="fas fa-heart"></i>
-                  </div>
-                  <a class="img" href="course_start_class.php">
-                    <img src="../images/allCourse/course01.png" alt="">
-                  </a>
-                <!-- <a href="" class="Main"> -->
-                <div class="c_Main">
-                  <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-                  <div class="time">課程總長：120分鐘</div>
-                  <div class="comment">
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <a class="text" href="">24則評價</a>
-                  </div>
-                  <div class="price">NT.1,200</div>
-                </div>
-                <!-- </a> -->
-              </div>
-
-              <div class="wrapGeneral ">
-                  <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-                  <div class="favorites">
-                    <i class="fas fa-heart"></i>
-                  </div>
-                  <a class="img" href="course_start_class.php">
-                    <img src="../images/allCourse/course01.png" alt="">
-                  </a>
-                <!-- <a href="" class="Main"> -->
-                <div class="c_Main">
-                  <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-                  <div class="time">課程總長：120分鐘</div>
-                  <div class="comment">
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <a class="text" href="">24則評價</a>
-                  </div>
-                  <div class="price">NT.1,200</div>
-                </div>
-                <!-- </a> -->
-              </div>
-
-              <div class="wrapGeneral ">
-                  <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-                  <div class="favorites">
-                    <i class="fas fa-heart"></i>
-                  </div>
-                  <a class="img" href="course_start_class.php">
-                    <img src="../images/allCourse/course01.png" alt="">
-                  </a>
-                <!-- <a href="" class="Main"> -->
-                <div class="c_Main">
-                  <p class="title" href="">HTML快速入門-張老闆帶你飛</p>
-                  <div class="time">課程總長：120分鐘</div>
-                  <div class="comment">
-                    <div class="star">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <a class="text" href="">24則評價</a>
-                  </div>
-                  <div class="price">NT.1,200</div>
-                </div>
-                <!-- </a> -->
-              </div>
-               
+    <main class="info_main">
+      <div class="info_title">
+        <p>個人檔案</p>
       </div>
-                
-            
-    </div>
+
+      <div class="info_area">
+        <div class="op_circle right_cc">
+
+
+
+
+
+          <!-- 個人檔案照片 -->
+
+          <div class="account_pic">
+            <?php
+            foreach ($infoMember as $index => $row) {
+            ?>
+
+              <!-- <img src=<?= $row["mPhoto"] ?> alt="" id="show_image"> -->
+            <?php } ?>
+          </div>
+
+          <label for="upload_img" class="plusCamera">
+
+            <!-- ＋按鈕圖示 -->
+            <img src="../images/info/plusCamera.png" alt="">
+
+            <!-- <input type="submit" value="送出" /> -->
+
+          </label>
+
+        </div>
+
+        <!-- ccPoint 1:100-->
+        <div class="left_cc">
+
+          <div class="info_card">
+            <form method="post" action="info_Upload.php" enctype="multipart/form-data">
+              <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
+
+              <input type="text" name="account_test" style="display: none;" value="<?= $row["mAccount"] ?>">
+
+              <label>姓名&ensp;:&ensp;
+
+                <input type="text" class="input name_test" value="<?= $row["mName"] ?>" name="mName" readonly unselectable="on" /><span class='error4'></span>
+
+              </label>
+
+              <!-- 帳號設定成無法編輯 -->
+              <label>帳號&ensp;:&ensp;
+                <input type="text" class="input" value="<?= $row["mAccount"] ?>" name="mAccount" readonly unselectable="on" />
+              </label>
+              <label>密碼&ensp;:&ensp;
+
+                <input type="password" class="input pwd_test" value="<?= $row["mPassword"] ?>" name="mPassword" readonly unselectable="on" /><span class='error5'></span>
+              </label>
+              <!-- 電子信箱設定成無法編輯 -->
+              <label>電子信箱&ensp;:&ensp;
+
+                <input type="email" class="input" value="<?= $row["mEmail"] ?>" name="mEmail" readonly unselectable="on" />
+              </label>
+
+              <label>手機號碼&ensp;:&ensp;
+
+                <input class="input fone" value="<?= $row["mPhone"] ?>" name="mPhone" readonly unselectable="on" /><span class='error3'></span>
+              </label>
+
+              <!-- 選擇檔案按鈕 -->
+              <input id="upload_img" type="file" accept="image/jpeg,image/gif,image/png" style="display: none;" name="myFile">
+
+              <button class="sendBtn" type="submit">確認修改</button>
+
+            </form>
+
+
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+      <!-- 第二部分 --- 收藏課程 / 文章 --- 開始 -->
+      <div class="info_second">
+        <div class="course_area">
+          <p class="course_title">
+            < 我的課程 />
+          </p>
+          <div class="course" id="infoCourse">
+
+            <template v-for="course in courses">
+              <div class="wrapGeneral">
+                <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+                <div class="favorites">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <a class="img" href="course_start_class.php">
+                  <img :src="course.cImage" alt="">
+                </a>
+                <!-- <a href="" class="Main"> -->
+                <div class="c_Main">
+                  <p class="title" href="">{{course.cTitle}}</p>
+                  <div class="time">課程總長：{{course.cTime}}</div>
+                  <div class="comment">
+                    <div class="star">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <a class="text" href="">24則評價</a>
+                  </div>
+                  <div class="price">NT.{{course.cPrice}}</div>
+                </div>
+                <!-- </a> -->
+              </div>
+            </template>
+          </div>
+
+
+        </div>
         <div class="loveCourse_area">
-          <p class="loveCourse_title">< 收藏課程 /></p>
+          <p class="loveCourse_title">
+            < 收藏課程 />
+          </p>
           <div class="course">
 
             <!-- 一般課程 -->
@@ -377,260 +322,99 @@
           </div>
 
         </div>
-            
-            <!-- ------ 收藏文章 ------ -->
-            
-            <p class="love_title">< 收藏文章 /></p>
-            
 
-          <div class="info_article">
-            <div class="aic_1">
-                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
-                <img src="../images/info/w_c.jpeg" alt="">  
-                <div><p>2020最佳的十個套件推薦</p></div> 
+        <!-- ------ 收藏文章 ------ -->
+
+        <p class="love_title">
+          < 收藏文章 />
+        </p>
+
+
+        <div class="info_article">
+          <div class="aic_1">
+            <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
+            <img src="../images/info/w_c.jpeg" alt="">
+            <div>
+              <p>2020最佳的十個套件推薦</p>
             </div>
+          </div>
 
-            <div class="aic_2">
-                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
-                <img src="../images/info/w_c.jpeg" alt=""> 
-                <div><p>2020最佳的十個套件推薦</p></div> 
-
-             
-            </div>
-
-            <div class="aic_3">
-                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
-                <img src="../images/info/w_c.jpeg" alt="">  
-                <div><p>2020最佳的十個套件推薦</p></div> 
-
+          <div class="aic_2">
+            <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
+            <img src="../images/info/w_c.jpeg" alt="">
+            <div>
+              <p>2020最佳的十個套件推薦</p>
             </div>
 
 
           </div>
-          <!-- ------ 徽章成就 ------ -->
-          <p class="achievement_title">< 徽章成就 /></p>
-          <div class="info_achievement">
-              <div class="big_a">
-                  <div><img src="../images/big_badge/html5徽章.png" alt=""></div>
-                  <div><img src="../images/big_badge/jQ勳章.png" alt=""></div>
-                  <div><img src="../images/big_badge/sass.png" alt=""></div>
-                  <div><img src="../images/big_badge/css3徽章.png" alt=""></div>
-                  <div><img src="../images/big_badge/php徽章.png" alt=""></div>
-                  <div><img src="../images/big_badge/js徽章.png" alt=""></div>
-                  <div><img src="../images/big_badge/mysql徽章.png" alt=""></div>   
-              </div>
 
-              <div class="little_a">
-                
-                 <div><img src="<?=$row["bImage"] ?>" alt="" name="bImage"></div>
-                 <div><img src="../images/trial/badge/html2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/html3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/css1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/css2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/css3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/sass1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/sass2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/sass3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/php1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/php2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/php3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/js1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/js2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/js3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/jq1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/jq2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/jq3.png" alt=""></div>
-                 <div><img src="../images/trial/badge/mysql1.png" alt=""></div>
-                 <div><img src="../images/trial/badge/mysql2.png" alt=""></div>
-                 <div><img src="../images/trial/badge/mysql3.png" alt=""></div>
-              </div>
+          <div class="aic_3">
+            <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt=""></div>
+            <img src="../images/info/w_c.jpeg" alt="">
+            <div>
+              <p>2020最佳的十個套件推薦</p>
+            </div>
+
+          </div>
+
+
+        </div>
+        <!-- ------ 徽章成就 ------ -->
+        <p class="achievement_title">
+          < 徽章成就 />
+        </p>
+        <div class="info_achievement">
+          <p>趕快去語宙試煉挑戰，才可以蒐集徽章喔！</p>
+          <div class="big_a">
+            <div><img src="../images/big_badge/html5徽章.png" alt=""></div>
+            <div><img src="../images/big_badge/jQ勳章.png" alt=""></div>
+            <div><img src="../images/big_badge/sass.png" alt=""></div>
+            <div><img src="../images/big_badge/css3徽章.png" alt=""></div>
+            <div><img src="../images/big_badge/php徽章.png" alt=""></div>
+            <div><img src="../images/big_badge/js徽章.png" alt=""></div>
+            <div><img src="../images/big_badge/mysql徽章.png" alt=""></div>
+          </div>
+
+          <div class="little_a">
+
+            <div><img src="<?= $row["bImage"] ?>" alt="" name="bImage"></div>
+            <div><img src="../images/trial/badge/html2.png" alt=""></div>
+            <div><img src="../images/trial/badge/html3.png" alt=""></div>
+            <div><img src="../images/trial/badge/css1.png" alt=""></div>
+            <div><img src="../images/trial/badge/css2.png" alt=""></div>
+            <div><img src="../images/trial/badge/css3.png" alt=""></div>
+            <div><img src="../images/trial/badge/sass1.png" alt=""></div>
+            <div><img src="../images/trial/badge/sass2.png" alt=""></div>
+            <div><img src="../images/trial/badge/sass3.png" alt=""></div>
+            <div><img src="../images/trial/badge/php1.png" alt=""></div>
+            <div><img src="../images/trial/badge/php2.png" alt=""></div>
+            <div><img src="../images/trial/badge/php3.png" alt=""></div>
+            <div><img src="../images/trial/badge/js1.png" alt=""></div>
+            <div><img src="../images/trial/badge/js2.png" alt=""></div>
+            <div><img src="../images/trial/badge/js3.png" alt=""></div>
+            <div><img src="../images/trial/badge/jq1.png" alt=""></div>
+            <div><img src="../images/trial/badge/jq2.png" alt=""></div>
+            <div><img src="../images/trial/badge/jq3.png" alt=""></div>
+            <div><img src="../images/trial/badge/mysql1.png" alt=""></div>
+            <div><img src="../images/trial/badge/mysql2.png" alt=""></div>
+            <div><img src="../images/trial/badge/mysql3.png" alt=""></div>
           </div>
         </div>
+      </div>
 
-      </main>
-   
+    </main>
+
 
     <?php
     include('layout/footer.php');
     ?>
 
   </div>
-
+  <script src="../js/vue.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
   <script src="../js/header.js"> </script>
-  <script>
-  $(document).ready(function(){
-
-    
-    
-
-      // 取得 cookie 的值
-  function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  // 檢查某 cookie 是否存在
-  function checkCookie(cname) {
-    var cookie_value = getCookie(cname);
-    if (cookie_value != "") {
-      return true;
-    } else {
-      return false;
-    }
-  }
- 
- 
-  // console.log(userAccount);
-
-    //編輯檔案
-    $('.editFile').click(function(){
-      // alert('hi');
-      $(this).css('display','none');
-      $('.plusCamera').css('display','block');
-      $('.input').attr('readonly', false);
-      $('.input').eq(3).attr('readonly', true);
-      $('.input').eq(1).attr('readonly', true);
-      $('.sendBtn').css('display', 'block');
-
-
-
-      //欄位點選時會亮橘框
-      $('.input').focus(function(){
-
-        $(this).css("border-color","rgb(252, 201, 59)")
-        })
-
-        $('.input').blur(function(){
-            $(this).css("border-color","")
-        })
-      
-    });
-      
-    
-    //確認修改按鈕
-
-    $('.sendBtn').click(function(){
-      $('.input').attr('readonly', true);
-      $('.sendBtn').css('display', 'none');
-    });
-
-    $('.input').keydown(function(e){
-      if(e.which==32){
-          e.preventDefault();
-      }
-    });
-
-    //電話號碼判斷不可為空值
-    var tel_test = /^09[0-9]{8}$/;
-    $(".fone").blur(function(){
-        if(tel_test.test($(this).val())){
-            $('.error3').text('')
-        }else{
-            $('.error3').text('不符合規則，請輸入「09xxxxxxxx」!')
-            $(this).css("border-color","red")
-        }
-    })
-
-    //名字判斷不可為空值
-    $('.name_test').blur(function(){
-      if($(this).val() != ''){
-          $('.error4').text('')
-        }else{
-          $('.error4').text('不符合規則，欄位不可為空!')
-          $(this).css("border-color","red")
-        }
-    })
-
-    //密碼判斷不可為空值
-    var pwd_val = $('.pwd_test').val();
-    $('.pwd_test').blur(function(){
-      if($(this).val() != ''){
-          $('.error5').text('')
-        }else{
-          $('.error5').text('不符合規則，欄位不可為空!')
-          $(this).css("border-color","red")
-        }
-    })
-
-    // $('.orginPic').removeAttr('src');
-    // $('.orginPic').attr('src','');
-
-    var upload_img = $('#upload_img');
-
-    $('#upload_img').change(function(){
-      // alert('hello');
-      readURL(this);
-    });
-
-    var account_pic = $('.account_pic');
-    function readURL(input){
-    // 判斷是否有上傳成功
-    if(input.files && input.files[0]){
-
-      var reader = new FileReader();
-
-      reader.addEventListener("load", function(e){
-        // 清空圖片
-        account_pic[0].innerHTML = "";
-        // 創建img標籤
-        let img = document.createElement("img");
-        // 在屬性src 加上圖片網路路徑
-        img.src = e.target.result;
-        // 丟進去要放圖片的區塊
-        account_pic[0].appendChild(img);
-      });
-
-      reader.readAsDataURL(input.files[0]);
-
-      }
-    }    
-    
-    
-
-    // $('.sendBtn').click(function(){
-    //   let mName = $('.name_test').val();
-    //   let PictureName = $('#show_image').val();
-    //   let mPhone = $('.fone').val();
-    //   let mPassword = $('.pwd_test').val();
-
-      
-    //   // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
-    //   // let userAccount = getCookie('user');
-
-    //   $.ajax({
-    //     url:'info_Upload.php',
-    //     type:'POST',
-    //     dataType:'text',
-    //     data:{
-    //       mName,
-    //       // PictureName,
-    //       mPhone,
-    //       mPassword,
-    //       // userAccount,
-    //     },
-    //     success(res){
-    //       let array = JSON.parse(res);
-    //       console.log(array);
-    //       // console.log(res);
-    //       // window.location.reload();
-    //     }
-    //   });
-        
-    // })
-
-  });
-  </script>
+  <script src="../js/info.js"></script>
 </body>
+
 </html>
