@@ -2,8 +2,6 @@
 
   include("./layout/connect.php");
   
-
-
    //建立SQL
    $sql = "SELECT * FROM member WHERE mAccount = ?";
    $mNumber = $_COOKIE["user"];
@@ -12,6 +10,7 @@
    $statement->bindValue(1 , "$mNumber");
    $statement->execute();
    $infoMember = $statement->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +57,12 @@
                   <?php
                       foreach($infoMember as $index => $row){
                   ?>
-                    <img  src=<?=$row["mPhoto"]?> alt="no pic"  id="show_image">
+                    
+                    <img  src=<?=$row["mPhoto"]?> alt=""  id="show_image">
                   <?php } ?>
                 </div>  
 
-                <label for="upload_img">
+                <label for="upload_img" class="plusCamera">
                   
                   <!-- ＋按鈕圖示 -->
                   <img src="../images/info/plusCamera.png" alt="">
@@ -88,6 +88,8 @@
                         <form method="post" action="info_Upload.php" enctype="multipart/form-data">
                             <div class="editFile">編輯檔案&ensp;<i class="fas fa-edit"></i></div>
 
+                            <input type="text" name = "account_test"style="display: none;" value="<?=$row["mAccount"] ?>">
+
                             <label>姓名&ensp;:&ensp;
                               
                             <input type="text"  class="input name_test" value="<?=$row["mName"] ?>" name="mName" readonly unselectable="on" /><span class='error4'></span>
@@ -100,7 +102,7 @@
                             </label>
                             <label>密碼&ensp;:&ensp;
 
-                                <input type="password" class="input pwd_test" value="<?=$row["mPasswrod"] ?>" name="mPasswrod" readonly unselectable="on"/><span class='error5'></span>
+                                <input type="password" class="input pwd_test" value="<?=$row["mPassword"] ?>" name="mPassword" readonly unselectable="on"/><span class='error5'></span>
                             </label>
                             <!-- 電子信箱設定成無法編輯 -->
                             <label>電子信箱&ensp;:&ensp;
@@ -420,7 +422,7 @@
 
               <div class="little_a">
                 
-                 <div><img src="../images/trial/badge/html1.png" alt=""></div>
+                 <div><img src="<?=$row["bImage"] ?>" alt="" name="bImage"></div>
                  <div><img src="../images/trial/badge/html2.png" alt=""></div>
                  <div><img src="../images/trial/badge/html3.png" alt=""></div>
                  <div><img src="../images/trial/badge/css1.png" alt=""></div>
@@ -460,30 +462,7 @@
   <script>
   $(document).ready(function(){
 
-    if (checkCookie('user')) {
-        // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
-        var userAccount = getCookie('user');
-
-        $.ajax({
-        url:'info_Upload.php',
-        type:'POST',
-        dataType:'text',
-        data:{
-          // mName,
-          // PictureName,
-          // mPhone,
-          // mPasswrod,
-          userAccount,
-        },
-        success(res){
-          let array = JSON.parse(res);
-          console.log(array);
-          // console.log(res);
-          // window.location.reload();
-        }
-      });
-        
-  }
+    
     
 
       // 取得 cookie 的值
@@ -518,12 +497,16 @@
     //編輯檔案
     $('.editFile').click(function(){
       // alert('hi');
-      
+      $(this).css('display','none');
+      $('.plusCamera').css('display','block');
       $('.input').attr('readonly', false);
       $('.input').eq(3).attr('readonly', true);
       $('.input').eq(1).attr('readonly', true);
       $('.sendBtn').css('display', 'block');
-        //欄位點選時會亮橘框
+
+
+
+      //欄位點選時會亮橘框
       $('.input').focus(function(){
 
         $(this).css("border-color","rgb(252, 201, 59)")
@@ -541,13 +524,13 @@
     $('.sendBtn').click(function(){
       $('.input').attr('readonly', true);
       $('.sendBtn').css('display', 'none');
-    })
+    });
 
     $('.input').keydown(function(e){
       if(e.which==32){
           e.preventDefault();
       }
-    })
+    });
 
     //電話號碼判斷不可為空值
     var tel_test = /^09[0-9]{8}$/;
@@ -581,6 +564,9 @@
         }
     })
 
+    // $('.orginPic').removeAttr('src');
+    // $('.orginPic').attr('src','');
+
     var upload_img = $('#upload_img');
 
     $('#upload_img').change(function(){
@@ -613,15 +599,36 @@
     
     
 
-    $('.sendBtn').click(function(){
-      let mName = $('.name_test').val();
-      let PictureName = $('#show_image').val();
-      let mPhone = $('.fone').val();
-      let mPasswrod = $('.pwd_test').val();
+    // $('.sendBtn').click(function(){
+    //   let mName = $('.name_test').val();
+    //   let PictureName = $('#show_image').val();
+    //   let mPhone = $('.fone').val();
+    //   let mPassword = $('.pwd_test').val();
 
       
+    //   // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
+    //   // let userAccount = getCookie('user');
 
-    })
+    //   $.ajax({
+    //     url:'info_Upload.php',
+    //     type:'POST',
+    //     dataType:'text',
+    //     data:{
+    //       mName,
+    //       // PictureName,
+    //       mPhone,
+    //       mPassword,
+    //       // userAccount,
+    //     },
+    //     success(res){
+    //       let array = JSON.parse(res);
+    //       console.log(array);
+    //       // console.log(res);
+    //       // window.location.reload();
+    //     }
+    //   });
+        
+    // })
 
   });
   </script>
