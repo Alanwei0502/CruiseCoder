@@ -117,8 +117,8 @@
           <!-- 頁籤切換和離開彈跳視窗按鈕 -->
           <div class="navPage">
             <div>
-              <h2 @click="openQuiz" class="openQuiz">新增試題</h2>
-              <h2 @click="openBadge" class="openBadge">新增徽章</h2>
+              <h2 @click="openQuiz" class="openQuiz"></h2>
+              <h2 @click="openBadge" class="openBadge"></h2>
             </div>
             <img src="../images/backEnd/blackCancel.png" alt="" class="closeModal" @click="closeModal">
           </div>

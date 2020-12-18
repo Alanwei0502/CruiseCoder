@@ -109,6 +109,8 @@ Vue.component("tableArea", {
 
         // 新增試題按鈕
         createQuiz() {
+            $('.openQuiz').text('新增試題');
+            $('.openBadge').text('新增徽章');
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
         },
 
@@ -139,6 +141,8 @@ Vue.component("tableRow", {
         editQuiz(e) {
             let gNumber = $(e.target).closest('tr').find('.gNumber').text();
             // console.log(gNumber);
+            $('.openQuiz').text('編輯試題');
+            $('.openBadge').text('編輯徽章');
             $.ajax({
                 type: 'POST',
                 url: 'quizRE.php',
@@ -146,9 +150,11 @@ Vue.component("tableRow", {
                 dataType: 'json',
                 success: function (res) {
                     console.log(res);
+                    $('input.fieldName').val() = res[0]["gName"];
+                    $('.quizModalBg').css("opacity", 1).css("z-index", 1);
                 },
             });
-            $('.quizModalBg').css("opacity", 1).css("z-index", 1);
+
         }
     },
 });
@@ -259,6 +265,7 @@ Vue.component("createAndEdit", {
                     if (value) {
                         let checkedQuestion = $(e.target).closest('.mainEdit').find('.downQuestion').has('.checkForQ:checked');
                         checkedQuestion.remove();
+                        $(e.target).closest('.topFunction').find('.selectAll').prop("checked", false);
                     }
                 });
             }
