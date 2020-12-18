@@ -86,7 +86,7 @@ new Vue({
           for(let i = 0; i < student.length; i++){
             studentArr.push(student[i].mName);
           }
-
+          console.log(studentArr);
           that.student = studentArr;
         }
       });
