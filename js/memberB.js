@@ -6,6 +6,10 @@ let vmMember = new Vue({
             start: 0,
             end: 5,
         },
+        memberInfos: {},
+        memberBadges: [],
+        memberOrders: [],
+        memberTutorials: [],
 
     },
     methods: {
@@ -15,43 +19,41 @@ let vmMember = new Vue({
             let that = this;
             $.ajax({
                 type: 'POST',
-                url: 'memberB.php',
+                url: 'memberR.php',
                 data: { allMember },
                 dataType: 'json',
                 success: function (res) {
-                    // console.log(res);
 
                     that.members = res;
-
                 },
             });
         },
+
         // 搜尋按鈕
         search() {
-            let name = $('input[name="name"]').val();
-            let account = $('input[name="account"]').val();
-            let level = $('select[name="level"] option:selected').val();
-            // console.log(name, account, level);
-            name = "" ? "%%": name;
+            let name = $('input[name="name"]').val().trim();
+            let account = $('input[name="account"]').val().trim();
+            let level = $('select[name="level"] option:selected').val().trim();
+            let datepicker1 = ($('#datepicker1').val() != "") ? $('#datepicker1').val() : "1000/01/01";
+            let datepicker2 = ($('#datepicker2').val() != "") ? $('#datepicker2').val() : "3000/01/01";
+            let dateStart = datepicker1.split("/").join("");
+            let dateEnd = datepicker2.split("/").join("")
+
 
             let that = this;
             $.ajax({
                 type: 'POST',
-                url: 'memberB.php',
-                data: { name, account, level },
+                url: 'memberR.php',
+                data: { name, account, level, dateEnd, dateStart },
                 dataType: 'json',
                 success: function (res) {
-                    // console.log(res);
-
                     that.members = res;
-
                 },
             });
 
         },
         // 上一頁按鈕
         minusPages() {
-
             if (this.pages.start == 0 && this.pages.end == 5) {
                 // do nothing
             } else {
@@ -62,8 +64,6 @@ let vmMember = new Vue({
 
         // 下一頁按鈕
         plusPages() {
-            // let totalPage = parseInt(this.fields.length / 5);
-            // totalPage += (this.fields.length % 5 == 0) ? 0 : 1;
             if (this.pages.end > this.members.length) {
                 // do nothing
             } else {
@@ -71,6 +71,31 @@ let vmMember = new Vue({
                 this.pages.end += 5;
             }
         },
+
+        // 編輯會員資料
+        edit(e) {
+            let mNumber = $(e.target).closest('td').prevAll(".number").text();
+            let that = this;
+            $.ajax({
+                type: 'POST',
+                url: 'memberR.php',
+                data: { mNumber },
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    that.memberInfos = res[0][0];
+                    that.memberBadges = res[1];
+                    that.memberOrders = res[2];
+                    that.memberTutorials = res[3];
+                },
+            });
+            $("div.overlay").addClass("-on");
+        },
+
+        // 關閉彈跳視窗
+        closeEdit() {
+            $("div.overlay").removeClass("-on");
+        }
     },
     created() {
         this.ajax();
@@ -81,19 +106,6 @@ let vmMember = new Vue({
 
 
 // $(function () {
-
-//     // 開啟 Modal 彈跳視窗
-//     $(".btn_modal").on("click", function () {
-//         $("div.overlay").addClass("-on");
-//     });
-
-//     // 關閉 Modal
-//     $("div.closeBtn_").on("click", function () {
-//         $("div.overlay").removeClass("-on");
-
-//     });
-
-// });
 
 // $("#gansss").change(function () {
 //     let checkValue = $("#gansss").val();
