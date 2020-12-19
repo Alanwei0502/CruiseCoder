@@ -11,6 +11,8 @@
     <title>Cruise Coders | 購物車</title>
     <link rel="stylesheet" href="./../css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="icon" href="../ico.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 </head>
 
@@ -73,7 +75,7 @@
             <div class="price" id="app">
                 <div class="discount">
                     <form class="ccPoint" :data-id="ccPointNt">
-                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  onkeypress="if (event.keyCode == 13) {return false;}" >元
+                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeypress="if (event.keyCode == 13) {return false;}">元
                     </form>
                 </div>
                 <p class="overCcp"></p>
@@ -107,7 +109,7 @@
                         <label class="text">
                             持卡人姓名
                         </label>
-                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName">
+                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName" onkeyup="value=value.replace(/[\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" >
                     </div>
                     <div class="phoneNum">
                         <label class="text">
@@ -119,10 +121,10 @@
                         <label class="text">
                             信用卡卡號
                         </label>
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <div class="date" id="app2">
                         <label class="text">

@@ -103,18 +103,20 @@ $(document).ready(function () {
                 getCookie('user');
 
                 if (!checkCookie('user')) {
+                swal("請先登入會員!", "登入會員才能使用購物車!", "error");
+
                     // $('.loginWrap').css('display', 'block');
-                    $('.logout').css('display', 'none');
-                    $('.callLoginBox').css('display', 'block');
-                    $('#loginWrap').css('display', 'block');
+                    // $('.logout').css('display', 'none');
+                    // $('.callLoginBox').css('display', 'block');
+                    // $('#loginWrap').css('display', 'block');
 
-                    $('#closeIcon').click(function () { //點擊close icon 關閉login
-                        $('#loginWrap').css('display', 'none');
-                    });
+                    // $('#closeIcon').click(function () { //點擊close icon 關閉login
+                    //     $('#loginWrap').css('display', 'none');
+                    // });
 
-                    $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                        $('#loginWrap').css('display', 'none');
-                    });
+                    // $('.greyGlass').click(function () {//點擊蒙版 關閉login
+                    //     $('#loginWrap').css('display', 'none');
+                    // });
                     // return;
                 } else {
                     // this.getCourse();
@@ -188,7 +190,7 @@ $(document).ready(function () {
             },
             dataType: "text",
             success: function (data) {
-                document.querySelector('a.ccp').innerText = data;
+                document.querySelector('a.ccp').innerText = parseInt(data);
             }
         });
     }
@@ -614,7 +616,6 @@ $(document).ready(function () {
                 });
                 // 下拉選單↑↑↑↑↑↑↑↑↑↑↑↑
             }
-
 
         });
 

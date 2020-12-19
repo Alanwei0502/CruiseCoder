@@ -11,7 +11,10 @@
   <title>Cruise Coders | 外星課程</title>
   <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -27,9 +30,9 @@
           <h2>
             < 外星課程 />
           </h2>
-          <form class="search" action="" method="POST">
-            <input type="search" placeholder="找課程名稱">
-            <button type="submit">
+          <form class="search" action="#" method="POST" onkeypress="if (event.keyCode == 13) {return false;}">
+            <input type="" placeholder="找課程名稱" id="search" @keyup.13="searchTitle">
+            <button type="button" @click="searchTitle">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -89,7 +92,7 @@
                   </div>
                   <div class="courseStart" v-else="course.cStatus == 1">
                     <div class="comment">
-                      <div class="star" :data-star="course.rRate" >
+                      <div class="star" :data-star="course.rRate">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -102,10 +105,7 @@
                   </div>
                 </div>
               </div>
-
-
             </a>
-
           </template>
         </div>
       </div>

@@ -4,6 +4,7 @@ window.addEventListener('load', doFirst);
 
 function doFirst() {
 
+    
     // 刪除購買商品(JS寫法)
     // var close = document.getElementsByClassName("close");
     // for (let i = 0; i < close.length; i++) {
@@ -111,6 +112,9 @@ function doFirst() {
         if ($('#card_Name').val() == '') {
             $('#card_Name').addClass('-error');
             send_data = false;
+            swal("請填寫姓名", "", "error");
+            return;
+
         } else {
             $('#card_Name').removeClass('-error');
         }
@@ -166,7 +170,9 @@ function doFirst() {
         if (!send_data) {
             e.preventDefault(); //停止預設行為
             // console.log(send_data);
-            $('.failed').addClass('-on');//顯示交易失敗燈箱
+            // $('.failed').addClass('-on');//顯示交易失敗燈箱
+            swal("請確認資料是否填寫完整", "", "error");
+
         } else {
             // send_data = true;
             // console.log(send_data);
@@ -326,7 +332,7 @@ function doFirst() {
                 }
                 this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
                 // console.log(ccp);
-                // console.log(this.ccp);
+                console.log(this.ccp);
                 return this.ccp;
             },
 
@@ -540,7 +546,7 @@ function doFirst() {
 
 // 請peggy用push方式將id寫進去localstorage
 // 自訂資料寫進去localstorage  
-let list = ['C0001', 'C0002', 'C0003', 'C0004', 'C0008']
+let list = ['C0001', 'C0002']
 // // let list = []
 
 
