@@ -254,6 +254,28 @@ div.reservation {
 		div.table {
 			font-size: $bp;
 			max-width: 100%;
+			position: relative;
+
+			div.NoData {
+				display: block;
+				text-align: center !important;
+				position: absolute;
+				width: 100% !important;
+				height: 340px !important;
+				background-color: #ffe4c4;
+				// background-color: #fcfcfc;
+				p {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			div.hidden {
+				display: none;
+			}
+
 			div.tr {
 				display: flex;
 				flex-shrink: 0;

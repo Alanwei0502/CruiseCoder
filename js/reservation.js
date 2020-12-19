@@ -1,18 +1,3 @@
-let addBtn = document.getElementsByClassName("addButton")[0];
-let addReservationBack = document.getElementsByClassName("addReservationBack")[0];
-let cancelBack = document.getElementsByClassName("cancelBack")[0];
-let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
-addBtn.addEventListener("click", function(){
-  addReservationBackAll.classList.add("on");
-});
-addReservationBack.addEventListener("click", function(){
-  addReservationBackAll.classList.remove("on");
-});
-cancelBack.addEventListener("click", function(){
-  addReservationBackAll.classList.remove("on");
-});
-
-
 let vm = new Vue({
   el: '#main',     //el: document.getElementById('app'),
   data: {         //變數都放這裡
@@ -46,6 +31,16 @@ let vm = new Vue({
           vm.mounted();
         }
       });
+    },
+
+    Nodata(){
+      let tr = $('div.tr');
+      if(tr.length = 1){
+        $('div.NoData').removeClass('hidden');
+      }
+      else if(tr.length > 1){
+        $('div.NoData').addClass('hidden');
+      }
     },
 
     addReservationBackAll(){//叫出新增課輔燈箱
@@ -113,7 +108,12 @@ let vm = new Vue({
           that.dataArr = array;
           that.pages= {start: 0,end: 5};
         }
+      }).then ( ()=> {
+        that.Nodata();
       });
+      // vm.search();
+      // this.Nodata();
+
     },
 
     callEditBackAll(e){ //叫出編輯燈箱
@@ -310,6 +310,21 @@ let vm = new Vue({
 // });
 // cancelBack1.addEventListener("click", function(){
   
+// });
+
+
+// let addBtn = document.getElementsByClassName("addButton")[0];
+// let addReservationBack = document.getElementsByClassName("addReservationBack")[0];
+// let cancelBack = document.getElementsByClassName("cancelBack")[0];
+// let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
+// addBtn.addEventListener("click", function(){
+//   addReservationBackAll.classList.add("on");
+// });
+// addReservationBack.addEventListener("click", function(){
+//   addReservationBackAll.classList.remove("on");
+// });
+// cancelBack.addEventListener("click", function(){
+//   addReservationBackAll.classList.remove("on");
 // });
 
 $(document).click(function(e){

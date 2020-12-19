@@ -79,20 +79,13 @@
           <div class="td">{{member.mName}}</div>
           <div v-if="member.tStatus == '上架'" style="color: green;" class="td">{{member.tStatus}}</div>
           <div v-else style="color: red;" class="td">{{member.tStatus}}</div>
-          <!-- <div class="td">{{countPeopel.slice(pages.start,pages.end)[index]}}</div> -->
           <div class="td">{{member.countPeople}}</div>
           <div class="td"><button class="editBtn" ref="ss" @click="callEditBackAll">編輯</button></div>
           <input type="hidden" v-model="member.tNumber" class="hidden">
         </div>
-        <!-- <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/11/07</div>
-          <div class="td">語昕教你重新認識JavaScript</div>
-          <div class="td">黃語昕</div>
-          <div class="td">上架</div>
-          <div class="td">20</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>-->
+
+        <div class="NoData hidden"><p>查無課程</p></div>
+        
       </div>
 
       <div class="addReservationBackAll">
