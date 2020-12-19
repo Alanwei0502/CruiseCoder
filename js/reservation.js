@@ -33,16 +33,6 @@ let vm = new Vue({
       });
     },
 
-    Nodata(){
-      let tr = $('div.tr');
-      if(tr.length = 1){
-        $('div.NoData').removeClass('hidden');
-      }
-      else if(tr.length > 1){
-        $('div.NoData').addClass('hidden');
-      }
-    },
-
     addReservationBackAll(){//叫出新增課輔燈箱
       let addBtn = document.getElementsByClassName("addButton")[0];
       let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
@@ -97,6 +87,7 @@ let vm = new Vue({
         },
         success: function (res){
           let array = JSON.parse(res);
+          console.log(array);
 
           for(let i = 0; i < array.length; i++){
             if(array[i]["tStatus"] == "1"){
@@ -107,12 +98,14 @@ let vm = new Vue({
           }
           that.dataArr = array;
           that.pages= {start: 0,end: 5};
+
+          if(array.length != 0){
+            $('div.NoData').addClass('hidden');
+          }else{
+            $('div.NoData').removeClass('hidden');
+          }
         }
-      }).then ( ()=> {
-        that.Nodata();
       });
-      // vm.search();
-      // this.Nodata();
 
     },
 
