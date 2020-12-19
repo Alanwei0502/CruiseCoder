@@ -338,7 +338,7 @@
             }
 
             article {
-                display: none;
+                display: block;
                 width: 80%;
                 padding: $fontSize;
                 background-color: rgba(24, 39, 73, .7);
@@ -417,6 +417,7 @@
         .badge {
             padding: $fontSize;
             background-color: rgba(24, 39, 73, .7);
+            margin-bottom: $fontSize*3;
 
             p {
                 font-size: $bp;

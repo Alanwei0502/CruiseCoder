@@ -1,54 +1,36 @@
 div.member{
     main{
+        font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
         h2 {
 			@include backTitle;
         }
         .searchbar {
             @include blockStyle;
-            position: relative;
-			.account_select{
-                margin-bottom: 20px;
-                display: inline-block;
-				label {
-					font-size: $mp;
-                    display: block;
-                    margin-right: 30px;
-                }    
-                
-                input{
-                    @include inputTextStyle;
-                    margin: 0 10px;
-                }
-
+            @include clearfixed;
+            label{
+                font-size: $bp;
             }
-            
+            input{
+                @include inputTextStyle;
+                width: 200px;
+            }
+            div{
+                display: inline-block;
+                margin-right: $fontSize;
+            }
 			button {
 				@include backBtn;
                 white-space: nowrap;
-                position: absolute;
-                right: 30px;
-                bottom: 15px;
-                
+                float: right;
+                margin-top: $fontSize*0.8;
             }
-            
-            .memberPower{
-                display: inline-block;
-                label{
-                    font-size: $mp;
-                    display: block;
-                }
-                
-                select{
-                    @include selectStyle;
-                    margin-right: 30px;
-                }
+            select{
+                @include selectStyle;
             }
             .poDate{
-                display: inline-block;
-                label{
-                    font-size: $mp;
-                    display: block;
-                }
+                display: block;
+                margin-top: $fontSize;
+                float: left;
                 input{
                     @include datepickerStyle;
                 }
@@ -60,10 +42,10 @@ div.member{
 
         }        
         .table {
+            margin-top: $fontSize*2;
 			table {
 				font-size: $bp;
 				width: 100%;
-				margin: 0 auto;
 				button {
 					@include editBtn;
 					cursor: pointer;
@@ -71,8 +53,11 @@ div.member{
                 thead{
 					th {
 						font-weight: bold;
-						padding: $fontSize*1.5 0;
-                        text-align: center;
+                        padding: $fontSize*1.5 0;
+                        text-align: left;
+                        &:nth-child(1){
+                            padding-left: 10px;
+                        }
 					}
                 }
                 tbody{
@@ -85,9 +70,12 @@ div.member{
                     
 
 					td {
+                        &:nth-child(1){
+                            padding-left: 10px;
+                        }
                         padding: $fontSize*1.5 0;
                         font-size: $mp;
-                        text-align: center;
+                        // text-align: center;
                         
                         
 					}
@@ -144,7 +132,6 @@ div.member{
                     }
                 }
                 .weAreInside{
-                  
                     overflow: scroll;
                     position: relative;
                     background-color: white;
