@@ -7,7 +7,7 @@ let app = new Vue({
         favCourse: [],
         theMember: '',
         star: [],
-        courseTitle:'所有課程',
+        courseTitle: '',
     },
     // ajax抓資料
     created() {
@@ -29,10 +29,15 @@ let app = new Vue({
                 data: { star },
                 dataType: 'json',
                 success: function (res) {
-                    // console.log(res);
+                    console.log(res);
                     that.courses = res;
+                    // res.rRate
+                    // console.log(res.rRate);
                 }
             });
+            this.courseTitle = "所有課程";
+            // this.courses.rRate
+
         },
         getmember() {
             // 取得會員編號
@@ -125,8 +130,6 @@ let app = new Vue({
             this.clearFav();
             this.getFavCourse();
             this.courseTitle = "所有課程";
-
-
         },
         fundingOpen() {
             //載入募資課程
@@ -348,7 +351,7 @@ let app = new Vue({
                 this.getFavCourse();
                 this.courseTitle = "Vue.js";
             }
-           
+
         },
         // // 點擊愛心，加上顏色
         favorites(e) {
@@ -359,18 +362,20 @@ let app = new Vue({
             // console.log(this.theMember);
             // 先判斷有無登入，沒有登入就會return
             if (!checkCookie('user')) {
+
+                swal("請先登入會員!", "登入會員才有辦法收藏課程唷!", "error");
                 // $('.loginWrap').css('display', 'block');
-                $('.logout').css('display', 'none');
-                $('.callLoginBox').css('display', 'block');
-                $('#loginWrap').css('display', 'block');
+                // $('.logout').css('display', 'none');
+                // $('.callLoginBox').css('display', 'block');
+                // $('#loginWrap').css('display', 'block');
 
-                $('#closeIcon').click(function () { //點擊close icon 關閉login
-                    $('#loginWrap').css('display', 'none');
-                });
+                // $('#closeIcon').click(function () { //點擊close icon 關閉login
+                //     $('#loginWrap').css('display', 'none');
+                // });
 
-                $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                    $('#loginWrap').css('display', 'none');
-                });
+                // $('.greyGlass').click(function () {//點擊蒙版 關閉login
+                //     $('#loginWrap').css('display', 'none');
+                // });
                 return;
             }
 
@@ -450,23 +455,51 @@ let app = new Vue({
             // console.log(cNumber);
         },
         starrr() {
-            let star = $('div.star');
+            // let star = $('div.star');
+            setTimeout(() => {
+                let starDiv = document.getElementsByClassName('star');
+                // console.log(starDiv);
 
-            // let star = document.getElementsByClassName('star');
-            // let star = starDiv.getAttribute('data-star');
-            console.log(star);
+                let starRate = [];
+                for (let i = 0; i < starDiv.length; i++) {
+                    let star = starDiv[i].getAttribute('data-star');
+                    if (star == null) {
+                        star = 0;
+                        starRate.push(star);
+                    } else {
+                        starRate.push(star);
+                    }
+                }
+                console.log(starRate);
 
-            let starRate = [];
-            for (let i = 0; i < star.length ; i++) { 
-                starRate.push(star[i].getAttribute('data-star'));
+            }, 500);
+
+
+        },
+        searchTitle() {
+            // input模糊搜尋
+            // 搜尋框的值(都轉成大寫，並去除前後空白)
+            // let searchInput = $('#search').val().toUpperCase();
+            let searchInput = $('#search').val().trim();
+            console.log(searchInput);
+
+            // 自定義Contains，不分大小寫
+            jQuery.expr[':'].Contains = function (a, i, m) {
+                return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+            };
+
+            if (searchInput != "") {
+
+                $("p.title:Contains('" + searchInput + "')").closest('a.course').show();
+
+                $('p.title').not($("p.title:Contains('" + searchInput + "')")).closest('a.course').hide();
+
+            } else {
+                $("p.title").closest('a.course').hide();
             }
-            console.log(starRate);
         }
-
     },
-
 });
-
 
 // 頁籤顏色
 $(function () {
@@ -480,8 +513,6 @@ $(function () {
         $(this).closest(".category").find("button.tab").removeClass("-on");
         $(this).addClass("-on");
     });
-
-
 
 });
 
