@@ -194,6 +194,7 @@
 // 下拉式選單樣式 主要統一大概樣式 至於長度各位在自己調整
 // 用法 @include selectStyle; 放在select
 @mixin selectStyle {
+	border: 1px solid gray;
 	font-size: $mp;
 	padding: 5px;
 	border-radius: 8px;
@@ -204,6 +205,7 @@
 
 // 月曆輸入框樣式 用法 @include datepickerStyle;
 @mixin datepickerStyle {
+	border: 1px solid gray;
 	font-size: $mp;
 	border-radius: 8px;
 	outline: none;
@@ -221,6 +223,7 @@
 
 // 文字輸入框  用法 @include inputTextStyle;
 @mixin inputTextStyle {
+	border: 1px solid gray;
 	font-size: $mp;
 	border-radius: 8px;
 	outline: none;
