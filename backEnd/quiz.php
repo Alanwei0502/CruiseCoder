@@ -63,7 +63,7 @@
   <script type="text/x-template" id="tableArea">
     <section class="table">
         <div class="btns">
-          <button class="on" @click="mutipleOn">上架試題</button>
+          <button id="on" class="on" @click="mutipleOn">上架試題</button>
           <button class="off" @click="mutipleOff">下架試題</button>
           <button class="add" @click="createQuiz">新增試題</button>
         </div>
