@@ -235,7 +235,7 @@
 				right: 17%;
 				bottom: 30%;
 				animation-name: Planet3;
-				animation-duration: 16s;
+				animation-duration: 11s;
 				animation-iteration-count: infinite;
 				@include laptop {
 					width: 150px;
@@ -335,23 +335,23 @@
 
 		@keyframes Planet3 {
 			0% {
-				transform: translateY(-13px);
+				transform: translateY(-18px);
 			}
 
 			25% {
-				transform: translateY(-10px);
+				transform: translateY(9px);
 			}
 
 			50% {
-				transform: translateY(8px);
+				transform: translateY(-8px);
 			}
 
-			75% {
-				transform: translateY(-15px);
-			}
+			// 75% {
+			// 	transform: translateY(-15px);
+			// }
 
 			100% {
-				transform: translateY(-13px);
+				transform: translateY(-18px);
 			}
 		}
 
