@@ -12,7 +12,7 @@ $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
 //建立PDO物件，並放入指定的相關資料
 $pdo = new PDO($dsn, $db_user, $db_pass);
 
-// 註冊↓↓↓↓↓↓↓↓↓↓
+// 取得cc點數↓↓↓↓↓↓↓↓↓↓
 if (isset($_POST["userAccount"])) {
     $getCC_AccountCC = $_POST["userAccount"];
     $getCC = "SELECT `mCC` FROM member WHERE mAccount = ?";
@@ -24,7 +24,7 @@ if (isset($_POST["userAccount"])) {
     $ccPoint = $CCarr[0]['mCC']; //cc點數
     echo $ccPoint;
 }
-// 註冊↑↑↑↑↑↑↑↑↑↑
+//取得cc點數↑↑↑↑↑↑↑↑↑↑
 
 
 // 註冊↓↓↓↓↓↓↓↓↓↓

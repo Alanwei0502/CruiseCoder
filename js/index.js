@@ -58,14 +58,14 @@ $(document).ready(function() {
             plotShadow: false,
         },
         title: {
-            text: ''
+            text: '',
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         accessibility: {
             point: {
-                valueSuffix: '%'
+                valueSuffix: '%',
             }
         },
         plotOptions: {
@@ -78,22 +78,18 @@ $(document).ready(function() {
                 }
             }
         },
-        series: [{
+        series: [
+            {
                 name: 'Brands',
                 colorByPoint: true,
-                data: [{
-                    name: '優勢二',
-                    y: 33.3,
-                }, {
-                    name: '優勢一',
-                    y: 33.3,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: '優勢三',
-                    y: 33.3,
-                }]
-        }]
+                data: [
+                    {name: '優勢2：線上課程',y: 33.3,}, 
+                    {name: '優勢1：課後輔導 ',y: 33.3,sliced: true,selected: true}, 
+                    {name: '優勢3：線上測驗',y: 33.3,}
+                ]
+            },
+            
+        ]
     });
 
     //↓移除套件預設圖型
@@ -111,6 +107,7 @@ $(document).ready(function() {
 
     
     //↑移除套件預設圖型
+    
     $('.highcharts-color-0').click(function(){
         $('#text1,#text2,#text3').css('display','none'); 
         // $('#text2').css('display','none'); 
@@ -140,6 +137,11 @@ $(document).ready(function() {
     if(window.outerWidth <= 590){
         $('.highcharts-label text').css('font-size','12px')
     }
+
+    $('g.highcharts-data-labels').css('display','none')
+
+
+    // document.getElementById("dataLabel").setAttribute("style", "font-size: 25px");
     // 圓餅圖套件結束
 
 
