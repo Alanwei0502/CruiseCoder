@@ -49,7 +49,7 @@
         <div class="poDate">
           <label>註冊日期</label>
           <input type="text" id="datepicker1" readonly="true"><span>至</span>
-          <input type="text" id="datepicker2">
+          <input type="text" id="datepicker2" readonly="true">
         </div>
 
         <button @click="search">搜尋</button>

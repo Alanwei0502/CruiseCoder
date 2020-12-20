@@ -27,7 +27,7 @@ function getCookie(cname) {
 // 未登入通知
 if (checkCookie('user')) {
 } else {
-    swal("請先登入會員才可以獲得徽章喔!", "", "info");
+    swal("提醒您先登入會員才可以獲得徽章喔!", "", "info");
 }
 
 
@@ -46,15 +46,51 @@ startQuiz[0].addEventListener('click', function () {
     if (checkOne.checked && checkTwo.checked) {
         this.closest("section").classList.add('-hide');
         this.closest("section").nextElementSibling.classList.add('-show');
+
+        // 倒數計時器
+        $('#countdown').css('display', 'block');
+        $('#countdown svg circle').addClass('animation');
+        let countdownNumberEl = document.getElementById('countdown-number');
+        let countdown = 20;
+
+        countdownNumberEl.textContent = countdown;
+
+        add = setInterval(function () {
+            countdown = --countdown <= 0 ? 0 : countdown;
+
+            countdownNumberEl.textContent = countdown;
+
+            if (countdown == 0) {
+                swal({
+                    title: "測驗時間結束，是否重新測驗？",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: true
+                }).then((value) => {
+                    if (value) {
+                        window.location.reload();
+                    } else {
+                        window.location.href = 'galaxy.php';
+                    }
+                });
+            }
+        }, 1000);
     } else {
         swal("請先閱讀完並勾選所有測驗規則", "", "info");
     }
 });
 
+// 中斷計時器
+$('button.nextQuestion').eq(1).click(function () {
+    $('#countdown').css('display', 'none');
+    $('#countdown svg circle').removeClass('animation');
+    clearInterval(add);
+});
+
 
 // 綁定下一題的按鈕
 for (let j = 0; j < nextQuestion.length; j++) {
-    nextQuestion[j].addEventListener('click', function () {
+    nextQuestion[j].addEventListener('click', function (e) {
         let selections = this.closest("section").querySelectorAll('.selection');
 
         if (!selections[0].checked && !selections[1].checked && !selections[2].checked && !selections[3].checked) {
@@ -65,32 +101,46 @@ for (let j = 0; j < nextQuestion.length; j++) {
             this.closest("section").nextElementSibling.classList.add('-show');
 
             // 判斷作答是否正確
-            let chooseOption = selections[i].value;
+            let chooseOption = this.closest("section").querySelector('.selection:checked').value;
             let correctAnswer = this.closest("section").querySelectorAll('div.question')[0].getAttribute("data-answer");
 
             if (chooseOption === correctAnswer) {
-                function answerCountPlus() {
-                    answerCount = answerCount + 1;
-                    correctCount.innerText = `答對題數：${answerCount}題`;
-                }
-                answerCountPlus();
+                answerCount = answerCount + 1;
+                correctCount.innerText = `答對題數：${answerCount}題`;
             }
         }
-
-
     });
-
-
 }
 
 
+// 最後一個下一題按鈕
+$('.nextQuestion').eq(1).click(function () {
+    let userAccount = checkCookie('user');
+    let url = location.href;
+    if (answerCount == 2 && checkCookie('user')) {
+        $.ajax({
+            type: 'POST',
+            url: 'quizR.php',
+            data: { userAccount, url },
+            success: function (res) {
+                console.log(res);
+            },
+        });
+    }
+});
+
 // 前往會員中心判斷
 $('a.complete').click(function () {
-
     if (checkCookie('user')) {
         window.location.href = "http://localhost/CruiseCoder/frontEnd/info.php";
     } else {
         swal("請先登入會員", "", "warning");
     }
-
 });
+
+
+
+
+
+
+

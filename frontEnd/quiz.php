@@ -73,11 +73,17 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <main>
             <h2><?= "< " . $name . " />" ?></h2>
+            <div id="countdown">
+                <div id="countdown-number"></div>
+                <svg>
+                    <circle r="18" cx="20" cy="20"></circle>
+                </svg>
+            </div>
             <?= "<section class='beforeQuiz' style='background-image: url(../images/quiz/background/" . $qData[0]["qBackground"] . ");'>" ?>
             <div class="notice blueBg">
                 <h3>測驗須知</h3>
                 <div>
-                    <p>測驗時間：1分鐘</p>
+                    <p>測驗時間：20秒</p>
                     <p>總共題目：2題</p>
                     <p>確認選項後，請按下一題繼續作答</p>
                 </div>

@@ -140,7 +140,6 @@ Vue.component("tableRow", {
         // 編輯試題按鈕
         editQuiz(e) {
             let gNumber = $(e.target).closest('tr').find('.gNumber').text();
-            // console.log(gNumber);
             $('.openQuiz').text('編輯試題');
             $('.openBadge').text('編輯徽章');
             $.ajax({
@@ -151,12 +150,10 @@ Vue.component("tableRow", {
                 success: function (res) {
                     console.log(res);
                     $('input.fieldName').val() = res[0]["gName"];
-
                 },
             });
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
-
-        }
+        },
     },
 });
 
