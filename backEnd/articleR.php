@@ -143,7 +143,7 @@ if (isset($_FILES["addArticleFileName"])) {
   //Web根目錄真實路徑
   $serverRoot = $_SERVER["DOCUMENT_ROOT"];
   //欲放置的檔案路徑  要記得路徑要換
-  $filePath = $serverRoot . "/CruiseCoderDev/images/article/" . $_FILES["addArticleFileName"]["name"];
+  $filePath = $serverRoot . "/CruiseCoder/images/article/" . $_FILES["addArticleFileName"]["name"];
   //將暫存檔搬移到正確位置
   copy($filePathTemp, $filePath);
 

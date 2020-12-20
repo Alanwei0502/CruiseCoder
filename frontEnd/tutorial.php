@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coder | 蟲洞練功坊</title>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./../css/main.css">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -153,6 +154,7 @@
     include('layout/footer.php');
     ?>
   </div>
+  <script src="../js/vue.js"></script>
   <script src="./../js/header.js"></script>
   <script src="./../js/tutorial.js"></script>
 </body>

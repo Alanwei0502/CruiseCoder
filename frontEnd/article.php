@@ -9,6 +9,8 @@ include('./articleR.php')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coder | 太空補給站</title>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

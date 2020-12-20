@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 文章管理</title>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <!-- datepicker -->
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -42,7 +44,7 @@
             <option value="1" selected>上架</option>
           </select>
         </div>
-        <div class="searchContentBottm">
+        <div class="searchContentBottom">
           <div class="articleName">
             <label>專欄名稱</label>
             <input type="text" class="searchName">
