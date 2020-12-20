@@ -1619,6 +1619,7 @@ div.index {
 
 				a.img {
 					display: inline-block;
+					width: 100%;
 
 					img {
 						width: 100%;
@@ -1628,10 +1629,12 @@ div.index {
 
 				.c_Main {
 					padding-left: 10px;
-
+					position: relative;
+					height: 240px;
 					a.title {
+						height: 75px;
 						padding-top: 10px;
-						font-size: 26px;
+						font-size: 24px;
 						font-weight: 600;
 						line-height: 35px;
 						text-decoration: none;
@@ -1678,6 +1681,9 @@ div.index {
 					}
 
 					.price {
+						position: absolute;
+						right: 0%;
+						bottom: 0%;
 						font-size: $h4;
 						font-weight: 800;
 						text-align: right;
