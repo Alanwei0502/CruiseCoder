@@ -241,7 +241,7 @@ if ($result2 = mysqli_query($conn, $sqlLecturer)) {
   
       // Associative array
       $row4 = mysqli_fetch_assoc($result4);
-         echo $row4["mPhoto"];
+        //  echo $row4["mPhoto"];
       } else {
       echo "mPhoto none value";
       }
@@ -264,7 +264,7 @@ if ($result3 = mysqli_query($conn, $sqlfStartdate)) {
 $row3 = mysqli_fetch_assoc($result3);
 //  echo $row2["lNumber"];
 
-echo $row3["fStartdate"];
+// echo $row3["fStartdate"];
 } else {
 echo " fStartdate none value";
 }
@@ -419,12 +419,12 @@ $price_2 = "2,400";
                 <span>NT$<?php echo $row3["fPrice"]; ?></span>
               </div>
             </div>
-            <!-- 按鈕 -->s
+            <!-- 按鈕 -->
             <div class="btns">
               <button class="btn_style" id="add_cart">馬上預購</button>
               <button class="btn fav dofa"><i class="fas fa-heart <?PHP echo $is_favorite?'active':''?>"></i></button>
             </div>
-            <p class="close">預計結束時間：2021/03/11</p>
+            <p class="close">預計結束時間：<?php echo $row3["fStartdate"] ?></p>
           </div>
         </div>
       </section>
