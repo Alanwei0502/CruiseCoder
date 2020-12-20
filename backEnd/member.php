@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="./../css/mainB.css">
   <link rel="icon" href="../ico.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -28,17 +27,18 @@
 
         <div class="account_select">
           <label>姓名</label>
-          <input type="text" name="name" placeholder="請輸入會員姓名">
+          <input type="text" name="name" placeholder="請輸入會員姓名" @keydown.enter="search">
         </div>
 
         <div class="account_select">
           <label>帳號</label>
-          <input type="text" name="account" placeholder="請輸入會員帳號">
+          <input type="text" name="account" placeholder="請輸入會員帳號" @keydown.enter="search">
         </div>
 
         <div class="memberPower">
           <label>權限</label>
           <select name="level">
+            <option value="">全部</option>
             <option value="3">管理員</option>
             <option value="2">老師</option>
             <option value="1">會員</option>
@@ -48,8 +48,7 @@
 
         <div class="poDate">
           <label>註冊日期</label>
-          <input type="text" id="datepicker1" readonly="true">
-          <i class="fas fa-arrow-right"></i>
+          <input type="text" id="datepicker1" readonly="true"><span>至</span>
           <input type="text" id="datepicker2">
         </div>
 
@@ -79,7 +78,7 @@
                 <td class="name">{{member.mName}}</td>
                 <td class="level">{{member.mLevel}}</td>
                 <td class="joindate">{{member.mJoindate}}</td>
-                <td class="edit"><button>編輯</button></td>
+                <td class="edit"><button @click="edit">編輯</button></td>
               </tr>
             </template>
           </tbody>
@@ -91,29 +90,31 @@
         </div>
       </section>
 
+      <!-- 彈跳視窗 -->
       <div class="overlay">
-        <div class="outColor">
-          <div class="closeBtn_"><img src="./../images/backEnd/blackCancel.png" alt=""></div>
-          <h2>會員資料</h2>
+        <div class="overlayInside">
+          <div class="outColor">
+            <div class="closeBtn_"><img src="./../images/backEnd/blackCancel.png" alt="" @click="closeEdit"></div>
+            <h2>會員資料</h2>
 
-          <div class="weAreInside">
-
-
-            <section class="accountArea">
-
-              <div class="accountImg"><img src="../images/info/street_girl.jpeg" alt=""></div>
-              <?php
-              foreach ($infoInside as $index => $row) {
-              ?>
+            <div class="weAreInside">
+              <section class="accountArea">
+                <div class="leftArea">
+                  <div class="accountImg">
+                    <img :src="memberInfos.mPhoto" alt="" id="imgShow">
+                  </div>
+                  <div class="imageUpdate"><input type="file" accept="image/*" id="imgInp" @change="readURL"></div>
+                  <p>請上傳比例為1:1的圖片</p>
+                </div>
                 <div class="rightInputArea">
                   <div>
                     <label for="">編號</label>
-                    <input type="text" value="<?= $row["mNumber"] ?>">
+                    <input type="text" :value="memberInfos.mNumber" name="memberID" readonly unselectable="on">
                   </div>
 
                   <div>
                     <label for="">權限</label>
-                    <select name="ganName" id="gansss">
+                    <select name="ganName" id="gansss" :value="memberInfos.mLevel">
                       <option value="3">管理員</option>
                       <option value="2">老師</option>
                       <option value="1">會員</option>
@@ -123,187 +124,123 @@
 
                   <div>
                     <label for="">帳號</label>
-                    <input type="text" value="<?= $row["mAccount"] ?>" disabled>
+                    <input type="text" :value="memberInfos.mAccount" readonly unselectable="on">
                   </div>
 
                   <div>
                     <label for="">姓名 </label>
-                    <input type="text" value="<?= $row["mName"] ?>">
+                    <input type="text" name="memberName" :value="memberInfos.mName">
                   </div>
 
                   <div>
                     <label for="">密碼 </label>
-                    <input type="password" value="<?= $row["mPassword"] ?>">
+                    <input type="password" :value="memberInfos.mPassword">
                   </div>
-
-                  <!-- <div>
-                  <label for="">生日  </label>
-                  <input type="text" value="">
-                </div> -->
-
-                  <!-- <div>
-                  <label for="">性別 </label>
-                  <input type="text" value="男">
-                </div> -->
 
                   <div>
                     <label for="">手機號碼 </label>
-                    <input type="text" value="<?= $row["mPhone"] ?>">
+                    <input type="text" name="memberPhone" :value="memberInfos.mPhone">
                   </div>
 
                   <div>
                     <label for="">E-mail </label>
-                    <input type="text" value="<?= $row["mEmail"] ?>" disabled>
+                    <input type="text" :value="memberInfos.mEmail" readonly unselectable="on">
                   </div>
 
                   <div>
                     <label for="">註冊日期 </label>
-                    <input type="text" value="<?= $row["mJoindate"] ?>" disabled>
+                    <input type="text" :value="memberInfos.mJoindate" readonly unselectable="on">
                   </div>
 
                   <div>
                     <label for="">CC.Point </label>
-                    <input type="text" value="<?= $row["mCC"] ?>">
+                    <input type="text" name="memberCC" :value="memberInfos.mCC">
+                  </div>
+
+                  <div class="teacherTextarea" v-if="memberInfos.mLevel == '2'">
+                    <label for="">老師介紹</label>
+                    <textarea :value="memberInfos.lInfo" name="teacherInfo"></textarea>
                   </div>
 
                 </div>
-              <?php } ?>
-            </section>
-            <!-------- input end -------->
+              </section>
+              <button class="saveBtn" @click="saveInfo">儲存</button>
+              <!-------- input end -------->
+
+              <section class="badge_table">
+                <h2>徽章成就</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>獲得日期</th>
+                      <th>徽章類別</th>
+                      <th>徽章編號</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template v-for="memberBadge in memberBadges">
+                      <tr>
+                        <td>{{memberBadge.uDate}}</td>
+                        <td>{{memberBadge.bName}}</td>
+                        <td>{{memberBadge.bNumber}}</td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
 
 
-            <div class="teacherTextarea">
-              <label id='forTextarea'>介紹</label>
-              <textarea name="" id="" cols="50" rows="20"></textarea>
+              </section>
+
+              <section class="orderDetail_table">
+                <h2>訂單紀錄</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>訂單日期</th>
+                      <th>編號</th>
+                      <th>總金額</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template v-for="memberOrder in memberOrders">
+                      <tr>
+                        <td>{{memberOrder.oDate}}</td>
+                        <td>{{memberOrder.oNumber}}</td>
+                        <td>{{memberOrder.oTotal}}</td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+
+              </section>
+
+              <section class="courseDetail_table">
+                <h2>課輔預約紀錄</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>預約日期</th>
+                      <th>輔導日期</th>
+                      <th>輔導課程名稱</th>
+                      <th>老師</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template v-for="memberTutorial in memberTutorials">
+                      <tr>
+                        <td>{{memberTutorial.reDate}}</td>
+                        <td>{{memberTutorial.tDate}}</td>
+                        <td>{{memberTutorial.cTitle}}</td>
+                        <td>{{memberTutorial.mName}}</td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </section>
             </div>
 
-
-            <section class="badge_table">
-              <h2>徽章成就</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>獲得日期</th>
-                    <th>徽章類別</th>
-                    <th>徽章編號</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <div>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Java Script</td>
-                      <td>Java Script Easy</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Java Script</td>
-                      <td>Java Script Medium</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Java Script</td>
-                      <td>Java Script All</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Html</td>
-                      <td>Html Medium</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Html</td>
-                      <td>Html Medium</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Html</td>
-                      <td>Html Medium</td>
-                    </tr>
-                    <tr>
-                      <td>2020/09/26 09:11</td>
-                      <td>Html</td>
-                      <td>Html Medium</td>
-                    </tr>
-                  </div>
-
-                </tbody>
-              </table>
-
-
-            </section>
-
-            <section class="orderDetail_table">
-              <h2>近3筆訂單資訊</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>訂單日期</th>
-                    <th>編號</th>
-                    <th>總金額</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2020/10/26 22:35</td>
-                    <td>202010260001</td>
-                    <td>3,600</td>
-                  </tr>
-                  <tr>
-                    <td>2020/10/26 22:35</td>
-                    <td>202010260001</td>
-                    <td>3,600</td>
-                  </tr>
-                  <tr>
-                    <td>2020/10/26 22:35</td>
-                    <td>202010260001</td>
-                    <td>3,600</td>
-                  </tr>
-                </tbody>
-              </table>
-
-            </section>
-
-            <section class="courseDetail_table">
-              <h2>近3筆課後輔導預約紀錄</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>預約日期</th>
-                    <th>輔導日期</th>
-                    <th>輔導課程名稱</th>
-                    <th>老師</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2020/10/07 02:35</td>
-                    <td>2020/10/07 </td>
-                    <td>HTML</td>
-                    <td>張互賓</td>
-                  </tr>
-                  <tr>
-                    <td>2020/10/07 02:35</td>
-                    <td>2020/10/07 </td>
-                    <td>HTML</td>
-                    <td>張互賓</td>
-                  </tr>
-                  <tr>
-                    <td>2020/10/07 02:35</td>
-                    <td>2020/10/07 </td>
-                    <td>JQuery</td>
-                    <td>黃語昕</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            <div class="saveBtn">儲存</div>
-
-
           </div>
-
         </div>
-
       </div>
 
     </main><!-- 在這裡面codeing -->
