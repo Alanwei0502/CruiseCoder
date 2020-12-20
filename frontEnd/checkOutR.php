@@ -2,7 +2,7 @@
 // 串聯資料庫
 include("./layout/connect.php");
 
-$sql = "SELECT * FROM CruiseCoder.course where cNumber = ";
+$sql = "SELECT * FROM cruisecoder.course where cNumber = ";
 // 用$sql變數去接SELECT子句
 
 $qq = $_POST['Name'];

@@ -4,7 +4,7 @@ window.addEventListener('load', doFirst);
 
 function doFirst() {
 
-    
+
     // 刪除購買商品(JS寫法)
     // var close = document.getElementsByClassName("close");
     // for (let i = 0; i < close.length; i++) {
@@ -111,9 +111,9 @@ function doFirst() {
         //檢查有無填寫姓名
         if ($('#card_Name').val() == '') {
             $('#card_Name').addClass('-error');
+            // swal("QQQQQQQQQQQQ", "", "error");
             send_data = false;
-            swal("請填寫姓名", "", "error");
-            return;
+            // return;
 
         } else {
             $('#card_Name').removeClass('-error');
@@ -130,6 +130,8 @@ function doFirst() {
         if ($('#phone_Num').val() == '') {
             $('#phone_Num').addClass('-error');
             send_data = false;
+            // swal("請填寫手機號碼", "", "error");
+
         } else {
             if (isPhoneNo($('#phone_Num').val()) == false) {
                 $('#phone_Num').addClass('-error');
@@ -171,18 +173,16 @@ function doFirst() {
             e.preventDefault(); //停止預設行為
             // console.log(send_data);
             // $('.failed').addClass('-on');//顯示交易失敗燈箱
-            swal("請確認資料是否填寫完整", "", "error");
+            swal("請再確認資料是否填寫完整", "", "error");
 
         } else {
             // send_data = true;
             // console.log(send_data);
-            // document.info.submit();
             $('.success').addClass('-on');//顯示交易完成燈箱
         }
 
         // 若表格驗證成功(true)，點擊按鈕後觸發submit事件，執行下面function
         $('#info').submit(function (e) {
-
 
             var form = $(this);
             var url = form.attr('action');
@@ -271,29 +271,32 @@ function doFirst() {
 
         methods: {
             setMessage(e) {
-                this.message = parseInt((e.target.value).replace(/\D/g, ""));
-                // .replace(/\D/g, "") 把"非數字"的字元砍掉
-                $(e.target).css('border', 'none');
-                let ccPointNtMax = $('.ccPoint').attr('data-id');
+                setTimeout(() => {
+                    this.message = parseInt((e.target.value).replace(/\D/g, ""));
+                    // .replace(/\D/g, "") 把"非數字"的字元砍掉
+                    $(e.target).css('border', 'none');
+                    let ccPointNtMax = parseInt($('.ccPoint').attr('data-id'));
 
-                if (isNaN(this.message)) {
-                    this.message = '0';
+                    if (isNaN(this.message)) {
+                        this.message = '0';
 
-                } else {
-                    if (parseInt($(e.target).val()) <= ccPointNtMax) {
-                        this.message = parseInt(e.target.value);
-                        $('.overCcp').text('');
-                        return this.message;
                     } else {
-                        this.message = ccPointNtMax;
-                        // $('.ccpInput').css('border', '2px solid red');
-                        // $('.overCcp').text('別做夢了醒醒吧');
-                        // $('.ccpInput').val(ccPointNtMax);
+                        if (parseInt($(e.target).val()) <= ccPointNtMax) {
+                            this.message = parseInt(e.target.value);
+                            $('.overCcp').text('');
+                            return this.message;
+                        } else {
+                            this.message = ccPointNtMax;
+                            // $('.ccpInput').css('border', '2px solid red');
+                            // $('.overCcp').text('別做夢了醒醒吧');
+                            // $('.ccpInput').val(ccPointNtMax);
 
-                        // console.log($('.ccpInput').val());
-                        return this.message;
+                            // console.log($('.ccpInput').val());
+                            return this.message;
+                        }
                     }
-                }
+                }, 1000);
+
             },
             getmember() {
                 // 取得會員編號
@@ -323,17 +326,21 @@ function doFirst() {
         computed: {
             //取得cc.Point
             ccPoint() {
-                // 登入判斷
                 checkCookie('user');
                 getCookie('user');
                 // 先確認有無登入，再取值
                 if (!checkCookie('user')) {
                     return;
                 }
-                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
-                // console.log(ccp);
+                // 登入判斷
+
+                // this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                this.ccp = parseInt($('.ccp').text());
+
                 console.log(this.ccp);
                 return this.ccp;
+
+
             },
 
             //將cc.Point轉為現金折抵
