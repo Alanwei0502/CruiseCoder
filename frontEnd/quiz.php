@@ -81,8 +81,10 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
                     <p>總共題目：2題</p>
                     <p>確認選項後，請按下一題繼續作答</p>
                 </div>
-                <label class="note" for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
-                <label class="note" for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+                <div>
+                    <label class="note" for="checkOne"><input type="checkbox" id="checkOne">我不會諮詢任何外部來源（包括網站，書籍或人）或從中複製代碼來完成這些任務。</label>
+                    <label class="note" for="checkTwo"><input type="checkbox" id="checkTwo">我不會複製、分發或公開顯示我在此測試過程中遇到的任何信息。</label>
+                </div>
             </div>
             <button class="startQuiz">開始試煉</button>
             </section>
@@ -109,14 +111,14 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
                     <p>請至會員中心查看您擁有的徽章</p>
                 </div>
             </div>
-            <a href="http://localhost/CruiseCoder/frontEnd/info.php" class="complete">前往會員中心</a>
+            <a href="#0" class="complete">前往會員中心</a>
             </section>
         </main>
         <?php
         include('./layout/footer.php');
         ?>
+        <script src="../js/vue.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.common.dev.js"></script> -->
         <script src="../js/header.js"></script>
         <script src="../js/quiz.js"></script>
         <script>
