@@ -1,150 +1,5 @@
-
 // login的js
 $(document).ready(function () {
-
-    // ===== Vue #app ===== 購物車shoppingList =======
-    let navapp = new Vue({
-        el: '#navapp',
-        data: {
-            courses: [], //課程
-            status: [], //課程狀態，有4種
-            coursesTotal: 0,
-            priceTotal: 0,
-
-        },
-        created() {
-            this.ajax();
-        },
-        methods: {
-            Total() {
-
-                // this.priceTotal += parseInt(this.courses);
-                // console.log(this.courses);
-                // this.priceTotal = this.courses.cPrice;
-            },
-            ajax() {
-                let that = this;
-                let star = 1;
-
-                let list = JSON.parse(localStorage.getItem("lists"));
-                // console.log(list);
-                localStorage.removeItem(list);
-                // that.courses = [];
-
-                that.priceTotal = 0;
-                // list = ['C0004']
-                // 撈所有課程的資料
-                if (!list || list.length === 0) {
-                    $('ul.shoppingFancybox').css('visibility', 'hidden');
-                    $('div.shoppingTotal').css('visibility', 'hidden');
-                    $('.shoppingCar section').text('您的購物車內無任何商品');
-                    return;
-                }
-
-                $.ajax({
-                    type: 'POST',
-                    url: "checkOutR.php",
-                    data: {
-                        //封裝的東西丟這邊
-                        Name: list,
-                    },
-                    dataType: 'json',
-
-                    success: function (response) {
-                        that.courses.splice(0, that.courses.length);
-                        // console.log(response);
-                        // that.courses.push(res);
-                        that.courses = response;
-                        // that.courses = [];
-                        response.forEach((res, index) => {
-                            // console.log(res);
-                            that.coursesTotal = that.courses.length
-                            // console.log(that.courses.length);
-                            that.priceTotal += parseInt(res.cPrice);
-
-                            //課程狀態有4種，用switch case處理
-                            switch (res.cStatus) {
-                                case '0':
-                                    that.status.push('刪除');
-                                    break;
-                                case '1':
-                                    that.status.push('已開課');
-                                    break;
-                                case '2':
-                                    that.status.push('下架');
-                                    break;
-                                case '3':
-                                    that.status.push('募資');
-                                    break;
-                            }
-                        });
-                    },
-                    //失敗
-                    error: function (exception) {
-                        alert("發生錯誤: " + exception.status);
-                    }
-                });
-            },
-            getCourse() {
-
-                let list = JSON.parse(localStorage.getItem("lists"));
-                // console.log(list);
-
-                localStorage.clear();
-                localStorage.setItem("lists", JSON.stringify(list));
-                // alert('kk')
-              
-            },
-            shoppingcart(e) {
-
-                this.ajax();
-                // this.getCourse();
-                checkCookie('user');
-                getCookie('user');
-
-                if (!checkCookie('user')) {
-                swal("請先登入會員!", "登入會員才能使用購物車!", "error");
-
-                    // $('.loginWrap').css('display', 'block');
-                    // $('.logout').css('display', 'none');
-                    // $('.callLoginBox').css('display', 'block');
-                    // $('#loginWrap').css('display', 'block');
-
-                    // $('#closeIcon').click(function () { //點擊close icon 關閉login
-                    //     $('#loginWrap').css('display', 'none');
-                    // });
-
-                    // $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                    //     $('#loginWrap').css('display', 'none');
-                    // });
-                    // return;
-                } else {
-                    // this.getCourse();
-
-
-                    $(e.target).closest('.shoppingCar').find('section').toggleClass('on');
-                    // console.log("用Vue打開購物車");
-
-                }
-            },
-        },
-    });
-
-
-    // 登入燈箱↓↓↓↓↓
-    $('#toCreate').click(function(){
-        $('.loginArea').css('transform','translateY(-0%)');
-        $('.createArea').css('transform','translateY(-0%)');
-    })
-
-    $('#toLogin').click(function(){
-        $('.loginArea').css('transform','translateY(-100%)');
-        $('.createArea').css('transform','translateY(-100%)');
-
-    })
-
-    // 登入燈箱↑↑↑↑↑
-
 
     // 檢查某 cookie 是否存在
     function checkCookie(cname) {
@@ -175,30 +30,25 @@ $(document).ready(function () {
 
     //檢測註冊帳號密碼的長度，不可小於六碼↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  新增功能：註冊帳號密碼不可小於6碼、不可為中文。
     var checkArr = $('input.checkString');
-    for (let i = 0; i < checkArr.length; i++) {
-        checkArr[i].addEventListener('blur', function (e) {
+    for(let i = 0; i < checkArr.length; i++){
+        checkArr[i].addEventListener('blur',function(e){
             let getStringLength = e.target.value.length; //取得input數入的長度
             let inputName = e.target.previousElementSibling.innerText.slice(0, 2);//取得input欄位名稱
-            if (getStringLength < 6 && getStringLength != 0) { //當長度小於六、裡面不是空字串時
+            if(getStringLength < 6 && getStringLength != 0){ //當長度小於六、裡面不是空字串時
                 e.target.value = "";
                 checkArr[i].placeholder = `${inputName}長度小於6`;
                 e.target.classList.add('BorderColor');
-            } else {
+            }else{
                 checkArr[i].placeholder = "";
                 e.target.classList.remove('BorderColor');
             };
         });
-    };
+    };    
     //檢測註冊帳號密碼的長度，不可小於六碼↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-    $('.oderInfo').css('display', 'none'); //如果未登入  訂單資訊需隱藏
-    $('.memberInfo').css('display', 'none');//如果未登入  個人檔案需隱藏
 
     if (checkCookie('user')) {
         // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
         var userAccount = getCookie('user');
-        $('.oderInfo').css('display', 'block'); //如果未登入  訂單資訊取消隱藏
-        $('.memberInfo').css('display', 'block'); //如果未登入  個人檔案取消隱藏
         $.ajax({
             type: 'POST',
             url: "./layout/loginR.php",
@@ -207,14 +57,14 @@ $(document).ready(function () {
             },
             dataType: "text",
             success: function (data) {
-                document.querySelector('a.ccp').innerText = parseInt(data);
+                document.querySelector('a.ccp').innerText = data;
             }
         });
     }
 
     var windowWidth = window.outerWidth
     if (windowWidth <= 1080) { //手機版時套用此js
-        var my_cookies = document.cookie.substring(5);
+        var my_cookies = getCookie('user');
 
         // 下拉選單↓↓↓↓↓↓↓
         var shoppingCar = document.getElementsByClassName('shoppingCar')[0];
@@ -226,15 +76,15 @@ $(document).ready(function () {
         var ul = member.querySelector('ul');
         var inputM = labelM.querySelector('input');
 
-        // label.addEventListener('mouseup', function () {
-        //     if (!input.checked) {
-        //         section.classList.add('on');
-        //         inputM.checked = false;
-        //         ul.classList.remove('on');
-        //     } else {
-        //         section.classList.remove('on');
-        //     }
-        // });
+        label.addEventListener('mouseup', function () {
+            if (!input.checked) {
+                section.classList.add('on');
+                inputM.checked = false;
+                ul.classList.remove('on');
+            } else {
+                section.classList.remove('on');
+            }
+        });
 
         labelM.addEventListener('mouseup', function () {
             if (!inputM.checked) {
@@ -338,7 +188,7 @@ $(document).ready(function () {
                                     swal("註冊成功!", "恭喜你成為會員！！!", "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
-                                                window.location.reload(); 8
+                                                window.location.reload();8
                                             }
                                         });
                                 } else if (data == "EmailRepeat") {
@@ -371,10 +221,12 @@ $(document).ready(function () {
                             },
                             dataType: "text",
                             success: function (data) {
+                                console.log(data);
                                 var dataArr = data.split(',');
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
                                 var name = dataArr[2];
+                                var unumber = dataArr[5];
                                 if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -386,6 +238,7 @@ $(document).ready(function () {
 
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+                                    document.cookie = `unumber =${unumber}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
@@ -417,6 +270,7 @@ $(document).ready(function () {
 
             $('a.logout').click(function () { //登出
                 document.cookie = "user=; expires=Thu, 18 Dec 2018 03:00:00 UTC";
+                document.cookie = "unumber=; expires=Thu, 18 Dec 2018 03:00:00 UTC";
                 window.location.reload();
             })
         }
@@ -427,17 +281,54 @@ $(document).ready(function () {
 
             if (e.target.classList.contains("logout")) {
                 document.cookie = "user=; expires=Thu, 18 Dec 2018 03:00:00 UTC";
+                document.cookie = "unumber=; expires=Thu, 18 Dec 2018 03:00:00 UTC";
                 window.location.reload();
             }
 
         });
 
+        $('.logout').css('display', 'block');
+        $('.callLoginBox').css('display', 'none');
+        // 下拉選單↓↓↓↓↓↓↓
+        var shoppingCar = document.getElementsByClassName('shoppingCar')[0];
+        var label = shoppingCar.querySelector('label');
+        var section = shoppingCar.querySelector('section');
+        var input = label.querySelector('input');
+        var member = document.getElementsByClassName('member')[0];
+        var labelM = member.querySelector('label');
+        var ul = member.querySelector('ul');
+        var inputM = labelM.querySelector('input');
+
+        label.addEventListener('mouseup', function () {
+            if(checkCookie('user')){
+                if (!input.checked) {
+                    section.classList.add('on');
+                    inputM.checked = false;
+                    ul.classList.remove('on');
+                } else {
+                    section.classList.remove('on');
+                }
+            }else{
+                swal("請先登入會員!", "登入會員才能使用購物車!", "error");
+            }
+        });
+
+        labelM.addEventListener('mouseup', function () {
+            if(checkCookie('user')){
+                if (!inputM.checked) {
+                    ul.classList.add('on');
+                    input.checked = false;
+                    section.classList.remove('on');
+                } else {
+                    ul.classList.remove('on');
+                }
+            }
+        });
+
         $('.member').mousedown(function () {
-            var my_cookies = document.cookie.substring(5);
+            var my_cookies = getCookie('user');
             if (checkCookie('user') == false) {//如果未登入 
                 $('.logout').css('display', 'none');
-                $('.oderInfo').css('display', 'none');
-                $('.memberInfo').css('display', 'none');
                 $('.callLoginBox').css('display', 'block');
 
                 $('#member').click(function () {//點擊會員icon  叫出登入燈箱
@@ -554,13 +445,14 @@ $(document).ready(function () {
                             },
                             dataType: "text",
                             success: function (data) {
+                                console.log(data);
                                 var dataArr = data.split(',');
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
                                 var name = dataArr[2];
                                 var toDayCC = dataArr[3];
                                 var SignInDay = dataArr[4];
-                                // console.log(dataArr);
+                                var unumber = dataArr[5];
                                 if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
@@ -572,6 +464,7 @@ $(document).ready(function () {
 
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    document.cookie = `unumber =${unumber}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
                                     // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　CC幣`, "success")
                                         .then((willDelete) => {
@@ -580,7 +473,7 @@ $(document).ready(function () {
                                                 window.location.reload();
                                             }
                                         });
-                                } else if (loginString == "loginSuccess1") {
+                                }else if (loginString == "loginSuccess1") {
                                     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                                     let gettoday = new Date();
                                     let year = gettoday.getFullYear();
@@ -589,9 +482,12 @@ $(document).ready(function () {
 
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+                                    document.cookie = `unumber =${unumber}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
+                                    // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
+
                                                 window.location.reload();
                                             }
                                         });
@@ -601,52 +497,19 @@ $(document).ready(function () {
                     }
                 });
 
-            } else if (my_cookies != "") {//如果有登入
-                $('.logout').css('display', 'block');
-                $('.callLoginBox').css('display', 'none');
-                // 下拉選單↓↓↓↓↓↓↓
-                var shoppingCar = document.getElementsByClassName('shoppingCar')[0];
-                var label = shoppingCar.querySelector('label');
-                var section = shoppingCar.querySelector('section');
-                var input = label.querySelector('input');
-                var member = document.getElementsByClassName('member')[0];
-                var labelM = member.querySelector('label');
-                var ul = member.querySelector('ul');
-                var inputM = labelM.querySelector('input');
-
-                label.addEventListener('mouseup', function () {
-                    if (!input.checked) {
-                        section.classList.add('on');
-                        inputM.checked = false;
-                        ul.classList.remove('on');
-                    } else {
-                        section.classList.remove('on');
-                    }
-                });
-
-                labelM.addEventListener('mouseup', function () {
-                    if (!inputM.checked) {
-                        ul.classList.add('on');
-                        input.checked = false;
-                        section.classList.remove('on');
-                    } else {
-                        ul.classList.remove('on');
-                    }
-                });
-                // 下拉選單↑↑↑↑↑↑↑↑↑↑↑↑
             }
+
 
         });
 
 
     }
+
+
 });
 
-// let list = ['C0001', 'C0002', 'C0003', 'C0004']
 
-// localStorage.clear();
-// localStorage.setItem("lists", JSON.stringify(list));
-// console.log(list);
+
 
 
 

@@ -1,9 +1,7 @@
-// var theMember;
 //DOM載入完成之後再執行doFirst
 window.addEventListener('load', doFirst);
 
 function doFirst() {
-
 
     // 刪除購買商品(JS寫法)
     // var close = document.getElementsByClassName("close");
@@ -28,6 +26,7 @@ function doFirst() {
 
 
     // ==========付款資料表單格式設定==============
+
     // 手機號碼只能輸入數字、刪除、左右鍵
     $('#phone_Num').on('keydown', function (e) {
         if (e.which >= 48 && e.which <= 57 || e.which == 8 || e.which == 37 || e.which == 39) { //48到57是數字0~9 、8 是刪除鍵、37左、39右
@@ -85,36 +84,33 @@ function doFirst() {
 
     // 點擊「送出」按鈕時，檢查資料有無填寫完整
     $('#submit_Btn').on('click', function (e) {
-        //用來判斷資料最後是否要送出
         let send_data = true;
 
-        // 檢查ccPoint填寫金額是否有超出原有ccPoint
         // 取得實際ccPoint
         let ccPointNtMax = $('.ccPoint').attr('data-id');
-        // console.log($('.ccPoint').attr('data-id'));
+        console.log($('.ccPoint').attr('data-id'));
 
-        if (parseInt($('.ccpInput').val()) > parseInt(ccPointNtMax)) {
+        if ($('.ccpInput').val() > ccPointNtMax || $('.ccpInput').val() < 0) {
             send_data = false;
             // $('.ccpInput').val(parseInt(ccPointNtMax));
             app.message = parseInt(ccPointNtMax);
             $('.ccpInput').css('border', 'none');
-            console.log($('.ccpInput').val());
-            console.log(ccPointNtMax);
-            console.log(send_data);
+
             // alert($('.ccpInput').val());
         } else {
-            console.log('hi');
             // $('.ccpInput').css('border', 'none');
         };
 
-        //表格驗證   
-        //檢查有無填寫姓名
+
+
+
+
+        //用來判斷資料最後是否要送出
+
+        // 檢查有無填寫姓名
         if ($('#card_Name').val() == '') {
             $('#card_Name').addClass('-error');
-            // swal("QQQQQQQQQQQQ", "", "error");
             send_data = false;
-            // return;
-
         } else {
             $('#card_Name').removeClass('-error');
         }
@@ -130,8 +126,6 @@ function doFirst() {
         if ($('#phone_Num').val() == '') {
             $('#phone_Num').addClass('-error');
             send_data = false;
-            // swal("請填寫手機號碼", "", "error");
-
         } else {
             if (isPhoneNo($('#phone_Num').val()) == false) {
                 $('#phone_Num').addClass('-error');
@@ -142,6 +136,7 @@ function doFirst() {
             }
         }
 
+
         // 檢查有無填寫背面末三碼
         if ($('#credit_CardCsc').val().length < 3) {
             $('#credit_CardCsc').addClass('-error');
@@ -149,7 +144,9 @@ function doFirst() {
         } else {
             $('#credit_CardCsc').removeClass('-error');
         }
-        // console.log($('#credit_CardCsc').val().length);
+        console.log($('#credit_CardCsc').val().length);
+
+
 
         // 驗證信用卡號是否正確
         let creditCard_Str = '';
@@ -169,76 +166,44 @@ function doFirst() {
             }
         }
 
+
         if (!send_data) {
             e.preventDefault(); //停止預設行為
             // console.log(send_data);
-            // $('.failed').addClass('-on');//顯示交易失敗燈箱
-            swal("請再確認資料是否填寫完整", "", "error");
+            $('.failed').addClass('-on');//顯示交易失敗燈箱
 
         } else {
             // send_data = true;
             // console.log(send_data);
+            // document.info.submit();
             $('.success').addClass('-on');//顯示交易完成燈箱
         }
 
         // 若表格驗證成功(true)，點擊按鈕後觸發submit事件，執行下面function
         $('#info').submit(function (e) {
-
             var form = $(this);
             var url = form.attr('action');
             // 寫在form標籤裡的 action="./checkOutR.php"
-            // setTimeout(() => {
 
-            let theMember = app.theMember;
-            let oCard = $('input.oCard').val();
-            let oTotal = app.totalPrice;
-            let oCC = app.message;
-            let courseId = $('div.course');
-            let newCcp = parseInt(app.ccp - (oCC * 100));
-            console.log(courseId);
-            let cNumber = []
-            for (let i = 0; i < courseId.length; i++) {
-                cNumber.push(courseId.eq(i).attr('data-id'));
-            }
-            console.log(cNumber);
-            let myorder = 1;
+            // $.ajax({
+            //     // let divText = $('div').text();
+            //     type: "POST",
+            //     url: 'checkOutR.php',
+            //     data: form.serialize(), // serializes the form's elements.
+            //     success: function (data) {
+            //         // alert(data); // show response from the php script.
+            //         console.log(data);
+            //     }
+            // });
 
-
-
-            // console.log(list);
-            // localStorage.removeItem(list);
-
-            $.ajax({
-                // let divText = $('div').text();
-                type: "POST",
-                url: 'checkOutInsertR.php',
-                data: {
-                    myorder,
-                    theMember,
-                    oCard,
-                    oTotal,
-                    oCC,
-                    cNumber,
-                    newCcp,
-                },
-                success: function (data) {
-                    // alert(data); // show response from the php script.
-                    console.log(data);
-                }
-            });
-            // }, 1000);
             // 停止預設事件，submit預設會跳轉網頁----->停止轉跳
             e.preventDefault();
-
-            // 購買成功後清空localStorage
-            localStorage.clear();
-
         });
 
         // ======交易完成&交易失敗燈箱的按鈕設定==========
         // 點擊按鈕------>前往課程
         $('.go_Course').on('click', function () {
-            window.location.href = "order.php";
+            window.location.href = "course_start_class.php";
         });
 
         // // 點擊按鈕------>留在付款頁面
@@ -266,81 +231,44 @@ function doFirst() {
             ccp: 0,
             total: 0,
             totalPrice: 0,
-            theMember: '',
         },
 
         methods: {
             setMessage(e) {
-                setTimeout(() => {
-                    this.message = parseInt((e.target.value).replace(/\D/g, ""));
-                    // .replace(/\D/g, "") 把"非數字"的字元砍掉
-                    $(e.target).css('border', 'none');
-                    let ccPointNtMax = parseInt($('.ccPoint').attr('data-id'));
+                this.message = parseInt((e.target.value).replace(/\D/g, ""));
+                // .replace(/\D/g, "") 把"非數字"的字元砍掉
+                $(e.target).css('border', 'none');
+                let ccPointNtMax = $('.ccPoint').attr('data-id');
 
-                    if (isNaN(this.message)) {
-                        this.message = '0';
+                if (isNaN(this.message)) {
+                    this.message = '0';
 
+                } else {
+                    if (parseInt($(e.target).val()) <= ccPointNtMax) {
+                        this.message = parseInt(e.target.value);
+                        $('.overCcp').text('');
+                        return this.message;
                     } else {
-                        if (parseInt($(e.target).val()) <= ccPointNtMax) {
-                            this.message = parseInt(e.target.value);
-                            $('.overCcp').text('');
-                            return this.message;
-                        } else {
-                            this.message = ccPointNtMax;
-                            // $('.ccpInput').css('border', '2px solid red');
-                            // $('.overCcp').text('別做夢了醒醒吧');
-                            // $('.ccpInput').val(ccPointNtMax);
+                        this.message = ccPointNtMax;
+                        // $('.ccpInput').css('border', '2px solid red');
+                        // $('.overCcp').text('別做夢了醒醒吧');
+                        // $('.ccpInput').val(ccPointNtMax);
 
-                            // console.log($('.ccpInput').val());
-                            return this.message;
-                        }
+                        // console.log($('.ccpInput').val());
+                        return this.message;
                     }
-                }, 1000);
-
+                }
             },
-            getmember() {
-                // 取得會員編號
-                getCookie('user');
-                let userAccount = getCookie('user');
-                let that = this;
-                let member = 1;
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'allCourseMemberR.php',
-                    data: {
-                        member,
-                        userAccount,
-                    },
-                    dataType: 'json',
-                    success: function (res) {
-                        res.forEach((res, index) => {
-                            that.theMember = res.mNumber;
-                            // console.log(that.theMember);
-                        });
-                    }
-                });
-            },
         },
 
         computed: {
             //取得cc.Point
             ccPoint() {
-                checkCookie('user');
-                getCookie('user');
-                // 先確認有無登入，再取值
-                if (!checkCookie('user')) {
-                    return;
-                }
-                // 登入判斷
-
-                // this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
-                this.ccp = parseInt($('.ccp').text());
-
-                console.log(this.ccp);
+                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                // console.log(ccp);
+                // console.log(this.ccp);
                 return this.ccp;
-
-
             },
 
             //將cc.Point轉為現金折抵
@@ -371,7 +299,7 @@ function doFirst() {
     // Vue.component('my-component', {
 
     Vue.component('table-component', {
-        template: `<div class="course" :data-id="mycnumber">
+        template: `<div class="course">
         <div class="top">
             <div class="left">
                 <div class="course_Img">
@@ -385,14 +313,14 @@ function doFirst() {
                     </a>
                 </div>
             </div>
-            <a><i class="far fa-times-circle close" @click="removeCourse" ></i></a>
+            <a :data-id="cnumber"><i class="far fa-times-circle close" @click="removeCourse" ></i></a>
         </div>
         <div class="bottom">
             <p class="type">{{mystatus}}</p>
             <p class="singlePrice" :data-id=myprice >NT$ {{myprice}}</p>
         </div>
         </div>`,
-        props: ['mytitle', 'myimg', 'mystatus', 'myprice', 'mycnumber'],
+        props: ['cnumber', 'mytitle', 'myimg', 'mystatus', 'myprice'],
         data() {
             return {
                 // myprice:
@@ -400,39 +328,48 @@ function doFirst() {
         },
         methods: {
             removeCourse() {
+                let this_elp = this;
                 $('i.close').closest('a').click(function () {
+                    let cNumber = $(this).data('id'); 
+                    let this_el = $(this);
+                    $.ajax({
+                        type: 'POST',
+                        url: "course_start_class.php",
+                        data: {
+                            ac: 'del_to_cart',
+                            CourseID: cNumber,
+                            mNumber: mNumber
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                          console.log(data);
+                            if (data.status == 1) {
+                                // $('header div.headerRight div.shoppingFancybox').prepend(html)
+                                $('.shoppingFancybox').html(data.data.shoppingFancybox);
+                                $('.shoppingTotal').html(data.data.shoppingTotal);
+                                
+                                this_el.closest('div.course').remove();
+                                
+                                var course = document.getElementsByClassName('course').length;
+                                // console.log(course);
+                                if (course == 0) {
+                                    $('div.price').css('visibility', 'hidden');
+                                    $('div.payment').css('visibility', 'hidden');
+                                    $('div.shoppingList').text('您的購物車內無任何商品').addClass('-on');
+                                }
+                                app.total -= this_elp.myprice;
 
-                    $(this).closest('div.course').remove();
-
-                    // 清除storage
-                    let itemId = $(this).closest('div.course').attr('data-id');
-                    // console.log(itemId);
-
-                    let list = JSON.parse(localStorage.getItem("lists"));
-                    // console.log(list);
-
-                    let list2 = [];
-
-                    for (let i = 0; i < list.length; i++) {
-                        if (itemId != list[i]) {
-                            list2.push(list[i]);
+                            }else{
+                                swal("移除購物車失敗");
+                            }
+                        },error: function (data) {
+                                swal("移除購物車失敗");
                         }
-                    }
-                    // console.log(list2);
-                    localStorage.setItem("lists", JSON.stringify(list2));
+                    });
 
+                    // $(this).closest('div.course').remove();
 
-                    var course = document.getElementsByClassName('course').length;
-                    // console.log(course);
-                    // console.log(list);
-                    if (course == 0 || list.length === 0) {
-                        // if (course == 0 || list === []) {
-                        $('div.price').css('visibility', 'hidden');
-                        $('div.payment').css('visibility', 'hidden');
-                        $('div.shoppingList').text('您的購物車內無任何商品').addClass('-on');
-                    }
                 });
-                app.total -= this.myprice;
 
             },
         },
@@ -458,7 +395,7 @@ function doFirst() {
             //取出localStorage的value，並將JSON字串轉換成 JavaScript的數值
             let list = JSON.parse(localStorage.getItem("lists"));
             //判斷localStorage是空值，顯示「您的購物車內無任何商品」
-            if (list === null || list.length === 0) {
+            if (!list.length > 0) {
                 $('div.price').css('visibility', 'hidden');
                 $('div.payment').css('visibility', 'hidden');
                 $('div.shoppingList').text('您的購物車內無任何商品').addClass('-on');
@@ -480,16 +417,18 @@ function doFirst() {
                 success: function (response) {
                     response.forEach((res, index) => {
                         that.course.push(res);
+
+
                         //課程狀態有4種，用switch case處理
                         switch (res.cStatus) {
                             case '0':
-                                that.status.push('下架');
+                                that.status.push('刪除');
                                 break;
                             case '1':
                                 that.status.push('已開課');
                                 break;
                             case '2':
-                                that.status.push('募資');
+                                that.status.push('下架');
                                 break;
                             case '3':
                                 that.status.push('募資');
@@ -502,41 +441,8 @@ function doFirst() {
                     alert("發生錯誤: " + exception.status);
                 }
             });
-            // 取得會員編號
-            app.getmember();
         },
     });
-
-
-
-
-
-    // 檢查某 cookie 是否存在
-    function checkCookie(cname) {
-        var cookie_value = getCookie(cname);
-        if (cookie_value != "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // 取得 cookie 的值
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-    var userAccount = getCookie('user');
 }
 
 
@@ -553,14 +459,8 @@ function doFirst() {
 
 // 請peggy用push方式將id寫進去localstorage
 // 自訂資料寫進去localstorage  
-let list = ['C0001', 'C0002']
-// // let list = []
-
+// let list = ['C0001', 'C0002', 'C0003', 'C0004']
 
 localStorage.clear();
 localStorage.setItem("lists", JSON.stringify(list));
-// // console.log(list);
-
-
-
-
+// console.log(list);
