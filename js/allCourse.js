@@ -15,7 +15,7 @@ let app = new Vue({
         this.ajax();
         this.getmember();
         this.getFavCourse();
-        this.starrr();
+
     },
 
     methods: {
@@ -29,10 +29,59 @@ let app = new Vue({
                 data: { star },
                 dataType: 'json',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     that.courses = res;
-                    // res.rRate
-                    // console.log(res.rRate);
+
+                    // 星星
+                    setTimeout(() => {
+                        for (let i = 0; i < res.length; i++) {
+                            res[i].rRate;
+                            // console.log(res.length);
+                            // console.log(res[i].rRate);
+                            let stry = "<i class='fas fa-star yellow'> </i>";
+                            if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
+                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                }
+
+                            } else {
+                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                }
+                            }
+                        }
+                    }, 1);
+                    //進度條
+
+                    setTimeout(() => {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'allCourseRorder.php',
+                            data: { star },
+                            dataType: 'json',
+                            success: function (res) {
+                                // console.log(res);
+                                // console.log(that.courses[0].cNumber);
+
+
+                                $(res).each(function (inDex, iTem) {
+                                    $(that.courses).each(function (index, item) {
+                                        if (item.cNumber == iTem.iCourse) {
+                                            let funding = item.cStatus;
+                                            console.log(funding);
+                                        }
+                                    });
+                                });
+                            }
+
+                        });
+
+
+                        // for (let i = 0; i < res.length; i++) {
+                        //     res[i].rRate;
+                        // }
+                    }, 1);
                 }
             });
             this.courseTitle = "所有課程";
@@ -453,28 +502,6 @@ let app = new Vue({
             // console.log($('div.favorites'));
             // let cNumber = item.cNumber;
             // console.log(cNumber);
-        },
-        starrr() {
-            // let star = $('div.star');
-            setTimeout(() => {
-                let starDiv = document.getElementsByClassName('star');
-                // console.log(starDiv);
-
-                let starRate = [];
-                for (let i = 0; i < starDiv.length; i++) {
-                    let star = starDiv[i].getAttribute('data-star');
-                    if (star == null) {
-                        star = 0;
-                        starRate.push(star);
-                    } else {
-                        starRate.push(star);
-                    }
-                }
-                console.log(starRate);
-
-            }, 500);
-
-
         },
         searchTitle() {
             // input模糊搜尋

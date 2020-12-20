@@ -58,7 +58,7 @@
         <!-- 課程開始 -->
         <div class="course">
           <!-- 一般課程 -->
-          <template v-for="course in courses">
+          <template v-for="course in courses" v-if="courses">
             <a class="course " :href=`course_start_class.php?CourseID=${course.cNumber}` :data-type="course.cType">
 
               <div class="teacherPic">
@@ -93,11 +93,11 @@
                   <div class="courseStart" v-else="course.cStatus == 1">
                     <div class="comment">
                       <div class="star" :data-star="course.rRate">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
                       </div>
                       <p class="text">{{course.rCount}}則評價</p>
                     </div>
