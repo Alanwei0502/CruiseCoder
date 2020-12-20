@@ -7,7 +7,7 @@ include("./layout/connect.php");
 
 
 // 課程購買次數
-$sqlOrder = "SELECT i.iCourse,count(i.iCourse) FROM cruisecoder.invoice i JOIN course c ON i.iCourse = c.cNumber where c.cStatus = '3' group by i.iCourse;";
+$sqlOrder = "SELECT i.iCourse,count(i.iCourse) as count FROM cruisecoder.invoice i JOIN course c ON i.iCourse = c.cNumber where c.cStatus = '3' group by i.iCourse;";
 $sqlOrder = $pdo->prepare($sqlOrder);
 $sqlOrder->execute();
 $data2 = $sqlOrder->fetchAll(PDO::FETCH_ASSOC);
