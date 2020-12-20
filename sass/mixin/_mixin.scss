@@ -76,8 +76,6 @@
 	@content;
 }
 
-
-
 // 標題黃線，用法：@include h2;
 // 各RWD斷點使用的h2
 // @include smlPad{
@@ -120,9 +118,6 @@
 	@content;
 }
 
-
-
-
 // 使用float時的清除浮動方法: @include clearfixed;
 @mixin clearfixed {
 	&:after {
@@ -131,10 +126,6 @@
 		clear: both;
 	}
 }
-
-
-
-
 
 // keyframe動畫：引用方法在下面描述，用法
 
@@ -167,10 +158,6 @@
 //     ...
 //     animation: rotating 1s linear infinite;
 // }
-
-
-
-
 
 // ==============後台的樣式================
 
@@ -220,7 +207,6 @@
 	}
 }
 
-
 // 文字輸入框  用法 @include inputTextStyle;
 @mixin inputTextStyle {
 	border: 1px solid gray;
@@ -236,7 +222,7 @@
 @mixin checkbox {
 	display: none;
 
-	+span {
+	+ span {
 		background-image: url('../images/backEnd/blank-check-box.svg');
 		display: inline-block;
 		width: $mp;
@@ -247,7 +233,7 @@
 		margin-left: $fontSize;
 	}
 
-	&:checked+span {
+	&:checked + span {
 		width: $mp;
 		height: $mp;
 		display: inline-block;
@@ -261,9 +247,7 @@
 	@content;
 }
 
-
-
-// 搜尋btn樣式  用法 @include backBtn; 
+// 搜尋btn樣式  用法 @include backBtn;
 @mixin backBtn {
 	cursor: pointer;
 	height: 50px;
@@ -375,7 +359,6 @@
 	}
 }
 
-
 //上一頁和下一頁的按鈕樣式，用法  @include changePage;
 @mixin changePage {
 	cursor: pointer;
@@ -394,7 +377,6 @@
 	}
 }
 
-
 //圖片上傳的input按鈕樣式，用法  @include uploadImg;
 @mixin uploadImg {
 	font-size: $mp;
@@ -404,7 +386,6 @@
 	outline: none;
 	cursor: pointer;
 }
-
 
 // 儲存按鈕樣式 用法 @include saveBtn;
 @mixin saveBtn {
@@ -467,20 +448,14 @@
 	}
 }
 
-
-
-
-
-
-
 // ================RWD====================
 
 //media queries的width變數
-$laptop:1200px;
-$bigPad:992px;
-$smlPad:768px; //iPad Mini(直)、iPad(直)
-$bigPhone:576px; //568px	iPhone 5/SE(橫)
-$smlPhone:414px; //iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
+$laptop: 1200px;
+$bigPad: 992px;
+$smlPad: 768px; //iPad Mini(直)、iPad(直)
+$bigPhone: 576px; //568px	iPhone 5/SE(橫)
+$smlPhone: 414px; //iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的版型，iPhone 6/7/8(直)、iPhone X(直)都是375px
 
 //筆電1200px，用法  @include laptop{}
 @mixin laptop {
@@ -522,4 +497,3 @@ $smlPhone:414px; //iPhone 6/7/8 Plus(直)，另外要特別注意375px時候的�
 		@content;
 	}
 }
-

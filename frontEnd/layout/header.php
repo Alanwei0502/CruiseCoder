@@ -23,6 +23,7 @@
         <input type="email" id="email" name="email">
 
         <button type="submit" value="Submit" id="createAccount">註冊</button>
+        <p id="toLogin">前往登入</p>
       </form>
 
     </div>
@@ -32,6 +33,7 @@
         <input type="text" class="account" placeholder="Account" name="loginAccount" id="loginAccount">
         <input type="password" class="password" placeholder="Password" name="loginPassword" id="loginPassword">
         <button type="submit" value="Submit" id="login">登入</button>
+        <p id="toCreate">前往註冊</p>
       </form>
     </div>
 

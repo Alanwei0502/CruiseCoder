@@ -131,7 +131,19 @@ $(document).ready(function () {
     });
 
 
+    // 登入燈箱↓↓↓↓↓
+    $('#toCreate').click(function(){
+        $('.loginArea').css('transform','translateY(-0%)');
+        $('.createArea').css('transform','translateY(-0%)');
+    })
 
+    $('#toLogin').click(function(){
+        $('.loginArea').css('transform','translateY(-100%)');
+        $('.createArea').css('transform','translateY(-100%)');
+
+    })
+
+    // 登入燈箱↑↑↑↑↑
 
 
     // 檢查某 cookie 是否存在
