@@ -499,9 +499,17 @@
 									margin-bottom: 20px;
 								}
 
-								i {
+								i.yellow {
 									font-size: 20px;
 									color: $yellow;
+
+									@include bigPhone {
+										font-size: 16px;
+									}
+								}
+								i {
+									font-size: 20px;
+									color: rgb(184, 179, 179);
 
 									@include bigPhone {
 										font-size: 16px;
