@@ -117,3 +117,15 @@ document.addEventListener("click", function(e){
     }
   }
 });
+
+// 判斷如果首頁過來有傳值 要直接點集專欄文章
+let theTitle = document.getElementsByClassName("articleTitle")[0];
+if(theTitle.classList.contains("checkGet")){
+  let clickTitle = theTitle.getAttribute("data-thetitle");
+  for(let i = 0; i < articleImage.length; i++){
+    let clicked = articleImage[i].closest("div.articleInside").querySelector("h4").innerText;
+    if(clickTitle == clicked){
+      articleImage[i].click();
+    }
+  }
+}

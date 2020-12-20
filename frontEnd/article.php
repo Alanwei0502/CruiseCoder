@@ -1,5 +1,5 @@
 <?php
-include('./articleR.php')
+include('./articleR.php');
 ?>
 
 <!DOCTYPE html>
@@ -46,19 +46,25 @@ include('./articleR.php')
           <img src="./../images/article/battery.png" class="battery" alt="圖片無法顯示">
           <p class="prePage">返回</p>
           <div class="content">
-            <div class="articleTitle">
-              <?php
-              foreach ($data as $index => $row) {
-              ?>
-                <div class="articleInside">
-                  <div class="articleImageScale">
-                    <img src="./../images/article/<?= $row["aImage"] ?>" alt="圖片無法顯示" class="articleImage">
-                  </div>
-                  <h4><?= $row["aTitle"] ?></h4>
-                </div>
-              <?php
+            <?php
+              if(isset($_GET["aTitle"])){
+                $theTitle = $_GET["aTitle"];
+                echo '<div class="articleTitle checkGet" data-thetitle="'.$theTitle.'">';
+              }else{
+                echo '<div class="articleTitle">';
               }
-              ?>
+          
+                foreach ($data as $index => $row) {
+            ?>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/<?= $row["aImage"] ?>" alt="圖片無法顯示" class="articleImage">
+                </div>
+                <h4><?= $row["aTitle"] ?></h4>
+              </div>
+            <?php
+              }
+            ?>
               
             </div>
             <div class="articleContent none">
