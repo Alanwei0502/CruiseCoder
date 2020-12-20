@@ -435,7 +435,6 @@ $(document).ready(function () {
         $('.member').mousedown(function () {
             var my_cookies = document.cookie.substring(5);
             if (checkCookie('user') == false) {//如果未登入 
-                alert();
                 $('.logout').css('display', 'none');
                 $('.oderInfo').css('display', 'none');
                 $('.memberInfo').css('display', 'none');
