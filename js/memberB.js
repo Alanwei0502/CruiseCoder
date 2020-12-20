@@ -95,30 +95,55 @@ let vmMember = new Vue({
         // 關閉彈跳視窗
         closeEdit() {
             $("div.overlay").removeClass("-on");
+        },
+
+        // 大頭照即時呈現
+        readURL() {
+            let file = $('#imgInp')[0].files[0];
+            let reader = new FileReader;
+            reader.onload = function (e) {
+                $('#imgShow').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        },
+
+        // 儲存編輯
+        saveInfo() {
+            let editLevel = $('select[name = "ganName"]').val();
+            let editName = $('input[name = "memberName"]').val();
+            let originalImg = $('#imgShow').attr("src");
+            let photo = $('#imgInp').val().split("\\");
+            let editPhoto = (photo[(photo.length - 1)] == "") ? originalImg : ("../images/info/" + photo[(photo.length - 1)]);
+            let editPhone = $('input[name="memberPhone"]').val();
+            let editPassword = $('input[type="password"]').val();
+            let editCC = $('input[name="memberCC"]').val();
+            let memberID = $('input[name="memberID"]').val();
+            let teacherInfo = $('textarea[name="teacherInfo"]').val();
+
+            if (editLevel == "" || editName == "" || editPhone == "" || editPassword == "" || editCC == "" || memberID == "" || teacherInfo == "") {
+                swal("欄位不可為空白", "", "warning");
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'memberR.php',
+                    data: { editLevel, editName, editPhoto, editPhone, editPassword, editCC, memberID, teacherInfo },
+                    success: function (res) {
+                        if (res == "success") {
+                            swal("已成功修改會員資料", "", "success").then((value) => {
+                                if (value) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
+
+                    },
+                });
+            }
+
         }
+
     },
     created() {
         this.ajax();
     },
 });
-
-
-
-
-// $(function () {
-
-// $("#gansss").change(function () {
-//     let checkValue = $("#gansss").val();
-//     if (checkValue == 2) {
-//         $('.teacherTextarea').css("display", "block");
-//         $('.badge_table').css("display", "none");
-//         $('.orderDetail_table').css("display", "none");
-//         $('.courseDetail_table').css("display", "none");
-
-//     } else {
-//         $('.teacherTextarea').css("display", "none");
-//         $('.badge_table').css("display", "block");
-//         $('.orderDetail_table').css("display", "block");
-//         $('.courseDetail_table').css("display", "block");
-//     }
-// });

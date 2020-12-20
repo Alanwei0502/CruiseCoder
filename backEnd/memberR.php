@@ -23,7 +23,13 @@ $order = $pdo->prepare($order);
 $tutorial = "SELECT reDate, tDate, cTitle, mName FROM cruisecoder.course AS C JOIN (SELECT * FROM cruisecoder.`member` AS M JOIN (SELECT * FROM cruisecoder.tutorial AS T JOIN (SELECT * FROM cruisecoder.reservation WHERE reMember = ?) AS R ON T.tNumber = R.reTutorial) AS R ON M.mNumber = R.tTeacher) AS R ON C.cNumber = R.tCourse";
 $tutorial = $pdo->prepare($tutorial);
 
+// 會員上傳資訊
+$memberUpload = "UPDATE `cruisecoder`.`member` SET `mLevel` = ?, `mName` = ?, `mPhoto` = ?, `mPhone` = ?, `mPassword` = ?, `mCC` = ? WHERE (`mNumber` = ?)";
+$memberUpload = $pdo->prepare($memberUpload);
 
+// 老師上傳資訊
+$lecturerUpload = "UPDATE `cruisecoder`.`lecturer` SET `lInfo` = ? WHERE (`lNumber` = ?)";
+$lecturerUpload = $pdo->prepare($lecturerUpload);
 
 // 一載入時的資料掛載
 if (isset($_POST["allMember"])) {
@@ -77,4 +83,27 @@ if (isset($_POST["mNumber"])) {
     array_push($editMemberData, $memberInfo->fetchAll(PDO::FETCH_ASSOC), $getBadge->fetchAll(PDO::FETCH_ASSOC), $order->fetchAll(PDO::FETCH_ASSOC), $tutorial->fetchAll(PDO::FETCH_ASSOC));
 
     echo json_encode($editMemberData);
+}
+
+
+if (isset($_POST["editLevel"], $_POST["editName"], $_POST["editPhoto"], $_POST["editPhone"], $_POST["editPassword"], $_POST["editCC"], $_POST["memberID"])) {
+
+    $memberUpload->bindValue(1, $_POST["editLevel"]);
+    $memberUpload->bindValue(2, $_POST["editName"]);
+    $memberUpload->bindValue(3, $_POST["editPhoto"]);
+    $memberUpload->bindValue(4, $_POST["editPhone"]);
+    $memberUpload->bindValue(5, $_POST["editPassword"]);
+    $memberUpload->bindValue(6, $_POST["editCC"]);
+    $memberUpload->bindValue(7, $_POST["memberID"]);
+
+    $memberUpload->execute();
+
+    if (isset($_POST["teacherInfo"])) {
+        $lecturerUpload->bindValue(1, $_POST["teacherInfo"]);
+        $lecturerUpload->bindValue(2, $_POST["memberID"]);
+
+        $lecturerUpload->execute();
+    }
+
+    echo "success";
 }

@@ -11,7 +11,7 @@
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-  <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -99,14 +99,17 @@
 
             <div class="weAreInside">
               <section class="accountArea">
-                <div class="accountImg">
-                  <img :src="memberInfos.mPhoto" alt="">
-                  <input type="file">
+                <div class="leftArea">
+                  <div class="accountImg">
+                    <img :src="memberInfos.mPhoto" alt="" id="imgShow">
+                  </div>
+                  <div class="imageUpdate"><input type="file" accept="image/*" id="imgInp" @change="readURL"></div>
+                  <p>請上傳比例為1:1的圖片</p>
                 </div>
                 <div class="rightInputArea">
                   <div>
                     <label for="">編號</label>
-                    <input type="text" :value="memberInfos.mNumber" readonly unselectable="on">
+                    <input type="text" :value="memberInfos.mNumber" name="memberID" readonly unselectable="on">
                   </div>
 
                   <div>
@@ -126,7 +129,7 @@
 
                   <div>
                     <label for="">姓名 </label>
-                    <input type="text" :value="memberInfos.mName">
+                    <input type="text" name="memberName" :value="memberInfos.mName">
                   </div>
 
                   <div>
@@ -136,7 +139,7 @@
 
                   <div>
                     <label for="">手機號碼 </label>
-                    <input type="text" :value="memberInfos.mPhone">
+                    <input type="text" name="memberPhone" :value="memberInfos.mPhone">
                   </div>
 
                   <div>
@@ -151,17 +154,17 @@
 
                   <div>
                     <label for="">CC.Point </label>
-                    <input type="text" :value="memberInfos.mCC">
+                    <input type="text" name="memberCC" :value="memberInfos.mCC">
                   </div>
 
                   <div class="teacherTextarea" v-if="memberInfos.mLevel == '2'">
                     <label for="">老師介紹</label>
-                    <textarea :value="memberInfos.lInfo"></textarea>
+                    <textarea :value="memberInfos.lInfo" name="teacherInfo"></textarea>
                   </div>
 
                 </div>
-
               </section>
+              <button class="saveBtn" @click="saveInfo">儲存</button>
               <!-------- input end -------->
 
               <section class="badge_table">
@@ -234,9 +237,6 @@
                   </tbody>
                 </table>
               </section>
-              <button class="saveBtn">儲存</button>
-
-
             </div>
 
           </div>

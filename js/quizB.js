@@ -284,7 +284,7 @@ Vue.component("createAndEdit", {
         update() {
             let fieldName = $('.fieldName').val() + "星系";
 
-            // for galaxy table
+            // 加到galaxy table
             let newGalaxy = [];
             let gName = $('input[name="iconImgGal"]').val().split("\\");
             let gImage = gName[(gName.length - 1)];
@@ -292,7 +292,7 @@ Vue.component("createAndEdit", {
             newGalaxy.push(fieldName, gImage, onOrOff);
 
 
-            // for quiz table
+            // 加到quiz table
             let quiz = [];
             let question = [];
             let level = [];
@@ -300,23 +300,23 @@ Vue.component("createAndEdit", {
             let status = [];
             let bgImg = [];
 
-            // quiz
+            // 題目
             $('textarea[name="qContent"]').each(function () {
                 question.push($(this).val());
             });
-            // level
+            // 等級
             $('textarea[name="qContent"]').each(function () {
                 level.push($(this).closest(".mainEdit").data("level"));
             });
-            // answer
+            // 答案
             $('select[name="qAnswer"]').each(function () {
                 ans.push($(this).val());
             });
-            // status
+            // 狀態
             $('select[name="qState"]').each(function () {
                 status.push($(this).val());
             });
-            // background
+            // 背景
             $('input[name="bgImg"]').each(function () {
                 let filePath = $(this).val().split("\\");
                 let fileName = filePath[(filePath.length - 1)];
@@ -326,23 +326,23 @@ Vue.component("createAndEdit", {
             quiz.push(fieldName, level, question, ans, status, bgImg);
 
 
-            // for selection table
+            // 加到selection table
             let options = [];
             let sContent = [];
             let selections = [];
 
-            // option
+            // 選項
             $('textarea[name="sContent"]').each(function () {
                 options.push($(this).prev('span').text());
             });
-            // content
+            // 選項文字
             $('textarea[name="sContent"]').each(function () {
                 sContent.push($(this).val());
             });
 
             selections.push(options, sContent);
 
-            // for badge table
+            // 加到badge table
             let badge = [];
             let bGalaxyName = [];
             let bPlanetName = [];
@@ -350,33 +350,33 @@ Vue.component("createAndEdit", {
             let bImg = [];
             let describe = [];
 
-            // galaxy name
+            // 星系名稱
             bGalaxyName.push($('.fieldName').val());
-            // planet name
+            // 星球名稱
             $('section.planetPic').each(function () {
                 bPlanetName.push($(this).find('p').text());
             });
-            // planet image
+            // 星球圖片
             $('input[name="iconImg"]').each(function () {
                 let filePath = $(this).val().split("\\");
                 let fileName = filePath[(filePath.length - 1)];
                 pImg.push(fileName);
             });
             pImg.push('');
-            // badge image
+            // 徽章圖片
             $('input[name="badgeImg"]').each(function () {
                 let filePath = $(this).val().split("\\");
                 let fileName = filePath[(filePath.length - 1)];
                 bImg.push(fileName);
             });
-            // introduction
+            // 試煉介紹
             $('textarea[name="describe"]').each(function () {
                 describe.push($(this).val());
             });
 
             badge.push(bGalaxyName, bPlanetName, describe, pImg, bImg);
 
-            // confirming all input and textarea have been filled
+            // 確認所有欄位都填寫完畢
             let mustFill = [];
             mustFill.push($('.quizModal textarea, .quizModal input[type != "checkbox"]'));
             let mustFillArray = mustFill[0];
@@ -392,7 +392,6 @@ Vue.component("createAndEdit", {
                     url: 'quizRC.php',
                     data: { newGalaxy, quiz, selections, badge },
                     success: function (res) {
-                        // console.log(res);
                         if (res == "success") {
                             swal("已成功新增試題", "", "success").then((value) => {
                                 if (value) {
@@ -400,7 +399,6 @@ Vue.component("createAndEdit", {
                                 }
                             });
                         }
-
                     },
                 });
             } else {
