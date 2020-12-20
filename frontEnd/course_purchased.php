@@ -558,7 +558,8 @@ if($member){
                 }
               }
             ?>
-              <?PHP if(isset($member) AND $member['mLevel'] == 2){?>
+              <?PHP if(empty($member)){}else{
+              if(isset($member) AND $member['mLevel'] == 2){?>
               <!-- 底部按鈕 -->
               <div class="btns">
                 <button class="btn reply ddbox_btn_op">
@@ -576,7 +577,7 @@ if($member){
                   </form>
                 </div>
               </div>
-              <?PHP }?>
+              <?PHP }}?>
             </div>
             <?php
                 }

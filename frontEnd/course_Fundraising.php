@@ -490,7 +490,7 @@ $price_2 = "2,400";
           <div class="score-posts comments">
              <!-- 我想評價-->
              <?PHP if($is_review){?>
-             <div class="comment post">
+             <div class="comment post" style="display: none;">
               <div class="row">
                 <div class="pic"><img src="<?PHP echo $member['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">
@@ -622,7 +622,8 @@ $price_2 = "2,400";
                 }
               }
             ?>
-              <?PHP if(isset($member) AND $member['mLevel'] == 2){?>
+              <?PHP if(empty($member)){}else{
+              if(isset($member) AND $member['mLevel'] == 2){?>
               <!-- 底部按鈕 -->
               <div class="btns">
                 <button class="btn reply ddbox_btn_op">
@@ -640,7 +641,7 @@ $price_2 = "2,400";
                   </form>
                 </div>
               </div>
-              <?PHP }?>
+              <?PHP }}?>
             </div>
             <?php
                 }
