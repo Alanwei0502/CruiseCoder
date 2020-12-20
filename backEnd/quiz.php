@@ -106,7 +106,7 @@
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
         <td><button @click="editQuiz">編輯</button></td>
       </tr>
-      </template>  
+      </template>
     </tbody> 
   </script>
 

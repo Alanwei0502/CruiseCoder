@@ -151,9 +151,10 @@ Vue.component("tableRow", {
                 success: function (res) {
                     console.log(res);
                     $('input.fieldName').val() = res[0]["gName"];
-                    $('.quizModalBg').css("opacity", 1).css("z-index", 1);
+
                 },
             });
+            $('.quizModalBg').css("opacity", 1).css("z-index", 1);
 
         }
     },
