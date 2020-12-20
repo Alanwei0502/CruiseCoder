@@ -428,7 +428,7 @@ if($member){
                 <!-- <img src="../images/course/5.png" alt=""> -->
                 <img src="<?php echo $row4["mPhoto"];?>" alt="">
               </div>
-              <p><?php echo $row2["lInfo"];?>)</p>
+              <p><?php echo $row2["lInfo"];?></p>
             </div>
           </div>
         </div>
