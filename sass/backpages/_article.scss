@@ -7,10 +7,11 @@
 }
 div.article{
   .error{
-    border: 3px solid $red;
+    border: 3px solid $red !important;
   }
   main{
     position: relative;
+    min-height: 100vh;
     div.addArticleBackAll{
       position: fixed;
       top: 0;

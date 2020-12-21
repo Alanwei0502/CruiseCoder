@@ -67,7 +67,7 @@ let vm = new Vue({
           $.post("courseR.php", {offcNumber},function(res){});
         }
       }
-      alert("下架成功");
+      swal("下架成功", "", "success");
       that.ajax();
     },
     // 一鍵上架課程
@@ -81,7 +81,7 @@ let vm = new Vue({
         }
       }
 
-      alert("上架成功");
+      swal("上架成功", "", "success");
       that.ajax();
     },
     // 新增課程按鈕開啟燈箱
@@ -209,17 +209,17 @@ let vm = new Vue({
       let insertTeacher = document.getElementsByClassName("insertTeacher")[0].value;
 
       if(!(insertCourseName != "" && insertType != "" && insertPrice !="" && insertImage !="" && insertVideo != "" && insertCourseTime !="" && insertCourseIntroduction !="")){
-        alert("所有欄位請確認填寫");
+        swal("所有欄位請確認填寫", "", "info");
         return false;
       }else if(insertStatus == 2){
         if(insertFundraising == "" && insertOpenTime == ""){
-          alert("請填寫募資架前即開課時間");
+          swal("請填寫募資架前即開課時間", "", "info");
           return false;
         }else if(insertFundraising == "" && insertOpenTime != ""){
-          alert("請填寫募資價錢");
+          swal("請填寫募資價錢", "", "info");
           return false;
         }else if(insertFundraising != "" && insertOpenTime == ""){
-          alert("請填寫開課時間");
+          swal("請填寫開課時間", "", "info");
           return false;
         }
       }
@@ -257,8 +257,11 @@ let vm = new Vue({
         },
         type: 'POST',
         success(res){
-          alert("新增成功");
-          window.location.reload();
+          swal("新增成功", "", "success").then((willDelete) => {
+            if (willDelete) {
+              window.location.reload();
+            }
+          });
         },
       });
     
@@ -280,17 +283,17 @@ let vm = new Vue({
       let updateTeacher = document.getElementsByClassName("updateTeacher")[0].value;
 
       if(!(updateTheCourseName != "" && updateType != "" && updatePrice != "" && updateImage !="" && updateVideo != "" && updateCourseTime != "" && updateIntroduction != "")){
-        alert("所有欄位請確認填寫");
+        swal("所有欄位請確認填寫", "", "info");
         return false;
       }else if(updateStatus == 2){
         if(updateFundraising == "" && updateOpenTime == ""){
-          alert("請填寫募資架前即開課時間");
+          swal("請填寫募資架前即開課時間", "", "info");
           return false;
         }else if(updateFundraising == "" && updateOpenTime != ""){
-          alert("請填寫募資價錢");
+          swal("請填寫募資價錢", "", "info");
           return false;
         }else if(updateFundraising != "" && updateOpenTime == ""){
-          alert("請填寫開課時間");
+          swal("請填寫開課時間", "", "info");
           return false;
         }
       }
@@ -334,8 +337,11 @@ let vm = new Vue({
         },
         type: 'POST',
         success(res){
-          alert("修改成功");
-          window.location.reload();
+          swal("修改成功", "", "success").then((willDelete) => {
+            if (willDelete) {
+              window.location.reload();
+            }
+          });
         },
       });
 

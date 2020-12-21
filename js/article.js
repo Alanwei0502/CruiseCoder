@@ -116,6 +116,27 @@ document.addEventListener("click", function(e){
       swal("請先登入會員!", "登入會員才有辦法收藏文章唷!", "error");
     }
   }
+  // 點擊收藏文章也要可以收藏
+  if(e.target.classList.contains("collectText")){
+    if(checkCookie('user')){
+      let heart = e.target.nextElementSibling;
+      if(heart.classList.contains("collected")){
+        heart.classList.remove("collected");
+        // 取消收藏
+        let aNumber = heart.getAttribute("data-anumber");
+        let cancel = 0;
+        $.post("articleR.php", {cancel, aNumber, userAccount}, function(res){});
+      }else{
+        // 加入收藏
+        heart.classList.add("collected");
+        let aNumber = heart.getAttribute("data-anumber");
+        let collect = 0;
+        $.post("articleR.php", {collect, aNumber, userAccount}, function(res){});
+      }
+    }else{
+      swal("請先登入會員!", "登入會員才有辦法收藏文章唷!", "error");
+    }
+  }
 });
 
 // 判斷如果首頁過來有傳值 要直接點集專欄文章
