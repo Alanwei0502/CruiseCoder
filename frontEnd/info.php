@@ -59,7 +59,7 @@ $infoMember = $statement->fetchAll();
             foreach ($infoMember as $index => $row) {
             ?>
 
-              <!-- <img src=<?= $row["mPhoto"] ?> alt="" id="show_image"> -->
+              <img src=<?= $row["mPhoto"] ?> alt="" id="show_image">
             <?php } ?>
           </div>
 
@@ -93,9 +93,12 @@ $infoMember = $statement->fetchAll();
               <label>帳號&ensp;:&ensp;
                 <input type="text" class="input" value="<?= $row["mAccount"] ?>" name="mAccount" readonly unselectable="on" />
               </label>
-              <label>密碼&ensp;:&ensp;
+              <label class="pwd_test">密碼&ensp;:&ensp;
 
-                <input type="password" class="input pwd_test" value="<?= $row["mPassword"] ?>" name="mPassword" readonly unselectable="on" /><span class='error5'></span>
+                <input type="password" class="input pwd_test_1" value="<?= $row["mPassword"] ?>" name="mPassword" readonly unselectable="on" />
+
+                <i class="fas fa-eye"></i><span class='error5'></span>
+
               </label>
               <!-- 電子信箱設定成無法編輯 -->
               <label>電子信箱&ensp;:&ensp;

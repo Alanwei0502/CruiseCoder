@@ -29,3 +29,20 @@ $(function () {
     $('.tab_list>li').removeClass('-on');
     $(this).addClass('-on');
   });
+
+
+//星球綁 mSignIn 的值 1~7 day
+//有登入 便拿掉 img 的 class 用ajax??
+//opacity(30%)grayscale(50%);
+
+// $(document).ready(()=>{
+//   $.ajax({
+//     type: "POST",
+//     url: "url",
+//     data: "data",
+//     dataType: "dataType",
+//     success: function (response) {
+      
+//     }
+//   });
+// });

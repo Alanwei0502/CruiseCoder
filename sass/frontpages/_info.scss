@@ -91,7 +91,6 @@
 
         }
 
-
         .left_cc {
 
             flex-direction: column;
@@ -169,6 +168,14 @@
 
                         }
                     }
+                    
+                    .fa-eye{
+                    cursor: pointer;
+                    display: none;
+                    }
+
+
+
                 }
 
                 p {

@@ -1,14 +1,25 @@
 <?php
-    include("./layout/connect.php");
+  include("./layout/connect.php");
 
   //建立SQL
-  $sql = "SELECT * FROM member WHERE mNumber = ?";
-  $mNumber = "M0001";
+  $sql = "SELECT * FROM member WHERE mAccount = ?";
+  // $mNumber = "M0001";
+  $mNumber = $_COOKIE["user"];
   $statement = $pdo->prepare($sql);
   $statement->bindValue(1 , "$mNumber");
   $statement->execute();
-  $infoMember = $statement->fetchAll();
+  $infoMember = $statement->fetchAll(PDO::FETCH_ASSOC);
+  echo $infoMember[0]["mSignIn"];
 ?>
+
+<?php
+  // $sql = "SELECT * FROM member WHERE mSignIn = ?";
+  // $mSignIn = $_POST["day_img"];
+  // $statement = $pdo->prepare($sql);
+  // $statement->bindValue(1 , "$mSignIn");
+  // $statement->execute();
+
+?> 
 
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -36,14 +47,14 @@
     include('layout/spacebackground.php');
     include('layout/header.php');
     ?>
-  
+    <?php
+        foreach($infoMember as $index => $row){
+    ?>
     <main class="cc_main">
-
+    <input id="abc"type="hidden" value='<?=$row["mSignIn"]?>' name="loginD">
       <div class="noticeGroup">
         <div class="ccNotice">
-          <?php
-              foreach($infoMember as $index => $row){
-          ?>
+          
           <p>目前擁有<br>
              <span><?=$row["mCC"] ?></span>CC Point<br>
             = NT$ <?=floor($row["mCC"]*0.0111) ?> </p>
@@ -58,43 +69,45 @@
 
         <div class="day_1">
           <p>Day 1</p>
-          <img src="../images/ccPlanet/資產 8-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 8-8.png" alt="">
           <p class="countCoin">40 CC幣</p>
         </div>
 
+        
+
         <div>
           <p>Day 2</p>
-          <img src="../images/ccPlanet/資產 2-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 2-8.png" alt="">
           <p class="countCoin">50 CC幣</p>
         </div>
 
         <div>
           <p>Day 3</p>
-          <img src="../images/ccPlanet/資產 3-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 3-8.png" alt="">
           <p class="countCoin">60 CC幣</p>
         </div>
 
         <div>
           <p>Day 4</p>
-          <img src="../images/ccPlanet/資產 10-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 10-8.png" alt="">
           <p class="countCoin">70 CC幣</p>
         </div>
 
         <div>
           <p>Day 5</p>
-          <img src="../images/ccPlanet/資產 19-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 19-8.png" alt="">
           <p class="countCoin">80 CC幣</p>
         </div>
 
         <div>
           <p>Day 6</p>
-          <img src="../images/ccPlanet/資產 7-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 7-8.png" alt="">
           <p class="countCoin">90 CC幣</p>
         </div>
 
         <div>
           <p>Day 7</p>
-          <img src="../images/ccPlanet/資產 10-8.png" alt="">
+          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 10-8.png" alt="">
           <p class="countCoin">100 CC幣</p>
         </div>
         
@@ -163,9 +176,6 @@
             <div class="square_words"><img src="../images/ccPoint/2x/資產 6@2x.png" alt=""></div>
 
             <div class="save_janDiv"><img  class="save_jan_img" src="../images/ccPoint/資產 4.svg" alt=""></div>
-
-
-
           </div>
           
           <div class="tab tab3">
@@ -173,15 +183,17 @@
             每日登入簽到即可獲得CC Point， 持續登入能獲得的CC Point更多唷！
             </div>
           
-            <p>讓學習變成你的習慣！<br>
-              Cruise Coders助你一臂之力！
+            <p>「 讓學習變成你的習慣！<br>
+              Cruise Coders助你一臂之力！」
             </p>
 
-            <div>
-              <ul>
-                <li><i class="fas fa-circle"></i>&emsp;累積 100 CC Point，可以折抵 NT$1</li>
-                <li><i class="fas fa-circle"></i>&emsp;累積的 CC Point 可在下一次結帳時折抵 Cruise Coders 站內所有課程</li>
-              </ul>
+            <div class="circle_group">
+             <ul>
+              <div>累積 100 CC Point，可以折抵 NT$1</div>
+              <br>
+              <div>累積的 CC Point 可在下一次結帳時折抵站內所有課程</div>
+             </ul>
+            
             </div>
            
             <div class="cc_people">
@@ -212,6 +224,33 @@
 
   <script src="../js/ccPoint.js"></script>
   <script src="../js/header.js"> </script>
+  <script>
+    $.ajax({
+      type: "POST",
+      url: "./ccPoint.php",
+      // data: "data",
+      // dataType: "",
+      success: function (response) {
+        
+        let check = parseInt($('#abc').val());
+        if(check){
+          for(k=0;k<check;k++){
+            console.log(k+'我是check'+check);
+            $('img[name = "day_img"]').eq(k).removeClass();
+          }
+        }
+      }
+    });
+    
+    console.log($('#abc'));
+
+
+
+    console.log($('#abc').val());
+  </script>
+
+
+
 
 </body>
 </html>

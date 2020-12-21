@@ -59,6 +59,7 @@ $(document).ready(function () {
     //編輯檔案
     $('.editFile').click(function () {
         // alert('hi');
+        $('.fa-eye').css('display','inline-block');
         $(this).css('display', 'none');
         $('.plusCamera').css('display', 'block');
         $('.input').attr('readonly', false);
@@ -159,6 +160,23 @@ $(document).ready(function () {
 
         }
     }
+
+    $('.fa-eye').click(function(){
+        // $('.pwd_test_1').attr('type','text');
+        //点击眼睛，如果input输入框为为text时执行，并改成password实现隐藏。
+        if($(".pwd_test_1").attr("type")=="text"){
+            $(".pwd_test_1").attr("type","password");
+            $(".fa-eye").css("opacity",0.5)
+        }
+        //点击眼睛，如果input输入框为password时执行，并改成text实现隐藏。
+        else{
+            $(".pwd_test_1").attr("type","text");
+            $(".fa-eye").css("opacity",1)
+        }
+       
+    })
+
+
 
 
 

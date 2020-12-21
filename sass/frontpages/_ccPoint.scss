@@ -111,8 +111,8 @@ monospace;
                     margin: 25px;
                 }
 
-                img{
-                    filter: opacity(30%)grayscale(50%);;
+                .day_img{
+                    filter: opacity(30%)grayscale(50%);
                     -webkit-filter: opacity(30%)grayscale(50%);
                 }
 
@@ -201,9 +201,11 @@ monospace;
                 >li {
                     display: inline-block;
                     background-color: #F4F4F4;
-                    padding: 20px 30px;
+                    // padding: 20px 30px;
                     border-radius: 20px 20px 0 0;
-                    font-size: $h4;
+                    font-size: $bp;
+                    
+                
 
                     @include smlPad {
                         font-size: $mp;
@@ -224,7 +226,8 @@ monospace;
                     >a {
                         text-decoration: none;
                         color: #707070;
-
+                        padding: 30px;
+                        line-height: 50px;
                     }
 
 
@@ -239,12 +242,13 @@ monospace;
             }
 
             .tab_contents {
-
+                margin-bottom: 150px;
                 .tab {
                     border-radius: 0 10px 10px 10px;
                     padding: 10px;
                     display: none;
                     color: #707070;
+                    
 
                     @include laptop {
                         width: 1000px;
@@ -277,11 +281,13 @@ monospace;
 
                 .tab1 {
                     background-color: #F7DA99;
+                    padding: 20px;
 
                     p {
                         text-align: center;
-                        font-size: $h4;
+                        font-size: $h3;
                         font-weight: 600;
+                        letter-spacing: 2.5px;
                          //768
                         @include smlPad{
                         font-size: $bp;
@@ -307,12 +313,13 @@ monospace;
                 .tabWords_1 {
                     font-size: $bp;
                     padding-bottom: 100px;
+                    letter-spacing: 2.5px;
                     @include smlPad{
                         font-size: $sp;
                     }
 
                     span {
-                        font-size: $bp*2;
+                        font-size: $h3;
 
                         @include smlPad {
                             font-size: $mp*2;
@@ -336,6 +343,7 @@ monospace;
                     font-size: $bp;
                     font-weight: 500;
                     margin: 50px;
+                    letter-spacing: 2.5px;
                 }
 
                 .tab2 {
@@ -360,7 +368,7 @@ monospace;
 
                         background-color: #fff;
                         border-radius: 10px;
-                        width: 950px;
+                        width: 800px;
 
                         @include laptop {
                             width: 800px;
@@ -383,7 +391,8 @@ monospace;
 
                         ul {
                             padding: 30px;
-                            font-size: $h4;
+                            font-size: $mp;
+                            letter-spacing: 2.5px;
 
                             @include smlPad {
                                 padding: 20px;
@@ -414,7 +423,6 @@ monospace;
                                     line-height: 30px;
                                 }
 
-
                             }
                         }
                     }
@@ -424,6 +432,7 @@ monospace;
                         z-index: 1;
                         position: relative;
                         margin: 100px 0;
+                        
 
                         img {
                             width: 550px;
@@ -469,6 +478,7 @@ monospace;
                         margin: 50px 0;
                         font-weight: 600;
                         text-align: center;
+                        letter-spacing: 2.5px;
                     }
 
                     >p {
@@ -477,16 +487,18 @@ monospace;
                         margin-bottom: 50px;
                         margin-left: 150px;
                         font-style: italic;
+                        letter-spacing: 2.5px;
 
                         @include bigPhone {
                             margin: 0 auto;
                         }
                     }
 
-                    ul {
+                    .circle_group {
                         font-size: $bp;
-                        display: inline-block;
                         margin: 0 150px;
+                        letter-spacing: 2.5px;
+
 
                         //768
                         @include smlPad {
@@ -501,7 +513,8 @@ monospace;
                         }
 
 
-                        li {
+                        div {
+                            display: inline;
                             @include bigPad {
                                 font-size: $mp;
                             }
@@ -510,10 +523,6 @@ monospace;
                                 font-size: $sp;
                                 width: 100%;
 
-                            }
-
-                            >.fa-circle {
-                                color: $white !important;
                             }
 
                         }
