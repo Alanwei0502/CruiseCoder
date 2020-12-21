@@ -74,7 +74,7 @@
                 <div class="c_Main">
                   <p class="title" href="">{{course.cTitle}}</p>
                   <div class="time">課程總長：{{course.cTime}}</div>
-                  <div class="courseFundraising" >
+                  <div class="courseFundraising">
                     <div class="price">
                       <p class="fundraisingTag">募資中</p>
                       <div class="textFund">
@@ -85,7 +85,7 @@
                     <div class="progressbar">
                       <span class="progress" style="width: 50%;" :data-id="course.cNumber"></span>
                     </div>
-                    <div class="funNum">已募資 5/10 人</div>
+                    <div class="funNum">已募資<span class="counts"></span> /10 人</div>
                   </div>
                 </div>
               </div>
@@ -105,14 +105,14 @@
                 <div class="c_Main">
                   <p class="title" href="">{{course.cTitle}}</p>
                   <div class="time">課程總長：{{course.cTime}}</div>
-                  <div class="courseStart" >
+                  <div class="courseStart">
                     <div class="comment">
                       <div class="star" :data-star="course.rRate">
-                        <i class="fas fa-star "></i>
-                        <i class="fas fa-star "></i>
-                        <i class="fas fa-star "></i>
-                        <i class="fas fa-star "></i>
-                        <i class="fas fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
                       </div>
                       <p class="text">{{course.rCount}}則評價</p>
                     </div>

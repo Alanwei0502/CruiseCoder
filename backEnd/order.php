@@ -26,22 +26,22 @@
     <main id="app">
       <!-- 在這裡面coding -->
       <h2>訂單管理</h2>
-      <form class="filter" >
+      <form class="filter">
         <div class="date">
           <label for="">購買日期</label>
           <div class="date_input">
-            <input type="text" id="datepicker1" readonly="true">
+            <input type="text" id="datepicker1" readonly="true" placeholder="請輸入日期">
             <p>至</p>
-            <input type="text" id="datepicker2" readonly="true">
+            <input type="text" id="datepicker2" readonly="true" placeholder="請輸入日期">
           </div>
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="orderNum">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="orderNum" placeholder="請輸入訂單編號14碼">
         </div>
         <div class="memberNum">
           <label for="">會員編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="memberNum">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="memberNum" placeholder="請輸入會員編號">
         </div>
         <button type="button" @click="search">
           搜尋
@@ -49,7 +49,7 @@
       </form>
       <div class="searchResult">
         <table>
-        
+
           <thead>
             <tr>
               <th>訂單日期</th>
@@ -60,22 +60,27 @@
             </tr>
           </thead>
           <tbody>
-          <!-- <template v-for="or in order"> -->
-            <tr>
-              <td v-for="or in order">{{or.oDate}}</td>
-              <td v-for="or in order">{{or.oMember}}</td>
+            <template v-for="or in order">
+            <tr class="row">
+              <td class="oDate">{{or.oDate}}</td>
+              <td class="oNumber">{{or.oNumber}}</td>
+              <td class="oMember">{{or.oMember}}</td>
+              <td class="oTotal">{{or.oTotal}}</td>
+              <td><button class="view" @click="viewInvoice">查看</button></td>
+              <!-- <td v-for="or in order">{{or.oDate}}</td>
               <td v-for="or in order">{{or.oNumber}}</td>
+              <td v-for="or in order">{{or.oMember}}</td>
               <td v-for="or in order">{{or.oTotal}}</td> 
-              <td><button class="view">查看</button></td>
+              <td><button class="view">查看</button></td> -->
             </tr>
-          <!-- </template> -->
-            <tr>
+            </template>
+            <!-- <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
               <td>3,600</td>
               <td><button class="view">查看</button></td>
-            </tr>
+            </tr> -->
             <!-- <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>

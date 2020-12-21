@@ -209,7 +209,7 @@ if(isset($_SESSION['mNumber'])){
                         <img src="../images/checkOut/successfulTransaction.png" alt="">
                     </div>
                     <p class="title">交易完成</p>
-                    <button class="go_Course">前往課程</button>
+                    <button class="go_Course">前往我的訂單</button>
                 </section>
             </div>
             <!-- 付款失敗燈箱 -->

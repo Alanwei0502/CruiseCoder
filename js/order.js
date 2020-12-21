@@ -4,20 +4,37 @@ let app = new Vue({
     data: {
         order: [],
     },
+    created() {
+        this.search();
+    },
     methods: {
         search() {
             // this.ajax();
             let dateStart = $('#datepicker1').val();
+            if (dateStart == '') {
+                dateStart = '2020/01/01';
+            }
             console.log(dateStart);
+
             let dateEnd = $('#datepicker2').val();
+            if (dateEnd == '') {
+                dateEnd = '2021/08/20';
+            }
             console.log(dateEnd);
             let oMember = $('#orderNum').val();
+            if (oMember == '') {
+                oMember = '%';
+            }
             console.log(oMember); //訂單號碼
             let memberNum = $('#memberNum').val();
+            if (memberNum == '') {
+                memberNum = '%';
+            }
             console.log(memberNum); //會員編號
 
             let that = this;
             let member = 1;
+            // that.order.splice(0, that.order.length);
             $.ajax({
                 type: 'POST',
                 url: 'orderR.php',
@@ -39,37 +56,39 @@ let app = new Vue({
                 }
             });
         },
-        //     ajax() {
-        //         let dateStart = $('#datepicker1').val();
-        //         // console.log(dateStart);
-        //         let dateEnd = $('#datepicker2').val();
-        //         // console.log(dateEnd);
-        //         let oMember = $('#orderNum').val();
-        //         // console.log(oMember); //訂單號碼
-        //         let memberNum = $('#memberNum').val();
-        //         // console.log(memberNum); //會員編號
+        viewInvoice(e) {
+            let oDate = $(e.target).closest('.row').find('td.oDate').text();
+            console.log(oDate);
+            let oNumber = $(e.target).closest('.row').find('td.oNumber').text();
+            console.log(oNumber);
+            let oMemberIn = $(e.target).closest('.row').find('td.oMember').text();
+            console.log(oMemberIn);
+            let oTotal = $(e.target).closest('.row').find('td.oTotal').text();
+            console.log(oTotal);
+            let that = this;
+            let vInvoice = 1;
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: 'orderR.php',
+            //         data: {
+            //             vInvoice,
+            //             oDate,
+            //             oNumber,
+            //             oMemberIn,
+            //             oTotal,
+            //         },
+            //         dataType: 'json',
+            //         success: function (res) {
+            //             console.log(res);
+            //             that.order = res;
+            //             // res.forEach((val, index) => {
+            //             //     that.order.push(val);
+            //             //     console.log(that.order);
+            //             // });
+            //         }
+            //     });
+        },
 
-        //         let that = this;
-        //         let member = 1;
-        //         $.ajax({
-        //             type: 'POST',
-        //             url: 'orderR.php',
-        //             data: {
-        //                 member,
-        //                 dateStart,
-        //                 dateEnd,
-        //                 oMember,
-        //                 memberNum,
-        //             },
-        //             dataType: 'json',
-        //             success: function (res) {
-        //                 res.forEach((res, index) => {
-        //                     that.order = res;
-        //                     console.log(that.order);
-        //                 });
-        //             }
-        //         });
-        //     },
     },
 })
 
