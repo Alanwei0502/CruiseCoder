@@ -138,6 +138,19 @@ let vmMember = new Vue({
 
                     },
                 });
+                let fileData = $('#imgInp').prop('files')[0];   //取得上傳檔案屬性
+                let formData = new FormData();  // 建構new FormData()
+                formData.append('file', fileData);  //把物件加到file後面
+                // 傳圖片 將圖片放到資料夾內
+                $.ajax({
+                    url: 'memberR.php',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,     //data只能指定單一物件
+                    type: 'POST',
+                    success: function (data) { }
+                });
             }
 
         }
