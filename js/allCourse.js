@@ -8,6 +8,7 @@ let app = new Vue({
         theMember: '',
         star: [],
         courseTitle: '',
+        funNum: [],
     },
     // ajax抓資料
     created() {
@@ -41,12 +42,15 @@ let app = new Vue({
                             let stry = "<i class='fas fa-star yellow'> </i>";
                             if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
                                 for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
                                 }
 
                             } else {
                                 for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
                                     $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
                                 }
                             }
@@ -62,12 +66,23 @@ let app = new Vue({
                             dataType: 'json',
                             success: function (res) {
                                 console.log(res);
+
+
                                 // console.log(that.courses[0].cNumber);
                                 $(res).each(function (inDex, iTem) {
+                                    that.funNum.push(iTem.count);
+                                    // console.log(that.funNum) ;
+
                                     let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
                                         if (item.cNumber == iTem.iCourse) {
-                                            console.log(w);
+                                            for (let i = 0; i < res.length; i++) {
+                                                let span = document.getElementsByClassName("counts");
+                                                span[i].innerText = res[i].count;
+
+                                                // console.log(res[i].count);
+                                            }
+                                            // console.log(w);
                                             if (w > 100) {
                                                 $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:100%`);
                                             } else {
