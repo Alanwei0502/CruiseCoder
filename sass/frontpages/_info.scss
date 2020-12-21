@@ -244,7 +244,7 @@
             }
             .course {
 				display: flex;
-				justify-content: space-between;
+                justify-content: space-between;
                 flex-wrap: wrap;
                 text-decoration: none;
 
@@ -320,7 +320,8 @@
 					}
 
 					a.img {
-						display: inline-block;
+                        width: 100%;
+						display: block;
 
 						@include bigPhone {
 							width: 200px;
@@ -495,7 +496,8 @@
                 }
     
                 a.img {
-                    display: inline-block;
+                    display: block;
+                    width: 100%;
     
                     @include bigPhone {
                         width: 200px;
@@ -653,63 +655,63 @@
             @include smlPhone{
                 font-size: $bp;
             }
-           
         }
 
         .info_article {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            text-align: center;
-
-            @include smlPad {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .aic_1,
-            .aic_2,
-            .aic_3 {
-                position: relative;
-
-                // border: 1px solid #fff;
-                @include smlPad {
-                    margin: 15px 0;
-                }
-
-                .love_arc {
-                    img {
-                        position: absolute;
-                        width: 70px;
-                        top: 4px;
-                        right: 0px;
-                        cursor: pointer;
-                    }
-                }
-
-
-                img {
-                    width: 300px;
-                    cursor: pointer;
-
-                    @include bigPad {
-                        width: 250px;
-                    }
-
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    text-align: center;
+        
                     @include smlPad {
-                        width: 300px;
+                        flex-direction: column;
+                        align-items: center;
                     }
-
-                }
-
-                p {
-                    color: $white;
-                    margin-top: 20px;
-                }
-
-
-            }
+        
+                    .aic {
+                        position: relative;
+        
+                        // border: 1px solid #fff;
+                        @include smlPad {
+                            margin: 15px 0;
+                        }
+        
+                        .love_arc {
+                            img {
+                                position: absolute;
+                                width: 70px;
+                                top: 4px;
+                                right: 0px;
+                                cursor: pointer;
+                            }
+                        }
+        
+        
+                        img {
+                            width: 300px;
+                            cursor: pointer;
+        
+                            @include bigPad {
+                                width: 250px;
+                            }
+        
+                            @include smlPad {
+                                width: 300px;
+                            }
+        
+                        }
+        
+                        p {
+                            color: $white;
+                            margin-top: 20px;
+                            font-size: $bp;
+                        }
+        
+        
+                    }
+                
         }
+        
 
         .achievement_title {
             margin-top: 100px;
@@ -784,5 +786,9 @@
                 }
             }
         }
+    }
+    .getBadge{
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
     }
 }

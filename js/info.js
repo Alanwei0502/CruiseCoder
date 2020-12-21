@@ -1,21 +1,64 @@
+// 取得 cookie 的值
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+// 檢查某 cookie 是否存在
+function checkCookie(cname) {
+    var cookie_value = getCookie(cname);
+    if (cookie_value != "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
 let vm = new Vue({
-    el: "#infoCourse",
+    el: "#infoData",
     data: {
-        mAccount: "bbb",
+        mAccount: getCookie('user'),
         courses: [],
+        FavCourses: [],
+        FavArticles: [],
+        mBadges: [],
+        allBadges: [],
     },
     methods: {
         ajax() {
             let account = this.mAccount;
             let that = this;
+            // console.log(account);
             $.ajax({
                 type: 'POST',
-                url: 'infoCourse.php',
+                url: 'infoR.php',
                 data: { account },
-                dataType: 'json',
+                // dataType: 'json',
                 success: function (res) {
-                    console.log(res);
-                    that.courses = res;
+                    let allData = JSON.parse(res);
+                    console.log(allData);
+                    that.courses = allData[0];
+                    that.FavCourses = allData[1];
+                    that.FavArticles = allData[2];
+                    that.mBadges = allData[3];
+                    that.allBadges = allData[4];
+
+                    // 獲得徽章亮起來
+                    for (let i = 0; i < $('img.badges').length; i++) {
+                        $('img.badges').data('id')
+                    }
                 },
             });
         },
@@ -27,39 +70,12 @@ let vm = new Vue({
 
 $(document).ready(function () {
 
-    // 取得 cookie 的值
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
 
-    // 檢查某 cookie 是否存在
-    function checkCookie(cname) {
-        var cookie_value = getCookie(cname);
-        if (cookie_value != "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
-    // console.log(userAccount);
 
     //編輯檔案
     $('.editFile').click(function () {
         // alert('hi');
-        $('.fa-eye').css('display','inline-block');
+        $('.fa-eye').css('display', 'inline-block');
         $(this).css('display', 'none');
         $('.plusCamera').css('display', 'block');
         $('.input').attr('readonly', false);
@@ -161,55 +177,22 @@ $(document).ready(function () {
         }
     }
 
-    $('.fa-eye').click(function(){
+    $('.fa-eye').click(function () {
         // $('.pwd_test_1').attr('type','text');
         //点击眼睛，如果input输入框为为text时执行，并改成password实现隐藏。
-        if($(".pwd_test_1").attr("type")=="text"){
-            $(".pwd_test_1").attr("type","password");
-            $(".fa-eye").css("opacity",0.5)
+        if ($(".pwd_test_1").attr("type") == "text") {
+            $(".pwd_test_1").attr("type", "password");
+            $(".fa-eye").css("opacity", 0.5)
         }
         //点击眼睛，如果input输入框为password时执行，并改成text实现隐藏。
-        else{
-            $(".pwd_test_1").attr("type","text");
-            $(".fa-eye").css("opacity",1)
+        else {
+            $(".pwd_test_1").attr("type", "text");
+            $(".fa-eye").css("opacity", 1)
         }
-       
+
     })
 
 
-
-
-
-    // $('.sendBtn').click(function(){
-    //   let mName = $('.name_test').val();
-    //   let PictureName = $('#show_image').val();
-    //   let mPhone = $('.fone').val();
-    //   let mPassword = $('.pwd_test').val();
-
-
-    //   // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
-    //   // let userAccount = getCookie('user');
-
-    //   $.ajax({
-    //     url:'info_Upload.php',
-    //     type:'POST',
-    //     dataType:'text',
-    //     data:{
-    //       mName,
-    //       // PictureName,
-    //       mPhone,
-    //       mPassword,
-    //       // userAccount,
-    //     },
-    //     success(res){
-    //       let array = JSON.parse(res);
-    //       console.log(array);
-    //       // console.log(res);
-    //       // window.location.reload();
-    //     }
-    //   });
-
-    // })
 
 });
 

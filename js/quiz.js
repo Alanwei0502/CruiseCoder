@@ -130,7 +130,7 @@ for (let j = 0; j < nextQuestion.length; j++) {
                         url: 'quizR.php',
                         data: { userAccount, badgeField },
                         success: function (res) {
-                            swal("趕快去會員中心看看你獲得的徽章吧!", "", "success");
+                            swal("挑戰成功", "趕快去會員中心看看你獲得的徽章吧!", "success");
                         },
                     });
                 } else {
