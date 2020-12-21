@@ -136,9 +136,9 @@
             <div class="Course">
                 <div class="slide" id="slide">                
                     <div v-for="allCourse in allCourses" class="wrapGeneral">
-                        <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
+                        <!-- <img class="tImg" src="../images/allCourse/tImg01.jpg" alt=""> -->
                         <div class="favorites">
-                            <i class="fas fa-heart"></i>
+                            <!-- <i class="fas fa-heart"></i> -->
                         </div>
                         <a class="img" href="./allCourse.php">
                             <img :src="allCourse.cImage" alt="">
@@ -201,22 +201,29 @@
             <h2 class="H2title">
                 < 語宙試煉 />
             </h2>
-            <div class="galaxyBlock">
-                <div class="planetWarp">
-                    <div>
-                        <img src="../images/trial/badge/css.png">
-                    </div>
-                    <div>
-                        <img src="../images/trial/badge/html.png">
-                    </div>
-                    <div>
-                        <img src="../images/trial/badge/js.png">
-                    </div>
-                    <div>
-                        <img src="../images/trial/badge/mysql.png">
-                    </div>
-                    <div>
-                        <img src="../images/trial/badge/php.png">
+            <div class="galaxyBlock" id="galaxyBlock">
+                <div class="swiper-container">
+                    <div class="planetWarp swiper-wrapper">
+                        <div class="swiper-slide">
+                            <input type="hidden" value="CSS星系">
+                            <img src="../images/trial/badge/css.png" @click="changePlanet" class="CSS">
+                        </div>
+                        <div class="swiper-slide">
+                            <input type="hidden" value="HTML星系">
+                            <img src="../images/trial/badge/html.png" @click="changePlanet" class="HTML">
+                        </div>
+                        <div class="swiper-slide">
+                            <input type="hidden" value="Javascript星系">
+                            <img src="../images/trial/badge/js.png" @click="changePlanet" class="JS">
+                        </div>
+                        <div class="swiper-slide">
+                            <input type="hidden" value="MySQL星系">
+                            <img src="../images/trial/badge/mysql.png" @click="changePlanet" class="SQL">
+                        </div>
+                        <div class="swiper-slide">
+                            <input type="hidden" value="PHP星系">
+                            <img src="../images/trial/badge/php.png" @click="changePlanet" class="PHP">
+                        </div>
                     </div>
                 </div>
 
@@ -227,15 +234,15 @@
 
                         <div class="changeBlock">
                             <div>
-                                <img src="../images/trial/planets/html1.png">
+                                <img :src="allPlanet[0]">
                                 <p>初級</p>
                             </div>
                             <div>
-                                <img src="../images/trial/planets/html2.png">
+                                <img :src="allPlanet[1]">
                                 <p>中級</p>
                             </div>
                             <div>
-                                <img src="../images/trial/planets/html3.png">
+                                <img :src="allPlanet[2]">
                                 <p>高級</p>
                             </div>
                         </div>
@@ -245,14 +252,14 @@
                         <span class="line3"></span>
                         <span class="line4"></span>
 
-                        <img src="../images/trial/planets/html1.png" class="planet1">
-                        <img src="../images/trial/planets/html2.png" class="planet2">
-                        <img src="../images/trial/planets/html3.png" class="planet3">
+                        <img :src="allPlanet[0]" class="planet1">
+                        <img :src="allPlanet[1]" class="planet2">
+                        <img :src="allPlanet[2]" class="planet3">
 
                     </div>
                     <div class="rightBlock">
-                        <h3>HTML 星系</h3>
-                        <p>HTML是一種網頁使用的語言，是一種描述超文件的註記語言SGML(Standard Generalized Markup Language)所制訂出的一種網頁語言，基本上現行的瀏覽器都可以讀取HTML，使用HTML可以編輯設計出網頁，也可以在網頁中加入所有HTML語言可支援的方式，例如表格、表單、圖片、文字、連結、程式等等。</p>
+                        <h3 class="titlePlanet">CSS星系</h3>
+                        <p class="textContent">CSS（Cascading Style Sheets）串接樣式表：一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護，意指在文件中CSS不會單獨存在，只是輔助結構化文件的樣式呈現。</p>
                         <a href="./galaxy.php">查看更多</a>
                         
                     </div>
@@ -260,7 +267,7 @@
                 </div>
 
             </div>
-            <!-- 宇宙試煉結束 -->
+            <!-- 宇宙試煉結束 --> 
 
             <!-- 太空補給站開始 -->
             <h2 class="H2title">
@@ -282,7 +289,7 @@
                         <p>編輯器推薦</p>
                     </div>
                     <div>
-                        <a href="article.php?aTitle=自學力網站資源" class="imgWarp"><img src="./../images/article/study.jpg" ></a>
+                        <a href="article.php?aTitle=自學力網站" class="imgWarp"><img src="./../images/article/study.jpg" ></a>
                         <p>自學力網站資源</p>
                     </div>
                     <div>
@@ -351,6 +358,9 @@
     <script src="../js/vue.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/header.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>
+
