@@ -244,7 +244,3 @@
     $offSql = "UPDATE course SET cStatus = '0' WHERE cNumber = '$offcNumber'";
     $offStatement = $pdo->query($offSql);
   }
-
-
-
-?>

@@ -81,16 +81,16 @@ startQuiz[0].addEventListener('click', function () {
 });
 
 // 中斷計時器
-$('button.nextQuestion').eq(1).click(function () {
-    $('#countdown').css('display', 'none');
-    $('#countdown svg circle').removeClass('animation');
-    clearInterval(add);
-});
+// $('button.nextQuestion').eq(1).click(function () {
+//     $('#countdown').css('display', 'none');
+//     $('#countdown svg circle').removeClass('animation');
+//     clearInterval(add);
+// });
 
 
 // 綁定下一題的按鈕
 for (let j = 0; j < nextQuestion.length; j++) {
-    nextQuestion[j].addEventListener('click', function (e) {
+    nextQuestion[j].addEventListener('mousedown', function (e) {
         let selections = this.closest("section").querySelectorAll('.selection');
 
         if (!selections[0].checked && !selections[1].checked && !selections[2].checked && !selections[3].checked) {
@@ -104,30 +104,44 @@ for (let j = 0; j < nextQuestion.length; j++) {
             let chooseOption = this.closest("section").querySelector('.selection:checked').value;
             let correctAnswer = this.closest("section").querySelectorAll('div.question')[0].getAttribute("data-answer");
 
-            if (chooseOption === correctAnswer) {
+            if (chooseOption == correctAnswer) {
                 answerCount = answerCount + 1;
+                console.log("correct");
                 correctCount.innerText = `答對題數：${answerCount}題`;
+            }
+
+            // 最後一個下一題按鈕
+            if (j == nextQuestion.length - 1) {
+                $('#countdown').css('display', 'none');
+                $('#countdown svg circle').removeClass('animation');
+                clearInterval(add);
+
+                let userAccount = getCookie('user');
+                let url = new URLSearchParams(window.location.search)
+                let badgeField = url.get("name");
+
+                console.log(userAccount);
+                console.log(answerCount);
+                console.log(badgeField);
+                if (answerCount == 2 && userAccount) {
+                    console.log("123");
+                    $.ajax({
+                        type: 'POST',
+                        url: 'quizR.php',
+                        data: { userAccount, badgeField },
+                        success: function (res) {
+                            swal("趕快去會員中心看看你獲得的徽章吧!", "", "success");
+                        },
+                    });
+                } else {
+                    swal("差一點點，再接再厲！", "", "info");
+                }
             }
         }
     });
 }
 
 
-// 最後一個下一題按鈕
-$('.nextQuestion').eq(1).click(function () {
-    let userAccount = checkCookie('user');
-    let url = location.href;
-    if (answerCount == 2 && checkCookie('user')) {
-        $.ajax({
-            type: 'POST',
-            url: 'quizR.php',
-            data: { userAccount, url },
-            success: function (res) {
-                console.log(res);
-            },
-        });
-    }
-});
 
 // 前往會員中心判斷
 $('a.complete').click(function () {
