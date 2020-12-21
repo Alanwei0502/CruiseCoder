@@ -134,7 +134,7 @@
               <div class="addCourseImage">
                 <label>課程圖片</label>
                 <div class="inputFileImage" @click="clickInput">
-                  <input type="file" @change="imageName" name="addCourseImage" id="addInputFile" accept=".jpeg,.png,.gif">
+                  <input type="file" @change="imageName" name="addCourseImage" id="addInputFile" accept=".jpg,.jpeg,.png,.gif">
                   <p class="insertImage"></p>
                   <button type="button" @click="buttonCilckInput"></button>
                 </div>   
@@ -217,7 +217,7 @@
               <div class="editCourseImage">
                 <label>課程圖片</label>
                 <div class="inputFileImage" @click="clickInput">
-                  <input type="file" class="updateFile" id="updateFileImage" @change="imageName" accept=".jpeg,.png,.gif">
+                  <input type="file" class="updateFile" id="updateFileImage" @change="imageName" accept=".jpg,.jpeg,.png,.gif">
                   <p class="updateImage">{{editCourseDatas.cImage}}</p>
                   <button type="button" @click="buttonCilckInput"></button>
                 </div>   

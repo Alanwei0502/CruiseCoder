@@ -139,13 +139,17 @@ addArticleBtn.addEventListener("click", function(){
   checkOut = true;
 
   if(checkOut){
-    swal("新增成功", "", "success").then((willDelete) => {
-      if (willDelete) {
-        let a = 1;
-        $.post('articleR.php',{a},function(res){
-          addForm.submit();
-        });
-      }
+    // swal("新增成功", "", "success").then((willDelete) => {
+    //   if (willDelete) {
+    //     let a = 1;
+    //     $.post('articleR.php',{a},function(res){
+    //       addForm.submit();
+    //     });
+    //   }
+    // });
+    let a = 1;
+    $.post('articleR.php',{a},function(res){
+      addForm.submit();
     });
   }
 

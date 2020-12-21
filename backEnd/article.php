@@ -83,7 +83,7 @@
                 <input type="text" name="addArticleName" id="addArticleName">
                 <label>專欄預覽圖</label>
                 <div class="fileStyle">
-                  <input type="file" class="inputFile" name="addArticleFileName" id="addArticleFileName" accept=".jpeg,.png,.gif">
+                  <input type="file" class="inputFile" name="addArticleFileName" id="addArticleFileName" accept=".jpg,.jpeg,.png,.gif">
                   <p class="pFileName"></p>
                   <button type="button"></button>
                 </div>

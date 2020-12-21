@@ -196,7 +196,7 @@ if (isset($_POST["editATitle"])) {
         <input type="text" class="editArticleTitleName" value="' . $row["aTitle"] . '">
         <label>專欄預覽圖</label>
         <div class="editFileStyle">
-          <input type="file" class="editInputFile" name="editInputFile">
+          <input type="file" class="editInputFile" name="editInputFile" accept=".jpg,.jpeg,.png,.gif">
           <p class="editPFileName">' . $row["aImage"] . '</p>
           <button type="button"></button>
         </div>
