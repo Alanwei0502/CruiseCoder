@@ -1,52 +1,7 @@
 <?php
-//   ini_set('display_errors','1');
-//   error_reporting(E_ALL);
-
-include_once("./layout/connect.php");
-
-$_SESSION['mNumber'] = $_COOKIE['unumber']??'';
-$_SESSION['user'] = $_COOKIE['user']??null;
-if(!isset($_SESSION['token'])){
-  $_SESSION['token'] = '';
-}
-$token = date('Ymdhis');
-
-$member = [];
-if(isset($_SESSION['mNumber'])){
-  $sql = "SELECT * 
-    FROM `member`  
-    WHERE mNumber = '".$_SESSION['mNumber']."'";
-    if ($result = $conn->query($sql)) {
-      if($r = mysqli_fetch_assoc($result)){
-        $member = $r;
-        if(!isset($_SESSION['cart'][$member['mNumber']]))
-          $_SESSION['cart'][$member['mNumber']] = [];
-      }
-    }
-}
-
-
-// $allCourseID = implode("','",$_SESSION['cart'][$member['mNumber']]);
-// // $shoppingFancybox = "";
-// $count = 0;
-// $total = 0;
-// $courseList = [];
-
-// $cStatus = ['已刪除','已開課','已下架','募資中'];
-// $sql = "SELECT *  
-// FROM `course`  
-// WHERE cNumber IN ('".$allCourseID."') ";
-// if ($result = $conn->query($sql)) {
-//   while($r = mysqli_fetch_assoc($result)){
-//     $courseList[] = $r;
-//     $count++;
-//     $total+=$r['cPrice'];
-//   }
-// }
-
 
 ?>
-
+<!-- 不要亂刪除我的檔案，拜託，改完要檢查不要爆錯! -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -56,13 +11,9 @@ if(isset($_SESSION['mNumber'])){
     <title>Cruise Coders | 購物車</title>
     <link rel="stylesheet" href="./../css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="icon" href="../ico.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- 每頁都要加上這個 -->
-    <script>
-        var list = <?PHP echo json_encode($_SESSION['cart'][$member['mNumber']])?>;
-        var mNumber = '<?PHP echo $member['mNumber']?>';
-    </script>
 </head>
 
 <body>
@@ -119,12 +70,12 @@ if(isset($_SESSION['mNumber'])){
                         <p class="singlePrice">NT,1200</p>
                     </div>
                 </div> -->
-                <table-component v-for="(single,index) in course" :cnumber="single.cNumber" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice"></table-component>
+                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice" :mycNumber="single.cNumber"></table-component>
             </div>
             <div class="price" id="app">
                 <div class="discount">
                     <form class="ccPoint" :data-id="ccPointNt">
-                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  onkeypress="if (event.keyCode == 13) {return false;}" >元
+                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeypress="if (event.keyCode == 13) {return false;}">元
                     </form>
                 </div>
                 <p class="overCcp"></p>
@@ -145,7 +96,7 @@ if(isset($_SESSION['mNumber'])){
             </div>
             <div class="payment">
                 <div class="title">填寫付款資料</div>
-                <form class="info" method="post" action="./checkOutR.php" name="info" id="info">
+                <form class="info" method="post" action="./checkOutInsertR.php" name="info" id="info">
                     <!-- <form class="info" method="post" action=""  name="info" onclick="return false"> -->
                     <div class="text">
                         <p>付款方式-信用卡</p>
@@ -158,22 +109,22 @@ if(isset($_SESSION['mNumber'])){
                         <label class="text">
                             持卡人姓名
                         </label>
-                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName">
+                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName" onkeyup="value=value.replace(/[\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" >
                     </div>
                     <div class="phoneNum">
                         <label class="text">
                             手機號碼
                         </label>
-                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼" name="number" required="required">
+                        <input type="text" id="phone_Num" maxlength="10" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="請輸入手機號碼" name="number">
                     </div>
                     <div class="creditCardNum">
                         <label class="text">
                             信用卡卡號
                         </label>
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="creditCardNum">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                         <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                     </div>
                     <div class="date" id="app2">
                         <label class="text">
