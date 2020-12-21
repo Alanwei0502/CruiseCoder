@@ -112,10 +112,10 @@ $infoMember = $statement->fetchAll();
             <template v-for="course in courses">
               <div class="wrapGeneral">
                 <img class="tImg" :src="course.mPhoto" alt="">
-                <div class="favorites">
-                  <i class="fas fa-heart"></i>
+                <div class="favorites" :data-courseid="course.cNumber">
+                  <i class="fas fa-heart" @click="favorite"></i>
                 </div>
-                <a class="img" href="course_start_class.php">
+                <a class=" img" href="course_start_class.php">
                   <img :src="course.cImage" alt="">
                 </a>
                 <!-- <a href="" class="Main"> -->
@@ -151,8 +151,8 @@ $infoMember = $statement->fetchAll();
             <template v-for="FavCourse in FavCourses" v-if="FavCourse.cStatus">
               <div class="wrapGeneral" v-if="FavCourse.cStatus == '1'">
                 <img class="tImg" :src="FavCourse.mPhoto" alt="">
-                <div class="favorites">
-                  <i class="fas fa-heart"></i>
+                <div class="favorites" :data-courseid="FavCourse.cNumber">
+                  <i class="fas fa-heart is-active" @click="favorite"></i>
                 </div>
                 <a class="img" href="course_start_class.php">
                   <img :src="FavCourse.cImage" :alt="FavCourse.cTitle">
@@ -179,8 +179,8 @@ $infoMember = $statement->fetchAll();
               <!-- 募資課程 -->
               <div class="wrapFundraising" v-else="FavCourse.cStatus == '2'">
                 <img class="tImg" :src="FavCourse.mPhoto" alt="">
-                <div class="favorites">
-                  <i class="fas fa-heart"></i>
+                <div class="favorites" :data-courseid="FavCourse.cNumber">
+                  <i class="fas fa-heart is-active" @click="favorite"></i>
                 </div>
                 <a class="img" href="course_Fundraising.php">
                   <img :src="FavCourse.cImage" :alt="FavCourse.cTitle">

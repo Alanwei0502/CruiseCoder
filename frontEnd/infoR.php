@@ -24,7 +24,7 @@ $getMemberBadge = "SELECT uBadge FROM cruisecoder.unlock WHERE uMember = ?";
 $getMemberBadge = $pdo->prepare($getMemberBadge);
 
 // 所有徽章
-$allBadge = "SELECT bNumber, bName, bBadge, bLevel FROM cruisecoder.badge";
+$allBadge = "SELECT bGalaxy, bNumber, bName, bBadge, bLevel FROM cruisecoder.badge";
 $allBadge = $pdo->prepare($allBadge);
 
 
@@ -64,6 +64,6 @@ if (isset($_POST["account"])) {
 
     // 傳回值
     $memberInfo = [];
-    array_push($memberInfo, $mCourse, $mFavoriteC, $mFavoriteA, $mBadge, $allBadges);
+    array_push($memberInfo, $mCourse, $mFavoriteC, $mFavoriteA, $mBadge, $allBadges, $mID);
     echo json_encode($memberInfo);
 }

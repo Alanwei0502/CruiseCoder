@@ -35,6 +35,7 @@ let vm = new Vue({
         FavArticles: [],
         mBadges: [],
         allBadges: [],
+        memberID: '',
     },
     methods: {
         ajax() {
@@ -54,18 +55,65 @@ let vm = new Vue({
                     that.FavArticles = allData[2];
                     that.mBadges = allData[3];
                     that.allBadges = allData[4];
-
-                    // 獲得徽章亮起來
-                    for (let i = 0; i < $('img.badges').length; i++) {
-                        $('img.badges').data('id')
-                    }
+                    that.memberID = allData[5]['mNumber'];
                 },
             });
         },
+        favorite(e) {
+            $(e.target).toggleClass('is-active');
+            let theMember = this.memberID;
+            let thecNumber = $(e.target).closest('.favorites').data('courseid');
+            console.log(theMember, thecNumber);
+            if (!$(e.target).hasClass('is-active')) {
+                let that = this;
+                let heart = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'favoritecDelR.php',
+                    data: {
+                        heart,
+                        thecNumber,
+                        theMember,
+                    },
+                    dataType: 'text',
+                    success: function (res) {
+                        // console.log(res);
+                    }
+                });
+            } else {
+                let that = this;
+                let heart = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'favoritecR.php',
+                    data: {
+                        heart,
+                        thecNumber,
+                        theMember,
+                    },
+                    dataType: 'text',
+                    success: function (res) {
+                        // console.log(res);
+                    }
+                });
+            }
+        }
     },
     created() {
         this.ajax();
     },
+    updated() {
+        // 獲得的徽章亮起來
+        for (let i = 0; i < this.allBadges.length; i++) {
+            for (let j = 0; j < this.mBadges.length; j++) {
+                if ($('img.badges').eq(i).data('id') == this.mBadges[j].uBadge) {
+                    $('img.badges').eq(i).addClass('getBadge');
+                }
+            }
+        }
+
+    },
+
 });
 
 $(document).ready(function () {

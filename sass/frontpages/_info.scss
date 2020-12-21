@@ -784,11 +784,12 @@
                         width: 70px;
                     }
                 }
+                img.getBadge{
+                    filter: grayscale(0%);
+                    -webkit-filter: grayscale(0%);
+                }
             }
         }
     }
-    .getBadge{
-        filter: grayscale(0%);
-        -webkit-filter: grayscale(0%);
-    }
+    
 }
