@@ -3,6 +3,14 @@ let app = new Vue({
     el: '#app',
     data: {
         order: [],
+        orderInvoice: [],
+        invlist: [],
+        // table的頁數
+        items: {
+            start: 0,
+            end: 5,
+        },
+
     },
     created() {
         this.search();
@@ -14,24 +22,26 @@ let app = new Vue({
             if (dateStart == '') {
                 dateStart = '2020/01/01';
             }
-            console.log(dateStart);
+            // console.log(dateStart);
 
             let dateEnd = $('#datepicker2').val();
             if (dateEnd == '') {
                 dateEnd = '2021/08/20';
             }
-            console.log(dateEnd);
+            // console.log(dateEnd);
             let oMember = $('#orderNum').val();
             if (oMember == '') {
                 oMember = '%';
             }
-            console.log(oMember); //訂單號碼
+            // console.log(oMember); //訂單號碼
             let memberNum = $('#memberNum').val();
             if (memberNum == '') {
                 memberNum = '%';
             }
-            console.log(memberNum); //會員編號
-
+            // console.log(memberNum); //會員編號
+            // 回到原頁數      
+            this.items.start = 0;
+            this.items.end = 5;
             let that = this;
             let member = 1;
             // that.order.splice(0, that.order.length);
@@ -47,46 +57,82 @@ let app = new Vue({
                 },
                 dataType: 'json',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     that.order = res;
-                    // res.forEach((val, index) => {
-                    //     that.order.push(val);
-                    //     console.log(that.order);
-                    // });
+
                 }
             });
         },
         viewInvoice(e) {
-            let oDate = $(e.target).closest('.row').find('td.oDate').text();
-            console.log(oDate);
             let oNumber = $(e.target).closest('.row').find('td.oNumber').text();
-            console.log(oNumber);
-            let oMemberIn = $(e.target).closest('.row').find('td.oMember').text();
-            console.log(oMemberIn);
-            let oTotal = $(e.target).closest('.row').find('td.oTotal').text();
-            console.log(oTotal);
             let that = this;
             let vInvoice = 1;
-            //     $.ajax({
-            //         type: 'POST',
-            //         url: 'orderR.php',
-            //         data: {
-            //             vInvoice,
-            //             oDate,
-            //             oNumber,
-            //             oMemberIn,
-            //             oTotal,
-            //         },
-            //         dataType: 'json',
-            //         success: function (res) {
-            //             console.log(res);
-            //             that.order = res;
-            //             // res.forEach((val, index) => {
-            //             //     that.order.push(val);
-            //             //     console.log(that.order);
-            //             // });
-            //         }
-            //     });
+            $.ajax({
+                type: 'POST',
+                url: 'orderRIn.php',
+                data: {
+                    vInvoice,
+                    oNumber,
+                },
+                dataType: 'json',
+                // hi 你好
+                // 謝謝 kiki
+                success: function (res) {
+                    // $.that.$forceUpdate();
+                    that.orderInvoice = res;
+                    // res.oNumber;
+                    // console.log(res[0].oNumber); // 殼以這樣寫
+                    // console.log(res[0]['oNumber']); // 也殼以這樣寫
+                    // console.log(res[0][oNumber]); // 不殼以這樣寫
+                    // console.log(res);
+                    $('.orderInfo').find('.oNumberIn').text(res[0].oNumber);
+                    $('.orderInfo').find('.oDateIn').text(res[0].oDate);
+                    $('.orderInfo').find('.mNameIn').text(res[0].mName);
+                    $('.orderInfo').find('.rtIn').text(res[0].rt);
+                    $('.orderInfo').find('.occIn').text(res[0].occ);
+                    $('.orderInfo').find('.oTotalIn').text(res[0].oTotal);
+
+                    // res.forEach((val, index) => {
+                    //     that.oNumber = that.orderInvoice[0].oNumber;
+                    //     console.log(that.oNumber);
+                    // });
+
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: 'orderRInList.php',
+                data: {
+                    vInvoice,
+                    oNumber,
+                },
+                dataType: 'json',
+                success: function (res) {
+                    that.invlist = res;
+
+                    console.log(res);
+                }
+            });
+        },
+        // 換頁功能
+        lastPage() {
+            if (this.items.start == 0 && this.items.end == 5) {
+                // 第一頁 不能再往前
+            } else {
+                this.items.start -= 5;
+                this.items.end -= 5;
+            }
+        },
+        nextPage() {
+            let order = this.order;
+
+            if (this.items.end >= order.length) {
+                // 最後一頁不能再往後
+            } else {
+                this.items.start += 5;
+                this.items.end += 5;
+            }
         },
 
     },
@@ -107,7 +153,9 @@ function doFirst() {
     $(function () {
         // 點擊按鈕，開啟訂單資訊
         $("button.view").on("click", function () {
-            $(".orderInfo").addClass("-on");
+            setTimeout(() => {
+                $(".orderInfo").addClass("-on");
+            }, 100);
 
         });
 

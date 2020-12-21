@@ -59,7 +59,7 @@
         <div class="course">
           <!-- 一般課程 -->
           <template v-for="course in courses" v-if="courses">
-            <a class="course " :href=`course_Fundraising.php?CourseID=${course.cNumber}` :data-type="course.cType" v-if="course.cStatus == 3">
+            <a class="course " :href=`course_Fundraising.php?CourseID=${course.cNumber}` :data-type="course.cType" v-if="course.cStatus == 2">
               <div class="teacherPic">
                 <img class="tImg" :src="course.mPhoto" alt="">
               </div>

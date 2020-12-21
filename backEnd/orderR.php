@@ -30,25 +30,23 @@ $data = $sqlorder->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_POST["member"])) {
     echo json_encode($data);
 }
-// echo 11;
 
 
 
 // 撈各筆訂單資料
 if (isset($_POST["vInvoice"])) {
-
-    $oDate = $_POST['oDate'];
+    
+    
     $oNumber = $_POST['oNumber'];
-    $oMemberIn = $_POST['oMemberIn']; //訂單號碼
-    $oTotal = $_POST['oTotal']; //會員編號
-
-    $sqlorderIn = "";
-
+    
+    
+    $sqlorderIn = "SELECT oNumber,oDate,oMember,m.mName,(occ+oTotal) as rt,occ,oTotal FROM myorder JOIN member as m ON oMember=m.mNumber JOIN invoice as i on oNumber = i.iNumber where oNumber=?;";
+    
     $sqlorderIn = $pdo->prepare($sqlorderIn);
-    $sqlorderIn->bindValue(1, $oMember); //訂單號碼
-    $sqlorderIn->bindValue(2, $memberNum); //會員編號
+    $sqlorderIn->bindValue(1, $oNumber); //訂單號碼
     $sqlorderIn->execute();
     $data = $sqlorderIn->fetchAll(PDO::FETCH_ASSOC);
-
+    
+    echo 11;
     echo json_encode($data);
 }

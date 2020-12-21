@@ -67,11 +67,10 @@ let app = new Vue({
                             success: function (res) {
                                 console.log(res);
 
-
-                                // console.log(that.courses[0].cNumber);
+                                console.log(that.courses[0].cNumber);
                                 $(res).each(function (inDex, iTem) {
                                     that.funNum.push(iTem.count);
-                                    // console.log(that.funNum) ;
+                                    console.log(that.funNum) ;
 
                                     let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
@@ -204,12 +203,49 @@ let app = new Vue({
                 success: function (res) {
                     let resFund = [];
                     res.forEach(function (item, index) {
-                        if (item.cStatus === "3") {
+                        if (item.cStatus === "2") {
                             resFund.push(item);
                         };
                     });
                     that.courses = resFund;
                     // console.log(that.courses);
+                    
+                    //進度條
+                    setTimeout(() => {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'allCourseRorder.php',
+                            data: { star },
+                            dataType: 'json',
+                            success: function (res) {
+                                console.log(res);
+
+                                console.log(that.courses[0].cNumber);
+                                $(res).each(function (inDex, iTem) {
+                                    that.funNum.push(iTem.count);
+                                    console.log(that.funNum) ;
+
+                                    let w = ((iTem.count / 10) * 100);
+                                    $(that.courses).each(function (index, item) {
+                                        if (item.cNumber == iTem.iCourse) {
+                                            for (let i = 0; i < res.length; i++) {
+                                                let span = document.getElementsByClassName("counts");
+                                                span[i].innerText = res[i].count;
+
+                                                // console.log(res[i].count);
+                                            }
+                                            // console.log(w);
+                                            if (w > 100) {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:100%`);
+                                            } else {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:${w}%`);
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        });
+                    }, 1);
                 }
             });
 
