@@ -1,0 +1,91 @@
+.landingPageArea{
+    background-color: rgb(19, 5, 5);
+    overflow: hidden;
+    .andingPageContents{
+        position: relative;
+        // border: 1px solid #fff;
+        img{
+            //LOGO
+            &:nth-child(1){
+                width: 300px;
+            }
+            //主體
+            &:nth-child(2){
+                width: 650px;
+                position: absolute;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            //旋轉小圓圈
+            &:nth-child(3){
+                width: 450px;
+               
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                animation-name: rotation;
+                animation-duration: 10s;
+                animation-direction: reverse;
+                animation-iteration-count: infinite;
+            
+            }
+        }
+        .ballPrants{
+            margin: 0 auto;
+            width: 500px;
+            display: flex;
+            justify-content: space-around;
+            align-self: center;
+            .frontBall{
+                width: 150px;
+                height: 150px;
+                background-color: $blue1;
+                border-radius: 50%;
+                color: $beige;
+                font-size: $h2;
+                line-height: 150px;
+                text-align: center;
+                cursor: pointer;
+    
+                
+            }
+            .backBall{
+                width: 150px;
+                height: 150px;
+                background-color: $blue1;
+                border-radius: 50%;
+                color: $beige;
+                font-size: $h2;
+                line-height: 150px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+
+    }
+    .yellowClound{
+        img{
+            width: 700px;
+        }
+
+    }
+
+    @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+   
+   
+
+
+}
