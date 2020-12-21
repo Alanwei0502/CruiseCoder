@@ -103,8 +103,8 @@
                   <div class="accountImg">
                     <img :src="memberInfos.mPhoto" alt="" id="imgShow">
                   </div>
-                  <div class="imageUpdate"><input type="file" accept="image/*" id="imgInp" @change="readURL"></div>
-                  <p>請上傳比例為1:1的圖片</p>
+                  <!-- <div class="imageUpdate"><input type="file" accept="image/*" id="imgInp" @change="readURL"></div>
+                  <p>請上傳比例為1:1的圖片</p> -->
                 </div>
                 <div class="rightInputArea">
                   <div>
