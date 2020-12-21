@@ -263,6 +263,17 @@ $(document).ready(function() {
             }
         },
         mounted(){
+
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                clickable: false,
+                },
+            });
+
+            
             $('.CSS').click(function(){
                 $('.textContent').text(vm1.PlanetText[0]);
             });
