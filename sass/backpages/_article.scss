@@ -301,7 +301,7 @@ div.article{
           width: 170px;
         }
       }
-      div.searchContentBottm{
+      div.searchContentBottom{
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -354,9 +354,9 @@ div.article{
           line-height: 32px;
           label{
             cursor: pointer;
-          input{
-            @include checkbox;
-          }
+            input{
+              @include checkbox;
+            }
           }
           &:nth-child(2){
             flex-grow: 3;
@@ -384,6 +384,7 @@ div.article{
       @include clearfixed;
       margin-right: 30px;
       margin-top: 30px;
+      margin-bottom: 10px;
       button{
         @include changePage;
         height: 50px;

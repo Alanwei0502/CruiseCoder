@@ -52,8 +52,8 @@ let app = new Vue({
                             }
                         }
                     }, 1);
-                    //進度條
 
+                    //進度條
                     setTimeout(() => {
                         $.ajax({
                             type: 'POST',
@@ -61,26 +61,23 @@ let app = new Vue({
                             data: { star },
                             dataType: 'json',
                             success: function (res) {
-                                // console.log(res);
+                                console.log(res);
                                 // console.log(that.courses[0].cNumber);
-
-
                                 $(res).each(function (inDex, iTem) {
+                                    let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
                                         if (item.cNumber == iTem.iCourse) {
-                                            let funding = item.cStatus;
-                                            console.log(funding);
+                                            console.log(w);
+                                            if (w > 100) {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:100%`);
+                                            } else {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:${w}%`);
+                                            }
                                         }
                                     });
                                 });
                             }
-
                         });
-
-
-                        // for (let i = 0; i < res.length; i++) {
-                        //     res[i].rRate;
-                        // }
                     }, 1);
                 }
             });
@@ -496,12 +493,6 @@ let app = new Vue({
                     };
                 });
             }
-
-            // console.log($(e.target).closest('div').next('div').find('p.title').text());
-            // console.log($('.course'));
-            // console.log($('div.favorites'));
-            // let cNumber = item.cNumber;
-            // console.log(cNumber);
         },
         searchTitle() {
             // input模糊搜尋
@@ -516,9 +507,7 @@ let app = new Vue({
             };
 
             if (searchInput != "") {
-
                 $("p.title:Contains('" + searchInput + "')").closest('a.course').show();
-
                 $('p.title').not($("p.title:Contains('" + searchInput + "')")).closest('a.course').hide();
 
             } else {
