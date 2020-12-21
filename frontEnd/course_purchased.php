@@ -32,102 +32,10 @@
     }
     exit;
   }
-  
-  if(isset($_POST['ac']) AND $_POST['ac']=='add_to_cart'){
-    $data = [];
-    $status = 1;
-    $mNumber = $_POST['mNumber'];
-    $CourseID = $_POST['CourseID'];
-
-    if(!isset($_SESSION['cart'][$mNumber])){
-      $_SESSION['cart'][$mNumber] = [$CourseID];
-    }else{
-      if(!in_array($CourseID, $_SESSION['cart'][$mNumber]))
-          $_SESSION['cart'][$mNumber][] = $CourseID;
-    }
-    $allCourseID = implode("','",$_SESSION['cart'][$mNumber]);
-    $shoppingFancybox = "";
-    $count = 0;
-    $total = 0;
-    
-    $cStatus = ['已刪除','已開課','已下架','募資中'];
-    $sql = "SELECT *  
-    FROM `course`  
-    WHERE cNumber IN ('".$allCourseID."') ";
-    // var_dump($sql);
-    if ($result = $conn->query($sql)) {
-      while($r = mysqli_fetch_assoc($result)){
-        $shoppingFancybox .= '<li class="shopping"><div class="image"><img src="'.$r['cImage'].'" /></div><div class="info"><p class="courseTitle">'.$r['cTitle'].'</p><div class="itemTextButtom"><p class="status">'.$cStatus[$r['cStatus']].'</p><p class="price">NT$ '.$r['cPrice'].'</p></div></div></li>';
-        $count++;
-        $total+=$r['cPrice'];
-      }
-    }
-    
-    $shoppingTotal = '<p>總計 '.$count.' 堂課<br><span>NT$ '.$total.'</span></p><a href="./checkOut.php">前往購物車</a>';
-    $data = [
-      'shoppingFancybox' => $shoppingFancybox,
-      'shoppingTotal' => $shoppingTotal,
-    ];
-
-    echo json_encode(['status'=> $status,'data'=> $data]);
-    exit;
-  }
-  
-  if(isset($_POST['ac']) AND $_POST['ac']=='del_to_cart'){
-    $data = [];
-    $status = 1;
-    $mNumber = $_POST['mNumber'];
-    $CourseID = $_POST['CourseID'];
-
-    if(!isset($_SESSION['cart'][$mNumber])){
-      $_SESSION['cart'][$mNumber] = [];
-    }else{
-      if(in_array($CourseID, $_SESSION['cart'][$mNumber])){
-        foreach($_SESSION['cart'][$mNumber] as $kk=>$vv){
-          if($CourseID == $vv)
-            unset($_SESSION['cart'][$mNumber][$kk]);
-        }
-      }
-    }
-    $allCourseID = implode("','",$_SESSION['cart'][$mNumber]);
-    $shoppingFancybox = "";
-    $count = 0;
-    $total = 0;
-    
-    $cStatus = ['已刪除','已開課','已下架','募資中'];
-    $sql = "SELECT *  
-    FROM `course`  
-    WHERE cNumber IN ('".$allCourseID."') ";
-    // var_dump($sql);
-    if ($result = $conn->query($sql)) {
-      while($r = mysqli_fetch_assoc($result)){
-        $shoppingFancybox .= '<li class="shopping"><div class="image"><img src"'.$r['cImage'].'" /></div><div class="info"><p class="courseTitle">'.$r['cTitle'].'</p><div class="itemTextButtom"><p class="status">'.$cStatus[$r['cStatus']].'</p><p class="price">NT$ '.$r['cPrice'].'</p></div></div></li>';
-        $count++;
-        $total+=$r['cPrice'];
-      }
-    }
-    
-    $shoppingTotal = '<p>總計 '.$count.' 堂課<br><span>NT$ '.$total.'</span></p><a href="./checkOut.php">前往購物車</a>';
-
-    if(!$count>0){
-      $shoppingFancybox = '<li class="shopping" style="width: 270px">尚未加入課程</li>';
-      $shoppingTotal = '';
-    }
-    $data = [
-      'shoppingFancybox' => $shoppingFancybox,
-      'shoppingTotal' => $shoppingTotal,
-    ];
-
-    echo json_encode(['status'=> $status,'data'=> $data]);
-    exit;
-  }
-
-
-
 
   $CourseID = $_GET["CourseID"];
   $a_page = $_GET["page"]??'';
-  $_SESSION['mNumber'] = $_COOKIE['unumber']??'';
+  // $_SESSION['mNumber'] = $_COOKIE['unumber']??'';
   $_SESSION['user'] = $_COOKIE['user']??null;
   if(!isset($_SESSION['token'])){
     $_SESSION['token'] = '';
@@ -135,69 +43,16 @@
   $token = date('Ymdhis');
 
   $member = [];
-  if(isset($_SESSION['mNumber'])){
+  if(isset($_SESSION['user'])){
     $sql = "SELECT * 
       FROM `member`  
-      WHERE mNumber = '".$_SESSION['mNumber']."'";
+      WHERE mAccount = '".$_SESSION['user']."'";
       if ($result = $conn->query($sql)) {
         if($r = mysqli_fetch_assoc($result)){
           $member = $r;
-          if(!isset($_SESSION['cart'][$member['mNumber']]))
-            $_SESSION['cart'][$member['mNumber']] = [];
         }
       }
   }
-
-if(isset($_POST['submit_type']) AND $_POST['token'] != $_SESSION['token']){
-  $_SESSION['token'] = $_POST['token'];
-  if($_POST['submit_type'] == 'a_score'){
-    $rNumber = date('Ymdmis');
-    $rMmeber = $_SESSION['mNumber']??'';
-    $rFeedback = $_POST['review_content'];
-    $rCourse = $CourseID;
-    $rStar = $_POST['review_stars'];
-    $sql = "INSERT INTO `review` (`rNumber`, `rCourse`, `rMmeber`, `rFeedback`, `rStar`, `rDate`) VALUES ('".$rNumber."', '".$rCourse."', '".$rMmeber."', '".$rFeedback."', '".$rStar."', now())";
-    $r = mysqli_query($conn, $sql);
-    // var_dump($conn->error);
-  }
-
-  
-  // if($_POST['submit_type'] == 'a_lo'){
-
-  //   $mPassword = $_POST['mPassword'];
-  //   $mAccount = $_POST['mAccount'];
-  //   $sql = "SELECT * FROM `member` WHERE mAccount = '".$mAccount."' AND mPassword = '".$mPassword."'";
-  //   $reviewList = [];
-  //   if ($result = $conn->query($sql)) {
-  //     if($r = mysqli_fetch_assoc($result)){
-  //         $_SESSION['mNumber'] = $r['mNumber'];
-  //     }
-  //   }
-  // }
-
-  if($_POST['submit_type'] == 'a_qa'){
-    
-    $sql = "SELECT count(*) as c
-    FROM `discuss` d 
-    Order by d.dDate";
-    if ($result = $conn->query($sql)) {
-      if($r = mysqli_fetch_assoc($result)){
-        $dNumber = $r['c'];
-      }
-    }
-
-    $dNumber = 'D'.str_pad(($dNumber+1),4,'0',STR_PAD_LEFT);
-    $dMember = $_SESSION['mNumber']??'';
-    $dContent = $_POST['dContent'];
-    $p_dNumber = $_POST['a_qa_p']??'0';
-    $dCourse = $CourseID;
-    $sql = "INSERT INTO `discuss` (`dNumber`, `p_dNumber`, `dCourse`, `dMember`, `dContent`, `dDate`) VALUES ('".$dNumber."', '".$p_dNumber."', '".$dCourse."', '".$dMember."', '".$dContent."', now())";
-    $r = mysqli_query($conn, $sql);
-    // var_dump($conn->error);
-  }
-
-}
-// var_dump($_SESSION['mNumber']);
 
 
 $course = [];
@@ -227,7 +82,7 @@ if ($result = mysqli_query($conn, $sql)) {
 
     // Associative array
     $row2 = mysqli_fetch_assoc($result2);
-      echo $row2["lNumber"];
+      // echo $row2["lNumber"];
 
     //老師照片
     $mPhoto = "SELECT `mPhoto` FROM `member` WHERE `mNumber` = '".$cLecturer."'";
@@ -238,19 +93,19 @@ if ($result = mysqli_query($conn, $sql)) {
 
     // Associative array
     $row4 = mysqli_fetch_assoc($result4);
-       echo $row4["mPhoto"];
+      //  echo $row4["mPhoto"];
     } else {
-    echo "mPhoto none value";
+    // echo "mPhoto none value";
     }
 
 
 
   } else {
-    echo "none value";
+    // echo "none value";
   }
 
 } else {
-  echo "none value";
+  // echo "none value";
 }
 
 
@@ -258,77 +113,8 @@ if ($result = mysqli_query($conn, $sql)) {
 $sql3="select * from DISCUSS order by dNumber desc";
 $aa=mysqli_query($conn,$sql3);
 
-$review_count = 0;
-$star = 0;
-$rstar = 0;
-$is_review = $member?true:false;
-$sql = "SELECT r.*, m.mName, m.mPhoto 
-FROM `review` r 
-LEFT JOIN `member` m ON(m.mNumber = r.rMmeber) 
-WHERE r.rCourse = '".$CourseID."' ORDER BY r.rDate desc ";
-$reviewList = [];
-if ($result = $conn->query($sql)) {
-  while($r = mysqli_fetch_assoc($result)){
-    if(isset($member['mNumber']) AND $r['rMmeber'] == $member['mNumber']){
-      $is_review = false;
-    }
 
-    
-    $review_count++;
-    $rstar += $r['rStar'];
-
-    $reviewList[] = $r;
-  }
-}
-
-
-if($rstar > 0){
-  $star = $rstar/$review_count;
-  $star = number_format($star,1);
-}
-
-// var_dump($conn->error);
-
-
-$is_discuss = $member?true:false;
-$sql = "SELECT d.*, m.mName, m.mPhoto 
-FROM `discuss` d 
-LEFT JOIN `member` m ON(m.mNumber = d.dMember) 
-WHERE d.dCourse = '".$CourseID."' AND d.p_dNumber = '0' ORDER BY d.dDate desc ";
-$discussList = [];
-if ($result = $conn->query($sql)) {
-  while($r = mysqli_fetch_assoc($result)){
-    
-    $sql2 = "SELECT d.*, m.mName, m.mPhoto 
-    FROM `discuss` d 
-    LEFT JOIN `member` m ON(m.mNumber = d.dMember) 
-    WHERE d.p_dNumber = '".$r['dNumber']."' ";
-    $discussList2 = [];
-    if ($result2 = $conn->query($sql2)) {
-      while($r2 = mysqli_fetch_assoc($result2)){
-          $discussList2[] = $r2;
-      }
-    }
-    $r['p_discuss'] = $discussList2;
-    $discussList[] = $r;
-  }
-}
-
-$is_favorite = false;
-if($member){
-  $sql = "SELECT * 
-  FROM `favorite_c`  
-  WHERE fcCourse = '".$CourseID."' AND fcMember = '".$member['mNumber']."'";
-  if ($result = $conn->query($sql)) {
-    if($r = mysqli_fetch_assoc($result)){
-      $is_favorite = true;
-    }
-  }
-}
-// var_dump($sql);
-// var_dump($conn->error);
-// var_dump($reviewList);
-
+include('layout/course_class_base_phpcode.php');
 ?>
 
 
@@ -343,8 +129,318 @@ if($member){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/main.css">
     <!-- <link rel="stylesheet" href="../css/course.css"> -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <style>
+      .fa-star.n{
+  color: #fff!important;
+}
+.stars{
+  background-image: linear-gradient(to right, rgb(252, 201, 61) 0%, rgb(252, 201, 61) 100%, transparent 100%, rgb(204, 204, 204) 100%, rgb(204, 204, 204) 100%)!important;
+}
+/* header.unsetcss {
+  display: flex; 
+} */
+.course main #class-detail .tab li a{
+  display: block;
+}
+.course main #class-detail .post .text-box.re_box{
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.course main #class-detail .post .btns .re_box .btn{
+    padding: 7px 35px;
+    background-color: #fcc93b;
+    border: none;
+    font-size: 16px;
+    border-radius: 7px;
+    color: black;
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.ddbox{
+  display:none;
+}
+.course main #class-detail .tab li:hover{
+  background-color: #fcc93b;
+}
+.fa-heart{
+    color: #d4d4d4!important;
+    font-size: 28px;
+  }
+.fa-heart.active{
+  color:red!important;
+}
+h2 {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    margin: 50px 0;
+    flex-basis: 100%;
+}
+h2:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: block;
+    max-width: 1200px;
+    width: 100%;
+    border-bottom: 1px solid #fbf7eb;
+}
+h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: block;
+    width: 300px;
+    width: 25%;
+    border-bottom: 10px solid #fcc93b;
+}
+.rprice,
+.rprice span{
+    display: inline-block!important;
+    text-align: right!important;
+}
+.btn_style{
+    font-size: 32px;
+    outline: none;
+    transform-style: preserve-3d;
+    text-decoration: none;
+    color: #182749;
+    border-radius: 10.66667px;
+    padding: 10.66667px 32px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: width .3s;
+    z-index: 1;
+    border-bottom: 5.33333px solid #b47f02;
+    border-left: 5.33333px solid #b47f02;
+    cursor: pointer;
+}
+.btn_style:hover {
+    color: black;
+    transform: translateX(3.2px) translateY(3.2px);
+}
+.btn_style:active {
+    color: black;
+    transform: translateX(6.4px) translateY(6.4px);
+    padding: 10.66667px 32px;
+}
+.btn_style:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffb102;
+    z-index: -2;
+}
+.btn_style:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #5bc4e3;
+    transition: width .3s;
+    z-index: -1;
+}
+.btn_style:hover:after,
+.btn_style:active:after {
+    width: 100%;
+}
+.more.btn_style{
+    margin: 0 auto;
+    display: block;
+    margin-top: 35px;
+}
+.btn_submit.btn_style{
+    font-size: 20px;
+    float: right;
+    margin-top: 10px;
+}
+.btn_submit2.btn_style{
+    font-size: 20px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.course main #class-info .btns .btn {
+  padding: 20px 30px!important;
+
+}
+@media screen and (max-width: 768px){
+  .btn_style{
+      font-size: 20px;
+      outline: none;
+      transform-style: preserve-3d;
+      text-decoration: none;
+      color: #182749;
+      border-radius: 6.66667px;
+      padding: 6.66667px 20px;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      transition: width .3s;
+      z-index: 1;
+      border-bottom: 3.33333px solid #b47f02;
+      border-left: 3.33333px solid #b47f02;
+      cursor: pointer;
+      margin-top: 20px;
+  }
+  .btn_style:active {
+    color: black;
+    transform: translateX(4px) translateY(4px);
+    padding: 6.66667px 20px;
+}
+.btn_style:hover {
+    color: black;
+    transform: translateX(2px) translateY(2px);
+}
+  .btn_style:active:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffb102;
+      z-index: -2;
+  }
+.btn_submit.btn_style{
+    font-size: 14px;
+}
+.btn_submit2.btn_style{
+    font-size: 14px;
+}
+}
+
+.course main #class-detail .post .btns .btn{
+  outline: none;
+}
+
+.course main #class-info .row-sell .infos, .course main #class-info .row-payed .infos{
+  width: 50%!important;
+  text-align: right;
+}
+.course main #class-info .row-sell .score, .course main #class-info .row-payed .score{
+  width: 50%!important;
+}
+.course main #class-info .row-sell .formal-price span, .course main #class-info .row-payed .formal-price span{
+  font-size: 45px!important;
+}
+.course main #class-info{
+  margin-bottom: 50px;
+}
+.course main #class-detail .tab{
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 1200px){
+
+}
+@media screen and (max-width: 900px){
+  .course main #class-info .row-sell .infos, .course main #class-info .row-payed .infos{
+    width: 100%!important;
+    text-align: right;
+  }
+  .course main #class-info .row-sell .score, .course main #class-info .row-payed .score{
+    width: 100%!important;
+    margin-bottom: 18px;
+    margin-top: 13px;
+  }
+  .rprice{
+      text-align: left!important;
+      width: 50%;
+      display: block;
+      float: left;
+  }
+  .course main #class-info .price{
+    width: 50%;
+    display: block;
+    float: left;
+  }
+  .course main #class-info .row-sell .btns, .course main #class-info .row-payed .btns{
+    padding-top: 0;
+  }
+  .fa-heart{
+    font-size: 18px;
+  }
+  .course main #class-info .row-sell .btns, .course main #class-info .row-payed .btns{
+    text-align: right!important;
+  }
+  .course main #class-info .row-sell .formal-price span, .course main #class-info .row-payed .formal-price span{
+    font-size: 24px!important;
+  }
+  .course main #class-info .row-sell .btns .btn_style, .course main #class-info .row-payed .btns .btn_style{
+    font-size: 20px;
+    padding: 1.66667px 16px;
+    margin-top: 0!important;
+  }
+  .course main #class-info .row-sell .btns .fav, .course main #class-info .row-payed .btns .fav{
+    padding: 7px 12px!important;
+    margin-left: 16px;
+  }
+  .course main #class-info .row-sell .score .nums, .course main #class-info .row-payed .score .nums{
+    font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  h2 {
+      font-size: 40px;
+  }
+  .course main #class-detail .tab{
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 576px){
+  .course main #class-info .row-sell .video, .course main #class-info .row-payed .video{
+    margin-bottom: 0px;
+  }
+  .course main #class-info .row-sell .score .nums, .course main #class-info .row-payed .score .nums{
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  .course main #class-info .row-sell .score span, .course main #class-info .row-sell .score .stars i, .course main #class-info .row-payed .score span, .course main #class-info .row-payed .score .stars i{
+    font-size: 19px;
+  }
+  h2 {
+    font-size: 32px;
+    margin: 24px 0;
+}
+.course main #class-detail .tab{
+  margin-bottom: 20px;
+}
+}
+@media screen and (max-width: 500px){
+  .course main #class-info .price,.rprice{
+    width:100%!important;
+    text-align: center!important;
+    margin-bottom: 10px;
+  }
+  .course main #class-info .row-sell .formal-price span, .course main #class-info .row-payed .formal-price span{
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .course main #class-info .row-sell .btns, .course main #class-info .row-payed .btns{
+    text-align: center!important;
+  }
+  .course main #class-info{
+    margin-bottom: 15px;
+  }
+}
+
+    </style>
 
 </head>
 
@@ -365,229 +461,8 @@ if($member){
           </div>
         </div>
       </section>
-      <section id="class-detail">
-        <ul class="tab">
-          <li class="active"><a id="a_class" href="#class" style:display:flex;display: block;justify-content: center;align-items:center;>課程資訊</a></li>
-          <li><a id="a_score" href="#score">課程評價</a></li>
-          <li><a id="a_qa" href="#qa">留言發問</a></li>
-        </ul>
-        <!-- 課程資訊 -->
-        <div class="tab-content active" id="class">
-          <h2>&lt; 課程資訊 &#47;&gt;</h2>
-          <div class="info">
-            <h4>關於課程</h4>
-            <div class="row">
-              <div class="col">
-                <img src="../images/course/1.png" alt="">
-                <p>課程時長<br><?php echo $row["cTime"];?></p>
-              </div>
-              <div class="col">
-                <img src="../images/course/2.png" alt="">
-                <p>課程類別<br><?php echo $row["cType"];?></p>
-              </div>
-              <div class="col">
-                <img src="../images/course/3.png" alt="">
-                <p>沒有期限<br>不限觀看次數</p>
-              </div>
-            </div>
-          </div>
-          <div class="info">
-            <h4>課程簡介</h4>
-            <p><?php echo $row["cInfo"];?></p>
-          </div>
-          <div class="info">
-            <h4>關於老師</h4>
-            <div class="person">
-              <div class="pic">
-                <img src="<?php echo $row4["mPhoto"];?>" alt="">
-              </div>
-              <p><?php echo $row2["lInfo"];?></p>
-            </div>
-          </div>
-        </div>
-        <!-- 評價 -->
-        <div class="tab-content" id="score">
-          <h2>&lt; 課程評價 &#47;&gt;</h2>
-          <!-- 評分 -->
-          <div class="score">
-            <div class="nums"><?PHP echo $star?></div>
-            <div class="col">
-              <div class="stars" data-score="<?PHP echo $star?>" data-color="#fcc93d">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </div>
-            <span><?PHP echo $review_count?>則評價</span>
-            </div>
-          </div>
-          <!-- 評分內容 -->
-          <div class="score-posts comments">
-             <!-- 我想評價-->
-             <?PHP if($is_review){?>
-             <div class="comment post">
-              <div class="row">
-                <div class="pic"><img src="<?PHP echo $member['mPhoto']??'../images/course/5.png'?>" alt=""></div>
-                <div class="content">
-                <form id="form_score" method="post" action='?CourseID=<?PHP echo $CourseID?>&page=a_score'>
-                  <div class="post-header">
-                   <h5><?PHP echo  $member['mName']??'未登入'?></h5>
-                  <input name="submit_type" type="hidden" value="a_score">
-                  <input name="token" type="hidden" value="<?PHP echo $token?>">
-                  <br><br>
-                  </div>
-                  <input id="review_stars" name="review_stars" type="hidden" value="0">
-                  <div class="stars hover_stars" data-score="0" data-color="#fcc93d" id="a_stars">
-                    <i class="fa fa-star" data-st="1" aria-hidden="true"></i>
-                    <i class="fa fa-star" data-st="2" aria-hidden="true"></i>
-                    <i class="fa fa-star" data-st="3" aria-hidden="true"></i>
-                    <i class="fa fa-star" data-st="4" aria-hidden="true"></i>
-                    <i class="fa fa-star" data-st="5" aria-hidden="true"></i>
-                  </div>
-                  <div class="text-box">
-                    <textarea name="review_content" id="" placeholder="我想評價..."></textarea>
-                    <button class="btn_style btn_submit" onclick="$('#form_score').submit()">發表評價</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-            <?php 
-             }
-              if($reviewList AND sizeof($reviewList)>0){
-                foreach($reviewList as $k=>$v){
-            ?>
-            <!-- 評分 1 -->
-            <div class="comment post">
-              <div class="row">
-                <div class="pic"><img src="<?PHP echo $v['mPhoto']??'../images/course/5.png'?>" alt=""></div>
-                <div class="content">
-                  <div class="post-header">
-                    <h5><?PHP echo $v['mName']?></h5>
-                    <span class="date"><?PHP echo $v['rDate']?></span>
-                  </div>
-                  <div class="stars" data-score="<?PHP echo $v['rStar']?>" data-color="#fcc93d">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="false"></i>
-                  </div>
-                  <div class="text-box">
-                    <p><?PHP echo $v['rFeedback']?></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php
-                }
-              }
-            ?>
-            <!-- 查看更多 -->
-            <button class="more btn_style">查看更多</button>
-          </div>
-        </div>
-        <!-- 留言 -->
-        <div class="tab-content" id="qa">
-          <h2>&lt; 留言發問 &#47;&gt;</h2>
-          <div class="comments">
-          <?PHP if($is_discuss){?>
-            <!-- 發問表單 -->
-            <div class="write-comment post">
-              <div class="row">
-                <div class="pic"><img src="<?PHP echo $member['mPhoto']??'../images/course/5.png'?>" alt=""></div>
-                <div class="content">
-
-                
-                <div class="post-header">
-                <h5><?PHP echo  $member['mName']??'未登入'?></h5>
-                </div>
-                  <div class="text-box">
-                <form id="form_qa" method="post" action='?CourseID=<?PHP echo $CourseID?>&page=a_qa'>
-                  <input name="submit_type" type="hidden" value="a_qa">
-                  <input name="token" type="hidden" value="<?PHP echo $token?>">
-                    <textarea name="dContent" id="dContent" placeholder="我想發問..."></textarea>
-                    <button class="btn_style btn_submit" onclick="$('#form_qa').submit()">發表留言</button>
-                </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-
-            <?php 
-          }
-            // var_dump($discussList);
-              if($discussList AND sizeof($discussList)>0){
-                foreach($discussList as $k=>$v){
-            ?>
-
-            <!-- 發問 1 -->
-            <div class="comment post">
-              <div class="row">
-                <div class="pic"><img src="<?PHP echo $v['mPhoto']??'../images/course/5.png'?>" alt=""></div>
-                <div class="content">
-                  <div class="post-header">
-                    <h5><?PHP echo $v['mName']?></h5>
-                    <span class="date"><?PHP echo $v['dDate']?></span>
-                  </div>
-                  <div class="text-box">
-                    <p><?PHP echo $v['dContent']?></p>
-                  </div>
-                </div>
-              </div>
-              
-              <?PHP 
-                if(sizeof($v['p_discuss'])>0){
-                  foreach($v['p_discuss'] as $k2=>$v2){
-              ?>
-              <div class="row reply">
-                <div class="pic"><img src="<?PHP echo $v2['mPhoto']??'../images/course/5.png'?>" alt=""></div>
-                <div class="content">
-                  <div class="post-header">
-                    <h5><?PHP echo $v2['mName']?></h5>
-                    <span class="date"><?PHP echo $v2['dDate']?></span>
-                  </div>
-                  <div class="text-box">
-                    <p><?PHP echo $v2['dContent']?></p>
-                  </div>
-                </div>
-              </div>
-            <?php
-                }
-              }
-            ?>
-              <?PHP if(empty($member)){}else{
-              if(isset($member) AND $member['mLevel'] == 2){?>
-              <!-- 底部按鈕 -->
-              <div class="btns">
-                <button class="btn reply ddbox_btn_op">
-                  <img src="../images/course/reply.svg" alt="">
-                  <span>回覆</span>
-                </button>
-                <div class="text-box ddbox re_box">
-                  <form id="form_qa_re_<?PHP  echo $v['dNumber']?>" method="post" action='?CourseID=<?PHP echo $CourseID?>&page=a_qa'>
-                    <input name="submit_type" type="hidden" value="a_qa">
-                  <input name="token" type="hidden" value="<?PHP echo $token?>">
-                    <input name="a_qa_p" type="hidden" value="<?PHP  echo $v['dNumber']?>">
-                      <textarea name="dContent" id="dContent" placeholder="我想回覆..."></textarea>
-                      <button class="btn_style btn_submit2" onclick="$('#form_qa_re_<?PHP  echo $v['dNumber']?>').submit()">回覆</button>
-                      <button class="btn_style btn_submit2 ddbox_btn_cl">取消</button>
-                  </form>
-                </div>
-              </div>
-              <?PHP }}?>
-            </div>
-            <?php
-                }
-              }
-            ?>
-            <!-- 查看更多 -->
-            <button class="more btn_style">查看更多</button>
-          </div>
-        </div>
-      </section>
+      
+      <?PHP include('layout/course_class_detail.php');?>
       <a href="#0" class="top"><img src="" alt=""></a>
     </main>
     <?php

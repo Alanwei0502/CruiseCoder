@@ -557,9 +557,8 @@ function doFirst() {
 // let list = ['C0001', 'C0002']
 // // let list = []
 
-
-localStorage.clear();
-localStorage.setItem("lists", JSON.stringify(list));
+// localStorage.clear();
+// localStorage.setItem("lists", JSON.stringify(list));
 // // console.log(list);
 
 
