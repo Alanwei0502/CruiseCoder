@@ -103,18 +103,20 @@ $(document).ready(function () {
                 getCookie('user');
 
                 if (!checkCookie('user')) {
+                swal("請先登入會員!", "登入會員才能使用購物車!", "error");
+
                     // $('.loginWrap').css('display', 'block');
-                    $('.logout').css('display', 'none');
-                    $('.callLoginBox').css('display', 'block');
-                    $('#loginWrap').css('display', 'block');
+                    // $('.logout').css('display', 'none');
+                    // $('.callLoginBox').css('display', 'block');
+                    // $('#loginWrap').css('display', 'block');
 
-                    $('#closeIcon').click(function () { //點擊close icon 關閉login
-                        $('#loginWrap').css('display', 'none');
-                    });
+                    // $('#closeIcon').click(function () { //點擊close icon 關閉login
+                    //     $('#loginWrap').css('display', 'none');
+                    // });
 
-                    $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                        $('#loginWrap').css('display', 'none');
-                    });
+                    // $('.greyGlass').click(function () {//點擊蒙版 關閉login
+                    //     $('#loginWrap').css('display', 'none');
+                    // });
                     // return;
                 } else {
                     // this.getCourse();
@@ -129,7 +131,19 @@ $(document).ready(function () {
     });
 
 
+    // 登入燈箱↓↓↓↓↓
+    $('#toCreate').click(function(){
+        $('.loginArea').css('transform','translateY(-0%)');
+        $('.createArea').css('transform','translateY(-0%)');
+    })
 
+    $('#toLogin').click(function(){
+        $('.loginArea').css('transform','translateY(-100%)');
+        $('.createArea').css('transform','translateY(-100%)');
+
+    })
+
+    // 登入燈箱↑↑↑↑↑
 
 
     // 檢查某 cookie 是否存在
@@ -177,9 +191,14 @@ $(document).ready(function () {
     };
     //檢測註冊帳號密碼的長度，不可小於六碼↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
+    $('.oderInfo').css('display', 'none'); //如果未登入  訂單資訊需隱藏
+    $('.memberInfo').css('display', 'none');//如果未登入  個人檔案需隱藏
+
     if (checkCookie('user')) {
         // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
         var userAccount = getCookie('user');
+        $('.oderInfo').css('display', 'block'); //如果未登入  訂單資訊取消隱藏
+        $('.memberInfo').css('display', 'block'); //如果未登入  個人檔案取消隱藏
         $.ajax({
             type: 'POST',
             url: "./layout/loginR.php",
@@ -188,7 +207,7 @@ $(document).ready(function () {
             },
             dataType: "text",
             success: function (data) {
-                document.querySelector('a.ccp').innerText = data;
+                document.querySelector('a.ccp').innerText = parseInt(data);
             }
         });
     }
@@ -417,6 +436,8 @@ $(document).ready(function () {
             var my_cookies = document.cookie.substring(5);
             if (checkCookie('user') == false) {//如果未登入 
                 $('.logout').css('display', 'none');
+                $('.oderInfo').css('display', 'none');
+                $('.memberInfo').css('display', 'none');
                 $('.callLoginBox').css('display', 'block');
 
                 $('#member').click(function () {//點擊會員icon  叫出登入燈箱
@@ -615,7 +636,6 @@ $(document).ready(function () {
                 // 下拉選單↑↑↑↑↑↑↑↑↑↑↑↑
             }
 
-
         });
 
 
@@ -631,5 +651,7 @@ $(document).ready(function () {
 
 
 
+    
+    
 
 

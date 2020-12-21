@@ -1,7 +1,36 @@
-// 沒登入的提醒
-// if (!checkCookie('user')) {
-//     swal("登入後才可以獲得徽章喔", "", "info");
-// };
+// 檢查某 cookie 是否存在
+function checkCookie(cname) {
+    var cookie_value = getCookie(cname);
+    if (cookie_value != "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 取得 cookie 的值
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+// 未登入通知
+if (checkCookie('user')) {
+} else {
+    swal("提醒您先登入會員才可以獲得徽章喔!", "", "info");
+}
+
+
 
 //測驗須知，checkbox勾選，頁籤切換===================================
 var startQuiz = document.getElementsByClassName('startQuiz');
@@ -17,60 +46,101 @@ startQuiz[0].addEventListener('click', function () {
     if (checkOne.checked && checkTwo.checked) {
         this.closest("section").classList.add('-hide');
         this.closest("section").nextElementSibling.classList.add('-show');
+
+        // 倒數計時器
+        $('#countdown').css('display', 'block');
+        $('#countdown svg circle').addClass('animation');
+        let countdownNumberEl = document.getElementById('countdown-number');
+        let countdown = 20;
+
+        countdownNumberEl.textContent = countdown;
+
+        add = setInterval(function () {
+            countdown = --countdown <= 0 ? 0 : countdown;
+
+            countdownNumberEl.textContent = countdown;
+
+            if (countdown == 0) {
+                swal({
+                    title: "測驗時間結束，是否重新測驗？",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: true
+                }).then((value) => {
+                    if (value) {
+                        window.location.reload();
+                    } else {
+                        window.location.href = 'galaxy.php';
+                    }
+                });
+            }
+        }, 1000);
     } else {
         swal("請先閱讀完並勾選所有測驗規則", "", "info");
     }
 });
 
-
-// 判斷是否有作答&作答是否正確====================================
-// var answerCount = 0;
-// function answerCountPlus() {
-//     answerCount = answerCount + 1;
-//     return answerCount;
-// }
+// 中斷計時器
+$('button.nextQuestion').eq(1).click(function () {
+    $('#countdown').css('display', 'none');
+    $('#countdown svg circle').removeClass('animation');
+    clearInterval(add);
+});
 
 
 // 綁定下一題的按鈕
 for (let j = 0; j < nextQuestion.length; j++) {
-    nextQuestion[j].addEventListener('click', function () {
+    nextQuestion[j].addEventListener('click', function (e) {
         let selections = this.closest("section").querySelectorAll('.selection');
 
-        for (let i = 0; i < selections.length; i++) {
-
-            if (selections[i].checked) {
-                this.closest("section").classList.add('-hide');
-                this.closest("section").nextElementSibling.classList.add('-show');
-
-                // 判斷作答是否正確
-                let chooseOption = selections[i].value;
-                let correctAnswer = this.closest("section").querySelectorAll('div.question')[0].getAttribute("data-answer");
-
-                if (chooseOption === correctAnswer) {
-                    function answerCountPlus() {
-                        answerCount = answerCount + 1;
-                    }
-                    answerCountPlus();
-                }
-            }
-            else {
-                swal("別放棄！請先作答再進入下一題", "", "info");
-            }
-
+        if (!selections[0].checked && !selections[1].checked && !selections[2].checked && !selections[3].checked) {
+            swal("別放棄！作答後再進入下一題", "", "info");
         }
-        if (j = 1) {
-            correctCount.innerText = `答對題數：${answerCount}題`;
+        else {
+            this.closest("section").classList.add('-hide');
+            this.closest("section").nextElementSibling.classList.add('-show');
+
+            // 判斷作答是否正確
+            let chooseOption = this.closest("section").querySelector('.selection:checked').value;
+            let correctAnswer = this.closest("section").querySelectorAll('div.question')[0].getAttribute("data-answer");
+
+            if (chooseOption === correctAnswer) {
+                answerCount = answerCount + 1;
+                correctCount.innerText = `答對題數：${answerCount}題`;
+            }
         }
     });
-
-
 }
 
 
+// 最後一個下一題按鈕
+$('.nextQuestion').eq(1).click(function () {
+    let userAccount = checkCookie('user');
+    let url = location.href;
+    if (answerCount == 2 && checkCookie('user')) {
+        $.ajax({
+            type: 'POST',
+            url: 'quizR.php',
+            data: { userAccount, url },
+            success: function (res) {
+                console.log(res);
+            },
+        });
+    }
+});
+
+// 前往會員中心判斷
+$('a.complete').click(function () {
+    if (checkCookie('user')) {
+        window.location.href = "http://localhost/CruiseCoder/frontEnd/info.php";
+    } else {
+        swal("請先登入會員", "", "warning");
+    }
+});
 
 
 
 
 
 
-// 是否前往會員中心的判斷
+

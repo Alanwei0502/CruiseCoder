@@ -13,8 +13,11 @@
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="./../css/main2.css">
+  <link rel="stylesheet" href="./../css/mainB.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -56,8 +59,9 @@
         <button id="search" @click="search">搜尋</button>
       </div>
       <div class="addOrCancle">
-        <button class="cancelButton">下架課輔</button>
-        <button class="addButton">新增課輔</button>
+        <button @click="mutipleOn" class="openButton"  id="openButton">上架試題</button>
+        <button @click="mutipleOff" class="cancelButton" id="cancelButton">下架課輔</button>
+        <button @click="addReservationBackAll" class="addButton">新增課輔</button>
       </div>
       <div class="table" id="table">
         <div class="tr">
@@ -77,25 +81,19 @@
           <div class="td">{{member.mName}}</div>
           <div v-if="member.tStatus == '上架'" style="color: green;" class="td">{{member.tStatus}}</div>
           <div v-else style="color: red;" class="td">{{member.tStatus}}</div>
-          <div class="td">{{countPeopel.slice(pages.start,pages.end)[index]}}</div>
+          <div class="td">{{member.countPeople}}</div>
           <div class="td"><button class="editBtn" ref="ss" @click="callEditBackAll">編輯</button></div>
-          <input type="hidden" v-model="member.tNumber">
+          <input type="hidden" v-model="member.tNumber" class="hidden">
         </div>
-        <!-- <div class="tr">
-          <div class="td"><label><input type="checkbox"><span></span></label></div>
-          <div class="td">2020/11/07</div>
-          <div class="td">語昕教你重新認識JavaScript</div>
-          <div class="td">黃語昕</div>
-          <div class="td">上架</div>
-          <div class="td">20</div>
-          <div class="td"><button class="editBtn">編輯</button></div>
-        </div>-->
+
+        <div class="NoData hidden"><p>查無課程</p></div>
+        
       </div>
 
       <div class="addReservationBackAll">
-        <div class="addReservationBack"></div>
+        <div @click="removeReservationBackAll" class="addReservationBack"></div>
         <div class="addReservation">
-          <img @click="cloceEditBackAll" src="./../images/backEnd/blackCancel.png" alt="圖片未顯示" class="cancelBack" >
+          <img @click="removeReservationBackAll" src="./../images/backEnd/blackCancel.png" alt="圖片未顯示" class="cancelBack" >
           <h2>新增課輔</h2>
           <form action="" class="addReservationContent">
             <div>
@@ -105,23 +103,24 @@
             </div>
             <div>
               <label>課程</label>
-              <select name="courseType">
+              <select name="courseType" id="addCourseName">
                 <option value="0" selected disabled>選擇課程</option>
-                <option value="1">JavaScript</option>
-                <option value="2">HTML</option>
-                <option value="3">CSS</option>
+                <option v-for="(course , index) in courses" :value="coursesNumber[index]">{{course.cTitle}}</option>
               </select>
             </div>
             <div>
               <label>老師</label>
-              <select name="teacherName">
+              <select name="teacherName" id="addCourseTeacher">
                 <option value="0" selected disabled>選擇老師</option>
-                <option value="1">黃語昕</option>
-                <option value="2">黃瀚霆</option>
-                <option value="3">許尚媛</option>
+                  <option value="M0010">黃語昕</option>
+                  <option value="M0008">SexFat</option>
+                  <option value="M0014">許尚媛</option>
+                  <option value="M0007">張互賓</option>
+                  <option value="M0011">李偉銘</option>
+                  <option value="M0012">曾景鴻</option>
               </select>
             </div>
-            <button>新增課輔</button>
+            <button @click="addTutorial">新增課輔</button>
           </form>
         </div>
       </div>
@@ -146,9 +145,9 @@
                 <option value="1" selected id="editteacherName">黃語昕</option>
               </select>
               <label>狀態</label>
-              <select name="stauts" >
+              <select name="stauts" id="stauts">
                 <option value="1" selected class="stauts">上架</option>
-                <option value="1" selected class="stauts">下架</option>
+                <option value="0" selected class="stauts">下架</option>
               </select>
             </div>
             <div class="people">
@@ -156,22 +155,14 @@
               <p class="nameList">預約名單</p>
               <div class="reservationName">
                 <div class="nameTable">
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
+                  <div v-for="student in students.slice(pages.start,pages.end)">{{student}}</div>
                 </div>
                 <div class="nameTable">
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
-                  <div>黃家偉</div>
+                  <div v-for="student in students.slice(pages2.start,pages2.end)">{{student}}</div>
                 </div>
               </div>
             </div>
-            <button>儲存</button>
+            <button id="editSave" @click="editSave">儲存</button>
           </form>
         </div> 
       </div>

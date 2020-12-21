@@ -527,10 +527,9 @@ div.tutorial {
 							text-align: center;
 							padding: 10px 0px 0px 0px;
 							border: none;
-							border-radius: 50%;;
 						}
 						&:hover {
-							background-color: rgba(255, 177, 2, 0.8);
+							background-color: gray;
 						}
 
 						p.dayNumber{
@@ -654,7 +653,7 @@ div.tutorial {
 					padding: 15px 0px 15px 20px;
 					border-radius: 10px;
 					p{
-						color: $blue2;
+						color: $black;
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;
@@ -974,7 +973,7 @@ div.tutorial {
 					position: absolute;
 					top: 2%;
 					right: 3%;
-					width: 60px;
+					width: 50px;
 					cursor: pointer;
 					@include smlPad{
 						width: 50px;

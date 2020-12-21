@@ -10,9 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 訂單管理</title>
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="./../css/main2.css">
+  <link rel="stylesheet" href="./../css/mainB.css">
 </head>
 
 <body>
@@ -21,10 +23,10 @@
     include('layout/sideBar.php'); //aside
     ?>
 
-    <main>
+    <main id="app">
       <!-- 在這裡面coding -->
       <h2>訂單管理</h2>
-      <form class="filter">
+      <form class="filter" >
         <div class="date">
           <label for="">購買日期</label>
           <div class="date_input">
@@ -35,18 +37,19 @@
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="orderNum">
         </div>
         <div class="memberNum">
           <label for="">會員編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="memberNum">
         </div>
-        <button type="submit">
+        <button type="button" @click="search">
           搜尋
         </button>
       </form>
       <div class="searchResult">
         <table>
+        
           <thead>
             <tr>
               <th>訂單日期</th>
@@ -57,7 +60,23 @@
             </tr>
           </thead>
           <tbody>
+          <!-- <template v-for="or in order"> -->
             <tr>
+              <td v-for="or in order">{{or.oDate}}</td>
+              <td v-for="or in order">{{or.oMember}}</td>
+              <td v-for="or in order">{{or.oNumber}}</td>
+              <td v-for="or in order">{{or.oTotal}}</td> 
+              <td><button class="view">查看</button></td>
+            </tr>
+          <!-- </template> -->
+            <tr>
+              <td>2020/10/26</td>
+              <td>ON2020103000001</td>
+              <td>CCM0000001</td>
+              <td>3,600</td>
+              <td><button class="view">查看</button></td>
+            </tr>
+            <!-- <tr>
               <td>2020/10/26</td>
               <td>ON2020103000001</td>
               <td>CCM0000001</td>
@@ -77,21 +96,7 @@
               <td>CCM0000001</td>
               <td>3,600</td>
               <td><button class="view">查看</button></td>
-            </tr>
-            <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr>
-            <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -152,8 +157,9 @@
       </section>
     </div>
   </div>
-  <script src="./../js/datepicker.js"></script>
+  <script src="./../js/vue.js"></script>
   <script src="./../js/order.js"></script>
+  <script src="./../js/datepicker.js"></script>
 
 
 </body>

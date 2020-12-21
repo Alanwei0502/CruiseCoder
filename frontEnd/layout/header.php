@@ -23,6 +23,7 @@
         <input type="email" id="email" name="email">
 
         <button type="submit" value="Submit" id="createAccount">註冊</button>
+        <p id="toLogin">前往登入</p>
       </form>
 
     </div>
@@ -32,6 +33,7 @@
         <input type="text" class="account" placeholder="Account" name="loginAccount" id="loginAccount">
         <input type="password" class="password" placeholder="Password" name="loginPassword" id="loginPassword">
         <button type="submit" value="Submit" id="login">登入</button>
+        <p id="toCreate">前往註冊</p>
       </form>
     </div>
 
@@ -115,8 +117,8 @@
           <li class="smlSize"><a href="./galaxy.php">語宙試煉</a></li>
           <li class="smlSize"><a href="./article.php">太空補給站</a></li>
           <li class="smlSize"><a href="./tutorial.php">蟲洞練功坊</a></li>
-          <li><a href="./info.php">個人檔案</a></li>
-          <li><a href="./order.php">訂單資訊</a></li>
+          <li><a class="memberInfo" href="./info.php">個人檔案</a></li>
+          <li><a class="oderInfo" href="./order.php">訂單資訊</a></li>
           <li><a class="callLoginBox" href="#">登入</a></li>
           <li><a class="logout" href="#">登出</a></li>
         </ul>

@@ -11,7 +11,10 @@
   <title>Cruise Coders | 外星課程</title>
   <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -27,9 +30,9 @@
           <h2>
             < 外星課程 />
           </h2>
-          <form class="search" action="" method="POST">
-            <input type="search" placeholder="找課程名稱">
-            <button type="submit">
+          <form class="search" action="#" method="POST" onkeypress="if (event.keyCode == 13) {return false;}">
+            <input type="" placeholder="找課程名稱" id="search" @keyup.13="searchTitle">
+            <button type="button" @click="searchTitle">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -55,13 +58,11 @@
         <!-- 課程開始 -->
         <div class="course">
           <!-- 一般課程 -->
-          <template v-for="course in courses">
-            <a class="course " :href=`course_start_class.php?CourseID=${course.cNumber}` :data-type="course.cType">
-
+          <template v-for="course in courses" v-if="courses">
+            <a class="course " :href=`course_Fundraising.php?CourseID=${course.cNumber}` :data-type="course.cType" v-if="course.cStatus == 3">
               <div class="teacherPic">
                 <img class="tImg" :src="course.mPhoto" alt="">
               </div>
-
               <div class="coursePic">
                 <img :src="course.cImage" alt="">
               </div>
@@ -70,11 +71,10 @@
                   <i class="fas fa-heart" @click.prevent="favorites"></i>
                   <!-- .prevent  解決冒泡事件-->
                 </div>
-
                 <div class="c_Main">
                   <p class="title" href="">{{course.cTitle}}</p>
                   <div class="time">課程總長：{{course.cTime}}</div>
-                  <div class="courseFundraising" v-if="course.cStatus == 3">
+                  <div class="courseFundraising" >
                     <div class="price">
                       <p class="fundraisingTag">募資中</p>
                       <div class="textFund">
@@ -83,18 +83,36 @@
                       </div>
                     </div>
                     <div class="progressbar">
-                      <span class="progress" style="width: 50%;"></span>
+                      <span class="progress" style="width: 50%;" :data-id="course.cNumber"></span>
                     </div>
                     <div class="funNum">已募資 5/10 人</div>
                   </div>
-                  <div class="courseStart" v-else="course.cStatus == 1">
+                </div>
+              </div>
+            </a>
+            <a class="course " :href=`course_start_class.php?CourseID=${course.cNumber}` :data-type="course.cType" v-else="course.cStatus == 1">
+              <div class="teacherPic">
+                <img class="tImg" :src="course.mPhoto" alt="">
+              </div>
+              <div class="coursePic">
+                <img :src="course.cImage" alt="">
+              </div>
+              <div>
+                <div class="favorites">
+                  <i class="fas fa-heart" @click.prevent="favorites"></i>
+                  <!-- .prevent  解決冒泡事件-->
+                </div>
+                <div class="c_Main">
+                  <p class="title" href="">{{course.cTitle}}</p>
+                  <div class="time">課程總長：{{course.cTime}}</div>
+                  <div class="courseStart" >
                     <div class="comment">
-                      <div class="star" :data-star="course.rRate" >
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                      <div class="star" :data-star="course.rRate">
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
                       </div>
                       <p class="text">{{course.rCount}}則評價</p>
                     </div>
@@ -102,10 +120,7 @@
                   </div>
                 </div>
               </div>
-
-
             </a>
-
           </template>
         </div>
       </div>

@@ -1,4 +1,13 @@
 /*  login 開始*/
+
+$rwd: 650px;
+// @include loginRWD{}
+@mixin loginRWD {
+	@media screen and (max-width: 650px) {
+		@content;
+	}
+}
+
 div.loginWrap {
 	width: 100%;
 	height: 100vh;
@@ -26,6 +35,13 @@ div.loginWrap {
 		border-radius: 10px;
 		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
+		@media screen and (max-width: 850px) {
+			width: 400px;
+		}
+		@media screen and (max-width: 410px) {
+			width: 360px;
+		}
+
 		div.createArea {
 			display: inline-block;
 			width: 50%;
@@ -35,6 +51,12 @@ div.loginWrap {
 			color: white;
 			overflow: hidden;
 			z-index: 95;
+			transition: all 0.6s ease-in-out;
+
+			@media screen and (max-width: 850px) {
+				width: 100%;
+				transform: translateY(-100%);
+			}
 
 			form {
 				display: inline-block;
@@ -84,6 +106,18 @@ div.loginWrap {
 					transform: translateX(-50%);
 					font-size: 20px;
 				}
+				p {
+					font-size: 14px;
+					color: white;
+					text-align: center;
+					margin-top: 25px;
+					cursor: pointer;
+					display: none;
+
+					@media screen and (max-width: 850px) {
+						display: block;
+					}
+				}
 			}
 
 			input:focus {
@@ -100,7 +134,12 @@ div.loginWrap {
 			color: white;
 			overflow: hidden;
 			z-index: 95;
+			transition: all 0.6s ease-in-out;
 
+			@media screen and (max-width: 850px) {
+				width: 100%;
+				transform: translateY(-100%);
+			}
 			form {
 				display: inline-block;
 				position: relative;
@@ -144,6 +183,19 @@ div.loginWrap {
 				input:focus {
 					outline: none;
 				}
+
+				p {
+					font-size: 14px;
+					color: white;
+					text-align: center;
+					margin-top: 25px;
+					cursor: pointer;
+					display: none;
+
+					@media screen and (max-width: 850px) {
+						display: block;
+					}
+				}
 			}
 		}
 
@@ -160,6 +212,11 @@ div.loginWrap {
 			left: 0px;
 			transition: all 0.6s ease-in-out;
 			transform: translateX(0%);
+			// display: none;
+
+			@media screen and (max-width: 850px) {
+				display: none;
+			}
 
 			div.slideBlock {
 				width: 100%;
@@ -249,9 +306,10 @@ div.loginWrap {
 		#closeIcon {
 			position: absolute;
 			z-index: 200;
-			width: 35px;
+			width: 30px;
 			right: 0px;
 			top: 0px;
+			margin: 10px;
 			cursor: pointer;
 		}
 	}
@@ -260,6 +318,10 @@ div.loginWrap {
 .createHide {
 	left: 100% !important;
 	transform: translateX(0%) !important;
+	@media screen and (max-width: 850px) {
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+	}
 }
 
 .loginHide {
@@ -378,7 +440,6 @@ header {
 	}
 
 	div.headerRight {
-
 		// border: 1px solid green;
 		ul {
 			display: flex;
@@ -446,7 +507,6 @@ header {
 									width: 100%;
 									padding: 0;
 									margin-right: 0;
-
 								}
 							}
 

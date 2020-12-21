@@ -235,7 +235,7 @@
 				right: 17%;
 				bottom: 30%;
 				animation-name: Planet3;
-				animation-duration: 16s;
+				animation-duration: 11s;
 				animation-iteration-count: infinite;
 				@include laptop {
 					width: 150px;
@@ -335,23 +335,23 @@
 
 		@keyframes Planet3 {
 			0% {
-				transform: translateY(-13px);
+				transform: translateY(-18px);
 			}
 
 			25% {
-				transform: translateY(-10px);
+				transform: translateY(9px);
 			}
 
 			50% {
-				transform: translateY(8px);
+				transform: translateY(-8px);
 			}
 
-			75% {
-				transform: translateY(-15px);
-			}
+			// 75% {
+			// 	transform: translateY(-15px);
+			// }
 
 			100% {
-				transform: translateY(-13px);
+				transform: translateY(-18px);
 			}
 		}
 
@@ -818,7 +818,8 @@
 						}
 					}
 					p {
-						font-size: 16px;
+						line-height: 24px !important;
+						font-size: 20px;
 						padding: 20px;
 						position: absolute;
 						bottom: 0px;
@@ -1618,6 +1619,7 @@ div.index {
 
 				a.img {
 					display: inline-block;
+					width: 100%;
 
 					img {
 						width: 100%;
@@ -1627,10 +1629,12 @@ div.index {
 
 				.c_Main {
 					padding-left: 10px;
-
+					position: relative;
+					height: 240px;
 					a.title {
+						height: 75px;
 						padding-top: 10px;
-						font-size: 26px;
+						font-size: 24px;
 						font-weight: 600;
 						line-height: 35px;
 						text-decoration: none;
@@ -1677,6 +1681,9 @@ div.index {
 					}
 
 					.price {
+						position: absolute;
+						right: 0%;
+						bottom: 0%;
 						font-size: $h4;
 						font-weight: 800;
 						text-align: right;

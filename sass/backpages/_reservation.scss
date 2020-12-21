@@ -1,306 +1,334 @@
-div.reservation{
-  
-  main{
-    position: relative;
-    div.addReservationBackAll{
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 0;
-      transition: all 1s;
-      div.addReservationBack{
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-      div.addReservation{
-        height: 50%;
-        width: 90%;
-        max-width: 1200px;
-        padding: 0px 16px;
-        background-color: $beige;
-        border-radius: 10px;
-        position: relative;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        form.addReservationContent{
-          position: relative;
-          display: flex;
-          justify-content: space-around;
-          width: 100%;
-          height: 70%;
-          margin: 0 auto;
-          background-color: $white;
-          label{
-            font-size: $mp;
-            display: block;
-            margin: 30px 0px 15px 0px;
-          }
-          div{
-            margin-top: 30px;
-          }
-          input{
-            @include datepickerStyle;
-          }
-          #deadline{
-            display: none;
-          }
-          select{
-            @include selectStyle;
-            width: 292px;
-          }
-          button{
-            @include addBtn;
-            position: absolute;
-            right: 50px;
-            bottom: 30px;
-          }
-        }
-        img{
-          position: absolute;
-          width: 50px;
-          top: 10px;
-          right: 10px;
-          &:hover{
-            cursor: pointer;
-          }
-        }
-        h2{
-          font-size: $h4;
-          font-weight: bold;
-          display: block;
-        }
-        
-      }
-    }
-    div.addReservationBackAll.on{
-      z-index: 5;
-      opacity: 1;
-    }
-    div.editBackAll{
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 0;
-      transition: all 1s;
-      div.editBack{
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-      div.edit{
-        width: 100%;
-        height: 95%;
-        max-width: 1200px;
-        padding: 0px 16px;
-        background-color: $beige;
-        border-radius: 10px;
-        position: relative;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        form.editForm{
-          position: relative;
-          background-color: $white;
-          width: 100%;
-          height: 85%;
-          margin: 0 auto;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          div.data{
-            label{
-              font-size: $mp;
-              display: block;
-              margin: 30px 0px 10px 0px;
-            }
-            input#datepicker4{
-              @include datepickerStyle;
-            }
-            select{
-              @include selectStyle;
-              width: 292px;
-            }
-          }
-          div.people{
-            width: 60%;
-            p{
-              font-size: $mp;
-              margin-bottom: 50px;
-            }
-            p.nameList{
-              margin-bottom: 15px;
-            }
-            div.reservationName{
-              margin-bottom: 25px;
-              div.nameTable{
-                display: flex;
-                justify-content: space-between;
-                padding: 30px 20px;
-                &:nth-child(2n-1){
-                  background-color: $beige;
-                }
-                div{
-                  font-size: $mp;
-                }
-              }
-            }
-          }
-          button{
-            @include saveBtn;
-            position: absolute;
-            right: 50px;
-            bottom: 50px;
-          }
-        }
-        img{
-          position: absolute;
-          width: 50px;
-          top: 10px;
-          right: 10px;
-          &:hover{
-            cursor: pointer;
-          }
-        }
-        h2{
-          font-size: $h4;
-          font-weight: bold;
-        }
-        
-      }
-    }
-    div.editBackAll.on{
-      z-index: 5;
-      opacity: 1;
-    }
-    h2{
-      @include backTitle;
-    }
-    div.reservationContent{
-      @include blockStyle;
-      label{
-        font-size: $mp;
-        display: block;
-        margin-bottom: 5px;
-      }
-      select{
-        @include selectStyle;
-        width: 300px;
-      }
-      div.reservationTime{
-        display: block;
-        margin-bottom: 20px;
-        div.dateRange{
-          display: flex;
-          input{
-            @include datepickerStyle;
-            width: 200px;
-            &:first-child{
-              margin-right: 15px;
-            }
-          }
-          p{
-            font-size: $mp;
-            line-height: 40px;
-            margin-right: 15px;
-          }
-        }
-      }
-      div.course{
-        display: inline-block;
-      }
-      div.teacher{
-        display: inline-block;
-        margin-left: 30px;
-      }
-      button{
-        @include backBtn;
-        margin-left: 120px;
-      }
-    }
-    div.addOrCancle{
-      display: flex;
-      justify-content: flex-end;
-      margin: 30px 0px;
-      padding-right: 5px;
-  
-      button.cancelButton{
-        @include cancelBtn;
-      }
-      button.addButton{
-        @include addBtn;
-        margin-left: 30px;
-        margin-right: 20px;
-      }
-    }
-    div.table{
-      font-size: $bp;
-      max-width: 100%;  
-      div.tr{
-        display: flex;
-        flex-shrink: 0;
-        padding: $fontSize 10px;
-        &:nth-child(2n){
-          background: $beige;
-        }
-      }
-      div.td{
-        display: flex;
-        align-items: center;
-        width: 80px;
-        line-height: 32px;
-        label{
-          cursor: pointer;
-          input{
-            @include checkbox;
-          }
-        }
-        &:nth-child(2){
-          flex-grow: 3;
-        }
-        &:nth-child(3){
-          flex-grow: 5;
-          padding: 0px 20px 0px 0px;
-        }
-        &:nth-child(4){
-          flex-grow: 1;
-        }
-        &:nth-child(5){
-          flex-grow: 1;
-        }
-        &:nth-child(6){
-          flex-grow: 1;
-        }
-        &:nth-child(7){
-          button{
-            @include editBtn;
-          }
-        }
-      }
-    }
-    div.changePage{
-      float: right;
-      @include clearfixed;
-      margin-right: 30px;
-      margin-top: 70px;
-      button{
-        @include changePage;
-      }
-      button.nextPage{
-        margin-left: 40px;
-      }
-    }
-    
-  }
+div.reservation {
+	main {
+		position: relative;
+		div.addReservationBackAll {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			opacity: 0;
+			transition: all 1s;
+			div.addReservationBack {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+			div.addReservation {
+				height: 50%;
+				width: 90%;
+				max-width: 1200px;
+				padding: 0px 16px;
+				background-color: $beige;
+				border-radius: 10px;
+				position: relative;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				form.addReservationContent {
+					position: relative;
+					display: flex;
+					justify-content: space-around;
+					width: 100%;
+					height: 70%;
+					margin: 0 auto;
+					background-color: $white;
+					label {
+						font-size: $mp;
+						display: block;
+						margin: 30px 0px 15px 0px;
+					}
+					div {
+						margin-top: 30px;
+					}
+					input {
+						@include datepickerStyle;
+					}
+					#deadline {
+						display: none;
+					}
+					select {
+						@include selectStyle;
+						width: 292px;
+					}
+					button {
+						@include addBtn;
+						position: absolute;
+						right: 50px;
+						bottom: 30px;
+					}
+				}
+				img {
+					position: absolute;
+					width: 50px;
+					top: 10px;
+					right: 10px;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				h2 {
+					font-size: $h4;
+					font-weight: bold;
+					display: block;
+				}
+			}
+		}
+		div.addReservationBackAll.on {
+			z-index: 5;
+			opacity: 1;
+		}
+		div.editBackAll {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			opacity: 0;
+			transition: all 1s;
+			div.editBack {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+			div.edit {
+				width: 100%;
+				height: 95%;
+				max-width: 1200px;
+				padding: 0px 16px;
+				background-color: $beige;
+				border-radius: 10px;
+				position: relative;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				form.editForm {
+					position: relative;
+					background-color: $white;
+					width: 100%;
+					height: 85%;
+					margin: 0 auto;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					div.data {
+						label {
+							font-size: $mp;
+							display: block;
+							margin: 30px 0px 10px 0px;
+						}
+						input#datepicker4 {
+							@include datepickerStyle;
+						}
+						select {
+							@include selectStyle;
+							width: 292px;
+						}
+					}
+					div.people {
+						width: 60%;
+						p {
+							font-size: $mp;
+							margin-bottom: 50px;
+						}
+						p.nameList {
+							margin-bottom: 15px;
+						}
+						div.reservationName {
+							margin-bottom: 25px;
+							div.nameTable {
+								display: flex;
+								justify-content: flex-start;
+								padding: 30px 20px;
+								&:nth-child(2n-1) {
+									background-color: $beige;
+								}
+								div {
+									font-size: $mp;
+									width: 20%;
+								}
+							}
+						}
+					}
+					button {
+						@include saveBtn;
+						position: absolute;
+						right: 50px;
+						bottom: 50px;
+					}
+				}
+				img {
+					position: absolute;
+					width: 50px;
+					top: 10px;
+					right: 10px;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				h2 {
+					font-size: $h4;
+					font-weight: bold;
+				}
+			}
+		}
+		div.editBackAll.on {
+			z-index: 5;
+			opacity: 1;
+		}
+		h2 {
+			@include backTitle;
+		}
+		div.reservationContent {
+			position: relative;
+			@include blockStyle;
+			label {
+				font-size: $mp;
+				display: block;
+				margin-bottom: 5px;
+			}
+			select {
+				@include selectStyle;
+				width: 300px;
+			}
+			div.reservationTime {
+				display: block;
+				margin-bottom: 20px;
+				div.dateRange {
+					display: flex;
+					input {
+						@include datepickerStyle;
+						width: 200px;
+						&:first-child {
+							margin-right: 15px;
+						}
+					}
+					p {
+						font-size: $mp;
+						line-height: 40px;
+						margin-right: 15px;
+					}
+				}
+			}
+			div.course {
+				display: inline-block;
+			}
+			div.teacher {
+				display: inline-block;
+				margin-left: 30px;
+			}
+
+			button {
+				@include backBtn;
+				margin-left: 120px;
+				position: absolute;
+				bottom: 15px;
+			}
+		}
+		div.addOrCancle {
+			display: flex;
+			justify-content: flex-end;
+			margin: 30px 0px;
+			padding-right: 5px;
+
+			#openButton {
+				@include onBtn;
+				margin-right: 30px;
+			}
+
+			button.cancelButton {
+				@include cancelBtn;
+			}
+			button.addButton {
+				@include addBtn;
+				margin-left: 30px;
+				margin-right: 20px;
+			}
+		}
+		div.table {
+			font-size: $bp;
+			max-width: 100%;
+			position: relative;
+
+			div.NoData {
+				display: block;
+				text-align: center !important;
+				position: absolute;
+				width: 100% !important;
+				height: 340px !important;
+				background-color: #ffe4c4;
+				// background-color: #fcfcfc;
+				p {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			div.hidden {
+				display: none;
+			}
+
+			div.tr {
+				display: flex;
+				flex-shrink: 0;
+				padding: $fontSize 10px;
+				&:nth-child(2n) {
+					background: $beige;
+				}
+			}
+			div.td {
+				display: flex;
+				align-items: center;
+				width: 80px;
+				line-height: 32px;
+				label {
+					cursor: pointer;
+					input {
+						@include checkbox;
+					}
+				}
+				&:nth-child(2) {
+					flex-grow: 3;
+				}
+				&:nth-child(3) {
+					flex-grow: 5;
+					padding: 0px 20px 0px 0px;
+				}
+				&:nth-child(4) {
+					flex-grow: 1;
+				}
+				&:nth-child(5) {
+					flex-grow: 1;
+				}
+				&:nth-child(6) {
+					flex-grow: 1;
+				}
+				&:nth-child(7) {
+					button {
+						@include editBtn;
+					}
+				}
+			}
+		}
+		div.changePage {
+			float: right;
+			@include clearfixed;
+			margin-right: 30px;
+			margin-top: 70px;
+			button {
+				@include changePage;
+			}
+			button.nextPage {
+				margin-left: 40px;
+			}
+		}
+	}
 }

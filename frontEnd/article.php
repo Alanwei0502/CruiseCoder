@@ -1,5 +1,5 @@
 <?php
-include('./articleR.php')
+include('./articleR.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +9,8 @@ include('./articleR.php')
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coder | 太空補給站</title>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -44,19 +46,25 @@ include('./articleR.php')
           <img src="./../images/article/battery.png" class="battery" alt="圖片無法顯示">
           <p class="prePage">返回</p>
           <div class="content">
-            <div class="articleTitle">
-              <?php
-              foreach ($data as $index => $row) {
-              ?>
-                <div class="articleInside">
-                  <div class="articleImageScale">
-                    <img src="./../images/article/<?= $row["aImage"] ?>" alt="圖片無法顯示" class="articleImage">
-                  </div>
-                  <h4><?= $row["aTitle"] ?></h4>
-                </div>
-              <?php
+            <?php
+              if(isset($_GET["aTitle"])){
+                $theTitle = $_GET["aTitle"];
+                echo '<div class="articleTitle checkGet" data-thetitle="'.$theTitle.'">';
+              }else{
+                echo '<div class="articleTitle">';
               }
-              ?>
+          
+                foreach ($data as $index => $row) {
+            ?>
+              <div class="articleInside">
+                <div class="articleImageScale">
+                  <img src="./../images/article/<?= $row["aImage"] ?>" alt="圖片無法顯示" class="articleImage">
+                </div>
+                <h4><?= $row["aTitle"] ?></h4>
+              </div>
+            <?php
+              }
+            ?>
               
             </div>
             <div class="articleContent none">
