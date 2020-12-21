@@ -11,6 +11,7 @@
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   <link rel="stylesheet" href="./../css/mainB.css">
 </head>
@@ -133,7 +134,7 @@
               <div class="addCourseImage">
                 <label>課程圖片</label>
                 <div class="inputFileImage" @click="clickInput">
-                  <input type="file" @change="imageName" name="addCourseImage" id="addInputFile" accept=".jpeg,.png,.gif">
+                  <input type="file" @change="imageName" name="addCourseImage" id="addInputFile" accept=".jpg,.jpeg,.png,.gif">
                   <p class="insertImage"></p>
                   <button type="button" @click="buttonCilckInput"></button>
                 </div>   
@@ -216,7 +217,7 @@
               <div class="editCourseImage">
                 <label>課程圖片</label>
                 <div class="inputFileImage" @click="clickInput">
-                  <input type="file" class="updateFile" id="updateFileImage" @change="imageName" accept=".jpeg,.png,.gif">
+                  <input type="file" class="updateFile" id="updateFileImage" @change="imageName" accept=".jpg,.jpeg,.png,.gif">
                   <p class="updateImage">{{editCourseDatas.cImage}}</p>
                   <button type="button" @click="buttonCilckInput"></button>
                 </div>   

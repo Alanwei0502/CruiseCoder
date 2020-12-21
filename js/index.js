@@ -1,5 +1,17 @@
 $(document).ready(function() {
-    // 輪撥圖開始
+
+    // touch套件↓↓↓↓↓
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true,
+        pagination: {
+        clickable: false,
+        },
+    });
+    // touch套件↑↑↑↑↑
+
+    // 輪撥圖開始↓↓↓↓↓
     var curPage = 1;
     var numOfPages = $(".skw-page").length;
     var animTime = 1000;
@@ -42,10 +54,10 @@ $(document).ready(function() {
         }
         navigateDown();
     }, 6500);
-    // 輪撥圖結束
+    // 輪撥圖結束↑↑↑↑↑
 
 
-    // 圓餅圖套件開始
+    // 圓餅圖套件開始↓↓↓↓↓
     Highcharts.setOptions({
 		colors: ['#F9433E', '#FCC93D', '#5BC4E3']
 	});  
@@ -92,7 +104,7 @@ $(document).ready(function() {
         ]
     });
 
-    //↓移除套件預設圖型
+    //↓移除套件預設圖型↓↓↓↓↓
     $('.highcharts-button-symbol').css('display','none'); 
     $('.highcharts-credits').css('display','none'); 
     $('.highcharts-button-box').css('display','none'); 
@@ -105,31 +117,22 @@ $(document).ready(function() {
         "transform":"translateY(-25%)"
     });
 
-    
-    //↑移除套件預設圖型
+    //↑移除套件預設圖型↑↑↑↑↑
     
     $('.highcharts-color-0').click(function(){
-        $('#text1,#text2,#text3').css('display','none'); 
-        // $('#text2').css('display','none'); 
-        // $('#text3').css('display','none'); 
+        $('#text1,#text2,#text3').css('display','none');
         $('#text1').css('display','block'); 
     });
 
     $('.highcharts-root').css('overflow','visible');
 
     $('.highcharts-color-1').click(function(){
-        $('#text1,#text2,#text3').css('display','none'); 
-        // $('#text1').css('display','none'); 
-        // $('#text2').css('display','none'); 
-        // $('#text3').css('display','none'); 
+        $('#text1,#text2,#text3').css('display','none');
         $('#text2').css('display','block'); 
     });
 
     $('.highcharts-color-2').click(function(){
-        $('#text1,#text2,#text3').css('display','none'); 
-        // $('#text1').css('display','none'); 
-        // $('#text2').css('display','none'); 
-        // $('#text3').css('display','none'); 
+        $('#text1,#text2,#text3').css('display','none');
         $('#text3').css('display','block'); 
     });
 
@@ -139,20 +142,32 @@ $(document).ready(function() {
     }
 
     $('g.highcharts-data-labels').css('display','none')
-
-
-    // document.getElementById("dataLabel").setAttribute("style", "font-size: 25px");
-    // 圓餅圖套件結束
+    // 圓餅圖套件結束↑↑↑↑↑
 
 
 
 
 
-    // 課程輪撥開始
+    // 課程輪撥開始↓↓↓↓↓
+
+    new Vue({
+        el: '#slide',     //el: document.getElementById('app'),
+        data: {         //變數都放這裡
+            allCourses: [],
+        },
+        methods: {
+
+        },
+        mounted(){
+            $.getJSON("../frontEnd/indexR.php").then(res=>{
+                for(let i = 0; i < 9 ;i++){
+                    this.allCourses.push(res[i]);
+                };
+            });
+        },
+    });
 
     var itemWidth = $('div.wrapGeneral').outerWidth(true);
-    // var CourseWidth = $('.Course').outerWidth();
-    // var controlCircle= $('div.controlCircle')[0];
 
     window.onresize = function(){
         itemWidth = $('div.wrapGeneral').outerWidth(true);
@@ -209,28 +224,92 @@ $(document).ready(function() {
         }
     }
     add = setInterval(startMove, 4200)
+        // 課程輪撥開始↑↑↑↑↑
 
-    new Vue({
-        el: '#slide',     //el: document.getElementById('app'),
+
+
+
+    let vm1 = new Vue({
+        el: '#galaxyBlock',     //el: document.getElementById('app'),
         data: {         //變數都放這裡
-            allCourses: [],
+            allPlanet: [],
+            PlanetText: [
+                'CSS（Cascading Style Sheets）串接樣式表：一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護，意指在文件中CSS不會單獨存在，只是輔助結構化文件的樣式呈現。',
+                'HTML是一種網頁使用的語言，是一種描述超文件的註記語言SGML Standard Generalized Markup Language所制訂出的一種網頁語言，基本上現行的瀏覽器都可以讀取HTML，使用HTML可以編輯設計出網頁，也可以在網頁中加入所有HTML語言可支援的.....',
+                'JavaScript 是個優質的語言，當年開發它的工程師只花了十天就設計完了，過了二十幾年在前端仍有不可或缺的地位。這系列的文章會帶大家入門 JavaScript，望大家早日入坑，以一個語言就能寫完前端、後端、資料分析、機器學習、視覺化等各式各樣的作品。',
+                'SQL即便在資料科學和資料庫技術不斷變化的時代，用來操作關聯式資料庫的 SQL 語法仍然是探討資料庫世界非常重要且適合入門的基礎語法，不管你是在 Web 應用程式的開發或是資料分析（Data Analytics）都有可能用得上。',
+                'PHP（中文名：超文本預處理器）是一種通用開源腳本語言。語法吸收了C語言、Java和Perl的特點，利於學習，使用廣泛，主要適用於Web開發領域。PHP 獨特的語法混合了C、Java、Perl以及PHP自創的語法。',
+            ],
         },
         methods: {
-
+            changePlanet(e){
+                // console.log(e.target.previousElementSibling.value);
+                $.ajax({
+                    type: 'POST',
+                    url: "../frontEnd/indexG.php",
+                    data: {
+                        getPlanet: e.target.previousElementSibling.value,
+                    },
+                    dataType: "text",
+                    success: function (res) {
+                        let Planetdata = JSON.parse(res);
+                        vm1.allPlanet = [];
+                        for(let i = 0; i < Planetdata.length; i++){
+                            vm1.allPlanet.push('../images/trial/planets/' + Planetdata[i].bIcon);
+                        }
+                        document.getElementsByClassName('titlePlanet')[0].innerText = e.target.previousElementSibling.value;
+                    }
+                });
+            }
         },
         mounted(){
-            $.getJSON("../frontEnd/indexR.php").then(res=>{
-                for(let i = 0; i < 9 ;i++){
-                    this.allCourses.push(res[i]);
-                };
-                // console.log(res);
-                // console.log(this.allCourse);
+
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                clickable: false,
+                },
+            });
+
+            
+            $('.CSS').click(function(){
+                $('.textContent').text(vm1.PlanetText[0]);
+            });
+            $('.HTML').click(function(){
+                $('.textContent').text(vm1.PlanetText[1]);
+            });
+            $('.JS').click(function(){
+                $('.textContent').text(vm1.PlanetText[2]);
+            });
+            $('.SQL').click(function(){
+                $('.textContent').text(vm1.PlanetText[3]);
+            });
+            $('.PHP').click(function(){
+                $('.textContent').text(vm1.PlanetText[4]);
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "../frontEnd/indexG.php",
+                data: {
+                    first: 'first',
+                },
+                dataType: "text",
+                success: function (res) {
+                    let Planetdata = JSON.parse(res);
+                    for(let i = 0; i < Planetdata.length; i++){
+                        vm1.allPlanet.push('../images/trial/planets/' + Planetdata[i].bIcon);
+                        // console.log(Planetdata[i]);
+                    }
+                }
             });
         },
     });
 
 
-
-
-
+    // $(document).click(function(e){
+    //     console.log(e.target);
+    // });
 });

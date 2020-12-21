@@ -433,6 +433,15 @@ div.article {
               span{
                 margin-right: 10px;
                 font-size: 26px;
+                &:hover{
+                  cursor: pointer;
+                }
+                @include bigPad{
+                  font-size: 20px;
+                }
+                @include bigPhone{
+                  font-size: 16px;
+                }
               }
               i{
                 color: #d4d4d4;

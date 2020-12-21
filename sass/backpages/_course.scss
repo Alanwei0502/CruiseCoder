@@ -1,6 +1,7 @@
 div.course{
   main{
     position: relative;
+    min-height: 100vh;
     div.addCourseBackAll{
       position: fixed;
       top: 0;
@@ -354,8 +355,10 @@ div.course{
         }
         &:nth-child(6){
           flex-grow: 2;
+          padding-right: 10px;
         }
         &:nth-child(7){
+          flex-grow: 0.5;
           button{
             @include editBtn;
           }

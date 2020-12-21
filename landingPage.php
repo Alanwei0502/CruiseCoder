@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div class="landingPageArea">
+    <div class="wrap landingPageArea">
         <?php
             include('./frontEnd/layout/spacebackground.php');
         ?>
@@ -16,20 +16,23 @@
             <img src="./images/landing/logoCruise.png" alt="">
             
             <img src="./images/landing/lotsOf.svg" alt="">
+            
 
-            <img src="./images/landing/circleMove.svg" alt="">
-
+            
             <div class="ballPrants">
-                <div class="frontBall">前台</div>
-                <div class="backBall">後台</div>
+                    <div class="frontBall"><a href="./frontEnd/index.php">前台</a></div>
+                    <div class="backBall"><a href="./backEnd/member.php">後台</a></div>
             </div>
 
+
+            <div class="yellowClound">
+                <img src="./images/landing/clound.svg" alt="">
+            </div>
+
+
         </div>
 
 
-        <div class="yellowClound">
-            <img src="./images/landing/clound.svg" alt="">
-        </div>
 
         
 

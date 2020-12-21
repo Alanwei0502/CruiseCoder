@@ -1,9 +1,10 @@
 .landingPageArea{
     background-color: rgb(19, 5, 5);
     overflow: hidden;
+    height: 100vh;
     .andingPageContents{
         position: relative;
-        // border: 1px solid #fff;
+        // border: solid 1px #fff;
         img{
             //LOGO
             &:nth-child(1){
@@ -12,24 +13,11 @@
             //主體
             &:nth-child(2){
                 width: 650px;
-                position: absolute;
-                right: 50%;
-                transform: translateX(50%);
-            }
-            //旋轉小圓圈
-            &:nth-child(3){
-                width: 450px;
-               
-                position: absolute;
-                top:50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
 
-                animation-name: rotation;
-                animation-duration: 10s;
-                animation-direction: reverse;
-                animation-iteration-count: infinite;
-            
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
         .ballPrants{
@@ -38,6 +26,12 @@
             display: flex;
             justify-content: space-around;
             align-self: center;
+
+            position: absolute;
+            top: 320px;
+            left: 50%;
+            transform: translateX(-50%);
+
             .frontBall{
                 width: 150px;
                 height: 150px;
@@ -47,7 +41,12 @@
                 font-size: $h2;
                 line-height: 150px;
                 text-align: center;
-                cursor: pointer;
+                a{
+                    text-decoration: none;
+                    color: $beige;
+                }
+                
+
     
                 
             }
@@ -56,35 +55,32 @@
                 height: 150px;
                 background-color: $blue1;
                 border-radius: 50%;
-                color: $beige;
+                
                 font-size: $h2;
                 line-height: 150px;
                 text-align: center;
-                cursor: pointer;
+    
+                a{
+                    text-decoration: none;
+                    color: $beige;
+                }
+
             }
         }
 
-    }
-    .yellowClound{
-        img{
-            width: 700px;
+        .yellowClound{
+            position: absolute;
+            top: 500px;
+            img{
+                position: absolute;
+                width: 700px;
+            }
+    
         }
 
     }
+    
 
-    @keyframes rotation {
-        0% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(180deg);
-
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-   
    
 
 

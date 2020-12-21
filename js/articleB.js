@@ -1,6 +1,12 @@
 // 搜尋傳值 回傳結果
 let searchPage = 1;
 let searchBtn = document.getElementById("searchBtn");
+let searchNameEnter = document.getElementsByClassName("searchName")[0];
+searchNameEnter.addEventListener("keydown" ,function(e){
+  if(e.which == 13){
+    searchBtn.click();
+  }
+});
 searchBtn.addEventListener("click", function(){
   let dateStart = document.getElementById("datepicker1").value;
   let dateEnd = document.getElementById("datepicker2").value;
@@ -15,7 +21,7 @@ searchBtn.addEventListener("click", function(){
       $('#feedBack').html(res);
     });
   }else if(dateStart != "" & dateEnd == "" | dateStart == "" & dateEnd != ""){
-    alert("請選擇日期區間");
+    swal("請選擇日期區間", "", "error");
     return false;
   }else if(dateStart != "" & dateEnd != "" & searchName == ""){
     $.post('articleR.php',{searchPage,searchStatus,dateStart,dateEnd},function(res){
@@ -107,7 +113,7 @@ addArticleBtn.addEventListener("click", function(){
 
   // 判斷新增專欄內表單不能為空值
   if(addArticleName.value == ""){
-    alert("請填寫專欄名稱");
+    swal("請填寫專欄名稱", "", "info");
     addArticleName.focus();
     addArticleName.classList.add("error");
     
@@ -117,7 +123,7 @@ addArticleBtn.addEventListener("click", function(){
   }
 
   if(inputFile.value == ""){
-    alert("請上傳專欄圖片");
+    swal("請上傳專欄圖片", "", "info");
     fileStyle.classList.add("error");
 
     return false;
@@ -126,17 +132,20 @@ addArticleBtn.addEventListener("click", function(){
   }
 
   if(addSummernote.value == ""){
-    alert("請撰寫專欄文章");
+    swal("請撰寫專欄文章", "", "info");
     return false;
   }
 
   checkOut = true;
 
   if(checkOut){
-    alert("新增成功");
-    let a = 1;
-    $.post('articleR.php',{a},function(res){
-      addForm.submit();
+    swal("新增成功", "", "success").then((willDelete) => {
+      if (willDelete) {
+        let a = 1;
+        $.post('articleR.php',{a},function(res){
+          addForm.submit();
+        });
+      }
     });
   }
 
@@ -170,7 +179,7 @@ lastPage.addEventListener("click", function(){
         $('#feedBack').html(res);
       });
     }else if(dateStart != "" & dateEnd == "" | dateStart == "" & dateEnd != ""){
-      alert("請選擇日期區間");
+      swal("請選擇日期區間!", "", "error");
       return false;
     }else if(dateStart != "" & dateEnd != "" & searchName == ""){
       $.post('articleR.php',{searchPage,searchStatus,dateStart,dateEnd},function(res){
@@ -328,7 +337,6 @@ document.addEventListener("click", function(e){
 
   // 編輯去抓資料
   if(e.target.classList.contains("editBtn")){
-    editArticleBackAll.classList.add("on");
     let editATitle = e.target.closest("div").previousElementSibling.innerText;
     $.post('articleR.php',{editATitle},function(res){
       $('#editArticle').html(res);
@@ -337,6 +345,9 @@ document.addEventListener("click", function(e){
       });
     });
     
+    setTimeout(function(){
+      editArticleBackAll.classList.add("on");
+    }, 100);
   }
 
   // 點擊上傳圖片的樣式 連動inputFile
@@ -358,23 +369,25 @@ document.addEventListener("click", function(e){
     
     let editCheck = false;
     if(editArticleName == ""){
-      alert("專欄名稱不能空白");
+      swal("專欄名稱不能空白", "", "info");
       editArticleNameTag.classList.add("error");
       return false;
     }else{
       editArticleNameTag.classList.remove("error");
     }
     if(editArticleImage == ""){
-      alert("必須要有專欄圖片");
+      swal("必須要有專欄圖片", "", "info");
       editFileStyleTag.classList.add("error");
       return false;
     }else{
       editFileStyleTag.classList.remove("error");
     }
     if(editSummernote == ""){
-      alert("文章內容不能空白");
+      swal("文章內容不能空白", "", "info");
       return false;
     }
+    swal("修改成功", "", "success");
+
     editCheck = true;
     if(editCheck){
       $.post('articleR.php',{editATitleNumber,editArticleName,editArticleImage,editArticleStatus,editSummernote},function(res){
@@ -394,8 +407,11 @@ document.addEventListener("click", function(e){
         $.post('articleR.php',{checkEditArticlName},function(res){});
       }
     }
-    alert("下架成功");
-    window.location.reload();
+    swal("下架成功", "", "success").then((willDelete) => {
+      if (willDelete) {
+        window.location.reload();
+      }
+    });
   }
 
   // 上架按鈕 修改專欄狀態
@@ -408,8 +424,11 @@ document.addEventListener("click", function(e){
         $.post('articleR.php',{putOnArticlName},function(res){});
       }
     }
-    alert("上架成功");
-    window.location.reload();
+    swal("上架成功", "", "success").then((willDelete) => {
+      if (willDelete) {
+        window.location.reload();
+      }
+    });
   }
 
 

@@ -32,7 +32,7 @@
     $title = "%".$_POST["title"]."%";
 
 
-    $sql = "SELECT cNumber, cTitle, cStatus, cType, date_format(cDate,'%Y/%m/%d') AS cDate, mName FROM course AS c join member AS m on c.cLecturer = m.mNumber WHERE cDate BETWEEN ? AND DATE_SUB(?,INTERVAL -1 DAY) AND cStatus LIKE ? AND mName LIKE ? AND cType LIKE ? AND cTitle LIKE ?";
+    $sql = "SELECT cNumber, cTitle, cStatus, cType, date_format(cDate,'%Y/%m/%d') AS cDate, mName FROM course AS c join member AS m on c.cLecturer = m.mNumber WHERE cDate BETWEEN ? AND DATE_SUB(?,INTERVAL -1 DAY) AND cStatus LIKE ? AND cLecturer LIKE ? AND cType LIKE ? AND cTitle LIKE ?";
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $dateStart);
     $statement->bindValue(2, $dateEnd);
@@ -244,3 +244,7 @@
     $offSql = "UPDATE course SET cStatus = '0' WHERE cNumber = '$offcNumber'";
     $offStatement = $pdo->query($offSql);
   }
+
+
+
+?>
