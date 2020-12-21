@@ -41,7 +41,7 @@
       
 
 
-      echo '<div class="favoriteBack">';
+      echo '<div class="favoriteBack"><span>加入收藏</span>';
       if(isset($_POST["userAccount"])){
         if($checkNumber == 1){
           echo '<i class="fas fa-heart collected" data-anumber="'.$row["aNumber"].'"></i>';

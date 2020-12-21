@@ -1,9 +1,5 @@
 <?php
 
-// 串聯資料庫
-include("./layout/connect.php");
-
-$gStatement = "";
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +11,8 @@ $gStatement = "";
     <title>Cruise Coders | 語宙試煉</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <link rel="icon" href="../ico.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -24,7 +21,7 @@ $gStatement = "";
         include('layout/spacebackground.php');
         include('layout/header.php');
         ?>
-        <main>
+        <main id="galaxyVue">
             <section class="introduction">
                 <h2>
                     < 語宙試煉 />
@@ -43,14 +40,13 @@ $gStatement = "";
                         <img class="arrow1" src="../images/trial/arrow.png" alt="">
                         <img class="arrow2" src="../images/trial/arrow.png" alt="">
                     </div>
-                    <div class="inGalaxy" id="inGalaxy">
+                    <div class="inGalaxy">
                         <ul>
                             <template v-for="(galaxyName, value) in galaxyNames">
                                 <li>
                                     <a href="#0" class="galaxyIcon">
-                                        <div>{{galaxyName.name}}</div>
-                                        <img :src="galaxyName.pic">
-                                    </a>
+                                        <div>{{galaxyName.gName}}</div>
+                                        <img :src="'../images/trial/galaxy/' + galaxyName.gImage" @click="changePlanet">
                                 </li>
                             </template>
                         </ul>
@@ -62,21 +58,21 @@ $gStatement = "";
                 <h2>
                     < 星球關卡 />
                 </h2>
-                <div class="carousel" id="carousel">
-                    <template v-for="(planetsName, value) in planetsNames">
-                        <div :class="planetsName.className">
-                            <img :src="planetsName.imageSrc">
-                            <div>{{planetsName.divName}}</div>
+                <div class="carousel">
+                    <template v-for="(planetsAndBadge, index) in planetsAndBadges">
+                        <div :class="planetsAndBadge.className">
+                            <img :src='"../images/trial/planets/" + planetsAndBadge.bIcon' @click="rotatePlanet">
+                            <div>{{planetsAndBadge.bName}}</div>
                         </div>
                     </template>
                 </div>
-                <div id="article">
-                    <template v-for="(planetsInfo, value) in planetsInfos">
+                <div>
+                    <template v-for="(planetsAndBadge, index) in planetsAndBadges">
                         <article class="insideArticle">
-                            <h3>{{planetsInfo.planetName}}</h3>
-                            <p>{{planetsInfo.description}}</p>
-                            <img :src="planetsInfo.badgeSrc">
-                            <a :href="planetsInfo.href" class="goToQuiz">進入試煉</a>
+                            <h3>{{planetsAndBadge.bName}}</h3>
+                            <p>{{planetsAndBadge.bInfo}}</p>
+                            <img :src="'../images/trial/badge/'+planetsAndBadge.bBadge">
+                            <a :href="planetsAndBadge.href" class="goToQuiz">進入試煉</a>
                         </article>
                     </template>
                 </div>
@@ -84,12 +80,11 @@ $gStatement = "";
 
             <section class="badge">
                 <h3>星系解鎖成就</h3>
-                <p>當你成功挑戰完所有<span>HTML星系</span>的星球關卡，即可獲得<span>HTML星系</span>徽章喔！</p>
+                <p>當你成功挑戰完所有<span :name="name">{{name}}</span>的星球關卡，即可獲得<span :name="name">{{name}}</span>徽章喔！</p>
                 <div class="galaxyBadge">
-                    <img src="../images/trial/badge/html.png">
+                    <img :galaxyBadge="galaxyBadge" :src="'../images/trial/badge/' + galaxyBadge">
                 </div>
             </section>
-            <a href="#0" class="top"><img src="" alt=""></a>
         </main>
         <?php
         include('layout/footer.php');

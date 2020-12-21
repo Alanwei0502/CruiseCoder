@@ -5,12 +5,13 @@ include("./layout/connect.php");
 
 
 // 撈出所有課程
-$sqlAllCourse = "SELECT C.cNumber, C.cTitle, C.cLecturer, C.cTime, C.cPrice, C.cStatus, C.cType, C.cImage, C.mPhoto, count(R.rNumber) AS rCount, (sum(R.rStar)/count(R.rCourse)) as rRate FROM CruiseCoder.review AS R RIGHT JOIN (SELECT cNumber, cTitle, cLecturer, cTime, cPrice, cStatus, cType, cImage, M.mPhoto FROM course AS C JOIN `member` AS M ON M.mNumber = C.cLecturer) AS C ON C.cNumber = R.rCourse group by C.cNumber;";
+$sqlAllCourse = "SELECT C.cNumber, C.cTitle, C.cLecturer, C.cTime, C.cPrice, C.cStatus, C.cType, C.cImage, C.mPhoto, count(R.rNumber) AS rCount, (sum(R.rStar)/count(R.rCourse)) as rRate FROM cruisecoder.review AS R RIGHT JOIN (SELECT cNumber, cTitle, cLecturer, cTime, cPrice, cStatus, cType, cImage, M.mPhoto FROM course AS C JOIN `member` AS M ON M.mNumber = C.cLecturer) AS C ON C.cNumber = R.rCourse group by C.cNumber;";
 
 $sqlAllCourse = $pdo->prepare($sqlAllCourse);
 $sqlAllCourse->execute();
 // $data = $sqlAllCourse->fetchAll();
 $data = $sqlAllCourse->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 

@@ -17,6 +17,37 @@
         margin: 0 auto;
         color: $white;
 
+        #countdown{
+            display: none;
+            position: relative;
+            margin: auto;
+            margin-bottom: $fontSize*2;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            #countdown-number {
+                color: white;
+                display: inline-block;
+                line-height: 40px;
+            }
+            svg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 40px;
+                transform: rotateY(-180deg) rotateZ(-90deg);
+                circle {
+                    stroke-dasharray: 113px;
+                    stroke-dashoffset: 0px;
+                    stroke-linecap: round;
+                    stroke-width: 2px;
+                    stroke: white;
+                    fill: none;
+                    // animation: countdown 20s linear forwards;
+                }
+            }
+        }
         section{
             width: 100%;
             padding: $fontSize;
@@ -41,13 +72,12 @@
                 margin-bottom: $fontSize;
                 padding: $fontSize;
             }
-
             img{
                 position: absolute;
             }
             .blueBg{
                 padding: $fontSize;
-                background-color: rgba(24, 39, 73, .8);
+                background-color: rgba(24, 39, 73, .9);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -127,6 +157,7 @@
                 }
                 .note{
                     text-decoration: underline;
+                    display: block;
                 }
                 label{
                     font-size: $mp;
@@ -161,7 +192,8 @@
         .inQuiz{
             display: none;
             .question{
-                font-size: $h4;
+                font-size: $bp;
+                line-height: $h3;
                 align-self: flex-start;
                 @include smlPad{
                 	font-size: $bp;
@@ -218,3 +250,16 @@
         
     }
 }
+
+.animation{
+    animation: countdown 20s linear forwards;
+}
+
+@keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
+    }
+    to {
+      stroke-dashoffset: 113px;
+    }
+  }

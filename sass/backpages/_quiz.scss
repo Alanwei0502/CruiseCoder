@@ -2,7 +2,6 @@ div.quiz {
     min-height: 100vh;
     font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
     main {
-        // position: relative;
         h2 {
             @include backTitle;
         }

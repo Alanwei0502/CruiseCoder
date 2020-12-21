@@ -10,6 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 題庫管理</title>
   <link rel="stylesheet" href="./../css/mainB.css">
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -63,7 +65,7 @@
   <script type="text/x-template" id="tableArea">
     <section class="table">
         <div class="btns">
-          <button class="on" @click="mutipleOn">上架試題</button>
+          <button id="on" class="on" @click="mutipleOn">上架試題</button>
           <button class="off" @click="mutipleOff">下架試題</button>
           <button class="add" @click="createQuiz">新增試題</button>
         </div>
@@ -104,7 +106,7 @@
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
         <td><button @click="editQuiz">編輯</button></td>
       </tr>
-      </template>  
+      </template>
     </tbody> 
   </script>
 

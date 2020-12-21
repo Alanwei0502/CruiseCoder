@@ -1,30 +1,74 @@
-let addBtn = document.getElementsByClassName("addButton")[0];
-let addReservationBack = document.getElementsByClassName("addReservationBack")[0];
-let cancelBack = document.getElementsByClassName("cancelBack")[0];
-let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
-addBtn.addEventListener("click", function(){
-  addReservationBackAll.classList.add("on");
-});
-addReservationBack.addEventListener("click", function(){
-  addReservationBackAll.classList.remove("on");
-});
-cancelBack.addEventListener("click", function(){
-  addReservationBackAll.classList.remove("on");
-});
-
-
-new Vue({
+let vm = new Vue({
   el: '#main',     //el: document.getElementById('app'),
   data: {         //變數都放這裡
       dataArr: [],      //select到的所有課程資料
       countPeopel:[],   //每堂課預約的人數
       courses:[],       //所有課程名稱（包含位開課）
+      coursesNumber:[], //所有課程的編號
       courseTitles:[],  //目前開課的課程名稱
-      student: [],
+      students: [],
       pages: {start: 0,end: 5},
       pages2: {start: 6,end: 10},
   },
   methods: {      //函數放這裡
+    addTutorial(e){
+      e.preventDefault();
+      console.log($('#datepicker3')[0].value);
+      console.log($('#addCourseName')[0].value);
+      console.log($('#addCourseTeacher')[0].value);
+      $.ajax({
+        type: 'POST',
+        url: "../backEnd/reservationAddtutorial.php",
+        data: {
+          date: $('#datepicker3')[0].value,
+          CourseName: $('#addCourseName')[0].value,
+          CourseTeacher: $('#addCourseTeacher')[0].value,
+        },
+        success: function (res){
+          // alert(res);
+          swal("新增成功!", "", "success");
+          vm.removeReservationBackAll();
+          vm.mounted();
+        }
+      });
+    },
+
+    addReservationBackAll(){//叫出新增課輔燈箱
+      let addBtn = document.getElementsByClassName("addButton")[0];
+      let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
+      addReservationBackAll.classList.add("on");
+    },
+    removeReservationBackAll(){//關閉新增課輔燈箱
+      let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
+      addReservationBackAll.classList.remove("on");
+    },
+
+    reload(){//重新整理用
+      $.ajax({
+        type: 'POST',
+        url: "../backEnd/reservationSearch.php",
+        data: {
+          beforeTime: '2010/01/01',
+          afterTime: '2030/01/01',
+          teacherName: 'all',
+          courseName: 'all',
+        },
+        success: function (res){
+          let array = JSON.parse(res);
+
+          for(let i = 0; i < array.length; i++){
+            if(array[i]["tStatus"] == "1"){
+              array[i]["tStatus"] =  "上架";
+            }else{
+              array[i]["tStatus"] =  "下架";
+            }
+          }
+          vm.dataArr = array;
+          vm.pages= {start: 0,end: 5};
+        }
+      });
+    },
+
     search(){//搜尋
       var beforeTime =  $('#datepicker1').val();
       var afterTime =  $('#datepicker2').val();
@@ -43,6 +87,7 @@ new Vue({
         },
         success: function (res){
           let array = JSON.parse(res);
+          console.log(array);
 
           for(let i = 0; i < array.length; i++){
             if(array[i]["tStatus"] == "1"){
@@ -53,8 +98,15 @@ new Vue({
           }
           that.dataArr = array;
           that.pages= {start: 0,end: 5};
+
+          if(array.length != 0){
+            $('div.NoData').addClass('hidden');
+          }else{
+            $('div.NoData').removeClass('hidden');
+          }
         }
       });
+
     },
 
     callEditBackAll(e){ //叫出編輯燈箱
@@ -87,7 +139,7 @@ new Vue({
             studentArr.push(student[i].mName);
           }
           console.log(studentArr);
-          that.student = studentArr;
+          that.students = studentArr;
         }
       });
 
@@ -134,6 +186,67 @@ new Vue({
         };
       };
     },
+
+    mutipleOn() {// 快速下架試題
+      let allON = [];
+      let checkRow = document.getElementsByClassName('checkbox');
+
+      for (let i = 0; i < checkRow.length; i++) {
+          if (checkRow[i].checked) {
+            allON.push(checkRow[i].closest('div.tr').querySelector('input.hidden').value);
+          }
+      }
+      $.ajax({
+          type: 'POST',
+          url: '../backEnd/reservationRO.php',
+          data: { allON },
+          success: function (res) {
+            vm.reload();
+            $(".checkbox").prop("checked", false);
+            $('#checkAll').prop("checked", false);
+          },
+      });
+    },
+    mutipleOff() {// 快速下架試題
+      let allOFF = [];
+      let checkRow = document.getElementsByClassName('checkbox');
+
+      for (let i = 0; i < checkRow.length; i++) {
+          if (checkRow[i].checked) {
+            allOFF.push(checkRow[i].closest('div.tr').querySelector('input.hidden').value);
+          }
+      }
+      $.ajax({
+          type: 'POST',
+          url: '../backEnd/reservationRO.php',
+          data: { allOFF },
+          success: function (res) {
+            vm.reload();
+            $(".checkbox").prop("checked", false);
+            $('#checkAll').prop("checked", false);
+          },
+      });
+    },
+    editSave(e){
+      e.preventDefault();
+      console.log($('#datepicker4')[0].value);
+      console.log($('#stauts')[0].value);
+      console.log($('#courseNumber')[0].value);
+
+      $.ajax({
+        type: 'POST',
+        url: "../backEnd/reservationUDT.php",
+        data: {
+          tDate: $('#datepicker4')[0].value,
+          tStatus: $('#stauts')[0].value,
+          tNumber: $('#courseNumber')[0].value,
+        },
+        success: function (res){
+          vm.reload();
+          vm.cloceEditBackAll();
+        }
+      });
+    },
   },
   mounted() {
     $.getJSON("../backEnd/reservationR.php").then(res=>{ 
@@ -146,16 +259,31 @@ new Vue({
         this.dataArr.push(res[0][i]);
         this.countPeopel.push(res[1][i]);
       };
+      // console.log(res[2]);
+      console.log(res);
       for(let i = 0; i < res[2].length; i++){
         this.courses.push(res[2][i]);
       };
       for(let i = 0; i < res[0].length; i++){
         this.courseTitles.push(res[0][i].cTitle);
       };
+      for(let i = 0; i < res[3].length; i++){
+        this.coursesNumber.push(res[3][i].cNumber);
+      }
     });
     
-  },
-  updated() {
+    let gettoday = new Date();
+    let year = gettoday.getFullYear();
+    let month = gettoday.getMonth();
+    let date = gettoday.getDate();
+    $('#datepicker1')[0].value = `${year}/${month}/${date}`;
+    
+    let twomonth = new Date(gettoday.getTime() + 5184000000);
+    let year1 = twomonth.getFullYear();
+    let month1 = twomonth.getMonth();
+    let date1 = twomonth.getDate();
+    $('#datepicker2')[0].value = `${year1}/${month1}/${date1}`;
+    
   },
 });
 
@@ -175,6 +303,21 @@ new Vue({
 // });
 // cancelBack1.addEventListener("click", function(){
   
+// });
+
+
+// let addBtn = document.getElementsByClassName("addButton")[0];
+// let addReservationBack = document.getElementsByClassName("addReservationBack")[0];
+// let cancelBack = document.getElementsByClassName("cancelBack")[0];
+// let addReservationBackAll = document.getElementsByClassName("addReservationBackAll")[0];
+// addBtn.addEventListener("click", function(){
+//   addReservationBackAll.classList.add("on");
+// });
+// addReservationBack.addEventListener("click", function(){
+//   addReservationBackAll.classList.remove("on");
+// });
+// cancelBack.addEventListener("click", function(){
+//   addReservationBackAll.classList.remove("on");
 // });
 
 $(document).click(function(e){

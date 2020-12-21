@@ -7,7 +7,7 @@ let app = new Vue({
         favCourse: [],
         theMember: '',
         star: [],
-        courseTitle:'所有課程',
+        courseTitle: '',
     },
     // ajax抓資料
     created() {
@@ -15,7 +15,7 @@ let app = new Vue({
         this.ajax();
         this.getmember();
         this.getFavCourse();
-        this.starrr();
+
     },
 
     methods: {
@@ -31,8 +31,59 @@ let app = new Vue({
                 success: function (res) {
                     // console.log(res);
                     that.courses = res;
+
+                    // 星星
+                    setTimeout(() => {
+                        for (let i = 0; i < res.length; i++) {
+                            res[i].rRate;
+                            // console.log(res.length);
+                            // console.log(res[i].rRate);
+                            let stry = "<i class='fas fa-star yellow'> </i>";
+                            if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
+                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                }
+
+                            } else {
+                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                }
+                            }
+                        }
+                    }, 1);
+
+                    //進度條
+                    setTimeout(() => {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'allCourseRorder.php',
+                            data: { star },
+                            dataType: 'json',
+                            success: function (res) {
+                                console.log(res);
+                                // console.log(that.courses[0].cNumber);
+                                $(res).each(function (inDex, iTem) {
+                                    let w = ((iTem.count / 10) * 100);
+                                    $(that.courses).each(function (index, item) {
+                                        if (item.cNumber == iTem.iCourse) {
+                                            console.log(w);
+                                            if (w > 100) {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:100%`);
+                                            } else {
+                                                $(`span[data-id=${iTem.iCourse}]`).attr('style', `width:${w}%`);
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        });
+                    }, 1);
                 }
             });
+            this.courseTitle = "所有課程";
+            // this.courses.rRate
+
         },
         getmember() {
             // 取得會員編號
@@ -125,8 +176,6 @@ let app = new Vue({
             this.clearFav();
             this.getFavCourse();
             this.courseTitle = "所有課程";
-
-
         },
         fundingOpen() {
             //載入募資課程
@@ -348,7 +397,7 @@ let app = new Vue({
                 this.getFavCourse();
                 this.courseTitle = "Vue.js";
             }
-           
+
         },
         // // 點擊愛心，加上顏色
         favorites(e) {
@@ -359,18 +408,20 @@ let app = new Vue({
             // console.log(this.theMember);
             // 先判斷有無登入，沒有登入就會return
             if (!checkCookie('user')) {
+
+                swal("請先登入會員!", "登入會員才有辦法收藏課程唷!", "error");
                 // $('.loginWrap').css('display', 'block');
-                $('.logout').css('display', 'none');
-                $('.callLoginBox').css('display', 'block');
-                $('#loginWrap').css('display', 'block');
+                // $('.logout').css('display', 'none');
+                // $('.callLoginBox').css('display', 'block');
+                // $('#loginWrap').css('display', 'block');
 
-                $('#closeIcon').click(function () { //點擊close icon 關閉login
-                    $('#loginWrap').css('display', 'none');
-                });
+                // $('#closeIcon').click(function () { //點擊close icon 關閉login
+                //     $('#loginWrap').css('display', 'none');
+                // });
 
-                $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                    $('#loginWrap').css('display', 'none');
-                });
+                // $('.greyGlass').click(function () {//點擊蒙版 關閉login
+                //     $('#loginWrap').css('display', 'none');
+                // });
                 return;
             }
 
@@ -442,31 +493,29 @@ let app = new Vue({
                     };
                 });
             }
-
-            // console.log($(e.target).closest('div').next('div').find('p.title').text());
-            // console.log($('.course'));
-            // console.log($('div.favorites'));
-            // let cNumber = item.cNumber;
-            // console.log(cNumber);
         },
-        starrr() {
-            let star = $('div.star');
+        searchTitle() {
+            // input模糊搜尋
+            // 搜尋框的值(都轉成大寫，並去除前後空白)
+            // let searchInput = $('#search').val().toUpperCase();
+            let searchInput = $('#search').val().trim();
+            console.log(searchInput);
 
-            // let star = document.getElementsByClassName('star');
-            // let star = starDiv.getAttribute('data-star');
-            console.log(star);
+            // 自定義Contains，不分大小寫
+            jQuery.expr[':'].Contains = function (a, i, m) {
+                return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+            };
 
-            let starRate = [];
-            for (let i = 0; i < star.length ; i++) { 
-                starRate.push(star[i].getAttribute('data-star'));
+            if (searchInput != "") {
+                $("p.title:Contains('" + searchInput + "')").closest('a.course').show();
+                $('p.title').not($("p.title:Contains('" + searchInput + "')")).closest('a.course').hide();
+
+            } else {
+                $("p.title").closest('a.course').hide();
             }
-            console.log(starRate);
         }
-
     },
-
 });
-
 
 // 頁籤顏色
 $(function () {
@@ -480,8 +529,6 @@ $(function () {
         $(this).closest(".category").find("button.tab").removeClass("-on");
         $(this).addClass("-on");
     });
-
-
 
 });
 

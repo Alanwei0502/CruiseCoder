@@ -143,7 +143,7 @@ if (isset($_FILES["addArticleFileName"])) {
   //Web根目錄真實路徑
   $serverRoot = $_SERVER["DOCUMENT_ROOT"];
   //欲放置的檔案路徑  要記得路徑要換
-  $filePath = $serverRoot . "/CruiseCoderDev/images/article/" . $_FILES["addArticleFileName"]["name"];
+  $filePath = $serverRoot . "/CruiseCoder/images/article/" . $_FILES["addArticleFileName"]["name"];
   //將暫存檔搬移到正確位置
   copy($filePathTemp, $filePath);
 
@@ -269,6 +269,13 @@ if(isset($_POST["checkEditArticlName"])){
   
   $sqlCheckEdit = "UPDATE article SET aStatus = 0 WHERE aTitle = '$checkEditArticlName'";
   $statement = $pdo->query($sqlCheckEdit);
-  
-  
 }
+
+// 勾選到的全部更改為上架
+if(isset($_POST["putOnArticlName"])){
+  $putOnArticlName = $_POST["putOnArticlName"];
+  
+  $sqlCheckEdit = "UPDATE article SET aStatus = 1 WHERE aTitle = '$putOnArticlName'";
+  $statement = $pdo->query($sqlCheckEdit);
+}
+

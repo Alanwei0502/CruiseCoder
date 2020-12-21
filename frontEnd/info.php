@@ -27,6 +27,8 @@ $infoMember = $statement->fetchAll();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 
 
 </head>

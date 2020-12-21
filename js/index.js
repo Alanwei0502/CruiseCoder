@@ -58,14 +58,14 @@ $(document).ready(function() {
             plotShadow: false,
         },
         title: {
-            text: ''
+            text: '',
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         accessibility: {
             point: {
-                valueSuffix: '%'
+                valueSuffix: '%',
             }
         },
         plotOptions: {
@@ -78,22 +78,18 @@ $(document).ready(function() {
                 }
             }
         },
-        series: [{
+        series: [
+            {
                 name: 'Brands',
                 colorByPoint: true,
-                data: [{
-                    name: '優勢二',
-                    y: 33.3,
-                }, {
-                    name: '優勢一',
-                    y: 33.3,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: '優勢三',
-                    y: 33.3,
-                }]
-        }]
+                data: [
+                    {name: '優勢2：線上課程',y: 33.3,}, 
+                    {name: '優勢1：課後輔導 ',y: 33.3,sliced: true,selected: true}, 
+                    {name: '優勢3：線上測驗',y: 33.3,}
+                ]
+            },
+            
+        ]
     });
 
     //↓移除套件預設圖型
@@ -111,6 +107,7 @@ $(document).ready(function() {
 
     
     //↑移除套件預設圖型
+    
     $('.highcharts-color-0').click(function(){
         $('#text1,#text2,#text3').css('display','none'); 
         // $('#text2').css('display','none'); 
@@ -140,6 +137,11 @@ $(document).ready(function() {
     if(window.outerWidth <= 590){
         $('.highcharts-label text').css('font-size','12px')
     }
+
+    $('g.highcharts-data-labels').css('display','none')
+
+
+    // document.getElementById("dataLabel").setAttribute("style", "font-size: 25px");
     // 圓餅圖套件結束
 
 
@@ -208,122 +210,27 @@ $(document).ready(function() {
     }
     add = setInterval(startMove, 4200)
 
-    // window.onresize = function(){
-    //     itemWidth = $('div.wrapGeneral').outerWidth(true);
-    //     console.log(CourseWidth);
-    // }
+    new Vue({
+        el: '#slide',     //el: document.getElementById('app'),
+        data: {         //變數都放這裡
+            allCourses: [],
+        },
+        methods: {
+
+        },
+        mounted(){
+            $.getJSON("../frontEnd/indexR.php").then(res=>{
+                for(let i = 0; i < 9 ;i++){
+                    this.allCourses.push(res[i]);
+                };
+                // console.log(res);
+                // console.log(this.allCourse);
+            });
+        },
+    });
 
 
-    // if(CourseWidth <= 768){
-    //     var Circle = `<span class="Circle"></span>`;
-    //     for(let i = 0; i < 6 ;i++){
-    //         controlCircle.insertAdjacentHTML("beforeend", Circle);
-    //     }
-    //     $('span.Circle').click(function(){
-    //         var span = $('span');
-    
-    //         // 使用迴圈來清除所有的bgcBlack
-    //         for(let i = 0; i < span.length; i++){
-    //             span[i].classList.remove('bgcBlack');
-    //         }
-    
-    //         // 點擊的span加上bgcBlack
-    //         $(this).addClass('bgcBlack');
-    //         var index = $(this).index();
-    
-    //         // 輪撥執行   
-    //         $('#slide').animate({
-    //         left: index * itemWidth * -1
-    //         },1200);
-    
-    //         // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
-    //         clearInterval(add);
-    
-    //         // 重新再給一次setInterval
-    //         setTimeout(function(){
-    //             add = setInterval(startMove, 4200);
-    //         })
-    
-    //     });
-    
-    
-    //     function startMove(){
-    //         // 清除bgcBlack  並在下一個span加上bgcBlack
-    //         $('span.bgcBlack').removeClass('bgcBlack').next().addClass('bgcBlack');
-    
-    //         // 如果沒有任何一個span有bgcBlack  並在第一個加上bgcBlack
-    //         if($('span.bgcBlack').index() == -1){
-    //             $('div.controlCircle span').first().addClass('bgcBlack');
-    
-    //             // 回到0的位置
-    //             $('#slide').animate({
-    //                 left: 0
-    //             },1200);
-    
-    //         }else{
-    //             // 取得span.bgcBlack目前索引值
-    //             var bgcBlack_index = $('span.bgcBlack').index();
-    
-    //             $('#slide').animate({
-    //                 left: bgcBlack_index * itemWidth * -1
-    //             },1200);
-    //         }
-    //     }
-    //     add = setInterval(startMove, 4200);
-    // }
-    // else{
-    //     $('span.Circle').click(function(){
-    //         var span = $('span');
-    
-    //         // 使用迴圈來清除所有的bgcBlack
-    //         for(let i = 0; i < span.length; i++){
-    //             span[i].classList.remove('bgcBlack');
-    //         }
-    
-    //         // 點擊的span加上bgcBlack
-    //         $(this).addClass('bgcBlack');
-    //         var index = $(this).index();
-    
-    //         // 輪撥執行   
-    //         $('#slide').animate({
-    //         left: index * (itemWidth * 3) * -1
-    //         },1200);
-    
-    //         // 清除setInterval 避免click span標籤後 setInterval又接著執行一次
-    //         clearInterval(add);
-    
-    //         // 重新再給一次setInterval
-    //         setTimeout(function(){
-    //             add = setInterval(startMove, 4200);
-    //         })
-    
-    //     });
-    
-    
-    //     function startMove(){
-    //         // 清除bgcBlack  並在下一個span加上bgcBlack
-    //         $('span.bgcBlack').removeClass('bgcBlack').next().addClass('bgcBlack');
-    
-    //         // 如果沒有任何一個span有bgcBlack  並在第一個加上bgcBlack
-    //         if($('span.bgcBlack').index() == -1){
-    //             $('div.controlCircle span').first().addClass('bgcBlack');
-    
-    //             // 回到0的位置
-    //             $('#slide').animate({
-    //                 left: 0
-    //             },1200);
-    
-    //         }else{
-    //             // 取得span.bgcBlack目前索引值
-    //             var bgcBlack_index = $('span.bgcBlack').index();
-    
-    //             $('#slide').animate({
-    //                 left: bgcBlack_index * (itemWidth * 3) * -1
-    //             },1200);
-    //         }
-    //     }
-    //     add = setInterval(startMove, 4200)
-    // }
 
-    // 課程輪撥結束
+
+
 });

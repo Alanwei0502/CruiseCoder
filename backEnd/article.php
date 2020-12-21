@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>後台 | 文章管理</title>
+  <link rel="icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
   <!-- datepicker -->
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -42,7 +44,7 @@
             <option value="1" selected>上架</option>
           </select>
         </div>
-        <div class="searchContentBottm">
+        <div class="searchContentBottom">
           <div class="articleName">
             <label>專欄名稱</label>
             <input type="text" class="searchName">
@@ -51,11 +53,12 @@
         </div>
       </div>
       <div class="addOrCancle">
+        <button class="putOnButton">上架專欄</button>
         <button class="cancleButton">下架專欄</button>
         <button class="addButton">新增專欄</button>
       </div>
       <div class="table" id="table">
-        <div class="tr">
+        <div class="tr title">
           <div class="td"><label><input type="checkbox" class="allCheckBox"><span></span></label></div>
           <div class="td">上架日期</div>
           <div class="td">狀態</div>
