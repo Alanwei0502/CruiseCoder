@@ -142,6 +142,7 @@ Vue.component("tableRow", {
             let gNumber = $(e.target).closest('tr').find('.gNumber').text();
             $('.openQuiz').text('編輯試題');
             $('.openBadge').text('編輯徽章');
+            let that = this;
             $.ajax({
                 type: 'POST',
                 url: 'quizRE.php',
@@ -149,7 +150,65 @@ Vue.component("tableRow", {
                 dataType: 'json',
                 success: function (res) {
                     console.log(res);
-                    $('input.fieldName').val() = res[0]["gName"];
+                    console.log(res[0][0].gName);
+                    // 領域名稱
+                    $('input.fieldName').val(res[0][0].gName);
+                    // 上下架狀態
+                    $('select.onOrOff').val(res[0][0].gStatus);
+                    // 題目
+                    let str = `
+                        <div class="downQuestion">
+                            <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
+                            <div class="contentQ">
+                                <textarea name="qContent" placeholder="請輸入題目內容"></textarea>
+                                <ul>
+                                    <li>
+                                        <span>A</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>B</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>C</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>D</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ansAndSta">
+                                <select name="qAnswer">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                                <select name="qState">
+                                    <option value="1">on</option>
+                                    <option value="0">off</option>
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                    // 針對題目難度新增對應的空白input
+                    // 將對應的題目塞入空白input
+                    for (let i = 0; i < res[1].length; i++) {
+                        if (res[1][i].qLevel == "1") {
+                            $('.mainEdit[data-level = "1"]').find('.topFunction').after(str);
+                            $('.mainEdit[data-level = "1"].downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
+
+                        } else if (res[1][i].qLevel == "2") {
+                            $('.mainEdit[data-level = "2"]').find('.topFunction').after(str);
+                            $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
+                        } else {
+                            $('.mainEdit[data-level = "3"]').find('.topFunction').after(str);
+                            $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
+                        }
+                    }
                 },
             });
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);

@@ -48,7 +48,7 @@ if (isset($_POST["gNumber"])) {
 
     $data = [];
 
-    array_push($data, $searchGalaxy->fetchAll(PDO::FETCH_ASSOC), $searchQuiz->fetchAll(PDO::FETCH_ASSOC), $searchBadge->fetch(PDO::FETCH_ASSOC), $searchSelection->fetch(PDO::FETCH_ASSOC));
+    array_push($data, $searchGalaxy->fetchAll(PDO::FETCH_ASSOC), $searchQuiz->fetchAll(PDO::FETCH_ASSOC), $searchBadge->fetchAll(PDO::FETCH_ASSOC), $searchSelection->fetchAll(PDO::FETCH_ASSOC));
     echo json_encode($data);
 }
 
