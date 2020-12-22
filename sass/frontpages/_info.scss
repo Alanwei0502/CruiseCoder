@@ -671,6 +671,11 @@
                     .aic {
                         position: relative;
         
+                        .aritcleA{
+                            display: block;
+                            text-decoration: none;
+                            width: 100%;
+                        }
                         // border: 1px solid #fff;
                         @include smlPad {
                             margin: 15px 0;

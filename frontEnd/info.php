@@ -115,7 +115,7 @@ $infoMember = $statement->fetchAll();
                 <div class="favorites" :data-courseid="course.cNumber">
                   <i class="fas fa-heart" @click="favorite"></i>
                 </div>
-                <a class=" img" href="course_start_class.php">
+                <a class=" img" :href="'course_start_class.php?CourseID='+course.cNumber">
                   <img :src="course.cImage" alt="">
                 </a>
                 <!-- <a href="" class="Main"> -->
@@ -154,7 +154,7 @@ $infoMember = $statement->fetchAll();
                 <div class="favorites" :data-courseid="FavCourse.cNumber">
                   <i class="fas fa-heart is-active" @click="favorite"></i>
                 </div>
-                <a class="img" href="course_start_class.php">
+                <a class="img" :href="'course_start_class.php?CourseID='+FavCourse.cNumber">
                   <img :src="FavCourse.cImage" :alt="FavCourse.cTitle">
                 </a>
                 <!-- <a href="" class="Main"> -->
@@ -182,7 +182,7 @@ $infoMember = $statement->fetchAll();
                 <div class="favorites" :data-courseid="FavCourse.cNumber">
                   <i class="fas fa-heart is-active" @click="favorite"></i>
                 </div>
-                <a class="img" href="course_Fundraising.php">
+                <a class="img" :href="'course_Fundraising.php?CourseID='+FavCourse.cNumber">
                   <img :src="FavCourse.cImage" :alt="FavCourse.cTitle">
                 </a>
                 <div class="c_Main">
@@ -214,11 +214,13 @@ $infoMember = $statement->fetchAll();
         <div class="info_article">
           <template v-for="FavArticle in FavArticles">
             <div class="aic">
-              <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt="love"></div>
-              <img :src="'../images/article/' + FavArticle.aImage" :alt="FavArticle.aTitle">
-              <div>
-                <p>{{FavArticle.aTitle}}</p>
-              </div>
+              <a :href="'article.php?aTitle='+FavArticle.aTitle" class="aritcleA">
+                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt="love"></div>
+                <img :src="'../images/article/' + FavArticle.aImage" :alt="FavArticle.aTitle">
+                <div>
+                  <p>{{FavArticle.aTitle}}</p>
+                </div>
+              </a>
             </div>
           </template>
         </div>
