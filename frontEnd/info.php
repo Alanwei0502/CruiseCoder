@@ -115,7 +115,7 @@ $infoMember = $statement->fetchAll();
                 <div class="favorites" :data-courseid="course.cNumber">
                   <i class="fas fa-heart" @click="favorite"></i>
                 </div>
-                <a class=" img" :href="'course_start_class.php?CourseID='+course.cNumber">
+                <a class=" img" :href="'course_purchased.php?CourseID='+course.cNumber">
                   <img :src="course.cImage" alt="">
                 </a>
                 <!-- <a href="" class="Main"> -->
