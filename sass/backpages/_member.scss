@@ -9,7 +9,7 @@ div.member{
             @include blockStyle;
             @include clearfixed;
             label{
-                font-size: $bp;
+                font-size: $mp;
             }
             input{
                 @include inputTextStyle;
