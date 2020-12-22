@@ -26,10 +26,13 @@
       
       $peopleNumber = $peopleStatement->rowCount();
 
-      // 確認使用者是否已預約  之後要換使用者帳號變數 ccc那裏
-      $chcekBookingSql = "SELECT * FROM tutorial AS t join reservation AS r on t.tNumber = r.reTutorial join member AS m on r.reMember = m.mNumber WHERE DATE_FORMAT(tDate, '%Y%m%d') = $reservationDate AND m.mAccount = 'ccc'";
-      $checkStatement = $pdo->query($chcekBookingSql);
-      $checkNumber = $checkStatement->rowCount();
+      // 確認使用者是否已預約
+      if(isset($_POST["userAccount"])){
+        $userAccount = $_POST["userAccount"];
+        $chcekBookingSql = "SELECT * FROM tutorial AS t join reservation AS r on t.tNumber = r.reTutorial join member AS m on r.reMember = m.mNumber WHERE DATE_FORMAT(tDate, '%Y%m%d') = $reservationDate AND m.mAccount = '$userAccount'";
+        $checkStatement = $pdo->query($chcekBookingSql);
+        $checkNumber = $checkStatement->rowCount();
+      }
 
       echo '
       <p>'. $row["cTitle"] .'</p>
@@ -37,12 +40,20 @@
       <p>18:00~22:00</p>
       <p>目前人數 '.$peopleNumber.' / 10</p>
       ';
-      if($checkNumber > 0){
-        echo '<button class="bookAlready" disabled>已預約</button>';
-      }else if($peopleNumber < 10){
-        echo '<button class="booking" data-tnumber="'. $row["tNumber"] .'">我要預約</button>';
-      }else if($peopleNumber == 10){
-        echo '<button class="bookFullBtn" disabled>預約已滿</button>';
+      if(isset($_POST["userAccount"])){
+        if($checkNumber > 0){
+          echo '<button class="bookAlready" disabled>已預約</button>';
+        }else if($peopleNumber < 10){
+          echo '<button class="booking" data-tnumber="'. $row["tNumber"] .'">我要預約</button>';
+        }else if($peopleNumber == 10){
+          echo '<button class="bookFullBtn" disabled>預約已滿</button>';
+        }
+      }else{
+        if($peopleNumber < 10){
+          echo '<button class="booking" data-tnumber="'. $row["tNumber"] .'">我要預約</button>';
+        }else if($peopleNumber == 10){
+          echo '<button class="bookFullBtn" disabled>預約已滿</button>';
+        }
       }
     }
   }

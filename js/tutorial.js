@@ -412,30 +412,59 @@ $(document).ready(function(){
 });
 
 document.addEventListener("click", function(e){
-  // 月曆內課輔時間點擊跳窗帶入資料(背景)
-  if(e.target.classList.contains("cellBody")){
-    bookLightBoxAll.classList.add("on");
-    let reservationDate = e.target.getAttribute("data-date")
-    $.post('tutorialR.php',{reservationDate},function(res){
-      $('#feedBack').html(res);
-    });
-  }
-  // 月曆內課輔時間點擊跳窗帶入資料、手機橫列式(文字)
-  if(e.target.classList.contains("courseTitle")){
-    bookLightBoxAll.classList.add("on");
-    let reservationDate = e.target.parentElement.getAttribute("data-date");
-    $.post('tutorialR.php',{reservationDate},function(res){
-      $('#feedBack').html(res);
-    });
-  }
+  if(checkCookie('user')){
+    // 月曆內課輔時間點擊跳窗帶入資料(背景)
+    if(e.target.classList.contains("cellBody")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.getAttribute("data-date")
+      $.post('tutorialR.php',{reservationDate ,userAccount},function(res){
+        $('#feedBack').html(res);
+      });
+    }
+    // 月曆內課輔時間點擊跳窗帶入資料、手機橫列式(文字)
+    if(e.target.classList.contains("courseTitle")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.parentElement.getAttribute("data-date");
+      $.post('tutorialR.php',{reservationDate ,userAccount},function(res){
+        $('#feedBack').html(res);
+      });
+    }
+  
+    // 手機板橫列式點擊跳窗帶入資料(背景)
+    if(e.target.classList.contains("phoneDayRight")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.getAttribute("data-date")
+      $.post('tutorialR.php',{reservationDate ,userAccount},function(res){
+        $('#feedBack').html(res);
+      });
+    }
 
-  // 手機板橫列式點擊跳窗帶入資料(背景)
-  if(e.target.classList.contains("phoneDayRight")){
-    bookLightBoxAll.classList.add("on");
-    let reservationDate = e.target.getAttribute("data-date")
-    $.post('tutorialR.php',{reservationDate},function(res){
-      $('#feedBack').html(res);
-    });
+  }else{
+    // 月曆內課輔時間點擊跳窗帶入資料(背景)
+    if(e.target.classList.contains("cellBody")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.getAttribute("data-date")
+      $.post('tutorialR.php',{reservationDate},function(res){
+        $('#feedBack').html(res);
+      });
+    }
+    // 月曆內課輔時間點擊跳窗帶入資料、手機橫列式(文字)
+    if(e.target.classList.contains("courseTitle")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.parentElement.getAttribute("data-date");
+      $.post('tutorialR.php',{reservationDate},function(res){
+        $('#feedBack').html(res);
+      });
+    }
+  
+    // 手機板橫列式點擊跳窗帶入資料(背景)
+    if(e.target.classList.contains("phoneDayRight")){
+      bookLightBoxAll.classList.add("on");
+      let reservationDate = e.target.getAttribute("data-date")
+      $.post('tutorialR.php',{reservationDate},function(res){
+        $('#feedBack').html(res);
+      });
+    }
   }
 
   // 預約功能
