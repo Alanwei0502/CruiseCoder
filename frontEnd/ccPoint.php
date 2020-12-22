@@ -9,7 +9,7 @@
   $statement->bindValue(1 , "$mNumber");
   $statement->execute();
   $infoMember = $statement->fetchAll(PDO::FETCH_ASSOC);
-  echo $infoMember[0]["mSignIn"];
+  // echo $infoMember[0]["mSignIn"];
 ?>
 
 <?php
@@ -36,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link rel="icon" href="../ico.ico" type="image/x-icon" />
-<link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 
 
 </head>
@@ -64,7 +64,7 @@
         </div>
       
         <div class="getNotice">
-          <p>今日簽到已獲得<span></span>CC Point!</p>
+          <p>保持簽到，拿到手軟！</p>
         </div>
       </div>
       <div class="ccPointDay">
@@ -117,14 +117,7 @@
       </div>
 
 
-      <!-- 下拉箭頭 -->
-      <section>
-        <p>SCROLL DOWN CSS</p>
-        <a href="#" class="scroll-down" address="true"></a>
-        </section>
-        <section class="ok">
-        <p>OK SCROLL !</p>
-      </section>
+      
 
 
 
