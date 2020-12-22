@@ -18,12 +18,12 @@
 </head>
 
 <body>
-  <div class="backEndWrap orderMain">
+  <div class="backEndWrap orderMain" id="app">
     <?php
     include('layout/sideBar.php'); //aside
     ?>
 
-    <main id="app">
+    <main>
       <!-- 在這裡面coding -->
       <h2>訂單管理</h2>
       <form class="filter">
@@ -60,19 +60,19 @@
             </tr>
           </thead>
           <tbody>
-            <template v-for="or in order">
-            <tr class="row">
-              <td class="oDate">{{or.oDate}}</td>
-              <td class="oNumber">{{or.oNumber}}</td>
-              <td class="oMember">{{or.oMember}}</td>
-              <td class="oTotal">{{or.oTotal}}</td>
-              <td><button class="view" @click="viewInvoice">查看</button></td>
-              <!-- <td v-for="or in order">{{or.oDate}}</td>
+            <template v-for="(or,index) in order.slice(items.start, items.end)">
+              <tr class="row">
+                <td class="oDate">{{or.oDate}}</td>
+                <td class="oNumber">{{or.oNumber}}</td>
+                <td class="oMember">{{or.oMember}}</td>
+                <td class="oTotal">{{or.oTotal}}</td>
+                <td><button class="view" @click="viewInvoice">查看</button></td>
+                <!-- <td v-for="or in order">{{or.oDate}}</td>
               <td v-for="or in order">{{or.oNumber}}</td>
               <td v-for="or in order">{{or.oMember}}</td>
               <td v-for="or in order">{{or.oTotal}}</td> 
               <td><button class="view">查看</button></td> -->
-            </tr>
+              </tr>
             </template>
             <!-- <tr>
               <td>2020/10/26</td>
@@ -106,8 +106,8 @@
         </table>
       </div>
       <div class="changePage">
-        <button class="lastPage">上一頁</button>
-        <button class="nextPage">下一頁</button>
+        <button class="lastPage" @click="lastPage">上一頁</button>
+        <button class="nextPage" @click="nextPage">下一頁</button>
       </div>
     </main><!-- 在這裡面coding -->
     <!-- 訂單資訊 -->
@@ -120,40 +120,40 @@
             <tbody>
               <tr>
                 <td class="listTitle">訂單編號</td>
-                <td>2020103012000001</td>
+                <td class="oNumberIn">5749920697</td>
               </tr>
               <tr>
                 <td class="listTitle">購買日期</td>
-                <td>2020/10/30 12：00</td>
+                <td class="oDateIn">2020/10/30 12：00</td>
               </tr>
               <tr>
                 <td class="listTitle">會員編號</td>
-                <td>M0001</td>
+                <td class="oMemberIn">M0001</td>
               </tr>
               <tr>
                 <td class="listTitle">會員姓名</td>
-                <td>黃家偉</td>
+                <td class="mNameIn">黃家偉</td>
               </tr>
               <tr>
                 <td class="listTitle">購買課程</td>
                 <td>
-                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
-                  <p>CSS大補帖—金魚也不太能懂的上拉式選單 1,100</p>
+                  <template v-for="inv in invlist">
+                    <p>{{inv.cTitle}}<span>{{inv.cPrice}}</span> </p>
+                  </template>
                 </td>
+
               </tr>
               <tr>
                 <td class="listTitle">原始金額</td>
-                <td>4,400</td>
+                <td class="rtIn">4,400</td>
               </tr>
               <tr>
                 <td class="listTitle">CC.Point折抵</td>
-                <td>111</td>
+                <td class="occIn">111</td>
               </tr>
               <tr>
                 <td class="listTitle">實付金額</td>
-                <td>4,289</td>
+                <td class="oTotalIn">4,289</td>
               </tr>
             </tbody>
           </table>
