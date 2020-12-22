@@ -44,11 +44,21 @@
               <option value="Cate" class='tab' selected="selected">課程類型</option>
               <option value="html" class="tab">HTML</option>
               <option value="css" class="tab">CSS</option>
+              <option value="js" class="tab">JavaScript</option>
               <option value="jquery" class="tab">jQuery</option>
               <option value="sass" class="tab">SASS</option>
               <option value="php" class="tab">PHP</option>
               <option value="mysql" class="tab">MySQL</option>
-              <!-- <option value="Vue" data-target="vue" class="tab">Vue</option> -->
+              <option value="vue" class="tab">Vue</option>
+              <option value="github" class="tab">Github</option>
+              <option value="gulp" class="tab">Gulp</option>
+              <option value="ajax" class="tab">AJAX</option>
+              <!-- <option value="ui/ux" class="tab">UI / UX</option> -->
+              <option value="xd" class="tab">Adobe XD</option>
+              <option value="photoshop" class="tab">PhotoShop</option>
+
+
+
             </select>
           </div>
         </div>
