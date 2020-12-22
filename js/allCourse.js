@@ -275,6 +275,7 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        
                     }
                 });
                 this.clearFav();
