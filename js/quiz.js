@@ -117,7 +117,7 @@ for (let j = 0; j < nextQuestion.length; j++) {
                 console.log(userAccount);
                 console.log(answerCount);
                 console.log(badgeField);
-                if (answerCount == $('.afterQuiz').length && userAccount) {
+                if (answerCount >= $('.nextQuestion').length && userAccount) {
                     console.log("123");
                     $.ajax({
                         type: 'POST',
