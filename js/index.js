@@ -1,15 +1,6 @@
 $(document).ready(function() {
 
-    // touch套件↓↓↓↓↓
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        freeMode: true,
-        pagination: {
-        clickable: false,
-        },
-    });
-    // touch套件↑↑↑↑↑
+
 
     // 輪撥圖開始↓↓↓↓↓
     var curPage = 1;
@@ -150,7 +141,7 @@ $(document).ready(function() {
 
     // 課程輪撥開始↓↓↓↓↓
 
-    new Vue({
+    let vm = new Vue({
         el: '#slide',     //el: document.getElementById('app'),
         data: {         //變數都放這裡
             allCourses: [],
@@ -172,6 +163,33 @@ $(document).ready(function() {
     window.onresize = function(){
         itemWidth = $('div.wrapGeneral').outerWidth(true);
     }
+    setTimeout(function(){
+        itemWidth = $('div.wrapGeneral').outerWidth(true);
+        var starWarp = document.querySelectorAll('div.star');
+        for(let i = 0; i < 9 ; i++){
+            console.log(Math.floor(vm.allCourses[i].rRate));
+            if(vm.allCourses[i].rRate >= 1){
+                // console.log('aaa');
+                // Math.floor(vm.allCourses[i].rRate)
+                // vm.allCourses[i].rRate;
+                for(let j = 0; j < Math.floor(vm.allCourses[i].rRate); j++){
+                    starWarp[i].innerHTML += `<i class="fas fa-star"></i>`;
+                    zoroStar = 5 - Math.floor(vm.allCourses[i].rRate);
+                    
+                    
+                }
+                for(let k = 0; k < zoroStar; k++){
+                    starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
+                }
+
+
+            }else{
+                for(let l = 0 ; l < 5; l++){
+                    starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
+                }
+            };
+        };
+    },150);
 
     $('span.Circle').click(function(){
         var span = $('span');
@@ -263,17 +281,6 @@ $(document).ready(function() {
             }
         },
         mounted(){
-
-            var swiper = new Swiper('.swiper-container', {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                freeMode: true,
-                pagination: {
-                clickable: false,
-                },
-            });
-
-            
             $('.CSS').click(function(){
                 $('.textContent').text(vm1.PlanetText[0]);
             });
@@ -305,9 +312,29 @@ $(document).ready(function() {
                     }
                 }
             });
+
+            
+        },
+        updated() {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                freeMode: true,
+                pagination: {
+                clickable: false,
+                },
+            });
         },
     });
 
+    // var swiper = new Swiper('.swiper-container', {
+    //     slidesPerView: 3,
+    //     spaceBetween: 30,
+    //     freeMode: true,
+    //     pagination: {
+    //     clickable: false,
+    //     },
+    // });
 
     // $(document).click(function(e){
     //     console.log(e.target);

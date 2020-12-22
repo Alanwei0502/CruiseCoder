@@ -140,7 +140,7 @@
                         <div class="favorites">
                             <!-- <i class="fas fa-heart"></i> -->
                         </div>
-                        <a class="img" href="./allCourse.php">
+                        <a class="img" :href=`course_start_class.php?CourseID=${allCourses.cNumber}`>
                             <img :src="allCourse.cImage" alt="">
                         </a>
                         <div class="c_Main">
@@ -148,11 +148,7 @@
                             <div class="time">課程總長：{{allCourse.cTime}}</div>
                             <div class="comment">
                                 <div class="star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                
                                 </div>
                                 <a class="text" href="">{{allCourse.rCount}}則評價</a>
                             </div>

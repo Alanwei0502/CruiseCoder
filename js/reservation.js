@@ -26,7 +26,12 @@ let vm = new Vue({
         },
         success: function (res){
           // alert(res);
-          swal("新增成功!", "", "success");
+          swal("新增成功!", "", "success")
+          .then((willDelete) => {
+              if (willDelete) {
+                  window.location.reload(); 
+              }
+          });
           vm.removeReservationBackAll();
           vm.mounted();
         }
