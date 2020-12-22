@@ -122,11 +122,14 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
     $bBadge = $_POST["badge"][4];
     $bgImg = $_POST["badge"][5];
 
+
+
     for ($b = 0; $b < 4; $b++) {
         // counting current number of rows
         $countBadge->execute();
         $badgeCount = $countBadge->fetchColumn();
         $idB = "B" . sprintf("%04d", $badgeCount + 1);
+
 
         $createBadge->bindValue(1, $idB);
         $createBadge->bindValue(2, $bGalaxy[0] . "星系");
@@ -141,4 +144,18 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
     // echo "success";
+
+    if (isset($_FILES["badge"])) {
+        $filePathTemp = $_FILES["badge"]["tmp_name"];
+        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/badge" . $_FILES["badge"]["name"];
+        copy($filePathTemp, $filePath);
+
+        $filePathTemp = $_FILES["badge"]["tmp_name"];
+        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/galaxy" . $_FILES["badge"]["name"];
+        copy($filePathTemp, $filePath);
+
+        $filePathTemp = $_FILES["badge"]["tmp_name"];
+        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/planets" . $_FILES["badge"]["name"];
+        copy($filePathTemp, $filePath);
+    }
 }

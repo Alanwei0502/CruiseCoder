@@ -51,7 +51,7 @@ startQuiz[0].addEventListener('click', function () {
         $('#countdown').css('display', 'block');
         $('#countdown svg circle').addClass('animation');
         let countdownNumberEl = document.getElementById('countdown-number');
-        let countdown = 20;
+        let countdown = $('.afterQuiz').length * 10;
 
         countdownNumberEl.textContent = countdown;
 
@@ -80,13 +80,6 @@ startQuiz[0].addEventListener('click', function () {
     }
 });
 
-// 中斷計時器
-// $('button.nextQuestion').eq(1).click(function () {
-//     $('#countdown').css('display', 'none');
-//     $('#countdown svg circle').removeClass('animation');
-//     clearInterval(add);
-// });
-
 
 // 綁定下一題的按鈕
 for (let j = 0; j < nextQuestion.length; j++) {
@@ -112,6 +105,7 @@ for (let j = 0; j < nextQuestion.length; j++) {
 
             // 最後一個下一題按鈕
             if (j == nextQuestion.length - 1) {
+                // 中斷計時器
                 $('#countdown').css('display', 'none');
                 $('#countdown svg circle').removeClass('animation');
                 clearInterval(add);
@@ -123,7 +117,7 @@ for (let j = 0; j < nextQuestion.length; j++) {
                 console.log(userAccount);
                 console.log(answerCount);
                 console.log(badgeField);
-                if (answerCount == 2 && userAccount) {
+                if (answerCount == $('.afterQuiz').length && userAccount) {
                     console.log("123");
                     $.ajax({
                         type: 'POST',

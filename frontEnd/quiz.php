@@ -8,11 +8,15 @@ include("./layout/connect.php");
 // 預備SQL敘述，要先將其字串化
 // $statement = "SELECT qContent, qAnswer, sOption, sContent FROM quiz JOIN selection ON qNumber = sQuiz WHERE qSubject = ? AND qLevel = ?";
 $qStatement = "SELECT * FROM quiz WHERE qSubject = ? AND qLevel = ?";
-$sStatement = "SELECT * FROM selection AS S JOIN (SELECT qNumber FROM quiz WHERE qSubject = ? AND qLevel = ?) AS Q ON S.sQuiz = Q.qNumber;";
+$sStatement = "SELECT * FROM selection AS S JOIN (SELECT * FROM quiz WHERE qSubject = ? AND qLevel = ?) AS Q ON S.sQuiz = Q.qNumber";
+// 計算總共幾題
+$countStatement = "SELECT count(*) AS num FROM quiz WHERE qSubject = ? AND qLevel = ?";
+
 
 // 使用prepare方法將這個字串進行一個預存產生一個物件
 $qStatement = $pdo->prepare($qStatement);
 $sStatement = $pdo->prepare($sStatement);
+$countStatement = $pdo->prepare($countStatement);
 
 
 // if(isset($_GET[""])){
@@ -31,22 +35,31 @@ $qStatement->bindParam(2, $level);
 $sStatement->bindParam(1, $subject);
 $sStatement->bindParam(2, $level);
 
+$countStatement->bindParam(1, $subject);
+$countStatement->bindParam(2, $level);
+
 // 執行語法
 $qStatement->execute();
 $sStatement->execute();
+$countStatement->execute();
 
 //抓出全部且依照順序封裝成一個二維陣列
 $qData = [];
 $sData = [];
+$cData = [];
 
 
 $qData = $qStatement->fetchAll(PDO::FETCH_ASSOC);
 // $qData = $qStatement->fetchAll();
 $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
+
+$cData = $countStatement->fetch(PDO::FETCH_ASSOC);
 // print_r($qData);
 // echo "<br/>";
 // print_r($sData);
 // }
+
+echo $cData['num'];
 
 
 ?>
@@ -83,8 +96,8 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
             <div class="notice blueBg">
                 <h3>測驗須知</h3>
                 <div>
-                    <p>測驗時間：20秒</p>
-                    <p>總共題目：2題</p>
+                    <p>測驗時間：<?= $cData['num'] * 10 ?>秒</p>
+                    <p>總共題目：<?= $cData['num'] ?>題</p>
                     <p>確認選項後，請按下一題繼續作答</p>
                 </div>
                 <div>
@@ -113,7 +126,7 @@ $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
                 <h3>恭喜您完成試煉!</h3>
                 <div>
                     <p class="correctCount"></p>
-                    <p>徽章解鎖標準：答對2題</p>
+                    <p>徽章解鎖標準：答對<?= $cData['num'] ?>題</p>
                     <p>請至會員中心查看您擁有的徽章</p>
                 </div>
             </div>

@@ -62,7 +62,9 @@
                     <div class="skw-page__half skw-page__half--right">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading"><關於我們/></h2>
+                                <h2 class="skw-page__heading">
+                                    <關於我們 />
+                                </h2>
                                 <p class="skw-page__description">由一群愛好程式的學生，在學習的路上，協助其他也想學習程式的人</p>
                             </div>
                         </div>
@@ -72,7 +74,9 @@
                     <div class="skw-page__half skw-page__half--left">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading"><空間預約/></h2>
+                                <h2 class="skw-page__heading">
+                                    <空間預約 />
+                                </h2>
                                 <p class="skw-page__description">擁有良好的學習環境，讓每個學員能夠有一個可以互相討論、學習的空間。</p>
                             </div>
                         </div>
@@ -92,7 +96,9 @@
                     <div class="skw-page__half skw-page__half--right">
                         <div class="skw-page__skewed">
                             <div class="skw-page__content">
-                                <h2 class="skw-page__heading"><師資輔導/></h2>
+                                <h2 class="skw-page__heading">
+                                    <師資輔導 />
+                                </h2>
                                 <p class="skw-page__description">擁有優良師資協助輔導各位的學習問題。</p>
                             </div>
                         </div>
@@ -134,13 +140,13 @@
                 < 外星課程 />
             </h2>
             <div class="Course">
-                <div class="slide" id="slide">                
+                <div class="slide" id="slide">
                     <div v-for="allCourse in allCourses" class="wrapGeneral">
                         <!-- <img class="tImg" src="../images/allCourse/tImg01.jpg" alt=""> -->
                         <div class="favorites">
                             <!-- <i class="fas fa-heart"></i> -->
                         </div>
-                        <a class="img" :href=`course_start_class.php?CourseID=${allCourses.cNumber}`>
+                        <a class="img" :href=`course_start_class.php?CourseID=${allCourse.cNumber}`>
                             <img :src="allCourse.cImage" alt="">
                         </a>
                         <div class="c_Main">
@@ -148,13 +154,13 @@
                             <div class="time">課程總長：{{allCourse.cTime}}</div>
                             <div class="comment">
                                 <div class="star">
-                                
+
                                 </div>
                                 <a class="text" href="">{{allCourse.rCount}}則評價</a>
                             </div>
                             <div class="price">NT.{{allCourse.cPrice}}</div>
                         </div>
-                    </div>   
+                    </div>
                     <!-- <div class="wrapGeneral">
                         <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
                         <div class="favorites">
@@ -257,13 +263,13 @@
                         <h3 class="titlePlanet">CSS星系</h3>
                         <p class="textContent">CSS（Cascading Style Sheets）串接樣式表：一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護，意指在文件中CSS不會單獨存在，只是輔助結構化文件的樣式呈現。</p>
                         <a href="./galaxy.php">查看更多</a>
-                        
+
                     </div>
 
                 </div>
 
             </div>
-            <!-- 宇宙試煉結束 --> 
+            <!-- 宇宙試煉結束 -->
 
             <!-- 太空補給站開始 -->
             <h2 class="H2title">
@@ -281,15 +287,15 @@
                 </div>
                 <div class="rightBlock">
                     <div>
-                        <a href="article.php?aTitle=編輯器推薦" class="imgWarp"><img src="./../images/article/editor.jpg" ></a>
+                        <a href="article.php?aTitle=編輯器推薦" class="imgWarp"><img src="./../images/article/editor.jpg"></a>
                         <p>編輯器推薦</p>
                     </div>
                     <div>
-                        <a href="article.php?aTitle=自學力網站" class="imgWarp"><img src="./../images/article/study.jpg" ></a>
+                        <a href="article.php?aTitle=自學力網站" class="imgWarp"><img src="./../images/article/study.jpg"></a>
                         <p>自學力網站資源</p>
                     </div>
                     <div>
-                        <a href="article.php?aTitle=軟體推薦" class="imgWarp"><img src="./../images/article/software.jpg" ></a>
+                        <a href="article.php?aTitle=軟體推薦" class="imgWarp"><img src="./../images/article/software.jpg"></a>
                         <p>軟體推薦</p>
                     </div>
                     <div>
@@ -305,7 +311,7 @@
 
             <!-- 蟲動練功坊開始 -->
             <h2 class="H2title">
-                < 蟲洞練功坊/>
+                < 蟲洞練功坊 />
             </h2>
             <div class="tutorialBlock">
                 <div class="upBlock">
@@ -359,4 +365,3 @@
 </body>
 
 </html>
-
