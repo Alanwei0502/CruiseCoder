@@ -15,8 +15,6 @@ monospace;
             justify-content: space-around;
             align-items: center;
 
-            
-
             //768
             @include smlPad {
                 flex-direction: column;
@@ -27,6 +25,7 @@ monospace;
             background-color: $beige;
             width: 300px;
             padding: 30px;
+            line-height: 40px;
 
             @include laptop {
                 width: 250px;

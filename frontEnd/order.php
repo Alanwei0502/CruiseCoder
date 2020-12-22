@@ -1,23 +1,30 @@
 <?php
     include("./layout/connect.php");
     
-    //建立SQL
-  $sql = "SELECT * FROM myorder WHERE oNumber = ?";
-  $oNumber = "2020120622";
-  $statement = $pdo->prepare($sql);
-  $statement->bindValue(1 , "$oNumber");
-  $statement->execute();
-  $orderDetail = $statement->fetchAll();
+    //建立SQL SELECT oNumber,mAccount FROM `myorder` JOIN member on oMember = mNumber WHERE mAccount = 'aaa'
+//   $sql = "SELECT * FROM myorder WHERE oNumber = ?";
+//   $oNumber = "2020120622";
+//   $statement = $pdo->prepare($sql);
+//   $statement->bindValue(1 , "$oNumber");
+//   $statement->execute();
+//   $orderDetail = $statement->fetchAll();
 
-  if($orderDetail == []){
-    $block = "display: block;";
-  }
+//   if($orderDetail == []){
+//     $block = "display: block;";
+//   }
 
 ?>
 
 <!-- 連結訂單表和會員表的會員編號 -->
 <?php
-$sql = "SELECT * from myorder e join member d on e.oMember = d.mNumber";
+$sql = "SELECT * from (select * from (select * from `course` join `invoice` on cNumber = iCourse) c join `myorder` o on c.iNumber = o.oNumber) s
+join `member` m
+on s.oMember = m.mNumber where mAccount= ?";
+
+$result = $pdo->prepare($sql);
+$result->bindValue(1,$F_user);
+$result->execute();
+$data = $result->fetchAll();
 
 ?>
 
@@ -59,62 +66,51 @@ $sql = "SELECT * from myorder e join member d on e.oMember = d.mNumber";
 
             <div class="orderArea">
                 
+                    <?php
+                        foreach($data as $index => $rowR){
+                    ?>
                 <div class="UnderCard_1200">
-                    <div>
-                        <?php
-                            foreach($orderDetail as $index => $row){
-                        ?>
-                        <p class="underOrderNum">訂單編號：<span> <?=$row["oNumber"] ?> </span></p>
 
-                        <?php } ?>
+                    <div>
+                        <p class="underOrderNum">訂單編號：<span> <?=$rowR["oNumber"] ?> </span></p>
+
+                       
                     </div>
 
                     <div class="UnderChild_1">
                     
-                        <div><img src="../images/order/computer.jpeg" alt=""></div>
+                        <div><img src="<?=$rowR['cImage']?>" alt=""></div>
                         
-                        <div><h2>課程名稱：</h2><p>職人必修的 RWD 網頁入門班</p></div>
+                        <div><h2>課程名稱：</h2><p><?=$rowR['cTitle']?></p></div>
 
-                        <div><h3>NT2,000</h3></div>
-                        
-                      
-                    </div>
-
-                    <div class="UnderChild_2">
-                        <div><img src="../images/order/computer.jpeg" alt=""></div>
-                        <div><h2>課程名稱：</h2><p>Node.js 網站開發 with React.js</p></div>
-                        <div><h3>NT$2,000</h3></div>
-
+                        <div><h3>NT<?=$rowR['cPrice']?></h3></div>
                         
                       
                     </div>
 
-                    <div class="UnderChild_3">
-                        <div><img src="../images/order/computer.jpeg" alt=""></div>
-                        <div><h2>課程名稱：</h2><p>HTML快速入門-張老闆帶你飛</p></div>
-                        <div><h3>NT$2,000</h3></div>
-                    </div>
 
                     <div class="transactionDetails">
                         <div>
-                            <div><h2>卡號末四碼：</h2><p>6969</p></div>
-                            <div><img src="../images/ccPoint/cc_coin.png" alt=""><h2>&emsp;CC Point折抵：</h2><p><span>NT$ <?=$row["oCC"] ?></span></p></div>
+                            <div><h2>卡號末四碼：</h2><p><?=$rowR['oCard']?></p></div>
+                            <div><img src="<?=$rowR['cImage']?>" alt=""><h2>&emsp;CC Point折抵：</h2><p><span>NT$ <?=$rowR["oCC"] ?></span></p></div>
                         </div>
                         
-                        <div class="detailsTotal"><h2>總計：<span>NT$<?=$row["oTotal"] ?></span></h2></div>
+                        <div class="detailsTotal"><h2>總計：<span>NT$<?=$rowR["oTotal"] ?></span></h2></div>
 
                     </div>
                 
+                    
                 </div>
+                    <?php } ?>
                 <?php
-                    foreach($orderDetail as $index => $row){
+                    foreach($data as $index => $row){
                 ?>                
                 <div class="accordion">
                     <div class="title accordion-control">
                         <div class="Order_1">
-                            <div><img src="../images/order/computer.jpeg" alt=""></div>
-                            <div>訂單編號：2020122522</div>
-                            <div><span>NT$2,400</span></div> 
+                            <div><img src="<?=$row['cImage']?>" alt=""></div>
+                            <div>訂單編號：<?=$row['oNumber']?></div>
+                            <div><span>NT$<?=$row['cPrice']?></span></div> 
                         </div>
                     </div>    
 
@@ -129,15 +125,15 @@ $sql = "SELECT * from myorder e join member d on e.oMember = d.mNumber";
                                 <div class="css_td">訂單成立</div>    
                             </div>
                             <div class="tChild css_tr">
-                                <div class="css_td">HTML快速入門-張老闆帶你飛</div> 
-                                <div class="css_td">NT$100</div> 
-                                <div class="css_td">NT$2,500</div>
-                                <div class="css_td">6969</div> 
-                                <div class="css_td">2020-06-07 22:35</div>
+                                <div class="css_td"><?=$row['cTitle']?></div> 
+                                <div class="css_td">NT$<?=$row['oCC']?></div> 
+                                <div class="css_td">NT$<?=$row['cPrice']?></div>
+                                <div class="css_td"><?=$row['oCard']?></div> 
+                                <div class="css_td"><?=$row['oDate']?></div>
                             </div>
                         </div>
 
-                        <div class="totalPrice">總計：NT$2,400</div>
+                        <div class="totalPrice">總計：NT$<?=$row['oTotal']?></div>
                     </div> 
                 </div>
                 <?php } ?>
@@ -151,7 +147,8 @@ $sql = "SELECT * from myorder e join member d on e.oMember = d.mNumber";
    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src=".js/order_front.js"></script>
+ 
     <script src="../js/header.js"> </script>
     <script>
 

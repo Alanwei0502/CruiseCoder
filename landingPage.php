@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cruise Coders | 登入頁面</title>
+    <link rel="icon" href="../ico.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../ico.ico" type="image/x-icon"/>
+    
     <link rel="stylesheet" href="./css/main.css">
+
+    <title>Cruise Coders | 登入頁面</title>
 </head>
 <body>
     <div class="wrap landingPageArea">

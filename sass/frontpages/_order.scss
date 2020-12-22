@@ -23,6 +23,7 @@
     }
     .haveNoOrder{
       // @include clearfixed;
+      display: none;
       background-color: $beige;
       border-radius: 20px;
       padding: 30px;
@@ -99,7 +100,7 @@
       border: $orange 10px solid;
       width: 100%;
       font-size: 0;
-      display: none;
+      
       
       
       //RWD 1200px 以下的排版，濃縮成卡片形式。
@@ -107,6 +108,15 @@
         background-color: #fff;
         padding: 10px 20px;
         display: none;
+
+        &:nth-child(2n){
+          background-color: #FFF3D8;
+        }
+        &:nth-child(2n+1){
+          background-color: $white;
+        }
+
+
         @include laptop{
           display: block;
         }
@@ -124,6 +134,10 @@
           margin: 30px 0;
           padding: 30px 20px;
           display: flex;
+
+          
+
+          
 
           //768
           @include smlPad{
@@ -202,170 +216,7 @@
             } 
           }
         }
-        .UnderChild_2{
-          border-top: 1px solid #000;
-          margin: 30px 0;
-          padding: 30px 20px;
-          display: flex;
-          //768
-          @include smlPad{
-            flex-direction: column;
-          }
-
-          div{
-            &:nth-child(1){
-              width: 25%;
-            
-            }
-            &:nth-child(2){
-              width: 35%;
-              font-size: $mp;
-              margin-top: 20px;
-            }
-            &:nth-child(3){
-              text-align: right;
-              width: 40%;
-              align-self: flex-end;
-            }
-            //992
-            @include bigPad{
-            
-              &:nth-child(1){
-                width: 33.33%;
-                align-self: auto;
-              }
-              &:nth-child(2){
-                width: 33.33%;
-                text-align: left;
-              }
-              &:nth-child(3){
-                text-align: center;
-                width: 33.33%;
-              }
-            }
-
-            //768
-            @include smlPad{
-              &:nth-child(1){
-                width: 40%;
-                align-self: auto;
-              }
-              &:nth-child(2){
-                width: 60%;
-                text-align: left;
-              }
-
-            }
-
-            //576
-            @include bigPhone{
-              &:nth-child(2){
-                width: 100%;
-                text-align: left;
-                font-size: $sp;
-              }
-
-            }
-          }
-          h3{
-            font-weight: 600;
-            font-size: $bp;
-            @include bigPhone{
-              font-size: $mp;
-            }
-          }
-          div{
-            img{
-              width: 180px;
-            } 
-          }
-
-        }
-        .UnderChild_3{
-          border-top: 1px solid #000;
-          margin: 30px 0;
-          padding: 30px 20px;
-          display: flex;
-
-          //768
-          @include smlPad{
-            flex-direction: column;
-          }
-
-          div{
-            &:nth-child(1){
-              width: 25%;
-            
-            }
-            &:nth-child(2){
-              width: 35%;
-              font-size: $mp;
-              margin-top: 20px;
-
-            }
-            &:nth-child(3){
-              text-align: right;
-              width: 40%;
-              align-self: flex-end;
-              
-            }
-            //992
-            @include bigPad{
-              img{
-                  width: 100px;
-              }
-              &:nth-child(1){
-                width: 33.33%;
-                align-self: auto;
-              }
-              &:nth-child(2){
-                width: 33.33%;
-                text-align: left;
-              }
-              &:nth-child(3){
-                text-align: center;
-                width: 33.33%;
-              }
-            }
-
-            //768
-            @include smlPad{
-              &:nth-child(1){
-                width: 40%;
-                align-self: auto;
-              }
-              &:nth-child(2){
-                width: 60%;
-                text-align: left;
-                
-              }
-
-            }
-
-            //576
-            @include bigPhone{
-              &:nth-child(2){
-                width: 100%;
-                text-align: left;
-                font-size: $sp;
-              }
-              
-            }
         
-          }
-          h3{
-            font-weight: 600;
-            font-size: $bp;
-            @include bigPhone{
-              font-size: $mp;
-            }
-          }
-          div{
-            img{
-              width: 180px;
-            } 
-          }
-        }
         .transactionDetails{
           border-top: 5px dashed $orange;
           padding-top: 30px;
@@ -450,7 +301,7 @@
       //RWD 1200px 以下的排版 結束 ----
 
       .accordion{
-        // display: none;
+       
 
         &:nth-child(2n){
           background-color: #FFF3D8;
@@ -466,7 +317,7 @@
           cursor: pointer;
         }
         
-        .Order_1,.Order_2,.Order_3,.Order_4{
+        .Order_1{
           display: flex;
           justify-content: space-around;
           padding: 20px; 

@@ -551,7 +551,7 @@ function doFirst() {
 
 // 請peggy用push方式將id寫進去localstorage
 // 自訂資料寫進去localstorage  
-// let list = ['C0001', 'C0002']
+let list = ['C0001', 'C0002']
 // // let list = []
 
 // localStorage.clear();
