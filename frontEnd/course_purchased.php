@@ -483,60 +483,6 @@ h2:after {
     <!-- <script src="../js/app.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script>
-      //svg
-      function enable_svg(){
-        $('img.svg').each(function(){
-          var $img = $(this);
-          var imgID = $img.attr('id');
-          var imgClass = $img.attr('class');
-          var imgURL = $img.attr('src');
-          $.get(imgURL, function(data) {
-              // Get the SVG tag, ignore the rest   
-              var $svg = $(data).find('svg');
-        
-              // Add replaced image's ID to the new SVG   
-              if(typeof imgID !== 'undefined') {
-                  $svg = $svg.attr('id', imgID);
-              }
-              // Add replaced image's classes to the new SVG   
-              if(typeof imgClass !== 'undefined') {
-                  $svg = $svg.attr('class', imgClass+' replaced-svg');
-              }
-              // Remove any invalid XML tags as per http://validator.w3.org   
-              $svg = $svg.removeAttr('xmlns:a');
-              // Check if the viewport is set, if the viewport is not set the SVG wont't scale.   
-              if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-                  $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'));
-              }
-              // Replace image with new SVG   
-              $img.replaceWith($svg);
-          },'xml');
-        });
-      }
-      enable_svg()
-
-      $(function(){
-        // 頭部
-        // 會員資訊展開
-        $('header div.headerRight img#member').click(function(){
-          $('header div.headerRight div.memberNav').fadeToggle(300)
-          // 其他關閉
-          $('header div.headerRight div.shoppingFancybox').fadeOut(300)
-          $('header div.headerMiddle').fadeOut(300)
-        })
-        $('header div.headerRight img#cart').click(function(){
-          $('header div.headerRight div.shoppingFancybox').fadeToggle(300)
-          // 其他關閉
-          $('header div.headerRight div.memberNav').fadeOut(300)
-          $('header div.headerMiddle').fadeOut(300)
-        })
-        $('header .menu-toggle').click(function(){
-          $('header div.headerMiddle').fadeToggle(300)
-          // 其他關閉
-          $('header div.headerRight div.shoppingFancybox').fadeOut(300)
-          $('header div.headerRight div.memberNav').fadeOut(300)
-        })
-
         // 數字更新
         function price_style(array){
           let count = 0
@@ -594,6 +540,8 @@ h2:after {
                     $('.shoppingCar>label').addClass('on');
                     
                     swal("提示","已加入購物車", "success");
+                    window.location.reload();
+                  
                 }else{
                     swal("提示","加入購物車失敗", "error");
                 }
