@@ -19,3 +19,6 @@ class UtilClass{
         return $ServerRoot."/CruiseCoder/images/info/";
     }
 }
+
+//登入帳號
+$F_user = isset($_COOKIE["user"])? $_COOKIE["user"] : '';
