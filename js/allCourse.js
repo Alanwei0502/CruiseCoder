@@ -39,7 +39,7 @@ let app = new Vue({
                             res[i].rRate;
                             // console.log(res.length);
                             // console.log(res[i].rRate);
-                            let stry = "<i class='fas fa-star yellow'> </i>";
+                            // let stry = "<i class='fas fa-star yellow'> </i>";
                             if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
                                 for (j = 0; j < Math.floor(res[i].rRate); j++) {
                                     // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
@@ -70,7 +70,7 @@ let app = new Vue({
                                 console.log(that.courses[0].cNumber);
                                 $(res).each(function (inDex, iTem) {
                                     that.funNum.push(iTem.count);
-                                    console.log(that.funNum) ;
+                                    console.log(that.funNum);
 
                                     let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
@@ -190,6 +190,40 @@ let app = new Vue({
             this.clearFav();
             this.getFavCourse();
             this.courseTitle = "所有課程";
+            // 先清除所有的星星
+            let fastar = document.querySelectorAll('.fa-star');
+            console.log(fastar);
+            // 如果class有is-active，移除所有的is-active的class
+            for (let i = 0; i < fastar.length; i++) {
+                fastar[i].classList.remove("fas");
+                fastar[i].classList.remove("fa-star-half-alt");
+
+                fastar[i].classList.add("far");
+            }
+            // 星星
+            setTimeout(() => {
+                for (let i = 0; i < res.length; i++) {
+                    res[i].rRate;
+                    // console.log(res.length);
+                    // console.log(res[i].rRate);
+                    // let stry = "<i class='fas fa-star yellow'> </i>";
+                    if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
+                        for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                            // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                            $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                        }
+
+                    } else {
+                        for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                            // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                            $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                            $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                        }
+                    }
+                }
+            }, 1);
+
         },
         fundingOpen() {
             //載入募資課程
@@ -209,7 +243,7 @@ let app = new Vue({
                     });
                     that.courses = resFund;
                     // console.log(that.courses);
-                    
+
                     //進度條
                     setTimeout(() => {
                         $.ajax({
@@ -223,7 +257,7 @@ let app = new Vue({
                                 console.log(that.courses[0].cNumber);
                                 $(res).each(function (inDex, iTem) {
                                     that.funNum.push(iTem.count);
-                                    console.log(that.funNum) ;
+                                    console.log(that.funNum);
 
                                     let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
@@ -275,7 +309,42 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
-                        
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+
                     }
                 });
                 this.clearFav();
@@ -299,6 +368,41 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
@@ -323,6 +427,41 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
@@ -347,6 +486,41 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
@@ -371,6 +545,39 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove("fas");
+                            fastar[i].classList.remove("fa-star-half-alt");
+
+                            fastar[i].classList.add("far");
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
@@ -391,10 +598,26 @@ let app = new Vue({
                         res.forEach(function (item, index) {
                             if (item.cType === "php") {
                                 resFund.push(item);
-                            };
+                            }
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        //    先刪除
+
                     }
                 });
                 this.clearFav();
@@ -419,6 +642,41 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
@@ -443,13 +701,394 @@ let app = new Vue({
                         });
                         that.courses = resFund;
                         // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
                     }
                 });
                 this.clearFav();
                 this.getFavCourse();
                 this.courseTitle = "Vue.js";
             }
+            else if ($(".tab option:selected").val() == 'github') {
+                let that = this;
+                let star = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'allCourseR.php',
+                    data: { star },
+                    dataType: 'json',
+                    success: function (res) {
+                        let resFund = [];
+                        res.forEach(function (item, index) {
+                            if (item.cType === "github") {
+                                resFund.push(item);
+                            };
+                        });
+                        that.courses = resFund;
+                        // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
 
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+                    }
+                });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "Github";
+            }
+            else if ($(".tab option:selected").val() == 'gulp') {
+                let that = this;
+                let star = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'allCourseR.php',
+                    data: { star },
+                    dataType: 'json',
+                    success: function (res) {
+                        let resFund = [];
+                        res.forEach(function (item, index) {
+                            if (item.cType === "gulp") {
+                                resFund.push(item);
+                            };
+                        });
+                        that.courses = resFund;
+                        // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+
+                    }
+                });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "Gulp";
+            }
+            else if ($(".tab option:selected").val() == 'ajax') {
+                let that = this;
+                let star = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'allCourseR.php',
+                    data: { star },
+                    dataType: 'json',
+                    success: function (res) {
+                        let resFund = [];
+                        res.forEach(function (item, index) {
+                            if (item.cType === "ajax") {
+                                resFund.push(item);
+                            };
+                        });
+                        that.courses = resFund;
+                        // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+                    }
+                });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "AJAX";
+            }
+            // else if ($(".tab option:selected").val() == 'ux/ux') {
+            //     let that = this;
+            //     let star = 1;
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: 'allCourseR.php',
+            //         data: { star },
+            //         dataType: 'json',
+            //         success: function (res) {
+            //             let resFund = [];
+            //             res.forEach(function (item, index) {
+            //                 if (item.cType === "ui/ux") {
+            //                     resFund.push(item);
+            //                 };
+            //             });
+            //             that.courses = resFund;
+            //             // console.log(that.courses);
+            //             // 先清除所有的星星
+            //             let fastar = document.querySelectorAll('.fa-star');
+            //             console.log(fastar);
+            //             // 如果class有is-active，移除所有的is-active的class
+            //             for (let i = 0; i < fastar.length; i++) {
+            //                 fastar[i].classList.remove("fas");
+            //                 fastar[i].classList.remove("fa-star-half-alt");
+
+            //                 fastar[i].classList.add("far");
+            //             }
+            //             // 星星
+            //             setTimeout(() => {
+            //                 for (let i = 0; i < resFund.length; i++) {
+            //                     resFund[i].rRate;
+            //                     console.log(resFund.length);
+            //                     // console.log(res[i].rRate);
+            //                     // let stry = "<i class='fas fa-star yellow'> </i>";
+            //                     if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+            //                         for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+            //                             // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+            //                             $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+            //                         }
+
+            //                     } else {
+            //                         for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+            //                             // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+            //                             $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+            //                             $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+            //                         }
+            //                     }
+            //                 }
+            //             }, 1);
+            //         }
+            //     });
+            //     this.clearFav();
+            //     this.getFavCourse();
+            //     this.courseTitle = "Vue.js";
+            // }
+            else if ($(".tab option:selected").val() == 'xd') {
+                let that = this;
+                let star = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'allCourseR.php',
+                    data: { star },
+                    dataType: 'json',
+                    success: function (res) {
+                        let resFund = [];
+                        res.forEach(function (item, index) {
+                            if (item.cType === "xd") {
+                                resFund.push(item);
+                            };
+                        });
+                        that.courses = resFund;
+                        // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+                    }
+                });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "Adobe XD";
+            }
+            else if ($(".tab option:selected").val() == 'photoshop') {
+                let that = this;
+                let star = 1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'allCourseR.php',
+                    data: { star },
+                    dataType: 'json',
+                    success: function (res) {
+                        let resFund = [];
+                        res.forEach(function (item, index) {
+                            if (item.cType === "photoshop") {
+                                resFund.push(item);
+                            };
+                        });
+                        that.courses = resFund;
+                        // console.log(that.courses);
+                        // 先清除所有的星星
+                        let fastar = document.querySelectorAll('.fa-star');
+                        console.log(fastar);
+                        // 如果class有is-active，移除所有的is-active的class
+                        for (let i = 0; i < fastar.length; i++) {
+                            fastar[i].classList.remove('fas');
+                            fastar[i].classList.remove('far');
+                            fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.add("far");
+                            fastar[i].classList.add("fa-star");
+                            fastar[i].classList.remove('yellow');
+                        }
+                        // 星星
+                        setTimeout(() => {
+                            for (let i = 0; i < resFund.length; i++) {
+                                resFund[i].rRate;
+                                // console.log(res.length);
+                                // console.log(res[i].rRate);
+                                // let stry = "<i class='fas fa-star yellow'> </i>";
+                                if (resFund[i].rRate > 0 && (resFund[i].rRate) % 1 == 0) {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    }
+
+                                } else {
+                                    for (j = 0; j < Math.floor(resFund[i].rRate); j++) {
+                                        // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                        $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                        $('a.course').eq(i).find('.star').find('i').eq(Math.floor(resFund[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    }
+                                }
+                            }
+                        }, 1);
+                    }
+                });
+                this.clearFav();
+                this.getFavCourse();
+                this.courseTitle = "PhotoShop";
+            }
         },
         // // 點擊愛心，加上顏色
         favorites(e) {
