@@ -127,6 +127,6 @@
   </div>
 </header>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="../js/vue.js"></script>
+<script src="../js/vue.js" async></script>
 <!-- alert套件 ↓↓↓↓ -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

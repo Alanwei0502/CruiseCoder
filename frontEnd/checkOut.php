@@ -130,8 +130,8 @@
                         <label class="text">
                             有效日期
                         </label>
-                        <select>
-                            <option :value="index+1" v-for="(month,index) in 12">{{month}}</option>
+                        <select value="12">
+                            <option :value="index+1" v-for="(month,index) in 12"  >{{month}}</option>
                         </select>
                         <label for="" class="months">月</label>
 
@@ -184,7 +184,7 @@
         <script src="../js/checkOut.js"></script>
         <script src="../js/header.js"></script>
         <script src="../js/is.js"></script>
-        <script src="../js/vue.js"></script>
+        <!-- <script src="../js/vue.js" async></script> -->
 
     </div>
 </body>

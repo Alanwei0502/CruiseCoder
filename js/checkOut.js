@@ -335,8 +335,8 @@ function doFirst() {
                 }
                 // 登入判斷
 
-                // this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
-                this.ccp = parseInt($('.ccp').text());
+                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                // this.ccp = parseInt($('.ccp').text());
 
                 console.log(this.ccp);
                 return this.ccp;
