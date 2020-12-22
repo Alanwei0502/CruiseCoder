@@ -59,6 +59,7 @@ let vm = new Vue({
                 },
             });
         },
+        // 加入收藏
         favorite(e) {
             $(e.target).toggleClass('is-active');
             let theMember = this.memberID;
@@ -99,9 +100,12 @@ let vm = new Vue({
             }
         }
     },
+    // vue life cycle
     created() {
         this.ajax();
     },
+
+    // vue life cycle
     updated() {
         // 獲得的徽章亮起來
         for (let i = 0; i < this.allBadges.length; i++) {
@@ -111,7 +115,6 @@ let vm = new Vue({
                 }
             }
         }
-
     },
 
 });
