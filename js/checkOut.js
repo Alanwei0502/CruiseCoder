@@ -492,9 +492,6 @@ function doFirst() {
                             case '2':
                                 that.status.push('募資');
                                 break;
-                            case '3':
-                                that.status.push('募資');
-                                break;
                         }
                     });
                 },
