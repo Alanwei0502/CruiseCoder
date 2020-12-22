@@ -539,8 +539,17 @@ h2:after {
                     $('.shoppingTotal').html(data.data.shoppingTotal);
                     $('.shoppingCar>label').addClass('on');
                     
-                    swal("提示","已加入購物車", "success");
+
+                    swal({
+                        title: '提示',
+                        text: '已加入購物車',
+                        type: 'success'
+                    }).then(
+                        function () {
+                    // location.reload()
                     window.location.reload();
+                    }
+                    )
                   
                 }else{
                     swal("提示","加入購物車失敗", "error");

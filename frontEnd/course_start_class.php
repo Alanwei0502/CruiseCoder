@@ -614,9 +614,16 @@ h2:after {
               }
               localStorage.setItem("lists", JSON.stringify(list));
             
-              swal("提示","已加入購物車", "success");
-              window.location.reload();
-              // location.reload()
+              swal({
+                        title: '提示',
+                        text: '已加入購物車',
+                        type: 'success'
+                    }).then(
+                        function () {
+                    // location.reload()
+                    window.location.reload();
+                    }
+                    )
         <?php }else{?>
                 swal("請先登入會員!", "登入會員才能使用購物車!", "error");
           <?php }?>

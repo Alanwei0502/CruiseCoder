@@ -40,6 +40,17 @@
             </div>
           </div>
         </div>
+        
+        <?php
+
+        // $fn= $info->getFilename();  //index.php
+        // echo $info->getFilename();
+        // if ($fn="course_Fundraising.php"){}
+        
+        // else{}
+        // ?>
+
+
         <!-- 評價 -->
         <div class="tab-content" id="score">
           <h2>&lt; 課程評價 &#47;&gt;</h2>
@@ -123,6 +134,9 @@
             <!-- <button class="more btn_style">查看更多</button> -->
           </div>
         </div>
+
+
+
         <!-- 留言 -->
         <div class="tab-content" id="qa">
           <h2>&lt; 留言發問 &#47;&gt;</h2>
