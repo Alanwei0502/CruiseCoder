@@ -30,12 +30,12 @@ $createSelection = $pdo->prepare($createSelection);
 $countBadge = "SELECT COUNT(*) FROM cruisecoder.badge";
 $countBadge = $pdo->prepare($countBadge);
 // inserting new data to badge table
-$createBadge = "INSERT INTO `cruisecoder`.`badge` (`bNumber`, `bGalaxy`, `bName`, `bInfo`, `bLevel`, `bIcon`, `bBadge`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$createBadge = "INSERT INTO `cruisecoder`.`badge` (`bNumber`, `bGalaxy`, `bName`, `bInfo`, `bLevel`, `bIcon`, `bBadge`, `bBackground`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $createBadge = $pdo->prepare($createBadge);
 
 
 
-if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
+if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["badge"])) {
 
     // FOR GALAXY TABLE
     // counting current number of rows
@@ -51,7 +51,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
     $createGalaxy->execute();
 
 
-    // // FOR QUIZ TABLE
+    // FOR QUIZ TABLE
     // counting how many questions will be inserted
     $arrayLength = count($_POST["quiz"][2]);
     $qSubject = $_POST["quiz"][0];
@@ -120,6 +120,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
     $bLevel = [1, 2, 3, 0];
     $bIcon = $_POST["badge"][3];
     $bBadge = $_POST["badge"][4];
+    $bgImg = $_POST["badge"][5];
 
     for ($b = 0; $b < 4; $b++) {
         // counting current number of rows
@@ -134,8 +135,10 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"])) {
         $createBadge->bindValue(5, $bLevel[$b]);
         $createBadge->bindValue(6, $bIcon[$b]);
         $createBadge->bindValue(7, $bBadge[$b]);
+        $createBadge->bindValue(8, $bgImg[$b]);
 
         $createBadge->execute();
+        echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
-    echo "success";
+    // echo "success";
 }
