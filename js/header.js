@@ -65,17 +65,17 @@ $(document).ready(function () {
                             //課程狀態有4種，用switch case處理
                             switch (res.cStatus) {
                                 case '0':
-                                    that.status.push('刪除');
+                                    that.status.push('下架');
                                     break;
                                 case '1':
                                     that.status.push('已開課');
                                     break;
                                 case '2':
-                                    that.status.push('下架');
-                                    break;
-                                case '3':
                                     that.status.push('募資');
                                     break;
+                                // case '3':
+                                //     that.status.push('募資');
+                                //     break;
                             }
                         });
                     },

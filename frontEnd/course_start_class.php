@@ -59,7 +59,7 @@
 
 
 
-$course = [];
+  $course = [];
 
   //echo $CourseID;
   //建立SQL
@@ -67,7 +67,7 @@ $course = [];
   
   //$sql = "SELECT Lastname, Age FROM Persons ORDER BY Lastname";
   // Perform query
-if ($result = mysqli_query($conn, $sql)) {
+  if ($result = mysqli_query($conn, $sql)) {
 
   // Associative array
   $row = mysqli_fetch_assoc($result);
