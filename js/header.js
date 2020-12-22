@@ -338,7 +338,7 @@ $(document).ready(function () {
                                     swal("註冊成功!", "恭喜你成為會員！！!", "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
-                                                window.location.reload(); 8
+                                                window.location.reload(); 
                                             }
                                         });
                                 } else if (data == "EmailRepeat") {
