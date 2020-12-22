@@ -213,8 +213,8 @@
                             <img src="../images/trial/badge/js.png" @click="changePlanet" class="JS">
                         </div>
                         <div class="swiper-slide">
-                            <input type="hidden" value="MySQL星系">
-                            <img src="../images/trial/badge/mysql.png" @click="changePlanet" class="SQL">
+                            <input type="hidden" value="SASS星系">
+                            <img src="../images/trial/badge/sass.png" @click="changePlanet" class="SQL">
                         </div>
                         <div class="swiper-slide">
                             <input type="hidden" value="PHP星系">
