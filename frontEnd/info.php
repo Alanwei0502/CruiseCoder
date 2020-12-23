@@ -120,14 +120,14 @@ $infoMember = $statement->fetchAll();
                   <p class="title">{{course.cTitle}}</p>
                   <div class="time">課程總長：{{course.cTime}}</div>
                   <div class="comment">
-                    <div class="star">
+                    <div class="star" :data-star="course.rRate">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                     </div>
-                    <a class="text" href="">24則評價</a>
+                    <a class="text" href="">{{course.rCount}}則評價</a>
                   </div>
                   <div class="price">NT.{{course.cPrice}}</div>
                 </div>
@@ -159,14 +159,14 @@ $infoMember = $statement->fetchAll();
                   <p class="title">{{FavCourse.cTitle}}</p>
                   <div class="time">課程總長：{{FavCourse.cTime}}</div>
                   <div class="comment">
-                    <div class="star">
+                    <div class="star" :data-star="FavCourse.rRate">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                     </div>
-                    <a class="text" href="">24則評價</a>
+                    <a class="text" href="">{{FavCourse.rCount}}則評價</a>
                   </div>
                   <div class="price">NT.{{FavCourse.cPrice}}</div>
                 </div>
