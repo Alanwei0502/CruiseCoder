@@ -30,6 +30,16 @@ if (isset($_POST['ac']) and $_POST['ac'] == 'addfa_c') {
   exit;
 }
 
+if (isset($_POST['ac']) and $_POST['ac'] == 'del_dis') {
+  $dNumber = $_POST['dNumber'];
+  $dMember = $_POST['dMember'];
+  
+  $sql2 = "DELETE FROM `discuss` WHERE dNumber = '" . $dNumber . "' AND dMember = '" . $dMember . "'";
+  $rdd = mysqli_query($conn, $sql2);
+  echo '1';
+  exit;
+}
+
 
 
 $CourseID = $_GET["CourseID"];
@@ -109,6 +119,7 @@ if ($result = mysqli_query($conn, $sql)) {
 $sql3 = "select * from DISCUSS order by dNumber desc";
 $aa = mysqli_query($conn, $sql3);
 
+$showReview = true;
 
 include('layout/course_class_base_phpcode.php');
 ?>
@@ -511,6 +522,16 @@ include('layout/course_class_base_phpcode.php');
         margin-bottom: 15px;
       }
     }
+    .video.locked::after{
+      content:"";
+      display:block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 99999;
+    }
   </style>
 
 </head>
@@ -526,9 +547,10 @@ include('layout/course_class_base_phpcode.php');
       <section id="class-info">
         <h1><?php print $row["cTitle"] ?></h1>
         <div class="row-sell">
-          <div class="video">
+          <div class="video <?PHP echo $is_buy?'':'locked' ?>">
             <!-- <iframe src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-            <iframe width="560" height="315" src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- <iframe width="560" height="315" src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <img src="<?php echo $row["cImage"]; ?>" style="width: 100%;">
           </div>
           <!-- 評分 -->
           <div class="score ms-r12">
@@ -553,7 +575,12 @@ include('layout/course_class_base_phpcode.php');
             </div>
             <!-- 按鈕 -->
             <div class="btns rprice">
+            
+            <?PHP if($is_buy){?>
+              <button class="btn_style is_buy" >您已購買</button>
+            <?PHP }else{?>
               <button class="btn_style" id="add_cart">立即購買</button>
+              <?PHP }?>
               <button class="btn fav dofa"><i class="fas fa-heart <?PHP echo $is_favorite ? 'active' : '' ?>"></i></button>
             </div>
           </div>
@@ -829,6 +856,39 @@ include('layout/course_class_base_phpcode.php');
             ii++;
           });
         });
+
+        
+        $(document).on("click", ".op_score_btn", function() {
+            $('.score_box').slideToggle();
+        });
+        
+        <?php if ($member) { ?>
+        $(document).on("click", ".de_discuss_btn", function() {
+            var dNumber = $(this).data('id');
+            var mNumber = '<?PHP echo $member['mNumber']?>';
+            $.ajax({
+              type: 'POST',
+              url: "course_start_class.php",
+              data: {
+                ac: 'del_dis',
+                dNumber: dNumber,
+                dMember: mNumber
+              },
+              dataType: "text",
+              success: function(data) {
+                if (data.trim() == "1") {
+                  swal("提示", "已刪除", "success");
+                  $('#discuss_'+dNumber).remove();
+                } else {
+                  swal("提示", "發生錯誤", "error");
+                }
+              },
+              error: function(data) {
+                swal("提示", "發生錯誤", "error");
+              }
+            });
+        });
+          <?php } ?>
 
         let page = '<?PHP echo $a_page ?>';
         if (page != '')

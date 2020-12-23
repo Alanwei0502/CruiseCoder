@@ -100,4 +100,19 @@ if($member){
   }
 }
 
+
+$is_buy = false;
+if($member){
+  $sql = "SELECT * 
+  FROM `myorder` mo 
+  JOIN `invoice` i ON(i.iNumber = mo.oNumber) 
+  WHERE i.iCourse = '".$CourseID."' AND mo.oMember = '".$member['mNumber']."'";
+  if ($result = $conn->query($sql)) {
+    if($r = mysqli_fetch_assoc($result)){
+      $is_buy = true;
+    }
+  }
+}
+
+
 ?>

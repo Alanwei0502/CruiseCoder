@@ -1,8 +1,80 @@
+<style>
+.video img{
+    width: 100%;
+}
+.course main #class-info h1{
+    text-align: center;
+}
+.de_discuss_btn{
+  position: absolute;
+      right: 15px;
+      top: 13px;
+}
+.de_discuss_btn i {
+    color: #646464;
+      font-size: 26px;
+    cursor: pointer;
+}
+.reply .de_discuss_btn{
+    right: -21px;
+    top: 0;
+}
+.reply .de_discuss_btn i{
+    font-size: 17px;
+}
+.r_box{
+  position: relative;
+}
+.course main #class-detail .post .text-box p{
+  word-break: break-all;
+}
 
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 576px) {
+  .reply .de_discuss_btn{
+    right: 0px;
+    top: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .course main #class-detail .score-posts .post .post-header,
+  .course main #class-detail .post .post-header{
+    display: block;
+    width: 100%;
+  }
+  .course main #class-detail .post .post-header h5{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .course main #class-detail .post .post-header .date:before{
+    display:none;
+  }
+  .course main #class-detail .post .post-header .date{
+    width: 100%;
+    display: block;
+    margin-left: 0;
+  }
+  .course main #class-detail .score-posts .post .stars{
+    margin-left: 0;
+    width: 100%;
+  }
+  .course main #class-detail .post{
+    padding:15px;
+  }
+}
+<<<<<<< HEAD
+.test-box p{
+  word-break: break-all;
+}
+=======
+
+>>>>>>> d0b13cc19eb47b5ce2a63bf1ffb1ad723124efce
+</style>
       <section id="class-detail">
         <ul class="tab">
           <li class="active"><a id="a_class" href="#class" style:display:flex;display: block;justify-content: center;align-items:center;>課程資訊</a></li>
-          <li><a id="a_score" href="#score">課程評價</a></li>
+          <?PHP if($showReview){?><li><a id="a_score" href="#score">課程評價</a></li><?PHP }?>
           <li><a id="a_qa" href="#qa">留言發問</a></li>
         </ul>
         <!-- 課程資訊 -->
@@ -50,12 +122,18 @@
         // else{}
         // ?>
 
-
+    <?PHP if($showReview){?>
         <!-- 評價 -->
         <div class="tab-content" id="score">
           <h2>&lt; 課程評價 &#47;&gt;</h2>
           <!-- 評分 -->
           <div class="score">
+             <?PHP if($is_review){?>
+            <button class="btn write-score op_score_btn">
+              我要發表評價
+              <i class="fa fa-paint-brush" aria-hidden="true"></i>
+            </button>
+            <?PHP }?>
             <div class="nums"><?PHP echo $star?></div>
             <div class="col">
               <div class="stars" data-score="<?PHP echo $star?>" data-color="#fcc93d">
@@ -72,7 +150,7 @@
           <div class="score-posts comments">
              <!-- 我想評價-->
              <?PHP if($is_review){?>
-             <div class="comment post">
+             <div class="comment post score_box" style="display:none;">
               <div class="row">
                 <div class="pic"><img src="<?PHP echo $member['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">
@@ -121,7 +199,7 @@
                     <i class="fa fa-star" aria-hidden="false"></i>
                   </div>
                   <div class="text-box">
-                    <p><?PHP echo $v['rFeedback']?></p>
+                    <p style="word-break: break-all;"><?PHP echo $v['rFeedback']?></p>
                   </div>
                 </div>
               </div>
@@ -134,7 +212,7 @@
             <!-- <button class="more btn_style">查看更多</button> -->
           </div>
         </div>
-
+<?PHP }?>
 
 
         <!-- 留言 -->
@@ -173,7 +251,10 @@
             ?>
 
             <!-- 發問 1 -->
-            <div class="comment post">
+            <div id="discuss_<?PHP echo $v['dNumber']?>" class="comment post r_box">
+            <?PHP if($member AND $v['dMember'] == $member['mNumber']){?>
+              <a class="de_discuss_btn" href="javascript:void(0);" data-id="<?PHP echo $v['dNumber']?>"><i class="far fa-times-circle close"></i></a>
+              <?PHP }?>
               <div class="row">
                 <div class="pic"><img src="<?PHP echo $v['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">
@@ -191,7 +272,11 @@
                 if(sizeof($v['p_discuss'])>0){
                   foreach($v['p_discuss'] as $k2=>$v2){
               ?>
-              <div class="row reply">
+              <div  id="discuss_<?PHP echo $v2['dNumber']?>"  class="row reply r_box">
+              
+            <?PHP if($member AND $v2['dMember'] == $member['mNumber']){?>
+              <a class="de_discuss_btn" href="javascript:void(0);" data-id="<?PHP echo $v2['dNumber']?>"><i class="far fa-times-circle close"></i></a>
+              <?PHP }?>
                 <div class="pic"><img src="<?PHP echo $v2['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">
                   <div class="post-header">

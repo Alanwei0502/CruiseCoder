@@ -107,6 +107,7 @@ if ($result = mysqli_query($conn, $sql)) {
 $sql3 = "select * from DISCUSS order by dNumber desc";
 $aa = mysqli_query($conn, $sql3);
 
+$showReview = true;
 
 include('layout/course_class_base_phpcode.php');
 ?>
@@ -508,6 +509,16 @@ include('layout/course_class_base_phpcode.php');
         margin-bottom: 15px;
       }
     }
+    .video.locked::after{
+      content:"";
+      display:block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 99999;
+    }
   </style>
 
 </head>
@@ -524,7 +535,7 @@ include('layout/course_class_base_phpcode.php');
       <section id="class-info">
         <h1><?php print $row["cTitle"] ?></h1>
         <div class="row-payed">
-          <div class="video">
+          <div class="video <?PHP echo $is_buy?'':'locked' ?>">
             <iframe width="560" height="315" src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
@@ -672,30 +683,17 @@ include('layout/course_class_base_phpcode.php');
 
       // 評分星星
       $('.stars[data-score]').each(function() {
-        let score = parseInt($(this).data('score'))
-        let color = $(this).data('color')
-        let ii = 1;
-        $(this).find('i').each(function() {
-          if (ii > score) {
-            $(this).addClass('n');
-          }
-          ii++;
-        });
-        // console.log(score,color)
-        // $(this).css({
-        //   backgroundImage: "linear-gradient(to right,"+color+" 0%,"+color+" "+(score/5*100)+"%,transparent "+(score/5*100)+"%,#ccc "+(score/5*100)+"% ,#ccc 100%)"
-        // })
-        // 分數
-        // if($(this).prev('.nums').is($(this).prev('.nums'))){
-        //   $(this).prev('.nums').text(score.toFixed(1))
-        //   // $(this).prev('.nums').text(Math.floor(score/10).toFixed(1))
-        // }
-        // if($(this).parent().prev('.nums').is($(this).parent().prev('.nums'))){
-        //   $(this).parent().prev('.nums').text(score.toFixed(1))
-        // }
+      let score = parseInt($(this).data('score'))
+      let color = $(this).data('color')
+      let ii = 1;
+      $(this).find('i').each(function() {
+        if (ii > score) {
+          $(this).addClass('n');
+        }
+        ii++;
+      });
 
-        // })
-      })
+      });
     </script>
     <!-- 倒數計時 -->
     <script type="text/javascript">
@@ -803,6 +801,38 @@ include('layout/course_class_base_phpcode.php');
             ii++;
           });
         });
+        
+        $(document).on("click", ".op_score_btn", function() {
+            $('.score_box').toggle();
+        });
+        
+        <?php if ($member) { ?>
+        $(document).on("click", ".de_discuss_btn", function() {
+            var dNumber = $(this).data('id');
+            var mNumber = '<?PHP echo $member['mNumber']?>';
+            $.ajax({
+              type: 'POST',
+              url: "course_start_class.php",
+              data: {
+                ac: 'del_dis',
+                dNumber: dNumber,
+                dMember: mNumber
+              },
+              dataType: "text",
+              success: function(data) {
+                if (data.trim() == "1") {
+                  swal("提示", "已刪除", "success");
+                  $('#discuss_'+dNumber).remove();
+                } else {
+                  swal("提示", "發生錯誤", "error");
+                }
+              },
+              error: function(data) {
+                swal("提示", "發生錯誤", "error");
+              }
+            });
+        });
+          <?php } ?>
 
         let page = '<?PHP echo $a_page ?>';
         if (page != '')

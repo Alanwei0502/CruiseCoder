@@ -32,8 +32,6 @@ if (isset($_POST['ac']) and $_POST['ac'] == 'addfa_c') {
 }
 
 
-
-
 $CourseID = $_GET["CourseID"];
 $a_page = $_GET["page"] ?? '';
 // $_SESSION['mNumber'] = $_COOKIE['unumber']??'';
@@ -138,10 +136,22 @@ include('layout/course_class_base_phpcode.php');
 ?>
 
 <?php
+
 $target_nums = 10;
-$target_percent = 10;
-$price_1 = "3,000";
-$price_2 = "2,400";
+$target_percent = 0;
+if (isset($CourseID)) {
+  $sql = "SELECT count(*) as c 
+      FROM `invoice`  
+      WHERE iCourse = '" . $CourseID . "'";
+  if ($result = $conn->query($sql)) {
+    if ($r = mysqli_fetch_assoc($result)) {
+      $c = $r['c'];
+      $target_percent = round($c/$target_nums*100,0);
+    }
+  }
+}
+
+$showReview = false;
 ?>
 
 
@@ -153,6 +163,7 @@ $price_2 = "2,400";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cruise Coders | <?PHP echo $course['cTitle'] ?></title>
+  <link rel="stylesheet" href="../library/jquery-ui/jquery-ui.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link rel="stylesheet" href="../css/main.css">
   <link rel="icon" href="../ico.ico" type="image/x-icon" />
@@ -160,6 +171,10 @@ $price_2 = "2,400";
   <!-- <link rel="stylesheet" href="../css/course.css"> -->
   <!-- <link rel="stylesheet" href="../css/style.css"> -->
   <style>
+    .test-box p{
+      word-break: break-all;
+    }
+
     .fa-star.n {
       color: #fff !important;
     }
@@ -541,6 +556,107 @@ $price_2 = "2,400";
         margin-bottom: 15px;
       }
     }
+    .course main #class-info .bar{
+      background: #fcc93b;
+    }
+    .ui-progressbar .ui-progressbar-value {
+          margin: 0px;
+          border: 0;
+          height: 100%;
+          background: #ffb102;
+      }
+    .course main #class-info .bar:after{
+      display:none;
+    }
+    .video.locked::after{
+      content:"";
+      display:block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 99999;
+    }
+    .course main #class-info .infos{
+      max-width: 450px;
+      width: 100%;
+    }
+    
+    @media screen and (max-width: 1000px) {
+      .course main #class-info .row{
+        display:block;
+      }
+      .course main #class-info .video{
+        width: 100%;
+      }
+      
+      .course main #class-info .infos{
+          max-width: none;
+      }
+      .course main #class-info .video {
+          width: 100%;
+          margin-bottom: 30px;
+          padding-top: 0;
+      }
+      .course main #class-info .price{
+          display: flex;
+          width: 100%;
+      }
+      .course main #class-info .btns{
+        width: 100%;
+      }
+      .btn_style {
+          font-size: 32px;
+          outline: none;
+          transform-style: preserve-3d;
+          text-decoration: none;
+          color: #182749;
+          border-radius: 10.66667px;
+          padding: 10.66667px 32px;
+          font-weight: bold;
+          position: relative;
+          overflow: hidden;
+          transition: width .3s;
+          z-index: 1;
+          border-bottom: 5.33333px solid #b47f02;
+          border-left: 5.33333px solid #b47f02;
+          cursor: pointer;
+          margin-top: 0;
+      }
+      .fa-heart {
+            color: #d4d4d4 !important;
+            font-size: 28px;
+        }
+    
+    }
+    @media screen and (max-width: 600px) {
+      .btn_style{
+          font-size: 18px;
+          padding: 5.66667px 22px;
+      }
+      .course main #class-info .btns .btn {
+          padding: 13px 20px !important;
+      }
+      .course main #class-info .price span + span {
+          letter-spacing: 0;
+          margin-top: 6px;
+      } 
+      .course main #class-info .price span {
+          font-size: 15px;
+      }
+      .course main #class-info .times h4 {
+          font-size: 20px;
+      }
+      .course main #class-info .times {
+          margin-bottom: 14px;
+      }
+      .course main #class-info .infos p {
+          color: black;
+          font-size: 14px;
+      }
+    }
+
   </style>
 
 </head>
@@ -557,8 +673,9 @@ $price_2 = "2,400";
       <section id="class-info">
         <h1><?php print $row["cTitle"] ?></h1>
         <div class="row">
-          <div class="video">
-            <iframe width="560" height="315" src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="video <?PHP echo $is_buy?'':'locked' ?>">
+            <!-- <iframe width="560" height="315" src="<?php echo $row["cVideo"]; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <img src="<?php echo $row["cImage"]; ?>" style="width: 100%;">
           </div>
           <div class="infos">
             <h3>募資進行中</h3>
@@ -589,7 +706,11 @@ $price_2 = "2,400";
             </div>
             <!-- 按鈕 -->
             <div class="btns">
+            <?PHP if($is_buy){?>
+              <button class="btn_style is_buy" >您已預購</button>
+            <?PHP }else{?>
               <button class="btn_style" id="add_cart">馬上預購</button>
+              <?PHP }?>
               <button class="btn fav dofa"><i class="fas fa-heart <?PHP echo $is_favorite ? 'active' : '' ?>"></i></button>
             </div>
             <p class="close">預計結束時間：<?php echo $row3["fStartdate"] ?></p>
@@ -617,6 +738,8 @@ $price_2 = "2,400";
     </script>
     <!-- <script src="../js/app.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+   
+    <script src="../library/jquery-ui/jquery-ui.js"></script>
     <script>
       //svg
       function enable_svg() {
@@ -882,11 +1005,47 @@ $price_2 = "2,400";
             ii++;
           });
         });
+        
+        $(document).on("click", ".op_score_btn", function() {
+            $('.score_box').toggle();
+        });
+
+        
+        <?php if ($member) { ?>
+        $(document).on("click", ".de_discuss_btn", function() {
+            var dNumber = $(this).data('id');
+            var mNumber = '<?PHP echo $member['mNumber']?>';
+            $.ajax({
+              type: 'POST',
+              url: "course_start_class.php",
+              data: {
+                ac: 'del_dis',
+                dNumber: dNumber,
+                dMember: mNumber
+              },
+              dataType: "text",
+              success: function(data) {
+                if (data.trim() == "1") {
+                  swal("提示", "已刪除", "success");
+                  $('#discuss_'+dNumber).remove();
+                } else {
+                  swal("提示", "發生錯誤", "error");
+                }
+              },
+              error: function(data) {
+                swal("提示", "發生錯誤", "error");
+              }
+            });
+        });
+          <?php } ?>
 
         let page = '<?PHP echo $a_page ?>';
         if (page != '')
           $('#' + page).click();
 
+        $('.bar').progressbar({
+            value: $('.bar').data('percent')
+        });
       });
     </script>
   </div>
