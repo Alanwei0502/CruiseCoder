@@ -60,6 +60,31 @@ let vm = new Vue({
                     that.mBadges = allData[3];
                     that.allBadges = allData[4];
                     that.memberID = allData[5]['mNumber'];
+
+
+                    // 星星
+                    // setTimeout(() => {
+                    //     for (let i = 0; i < res.length; i++) {
+                    //         res[i].rRate;
+                    //         // console.log(res.length);
+                    //         // console.log(res[i].rRate);
+                    //         // let stry = "<i class='fas fa-star yellow'> </i>";
+                    //         if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
+                    //             for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                    //                 // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                    //                 $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                    //             }
+
+                    //         } else {
+                    //             for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                    //                 // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                    //                 $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                    //                 $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                    //             }
+                    //         }
+                    //     }
+                    // }, 1);
                 },
             });
         },
