@@ -270,7 +270,14 @@
 						display: flex;
 						width: 430px;
 						margin: 20px 0px;
-					}
+                    }
+                    
+                    a.Main{
+                        display: block;
+                        color: $black;
+                        text-decoration: none;
+                    }
+
                     .favorites {
                         border-radius: 50%;
                         background-color: $white;
@@ -315,7 +322,8 @@
 
 					a.img {
                         width: 100%;
-						display: block;
+                        display: block;
+                        text-decoration: none;
 
 						@include bigPhone {
 							width: 200px;
@@ -386,13 +394,13 @@
 								}
 							}
 
-							a.text {
+							p.text {
 								margin-left: 10px;
 								text-decoration: none;
 								color: black;
 							}
 						}
-
+                        
 						.price {
 							font-size: $h4;
 							font-weight: 800;
@@ -444,7 +452,12 @@
                     width: 430px;
                     margin: 20px 0px;
                 }
-    
+                a.Main{
+                    display: block;
+                    color: $black;
+                    text-decoration: none;
+                }
+                
                 // 愛心按鈕
                 .favorites {
                     border-radius: 50%;
