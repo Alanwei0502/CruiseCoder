@@ -9,10 +9,10 @@ include("./layout/connect.php");
 
 // 撈出會員資料和收藏什麼課程
 // $sql="SELECT mNumber,mAccount FROM member;";
-// $sql="SELECT M.mNumber,F.fcCourse FROM cruisecoder.member AS M RIGHT JOIN (SELECT fcMember,fcCourse FROM favorite_c where fcMember=?) AS F on M.mNumber = F.fcMember;
+// $sql="SELECT M.mNumber,F.fcCourse FROM member AS M RIGHT JOIN (SELECT fcMember,fcCourse FROM favorite_c where fcMember=?) AS F on M.mNumber = F.fcMember;
 // ";
 // 
-$sql=" SELECT m.mNumber, m.mName, t1.fcCourse, t1.cTitle from (select * from course c join favorite_c fc on c.cNumber = fc.fcCourse where fcMember=? ) as t1 join member m on t1.fcMember = m.mNumber; ";
+$sql = " SELECT m.mNumber, m.mName, t1.fcCourse, t1.cTitle from (select * from course c join favorite_c fc on c.cNumber = fc.fcCourse where fcMember=? ) as t1 join member m on t1.fcMember = m.mNumber; ";
 
 
 $member = $_POST['member2'];
