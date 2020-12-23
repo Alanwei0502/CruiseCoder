@@ -5,21 +5,21 @@
 .course main #class-info h1{
     text-align: center;
 }
-.de_discuss_btn{
+.del_btn{
   position: absolute;
       right: 15px;
       top: 13px;
 }
-.de_discuss_btn i {
+.del_btn i {
     color: #646464;
       font-size: 26px;
     cursor: pointer;
 }
-.reply .de_discuss_btn{
+.reply .del_btn{
     right: -21px;
     top: 0;
 }
-.reply .de_discuss_btn i{
+.reply .del_btn i{
     font-size: 17px;
 }
 .r_box{
@@ -32,7 +32,7 @@
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 576px) {
-  .reply .de_discuss_btn{
+  .reply .del_btn{
     right: 0px;
     top: 0;
   }
@@ -183,7 +183,10 @@
                 foreach($reviewList as $k=>$v){
             ?>
             <!-- 評分 1 -->
-            <div class="comment post">
+            <div id="review_<?PHP echo $v['rNumber']?>" class="comment post r_box">
+            <?PHP if($member AND $v['rMmeber'] == $member['mNumber']){?>
+              <a class="de_review_btn del_btn" href="javascript:void(0);" data-id="<?PHP echo $v['rNumber']?>"><i class="far fa-times-circle close"></i></a>
+              <?PHP }?>
               <div class="row">
                 <div class="pic"><img src="<?PHP echo $v['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">
@@ -253,7 +256,7 @@
             <!-- 發問 1 -->
             <div id="discuss_<?PHP echo $v['dNumber']?>" class="comment post r_box">
             <?PHP if($member AND $v['dMember'] == $member['mNumber']){?>
-              <a class="de_discuss_btn" href="javascript:void(0);" data-id="<?PHP echo $v['dNumber']?>"><i class="far fa-times-circle close"></i></a>
+              <a class="de_discuss_btn del_btn" href="javascript:void(0);" data-id="<?PHP echo $v['dNumber']?>"><i class="far fa-times-circle close"></i></a>
               <?PHP }?>
               <div class="row">
                 <div class="pic"><img src="<?PHP echo $v['mPhoto']??'../images/course/5.png'?>" alt=""></div>
@@ -275,7 +278,7 @@
               <div  id="discuss_<?PHP echo $v2['dNumber']?>"  class="row reply r_box">
               
             <?PHP if($member AND $v2['dMember'] == $member['mNumber']){?>
-              <a class="de_discuss_btn" href="javascript:void(0);" data-id="<?PHP echo $v2['dNumber']?>"><i class="far fa-times-circle close"></i></a>
+              <a class="de_discuss_btn del_btn" href="javascript:void(0);" data-id="<?PHP echo $v2['dNumber']?>"><i class="far fa-times-circle close"></i></a>
               <?PHP }?>
                 <div class="pic"><img src="<?PHP echo $v2['mPhoto']??'../images/course/5.png'?>" alt=""></div>
                 <div class="content">

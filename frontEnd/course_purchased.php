@@ -832,6 +832,32 @@ include('layout/course_class_base_phpcode.php');
               }
             });
         });
+        $(document).on("click", ".de_review_btn", function() {
+            var rNumber = $(this).data('id');
+            var mNumber = '<?PHP echo $member['mNumber']?>';
+            $.ajax({
+              type: 'POST',
+              url: "course_start_class.php",
+              data: {
+                ac: 'del_rev',
+                rNumber: rNumber,
+                rMmeber: mNumber
+              },
+              dataType: "text",
+              success: function(data) {
+                if (data.trim() == "1") {
+                  swal("提示", "已刪除", "success");
+                  $('#review_'+rNumber).remove();
+                  window.location.reload();
+                } else {
+                  swal("提示", "發生錯誤", "error");
+                }
+              },
+              error: function(data) {
+                swal("提示", "發生錯誤", "error");
+              }
+            });
+        });
           <?php } ?>
 
         let page = '<?PHP echo $a_page ?>';
