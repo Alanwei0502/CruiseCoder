@@ -140,7 +140,7 @@
                         <div class="favorites">
                             <!-- <i class="fas fa-heart"></i> -->
                         </div>
-                        <a class="img" :href=`course_start_class.php?CourseID=${allCourses.cNumber}`>
+                        <a class="img" :href=`course_start_class.php?CourseID=${allCourse.cNumber}`>
                             <img :src="allCourse.cImage" alt="">
                         </a>
                         <div class="c_Main">
