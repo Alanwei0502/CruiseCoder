@@ -75,7 +75,7 @@
             <div class="price" id="app">
                 <div class="discount">
                     <form class="ccPoint" :data-id="ccPointNt">
-                        現有 {{ccPoint}} CC Point，您可以折抵NT${{ccPointNt}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeypress="if (event.keyCode == 13) {return false;}">元
+                        現有 {{ccp}} CC Point，您可以折抵NT${{Math.floor(this.ccp / 100)}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeypress="if (event.keyCode == 13) {return false;}">元
                     </form>
                 </div>
                 <p class="overCcp"></p>
@@ -109,7 +109,7 @@
                         <label class="text">
                             持卡人姓名
                         </label>
-                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName" onkeyup="value=value.replace(/[\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))" >
+                        <input type="text" id="card_Name" placeholder="請輸入持卡人姓名" name="cardName" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))">
                     </div>
                     <div class="phoneNum">
                         <label class="text">
@@ -131,7 +131,7 @@
                             有效日期
                         </label>
                         <select value="12">
-                            <option :value="index+1" v-for="(month,index) in 12"  >{{month}}</option>
+                            <option :value="index+1" v-for="(month,index) in 12">{{month}}</option>
                         </select>
                         <label for="" class="months">月</label>
 

@@ -269,30 +269,7 @@ function doFirst() {
             totalPrice: 0,
             theMember: '',
         },
-        computed: {
-            ccPoint() {
-                checkCookie('user');
-                getCookie('user');
-                // 先確認有無登入，再取值
-                if (!checkCookie('user')) {
-                    return;
-                }
-                // 登入判斷
 
-                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
-                // this.ccp = parseInt($('.ccp').text());
-
-                console.log(this.ccp);
-                return this.ccp;
-            },
-
-            //將cc.Point轉為現金折抵
-            ccPointNt() {
-                ccpNt = Math.floor(this.ccp / 100);
-                this.message = ccpNt;
-                return ccpNt;
-            },
-        },
         methods: {
             setMessage(e) {
                 setTimeout(() => {
@@ -345,6 +322,32 @@ function doFirst() {
                     }
                 });
             },
+            ccPoint() {
+                checkCookie('user');
+                getCookie('user');
+                // 先確認有無登入，再取值
+                if (!checkCookie('user')) {
+                    return;
+                }
+                // 登入判斷
+
+                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                // this.ccp = parseInt($('.ccp').text());
+
+                console.log(this.ccp);
+                return this.ccp;
+            },
+
+            // 將cc.Point轉為現金折抵
+            ccPointNt() {
+                ccpNt = Math.floor(this.ccp / 100);
+                this.message = ccpNt;
+                return ccpNt;
+            },
+        },
+        updated() {
+            this.ccPoint();
+            this.ccPointNt();
         },
 
         // computed: {
