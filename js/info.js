@@ -53,7 +53,7 @@ let vm = new Vue({
                 // dataType: 'json',
                 success: function (res) {
                     let allData = JSON.parse(res);
-                    // console.log(allData);
+                    console.log(allData);
                     that.courses = allData[0];
                     that.FavCourses = allData[1];
                     that.FavArticles = allData[2];
@@ -63,28 +63,28 @@ let vm = new Vue({
 
 
                     // 星星
-                    // setTimeout(() => {
-                    //     for (let i = 0; i < res.length; i++) {
-                    //         res[i].rRate;
-                    //         // console.log(res.length);
-                    //         // console.log(res[i].rRate);
-                    //         // let stry = "<i class='fas fa-star yellow'> </i>";
-                    //         if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
-                    //             for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                    //                 // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
-                    //                 $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
-                    //             }
+                    setTimeout(() => {
+                        for (let i = 0; i < that.courses.length; i++) {
+                            that.courses[i].rRate;
+                            // console.log(res.length);
+                            // console.log(res[i].rRate);
+                            // let stry = "<i class='fas fa-star yellow'> </i>";
+                            if (that.courses[i].rRate > 0 && (that.courses[i].rRate) % 1 == 0) {
+                                for (j = 0; j < Math.floor(that.courses[i].rRate); j++) {
+                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                }
 
-                    //         } else {
-                    //             for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                    //                 // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
-                    //                 $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                            } else {
+                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
+                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
+                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
 
-                    //                 $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
-                    //             }
-                    //         }
-                    //     }
-                    // }, 1);
+                                    $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                }
+                            }
+                        }
+                    }, 1);
                 },
             });
         },
