@@ -318,22 +318,22 @@
         }
         
         .Order_1{
-          display: flex;
-          justify-content: space-around;
+          // display: flex;
+          // justify-content: space-around;
           padding: 20px; 
           position: relative;
             
           div{
-            //訂單課程照片
             &:nth-child(1){
-              img{
-              width: 200px;
-              }    
+              font-size: $h4;
+              line-height: 100px;
             }
 
             //訂單編號
             &:nth-child(2){
               font-size: $h4;
+              line-height: 100px;
+              
             }
 
             //總計文字置底
@@ -343,6 +343,7 @@
                 position: absolute;
                 bottom: 25px;
                 right: 40px;
+                line-height: 50px;
                 
               }     
                   
@@ -372,6 +373,9 @@
           border-top: 1px solid #999999;
           padding: 20px 0;
           display: table-cell;
+          img{
+            width: 100px;
+          }
         }
 
         .totalPrice{

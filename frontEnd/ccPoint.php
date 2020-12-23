@@ -184,9 +184,9 @@
 
             <div class="circle_group">
              <ul>
-              <div>累積 100 CC Point，可以折抵 NT$1</div>
+              <li>累積 100 CC Point，可以折抵 NT$1</li>
               <br>
-              <div>累積的 CC Point 可在下一次結帳時折抵站內所有課程</div>
+              <li>累積的 CC Point 可在下一次結帳時折抵站內所有課程</li>
              </ul>
             
             </div>

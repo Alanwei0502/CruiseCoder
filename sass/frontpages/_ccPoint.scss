@@ -497,6 +497,23 @@ monospace;
                         font-size: $bp;
                         margin: 0 150px;
                         letter-spacing: 2.5px;
+                        ul{
+                            list-style-image: url('../images/ccPoint/list_img.svg');
+                            li {
+                                display: inline;
+                                @include bigPad {
+                                    font-size: $mp;
+                                }
+    
+                                @include smlPad {
+                                    font-size: $sp;
+                                    width: 100%;
+    
+                                }
+    
+                            }
+
+                        }
 
 
                         //768
@@ -512,19 +529,6 @@ monospace;
                         }
 
 
-                        div {
-                            display: inline;
-                            @include bigPad {
-                                font-size: $mp;
-                            }
-
-                            @include smlPad {
-                                font-size: $sp;
-                                width: 100%;
-
-                            }
-
-                        }
 
                     }
 
