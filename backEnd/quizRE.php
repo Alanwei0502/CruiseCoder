@@ -3,30 +3,30 @@
 include("../frontEnd/layout/connect.php");
 
 // searching field
-$searchGalaxy = "SELECT * FROM cruisecoder.galaxy WHERE gName = ?";
+$searchGalaxy = "SELECT * FROM galaxy WHERE gName = ?";
 $searchGalaxy = $pdo->prepare($searchGalaxy);
 
-$searchQuiz = "SELECT * FROM cruisecoder.quiz WHERE qSubject = ?";
+$searchQuiz = "SELECT * FROM quiz WHERE qSubject = ?";
 $searchQuiz = $pdo->prepare($searchQuiz);
 
-$searchBadge = "SELECT * FROM cruisecoder.badge WHERE bGalaxy = ?";
+$searchBadge = "SELECT * FROM badge WHERE bGalaxy = ?";
 $searchBadge = $pdo->prepare($searchBadge);
 
-$searchSelection = "SELECT qSubject, sNumber, sQuiz, sOption, sContent FROM cruisecoder.quiz AS Q JOIN cruisecoder.selection AS S ON Q.qNumber = S.sQuiz WHERE qSubject = ?";
+$searchSelection = "SELECT qSubject, sNumber, sQuiz, sOption, sContent FROM quiz AS Q JOIN selection AS S ON Q.qNumber = S.sQuiz WHERE qSubject = ?";
 $searchSelection = $pdo->prepare($searchSelection);
 
 
 // update field
-$editGalaxy = "UPDATE `cruisecoder`.`galaxy` SET `gNumber` = ?, `gName` = ?, `gImage` = ?, `gStatus` = ? WHERE (`gNumber` = ?)";
+$editGalaxy = "UPDATE `galaxy` SET `gNumber` = ?, `gName` = ?, `gImage` = ?, `gStatus` = ? WHERE (`gNumber` = ?)";
 $editGalaxy = $pdo->prepare($editGalaxy);
 
-$editQuiz = "UPDATE `cruisecoder`.`quiz` SET `qNumber` = ?, `qSubject` = ?, `qLevel` = ?, `qContent` = ?, `qAnswer` = ?, `qState` = ?, `qBackground` = ? WHERE (`qNumber` = ?)";
+$editQuiz = "UPDATE `quiz` SET `qNumber` = ?, `qSubject` = ?, `qLevel` = ?, `qContent` = ?, `qAnswer` = ?, `qState` = ?, `qBackground` = ? WHERE (`qNumber` = ?)";
 $editQuiz = $pdo->prepare($editQuiz);
 
-$editBadge = "UPDATE `cruisecoder`.`badge` SET `bNumber` = ?, `bGalaxy` = ?, `bName` = ?, `bInfo` = ?, `bLevel` = ?, `bIcon` = ?, `bBadge` = ? WHERE (`bNumber` = ?)";
+$editBadge = "UPDATE `badge` SET `bNumber` = ?, `bGalaxy` = ?, `bName` = ?, `bInfo` = ?, `bLevel` = ?, `bIcon` = ?, `bBadge` = ? WHERE (`bNumber` = ?)";
 $editBadge = $pdo->prepare($editBadge);
 
-$editSelection = "UPDATE `cruisecoder`.`selection` SET `sNumber` = ?, `sQuiz` = ?, `sOption` = ?, `sContent` = ? WHERE (`sNumber` = ?)";
+$editSelection = "UPDATE `selection` SET `sNumber` = ?, `sQuiz` = ?, `sOption` = ?, `sContent` = ? WHERE (`sNumber` = ?)";
 $editSelection = $pdo->prepare($editSelection);
 
 

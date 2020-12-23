@@ -3,16 +3,16 @@
 include("../frontEnd/layout/connect.php");
 
 // loading in the beginning
-$AllGalStatement = "SELECT gName FROM cruisecoder.galaxy";
+$AllGalStatement = "SELECT gName FROM galaxy";
 $AllGalStatement = $pdo->prepare($AllGalStatement);
 $AllGalStatement->execute();
 
 // searching the field
-$GalStatement = "SELECT * FROM cruisecoder.galaxy WHERE gName like ?";
+$GalStatement = "SELECT * FROM galaxy WHERE gName like ?";
 $GalStatement = $pdo->prepare($GalStatement);
 
 // counting how many rows in quiz table
-$TotalNum = "SELECT COUNT(*) AS num FROM cruisecoder.quiz";
+$TotalNum = "SELECT COUNT(*) AS num FROM quiz";
 $TotalNum = $pdo->prepare($TotalNum);
 $TotalNum->execute();
 

@@ -112,9 +112,6 @@ $infoMember = $statement->fetchAll();
             <template v-for="course in courses">
               <div class="wrapGeneral">
                 <img class="tImg" :src="course.mPhoto" alt="">
-                <div class="favorites" :data-courseid="course.cNumber">
-                  <i class="fas fa-heart" @click="favorite"></i>
-                </div>
                 <a class=" img" :href="'course_purchased.php?CourseID='+course.cNumber">
                   <img :src="course.cImage" alt="">
                 </a>

@@ -272,40 +272,6 @@
 						margin: 20px 0px;
 					}
 
-
-					// 愛心按鈕
-					.favorites {
-						border-radius: 50%;
-						background-color: $white;
-						position: absolute;
-						top: 0px;
-						right: 0px;
-						transform: translate(-10%, 270%);
-
-						@include bigPhone {
-							transform: translate(-20%, 310%);
-							box-shadow: -0.2px 0.6px 3px rgb(172, 172, 172);
-						}
-
-						// font
-						i {
-							font-size: 30px;
-							padding: 10px;
-							cursor: pointer;
-							color: rgb(212, 212, 212);
-
-							@include bigPhone {
-								font-size: 25px;
-								padding: 10px;
-							}
-						}
-
-						i.is-active {
-							color: $red;
-						}
-					}
-
-
 					img.tImg {
 						width: 80px;
 						border-radius: 50%;

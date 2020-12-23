@@ -98,22 +98,22 @@ let vmMember = new Vue({
         },
 
         // 大頭照即時呈現
-        readURL() {
-            let file = $('#imgInp')[0].files[0];
-            let reader = new FileReader;
-            reader.onload = function (e) {
-                $('#imgShow').attr('src', e.target.result);
-            };
-            reader.readAsDataURL(file);
-        },
+        // readURL() {
+        //     let file = $('#imgInp')[0].files[0];
+        //     let reader = new FileReader;
+        //     reader.onload = function (e) {
+        //         $('#imgShow').attr('src', e.target.result);
+        //     };
+        //     reader.readAsDataURL(file);
+        // },
 
         // 儲存編輯
         saveInfo() {
             let editLevel = $('select[name = "ganName"]').val();
             let editName = $('input[name = "memberName"]').val();
-            let originalImg = $('#imgShow').attr("src");
-            let photo = $('#imgInp').val().split("\\");
-            let editPhoto = (photo[(photo.length - 1)] == "") ? originalImg : ("../images/info/" + photo[(photo.length - 1)]);
+            // let originalImg = $('#imgShow').attr("src");
+            // let photo = $('#imgInp').val().split("\\");
+            // let editPhoto = (photo[(photo.length - 1)] == "") ? originalImg : ("../images/info/" + photo[(photo.length - 1)]);
             let editPhone = $('input[name="memberPhone"]').val();
             let editPassword = $('input[type="password"]').val();
             let editCC = $('input[name="memberCC"]').val();
@@ -138,19 +138,19 @@ let vmMember = new Vue({
 
                     },
                 });
-                let fileData = $('#imgInp').prop('files')[0];   //取得上傳檔案屬性
-                let formData = new FormData();  // 建構new FormData()
-                formData.append('file', fileData);  //把物件加到file後面
+                // let fileData = $('#imgInp').prop('files')[0];   //取得上傳檔案屬性
+                // let formData = new FormData();  // 建構new FormData()
+                // formData.append('file', fileData);  //把物件加到file後面
                 // 傳圖片 將圖片放到資料夾內
-                $.ajax({
-                    url: 'memberR.php',
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: formData,     //data只能指定單一物件
-                    type: 'POST',
-                    success: function (data) { }
-                });
+                // $.ajax({
+                //     url: 'memberR.php',
+                //     cache: false,
+                //     contentType: false,
+                //     processData: false,
+                //     data: formData,     //data只能指定單一物件
+                //     type: 'POST',
+                //     success: function (data) { }
+                // });
             }
 
         }

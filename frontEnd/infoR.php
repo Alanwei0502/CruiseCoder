@@ -4,27 +4,27 @@
 include("./layout/connect.php");
 
 // 抓到會員編號
-$getMemberID = "SELECT mNumber FROM cruisecoder.`member` WHERE mAccount = ?";
+$getMemberID = "SELECT mNumber FROM member WHERE mAccount = ?";
 $getMemberID = $pdo->prepare($getMemberID);
 
 // 會員擁有的課程
-$getMemberCourse = "SELECT C.*, mPhoto FROM cruisecoder.`member` AS M JOIN (SELECT C.* FROM cruisecoder.course AS C JOIN (SELECT * FROM cruisecoder.invoice AS I JOIN (SELECT * FROM cruisecoder.myorder WHERE oMember = ?) AS O ON I.iNumber = O.oNumber) AS MB ON C.cNumber = MB.iCourse) AS C ON M.mNumber = C.cLecturer";
+$getMemberCourse = "SELECT C.*, mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM invoice AS I JOIN (SELECT * FROM myorder WHERE oMember = ?) AS O ON I.iNumber = O.oNumber) AS MB ON C.cNumber = MB.iCourse) AS C ON M.mNumber = C.cLecturer";
 $getMemberCourse = $pdo->prepare($getMemberCourse);
 
 // 會員蒐藏的課程
-$getMemberFC = "SELECT FC.*, M.mPhoto FROM cruisecoder.`member` AS M JOIN (SELECT C.* FROM cruisecoder.course AS C JOIN (SELECT * FROM cruisecoder.favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer";
+$getMemberFC = "SELECT FC.*, M.mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer";
 $getMemberFC = $pdo->prepare($getMemberFC);
 
 // 會員蒐藏的文章
-$getMemberFA = "SELECT A.* FROM cruisecoder.article AS A JOIN (SELECT * FROM cruisecoder.favorite_a WHERE faMember = ?) AS FA ON FA.faArticle = A.aNumber";
+$getMemberFA = "SELECT A.* FROM article AS A JOIN (SELECT * FROM favorite_a WHERE faMember = ?) AS FA ON FA.faArticle = A.aNumber";
 $getMemberFA = $pdo->prepare($getMemberFA);
 
 // 會員獲得的徽章
-$getMemberBadge = "SELECT uBadge FROM cruisecoder.unlock WHERE uMember = ?";
+$getMemberBadge = "SELECT uBadge FROM `unlock` WHERE uMember = ?";
 $getMemberBadge = $pdo->prepare($getMemberBadge);
 
 // 所有徽章
-$allBadge = "SELECT bGalaxy, bNumber, bName, bBadge, bLevel FROM cruisecoder.badge";
+$allBadge = "SELECT bGalaxy, bNumber, bName, bBadge, bLevel FROM badge";
 $allBadge = $pdo->prepare($allBadge);
 
 

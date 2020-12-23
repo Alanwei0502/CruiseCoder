@@ -17,7 +17,7 @@ $pdo = new PDO($dsn, $db_user, $db_pass);
 if (isset($_POST["allON"])) {
     $courseName = "'" . implode("','", $_POST["allON"]) . "'";
 
-    $update = "UPDATE `cruisecoder`.`tutorial` SET `tStatus` = '1' WHERE tNumber IN (" . $courseName . ")";
+    $update = "UPDATE `tutorial` SET `tStatus` = '1' WHERE tNumber IN (" . $courseName . ")";
 
     $update = $pdo->prepare($update);
 
@@ -29,7 +29,7 @@ if (isset($_POST["allOFF"])) {
 
     $courseName = "'" . implode("','", $_POST["allOFF"]) . "'";
 
-    $update = "UPDATE `cruisecoder`.`tutorial` SET `tStatus` = '0' WHERE tNumber IN (" . $courseName . ")";
+    $update = "UPDATE `tutorial` SET `tStatus` = '0' WHERE tNumber IN (" . $courseName . ")";
 
     $update = $pdo->prepare($update);
 

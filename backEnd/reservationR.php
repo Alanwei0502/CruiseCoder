@@ -14,7 +14,7 @@ $pdo = new PDO($dsn, $db_user, $db_pass);
 // tNumber, tStatus, cNumber ,cTitle, cLecturer, mName, tDate,
 // $sql = "select tDate, cTitle, mName, tStatus, reTutorial from ((course c inner join member m ON cLecturer = mNumber) join tutorial t on c.cLecturer = t.tTeacher) join reservation r on  t.tNumber = r.reTutorial GROUP BY reTutorial";
 // $sql = "SELECT tDate, cTitle, mName, tStatus, tNumber , tCourse FROM tutorial AS t join course AS c on t.tCourse = c.cNumber join member AS m on c.cLecturer = m.mNumber;";
-$sql = "SELECT tDate, cTitle, mName, tStatus, tNumber, cLecturer, cNumber , countPeople FROM cruisecoder.member AS M JOIN (SELECT cNumber ,cTitle, cLecturer, tNumber, tStatus, tDate, countPeople  FROM cruisecoder.course AS C JOIN (SELECT * FROM cruisecoder.tutorial AS T LEFT JOIN countpeople AS C ON T.tNumber = C.reTutorial) AS T ON C.cNumber = T.tCourse) AS T ON T.cLecturer = M.mNumber";
+$sql = "SELECT tDate, cTitle, mName, tStatus, tNumber, cLecturer, cNumber , countPeople FROM member AS M JOIN (SELECT cNumber ,cTitle, cLecturer, tNumber, tStatus, tDate, countPeople  FROM course AS C JOIN (SELECT * FROM tutorial AS T LEFT JOIN countpeople AS C ON T.tNumber = C.reTutorial) AS T ON C.cNumber = T.tCourse) AS T ON T.cLecturer = M.mNumber";
 $result = $pdo->query($sql);
 $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -96,6 +96,3 @@ echo json_encode($resArr);
 
 
 // CREATE VIEW countpeople as SELECT reTutorial,count(*) FROM `reservation` GROUP by reTutorial
-
-?>
-

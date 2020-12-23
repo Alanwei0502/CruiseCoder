@@ -3,32 +3,32 @@
 include("../frontEnd/layout/connect.php");
 
 //載入時先抓全部會員
-$allMember = "SELECT * FROM cruisecoder.`member` WHERE mName LIKE ? AND mLevel LIKE ? AND mAccount LIKE ? AND (date_format(mJoindate, '%Y%m%d') <= ? AND date_format(mJoindate, '%Y%m%d') >= ?) AND mNumber LIKE ?";
+$allMember = "SELECT * FROM `member` WHERE mName LIKE ? AND mLevel LIKE ? AND mAccount LIKE ? AND (date_format(mJoindate, '%Y%m%d') <= ? AND date_format(mJoindate, '%Y%m%d') >= ?) AND mNumber LIKE ?";
 $allMember = $pdo->prepare($allMember);
 
 
 // 會員資料
-$memberInfo = "SELECT M.*, L.lInfo FROM cruisecoder.`member` AS M LEFT JOIN cruisecoder.lecturer AS L ON M.mNumber = L.lNumber WHERE mNumber = ?";
+$memberInfo = "SELECT M.*, L.lInfo FROM `member` AS M LEFT JOIN lecturer AS L ON M.mNumber = L.lNumber WHERE mNumber = ?";
 $memberInfo = $pdo->prepare($memberInfo);
 
 // 會員獲得徽章
-$getBadge = "SELECT uDate, bName, bNumber FROM cruisecoder.badge AS B JOIN (SELECT * FROM cruisecoder.`unlock` WHERE uMember = ?) AS U ON B.bNumber = U.uBadge";
+$getBadge = "SELECT uDate, bName, bNumber FROM badge AS B JOIN (SELECT * FROM `unlock` WHERE uMember = ?) AS U ON B.bNumber = U.uBadge";
 $getBadge = $pdo->prepare($getBadge);
 
 // 會員訂單紀錄
-$order = "SELECT oDate, oNumber, oTotal FROM cruisecoder.myorder WHERE oMember = ?";
+$order = "SELECT oDate, oNumber, oTotal FROM myorder WHERE oMember = ?";
 $order = $pdo->prepare($order);
 
 // 會員課輔紀錄
-$tutorial = "SELECT reDate, tDate, cTitle, mName FROM cruisecoder.course AS C JOIN (SELECT * FROM cruisecoder.`member` AS M JOIN (SELECT * FROM cruisecoder.tutorial AS T JOIN (SELECT * FROM cruisecoder.reservation WHERE reMember = ?) AS R ON T.tNumber = R.reTutorial) AS R ON M.mNumber = R.tTeacher) AS R ON C.cNumber = R.tCourse";
+$tutorial = "SELECT reDate, tDate, cTitle, mName FROM course AS C JOIN (SELECT * FROM `member` AS M JOIN (SELECT * FROM tutorial AS T JOIN (SELECT * FROM reservation WHERE reMember = ?) AS R ON T.tNumber = R.reTutorial) AS R ON M.mNumber = R.tTeacher) AS R ON C.cNumber = R.tCourse";
 $tutorial = $pdo->prepare($tutorial);
 
 // 會員上傳資訊
-$memberUpload = "UPDATE `cruisecoder`.`member` SET `mLevel` = ?, `mName` = ?, `mPhoto` = ?, `mPhone` = ?, `mPassword` = ?, `mCC` = ? WHERE (`mNumber` = ?)";
+$memberUpload = "UPDATE `member` SET `mLevel` = ?, `mName` = ?, `mPhoto` = ?, `mPhone` = ?, `mPassword` = ?, `mCC` = ? WHERE (`mNumber` = ?)";
 $memberUpload = $pdo->prepare($memberUpload);
 
 // 老師上傳資訊
-$lecturerUpload = "UPDATE `cruisecoder`.`lecturer` SET `lInfo` = ? WHERE (`lNumber` = ?)";
+$lecturerUpload = "UPDATE `lecturer` SET `lInfo` = ? WHERE (`lNumber` = ?)";
 $lecturerUpload = $pdo->prepare($lecturerUpload);
 
 // 一載入時的資料掛載

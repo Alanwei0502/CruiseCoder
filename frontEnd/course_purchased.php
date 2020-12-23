@@ -672,29 +672,29 @@ include('layout/course_class_base_phpcode.php');
 
       // 評分星星
       $('.stars[data-score]').each(function() {
-      let score = parseInt($(this).data('score'))
-      let color = $(this).data('color')
-      let ii = 1;
-      $(this).find('i').each(function() {
-        if (ii > score) {
-          $(this).addClass('n');
-        }
-        ii++;
-      });
-      // console.log(score,color)
-      // $(this).css({
-      //   backgroundImage: "linear-gradient(to right,"+color+" 0%,"+color+" "+(score/5*100)+"%,transparent "+(score/5*100)+"%,#ccc "+(score/5*100)+"% ,#ccc 100%)"
-      // })
-      // 分數
-      // if($(this).prev('.nums').is($(this).prev('.nums'))){
-      //   $(this).prev('.nums').text(score.toFixed(1))
-      //   // $(this).prev('.nums').text(Math.floor(score/10).toFixed(1))
-      // }
-      // if($(this).parent().prev('.nums').is($(this).parent().prev('.nums'))){
-      //   $(this).parent().prev('.nums').text(score.toFixed(1))
-      // }
+        let score = parseInt($(this).data('score'))
+        let color = $(this).data('color')
+        let ii = 1;
+        $(this).find('i').each(function() {
+          if (ii > score) {
+            $(this).addClass('n');
+          }
+          ii++;
+        });
+        // console.log(score,color)
+        // $(this).css({
+        //   backgroundImage: "linear-gradient(to right,"+color+" 0%,"+color+" "+(score/5*100)+"%,transparent "+(score/5*100)+"%,#ccc "+(score/5*100)+"% ,#ccc 100%)"
+        // })
+        // 分數
+        // if($(this).prev('.nums').is($(this).prev('.nums'))){
+        //   $(this).prev('.nums').text(score.toFixed(1))
+        //   // $(this).prev('.nums').text(Math.floor(score/10).toFixed(1))
+        // }
+        // if($(this).parent().prev('.nums').is($(this).parent().prev('.nums'))){
+        //   $(this).parent().prev('.nums').text(score.toFixed(1))
+        // }
 
-      })
+        // })
       })
     </script>
     <!-- 倒數計時 -->

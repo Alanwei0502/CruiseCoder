@@ -4,15 +4,15 @@
 include("./layout/connect.php");
 
 // 找會員ID
-$memberID = "SELECT mNumber FROM cruisecoder.`member` WHERE mAccount = ?";
+$memberID = "SELECT mNumber FROM `member` WHERE mAccount = ?";
 $memberID = $pdo->prepare($memberID);
 
 // 找徽章ID
-$badgeID = "SELECT bNumber FROM cruisecoder.badge WHERE bName = ?";
+$badgeID = "SELECT bNumber FROM badge WHERE bName = ?";
 $badgeID = $pdo->prepare($badgeID);
 
 // 塞入UNLOCK TABLE
-$unlockBadge = "INSERT INTO `cruisecoder`.`unlock` (`uNumber`, `uMember`, `uBadge`, `uDate`) VALUES (DATE_FORMAT(NOW(),'%Y%m%d%H%i%s'), ?, ?, NOW());";
+$unlockBadge = "INSERT INTO `unlock` (`uNumber`, `uMember`, `uBadge`, `uDate`) VALUES (DATE_FORMAT(NOW(),'%Y%m%d%H%i%s'), ?, ?, NOW());";
 $unlockBadge = $pdo->prepare($unlockBadge);
 
 if (isset($_POST["userAccount"], $_POST["badgeField"])) {

@@ -3,34 +3,34 @@
 include("../frontEnd/layout/connect.php");
 
 // counting how many rows in galaxy table
-$countGalaxy = "SELECT COUNT(*) AS count FROM cruisecoder.galaxy";
+$countGalaxy = "SELECT COUNT(*) AS count FROM galaxy";
 $countGalaxy = $pdo->prepare($countGalaxy);
 // inserting new data to galaxy table
-$createGalaxy = "INSERT INTO `cruisecoder`.`galaxy` (`gNumber`, `gName`, `gImage`, `gStatus`) VALUES (?, ?, ?, ?)";
+$createGalaxy = "INSERT INTO `galaxy` (`gNumber`, `gName`, `gImage`, `gStatus`) VALUES (?, ?, ?, ?)";
 $createGalaxy = $pdo->prepare($createGalaxy);
 
 
 // counting how many rows in quiz table
-$countQuiz = "SELECT COUNT(*) FROM cruisecoder.quiz";
+$countQuiz = "SELECT COUNT(*) FROM quiz";
 $countQuiz = $pdo->prepare($countQuiz);
 // inserting new data to quiz table
-$createQuiz = "INSERT INTO `cruisecoder`.`quiz` (`qNumber`, `qSubject`, `qLevel`, `qContent`, `qAnswer`, `qState`, `qBackground`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$createQuiz = "INSERT INTO `quiz` (`qNumber`, `qSubject`, `qLevel`, `qContent`, `qAnswer`, `qState`, `qBackground`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $createQuiz = $pdo->prepare($createQuiz);
 
 
 // counting how many rows in selection table
-$countSelection = "SELECT COUNT(*) FROM cruisecoder.selection";
+$countSelection = "SELECT COUNT(*) FROM selection";
 $countSelection = $pdo->prepare($countSelection);
 // inserting new data to selection table
-$createSelection = "INSERT INTO `cruisecoder`.`selection` (`sNumber`, `sQuiz`, `sOption`, `sContent`) VALUES (?, ?, ?, ?)";
+$createSelection = "INSERT INTO `selection` (`sNumber`, `sQuiz`, `sOption`, `sContent`) VALUES (?, ?, ?, ?)";
 $createSelection = $pdo->prepare($createSelection);
 
 
 // counting how many rows in badge table
-$countBadge = "SELECT COUNT(*) FROM cruisecoder.badge";
+$countBadge = "SELECT COUNT(*) FROM badge";
 $countBadge = $pdo->prepare($countBadge);
 // inserting new data to badge table
-$createBadge = "INSERT INTO `cruisecoder`.`badge` (`bNumber`, `bGalaxy`, `bName`, `bInfo`, `bLevel`, `bIcon`, `bBadge`, `bBackground`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+$createBadge = "INSERT INTO `badge` (`bNumber`, `bGalaxy`, `bName`, `bInfo`, `bLevel`, `bIcon`, `bBadge`, `bBackground`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $createBadge = $pdo->prepare($createBadge);
 
 
