@@ -269,7 +269,30 @@ function doFirst() {
             totalPrice: 0,
             theMember: '',
         },
+        computed: {
+            ccPoint() {
+                checkCookie('user');
+                getCookie('user');
+                // 先確認有無登入，再取值
+                if (!checkCookie('user')) {
+                    return;
+                }
+                // 登入判斷
 
+                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+                // this.ccp = parseInt($('.ccp').text());
+
+                console.log(this.ccp);
+                return this.ccp;
+            },
+
+            //將cc.Point轉為現金折抵
+            ccPointNt() {
+                ccpNt = Math.floor(this.ccp / 100);
+                this.message = ccpNt;
+                return ccpNt;
+            },
+        },
         methods: {
             setMessage(e) {
                 setTimeout(() => {
@@ -324,34 +347,33 @@ function doFirst() {
             },
         },
 
-        computed: {
-            //取得cc.Point
-            ccPoint() {
-                checkCookie('user');
-                getCookie('user');
-                // 先確認有無登入，再取值
-                if (!checkCookie('user')) {
-                    return;
-                }
-                // 登入判斷
+        // computed: {
+        //     //取得cc.Point
+        //     ccPoint() {
+        //         checkCookie('user');
+        //         getCookie('user');
+        //         // 先確認有無登入，再取值
+        //         if (!checkCookie('user')) {
+        //             return;
+        //         }
+        //         // 登入判斷
 
-                this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
-                // this.ccp = parseInt($('.ccp').text());
+        //         this.ccp = parseInt(document.getElementsByClassName('ccp')[0].innerText);
+        //         // this.ccp = parseInt($('.ccp').text());
 
-                console.log(this.ccp);
-                return this.ccp;
+        //         console.log(this.ccp);
+        //         return this.ccp;
+        //     },
 
+        //     //將cc.Point轉為現金折抵
+        //     ccPointNt() {
+        //         ccpNt = Math.floor(this.ccp / 100);
+        //         this.message = ccpNt;
+        //         return ccpNt;
+        //     },
 
-            },
+        // },
 
-            //將cc.Point轉為現金折抵
-            ccPointNt() {
-                ccpNt = Math.floor(this.ccp / 100);
-                this.message = ccpNt;
-                return ccpNt;
-            },
-
-        },
         watch: {// 雙向綁定(和v-model功能類似)，監聽data的值
 
             // 監聽message值，如果有變動的話回執行下列語法
@@ -551,7 +573,7 @@ function doFirst() {
 
 // 請peggy用push方式將id寫進去localstorage
 // 自訂資料寫進去localstorage  
-let list = ['C0001', 'C0002']
+// let list = ['C0001', 'C0002']
 // // let list = []
 
 // localStorage.clear();
