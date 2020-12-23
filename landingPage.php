@@ -20,8 +20,8 @@
         ?>
 
         <div class="andingPageContents">
-            <img src="./images/landing/logoCruise.png" alt="">
-
+            <a href="./frontEnd/index.php"><img src="./images/landing/logoCruise.png" alt=""></a>
+            
             <img src="./images/landing/lotsOf.svg" alt="">
 
 

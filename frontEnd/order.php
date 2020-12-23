@@ -108,9 +108,11 @@ $data = $result->fetchAll();
                 <div class="accordion">
                     <div class="title accordion-control">
                         <div class="Order_1">
-                            <div><img src="<?=$row['cImage']?>" alt=""></div>
+                            
                             <div>訂單編號：<?=$row['oNumber']?></div>
-                            <div><span>NT$<?=$row['cPrice']?></span></div> 
+                            <div>CC Point折抵 : NT$<?=$row['oCC']?></div> 
+                            <div><span>NT$<?=$row['oTotal']?></span></div> 
+
                         </div>
                     </div>    
 
@@ -118,22 +120,21 @@ $data = $result->fetchAll();
                     <div class="content accordion-panel">
                         <div id="css_table">
                             <div class="tHead css_tr" >
+                                <div class="css_td"></div>
                                 <div class="css_td">課程名稱</div>
-                                <div class="css_td">CC Point折抵</div>
                                 <div class="css_td">售價</div>
                                 <div class="css_td">卡號末四碼</div>
                                 <div class="css_td">訂單成立</div>    
                             </div>
                             <div class="tChild css_tr">
+                                <div class="css_td"><img src="<?=$row['cImage']?>" alt=""></div>
                                 <div class="css_td"><?=$row['cTitle']?></div> 
-                                <div class="css_td">NT$<?=$row['oCC']?></div> 
                                 <div class="css_td">NT$<?=$row['cPrice']?></div>
                                 <div class="css_td"><?=$row['oCard']?></div> 
                                 <div class="css_td"><?=$row['oDate']?></div>
                             </div>
                         </div>
 
-                        <div class="totalPrice">總計：NT$<?=$row['oTotal']?></div>
                     </div> 
                 </div>
                 <?php } ?>
