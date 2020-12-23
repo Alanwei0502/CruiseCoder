@@ -212,7 +212,9 @@ $infoMember = $statement->fetchAll();
           <template v-for="FavArticle in FavArticles">
             <div class="aic">
               <a :href="'article.php?aTitle='+FavArticle.aTitle" class="aritcleA">
-                <div class="love_arc"><img src="../images/info/Group 1008@2x.png" alt="love"></div>
+                <div class="favorites" :data-articleid="FavArticle.aNumber">
+                  <i class="fas fa-heart is-active" @click.prevent="favoriteA"></i>
+                </div>
                 <img :src="'../images/article/' + FavArticle.aImage" :alt="FavArticle.aTitle">
                 <div>
                   <p>{{FavArticle.aTitle}}</p>

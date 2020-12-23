@@ -24,6 +24,10 @@ function checkCookie(cname) {
     }
 }
 
+if (!getCookie('user')) {
+    window.location.href = 'index.php';
+}
+
 
 
 let vm = new Vue({
@@ -49,7 +53,7 @@ let vm = new Vue({
                 // dataType: 'json',
                 success: function (res) {
                     let allData = JSON.parse(res);
-                    console.log(allData);
+                    // console.log(allData);
                     that.courses = allData[0];
                     that.FavCourses = allData[1];
                     that.FavArticles = allData[2];
@@ -64,7 +68,7 @@ let vm = new Vue({
             $(e.target).toggleClass('is-active');
             let theMember = this.memberID;
             let thecNumber = $(e.target).closest('.favorites').data('courseid');
-            console.log(theMember, thecNumber);
+            // console.log(theMember, thecNumber);
             if (!$(e.target).hasClass('is-active')) {
                 let that = this;
                 let heart = 1;
@@ -80,6 +84,7 @@ let vm = new Vue({
                     success: function (res) {
                         // console.log(res);
                     }
+
                 });
             } else {
                 let that = this;
@@ -97,7 +102,49 @@ let vm = new Vue({
                         // console.log(res);
                     }
                 });
+
             }
+            window.location.reload();
+        },
+        favoriteA(e) {
+            $(e.target).toggleClass('is-active');
+            let userAccount = getCookie('user');
+            let aNumber = $(e.target).closest('.favorites').data('articleid');
+            // console.log(userAccount, aNumber);
+            if (!$(e.target).hasClass('is-active')) {
+                let that = this;
+                let cancel = 0;
+                $.ajax({
+                    type: 'POST',
+                    url: 'articleR.php',
+                    data: {
+                        userAccount,
+                        aNumber,
+                        cancel,
+                    },
+                    dataType: 'text',
+                    success: function (res) {
+                        // console.log(res);
+                    }
+                });
+            } else {
+                let that = this;
+                let collect = 0;
+                $.ajax({
+                    type: 'POST',
+                    url: 'articleR.php',
+                    data: {
+                        userAccount,
+                        aNumber,
+                        collect,
+                    },
+                    dataType: 'text',
+                    success: function (res) {
+                        // console.log(res);
+                    }
+                });
+            }
+            window.location.reload();
         }
     },
     // vue life cycle
