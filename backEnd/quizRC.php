@@ -143,7 +143,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         $createBadge->execute();
         echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
-    // echo "success";
+
 
     if (isset($_FILES["badge"])) {
         $filePathTemp = $_FILES["badge"]["tmp_name"];
@@ -158,4 +158,5 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/planets" . $_FILES["badge"]["name"];
         copy($filePathTemp, $filePath);
     }
+    echo "success";
 }
