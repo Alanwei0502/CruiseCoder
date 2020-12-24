@@ -75,8 +75,6 @@ let app = new Vue({
                     oNumber,
                 },
                 dataType: 'json',
-                // hi 你好
-                // 謝謝 kiki
                 success: function (res) {
                     // $.that.$forceUpdate();
                     that.orderInvoice = res;

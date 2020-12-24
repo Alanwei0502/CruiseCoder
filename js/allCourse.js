@@ -12,11 +12,9 @@ let app = new Vue({
     },
     // ajax抓資料
     created() {
-        // alert('氣死我了');
         this.ajax();
         this.getmember();
         this.getFavCourse();
-
     },
 
     methods: {
@@ -78,7 +76,6 @@ let app = new Vue({
                                             for (let i = 0; i < res.length; i++) {
                                                 let span = document.getElementsByClassName("counts");
                                                 span[i].innerText = res[i].count;
-
                                                 // console.log(res[i].count);
                                             }
                                             // console.log(w);
@@ -164,8 +161,6 @@ let app = new Vue({
                                 }
                             });
                         });
-
-
                     }
                 });
             }, 500);
@@ -206,16 +201,13 @@ let app = new Vue({
                     res[i].rRate;
                     // console.log(res.length);
                     // console.log(res[i].rRate);
-                    // let stry = "<i class='fas fa-star yellow'> </i>";
                     if (res[i].rRate > 0 && (res[i].rRate) % 1 == 0) {
                         for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                            // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
                             $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
                         }
 
                     } else {
                         for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                            // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
                             $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
 
                             $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
@@ -317,9 +309,9 @@ let app = new Vue({
                             fastar[i].classList.remove('fas');
                             fastar[i].classList.remove('far');
                             fastar[i].classList.remove('fa-star');
+                            fastar[i].classList.remove('yellow');
                             fastar[i].classList.add("far");
                             fastar[i].classList.add("fa-star");
-                            fastar[i].classList.remove('yellow');
                         }
                         // 星星
                         setTimeout(() => {
@@ -1094,25 +1086,11 @@ let app = new Vue({
         favorites(e) {
             checkCookie('user');
             getCookie('user');
-            // let userAccount = getCookie('user');
-            // this.theMember = userAccount;
-            // console.log(this.theMember);
-            // 先判斷有無登入，沒有登入就會return
+
             if (!checkCookie('user')) {
 
                 swal("請先登入會員!", "登入會員才有辦法收藏課程唷!", "error");
-                // $('.loginWrap').css('display', 'block');
-                // $('.logout').css('display', 'none');
-                // $('.callLoginBox').css('display', 'block');
-                // $('#loginWrap').css('display', 'block');
 
-                // $('#closeIcon').click(function () { //點擊close icon 關閉login
-                //     $('#loginWrap').css('display', 'none');
-                // });
-
-                // $('.greyGlass').click(function () {//點擊蒙版 關閉login
-                //     $('#loginWrap').css('display', 'none');
-                // });
                 return;
             }
 
