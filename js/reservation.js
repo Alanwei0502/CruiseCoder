@@ -9,6 +9,8 @@ let vm = new Vue({
       students: [],
       pages: {start: 0,end: 5},
       pages2: {start: 6,end: 10},
+      pages3: {start: 0,end: 5},
+      pages4: {start: 5,end: 10},
   },
   methods: {      //函數放這裡
     addTutorial(e){

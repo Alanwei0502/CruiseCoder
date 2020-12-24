@@ -155,10 +155,10 @@
               <p class="nameList">預約名單</p>
               <div class="reservationName">
                 <div class="nameTable">
-                  <div v-for="student in students.slice(pages.start,pages.end)">{{student}}</div>
+                  <div v-for="student in students.slice(pages3.start,pages3.end)">{{student}}</div>
                 </div>
                 <div class="nameTable">
-                  <div v-for="student in students.slice(pages2.start,pages2.end)">{{student}}</div>
+                  <div v-for="student in students.slice(pages4.start,pages4.end)">{{student}}</div>
                 </div>
               </div>
             </div>
