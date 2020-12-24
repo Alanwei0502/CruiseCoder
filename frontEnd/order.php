@@ -17,14 +17,29 @@
 
 <!-- 連結訂單表和會員表的會員編號 -->
 <?php
-$sql = "SELECT * from (select * from (select * from `course` join `invoice` on cNumber = iCourse) c join `myorder` o on c.iNumber = o.oNumber) s
-join `member` m
-on s.oMember = m.mNumber where mAccount= ?";
+//訂單
+$sql_order = "SELECT * from `myorder` o join `member` m on o.oMember = m.mNumber where mAccount = ?";
 
-$result = $pdo->prepare($sql);
-$result->bindValue(1,$F_user);
-$result->execute();
-$data = $result->fetchAll();
+$orders = $pdo->prepare($sql_order);
+$orders->bindValue(1,$F_user);
+$orders->execute();
+$data_orders = $orders->fetchAll();
+
+$id_arr = [];
+foreach($data_orders as $index => $order){
+    array_push($id_arr, $order["oNumber"]);
+}
+
+
+//舊明細
+// $sql = "SELECT * from (select * from (select * from `course` join `invoice` on cNumber = iCourse) c join `myorder` o on c.iNumber = o.oNumber) s
+// join `member` m
+// on s.oMember = m.mNumber where mAccount= ?";
+
+// $result = $pdo->prepare($sql);
+// $result->bindValue(1,$F_user);
+// $result->execute();
+// $data = $result->fetchAll();
 
 ?>
 
@@ -67,16 +82,27 @@ $data = $result->fetchAll();
             <div class="orderArea">
                 
                     <?php
-                        foreach($data as $index => $rowR){
+                        foreach($id_arr as $index => $item_order){
+                            $sql = "SELECT * from (select * from (select * from `course` join `invoice` on cNumber = iCourse) c join `myorder` o on c.iNumber = o.oNumber) s
+                            join `member` m
+                            on s.oMember = m.mNumber where s.oNumber= ?";
+
+                            $result = $pdo->prepare($sql);
+                            $result->bindValue(1,$item_order);
+                            $result->execute();
+                            $data = $result->fetchAll();
                     ?>
                 <div class="UnderCard_1200">
 
                     <div>
-                        <p class="underOrderNum">訂單編號：<span> <?=$rowR["oNumber"] ?> </span></p>
+                        <p class="underOrderNum">訂單編號：<span> <?=$item_order ?> </span></p>
 
                        
                     </div>
 
+                    <?php
+                        foreach($data as $index => $rowR){
+                    ?>
                     <div class="UnderChild_1">
                     
                         <div><img src="<?=$rowR['cImage']?>" alt=""></div>
@@ -84,9 +110,11 @@ $data = $result->fetchAll();
                         <div><h2>課程名稱：</h2><p><?=$rowR['cTitle']?></p></div>
 
                         <div><h3>NT<?=$rowR['cPrice']?></h3></div>
-                        
                       
                     </div>
+                    <?php
+                        }
+                    ?>    
 
 
                     <div class="transactionDetails">
@@ -102,17 +130,36 @@ $data = $result->fetchAll();
                     
                 </div>
                     <?php } ?>
-                <?php
-                    foreach($data as $index => $row){
-                ?>                
+
+                    
+                    <?php
+                        foreach($id_arr as $index => $item_order){
+                            $sql = "SELECT * from (select * from (select * from `course` join `invoice` on cNumber = iCourse) c join `myorder` o on c.iNumber = o.oNumber) s
+                            join `member` m
+                            on s.oMember = m.mNumber where s.oNumber= ?";
+
+                            $result = $pdo->prepare($sql);
+                            $result->bindValue(1,$item_order);
+                            $result->execute();
+                            $data = $result->fetchAll();
+                    ?>
+                
+                
                 <div class="accordion">
                     <div class="title accordion-control">
                         <div class="Order_1">
-                            
-                            <div>訂單編號：<?=$row['oNumber']?></div>
+
+                            <?php
+                                foreach($data as $index => $row){
+                            ?>
+
+                            <div>訂單編號：<?=$item_order?></div>
                             <div>CC Point折抵 : NT$<?=$row['oCC']?></div> 
                             <div><span>NT$<?=$row['oTotal']?></span></div> 
 
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>    
 
@@ -126,6 +173,10 @@ $data = $result->fetchAll();
                                 <div class="css_td">卡號末四碼</div>
                                 <div class="css_td">訂單成立</div>    
                             </div>
+
+                            <?php
+                                foreach($data as $index => $row){
+                            ?>
                             <div class="tChild css_tr">
                                 <div class="css_td"><img src="<?=$row['cImage']?>" alt=""></div>
                                 <div class="css_td"><?=$row['cTitle']?></div> 
@@ -133,6 +184,10 @@ $data = $result->fetchAll();
                                 <div class="css_td"><?=$row['oCard']?></div> 
                                 <div class="css_td"><?=$row['oDate']?></div>
                             </div>
+                            <?php
+                                }
+                            ?>
+                            
                         </div>
 
                     </div> 

@@ -59,7 +59,7 @@ $cData = $countStatement->fetch(PDO::FETCH_ASSOC);
 // print_r($sData);
 // }
 
-echo $cData['num'];
+// echo $cData['num'];
 
 
 ?>
@@ -85,8 +85,8 @@ echo $cData['num'];
 
         ?>
         <main>
-            <h2><?= "< " . $name . " />" ?></h2>
-            <div id="countdown">
+            <h2 data-quizcount=<?= $cData['num'] ?>><?= "< " . $name . " />" ?></h2>
+            <div class="countdown">
                 <div id="countdown-number"></div>
                 <svg>
                     <circle r="18" cx="20" cy="20"></circle>

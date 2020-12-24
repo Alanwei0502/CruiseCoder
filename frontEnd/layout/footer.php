@@ -5,7 +5,7 @@
 <footer>
   <section>
     <div class="contactUs">
-      <p>聯絡我們 : TibameGroup_2@gmail.com</p>
+      <p>聯絡我們 : TibameGroup2@gmail.com</p>
     </div>
     <div class="followUs">
       <p class="text">追蹤我們 :</p>

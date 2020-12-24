@@ -48,17 +48,18 @@ startQuiz[0].addEventListener('click', function () {
         this.closest("section").nextElementSibling.classList.add('-show');
 
         // 倒數計時器
-        $('#countdown').css('display', 'block');
-        $('#countdown svg circle').addClass('animation');
-        let countdownNumberEl = document.getElementById('countdown-number');
-        let countdown = $('.afterQuiz').length * 10;
+        $('.countdown').css('display', 'block');
+        $('.countdown svg circle').addClass('animation');
+        let countdown = $('h2').data('quizcount') * 10;
+        // console.log(countdown);
 
-        countdownNumberEl.textContent = countdown;
+
+        // countdownNumberEl.textContent = countdown;
 
         add = setInterval(function () {
-            countdown = --countdown <= 0 ? 0 : countdown;
 
-            countdownNumberEl.textContent = countdown;
+            countdown = --countdown <= 0 ? 0 : countdown;
+            $('#countdown-number').text(countdown);
 
             if (countdown == 0) {
                 swal({
@@ -106,8 +107,8 @@ for (let j = 0; j < nextQuestion.length; j++) {
             // 最後一個下一題按鈕
             if (j == nextQuestion.length - 1) {
                 // 中斷計時器
-                $('#countdown').css('display', 'none');
-                $('#countdown svg circle').removeClass('animation');
+                $('.countdown').css('display', 'none');
+                $('.countdown svg circle').removeClass('animation');
                 clearInterval(add);
 
                 let userAccount = getCookie('user');
@@ -117,16 +118,18 @@ for (let j = 0; j < nextQuestion.length; j++) {
                 console.log(userAccount);
                 console.log(answerCount);
                 console.log(badgeField);
-                if (answerCount >= $('.nextQuestion').length && userAccount) {
-                    console.log("123");
-                    $.ajax({
-                        type: 'POST',
-                        url: 'quizR.php',
-                        data: { userAccount, badgeField },
-                        success: function (res) {
-                            swal("挑戰成功", "趕快去會員中心看看你獲得的徽章吧!", "success");
-                        },
-                    });
+                if (answerCount >= $('.nextQuestion').length) {
+                    if (userAccount) {
+                        console.log("123");
+                        $.ajax({
+                            type: 'POST',
+                            url: 'quizR.php',
+                            data: { userAccount, badgeField },
+                            success: function (res) {
+                                swal("挑戰成功", "趕快去會員中心看看你獲得的徽章吧!", "success");
+                            },
+                        });
+                    }
                 } else {
                     swal("差一點點，再接再厲！", "", "info");
                 }
