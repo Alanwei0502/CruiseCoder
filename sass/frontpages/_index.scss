@@ -2946,7 +2946,7 @@
 						margin: 0px;
 						right: 50%;
 						bottom: -50px;
-						transform: translateX(50%);
+						transform: translateX(50%) !important;
 					}
 					@include smlPhone {
 						bottom: -25px;
