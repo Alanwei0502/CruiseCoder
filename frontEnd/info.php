@@ -110,7 +110,7 @@ $infoMember = $statement->fetchAll();
           <div class="course" id="infoCourse">
 
             <template v-for="course in courses">
-              <div class="wrapGeneral">
+              <div class="wrapGeneral" v-if="course.cStatus == '1'">
                 <img class="tImg" :src="course.mPhoto" alt="">
                 <a class=" img" :href="'course_purchased.php?CourseID='+course.cNumber">
                   <img :src="course.cImage" alt="">
@@ -121,19 +121,46 @@ $infoMember = $statement->fetchAll();
                     <div class="time">課程總長：{{course.cTime}}</div>
                     <div class="comment">
                       <div class="star" :data-star="course.rRate">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                       </div>
                       <p class="text">{{course.rCount}}則評價</p>
                     </div>
-                    <div class="price">NT.{{course.cPrice}}</div>
+                    <div class="price change">上課去</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="wrapFundraising" v-else="course.cStatus == '2'">
+                <img class="tImg" :src="course.mPhoto" alt="">
+                <a class="img" :href="'course_Fundraising.php?CourseID='+course.cNumber">
+                  <img :src="course.cImage" :alt="course.cTitle">
+                </a>
+                <a :href="'course_Fundraising.php?CourseID='+course.cNumber" class="Main">
+                  <div class="c_Main">
+                    <p class="title">{{course.cTitle}}</p>
+                    <div class="time">課程總長：{{course.cTime}}</div>
+                    <div class="courseFundraising">
+                      <div class="price">
+                        <p class="fundraisingTag">募資中</p>
+                        <div class="textFund">
+                          <p class="preOrder">已預購</p>
+                          <p class="price">NT.{{course.cPrice}}</p>
+                        </div>
+                      </div>
+                      <div class="progressbar" :data-people="course.people">
+                        <span class="progress"></span>
+                      </div>
+                      <div class="funNum">已募資<span class="counts"></span> {{course.people}}/10 人</div>
+                    </div>
                   </div>
                 </a>
               </div>
             </template>
+
           </div>
 
 
@@ -154,17 +181,17 @@ $infoMember = $statement->fetchAll();
                 <a class="img" :href="'course_start_class.php?CourseID='+FavCourse.cNumber">
                   <img :src="FavCourse.cImage" :alt="FavCourse.cTitle">
                 </a>
-                <a :href="'course_start_class.php?CourseID='+FavCourse.cNumber" class="Main">
+                <a :href="'course_start_class.php?CourseID='+FavCourse.cNumber" class="Main favC">
                   <div class="c_Main">
                     <p class="title">{{FavCourse.cTitle}}</p>
                     <div class="time">課程總長：{{FavCourse.cTime}}</div>
                     <div class="comment">
                       <div class="star" :data-star="FavCourse.rRate">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                       </div>
                       <p class="text">{{FavCourse.rCount}}則評價</p>
                     </div>
@@ -193,10 +220,10 @@ $infoMember = $statement->fetchAll();
                         <p class="price">NT.{{FavCourse.cPrice}}</p>
                       </div>
                     </div>
-                    <div class="progressbar">
-                      <span class="progress" style="width: 35%;"></span>
+                    <div class="progressbar" :data-people="FavCourse.people">
+                      <span class="progress"></span>
                     </div>
-                    <div class="funNum">已募資 1/50 人</div>
+                    <div class="funNum">已募資 {{FavCourse.people}}/10 人</div>
                   </div>
                 </a>
               </div>

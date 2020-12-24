@@ -40,6 +40,8 @@ let vm = new Vue({
         mBadges: [],
         allBadges: [],
         memberID: '',
+        allGalaxy: [],
+        memberInfos: {},
     },
     methods: {
         ajax() {
@@ -60,7 +62,8 @@ let vm = new Vue({
                     that.mBadges = allData[3];
                     that.allBadges = allData[4];
                     that.memberID = allData[5]['mNumber'];
-
+                    that.allGalaxy = allData[6];
+                    that.memberInfos = allData[7];
 
                     // 星星
                     setTimeout(() => {
@@ -69,22 +72,43 @@ let vm = new Vue({
                             // console.log(res.length);
                             // console.log(res[i].rRate);
                             // let stry = "<i class='fas fa-star yellow'> </i>";
+
                             if (that.courses[i].rRate > 0 && (that.courses[i].rRate) % 1 == 0) {
+
                                 for (j = 0; j < Math.floor(that.courses[i].rRate); j++) {
-                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
-                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                    $('a.Main').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
                                 }
 
                             } else {
-                                for (j = 0; j < Math.floor(res[i].rRate); j++) {
-                                    // $('a.course').eq(i).find('.star').find('i').eq(j).addClass('yellow');
-                                    $('a.course').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                for (j = 0; j < Math.floor(that.courses[i].rRate); j++) {
+                                    $('a.Main').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
 
-                                    $('a.course').eq(i).find('.star').find('i').eq(Math.floor(res[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    $('a.Main').eq(i).find('.star').find('i').eq(Math.floor(that.courses[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                }
+                            }
+                        }
+                        for (let i = 0; i < that.FavCourses.length; i++) {
+                            that.FavCourses[i].rRate;
+                            // console.log(res.length);
+                            // console.log(res[i].rRate);
+                            // let stry = "<i class='fas fa-star yellow'> </i>";
+
+                            if (that.FavCourses[i].rRate > 0 && (that.FavCourses[i].rRate) % 1 == 0) {
+
+                                for (j = 0; j < Math.floor(that.FavCourses[i].rRate); j++) {
+                                    $('a.favC').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+                                }
+
+                            } else {
+                                for (j = 0; j < Math.floor(that.FavCourses[i].rRate); j++) {
+                                    $('a.favC').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
+
+                                    $('a.favC').eq(i).find('.star').find('i').eq(Math.floor(that.FavCourses[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
                                 }
                             }
                         }
                     }, 1);
+
                 },
             });
         },
@@ -176,7 +200,9 @@ let vm = new Vue({
     created() {
         this.ajax();
     },
+    mounted() {
 
+    },
     // vue life cycle
     updated() {
         // 獲得的徽章亮起來
@@ -187,6 +213,26 @@ let vm = new Vue({
                 }
             }
         }
+        for (let i = 0; i < $('#infoCourse .progress').length; i++) {
+            let people = $('#infoCourse .progress').eq(i).closest('.progressbar').data('people');
+            // console.log(people);
+            $('#infoCourse .progress').eq(i).css('width', people / 10 * 320);
+        }
+
+        for (let i = 0; i < $('.loveCourse_area .progress').length; i++) {
+            let people = $('.loveCourse_area .progress').eq(i).closest('.progressbar').data('people');
+            // console.log(people);
+            $('.loveCourse_area .progress').eq(i).css('width', people / 10 * 320);
+        }
+        for (i = 0; i < this.allGalaxy.length; i++) {
+            // console.log(this.allGalaxy[i].gName.replace('星系', ''));
+            if ($(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}初級星球"]`).hasClass('getBadge') && $(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}中級星球"]`).hasClass('getBadge') && $(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}高級星球"]`).hasClass('getBadge')) {
+
+                $(`.big_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}星系徽章"]`).addClass('getBadge');
+            }
+        }
+
+
     },
 
 });
@@ -266,17 +312,12 @@ $(document).ready(function () {
         }
     })
 
-    // $('.orginPic').removeAttr('src');
-    // $('.orginPic').attr('src','');
-
-    var upload_img = $('#upload_img');
+    load_img = $('#upload_img');
 
     $('#upload_img').change(function () {
         // alert('hello');
         readURL(this);
     });
-
-    var account_pic = $('.account_pic');
 
     function readURL(input) {
         // 判斷是否有上傳成功
@@ -296,7 +337,6 @@ $(document).ready(function () {
             });
 
             reader.readAsDataURL(input.files[0]);
-
         }
     }
 
