@@ -141,7 +141,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         $createBadge->bindValue(8, $bgImg[$b]);
 
         $createBadge->execute();
-        echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
+        // echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
 
 
