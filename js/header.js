@@ -358,6 +358,7 @@ $(document).ready(function () {
 
                     var loginAccount = $('#loginAccount').val().trim();
                     var loginPassword = $('#loginPassword').val().trim();
+                    var today = new Date().getDate();
 
                     if (loginAccount == "" || loginPassword == "") {
                         swal("帳號密碼錯誤", "同學請記得輸入帳號或密碼。", "error");
@@ -367,7 +368,8 @@ $(document).ready(function () {
                             url: "./layout/loginR.php",
                             data: {
                                 loginAccount: loginAccount,
-                                loginPassword: loginPassword
+                                loginPassword: loginPassword,
+                                today: today,
                             },
                             dataType: "text",
                             success: function (data) {
@@ -375,9 +377,28 @@ $(document).ready(function () {
                                 var cc = dataArr[0];
                                 var loginString = dataArr[1];
                                 var name = dataArr[2];
-                                if (loginString == "NoAccount") {
+                                var toDayCC = dataArr[3];
+                                if(data == 'pend'){
+                                    swal("登入失敗", "帳號遭停權，請與我們聯繫。", "error");
+                                }
+                                else if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
+                                    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                                    let gettoday = new Date();
+                                    let year = gettoday.getFullYear();
+                                    let month = gettoday.getMonth();
+                                    let date = gettoday.getDate();
+
+
+                                    document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
+                                    swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　CC幣`, "success")
+                                        .then((willDelete) => {
+                                            if (willDelete) {
+                                                window.location.reload();
+                                            }
+                                        });
+                                }else if (loginString == "loginSuccess1") {
                                     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                                     let gettoday = new Date();
                                     let year = gettoday.getFullYear();
@@ -560,8 +581,10 @@ $(document).ready(function () {
                                 var name = dataArr[2];
                                 var toDayCC = dataArr[3];
                                 var SignInDay = dataArr[4];
-                                // console.log(dataArr);
-                                if (loginString == "NoAccount") {
+                                if(data == 'pend'){
+                                    swal("登入失敗", "帳號遭停權，請與我們聯繫。", "error");
+                                }
+                                else if (loginString == "NoAccount") {
                                     swal("登入失敗", "帳號或密碼錯誤，若非會員請先註冊。", "error");
                                 } else if (loginString == "loginSuccess") {
                                     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -641,13 +664,6 @@ $(document).ready(function () {
 
     }
 });
-
-// let list = ['C0001', 'C0002', 'C0003', 'C0004']
-
-// localStorage.clear();
-// localStorage.setItem("lists", JSON.stringify(list));
-// console.log(list);
-
 
 
 

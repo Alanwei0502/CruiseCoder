@@ -226,6 +226,9 @@
                             <input type="hidden" value="PHP星系">
                             <img src="../images/trial/badge/php.png" @click="changePlanet" class="PHP">
                         </div>
+                        <div class="swiper-slide">
+                            <input type="hidden" value="PHP星系">
+                        </div>
                     </div>
                 </div>
 
@@ -361,7 +364,7 @@
     <script src="../js/index.js"></script>
     <script src="../js/header.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 </body>
 
 </html>

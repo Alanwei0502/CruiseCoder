@@ -96,7 +96,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
         // echo "NoAccount";
         echo "0". ",NoAccount".",". "0" .",". "0" .",". "0"; 
     } else if ($hasAccount == 1) {
-        $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`,`mNumber`,`mSignIn` FROM `member` WHERE mAccount = ?";
+        $getLastTime = "SELECT day(mLogindate),`mSignIn`,`mCC`,`mName`,`mNumber`,`mLevel` FROM `member` WHERE mAccount = ?";
         $getPrepare = $pdo->prepare($getLastTime);
         $getPrepare->bindValue(1, $loginAccount);
         $getPrepare->execute();
@@ -108,11 +108,14 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
         $nickname = $result[0]['mName']; //名字
         $mSignIn = $result[0]['mSignIn'];//連續登入天數
         $unumber = $result[0]['mNumber'];
+        $mLevel = $result[0]['mLevel'];//登入權限
         $newSignIn = $mSignIn +1 ;
 
         $continuousDay = $toDay - $lastTimeLogin; //判斷是否為連續登入 如果是 1 , -30 , -29 , -28 , -27 就是連續登入
-
-        if ($continuousDay == 1 || $continuousDay == -30 || $continuousDay == -29 || $continuousDay == -28 || $continuousDay == -27) {
+        if($mLevel == 0){
+            echo 'pend';
+        }
+        else if ($continuousDay == 1 || $continuousDay == -30 || $continuousDay == -29 || $continuousDay == -28 || $continuousDay == -27) {
             $New_continuousLoginDay = $continuousLoginDay + 1;
             $remainder = intval($New_continuousLoginDay % 7);
 
@@ -150,7 +153,7 @@ else if (isset($_POST["name"]) && isset($_POST["account"]) && isset($_POST["pass
             $upTime->bindValue(1, $loginAccount);
             $upTime->execute();
 
-            echo $result[0]['mCC'] . ",loginSuccess1".",".$nickname.",".$countC_Point.",".$newSignIn.",".$unumber;
+            echo $result[0]['mCC'] . ",loginSuccess1".",".$nickname.","."0".",".$newSignIn.",".$unumber;
         }else if ($continuousDay != 1 || $continuousDay != -30 || $continuousDay != -29 || $continuousDay != -28 || $continuousDay != -27|| $continuousDay != 0){
 
             $countC_Point = (1 * 10) + 30; //計算這次登入取得的ccPoint

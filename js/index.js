@@ -167,11 +167,7 @@ $(document).ready(function() {
         itemWidth = $('div.wrapGeneral').outerWidth(true);
         var starWarp = document.querySelectorAll('div.star');
         for(let i = 0; i < 9 ; i++){
-            console.log(Math.floor(vm.allCourses[i].rRate));
             if(vm.allCourses[i].rRate >= 1){
-                // console.log('aaa');
-                // Math.floor(vm.allCourses[i].rRate)
-                // vm.allCourses[i].rRate;
                 for(let j = 0; j < Math.floor(vm.allCourses[i].rRate); j++){
                     starWarp[i].innerHTML += `<i class="fas fa-star"></i>`;
                     zoroStar = 5 - Math.floor(vm.allCourses[i].rRate);
@@ -261,7 +257,6 @@ $(document).ready(function() {
         },
         methods: {
             changePlanet(e){
-                // console.log(e.target.previousElementSibling.value);
                 $.ajax({
                     type: 'POST',
                     url: "../frontEnd/indexG.php",
@@ -308,7 +303,6 @@ $(document).ready(function() {
                     let Planetdata = JSON.parse(res);
                     for(let i = 0; i < Planetdata.length; i++){
                         vm1.allPlanet.push('../images/trial/planets/' + Planetdata[i].bIcon);
-                        // console.log(Planetdata[i]);
                     }
                 }
             });
@@ -327,16 +321,4 @@ $(document).ready(function() {
         },
     });
 
-    // var swiper = new Swiper('.swiper-container', {
-    //     slidesPerView: 3,
-    //     spaceBetween: 30,
-    //     freeMode: true,
-    //     pagination: {
-    //     clickable: false,
-    //     },
-    // });
-
-    // $(document).click(function(e){
-    //     console.log(e.target);
-    // });
 });

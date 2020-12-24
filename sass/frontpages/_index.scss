@@ -2171,6 +2171,7 @@
 			}
 			@include smlPhone {
 				width: 320px;
+				height: 690px;
 			}
 			div.swiper-container {
 				width: 100%;
@@ -3552,6 +3553,7 @@ div.index {
 		height: 100px;
 		display: flex;
 		justify-content: center;
+		margin-top: 35px;
 	}
 	@include bigPhone {
 		height: 75px;
