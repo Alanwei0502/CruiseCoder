@@ -6,6 +6,8 @@
         margin: 0 auto;
         position: relative;
 
+        
+
 
         .info_title {
             @include h2;
@@ -228,6 +230,12 @@
         // 第二部分（我的課程）
         .info_second {
 
+            p.notBuyAny{
+                text-align: center;
+                font-size: $h4;
+                color: $white;
+            }
+
             .course_title{
                 @include h2;
                 color: $beige;
@@ -244,10 +252,10 @@
             }
             .course {
 				display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
                 flex-wrap: wrap;
                 text-decoration: none;
-
+                
 				@include laptop {
 					justify-content: space-evenly;
 				}
