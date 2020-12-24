@@ -416,6 +416,10 @@ div.article {
                 font-size: $mp;
                 color: $blue2;
                 margin: 0px 0px 20px 30px;
+                word-break: break-all;
+                @include bigPhone{
+                  font-size: $sp;
+                }
               }
             }
             div.favoriteBack{
