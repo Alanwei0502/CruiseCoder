@@ -108,8 +108,8 @@ $infoMember = $statement->fetchAll();
             < 我的課程 />
           </p>
           <div class="course" id="infoCourse">
-
-            <template v-for="course in courses">
+            <p v-if="courses.length == 0" class="notBuyAny">您目前還沒有購買任何課程喔！</p>
+            <template v-for="course in courses" v-else>
               <div class="wrapGeneral" v-if="course.cStatus == '1'">
                 <img class="tImg" :src="course.mPhoto" alt="">
                 <a class=" img" :href="'course_purchased.php?CourseID='+course.cNumber">
@@ -160,7 +160,6 @@ $infoMember = $statement->fetchAll();
                 </a>
               </div>
             </template>
-
           </div>
 
 
@@ -170,9 +169,9 @@ $infoMember = $statement->fetchAll();
             < 收藏課程 />
           </p>
           <div class="course">
-
+            <p v-if="FavCourses.length == 0" class="notBuyAny">您目前還沒有收藏任何課程喔！</p>
             <!-- 一般課程 -->
-            <template v-for="FavCourse in FavCourses" v-if="FavCourse.cStatus">
+            <template v-for="FavCourse in FavCourses" v-else>
               <div class="wrapGeneral" v-if="FavCourse.cStatus == '1'">
                 <img class="tImg" :src="FavCourse.mPhoto" alt="">
                 <div class="favorites" :data-courseid="FavCourse.cNumber">
@@ -238,7 +237,8 @@ $infoMember = $statement->fetchAll();
           < 收藏文章 />
         </p>
         <div class="info_article">
-          <template v-for="FavArticle in FavArticles">
+          <p v-if="FavArticles.length == 0" class="notBuyAny">您目前還沒有收藏任何文章喔！</p>
+          <template v-for="FavArticle in FavArticles" v-else>
             <div class="aic">
               <a :href="'article.php?aTitle='+FavArticle.aTitle" class="aritcleA">
                 <div class="favorites" :data-articleid="FavArticle.aNumber">
@@ -259,7 +259,7 @@ $infoMember = $statement->fetchAll();
           < 徽章成就 />
         </p>
         <div class="info_achievement">
-          <p>趕快去語宙試煉挑戰，才可以蒐集徽章喔！</p>
+          <p class="notBuyAny">趕快去語宙試煉挑戰，才可以蒐集徽章喔！</p>
           <div class="big_a">
             <template v-for="allBadge in allBadges">
               <div v-if="allBadge.bLevel == '0'"><img class="badges" :src="'../images/trial/badge/' + allBadge.bBadge" :alt="allBadge.bName" :data-id="allBadge.bNumber"></div>
