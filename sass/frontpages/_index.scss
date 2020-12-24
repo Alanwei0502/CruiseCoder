@@ -2260,6 +2260,16 @@
 							height: 105%;
 						}
 					}
+					div#Planethidden {
+						display: none;
+
+						@include bigPhone {
+							display: inline-block;
+						}
+						@include smlPhone {
+							display: inline-block;
+						}
+					}
 				}
 			}
 

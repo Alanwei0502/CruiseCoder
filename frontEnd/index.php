@@ -226,7 +226,7 @@
                             <input type="hidden" value="PHP星系">
                             <img src="../images/trial/badge/php.png" @click="changePlanet" class="PHP">
                         </div>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" id="Planethidden">
                             <input type="hidden" value="PHP星系">
                         </div>
                     </div>
