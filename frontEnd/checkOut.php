@@ -1,7 +1,6 @@
 <?php
 
 ?>
-<!-- 不要亂刪除我的檔案，拜託，改完要檢查不要爆錯! -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -28,57 +27,20 @@
             </h2>
             <h3>購買列表</h3>
             <div class="shoppingList" id="app3">
-                <!-- <div class="course">
-                    <div class="top">
-                        <div class="left">
-                            <div class="course_Img">
-                                <a href="course_start_class.php">
-                                    <img :src="course[0].cImage" alt="">
-                                </a>
-                            </div>
-                            <div class="title">
-                                <a href="course_start_class.php">
-                                    {{course[0].cTitle}}
-                                </a>
-                            </div>
-                        </div>
-                        <a href=""><i class="far fa-times-circle close"></i></a>
-                    </div>
-                    <div class="bottom">
-                        <p class="type">{{status[1]}}</p>
-                        <p class="singlePrice">NT{{course[0].cPrice}}</p>
-                    </div>
-                </div>
-                <div class="course">
-                    <div class="top">
-                        <div class="left">
-                            <div class="course_Img">
-                                <a href="course_Fundraising.php">
-                                    <img src="../images/allCourse/course01.png" alt="">
-                                </a>
-                            </div>
-                            <div class="title">
-                                <a href="course_Fundraising.php">
-                                    Alan Wei Wei 讓你變CSS高手
-                                </a>
-                            </div>
-                        </div>
-                        <a href=""><i class="far fa-times-circle close"></i></a>
-                    </div>
-                    <div class="bottom">
-                        <p class="type">募資中</p>
-                        <p class="singlePrice">NT,1200</p>
-                    </div>
-                </div> -->
                 <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice" :mycNumber="single.cNumber"></table-component>
             </div>
             <div class="price" id="app">
                 <div class="discount">
-                    <form class="ccPoint" :data-id="ccPointNt">
-                        現有 {{ccp}} CC Point，您可以折抵NT${{Math.floor(this.ccp / 100)}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeypress="if (event.keyCode == 13) {return false;}">元
+                    <form class="ccPoint" :data-id="Math.floor(this.ccp / 100)">
+                        現有 {{ccp}} CC Point，您可以折抵NT${{Math.floor(this.ccp / 100)}}，欲折<input type="text" name="" id="" @input="setMessage" v-model="message" class="ccpInput" onkeypress="if (event.keyCode == 13) {return false;}" >元
                     </form>
+                    <!-- onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" -->
+                    <!-- <form class="ccPoint" :data-id="ccPointNt">
+                         onkeypress="if (event.keyCode == 13) {return false;}"
+                        現有 {{ccp}} CC Point，您可以折抵NT${{Math.floor(this.ccp / 100)}}，欲折<input type="text" @input="setMessage" v-model="message" class="ccpInput" >元
+                    </form> -->
                 </div>
-                <p class="overCcp"></p>
+                <!-- <p class="overCcp"></p> -->
                 <div class="sum">
                     <div class="ccPoint">
                         <p class="text">CC Point 折抵</p>
@@ -103,6 +65,7 @@
                         <div class="img">
                             <img src="../images/allCourse/creditcard.png" alt="">
                         </div>
+                        <span class="data">•</span>
                     </div>
                     <p class="note">為必填欄位</p>
                     <div class="name">
@@ -121,21 +84,22 @@
                         <label class="text">
                             信用卡卡號
                         </label>
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
-                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" id="one">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                        id="two">
+                        <input type="text" maxlength="4" class="creditCard_Num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"id="three">
+                        <input type="text" maxlength="4" class="creditCard_Num oCard" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" id="four">
                     </div>
                     <div class="date" id="app2">
                         <label class="text">
                             有效日期
                         </label>
-                        <select value="12">
-                            <option :value="index+1" v-for="(month,index) in 12">{{month}}</option>
+                        <select v-model="selectedMonth">
+                            <option :value="index+1" v-for="(month,index) in 12" >{{month}}</option>
                         </select>
                         <label for="" class="months">月</label>
 
-                        <select>
+                        <select v-model="selectedYear">
                             <option :value="year" v-for="year in years">{{year}}</option>
                         </select>
                         <label for="" class="years">年</label>

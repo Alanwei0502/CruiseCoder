@@ -518,7 +518,10 @@
                             margin: auto;
                         }
                     }
-
+                    span.data{
+                        margin-top: 70px;
+                        color: #b8b8b8;
+                    }
                 }
 
                 p.note {
@@ -541,6 +544,7 @@
                 }
 
                 .name {
+                    
                     @include paymenIfon;
 
                     @include smlPad {
