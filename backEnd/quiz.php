@@ -107,6 +107,7 @@
         <td><button @click="editQuiz">編輯</button></td>
       </tr>
       </template>
+      
     </tbody> 
   </script>
 

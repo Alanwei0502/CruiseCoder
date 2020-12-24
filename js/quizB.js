@@ -259,12 +259,14 @@ Vue.component("createAndEdit", {
             $('.openQuiz').css('background-color', ' rgb(251, 247, 235)');
             $("#forBadge").css('display', 'block').css('background-color', 'white');
             $("#forQuiz").css('display', 'none');
+
         },
 
         // 跳出彈跳視窗按鈕
         closeModal() {
             $('.quizModalBg').css("opacity", 0).css("z-index", -1);
             $('.selectAll').prop("checked", false);
+
         },
 
         // 新增試題按鈕
@@ -340,6 +342,7 @@ Vue.component("createAndEdit", {
 
         // 確認新增按鈕
         update() {
+
             let fieldName = $('.fieldName').val() + "星系";
 
             // 加到galaxy table
