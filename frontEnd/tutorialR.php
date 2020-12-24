@@ -35,7 +35,7 @@
       }
 
       echo '
-      <p>'. $row["cTitle"] .'</p>
+      <p data-tdate="'. $row["tDate"] .'">'. $row["cTitle"] .'</p>
       <p>'. $row["mName"] .'<span>'. $row["cType"] .'</span></p>
       <p>18:00~22:00</p>
       <p>目前人數 '.$peopleNumber.' / 10</p>
@@ -210,7 +210,7 @@
   if(isset($_POST["courseNumber"], $_POST["userAccount"])){
     //使用者登入帳號取得會員編號
     $userAccount = $_POST["userAccount"];
-    $memberSql = "SELECT mNumber FROM member WHERE mAccount = '$userAccount'";
+    $memberSql = "SELECT mNumber, mEmail FROM member WHERE mAccount = '$userAccount'";
     $memberStatement = $pdo->query($memberSql);
     $memberData = $memberStatement->fetchAll();
 
@@ -222,5 +222,7 @@
     $bookStatement = $pdo->query($bookSql);
     $bookStatement->execute();
 
+    $mEmail = $row["mEmail"];
+    echo $mEmail;
     }
   }

@@ -469,11 +469,12 @@ document.addEventListener("click", function(e){
 
   // 預約功能
   if(e.target.classList.contains("booking")){
+
     // 使用者未登入 告知使用者需先登入
     if(!(checkCookie('user'))){
       swal("請先登入會員!", "", "error");
     }else{
-
+      // 先用使用長帳號去取得使用者email
       let courseName = e.target.parentElement.firstElementChild.innerText;
       $.post('tutorialR.php', {courseName, userAccount},function(checkBuyNumber){
         // 使用者有登入狀態但未購買課程 告知使用者須購買課程才能預約
@@ -483,19 +484,30 @@ document.addEventListener("click", function(e){
           // 使用者有登入狀態下並且有購買課程 執行預約功能
           // 要多傳一個使用者帳號值
           let courseNumber = e.target.getAttribute("data-tnumber");
-          $.post('tutorialR.php', {courseNumber, userAccount},function(res){
-            swal("預約成功", "", "success").then((willDelete) => {
+          $.post('tutorialR.php', {courseNumber, userAccount},function(mEmail){
+
+            // 寄e-mail 給使用者 告知使用者預約課輔的時間
+            let theEmail = mEmail;
+            let courseName = e.target.parentElement.firstElementChild.innerText;
+            let courseDate = e.target.parentElement.firstElementChild.getAttribute("data-tdate");
+            let courseTime = courseDate.substr(0, 4) + "年" + courseDate.substr(4, 2) + "月" + courseDate.substr(6, 2) + "日";
+            
+            Email.send({
+                SecureToken : "5b7955dd-e14c-46bd-b430-7a1d73590bb6",
+                To : `${theEmail}`,
+                From : "TibameGroup2@gmail.com",
+                Subject : "預約成功",
+                Body : `您好，您已成功預約<br><br>課程名稱 : <br><p style="font-size: 20px; font-weight: 700;">${courseName}</p><br>課輔時間 : <br><p style="font-size: 18px; font-weight: 700;">${courseTime}，晚上 18:00~22:00</p>`
+            }).than(swal("預約成功", "", "success").then((willDelete) => {
               if (willDelete) {
                 window.location.reload();
               }
-            });
+            }));
           });
         }
       });
-      
     }
   }
-
 });
 
 // 篩選條件資料
