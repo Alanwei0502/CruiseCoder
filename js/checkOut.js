@@ -397,6 +397,9 @@ function doFirst() {
         </div>`,
         props: ['mytitle', 'myimg', 'mystatus', 'myprice', 'mycnumber'],
         data() {
+            return {
+                //myprice:
+            };
         },
         methods: {
             removeCourse(e) {
