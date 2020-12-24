@@ -232,6 +232,13 @@
           for(k=0;k<check;k++){
             console.log(k+'我是check'+check);
             $('img[name = "day_img"]').eq(k).removeClass();
+            if (check==0) {
+              
+              for(let l=0;l<8;l++){
+                $('img[name = "day_img"]').eq(l).removeClass();
+              }
+              
+            }
           }
         }
       }
