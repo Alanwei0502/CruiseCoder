@@ -26,14 +26,17 @@ let vm = new Vue({
         },
         success: function (res){
           // alert(res);
-          swal("新增成功!", "", "success")
-          .then((willDelete) => {
-              if (willDelete) {
-                  window.location.reload(); 
-              }
-          });
-          vm.removeReservationBackAll();
-          vm.mounted();
+          if(res =='hastutorial'){
+            swal("當日已有課輔!", "", "warning")
+          }else{
+            swal("新增成功!", "", "success")
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.reload(); 
+                }
+            });
+            vm.removeReservationBackAll();
+          }
         }
       });
     },
