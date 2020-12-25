@@ -239,8 +239,6 @@ let vm = new Vue({
 
 $(document).ready(function () {
 
-
-
     //編輯檔案
     $('.editFile').click(function () {
         // alert('hi');
