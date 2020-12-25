@@ -1,23 +1,86 @@
 .backLogin{
-    border: steelblue 1px solid;
+   
     width: 100%;
     min-height: 100vh;
+    position: relative;
     .backLoginArea{
-        border: steelblue 1px solid;
+       
         width: 600px;
-        height: 500px;
-        margin: 0 auto;
+        // height: 550px;
+        // margin: 0 auto;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: #121B5B;
+        border: solid 5px $orange;
+       
+        img{
+            &:nth-child(1){
+                padding-top: 20px;
+                width: 250px;
+                display: block;
+                margin: 0 auto;
+                // position: relative;
+                // right: 10px;
+            }
+            &:nth-child(2){
+                width: 200px;
+                display: block;
+                margin: 0 auto;
+                // position: relative;
+                // right: 10px;
+                margin-bottom: 50px;
+            }
+        }
         label{
             display: flex;
             flex-direction: column;
+            color: $white;
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+            font-size: $mp;
+            
+           
             input{
                 width: 200px;
                 height: 35px;
                 border-radius: 20px;
                 padding-left: 15px;
+                border: $white 3px solid;
+                font-size: $sp;
+
+                &:focus{
+                    background-color: rgb(223, 243, 247);
+                    outline: none;
+                    border: $orange 3px solid;
+                }
           
             }
+            .error{
+                font-size: $sp;
+            }
+            
         }
+
+        button{
+            display: block;
+            margin: 0 auto;
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: $mp;
+            color: $blue1;
+            background-color: $yellow;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            border: none;
+            outline: none;
+
+        }
+
         
     }
 }
