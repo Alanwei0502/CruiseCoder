@@ -1,0 +1,23 @@
+.backLogin{
+    border: steelblue 1px solid;
+    width: 100%;
+    min-height: 100vh;
+    .backLoginArea{
+        border: steelblue 1px solid;
+        width: 600px;
+        height: 500px;
+        margin: 0 auto;
+        label{
+            display: flex;
+            flex-direction: column;
+            input{
+                width: 200px;
+                height: 35px;
+                border-radius: 20px;
+                padding-left: 15px;
+          
+            }
+        }
+        
+    }
+}

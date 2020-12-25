@@ -92,7 +92,7 @@ $infoMember = $statement->fetchAll();
               </label>
 
               <!-- 選擇檔案按鈕 -->
-              <input id="upload_img" type="file" accept="image/jpeg,image/gif,image/png" style="display: none;" name="myFile">
+              <input id="upload_img" type="file" accept="image/jpeg,image/gif,image/png" style="display: none;" name="myFile" disabled>
               <button class="sendBtn" type="submit">確認修改</button>
             </form>
 
