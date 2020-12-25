@@ -27,7 +27,7 @@
             </h2>
             <h3>購買列表</h3>
             <div class="shoppingList" id="app3">
-                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice" :mycNumber="single.cNumber"></table-component>
+                <table-component v-for="(single,index) in course" :mytitle="single.cTitle" :myimg="single.cImage" :mystatus="status[index]" :myprice="single.cPrice" :mycNumber="single.cNumber" :key="index"></table-component>
             </div>
             <div class="price" id="app">
                 <div class="discount">
