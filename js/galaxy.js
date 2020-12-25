@@ -140,7 +140,7 @@ let galaxyVue = new Vue({
             // dataType: 'json',
             success: function (res) {
                 let array = JSON.parse(res);
-                console.log(array);
+                // console.log(array);
                 for (let i = 0; i < array.length; i++) {
                     if (array[i]["bLevel"] == "1") {
                         array[i].className = "planet planetOne";
