@@ -149,7 +149,7 @@ Vue.component("tableRow", {
                 data: { gNumber },
                 dataType: 'json',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     console.log(res[0][0].gName);
                     // 領域名稱
                     $('input.fieldName').val(res[0][0].gName);
@@ -456,40 +456,81 @@ Vue.component("createAndEdit", {
                     empty.push(mustFillArray[i]);
                 }
             }
-            if (empty.length == 0) {
-                console.log(badge);
-                $.ajax({
-                    type: 'POST',
-                    url: 'quizRC.php',
-                    data: { newGalaxy, quiz, selections, badge },
-                    success: function (res) {
-                        console.log(res);
-                        if (res == "success") {
-                            swal("已成功新增試題", "", "success").then((value) => {
-                                if (value) {
-                                    window.location.reload();
-                                }
-                            });
-                        }
-                    },
-                });
+            // if (empty.length == 0) {
+            // console.log(badge);
+            $.ajax({
+                type: 'POST',
+                url: 'quizRC.php',
+                data: { newGalaxy, quiz, selections, badge },
+                success: function (res) {
+                    // console.log(res);
+                    if (res == "success") {
+                        swal("已成功新增試題", "", "success").then((value) => {
+                            if (value) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                },
+            });
 
-                let fileData = $('#imgInp').prop('files')[0];   //取得上傳檔案屬性
-                let formData = new FormData();  // 建構new FormData()
-                formData.append('file', fileData);  //把物件加到file後面
-                // 傳圖片 將圖片放到資料夾內
-                $.ajax({
-                    url: 'quizRC.php',
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: formData,     //data只能指定單一物件
-                    type: 'POST',
-                    success: function (data) { }
-                });
-            } else {
-                swal("請填入所有的試題資訊", "", "warning");
+            //取得上傳檔案屬性
+
+            // 星球圖
+            let iconPic1 = $('input[name="iconImg"]').eq(0).prop('files')[0];
+            let iconPic2 = $('input[name="iconImg"]').eq(1).prop('files')[0];
+            let iconPic3 = $('input[name="iconImg"]').eq(2).prop('files')[0];
+            let iconPic = [];
+            iconPic.push(iconPic1, iconPic2, iconPic3);
+            // console.log(iconPic);
+            // 徽章圖
+            let badgePic1 = $('input[name="badgeImg"]').eq(0).prop('files')[0];
+            let badgePic2 = $('input[name="badgeImg"]').eq(1).prop('files')[0];
+            let badgePic3 = $('input[name="badgeImg"]').eq(2).prop('files')[0];
+            badgePic = [];
+            badgePic.push(badgePic1, badgePic2, badgePic3);
+            // 背景圖
+            let bgPic1 = $('input[name="bgImg"]').eq(0).prop('files')[0];
+            let bgPic2 = $('input[name="bgImg"]').eq(1).prop('files')[0];
+            let bgPic3 = $('input[name="bgImg"]').eq(2).prop('files')[0];
+            let bgPic = [];
+            bgPic.push(bgPic1, bgPic2, bgPic3);
+
+            // 星系圖
+            let galaxyPic = $('input[name="iconImgGal"]').prop('files')[0];
+            // 星系徽章
+            let badgePic0 = $('input[name="badgeImg"]').eq(3).prop('files')[0];
+
+            // console.log(galaxyPic);
+            // console.log(badgePic0);
+            // console.log(bgPicMedium);
+            // console.log(bgPicHard);
+            let formData = new FormData();  // 建構new FormData()
+            //把物件加到file後面
+            for (let i = 0; i < 3; i++) {
+                formData.append(`iconPic${i + 1}`, iconPic[i]);
+                formData.append(`badgePic${i + 1}`, badgePic[i]);
+                formData.append(`bgPic${i + 1}`, bgPic[i]);
             }
+            formData.append('galaxyPic', galaxyPic);
+            formData.append('badgePic0', badgePic0);
+
+
+            // 傳圖片 將圖片放到資料夾內
+            $.ajax({
+                url: 'quizRC.php',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,     //data只能指定單一物件
+                type: 'POST',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+            // } else {
+            //     swal("請填入所有的試題資訊", "", "warning");
+            // }
         }
     },
 });
@@ -524,7 +565,7 @@ let vm = new Vue({
                 dataType: 'json',
                 success: function (res) {
                     // vm.galaxys = JSON.parse(res);
-                    console.log(res);
+                    // console.log(res);
                     vm.fields = res[0];
                     for (let i = 0; i < res[1].length; i++) {
                         if (res[1][i].gStatus == 1) {

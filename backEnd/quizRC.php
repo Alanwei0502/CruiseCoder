@@ -143,20 +143,55 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         $createBadge->execute();
         // echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
-
-
-    if (isset($_FILES["badge"])) {
-        $filePathTemp = $_FILES["badge"]["tmp_name"];
-        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/badge" . $_FILES["badge"]["name"];
-        copy($filePathTemp, $filePath);
-
-        $filePathTemp = $_FILES["badge"]["tmp_name"];
-        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/galaxy" . $_FILES["badge"]["name"];
-        copy($filePathTemp, $filePath);
-
-        $filePathTemp = $_FILES["badge"]["tmp_name"];
-        $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/trial/planets" . $_FILES["badge"]["name"];
-        copy($filePathTemp, $filePath);
-    }
     echo "success";
+}
+
+
+if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FILES["iconPic3"]["tmp_name"], $_FILES["badgePic1"]["tmp_name"], $_FILES["badgePic2"]["tmp_name"], $_FILES["badgePic3"]["tmp_name"], $_FILES["bgPic1"]["tmp_name"], $_FILES["bgPic2"]["tmp_name"], $_FILES["bgPic3"]["tmp_name"], $_FILES["galaxyPic"]["tmp_name"], $_FILES["badgePic0"]["tmp_name"])) {
+
+    // 組合上傳圖片的資料夾路徑
+    $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
+    $phpPath = $_SERVER['PHP_SELF'];
+
+    $fullPath1 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/planets/', $phpPath);
+    $fullPath2 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/badge/', $phpPath);
+    $fullPath3 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/galaxy/', $phpPath);
+
+    // echo $_FILES["iconPic1"]["tmp_name"];
+    $iconPic1_Temp = $_FILES["iconPic1"]["tmp_name"];
+    $iconPic2_Temp = $_FILES["iconPic2"]["tmp_name"];
+    $iconPic3_Temp = $_FILES["iconPic3"]["tmp_name"];
+    $badgePic1_Temp = $_FILES["badgePic1"]["tmp_name"];
+    $badgePic2_Temp = $_FILES["badgePic2"]["tmp_name"];
+    $badgePic3_Temp = $_FILES["badgePic3"]["tmp_name"];
+    $bgPic1_Temp = $_FILES["bgPic1"]["tmp_name"];
+    $bgPic2_Temp = $_FILES["bgPic2"]["tmp_name"];
+    $bgPic3_Temp = $_FILES["bgPic3"]["tmp_name"];
+    $galaxyPic_Temp = $_FILES["galaxyPic"]["tmp_name"];
+    $badgePic0 = $_FILES["badgePic0"]["tmp_name"];
+
+    // echo $fullPath1 . $_FILES["iconPic1"]["name"];
+    $iconPic1Path = $fullPath1 . $_FILES["iconPic1"]["name"];
+    $iconPic2Path = $fullPath1 . $_FILES["iconPic2"]["name"];
+    $iconPic3Path = $fullPath1 . $_FILES["iconPic3"]["name"];
+    $badgePic1Path = $fullPath2 . $_FILES["badgePic1"]["name"];
+    $badgePic2Path = $fullPath2 . $_FILES["badgePic2"]["name"];
+    $badgePic3Path = $fullPath2 . $_FILES["badgePic3"]["name"];
+    $bgPic1Path = $fullPath2 . $_FILES["bgPic1"]["name"];
+    $bgPic2Path = $fullPath2 . $_FILES["bgPic2"]["name"];
+    $bgPic3Path = $fullPath2 . $_FILES["bgPic3"]["name"];
+    $galaxyPicPath = $fullPath3 . $_FILES["galaxyPic"]["name"];
+    $badgePic0Path = $fullPath2 . $_FILES["badgePic0"]["name"];
+
+    copy($iconPic1_Temp, $iconPic1Path);
+    copy($iconPic2_Temp, $iconPic2Path);
+    copy($iconPic3_Temp, $iconPic3Path);
+    copy($badgePic1_Temp, $badgePic1Path);
+    copy($badgePic2_Temp, $badgePic2Path);
+    copy($badgePic3_Temp, $badgePic3Path);
+    copy($bgPic1_Temp, $bgPic1Path);
+    copy($bgPic2_Temp, $bgPic2Path);
+    copy($bgPic3_Temp, $bgPic3Path);
+    copy($galaxyPic_Temp, $galaxyPicPath);
+    copy($badgePic0, $badgePic0Path);
 }
