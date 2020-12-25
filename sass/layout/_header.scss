@@ -454,19 +454,19 @@ header {
 
 			li.shoppingCar {
 				position: relative;
-				// span.shoppingCount {
-				// 	border-radius: 50%;
-				// 	width: 25px;
-				// 	height: 25px;
-				// 	background-color: rgb(247, 76, 76);
-				// 	color: white;
-				// 	display: inline-block;
-				// 	position: absolute;
-				// 	top: 10%;
-				// 	right: 10%;
-				// 	text-align: center;
-				// 	line-height: 25px;
-				// }
+				span.shoppingCount {
+					border-radius: 50%;
+					width: 25px;
+					height: 25px;
+					background-color: rgb(247, 76, 76);
+					color: white;
+					display: inline-block;
+					position: absolute;
+					top: 10%;
+					right: 10%;
+					text-align: center;
+					line-height: 25px;
+				}
 				label {
 					// border: 1px solid red;
 					cursor: pointer;

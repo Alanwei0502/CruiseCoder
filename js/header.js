@@ -1,8 +1,7 @@
 
 // login的js
 $(document).ready(function () {
-
-    // ===== Vue #app ===== 購物車shoppingList =======
+    
     let navapp = new Vue({
         el: '#navapp',
         data: {
@@ -10,14 +9,18 @@ $(document).ready(function () {
             status: [], //課程狀態，有4種
             coursesTotal: 0,
             priceTotal: 0,
-
+    
+        },
+        updated() {
+            var countProduct = document.getElementsByClassName('shopping').length;
+            $('.shoppingCount').text(countProduct)
         },
         created() {
             this.ajax();
         },
         methods: {
             Total() {
-
+    
                 // this.priceTotal += parseInt(this.courses);
                 // console.log(this.courses);
                 // this.priceTotal = this.courses.cPrice;
@@ -25,12 +28,12 @@ $(document).ready(function () {
             ajax() {
                 let that = this;
                 let star = 1;
-
+    
                 let list = JSON.parse(localStorage.getItem("lists"));
                 // console.log(list);
                 localStorage.removeItem(list);
                 // that.courses = [];
-
+    
                 that.priceTotal = 0;
                 // list = ['C0004']
                 // 撈所有課程的資料
@@ -40,7 +43,7 @@ $(document).ready(function () {
                     $('.shoppingCar section').text('您的購物車內無任何商品');
                     return;
                 }
-
+    
                 $.ajax({
                     type: 'POST',
                     url: "checkOutR.php",
@@ -49,7 +52,7 @@ $(document).ready(function () {
                         Name: list,
                     },
                     dataType: 'json',
-
+    
                     success: function (response) {
                         that.courses.splice(0, that.courses.length);
                         // console.log(response);
@@ -61,7 +64,7 @@ $(document).ready(function () {
                             that.coursesTotal = that.courses.length
                             // console.log(that.courses.length);
                             that.priceTotal += parseInt(res.cPrice);
-
+    
                             //課程狀態有4種，用switch case處理
                             switch (res.cStatus) {
                                 case '0':
@@ -86,49 +89,50 @@ $(document).ready(function () {
                 });
             },
             getCourse() {
-
+    
                 let list = JSON.parse(localStorage.getItem("lists"));
                 // console.log(list);
-
+    
                 localStorage.clear();
                 localStorage.setItem("lists", JSON.stringify(list));
                 // alert('kk')
               
             },
             shoppingcart(e) {
-
+    
                 this.ajax();
                 // this.getCourse();
                 checkCookie('user');
                 getCookie('user');
-
+    
                 if (!checkCookie('user')) {
                 swal("請先登入會員!", "登入會員才能使用購物車!", "error");
-
+    
                     // $('.loginWrap').css('display', 'block');
                     // $('.logout').css('display', 'none');
                     // $('.callLoginBox').css('display', 'block');
                     // $('#loginWrap').css('display', 'block');
-
+    
                     // $('#closeIcon').click(function () { //點擊close icon 關閉login
                     //     $('#loginWrap').css('display', 'none');
                     // });
-
+    
                     // $('.greyGlass').click(function () {//點擊蒙版 關閉login
                     //     $('#loginWrap').css('display', 'none');
                     // });
                     // return;
                 } else {
                     // this.getCourse();
-
-
+    
+    
                     $(e.target).closest('.shoppingCar').find('section').toggleClass('on');
                     // console.log("用Vue打開購物車");
-
+    
                 }
             },
         },
     });
+    // ===== Vue #app ===== 購物車shoppingList =======
 
 
     // 登入燈箱↓↓↓↓↓

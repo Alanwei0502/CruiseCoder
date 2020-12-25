@@ -81,7 +81,7 @@
   <div class="headerRight" id="navapp">
     <ul>
       <li class="shoppingCar">
-        <!-- <span class="shoppingCount">0</span> -->
+        <span class="shoppingCount">0</span>
         <label><input type="checkbox" class="shopInput"><span @click="shoppingcart"></span></label>
         <!-- <img src="./../images/shoppingIcon.png" alt="圖片無法顯示"> -->
         <section>
