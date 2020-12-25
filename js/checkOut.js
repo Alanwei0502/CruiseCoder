@@ -404,6 +404,8 @@ function doFirst() {
         methods: {
             removeCourse(e) {
                 $(e.target).closest('div.course').remove();
+                var countProduct = document.querySelectorAll('div.course').length;
+                $('.shoppingCount').text(countProduct);
                 // 清除storage
                 let itemId = $(e.target).closest('div.course').attr('data-id');
                 // console.log(itemId);
