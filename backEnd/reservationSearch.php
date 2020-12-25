@@ -1,14 +1,5 @@
 <?php
-
-$db_host = "127.0.0.1";
-$db_user = "root";
-$db_pass = "";
-$db_select = "cruisecoder";
-
-$dsn = "mysql:host=" . $db_host . ";dbname=" . $db_select;
-
-$pdo = new PDO($dsn, $db_user, $db_pass);
-
+include("../frontEnd/layout/connect.php");
 
 if(isset($_POST["courseNumber"])){
     $sql = "SELECT mName FROM reservation AS r join member AS m on r.reMember = m.mNumber WHERE reTutorial = ?";
@@ -61,12 +52,4 @@ else if($_POST["teacherName"] == 'all' && $_POST["courseName"] == 'all'){ //若�
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($data);
 }
-// print_r($data[0]);
-
-
-
-
-
-// 取得預約學生名字
-
-// SELECT mName FROM reservation AS r join member AS m on r.reMember = m.mNumber WHERE reTutorial = 't0008'
+?>

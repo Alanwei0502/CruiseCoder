@@ -161,31 +161,7 @@
                             <div class="price">NT.{{allCourse.cPrice}}</div>
                         </div>
                     </div>
-                    <!-- <div class="wrapGeneral">
-                        <img class="tImg" src="../images/allCourse/tImg01.jpg" alt="">
-                        <div class="favorites">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <a class="img" href="./allCourse.php">
-                            <img src="../images/allCourse/course01.png" alt="">
-                        </a>
-                        <div class="c_Main">
-                            <a class="title" href="./allCourse.php">HTML快速入門-張老闆帶你飛</a>
-                            <div class="time">課程總長：120分鐘</div>
-                            <div class="comment">
-                                <div class="star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <a class="text" href="">24則評價</a>
-                            </div>
-                            <div class="price">NT.1,200</div>
-                        </div>
-                    </div>    -->
-
+                    
                 </div>
             </div>
             <div class="controlCircle">

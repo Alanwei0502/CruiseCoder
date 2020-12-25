@@ -1,7 +1,4 @@
 <?php
-// isset($_POST["name"])
-// SELECT * FROM `badge` WHERE bGalaxy = 'CSS星系' and bLevel != 0
-// 串聯資料庫
 include("./layout/connect.php");
 
 

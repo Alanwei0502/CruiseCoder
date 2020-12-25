@@ -230,16 +230,6 @@ $(document).ready(function () {
         var ul = member.querySelector('ul');
         var inputM = labelM.querySelector('input');
 
-        // label.addEventListener('mouseup', function () {
-        //     if (!input.checked) {
-        //         section.classList.add('on');
-        //         inputM.checked = false;
-        //         ul.classList.remove('on');
-        //     } else {
-        //         section.classList.remove('on');
-        //     }
-        // });
-
         labelM.addEventListener('mouseup', function () {
             if (!inputM.checked) {
                 ul.classList.add('on');
@@ -263,10 +253,6 @@ $(document).ready(function () {
                 $('.callLoginBox').css('display', 'block');
 
                 $('#loginWrap').css('display', 'block');
-
-                // $('#member').click(function(){//點擊會員icon  叫出登入燈箱
-
-                // });
 
                 $('.item1 > button').click(function () {
                     $('.upArea').toggleClass('move');
@@ -422,20 +408,7 @@ $(document).ready(function () {
                         });
                     }
                 });
-
-
-
-
-
-
-
-
-
-
             })
-
-
-
         } else {
             $('.logout').css('display', 'block');
             $('.callLoginBox').css('display', 'none');
@@ -506,6 +479,7 @@ $(document).ready(function () {
                         e.preventDefault();
                     }
                 })
+                // 禁止輸入空白↑↑↑↑↑↑↑↑↑↑
 
 
                 // 註冊↓↓↓↓↓↓↓↓↓↓
@@ -597,9 +571,7 @@ $(document).ready(function () {
                                     let month = gettoday.getMonth();
                                     let date = gettoday.getDate();
 
-
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 23:59:59 GMT`;
-                                    // var my_cookies = document.cookie.substring(5);
                                     swal("登入成功!", `${name}　歡迎回來！！!　　今日獲得　${toDayCC}　CC幣`, "success")
                                         .then((willDelete) => {
                                             if (willDelete) {
@@ -613,7 +585,6 @@ $(document).ready(function () {
                                     let year = gettoday.getFullYear();
                                     let month = gettoday.getMonth();
                                     let date = gettoday.getDate();
-
 
                                     document.cookie = `user =${loginAccount}; expires= ${date} ${months[month]} ${year} 15:59:59 GMT`;
                                     swal("登入成功!", `${name}　歡迎回來！！!`, "success")
@@ -662,16 +633,6 @@ $(document).ready(function () {
                 });
                 // 下拉選單↑↑↑↑↑↑↑↑↑↑↑↑
             }
-
         });
-
-
     }
 });
-
-
-
-    
-    
-
-

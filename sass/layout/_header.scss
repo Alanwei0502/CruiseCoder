@@ -202,7 +202,6 @@ div.loginWrap {
 		div.upArea {
 			width: 400px;
 			height: 100%;
-			// border: 1px solid rgb(31, 102, 3);
 			background-color: #124f6e;
 			white-space: nowrap;
 			overflow: hidden;
@@ -212,7 +211,6 @@ div.loginWrap {
 			left: 0px;
 			transition: all 0.6s ease-in-out;
 			transform: translateX(0%);
-			// display: none;
 
 			@media screen and (max-width: 850px) {
 				display: none;

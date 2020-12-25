@@ -10,7 +10,6 @@ $sqlAllCourse = "SELECT C.cNumber, C.cTitle, C.cLecturer, C.cTime, C.cPrice, C.c
 
 $sqlAllCourse = $pdo->prepare($sqlAllCourse);
 $sqlAllCourse->execute();
-// $data = $sqlAllCourse->fetchAll();
 $data = $sqlAllCourse->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($data);
