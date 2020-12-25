@@ -18,7 +18,7 @@
 <!-- 連結訂單表和會員表的會員編號 -->
 <?php
 //訂單
-$sql_order = "SELECT * from `myorder` o join `member` m on o.oMember = m.mNumber where mAccount = ?";
+$sql_order = "SELECT * from `myorder` o join `member` m on o.oMember = m.mNumber where mAccount = ? order by o.oNumber desc";
 
 $orders = $pdo->prepare($sql_order);
 $orders->bindValue(1,$F_user);
@@ -203,7 +203,7 @@ foreach($data_orders as $index => $order){
    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src=".js/order_front.js"></script>
+    <script src="../js/order_front.js"></script>
  
     <script src="../js/header.js"> </script>
     <script>
@@ -213,15 +213,6 @@ foreach($data_orders as $index => $order){
             $(this).next('.accordion-panel').not(':animated').slideToggle();
         });
 
-    </script>
-
-    <!-- $block = "display: block;"; -->
-    <script type="text/javascript">
-        var display = "<?= $block ?>";  
-        // var display = "display: block;";  
-        let nothing = document.getElementsByClassName('.haveNoOrder');
-        nothing.style.cssText = `${display}`;
-        // nothing.style.cssText = `display: block;`;
     </script>
 </body>
 </html>

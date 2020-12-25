@@ -10,7 +10,7 @@
     $mPassword = $_POST["mPassword"];
     // $mNumber = "M0003";
     $mPhone = $_POST["mPhone"];
-    $PictureName = $_FILES["myFile"]["name"];
+    $PictureName = isset($_FILES["myFile"]["name"])? $_FILES["myFile"]["name"] : '';
   
 
     $Util = new UtilClass();
@@ -50,21 +50,40 @@
 
 
     //建立SQL
-    $sql = "UPDATE member set mName = ? ,mPhone = ?, mPhoto = ? ,mPassword = ?  where mAccount = ? ";
+    if(isset($_FILES["myFile"]["name"])){
+        $sql = "UPDATE member set mName = ? ,mPhone = ?,mPassword = ? , mPhoto = ?  where mAccount = ? ";
+
+        $statement = $pdo->prepare($sql);
+
+        //給值    
+        $statement->bindValue(1 , $mName);     
+        $statement->bindValue(2 , $mPhone);
+        $statement->bindValue(3 , $mPassword);
+        $statement->bindValue(4 , '../images/info/'.$PictureName);
+        $statement->bindValue(5 , $mAccount);
+
+        //執行
+        $statement->execute();
+
+    }else{
+        $sql = "UPDATE member set mName = ? ,mPhone = ? ,mPassword = ?  where mAccount = ? ";
+
+        //準備
+        $statement = $pdo->prepare($sql);
+
+        //給值    
+        $statement->bindValue(1 , $mName);     
+        $statement->bindValue(2 , $mPhone);
+        $statement->bindValue(3 , $mPassword);
+        $statement->bindValue(4 , $mAccount);
+
+        //執行
+        $statement->execute();
+    }
+    
    
 
-    //準備
-    $statement = $pdo->prepare($sql);
-
-    //給值    
-    $statement->bindValue(1 , $mName);     
-    $statement->bindValue(2 , $mPhone);
-    $statement->bindValue(3 , '../images/info/'.$PictureName);
-    $statement->bindValue(4 , $mPassword);
-    $statement->bindValue(5 , $mAccount);
-
-    //執行
-    $statement->execute();
+    
 
     header('location: ./info.php')
 

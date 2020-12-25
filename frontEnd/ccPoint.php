@@ -71,7 +71,7 @@
 
         <div class="day_1">
           <p>Day 1</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 8-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/php1.png" alt="">
           <p class="countCoin">40 CC幣</p>
         </div>
 
@@ -79,37 +79,37 @@
 
         <div>
           <p>Day 2</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 2-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/css1.png" alt="">
           <p class="countCoin">50 CC幣</p>
         </div>
 
         <div>
           <p>Day 3</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 3-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/css3.png" alt="">
           <p class="countCoin">60 CC幣</p>
         </div>
 
         <div>
           <p>Day 4</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 10-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/jq1.png" alt="">
           <p class="countCoin">70 CC幣</p>
         </div>
 
         <div>
           <p>Day 5</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 19-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/jq2.png" alt="">
           <p class="countCoin">80 CC幣</p>
         </div>
 
         <div>
           <p>Day 6</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 7-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/js1.png" alt="">
           <p class="countCoin">90 CC幣</p>
         </div>
 
         <div>
           <p>Day 7</p>
-          <img class="day_img" name="day_img" src="../images/ccPlanet/資產 10-8.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/js3.png" alt="">
           <p class="countCoin">100 CC幣</p>
         </div>
         
@@ -232,13 +232,11 @@
           for(k=0;k<check;k++){
             console.log(k+'我是check'+check);
             $('img[name = "day_img"]').eq(k).removeClass();
-            if (check==0) {
-              
-              for(let l=0;l<8;l++){
-                $('img[name = "day_img"]').eq(l).removeClass();
-              }
-              
-            }
+          }
+        }else if(check==0){
+          for(let l = 0;l<7;l++){
+            $('img[name = "day_img"]').eq(l).removeClass();
+             
           }
         }
       }

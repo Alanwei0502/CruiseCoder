@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" href="./ico.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./ico.ico" type="image/x-icon" />
-    <title>Cruise Coders | 登入頁面</title>
+    <title>Cruise Coders | 前台後台入口</title>
 </head>
 
 <body>

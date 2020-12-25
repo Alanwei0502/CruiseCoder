@@ -312,7 +312,10 @@ $(document).ready(function () {
         }
     })
 
-    load_img = $('#upload_img');
+    $('.info_area').on('click', '.plusCamera', function(){
+        $('#upload_img').attr('disabled', false);
+    });
+    // load_img = $('#upload_img');
 
     $('#upload_img').change(function () {
         // alert('hello');
@@ -326,18 +329,33 @@ $(document).ready(function () {
             var reader = new FileReader();
 
             reader.addEventListener("load", function (e) {
+                
+                // let account_pic = document.getElementsByClassName('account_pic')[0];
                 // 清空圖片
-                account_pic[0].innerHTML = "";
+                // account_pic.innerHTML = "";
                 // 創建img標籤
-                let img = document.createElement("img");
+                // let img = document.createElement("img");
                 // 在屬性src 加上圖片網路路徑
-                img.src = e.target.result;
+                // img.src = e.target.result;
                 // 丟進去要放圖片的區塊
-                account_pic[0].appendChild(img);
+                $('.account_pic').html(`<img src="${e.target.result}">`);
             });
 
             reader.readAsDataURL(input.files[0]);
         }
+            //渲染圖片
+            // $.ajax({
+            //     type: 'POST',
+            //     url: 'infoImg.php',
+            //     dataType: 'text',
+            //     success: function (res) {
+            //         $('.info_area .account_pic').html(res);
+            //     }
+
+            // });
+        
+
+        
     }
 
     $('.fa-eye').click(function () {
