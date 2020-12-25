@@ -353,7 +353,7 @@ function doFirst() {
             setTimeout(() => {
                 this.ccPoint();
                 this.ccPointNt();
-            }, 500)
+            }, 700)
 
         },
 
@@ -428,6 +428,30 @@ function doFirst() {
                     $('div.shoppingList').text('您的購物車內無任何商品').addClass('-on');
                 }
                 app.total -= this.myprice;
+
+                //重新計算ccpoint
+                let ccPointNtMax = parseInt($('.ccPoint').attr('data-id'));
+                //最大ccpoint
+                let ccpInput = parseInt($('.ccpInput').val());
+                //目前inpit值
+                if (ccpInput >= app.total) {
+                    if (app.total >= ccPointNtMax) {
+                        app.message = ccPointNtMax;
+                        return app.message;
+                    } else {
+                        app.message = app.total;
+                        return app.message;
+                    }
+                } else {
+                    if (ccpInput <= ccPointNtMax) {
+                        app.message = ccpInput;
+                        return app.message;
+                    } else {
+                        app.message = ccPointNtMax;
+                        console.log(ccpInput);
+                        return app.message;
+                    }
+                };
             },
         },
         mounted() {
