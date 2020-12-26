@@ -147,13 +147,13 @@
                             <img :src="allCourse.cImage" alt="">
                         </a>
                         <div class="c_Main">
-                            <a class="title" href="./allCourse.php">{{allCourse.cTitle}}</a>
+                            <a class="title" :href=`course_start_class.php?CourseID=${allCourse.cNumber}`>{{allCourse.cTitle}}</a>
                             <div class="time">課程總長：{{allCourse.cTime}}</div>
                             <div class="comment">
                                 <div class="star">
 
                                 </div>
-                                <a class="text" href="">{{allCourse.rCount}}則評價</a>
+                                <a class="text" >{{allCourse.rCount}}則評價</a>
                             </div>
                             <div class="price">NT.{{allCourse.cPrice}}</div>
                         </div>
