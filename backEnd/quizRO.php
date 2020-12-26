@@ -1,8 +1,8 @@
 <?php
-// connecting to database
+// 連接資料庫
 include("../frontEnd/layout/connect.php");
 
-// launching the galaxy
+// 上架星系
 if (isset($_POST["onId"])) {
     $galaxyName = "'" . implode("','", $_POST["onId"]) . "'";
 
@@ -13,7 +13,7 @@ if (isset($_POST["onId"])) {
     $update->execute();
 }
 
-// removing the galaxy
+// 下架星系
 if (isset($_POST["offId"])) {
 
     $galaxyName = "'" . implode("','", $_POST["offId"]) . "'";

@@ -1,8 +1,8 @@
 <?php
-// connecting to database
+// 連接資料庫
 include("../frontEnd/layout/connect.php");
 
-// searching field
+// 搜尋領域
 $searchGalaxy = "SELECT * FROM galaxy WHERE gName = ?";
 $searchGalaxy = $pdo->prepare($searchGalaxy);
 
@@ -16,7 +16,7 @@ $searchSelection = "SELECT qSubject, sNumber, sQuiz, sOption, sContent FROM quiz
 $searchSelection = $pdo->prepare($searchSelection);
 
 
-// update field
+// 上傳領域
 $editGalaxy = "UPDATE `galaxy` SET `gNumber` = ?, `gName` = ?, `gImage` = ?, `gStatus` = ? WHERE (`gNumber` = ?)";
 $editGalaxy = $pdo->prepare($editGalaxy);
 
@@ -31,7 +31,7 @@ $editSelection = $pdo->prepare($editSelection);
 
 
 
-// click edit button
+// 點擊編輯按鈕
 if (isset($_POST["gNumber"])) {
     $gName = $_POST["gNumber"];
     $searchGalaxy->bindValue(1, $gName);
@@ -53,4 +53,4 @@ if (isset($_POST["gNumber"])) {
 }
 
 
-// click edit confirmed button
+// 點擊確認編輯按鈕

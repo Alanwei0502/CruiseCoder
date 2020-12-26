@@ -335,7 +335,13 @@ div.quiz {
                         #forBadge{
                             display: none;
                             @include clearfixed;
-
+                            span.default{
+                                display: none;
+                                border: none;
+                                border-radius: 0px;
+                                line-height: $h3;
+                                font-size: $fontSize;
+                            }
                             section{
                                 margin-bottom: $fontSize*2;
                                 padding: $fontSize;
