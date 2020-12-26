@@ -201,6 +201,7 @@ $(document).ready(function () {
     if (checkCookie('user')) {
         // 這裡的userAccount變數，代表是user登入後的帳號，用這個帳號去抓資料
         var userAccount = getCookie('user');
+        $('span.shoppingCount').css('display','block')
         $('.oderInfo').css('display', 'block'); //如果未登入  訂單資訊取消隱藏
         $('.memberInfo').css('display', 'block'); //如果未登入  個人檔案取消隱藏
         $.ajax({
