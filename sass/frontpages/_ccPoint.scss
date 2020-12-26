@@ -75,7 +75,7 @@ monospace;
                     font-size: $bp;
                 }
                 @include smlPhone{
-                    width: 350px;
+                    width: 350px; 
                     padding: 10px;
                     font-size: $mp;
 
@@ -498,9 +498,13 @@ monospace;
                         margin: 0 150px;
                         letter-spacing: 2.5px;
                         ul{
-                            list-style-image: url('../images/ccPoint/list_img.svg');
+                            list-style-type: disc ;
+                            
                             li {
-                                display: inline;
+                                // list-style-image: url('../images/ccPoint/list_img.svg') !important;
+                                list-style:disc outside url('../images/ccPoint/list_img.svg');
+                                
+                                // display: inline-block;
                                 @include bigPad {
                                     font-size: $mp;
                                 }
@@ -510,7 +514,10 @@ monospace;
                                     width: 100%;
     
                                 }
-    
+                            }
+
+                            ::marker{
+                                font-size: 50px;
                             }
 
                         }

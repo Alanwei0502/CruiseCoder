@@ -4,6 +4,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 150px;
+  min-height: calc(100vh - 172px - 84px);
+
   @include bigPhone{
     padding-bottom: 100px;
   }
@@ -13,7 +15,7 @@
         color: $beige;
       @include smlPad{
         font-size: $h3;
-    }
+      }
       @include bigPhone{
         font-size: $h4;
       }
