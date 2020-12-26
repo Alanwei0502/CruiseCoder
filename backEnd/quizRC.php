@@ -156,6 +156,7 @@ if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FI
     $fullPath1 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/planets/', $phpPath);
     $fullPath2 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/badge/', $phpPath);
     $fullPath3 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/galaxy/', $phpPath);
+    $fullPath4 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/quiz/background/', $phpPath);
 
     // echo $_FILES["iconPic1"]["tmp_name"];
     $iconPic1_Temp = $_FILES["iconPic1"]["tmp_name"];
@@ -177,9 +178,9 @@ if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FI
     $badgePic1Path = $fullPath2 . $_FILES["badgePic1"]["name"];
     $badgePic2Path = $fullPath2 . $_FILES["badgePic2"]["name"];
     $badgePic3Path = $fullPath2 . $_FILES["badgePic3"]["name"];
-    $bgPic1Path = $fullPath2 . $_FILES["bgPic1"]["name"];
-    $bgPic2Path = $fullPath2 . $_FILES["bgPic2"]["name"];
-    $bgPic3Path = $fullPath2 . $_FILES["bgPic3"]["name"];
+    $bgPic1Path = $fullPath4 . $_FILES["bgPic1"]["name"];
+    $bgPic2Path = $fullPath4 . $_FILES["bgPic2"]["name"];
+    $bgPic3Path = $fullPath4 . $_FILES["bgPic3"]["name"];
     $galaxyPicPath = $fullPath3 . $_FILES["galaxyPic"]["name"];
     $badgePic0Path = $fullPath2 . $_FILES["badgePic0"]["name"];
 

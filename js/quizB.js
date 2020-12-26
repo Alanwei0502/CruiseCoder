@@ -245,6 +245,60 @@ Vue.component("createAndEdit", {
         }
     },
     methods: {
+        // demo用的快速輸入神奇小按鈕
+        // 新增空題目
+        quicktext() {
+            for (let i = 0; i < 3; i++) {
+                $('button.createQ').eq(i).click();
+                $('button.createQ').eq(i).click();
+            }
+            // 新增題目領域
+            $('input.fieldName').val('MySQL');
+            // 新增題目內容
+            $('textarea[name="qContent"]').eq(0).val('SELECT語句的完整語法較複雜，但至少包括的部分是下列何者？');
+            $('textarea[name="qContent"]').eq(1).val('UNIQUE唯一索引的作用是什麼？');
+            $('textarea[name="qContent"]').eq(2).val('下列聚合函數中，何者是求數據的總和？');
+            $('textarea[name="qContent"]').eq(3).val('在SQL敘述中，可以連結字串的字串函式是那一個？');
+            $('textarea[name="qContent"]').eq(4).val('定義欄位的資料型態是INT(4) ZEROFILL時，存入數字9之後會如何顯示？');
+            $('textarea[name="qContent"]').eq(5).val('要使用username帳號登入MySQL伺服器端的連線在命令列輸入什麼指令？');
+            // 新增題目選項
+            $('textarea[name="sContent"]').eq(0).val('SELECT，FROM');
+            $('textarea[name="sContent"]').eq(1).val('僅SELECT');
+            $('textarea[name="sContent"]').eq(2).val('SELECT，GROUP');
+            $('textarea[name="sContent"]').eq(3).val('SELECT，INTO');
+            $('textarea[name="sContent"]').eq(4).val('保證各行在該索引上的值都不得重複');
+            $('textarea[name="sContent"]').eq(5).val('保證各行在該索引上的值不得為NULL');
+            $('textarea[name="sContent"]').eq(6).val('保證參加唯一索引的各列，不得再參加其他的索引');
+            $('textarea[name="sContent"]').eq(7).val('保證唯一索引不能被刪除');
+            $('textarea[name="sContent"]').eq(8).val('MAX');
+            $('textarea[name="sContent"]').eq(9).val('SUM');
+            $('textarea[name="sContent"]').eq(10).val('COUNT');
+            $('textarea[name="sContent"]').eq(11).val('AVG');
+            $('textarea[name="sContent"]').eq(12).val('JOIN');
+            $('textarea[name="sContent"]').eq(13).val('CONCAT');
+            $('textarea[name="sContent"]').eq(14).val('LENGTH');
+            $('textarea[name="sContent"]').eq(15).val('SUBSTRING');
+            $('textarea[name="sContent"]').eq(16).val('9');
+            $('textarea[name="sContent"]').eq(17).val('9999');
+            $('textarea[name="sContent"]').eq(18).val('0009');
+            $('textarea[name="sContent"]').eq(19).val('以上皆非');
+            $('textarea[name="sContent"]').eq(20).val('mysqld -u username -p，再輸入密碼');
+            $('textarea[name="sContent"]').eq(21).val('mysqllogin -u username -p，再輸入密碼');
+            $('textarea[name="sContent"]').eq(22).val('mysql -u username -p，再輸入密碼');
+            $('textarea[name="sContent"]').eq(23).val('mysql -u再輸入密碼');
+            // 新增題目答案
+            $('select[name="qAnswer"]').eq(0).val('A');
+            $('select[name="qAnswer"]').eq(1).val('A');
+            $('select[name="qAnswer"]').eq(2).val('B');
+            $('select[name="qAnswer"]').eq(3).val('B');
+            $('select[name="qAnswer"]').eq(4).val('C');
+            $('select[name="qAnswer"]').eq(5).val('C');
+            // 新增星球描述
+            $('textarea[name="describe"]').eq(0).val('適合剛學習MySQL的新手，達到標準後，可以獲得此顆星球認證喔！');
+            $('textarea[name="describe"]').eq(1).val('若你已經學習MySQL一段時間可以挑戰看看這顆星球，達到標準後，可以獲得此顆星球認證喔！');
+            $('textarea[name="describe"]').eq(2).val('若你自詡為MySQL大師，那就來挑戰這顆星球吧！達到標準後，可以獲得此顆星球認證喔！');
+            $('textarea[name="describe"]').eq(3).val('當你成功挑戰完所有MySQL的星球關卡，即可獲得MySQL星系徽章！');
+        },
         // 新增試題頁籤
         openQuiz() {
             $('.openQuiz').css('background-color', 'white');
@@ -456,81 +510,77 @@ Vue.component("createAndEdit", {
                     empty.push(mustFillArray[i]);
                 }
             }
-            // if (empty.length == 0) {
-            // console.log(badge);
-            $.ajax({
-                type: 'POST',
-                url: 'quizRC.php',
-                data: { newGalaxy, quiz, selections, badge },
-                success: function (res) {
-                    // console.log(res);
-                    if (res == "success") {
-                        swal("已成功新增試題", "", "success").then((value) => {
-                            if (value) {
-                                window.location.reload();
-                            }
-                        });
-                    }
-                },
-            });
+            if (empty.length == 0) {
+                console.log(badge);
+                $.ajax({
+                    type: 'POST',
+                    url: 'quizRC.php',
+                    data: { newGalaxy, quiz, selections, badge },
+                    success: function (res) {
+                        // console.log(res);
+                        if (res == "success") {
+                            swal("已成功新增試題", "", "success").then((value) => {
+                                if (value) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
+                    },
+                });
 
-            //取得上傳檔案屬性
+                //取得上傳檔案屬性
 
-            // 星球圖
-            let iconPic1 = $('input[name="iconImg"]').eq(0).prop('files')[0];
-            let iconPic2 = $('input[name="iconImg"]').eq(1).prop('files')[0];
-            let iconPic3 = $('input[name="iconImg"]').eq(2).prop('files')[0];
-            let iconPic = [];
-            iconPic.push(iconPic1, iconPic2, iconPic3);
-            // console.log(iconPic);
-            // 徽章圖
-            let badgePic1 = $('input[name="badgeImg"]').eq(0).prop('files')[0];
-            let badgePic2 = $('input[name="badgeImg"]').eq(1).prop('files')[0];
-            let badgePic3 = $('input[name="badgeImg"]').eq(2).prop('files')[0];
-            badgePic = [];
-            badgePic.push(badgePic1, badgePic2, badgePic3);
-            // 背景圖
-            let bgPic1 = $('input[name="bgImg"]').eq(0).prop('files')[0];
-            let bgPic2 = $('input[name="bgImg"]').eq(1).prop('files')[0];
-            let bgPic3 = $('input[name="bgImg"]').eq(2).prop('files')[0];
-            let bgPic = [];
-            bgPic.push(bgPic1, bgPic2, bgPic3);
+                // 星球圖
+                let iconPic1 = $('input[name="iconImg"]').eq(0).prop('files')[0];
+                let iconPic2 = $('input[name="iconImg"]').eq(1).prop('files')[0];
+                let iconPic3 = $('input[name="iconImg"]').eq(2).prop('files')[0];
+                let iconPic = [];
+                iconPic.push(iconPic1, iconPic2, iconPic3);
+                // console.log(iconPic);
+                // 徽章圖
+                let badgePic1 = $('input[name="badgeImg"]').eq(0).prop('files')[0];
+                let badgePic2 = $('input[name="badgeImg"]').eq(1).prop('files')[0];
+                let badgePic3 = $('input[name="badgeImg"]').eq(2).prop('files')[0];
+                badgePic = [];
+                badgePic.push(badgePic1, badgePic2, badgePic3);
+                // 背景圖
+                let bgPic1 = $('input[name="bgImg"]').eq(0).prop('files')[0];
+                let bgPic2 = $('input[name="bgImg"]').eq(1).prop('files')[0];
+                let bgPic3 = $('input[name="bgImg"]').eq(2).prop('files')[0];
+                let bgPic = [];
+                bgPic.push(bgPic1, bgPic2, bgPic3);
 
-            // 星系圖
-            let galaxyPic = $('input[name="iconImgGal"]').prop('files')[0];
-            // 星系徽章
-            let badgePic0 = $('input[name="badgeImg"]').eq(3).prop('files')[0];
-
-            // console.log(galaxyPic);
-            // console.log(badgePic0);
-            // console.log(bgPicMedium);
-            // console.log(bgPicHard);
-            let formData = new FormData();  // 建構new FormData()
-            //把物件加到file後面
-            for (let i = 0; i < 3; i++) {
-                formData.append(`iconPic${i + 1}`, iconPic[i]);
-                formData.append(`badgePic${i + 1}`, badgePic[i]);
-                formData.append(`bgPic${i + 1}`, bgPic[i]);
-            }
-            formData.append('galaxyPic', galaxyPic);
-            formData.append('badgePic0', badgePic0);
-
-
-            // 傳圖片 將圖片放到資料夾內
-            $.ajax({
-                url: 'quizRC.php',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: formData,     //data只能指定單一物件
-                type: 'POST',
-                success: function (data) {
-                    console.log(data);
+                // 星系圖
+                let galaxyPic = $('input[name="iconImgGal"]').prop('files')[0];
+                // 星系徽章
+                let badgePic0 = $('input[name="badgeImg"]').eq(3).prop('files')[0];
+                // 建構new FormData()
+                let formData = new FormData();
+                //把物件加到file後面
+                for (let i = 0; i < 3; i++) {
+                    formData.append(`iconPic${i + 1}`, iconPic[i]);
+                    formData.append(`badgePic${i + 1}`, badgePic[i]);
+                    formData.append(`bgPic${i + 1}`, bgPic[i]);
                 }
-            });
-            // } else {
-            //     swal("請填入所有的試題資訊", "", "warning");
-            // }
+                formData.append('galaxyPic', galaxyPic);
+                formData.append('badgePic0', badgePic0);
+
+
+                // 傳圖片 將圖片放到資料夾內
+                $.ajax({
+                    url: 'quizRC.php',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,     //data只能指定單一物件
+                    type: 'POST',
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            } else {
+                swal("請填入所有的試題資訊", "", "warning");
+            }
         }
     },
 });

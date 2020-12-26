@@ -138,6 +138,8 @@
                   <option value="1">上架</option>
                   <option value="0">下架</option>
                 </select> 
+
+                <button @click="quicktext">一鍵輸入</button>
               </div>
 
               <!-- 輸入題目的input -->

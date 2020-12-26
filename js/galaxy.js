@@ -125,7 +125,8 @@ let galaxyVue = new Vue({
         // 中級星球介紹預設開啟
         mediumPlanetShow() {
             $('.insideArticle').eq(1).css("display", "block");
-        }
+        },
+
     },
     created() {
 
