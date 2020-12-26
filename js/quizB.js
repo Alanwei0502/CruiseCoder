@@ -123,6 +123,8 @@ Vue.component("tableArea", {
             $('.update').css('display', 'block');
             // 隱藏確認修改按鈕
             $('.editConfirm').css('display', 'none');
+            // 清除星球描述
+            $('textarea[name="describe"]').val('');
         },
 
     }
@@ -161,10 +163,13 @@ Vue.component("tableRow", {
             $('.default').css('display', 'block');
             // 隱藏確認新增按鈕
             $('.update').css('display', 'none');
-            // 顯示確認修改按鈕
-            $('.editConfirm').css('display', 'block');
+            // 隱藏圖片上傳input
+            $('.forImage').css('display', 'none');
+
             // 找出星系編號
             let gNumber = $(e.target).closest('tr').find('.gNumber').text();
+            let gNum = $(e.target).closest('tr').find('.gNum').text();
+            $('label[for="fieldName"]').attr('data-gnum', gNum);
             // 抓資料庫
             let that = this;
             $.ajax({
@@ -248,24 +253,28 @@ Vue.component("tableRow", {
                     for (let i = 0; i < res[3].length; i++) {
                         $('textarea[name="sContent"]').eq(i).val(`${res[3][i].sContent}`);
                     }
+                    // 塞入對應的選項編號
+                    for (let i = 0; i < res[3].length; i++) {
+                        $('textarea[name="sContent"]').eq(i).attr('data-snum', `${res[3][i].sNumber}`);
+                    }
                     // 塞入對應的答案
                     for (let i = 0; i < res[1].length; i++) {
                         $('select[name="qAnswer"]').eq(i).val(`${res[1][i].qAnswer}`);
                     }
                     // 塞入對應的星球圖
                     for (let i = 0; i < 3; i++) {
-                        $('span.iconImg').eq(i).text(`預設檔案：${res[2][i].bIcon}`);
+                        $('span.iconImg').eq(i).text(`${res[2][i].bIcon}`);
                     }
                     // 塞入對應的徽章圖
                     for (let i = 0; i < 4; i++) {
-                        $('span.badgeImg').eq(i).text(`預設檔案：${res[2][i].bBadge}`);
+                        $('span.badgeImg').eq(i).text(`${res[2][i].bBadge}`);
                     }
                     // 塞入對應的背景圖
                     for (let i = 0; i < 3; i++) {
-                        $('span.bgImg').eq(i).text(`預設檔案：${res[2][i].bBackground}`);
+                        $('span.bgImg').eq(i).text(`${res[2][i].bBackground}`);
                     }
                     // 塞入對應的星系圖
-                    $('span.iconImgGal').text(`預設檔案：${res[0][0].gImage}`);
+                    $('span.iconImgGal').text(`${res[0][0].gImage}`);
                     // 塞入對應的星球介紹
                     for (let i = 0; i < 4; i++) {
                         $('textarea[name="describe"]').eq(i).val(`${res[2][i].bInfo}`);
@@ -277,6 +286,9 @@ Vue.component("tableRow", {
                 },
             });
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
+            // 關閉修改功能
+            $('input.fieldName').prop('disable', true);
+            $('select.onOrOff').prop('disable', true);
         },
     },
 });
@@ -646,8 +658,55 @@ Vue.component("createAndEdit", {
 
         // 確認編輯按鈕
         editConfirm() {
+            // 星系編號
+            // let gNum = $('label[for="fieldName"]').data('gnum');
+            // // 星系名稱
+            // let gName = $('input.fieldName').val();
+            // // 星系狀態
+            // let gStatus = $('select.onOrOff').val();
+            // //  星系圖案
+            // let uploadImg = $('input[name="iconImgGal"]').val().split("\\");
+            // let uploadImgName = uploadImg[(uploadImg.length) - 1];
+            // let gImage = $('input[name="iconImgGal"]').val() == "" ? $('span.iconImgGal').text().replace("預設檔案：", '') : uploadImgName;
+            // // 星球題目
+            // let qNumber = document.getElementsByClassName('contentQ');
+            // qNumberArray = [];
+            // for (let i = 0; i < qNumber.length; i++) {
+            //     qNumberArray.push(qNumber[i].getAttribute('data-qnumber'));
+            // }
+            // // 星球題目答案
+            // let qAnswer = document.querySelectorAll('select[name="qAnswer"]');
+            // qAnswerArray = [];
+            // for (let i = 0; i < qAnswer.length; i++) {
+            //     qAnswerArray.push(qAnswer[i].value);
+            // }
+            // // 星球題目狀態
+            // let qStatus = document.querySelectorAll('select[name="qState"]');
+            // qStatusArray = [];
+            // for (let i = 0; i < qStatus.length; i++) {
+            //     qStatusArray.push(qStatus[i].value);
+            // }
+            // // 星球選項編號
+            // let sNumber = document.querySelectorAll('textarea[name="sContent"]');
+            // sNumberArray = [];
+            // for (let i = 0; i < sNumber.length; i++) {
+            //     sNumberArray.push(sNumber[i].getAttribute('data-snum'));
+            // }
+            // // 星球選項內文
+            // sContentArray = [];
+            // for (let i = 0; i < sNumber.length; i++) {
+            //     sContentArray.push(sNumber[i].value);
+            // }
+            // // 徽章描述
 
-        }
+            // console.log(gNum, gName, gStatus);
+            // console.log(qNumberArray);
+            // console.log(qAnswerArray);
+            // console.log(qStatusArray);
+            // console.log(sNumberArray);
+            // console.log(sContentArray);
+            // console.log(gImage);
+        },
     },
 });
 

@@ -100,14 +100,13 @@
       <template v-for="(galaxy,index) in galaxys.slice(pages.start,pages.end)">
       <tr>
         <td><label><input type="checkbox" class="checkRow" @click="checkOne"><span></span></label></td>
-        <td>{{galaxy.gNumber}}</td>
+        <td class="gNum">{{galaxy.gNumber}}</td>
         <td class="gNumber">{{galaxy.gName}}</td>
         <td v-if="galaxy.gStatus === '上架'" style="color: green;">{{galaxy.gStatus}}</td>
         <td v-else style="color: red;">{{galaxy.gStatus}}</td>
-        <td><button @click="editQuiz">編輯</button></td>
+        <td><button @click="editQuiz">查看</button></td>
       </tr>
       </template>
-      
     </tbody> 
   </script>
 
@@ -173,25 +172,25 @@
                   
                   <div class="iconImg" v-if="level.diff == '星系'">
                     <label>星系圖</label>
-                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImgGal" accept="image/*"></span>
+                    <span class="forImage"><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImgGal" accept="image/*"></span>
                     <span class="default iconImgGal"></span>
                   </div>
 
                   <div class="iconImg" v-else>
                     <label>星球圖</label>
-                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg" accept="image/*"></span>
+                    <span class="forImage"><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg" accept="image/*"></span>
                     <span class="default iconImg"></span>
                   </div>
 
                   <div class="badgeImg">
                     <label>徽章圖</label>
-                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg" accept="image/*"></span>
+                    <span class="forImage"><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg" accept="image/*"></span>
                     <span class="default badgeImg"></span>
                   </div>
 
                   <div class="bgImg" v-if="level.diff !== '星系'">
                     <label>試題背景圖</label>
-                    <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="bgImg" accept="image/*"></span>
+                    <span class="forImage"><img src="../images/backEnd/camera.png" alt=""><input type="file" name="bgImg" accept="image/*"></span>
                     <span class="default bgImg"></span>
                   </div>
 
@@ -201,7 +200,6 @@
                 </section>
               </template>
               <button class="update" @click="update">確認新增</button>
-              <button class="editConfirm update" @click="editConfirm">確認修改</button>
             </div>
           </section>
         </div>
