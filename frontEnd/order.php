@@ -1,6 +1,9 @@
 <?php
     include("./layout/connect.php");
     
+  if(!isset($_COOKIE["user"])){
+    echo '<script>window.location.href = "index.php";</script>';
+  }
     //建立SQL SELECT oNumber,mAccount FROM `myorder` JOIN member on oMember = mNumber WHERE mAccount = 'aaa'
 //   $sql = "SELECT * FROM myorder WHERE oNumber = ?";
 //   $oNumber = "2020120622";

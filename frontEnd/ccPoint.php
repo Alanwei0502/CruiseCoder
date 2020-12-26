@@ -1,10 +1,13 @@
 <?php
   include("./layout/connect.php");
 
+  if(!isset($_COOKIE["user"])){
+    echo '<script>window.location.href = "index.php";</script>';
+  }
   //建立SQL
   $sql = "SELECT * FROM member WHERE mAccount = ?";
   // $mNumber = "M0001";
-  $mNumber = $_COOKIE["user"];
+  $mNumber = isset($_COOKIE["user"])?$_COOKIE["user"] : '';
   $statement = $pdo->prepare($sql);
   $statement->bindValue(1 , "$mNumber");
   $statement->execute();

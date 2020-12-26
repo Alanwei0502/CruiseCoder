@@ -22,6 +22,11 @@ $(function(){
     $("div.tab").removeClass("-on");
     $("div.tab." + $(this).attr("data-target")).addClass("-on");
   });
+
+  $('a.logout').click(function(){
+    window.location.href = 'index.php';
+
+  })
 });
 
 $('.tab_list>li').click(function(){
