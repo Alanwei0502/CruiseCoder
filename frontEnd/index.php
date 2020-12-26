@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 </head>
 
-<body>
+<body onselectstart="return false">
     <div class="wrap index">
         <?php
         include('layout/spacebackground.php');
@@ -337,6 +337,7 @@
     <script src="../js/index.js"></script>
     <script src="../js/header.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script>document.oncontextmenu = new Function("return false");</script> <!-- 右鍵封鎖  -->
     <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 </body>
 
