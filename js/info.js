@@ -47,12 +47,10 @@ let vm = new Vue({
         ajax() {
             let account = this.mAccount;
             let that = this;
-            // console.log(account);
             $.ajax({
                 type: 'POST',
                 url: 'infoR.php',
                 data: { account },
-                // dataType: 'json',
                 success: function (res) {
                     let allData = JSON.parse(res);
                     console.log(allData);
@@ -69,11 +67,6 @@ let vm = new Vue({
                     setTimeout(() => {
                         // 一般課程
                         for (let i = 0; i < that.courses.length; i++) {
-                            // that.courses[i].rRate;
-                            // console.log(res.length);
-                            // console.log(res[i].rRate);
-                            // let stry = "<i class='fas fa-star yellow'> </i>";
-
                             if (that.courses[i].rRate > 0 && (that.courses[i].rRate) % 1 == 0) {
 
                                 for (j = 0; j < Math.floor(that.courses[i].rRate); j++) {
@@ -90,11 +83,6 @@ let vm = new Vue({
                         }
                         // 募資課程
                         for (let i = 0; i < that.FavCourses2.length; i++) {
-                            // that.FavCourses2[i].rRate;
-                            // console.log(res.length);
-                            // console.log(res[i].rRate);
-                            // let stry = "<i class='fas fa-star yellow'> </i>";
-
                             if (that.FavCourses2[i].reviewScore > 0 && (that.FavCourses2[i].reviewScore) % 1 == 0) {
 
                                 for (j = 0; j < Math.floor(that.FavCourses2[i].reviewScore); j++) {
@@ -119,7 +107,6 @@ let vm = new Vue({
             $(e.target).toggleClass('is-active');
             let theMember = this.memberID;
             let thecNumber = $(e.target).closest('.favorites').data('courseid');
-            // console.log(theMember, thecNumber);
             if (!$(e.target).hasClass('is-active')) {
                 let that = this;
                 let heart = 1;
@@ -132,10 +119,7 @@ let vm = new Vue({
                         theMember,
                     },
                     dataType: 'text',
-                    success: function (res) {
-                        // console.log(res);
-                    }
-
+                    success: function (res) { }
                 });
             } else {
                 let that = this;
@@ -149,9 +133,7 @@ let vm = new Vue({
                         theMember,
                     },
                     dataType: 'text',
-                    success: function (res) {
-                        // console.log(res);
-                    }
+                    success: function (res) { }
                 });
 
             }
@@ -161,7 +143,6 @@ let vm = new Vue({
             $(e.target).toggleClass('is-active');
             let userAccount = getCookie('user');
             let aNumber = $(e.target).closest('.favorites').data('articleid');
-            // console.log(userAccount, aNumber);
             if (!$(e.target).hasClass('is-active')) {
                 let that = this;
                 let cancel = 0;
@@ -174,9 +155,7 @@ let vm = new Vue({
                         cancel,
                     },
                     dataType: 'text',
-                    success: function (res) {
-                        // console.log(res);
-                    }
+                    success: function (res) { }
                 });
             } else {
                 let that = this;
@@ -190,9 +169,7 @@ let vm = new Vue({
                         collect,
                     },
                     dataType: 'text',
-                    success: function (res) {
-                        // console.log(res);
-                    }
+                    success: function (res) { }
                 });
             }
             window.location.reload();
@@ -202,10 +179,6 @@ let vm = new Vue({
     created() {
         this.ajax();
     },
-    mounted() {
-
-    },
-    // vue life cycle
     updated() {
         // 獲得的徽章亮起來
         for (let i = 0; i < this.allBadges.length; i++) {
@@ -218,17 +191,14 @@ let vm = new Vue({
         // 進度條
         for (let i = 0; i < $('#infoCourse .progress').length; i++) {
             let people = $('#infoCourse .progress').eq(i).closest('.progressbar').data('people');
-            // console.log(people);
             $('#infoCourse .progress').eq(i).css('width', people / 10 * 320);
         }
 
         for (let i = 0; i < $('.loveCourse_area .progress').length; i++) {
             let people = $('.loveCourse_area .progress').eq(i).closest('.progressbar').data('people');
-            // console.log(people);
             $('.loveCourse_area .progress').eq(i).css('width', people / 10 * 320);
         }
         for (i = 0; i < this.allGalaxy.length; i++) {
-            // console.log(this.allGalaxy[i].gName.replace('星系', ''));
             if ($(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}初級星球"]`).hasClass('getBadge') && $(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}中級星球"]`).hasClass('getBadge') && $(`.little_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}高級星球"]`).hasClass('getBadge')) {
 
                 $(`.big_a img.badges[alt = "${this.allGalaxy[i].gName.replace('星系', '')}星系徽章"]`).addClass('getBadge');
@@ -244,7 +214,6 @@ $(document).ready(function () {
 
     //編輯檔案
     $('.editFile').click(function () {
-        // alert('hi');
         $('.fa-eye').css('display', 'inline-block');
         $(this).css('display', 'none');
         $('.plusCamera').css('display', 'block');
@@ -252,8 +221,6 @@ $(document).ready(function () {
         $('.input').eq(3).attr('readonly', true);
         $('.input').eq(1).attr('readonly', true);
         $('.sendBtn').css('display', 'block');
-
-
 
         //欄位點選時會亮橘框
         $('.input').focus(function () {
@@ -316,7 +283,6 @@ $(document).ready(function () {
     $('.info_area').on('click', '.plusCamera', function () {
         $('#upload_img').attr('disabled', false);
     });
-    // load_img = $('#upload_img');
 
     $('#upload_img').change(function () {
         // alert('hello');
@@ -331,36 +297,14 @@ $(document).ready(function () {
 
             reader.addEventListener("load", function (e) {
 
-                // let account_pic = document.getElementsByClassName('account_pic')[0];
-                // 清空圖片
-                // account_pic.innerHTML = "";
-                // 創建img標籤
-                // let img = document.createElement("img");
-                // 在屬性src 加上圖片網路路徑
-                // img.src = e.target.result;
-                // 丟進去要放圖片的區塊
                 $('.account_pic').html(`<img src="${e.target.result}">`);
             });
 
             reader.readAsDataURL(input.files[0]);
         }
-        //渲染圖片
-        // $.ajax({
-        //     type: 'POST',
-        //     url: 'infoImg.php',
-        //     dataType: 'text',
-        //     success: function (res) {
-        //         $('.info_area .account_pic').html(res);
-        //     }
-
-        // });
-
-
-
     }
 
     $('.fa-eye').click(function () {
-        // $('.pwd_test_1').attr('type','text');
         //点击眼睛，如果input输入框为为text时执行，并改成password实现隐藏。
         if ($(".pwd_test_1").attr("type") == "text") {
             $(".pwd_test_1").attr("type", "password");

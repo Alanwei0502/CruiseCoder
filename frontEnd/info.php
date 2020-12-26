@@ -7,7 +7,6 @@ include("../frontEnd/layout/connect.php");
 //建立SQL
 $sql = "SELECT * FROM member WHERE mAccount = ?";
 $mNumber = $_COOKIE["user"];
-//  $mNumber = $_POST['member'];
 $statement = $pdo->prepare($sql);
 $statement->bindValue(1, "$mNumber");
 $statement->execute();
@@ -27,8 +26,6 @@ $infoMember = $statement->fetchAll();
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
   <link rel="icon" href="../ico.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
 
@@ -62,10 +59,8 @@ $infoMember = $statement->fetchAll();
           <label for="upload_img" class="plusCamera">
             <!-- ＋按鈕圖示 -->
             <img src="../images/info/plusCamera.png" alt="">
-            <!-- <input type="submit" value="送出" /> -->
           </label>
         </div>
-        <!-- ccPoint 1:100-->
         <div class="left_cc">
           <div class="info_card">
 

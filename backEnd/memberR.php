@@ -107,9 +107,3 @@ if (isset($_POST["editLevel"], $_POST["editName"], $_POST["editPhone"], $_POST["
     echo "success";
 }
 
-// 上傳會員照片(後台好像不會用到)
-// if (isset($_FILES["file"])) {
-//     $filePathTemp = $_FILES["file"]["tmp_name"];
-//     $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/info/" . $_FILES["file"]["name"];
-//     copy($filePathTemp, $filePath);
-// }

@@ -1,35 +1,35 @@
 <?php
-// connecting to database
+// 連接資料庫
 include("../frontEnd/layout/connect.php");
 
-// counting how many rows in galaxy table
+// 計算galaxy table有幾筆資料
 $countGalaxy = "SELECT COUNT(*) AS count FROM galaxy";
 $countGalaxy = $pdo->prepare($countGalaxy);
-// inserting new data to galaxy table
+// 新增資料到galaxy table
 $createGalaxy = "INSERT INTO `galaxy` (`gNumber`, `gName`, `gImage`, `gStatus`) VALUES (?, ?, ?, ?)";
 $createGalaxy = $pdo->prepare($createGalaxy);
 
 
-// counting how many rows in quiz table
+// 計算quiz table有幾筆資料
 $countQuiz = "SELECT COUNT(*) FROM quiz";
 $countQuiz = $pdo->prepare($countQuiz);
-// inserting new data to quiz table
+// 新增資料到quiz table
 $createQuiz = "INSERT INTO `quiz` (`qNumber`, `qSubject`, `qLevel`, `qContent`, `qAnswer`, `qState`, `qBackground`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $createQuiz = $pdo->prepare($createQuiz);
 
 
-// counting how many rows in selection table
+// 計算selection table有幾筆資料
 $countSelection = "SELECT COUNT(*) FROM selection";
 $countSelection = $pdo->prepare($countSelection);
-// inserting new data to selection table
+// 新增資料到selection table
 $createSelection = "INSERT INTO `selection` (`sNumber`, `sQuiz`, `sOption`, `sContent`) VALUES (?, ?, ?, ?)";
 $createSelection = $pdo->prepare($createSelection);
 
 
-// counting how many rows in badge table
+// 計算badge table有幾筆資料
 $countBadge = "SELECT COUNT(*) FROM badge";
 $countBadge = $pdo->prepare($countBadge);
-// inserting new data to badge table
+// 新增資料到badge table
 $createBadge = "INSERT INTO `badge` (`bNumber`, `bGalaxy`, `bName`, `bInfo`, `bLevel`, `bIcon`, `bBadge`, `bBackground`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $createBadge = $pdo->prepare($createBadge);
 
@@ -38,7 +38,7 @@ $createBadge = $pdo->prepare($createBadge);
 if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["badge"])) {
 
     // FOR GALAXY TABLE
-    // counting current number of rows
+    // 計算目前資料比數
     $countGalaxy->execute();
     $dataCount = $countGalaxy->fetchColumn();
     $id = "G" . sprintf("%04d", $dataCount + 1);
@@ -52,7 +52,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
 
 
     // FOR QUIZ TABLE
-    // counting how many questions will be inserted
+    // 計算有幾筆資料會被新增進去
     $arrayLength = count($_POST["quiz"][2]);
     $qSubject = $_POST["quiz"][0];
     $qLevel = $_POST["quiz"][1];
@@ -63,7 +63,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
 
     for ($i = 0; $i < $arrayLength; $i++) {
 
-        // counting current number of rows
+        // 計算目前資料比數
         $countQuiz->execute();
         $dataCountQ = $countQuiz->fetchColumn();
         $idQ = "Q" . sprintf("%04d", $dataCountQ + 1);
@@ -86,14 +86,14 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
 
 
     // FOR SELECTION TABLE
-    // counting how many selections will be inserted
+    // 計算有多少選項會被新增
     $selectionLength = count($_POST["selections"][0]);
     $sOption = $_POST["selections"][0];
     $sContent = $_POST["selections"][1];
 
     for ($s = 0; $s < $selectionLength; $s += 4) {
 
-        // counting current number of rows
+        // 計算目前資料比數
         $countSelection->execute();
         $selectionCountForQ = $countSelection->fetchColumn();
         $idQ = "Q" . sprintf("%04d", ($selectionCountForQ / 4) + 1);
@@ -125,7 +125,7 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
 
 
     for ($b = 0; $b < 4; $b++) {
-        // counting current number of rows
+        // 計算目前資料比數
         $countBadge->execute();
         $badgeCount = $countBadge->fetchColumn();
         $idB = "B" . sprintf("%04d", $badgeCount + 1);
@@ -141,7 +141,6 @@ if (isset($_POST["newGalaxy"], $_POST["quiz"], $_POST["selections"], $_POST["bad
         $createBadge->bindValue(8, $bgImg[$b]);
 
         $createBadge->execute();
-        // echo $idB . "/" . $bGalaxy[0] . "星系" . "/" . $bGalaxy[0] . $bName[$b] . "/" . $bInfo[$b] . "/" . $bLevel[$b] . "/" . $bIcon[$b] . "/" . $bBadge[$b] . "/" . $bgImg[$b] . "\n";
     }
     echo "success";
 }
@@ -152,13 +151,12 @@ if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FI
     // 組合上傳圖片的資料夾路徑
     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
     $phpPath = $_SERVER['PHP_SELF'];
-
     $fullPath1 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/planets/', $phpPath);
     $fullPath2 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/badge/', $phpPath);
     $fullPath3 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/trial/galaxy/', $phpPath);
     $fullPath4 = $ServerRoot . str_replace('/backEnd/quizRC.php', '/images/quiz/background/', $phpPath);
 
-    // echo $_FILES["iconPic1"]["tmp_name"];
+    // 取得暫存檔
     $iconPic1_Temp = $_FILES["iconPic1"]["tmp_name"];
     $iconPic2_Temp = $_FILES["iconPic2"]["tmp_name"];
     $iconPic3_Temp = $_FILES["iconPic3"]["tmp_name"];
@@ -171,7 +169,7 @@ if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FI
     $galaxyPic_Temp = $_FILES["galaxyPic"]["tmp_name"];
     $badgePic0 = $_FILES["badgePic0"]["tmp_name"];
 
-    // echo $fullPath1 . $_FILES["iconPic1"]["name"];
+    // 合併路徑和主副檔名
     $iconPic1Path = $fullPath1 . $_FILES["iconPic1"]["name"];
     $iconPic2Path = $fullPath1 . $_FILES["iconPic2"]["name"];
     $iconPic3Path = $fullPath1 . $_FILES["iconPic3"]["name"];
@@ -184,6 +182,7 @@ if (isset($_FILES["iconPic1"]["tmp_name"], $_FILES["iconPic2"]["tmp_name"], $_FI
     $galaxyPicPath = $fullPath3 . $_FILES["galaxyPic"]["name"];
     $badgePic0Path = $fullPath2 . $_FILES["badgePic0"]["name"];
 
+    // 將圖片複製到對應資料夾
     copy($iconPic1_Temp, $iconPic1Path);
     copy($iconPic2_Temp, $iconPic2Path);
     copy($iconPic3_Temp, $iconPic3Path);
