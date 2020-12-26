@@ -16,8 +16,8 @@ $getMemberCourse = "SELECT MC.*, IC.people FROM (SELECT MC.*, ALLC.rCount, ALLC.
 $getMemberCourse = $pdo->prepare($getMemberCourse);
 
 // 會員蒐藏的課程
-$getMemberFC = "SELECT MF.*, IC.people FROM (SELECT MFC.*, ALLC.rCount, ALLC.rRate FROM (SELECT FC.*, M.mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer) AS MFC JOIN (SELECT C.cNumber, C.cTitle, C.cLecturer, C.cTime, C.cPrice, C.cStatus, C.cType, C.cImage, C.mPhoto, count(R.rNumber) AS rCount, (sum(R.rStar)/count(R.rCourse)) as rRate FROM review AS R RIGHT JOIN (SELECT cNumber, cTitle, cLecturer, cTime, cPrice, cStatus, cType, cImage, M.mPhoto FROM course AS C JOIN `member` AS M ON M.mNumber = C.cLecturer) AS C ON C.cNumber = R.rCourse group by C.cNumber) AS ALLC ON MFC.cNumber = ALLC.cNumber) AS MF JOIN (SELECT iCourse, count(iCourse) AS people FROM invoice GROUP BY iCourse) AS IC ON MF.cNumber = IC.iCourse;";
-$getMemberFC = $pdo->prepare($getMemberFC);
+$getMemberFC2 = "SELECT * FROM (SELECT * FROM (SELECT 	* FROM (SELECT FC.*, M.mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer) AS C LEFT JOIN (SELECT rCourse, COUNT(rCourse) AS reviewNum, AVG(rStar) AS reviewScore FROM cruisecoder.review GROUP BY rCourse) AS R ON C.cNumber = R.rCourse) AS C LEFT JOIN (SELECT iCourse, count(iCourse) AS buyNum FROM invoice GROUP BY iCourse) AS I ON  C.cNumber = I.iCourse) AS C LEFT JOIN (SELECT * FROM cruisecoder.fundraising) AS F ON  C.cNumber = fCourse;";
+$getMemberFC2 = $pdo->prepare($getMemberFC2);
 
 // 會員蒐藏的文章
 $getMemberFA = "SELECT A.* FROM article AS A JOIN (SELECT * FROM favorite_a WHERE faMember = ?) AS FA ON FA.faArticle = A.aNumber";
@@ -59,9 +59,9 @@ if (isset($_POST["account"])) {
     $mCourse = $getMemberCourse->fetchAll(PDO::FETCH_ASSOC);
 
     // 抓會員蒐藏課程
-    $getMemberFC->bindValue(1, $mID["mNumber"]);
-    $getMemberFC->execute();
-    $mFavoriteC = $getMemberFC->fetchAll(PDO::FETCH_ASSOC);
+    $getMemberFC2->bindValue(1, $mID["mNumber"]);
+    $getMemberFC2->execute();
+    $mFavoriteC2 = $getMemberFC2->fetchAll(PDO::FETCH_ASSOC);
 
     // 抓會員蒐藏文章
     $getMemberFA->bindValue(1, $mID["mNumber"]);
@@ -79,6 +79,6 @@ if (isset($_POST["account"])) {
 
     // 傳回值
     $memberInfo = [];
-    array_push($memberInfo, $mCourse, $mFavoriteC, $mFavoriteA, $mBadge, $allBadges, $mID, $allG, $mInfo);
+    array_push($memberInfo, $mCourse, $mFavoriteA, $mBadge, $allBadges, $mID, $allG, $mInfo, $mFavoriteC2);
     echo json_encode($memberInfo);
 }

@@ -24,7 +24,7 @@ $tutorial = "SELECT reDate, tDate, cTitle, mName FROM course AS C JOIN (SELECT *
 $tutorial = $pdo->prepare($tutorial);
 
 // 會員上傳資訊
-$memberUpload = "UPDATE `member` SET `mLevel` = ?, `mName` = ?, `mPhoto` = ?, `mPhone` = ?, `mPassword` = ?, `mCC` = ? WHERE (`mNumber` = ?)";
+$memberUpload = "UPDATE `member` SET `mLevel` = ?, `mName` = ?, `mPhone` = ?, `mPassword` = ?, `mCC` = ? WHERE (`mNumber` = ?)";
 $memberUpload = $pdo->prepare($memberUpload);
 
 // 老師上傳資訊
@@ -86,15 +86,14 @@ if (isset($_POST["mNumber"])) {
 }
 
 
-if (isset($_POST["editLevel"], $_POST["editName"], $_POST["editPhoto"], $_POST["editPhone"], $_POST["editPassword"], $_POST["editCC"], $_POST["memberID"])) {
+if (isset($_POST["editLevel"], $_POST["editName"], $_POST["editPhone"], $_POST["editPassword"], $_POST["editCC"], $_POST["memberID"])) {
 
     $memberUpload->bindValue(1, $_POST["editLevel"]);
     $memberUpload->bindValue(2, $_POST["editName"]);
-    $memberUpload->bindValue(3, $_POST["editPhoto"]);
-    $memberUpload->bindValue(4, $_POST["editPhone"]);
-    $memberUpload->bindValue(5, $_POST["editPassword"]);
-    $memberUpload->bindValue(6, $_POST["editCC"]);
-    $memberUpload->bindValue(7, $_POST["memberID"]);
+    $memberUpload->bindValue(3, $_POST["editPhone"]);
+    $memberUpload->bindValue(4, $_POST["editPassword"]);
+    $memberUpload->bindValue(5, $_POST["editCC"]);
+    $memberUpload->bindValue(6, $_POST["memberID"]);
 
     $memberUpload->execute();
 
@@ -109,8 +108,8 @@ if (isset($_POST["editLevel"], $_POST["editName"], $_POST["editPhoto"], $_POST["
 }
 
 // 上傳會員照片(後台好像不會用到)
-if (isset($_FILES["file"])) {
-    $filePathTemp = $_FILES["file"]["tmp_name"];
-    $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/info/" . $_FILES["file"]["name"];
-    copy($filePathTemp, $filePath);
-}
+// if (isset($_FILES["file"])) {
+//     $filePathTemp = $_FILES["file"]["tmp_name"];
+//     $filePath = $_SERVER["DOCUMENT_ROOT"] . "/CruiseCoder/images/info/" . $_FILES["file"]["name"];
+//     copy($filePathTemp, $filePath);
+// }

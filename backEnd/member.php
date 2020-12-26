@@ -48,7 +48,7 @@
 
         <div class="poDate">
           <label>註冊日期</label>
-          <input type="text" id="datepicker1" readonly="true"><span>至</span>
+          <input type="text" id="datepicker1" readonly="true"><span style="font-size:22px;">至</span>
           <input type="text" id="datepicker2" readonly="true">
         </div>
 

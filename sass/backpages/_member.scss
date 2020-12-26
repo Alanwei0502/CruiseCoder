@@ -92,7 +92,7 @@ div.member{
                             padding-left: 10px;
                         }
                         padding: $fontSize*1.5 0;
-                        font-size: $mp;
+                        font-size: $mp*1.2;
                         // text-align: center;
                         
                         
@@ -188,15 +188,6 @@ div.member{
                                         left: 0;  
                                         right: 0;  
                                         margin: auto;
-                                    }
-                                }
-                                .imageUpdate{
-                                    width: 200px;
-                                    margin-left:$fontSize*2;
-                                    margin-top: $fontSize;
-                                    input{
-                                        font-size: $sp;
-                                        
                                     }
                                 }
                             }
