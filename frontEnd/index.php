@@ -20,9 +20,6 @@
 </head>
 
 <body>
-    <?php
-    include('layout/login.php');
-    ?>
     <div class="wrap index">
         <?php
         include('layout/spacebackground.php');
@@ -161,7 +158,7 @@
                             <div class="price">NT.{{allCourse.cPrice}}</div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="controlCircle">
