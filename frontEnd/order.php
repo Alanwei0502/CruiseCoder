@@ -196,9 +196,6 @@ foreach($data_orders as $index => $order){
                     
             </div>
         </main>
-        <?php
-        include('layout/footer.php');
-        ?>
     </div>
    
     
@@ -215,4 +212,7 @@ foreach($data_orders as $index => $order){
 
     </script>
 </body>
+<?php
+include('layout/footer.php');
+?>
 </html>

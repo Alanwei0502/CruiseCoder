@@ -27,8 +27,8 @@
 
 
             <div class="ballPrants">
-                <div class="frontBall"><a href="./frontEnd/index.php">前台</a></div>
-                <div class="backBall"><a href="./backEnd/backLogin.php">後台</a></div>
+            <a href="./frontEnd/index.php"><div class="frontBall">前台</div></a>
+            <a href="./backEnd/backLogin.php"><div class="backBall">後台</div></a>
             </div>
 
 

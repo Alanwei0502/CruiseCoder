@@ -50,7 +50,10 @@
 
             }
             
-
+            a{
+                text-decoration: none;
+                color: $beige;
+            }
             .frontBall{
                 width: 150px;
                 height: 150px;
@@ -66,10 +69,7 @@
                     line-height: 100px;
                     font-size: $h4;
                 }
-                a{
-                    text-decoration: none;
-                    color: $beige;
-                }
+                
                 
             }
             .backBall{
@@ -89,17 +89,13 @@
 
                 }
     
-                a{
-                    text-decoration: none;
-                    color: $beige;
-                }
 
             }
         }
 
         .yellowClound{
             position: absolute;
-            top: 500px;
+            top: 650px;
             img{
                 position: absolute;
                 width: 700px;

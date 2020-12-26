@@ -59,7 +59,7 @@
           
           <p>目前擁有<br>
              <span><?=$row["mCC"] ?></span>CC Point<br>
-            = NT$ <?=floor($row["mCC"]*0.0111) ?> </p>
+            = NT$ <?=round($row["mCC"]/100) ?> </p> 
             <?php } ?>
         </div>
       
