@@ -63,12 +63,12 @@ let app = new Vue({
                             data: { star },
                             dataType: 'json',
                             success: function (res) {
-                                console.log(res);
+                                // console.log(res);
 
-                                console.log(that.courses[0].cNumber);
+                                // console.log(that.courses[0].cNumber);
                                 $(res).each(function (inDex, iTem) {
                                     that.funNum.push(iTem.count);
-                                    console.log(that.funNum);
+                                    // console.log(that.funNum);
 
                                     let w = ((iTem.count / 10) * 100);
                                     $(that.courses).each(function (index, item) {
@@ -303,7 +303,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -362,7 +362,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -421,7 +421,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -480,7 +480,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -539,7 +539,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove("fas");
@@ -597,7 +597,7 @@ let app = new Vue({
 
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -636,7 +636,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -695,7 +695,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -753,7 +753,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -811,7 +811,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -870,7 +870,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -984,7 +984,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -1042,7 +1042,7 @@ let app = new Vue({
                         // console.log(that.courses);
                         // 先清除所有的星星
                         let fastar = document.querySelectorAll('.fa-star');
-                        console.log(fastar);
+                        // console.log(fastar);
                         // 如果class有is-active，移除所有的is-active的class
                         for (let i = 0; i < fastar.length; i++) {
                             fastar[i].classList.remove('fas');
@@ -1114,7 +1114,7 @@ let app = new Vue({
                         let theMember = app.theMember;
 
                         let thecNumber = item.cNumber;
-                        console.log(thecNumber);
+                        // console.log(thecNumber);
 
                         let that = this;
                         let heart = 1;
@@ -1168,7 +1168,7 @@ let app = new Vue({
             // 搜尋框的值(都轉成大寫，並去除前後空白)
             // let searchInput = $('#search').val().toUpperCase();
             let searchInput = $('#search').val().trim();
-            console.log(searchInput);
+            // console.log(searchInput);
 
             // 自定義Contains，不分大小寫
             jQuery.expr[':'].Contains = function (a, i, m) {
