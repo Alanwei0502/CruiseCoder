@@ -6,7 +6,6 @@
 include("./layout/connect.php");
 
 // 預備SQL敘述，要先將其字串化
-// $statement = "SELECT qContent, qAnswer, sOption, sContent FROM quiz JOIN selection ON qNumber = sQuiz WHERE qSubject = ? AND qLevel = ?";
 $qStatement = "SELECT * FROM quiz WHERE qSubject = ? AND qLevel = ?";
 $sStatement = "SELECT * FROM selection AS S JOIN (SELECT * FROM quiz WHERE qSubject = ? AND qLevel = ?) AS Q ON S.sQuiz = Q.qNumber";
 // 計算總共幾題
@@ -19,12 +18,6 @@ $sStatement = $pdo->prepare($sStatement);
 $countStatement = $pdo->prepare($countStatement);
 
 
-// if(isset($_GET[""])){
-
-// }
-
-// 綁定參數
-// if (isset($_GET["subject"]), isset($_GET["level"])){
 $subject = $_GET["subject"];
 $level = $_GET["level"];
 $name = $_GET["name"];
@@ -50,17 +43,10 @@ $cData = [];
 
 
 $qData = $qStatement->fetchAll(PDO::FETCH_ASSOC);
-// $qData = $qStatement->fetchAll();
+
 $sData = $sStatement->fetchAll(PDO::FETCH_ASSOC);
 
 $cData = $countStatement->fetch(PDO::FETCH_ASSOC);
-// print_r($qData);
-// echo "<br/>";
-// print_r($sData);
-// }
-
-// echo $cData['num'];
-
 
 ?>
 
@@ -140,9 +126,6 @@ $cData = $countStatement->fetch(PDO::FETCH_ASSOC);
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../js/header.js"></script>
         <script src="../js/quiz.js"></script>
-        <script>
-            // $.ajax()
-        </script>
     </div>
 </body>
 

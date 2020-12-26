@@ -51,10 +51,6 @@ startQuiz[0].addEventListener('click', function () {
         $('.countdown').css('display', 'block');
         $('.countdown svg circle').addClass('animation');
         let countdown = $('h2').data('quizcount') * 10;
-        // console.log(countdown);
-
-
-        // countdownNumberEl.textContent = countdown;
 
         add = setInterval(function () {
 

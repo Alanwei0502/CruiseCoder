@@ -34,7 +34,7 @@ Vue.component("tableArea", {
             } else {
                 this.pages.start -= 5;
                 this.pages.end -= 5;
-                // this.$forceUpdate();
+
                 $(".checkRow").prop("checked", false);
                 $('#checkAll').prop("checked", false);
             }
@@ -42,14 +42,11 @@ Vue.component("tableArea", {
 
         // 下一頁按鈕
         plusPages() {
-            // let totalPage = parseInt(this.fields.length / 5);
-            // totalPage += (this.fields.length % 5 == 0) ? 0 : 1;
             if (this.pages.end > this.fields.length) {
                 // do nothing
             } else {
                 this.pages.start += 5;
                 this.pages.end += 5;
-                // this.$forceUpdate();
                 $(".checkRow").prop("checked", false);
                 $('#checkAll').prop("checked", false);
             }
@@ -109,9 +106,23 @@ Vue.component("tableArea", {
 
         // 新增試題按鈕
         createQuiz() {
+            // 更改頁籤名稱
             $('.openQuiz').text('新增試題');
             $('.openBadge').text('新增徽章');
+            // 顯示彈跳視窗
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
+            // 移除所有新增的題目DOM
+            $('div.downQuestion').remove();
+            // 顯示預設圖檔
+            $('.default').css('display', 'none');
+            // 快速上架按鈕
+            $('.quickForDemo').css('display', 'inline');
+            // 領域改成空值
+            $('input.fieldName').val('');
+            // 顯示確認新增按鈕
+            $('.update').css('display', 'block');
+            // 隱藏確認修改按鈕
+            $('.editConfirm').css('display', 'none');
         },
 
     }
@@ -139,9 +150,22 @@ Vue.component("tableRow", {
 
         // 編輯試題按鈕
         editQuiz(e) {
-            let gNumber = $(e.target).closest('tr').find('.gNumber').text();
+            // 移除所有新增的題目DOM
+            $('div.downQuestion').remove();
+            // 隱藏上架按鈕
+            $('.quickForDemo').css('display', 'none');
+            // 更改頁籤名稱
             $('.openQuiz').text('編輯試題');
             $('.openBadge').text('編輯徽章');
+            // 顯示預設圖檔
+            $('.default').css('display', 'block');
+            // 隱藏確認新增按鈕
+            $('.update').css('display', 'none');
+            // 顯示確認修改按鈕
+            $('.editConfirm').css('display', 'block');
+            // 找出星系編號
+            let gNumber = $(e.target).closest('tr').find('.gNumber').text();
+            // 抓資料庫
             let that = this;
             $.ajax({
                 type: 'POST',
@@ -149,67 +173,107 @@ Vue.component("tableRow", {
                 data: { gNumber },
                 dataType: 'json',
                 success: function (res) {
-                    // console.log(res);
-                    console.log(res[0][0].gName);
+                    console.log(res);
+                    // console.log(res[0][0].gName);
                     // 領域名稱
                     $('input.fieldName').val(res[0][0].gName);
                     // 上下架狀態
                     $('select.onOrOff').val(res[0][0].gStatus);
+                    // 題目
+                    let str = `
+                        <div class="downQuestion">
+                            <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
+                            <div class="contentQ">
+                                <textarea name="qContent" placeholder="請輸入題目內容"></textarea>
+                                <ul>
+                                    <li>
+                                        <span>A</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>B</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>C</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                    <li>
+                                        <span>D</span>
+                                        <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ansAndSta">
+                                <select name="qAnswer">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                                <select name="qState">
+                                    <option value="1">on</option>
+                                    <option value="0">off</option>
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                    // 計算資料庫比數，並針對題目難度新增對應的空白input
+                    for (let i = 0; i < res[1].length; i++) {
+                        if (res[1][i].qLevel == "1") {
+                            $('.mainEdit[data-level = "1"]').find('.topFunction').after(str);
+                            $('.mainEdit[data-level = "1"].downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
 
-                    // // 題目
-                    // let str = `
-                    //     <div class="downQuestion">
-                    //         <label class="checkLabel"><input type="checkbox" class="checkForQ"><span></span></label>
-                    //         <div class="contentQ">
-                    //             <textarea name="qContent" placeholder="請輸入題目內容"></textarea>
-                    //             <ul>
-                    //                 <li>
-                    //                     <span>A</span>
-                    //                     <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
-                    //                 </li>
-                    //                 <li>
-                    //                     <span>B</span>
-                    //                     <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
-                    //                 </li>
-                    //                 <li>
-                    //                     <span>C</span>
-                    //                     <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
-                    //                 </li>
-                    //                 <li>
-                    //                     <span>D</span>
-                    //                     <textarea name="sContent" placeholder="請輸入選項內容"></textarea>
-                    //                 </li>
-                    //             </ul>
-                    //         </div>
-                    //         <div class="ansAndSta">
-                    //             <select name="qAnswer">
-                    //                 <option value="A">A</option>
-                    //                 <option value="B">B</option>
-                    //                 <option value="C">C</option>
-                    //                 <option value="D">D</option>
-                    //             </select>
-                    //             <select name="qState">
-                    //                 <option value="1">on</option>
-                    //                 <option value="0">off</option>
-                    //             </select>
-                    //         </div>
-                    //     </div>
-                    // `;
-                    // // 針對題目難度新增對應的空白input
-                    // // 將對應的題目塞入空白input
-                    // for (let i = 0; i < res[1].length; i++) {
-                    //     if (res[1][i].qLevel == "1") {
-                    //         $('.mainEdit[data-level = "1"]').find('.topFunction').after(str);
-                    //         $('.mainEdit[data-level = "1"].downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
-
-                    //     } else if (res[1][i].qLevel == "2") {
-                    //         $('.mainEdit[data-level = "2"]').find('.topFunction').after(str);
-                    //         $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
-                    //     } else {
-                    //         $('.mainEdit[data-level = "3"]').find('.topFunction').after(str);
-                    //         $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
-                    //     }
-                    // }
+                        } else if (res[1][i].qLevel == "2") {
+                            $('.mainEdit[data-level = "2"]').find('.topFunction').after(str);
+                            $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
+                        } else {
+                            $('.mainEdit[data-level = "3"]').find('.topFunction').after(str);
+                            $('.downQuestion').eq(i).find('textarea[name="qContent"]').val(res[1][i].qContent);
+                        }
+                    }
+                    // 塞入對應的題目編號至class="contentQ"的自訂屬性data-qNumber
+                    for (let i = 0; i < res[1].length; i++) {
+                        $('div.contentQ').eq(i).attr('data-qNumber', `${res[1][i].qNumber}`);
+                    }
+                    // 塞入對應的題目
+                    for (let i = 0; i < res[1].length; i++) {
+                        $('textarea[name="qContent"]').eq(i).val(`${res[1][i].qContent}`);
+                    }
+                    // 塞入對應的題目上架狀態
+                    for (let i = 0; i < res[1].length; i++) {
+                        $('select[name="qState"]').eq(i).val(`${res[1][i].qState}`);
+                    }
+                    // 塞入對應的選項
+                    for (let i = 0; i < res[3].length; i++) {
+                        $('textarea[name="sContent"]').eq(i).val(`${res[3][i].sContent}`);
+                    }
+                    // 塞入對應的答案
+                    for (let i = 0; i < res[1].length; i++) {
+                        $('select[name="qAnswer"]').eq(i).val(`${res[1][i].qAnswer}`);
+                    }
+                    // 塞入對應的星球圖
+                    for (let i = 0; i < 3; i++) {
+                        $('span.iconImg').eq(i).text(`預設檔案：${res[2][i].bIcon}`);
+                    }
+                    // 塞入對應的徽章圖
+                    for (let i = 0; i < 4; i++) {
+                        $('span.badgeImg').eq(i).text(`預設檔案：${res[2][i].bBadge}`);
+                    }
+                    // 塞入對應的背景圖
+                    for (let i = 0; i < 3; i++) {
+                        $('span.bgImg').eq(i).text(`預設檔案：${res[2][i].bBackground}`);
+                    }
+                    // 塞入對應的星系圖
+                    $('span.iconImgGal').text(`預設檔案：${res[0][0].gImage}`);
+                    // 塞入對應的星球介紹
+                    for (let i = 0; i < 4; i++) {
+                        $('textarea[name="describe"]').eq(i).val(`${res[2][i].bInfo}`);
+                    }
+                    // 塞入對應的星球編號
+                    for (let i = 0; i < 4; i++) {
+                        $('section.planetPic').eq(i).attr('data-pNumber', `${res[2][i].bNumber}`);
+                    }
                 },
             });
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
@@ -320,7 +384,6 @@ Vue.component("createAndEdit", {
         closeModal() {
             $('.quizModalBg').css("opacity", 0).css("z-index", -1);
             $('.selectAll').prop("checked", false);
-
         },
 
         // 新增試題按鈕
@@ -517,7 +580,6 @@ Vue.component("createAndEdit", {
                     url: 'quizRC.php',
                     data: { newGalaxy, quiz, selections, badge },
                     success: function (res) {
-                        // console.log(res);
                         if (res == "success") {
                             swal("已成功新增試題", "", "success").then((value) => {
                                 if (value) {
@@ -536,7 +598,6 @@ Vue.component("createAndEdit", {
                 let iconPic3 = $('input[name="iconImg"]').eq(2).prop('files')[0];
                 let iconPic = [];
                 iconPic.push(iconPic1, iconPic2, iconPic3);
-                // console.log(iconPic);
                 // 徽章圖
                 let badgePic1 = $('input[name="badgeImg"]').eq(0).prop('files')[0];
                 let badgePic2 = $('input[name="badgeImg"]').eq(1).prop('files')[0];
@@ -581,6 +642,11 @@ Vue.component("createAndEdit", {
             } else {
                 swal("請填入所有的試題資訊", "", "warning");
             }
+        },
+
+        // 確認編輯按鈕
+        editConfirm() {
+
         }
     },
 });
@@ -614,8 +680,6 @@ let vm = new Vue({
                 data: { selectField },
                 dataType: 'json',
                 success: function (res) {
-                    // vm.galaxys = JSON.parse(res);
-                    // console.log(res);
                     vm.fields = res[0];
                     for (let i = 0; i < res[1].length; i++) {
                         if (res[1][i].gStatus == 1) {

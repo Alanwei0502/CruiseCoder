@@ -1,17 +1,17 @@
 <?php
-// connecting to database
+// 連結資料庫
 include("../frontEnd/layout/connect.php");
 
-// loading in the beginning
+// 一載入時的渲染
 $AllGalStatement = "SELECT gName FROM galaxy";
 $AllGalStatement = $pdo->prepare($AllGalStatement);
 $AllGalStatement->execute();
 
-// searching the field
+// 搜尋領域
 $GalStatement = "SELECT * FROM galaxy WHERE gName like ?";
 $GalStatement = $pdo->prepare($GalStatement);
 
-// counting how many rows in quiz table
+// 計算quiz table的資料比數
 $TotalNum = "SELECT COUNT(*) AS num FROM quiz";
 $TotalNum = $pdo->prepare($TotalNum);
 $TotalNum->execute();

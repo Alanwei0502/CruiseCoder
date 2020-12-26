@@ -24,7 +24,6 @@ if (isset($_POST["name"])) {
 
     $gData = $gStatement->fetchAll(PDO::FETCH_ASSOC);
 
-    // print_r($gData);
     echo json_encode($gData);
 }
 
@@ -35,6 +34,5 @@ if (isset($_POST["allGalaxy"])) {
 
     $allData = $allStatement->fetchAll(PDO::FETCH_ASSOC);
 
-    // print_r($gData);
     echo json_encode($allData);
 }

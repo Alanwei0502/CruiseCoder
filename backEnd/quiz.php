@@ -138,8 +138,7 @@
                   <option value="1">上架</option>
                   <option value="0">下架</option>
                 </select> 
-
-                <button @click="quicktext">一鍵輸入</button>
+                <button class="quickForDemo" @click="quicktext"></button>
               </div>
 
               <!-- 輸入題目的input -->
@@ -175,23 +174,25 @@
                   <div class="iconImg" v-if="level.diff == '星系'">
                     <label>星系圖</label>
                     <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImgGal" accept="image/*"></span>
-                    
+                    <span class="default iconImgGal"></span>
                   </div>
 
                   <div class="iconImg" v-else>
                     <label>星球圖</label>
                     <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="iconImg" accept="image/*"></span>
-                    
+                    <span class="default iconImg"></span>
                   </div>
 
                   <div class="badgeImg">
                     <label>徽章圖</label>
                     <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="badgeImg" accept="image/*"></span>
+                    <span class="default badgeImg"></span>
                   </div>
 
                   <div class="bgImg" v-if="level.diff !== '星系'">
                     <label>試題背景圖</label>
                     <span><img src="../images/backEnd/camera.png" alt=""><input type="file" name="bgImg" accept="image/*"></span>
+                    <span class="default bgImg"></span>
                   </div>
 
                   <div v-if="level.diff == '星系'"><label>星系描述</label><textarea name="describe"></textarea></div>
@@ -200,6 +201,7 @@
                 </section>
               </template>
               <button class="update" @click="update">確認新增</button>
+              <button class="editConfirm update" @click="editConfirm">確認修改</button>
             </div>
           </section>
         </div>
