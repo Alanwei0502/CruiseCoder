@@ -35,7 +35,7 @@ let vm = new Vue({
     data: {
         mAccount: getCookie('user'),
         courses: [],
-        FavCourses: [],
+        FavCourses2: [],
         FavArticles: [],
         mBadges: [],
         allBadges: [],
@@ -57,18 +57,19 @@ let vm = new Vue({
                     let allData = JSON.parse(res);
                     console.log(allData);
                     that.courses = allData[0];
-                    that.FavCourses = allData[1];
-                    that.FavArticles = allData[2];
-                    that.mBadges = allData[3];
-                    that.allBadges = allData[4];
-                    that.memberID = allData[5]['mNumber'];
-                    that.allGalaxy = allData[6];
-                    that.memberInfos = allData[7];
+                    that.FavArticles = allData[1];
+                    that.mBadges = allData[2];
+                    that.allBadges = allData[3];
+                    that.memberID = allData[4]['mNumber'];
+                    that.allGalaxy = allData[5];
+                    that.memberInfos = allData[6];
+                    that.FavCourses2 = allData[7];
 
                     // 星星
                     setTimeout(() => {
+                        // 一般課程
                         for (let i = 0; i < that.courses.length; i++) {
-                            that.courses[i].rRate;
+                            // that.courses[i].rRate;
                             // console.log(res.length);
                             // console.log(res[i].rRate);
                             // let stry = "<i class='fas fa-star yellow'> </i>";
@@ -87,23 +88,24 @@ let vm = new Vue({
                                 }
                             }
                         }
-                        for (let i = 0; i < that.FavCourses.length; i++) {
-                            that.FavCourses[i].rRate;
+                        // 募資課程
+                        for (let i = 0; i < that.FavCourses2.length; i++) {
+                            // that.FavCourses2[i].rRate;
                             // console.log(res.length);
                             // console.log(res[i].rRate);
                             // let stry = "<i class='fas fa-star yellow'> </i>";
 
-                            if (that.FavCourses[i].rRate > 0 && (that.FavCourses[i].rRate) % 1 == 0) {
+                            if (that.FavCourses2[i].reviewScore > 0 && (that.FavCourses2[i].reviewScore) % 1 == 0) {
 
-                                for (j = 0; j < Math.floor(that.FavCourses[i].rRate); j++) {
+                                for (j = 0; j < Math.floor(that.FavCourses2[i].reviewScore); j++) {
                                     $('a.favC').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
                                 }
 
                             } else {
-                                for (j = 0; j < Math.floor(that.FavCourses[i].rRate); j++) {
+                                for (j = 0; j < Math.floor(that.FavCourses2[i].reviewScore); j++) {
                                     $('a.favC').eq(i).find('.star').find('i').eq(j).attr('class', 'fas fa-star yellow');
 
-                                    $('a.favC').eq(i).find('.star').find('i').eq(Math.floor(that.FavCourses[i].rRate)).attr('class', 'fas fa-star-half-alt yellow');
+                                    $('a.favC').eq(i).find('.star').find('i').eq(Math.floor(that.FavCourses2[i].reviewScore)).attr('class', 'fas fa-star-half-alt yellow');
                                 }
                             }
                         }
@@ -213,6 +215,7 @@ let vm = new Vue({
                 }
             }
         }
+        // 進度條
         for (let i = 0; i < $('#infoCourse .progress').length; i++) {
             let people = $('#infoCourse .progress').eq(i).closest('.progressbar').data('people');
             // console.log(people);
@@ -310,7 +313,7 @@ $(document).ready(function () {
         }
     })
 
-    $('.info_area').on('click', '.plusCamera', function(){
+    $('.info_area').on('click', '.plusCamera', function () {
         $('#upload_img').attr('disabled', false);
     });
     // load_img = $('#upload_img');
@@ -327,7 +330,7 @@ $(document).ready(function () {
             var reader = new FileReader();
 
             reader.addEventListener("load", function (e) {
-                
+
                 // let account_pic = document.getElementsByClassName('account_pic')[0];
                 // 清空圖片
                 // account_pic.innerHTML = "";
@@ -341,19 +344,19 @@ $(document).ready(function () {
 
             reader.readAsDataURL(input.files[0]);
         }
-            //渲染圖片
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'infoImg.php',
-            //     dataType: 'text',
-            //     success: function (res) {
-            //         $('.info_area .account_pic').html(res);
-            //     }
+        //渲染圖片
+        // $.ajax({
+        //     type: 'POST',
+        //     url: 'infoImg.php',
+        //     dataType: 'text',
+        //     success: function (res) {
+        //         $('.info_area .account_pic').html(res);
+        //     }
 
-            // });
-        
+        // });
 
-        
+
+
     }
 
     $('.fa-eye').click(function () {

@@ -126,7 +126,7 @@ let vmMember = new Vue({
                 $.ajax({
                     type: 'POST',
                     url: 'memberR.php',
-                    data: { editLevel, editName, editPhoto, editPhone, editPassword, editCC, memberID, teacherInfo },
+                    data: { editLevel, editName, editPhone, editPassword, editCC, memberID, teacherInfo },
                     success: function (res) {
                         if (res == "success") {
                             swal("已成功修改會員資料", "", "success").then((value) => {

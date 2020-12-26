@@ -1,17 +1,17 @@
 <?php
 
-  include("../frontEnd/layout/connect.php");
+include("../frontEnd/layout/connect.php");
 
 
 
-  //建立SQL
-  $sql = "SELECT * FROM member WHERE mAccount = ?";
-  $mNumber = $_COOKIE["user"];
-  //  $mNumber = $_POST['member'];
-  $statement = $pdo->prepare($sql);
-  $statement->bindValue(1, "$mNumber");
-  $statement->execute();
-  $infoMember = $statement->fetchAll();
+//建立SQL
+$sql = "SELECT * FROM member WHERE mAccount = ?";
+$mNumber = $_COOKIE["user"];
+//  $mNumber = $_POST['member'];
+$statement = $pdo->prepare($sql);
+$statement->bindValue(1, "$mNumber");
+$statement->execute();
+$infoMember = $statement->fetchAll();
 
 ?>
 
@@ -171,9 +171,9 @@
             < 收藏課程 />
           </p>
           <div class="course">
-            <p v-if="FavCourses.length == 0" class="notBuyAny">您目前還沒有收藏任何課程喔！</p>
+            <p v-if="FavCourses2.length == 0" class="notBuyAny">您目前還沒有收藏任何課程喔！</p>
             <!-- 一般課程 -->
-            <template v-for="FavCourse in FavCourses" v-else>
+            <template v-for="FavCourse in FavCourses2" v-else="FavCourses2.length != 0">
               <div class="wrapGeneral" v-if="FavCourse.cStatus == '1'">
                 <img class="tImg" :src="FavCourse.mPhoto" alt="">
                 <div class="favorites" :data-courseid="FavCourse.cNumber">
@@ -187,14 +187,14 @@
                     <p class="title">{{FavCourse.cTitle}}</p>
                     <div class="time">課程總長：{{FavCourse.cTime}}</div>
                     <div class="comment">
-                      <div class="star" :data-star="FavCourse.rRate">
+                      <div class="star" :data-star="FavCourse.reviewScore">
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                       </div>
-                      <p class="text">{{FavCourse.rCount}}則評價</p>
+                      <p class="text">{{FavCourse.reviewNum}}則評價</p>
                     </div>
                     <div class="price">NT.{{FavCourse.cPrice}}</div>
                   </div>
@@ -218,13 +218,13 @@
                       <p class="fundraising">募資中</p>
                       <div class="text">
                         <p class="preOrder">預購價</p>
-                        <p class="price">NT.{{FavCourse.cPrice}}</p>
+                        <p class="price">NT.{{FavCourse.fPrice}}</p>
                       </div>
                     </div>
-                    <div class="progressbar" :data-people="FavCourse.people">
+                    <div class="progressbar" :data-people="FavCourse.buyNum">
                       <span class="progress"></span>
                     </div>
-                    <div class="funNum">已募資 {{FavCourse.people}}/10 人</div>
+                    <div class="funNum">已募資 {{FavCourse.buyNum}}/10 人</div>
                   </div>
                 </a>
               </div>
