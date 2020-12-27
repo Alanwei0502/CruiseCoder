@@ -125,6 +125,11 @@ Vue.component("tableArea", {
             $('.editConfirm').css('display', 'none');
             // 清除星球描述
             $('textarea[name="describe"]').val('');
+            // 開啟修改功能
+            $('#forQuiz').css('pointer-events', 'auto');
+            $('#forBadge').css('pointer-events', 'auto');
+            // 顯示圖片上傳input
+            $('.forImage').css('display', 'block');
         },
 
     }
@@ -285,10 +290,12 @@ Vue.component("tableRow", {
                     }
                 },
             });
+            // 開啟modal視窗
             $('.quizModalBg').css("opacity", 1).css("z-index", 1);
             // 關閉修改功能
-            $('input.fieldName').prop('disable', true);
-            $('select.onOrOff').prop('disable', true);
+            $('#forQuiz').css('pointer-events', 'none');
+            $('#forBadge').css('pointer-events', 'none');
+
         },
     },
 });
