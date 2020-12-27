@@ -67,41 +67,8 @@
                 <td class="oMember">{{or.oMember}}</td>
                 <td class="oTotal">{{or.oTotal}}</td>
                 <td><button class="view" @click="viewInvoice">查看</button></td>
-                <!-- <td v-for="or in order">{{or.oDate}}</td>
-              <td v-for="or in order">{{or.oNumber}}</td>
-              <td v-for="or in order">{{or.oMember}}</td>
-              <td v-for="or in order">{{or.oTotal}}</td> 
-              <td><button class="view">查看</button></td> -->
               </tr>
             </template>
-            <!-- <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr> -->
-            <!-- <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr>
-            <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr>
-            <tr>
-              <td>2020/10/26</td>
-              <td>ON2020103000001</td>
-              <td>CCM0000001</td>
-              <td>3,600</td>
-              <td><button class="view">查看</button></td>
-            </tr> -->
           </tbody>
         </table>
       </div>
@@ -120,19 +87,19 @@
             <tbody>
               <tr>
                 <td class="listTitle">訂單編號</td>
-                <td class="oNumberIn">5749920697</td>
+                <td class="oNumberIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">購買日期</td>
-                <td class="oDateIn">2020/10/30 12：00</td>
+                <td class="oDateIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">會員編號</td>
-                <td class="oMemberIn">M0001</td>
+                <td class="oMemberIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">會員姓名</td>
-                <td class="mNameIn">黃家偉</td>
+                <td class="mNameIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">購買課程</td>
@@ -145,15 +112,15 @@
               </tr>
               <tr>
                 <td class="listTitle">原始金額</td>
-                <td class="rtIn">4,400</td>
+                <td class="rtIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">CC.Point折抵</td>
-                <td class="occIn">111</td>
+                <td class="occIn"></td>
               </tr>
               <tr>
                 <td class="listTitle">實付金額</td>
-                <td class="oTotalIn">4,289</td>
+                <td class="oTotalIn"></td>
               </tr>
             </tbody>
           </table>
