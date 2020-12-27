@@ -115,7 +115,6 @@ function doFirst() {
         //檢查有無填寫姓名
         if ($('#card_Name').val() == '') {
             $('#card_Name').addClass('-error');
-            // swal("QQQQQQQQQQQQ", "", "error");
             send_data = false;
             // return;
 
@@ -128,13 +127,11 @@ function doFirst() {
             var pattern = /^09\d{8}$/;
             return pattern.test(phone);
         }
-        // console.log( isPhoneNo($('#phone_Num').val()) );
 
         // 檢查有無填寫手機號碼、
         if ($('#phone_Num').val() == '') {
             $('#phone_Num').addClass('-error');
             send_data = false;
-            // swal("請填寫手機號碼", "", "error");
 
         } else {
             if (isPhoneNo($('#phone_Num').val()) == false) {
@@ -153,14 +150,14 @@ function doFirst() {
         } else {
             $('#credit_CardCsc').removeClass('-error');
         }
-        // console.log($('#credit_CardCsc').val().length);
+
 
         // 驗證信用卡號是否正確
         let creditCard_Str = '';
         for (let i = 0; i < $('.creditCard_Num').length; i++) {
             creditCard_Str += $('.creditCard_Num').eq(i).val();
         }
-        // console.log(creditCard_Str);
+
 
         if (is.creditCard(creditCard_Str)) {
             for (let i = 0; i < $('.creditCard_Num').length; i++) {

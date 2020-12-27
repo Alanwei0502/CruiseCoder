@@ -22,7 +22,7 @@
         box-shadow: 1px 1px 10px rgb(211, 211, 211);
         width: 300px;
         outline: none;
-        font-size: 30px;
+        font-size: 28px;
         padding-left: 10px;
         // border: 1px solid blue;
     }
@@ -40,28 +40,7 @@
         max-width: 1200px;
         width: 95%;
         margin: $center;
-        // border: 1px solid $white;
-
-        // @include laptop {
-        //     border: 3px solid orange;
-        // }
-
-        // @include bigPad {
-        //     border: 3px solid $red;
-        // }
-
-        // @include smlPad {
-        //     border: 3px solid $blue2;
-        // }
-
-        // @include bigPhone {
-        //     border: 3px solid $yellow;
-        // }
-
-        // @include smlPhone {
-        //     border: 3px solid pink;
-        // }
-
+        
         h2 {
             margin-top: 50px;
             color: aliceblue;
