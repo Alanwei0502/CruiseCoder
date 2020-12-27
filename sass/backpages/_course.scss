@@ -29,6 +29,11 @@ div.course{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        button.magicalBtn{
+          position: absolute;
+          left: 15%;
+          top: 10%;
+        }
         form.addCourseForm{
           width: 100%;
           height: 80%;
