@@ -3,6 +3,8 @@
     //需告變數
     //置中
     $center: 0 auto;
+    min-height: 100vh;
+    font-family: arial, "Microsoft JhengHei", "微軟正黑體", sans-serif;
 
     //  @include filterLabel;
     @mixin filterLabel {

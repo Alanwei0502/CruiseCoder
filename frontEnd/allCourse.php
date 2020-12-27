@@ -93,7 +93,8 @@
                       </div>
                     </div>
                     <div class="progressbar">
-                      <span class="progress" style="width: 50%;" :data-id="course.cNumber"></span>
+                      <span class="progress" style="width: 0%;" :data-id="course.cNumber"></span>
+                      <!-- <span class="progress" style="width: 50%;" :data-id="course.cNumber"></span> -->
                     </div>
                     <div class="funNum">已募資<span class="counts"></span> /10 人</div>
                   </div>

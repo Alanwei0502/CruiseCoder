@@ -27,6 +27,24 @@ let vm = new Vue({
   },
   methods: {
 
+    // 新增課程神奇小按鈕
+    allData(){
+      let courseName = document.getElementsByClassName("insertCourseName")[0];
+      let courseType = document.getElementsByClassName("insertType")[0];
+      let coursePrice = document.getElementsByClassName("insertPrice")[0];
+      let courseVideo = document.getElementsByClassName("insertVideo")[0];
+      let courseTime = document.getElementsByClassName("insertCourseTime")[0];
+      let courseIntroduction = document.getElementsByClassName("insertCourseIntroduction")[0];
+      
+
+      courseName.value = "JavaScript 實用小技巧";
+      courseType.value = "javascript";
+      coursePrice.value = "3880";
+      courseVideo.value = "https://www.youtube.com/embed/1RsxYplOPgY";
+      courseTime.value = "1 小時 55 分鐘";
+      courseIntroduction.value = "對JavasCript還不熟悉嗎? 還不趕緊購買，馬上令你學會JavaScript實用小技巧!!!";
+    },
+
     // 全選按鈕
     allCheckBox(e){
       let oneCheckBox = document.getElementsByClassName("oneCheckBox");

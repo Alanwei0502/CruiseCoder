@@ -85,10 +85,12 @@ let app = new Vue({
                     // console.log(res);
                     $('.orderInfo').find('.oNumberIn').text(res[0].oNumber);
                     $('.orderInfo').find('.oDateIn').text(res[0].oDate);
+                    $('.orderInfo').find('.oMemberIn').text(res[0].oMember);
                     $('.orderInfo').find('.mNameIn').text(res[0].mName);
                     $('.orderInfo').find('.rtIn').text(res[0].rt);
                     $('.orderInfo').find('.occIn').text(res[0].occ);
                     $('.orderInfo').find('.oTotalIn').text(res[0].oTotal);
+
 
                     // res.forEach((val, index) => {
                     //     that.oNumber = that.orderInvoice[0].oNumber;

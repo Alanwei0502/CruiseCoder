@@ -100,6 +100,7 @@
         <div class="addCourse">
           <img src="./../images/backEnd/blackCancel.png" alt="無法顯示圖片" class="cancelBack" @click="closeCourseLightBox">
           <h2>新增課程</h2>
+          <button class="magicalBtn" @click="allData"></button>
           <form action="courseR.php" method="post" class="addCourseForm">
             <div class="addFormAll">
               <div class="addCourseName">
