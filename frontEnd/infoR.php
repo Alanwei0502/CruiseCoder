@@ -16,7 +16,7 @@ $getMemberCourse = "SELECT MC.*, IC.people FROM (SELECT MC.*, ALLC.rCount, ALLC.
 $getMemberCourse = $pdo->prepare($getMemberCourse);
 
 // 會員蒐藏的課程
-$getMemberFC2 = "SELECT * FROM (SELECT * FROM (SELECT 	* FROM (SELECT FC.*, M.mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer) AS C LEFT JOIN (SELECT rCourse, COUNT(rCourse) AS reviewNum, AVG(rStar) AS reviewScore FROM cruisecoder.review GROUP BY rCourse) AS R ON C.cNumber = R.rCourse) AS C LEFT JOIN (SELECT iCourse, count(iCourse) AS buyNum FROM invoice GROUP BY iCourse) AS I ON  C.cNumber = I.iCourse) AS C LEFT JOIN (SELECT * FROM cruisecoder.fundraising) AS F ON  C.cNumber = fCourse;";
+$getMemberFC2 = "SELECT * FROM (SELECT * FROM (SELECT 	* FROM (SELECT FC.*, M.mPhoto FROM member AS M JOIN (SELECT C.* FROM course AS C JOIN (SELECT * FROM favorite_c WHERE fcMember = ?) AS FC ON FC.fcCourse = C.cNumber) AS FC ON M.mNumber = FC.cLecturer) AS C LEFT JOIN (SELECT rCourse, COUNT(rCourse) AS reviewNum, AVG(rStar) AS reviewScore FROM review GROUP BY rCourse) AS R ON C.cNumber = R.rCourse) AS C LEFT JOIN (SELECT iCourse, count(iCourse) AS buyNum FROM invoice GROUP BY iCourse) AS I ON  C.cNumber = I.iCourse) AS C LEFT JOIN (SELECT * FROM fundraising) AS F ON  C.cNumber = fCourse;";
 $getMemberFC2 = $pdo->prepare($getMemberFC2);
 
 // 會員蒐藏的文章
@@ -32,7 +32,7 @@ $allBadge = "SELECT bGalaxy, bNumber, bName, bBadge, bLevel FROM badge";
 $allBadge = $pdo->prepare($allBadge);
 
 // 所有星系
-$allGalaxy = "SELECT gName FROM cruisecoder.galaxy";
+$allGalaxy = "SELECT gName FROM galaxy";
 $allGalaxy = $pdo->prepare($allGalaxy);
 $allGalaxy->execute();
 $allG = $allGalaxy->fetchAll(PDO::FETCH_ASSOC);
