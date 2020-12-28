@@ -112,7 +112,7 @@
 
         <div>
           <p>Day 7</p>
-          <img class="day_img" name="day_img" src=".././images/trial/planets/js3.png" alt="">
+          <img class="day_img" name="day_img" src=".././images/trial/planets/jq3.png" alt="">
           <p class="countCoin">100 CC幣</p>
         </div>
         
