@@ -154,6 +154,30 @@ $(document).ready(function() {
                 for(let i = 0; i < 9 ;i++){
                     this.allCourses.push(res[i]);
                 };
+
+                setTimeout(function(){
+                    itemWidth = $('div.wrapGeneral').outerWidth(true);
+                    var starWarp = document.querySelectorAll('div.star');
+                    for(let i = 0; i < 9 ; i++){
+                        if(vm.allCourses[i].rRate >= 1){
+                            for(let j = 0; j < Math.floor(vm.allCourses[i].rRate); j++){
+                                starWarp[i].innerHTML += `<i class="fas fa-star"></i>`;
+                                zoroStar = 5 - Math.floor(vm.allCourses[i].rRate);
+                                
+                                
+                            }
+                            for(let k = 0; k < zoroStar; k++){
+                                starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
+                            }
+            
+            
+                        }else{
+                            for(let l = 0 ; l < 5; l++){
+                                starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
+                            }
+                        };
+                    };
+                },150);
             });
         },
     });
@@ -163,29 +187,7 @@ $(document).ready(function() {
     window.onresize = function(){
         itemWidth = $('div.wrapGeneral').outerWidth(true);
     }
-    setTimeout(function(){
-        itemWidth = $('div.wrapGeneral').outerWidth(true);
-        var starWarp = document.querySelectorAll('div.star');
-        for(let i = 0; i < 9 ; i++){
-            if(vm.allCourses[i].rRate >= 1){
-                for(let j = 0; j < Math.floor(vm.allCourses[i].rRate); j++){
-                    starWarp[i].innerHTML += `<i class="fas fa-star"></i>`;
-                    zoroStar = 5 - Math.floor(vm.allCourses[i].rRate);
-                    
-                    
-                }
-                for(let k = 0; k < zoroStar; k++){
-                    starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
-                }
 
-
-            }else{
-                for(let l = 0 ; l < 5; l++){
-                    starWarp[i].innerHTML += `<i class="far fa-star"></i>`;
-                }
-            };
-        };
-    },150);
 
     $('span.Circle').click(function(){
         var span = $('span');
