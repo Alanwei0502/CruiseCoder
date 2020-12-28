@@ -57,12 +57,62 @@
             .frontBall{
                 width: 150px;
                 height: 150px;
-                background-color: $blue1;
+                // background-color: $blue1;
+                background-color: transparent;
                 border-radius: 50%;
                 color: $beige;
                 font-size: $h2;
                 line-height: 150px;
                 text-align: center;
+                overflow: hidden;
+                transition: all 1s;
+
+                position: relative;
+                &:hover:before{
+                    top: 46px;
+                }
+                &:hover{
+                    color: $orange;
+                }
+                
+                &:before{
+                    content: '';
+                    position: absolute;
+                    height: 150px;
+                    width: 150px;
+                    background-color:  $blue3;
+                    border-radius: 40%;
+                    z-index: -1;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                
+                    animation: click 5s infinite linear;
+                    transition: all 1s;
+                }
+
+                &:after{
+                    content: '';
+                    position: absolute;
+                    z-index: -2;
+
+                    left: 60%;
+                    transform: translateX(-60%);
+                    border-radius: 50%;
+                    width: 150px;
+                    height: 150px;
+                    background-color: $blue1;
+                }
+                @keyframes click{
+                    0%{
+                        transform: translateX(-50%) rotate(0deg);
+                
+                    }
+                    100%{
+                        transform: translateX(-50%) rotate(360deg);
+                
+                    }
+                }
                 @include smlPhone{
                     width: 100px;
                     height: 100px;
@@ -75,12 +125,64 @@
             .backBall{
                 width: 150px;
                 height: 150px;
-                background-color: $blue1;
+                background-color: transparent;
+                
                 border-radius: 50%;
                 
                 font-size: $h2;
+                
                 line-height: 150px;
                 text-align: center;
+                
+                overflow: hidden;
+                transition: all 1s;
+
+                position: relative;
+
+                &:hover:before{
+                    top: 46px;
+                }
+                &:hover{
+                    color: $orange;
+                }
+                
+                &:before{
+                    content: '';
+                    position: absolute;
+                    height: 150px;
+                    width: 150px;
+                    background-color: $blue3;
+                    border-radius: 40%;
+                    z-index: -1;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                
+                    animation: click2 5s infinite linear;
+                    transition: all 1s;
+                }
+                &:after{
+                    content: '';
+                    position: absolute;
+                    z-index: -2;
+
+                    left: 60%;
+                    transform: translateX(-60%);
+                    border-radius: 50%;
+                    width: 150px;
+                    height: 150px;
+                    background-color: $blue1;
+                }
+                @keyframes click2{
+                    0%{
+                        transform: translateX(-50%) rotate(0deg);
+                
+                    }
+                    100%{
+                        transform: translateX(-50%) rotate(360deg);
+                
+                    }
+                }
                 @include smlPhone{
                     width: 100px;
                     height: 100px;
@@ -89,7 +191,6 @@
 
                 }
     
-
             }
         }
 
@@ -108,6 +209,8 @@
             }
     
         }
+        
+        
 
     }
     

@@ -225,10 +225,17 @@ monospace;
                     >a {
                         text-decoration: none;
                         color: #707070;
-                        padding: 30px;
+                        padding: 20px;
                         line-height: 50px;
+                        @include smlPad{
+                            padding: 50px 20px;
+                            line-height: 40px;
+                        }
+                        @include smlPhone{
+                            padding: 20px 0px;
+                            line-height: 20px;
+                        }
                     }
-
 
                 }
 

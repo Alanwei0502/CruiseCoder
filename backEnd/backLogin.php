@@ -20,6 +20,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
 
     <title>Cruise Coders | 後台登入頁面</title>
 
@@ -51,8 +52,15 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="../js/backLogin.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/backLogin.js"></script>
+    <script>
+        if(sessionStorage.getItem('error')){
 
+            sessionStorage.removeItem('error');
+            swal('帳號密碼錯誤','請重新輸入！', 'warning')              
+        }
+    </script>
 </body>
 
 </html>

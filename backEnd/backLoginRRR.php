@@ -21,9 +21,7 @@
 
             header('location: ./member.php');
         }else{
-            
-            echo "<script>alert('帳號或密碼錯誤!'); 
-            
+            echo "<script>sessionStorage.setItem('error', 'true');
             location.href = 'backLogin.php';</script>";
             
             // header('location: ./backLogin.php');
@@ -32,3 +30,4 @@
         
 
 ?>
+
