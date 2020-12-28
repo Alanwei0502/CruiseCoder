@@ -37,11 +37,11 @@
         </div>
         <div class="orderNum">
           <label for="">訂單編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="orderNum" placeholder="請輸入訂單編號14碼">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="orderNum" placeholder="請輸入訂單編號14碼" @keyup.enter="search">
         </div>
         <div class="memberNum">
           <label for="">會員編號</label>
-          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="memberNum" placeholder="請輸入會員編號">
+          <input type="text" oninput="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="memberNum" placeholder="請輸入會員編號" @keyup.enter="search">
         </div>
         <button type="button" @click="search">
           搜尋
