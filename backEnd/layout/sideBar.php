@@ -7,7 +7,7 @@
     </h2>
     <div class="user">
         <img src="./../images/userIcon.png">
-        <span id="userID">A12345678</span>
+        <span id="userID">aaaaaa</span>
     </div>
     <nav>
         <ul>
