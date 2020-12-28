@@ -162,8 +162,8 @@ Vue.component("tableRow", {
             // 隱藏上架按鈕
             $('.quickForDemo').css('display', 'none');
             // 更改頁籤名稱
-            $('.openQuiz').text('編輯試題');
-            $('.openBadge').text('編輯徽章');
+            $('.openQuiz').text('查看試題');
+            $('.openBadge').text('查看徽章');
             // 顯示預設圖檔
             $('.default').css('display', 'block');
             // 隱藏確認新增按鈕
