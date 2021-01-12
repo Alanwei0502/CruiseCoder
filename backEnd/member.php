@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="./../css/mainB.css">
   <link rel="icon" href="../ico.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="../ico.ico" type="image/x-icon" />
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/hot-sneaks/jquery-ui.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -244,7 +244,6 @@
     </main><!-- 在這裡面codeing -->
   </div>
   <script src="../js/vue.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
   <script src="./../js/datepicker.js"></script>
   <script src="../js/memberB.js"></script>
 </body>
